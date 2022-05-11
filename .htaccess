@@ -1,0 +1,106 @@
+RewriteOptions inherit
+Options -MultiViews -Indexes
+
+# RewriteBase /
+RewriteEngine On
+
+# START HTTP TO HTTPS
+RewriteCond %{HTTP_HOST} !=localhost
+RewriteCond %{HTTP_HOST} !=127.0.0.1
+RewriteCond %{REMOTE_ADDR} !=127.0.0.1
+RewriteCond %{REMOTE_ADDR} !=::1
+RewriteCond %{HTTP_HOST} !^localhost(?::\d+)?$ [NC]
+RewriteCond %{HTTP_HOST} !^127\.0\.0\.1(?::\d+)?$
+
+RewriteCond %{HTTPS} off
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+RewriteCond %{HTTP_HOST} !=localhost
+RewriteCond %{HTTP_HOST} !=127.0.0.1
+RewriteCond %{REMOTE_ADDR} !=127.0.0.1
+RewriteCond %{REMOTE_ADDR} !=::1
+RewriteCond %{HTTP_HOST} !^localhost(?::\d+)?$ [NC]
+RewriteCond %{HTTP_HOST} !^127\.0\.0\.1(?::\d+)?$
+
+RewriteCond %{HTTP:X-Forwarded-Proto} =http
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+RewriteCond %{HTTP_HOST} !=localhost
+RewriteCond %{HTTP_HOST} !=127.0.0.1
+RewriteCond %{REMOTE_ADDR} !=127.0.0.1
+RewriteCond %{REMOTE_ADDR} !=::1
+RewriteCond %{HTTP_HOST} !^localhost(?::\d+)?$ [NC]
+RewriteCond %{HTTP_HOST} !^127\.0\.0\.1(?::\d+)?$
+
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} !^www\.
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteRule ^ https://www.%{HTTP_HOST}%{REQUEST_URI} [NE,L,R]
+# END HTTP TO HTTPS
+
+RewriteCond %{HTTP:Authorization} .
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} (.+)/$
+RewriteRule ^ %1 [L,R=301]
+
+RewriteCond %{REQUEST_URI} !(\.html|\.css|\.js|\.png|\.jpg|\.jpeg|\.gif|\.ico|\.webp|\.svg|\.mp3|\.mp4|\.pdf|\.doc|\.docx|\.xlsx|\.ttf|\.woff|\.woff2|\.otf|\.map|\.min|robots\.txt|\.json)$ [NC]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.php [L]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !^/public/
+RewriteRule ^(assets|audios|cms|css|files|fonts|images|js|musics|plugins|sounds|vendors|videos)/(.*)$ public/$1/$2 [L,NC]
+
+
+# START ACCESS FORBIDDEN
+RedirectMatch 403 /\..*$
+
+<FilesMatch "^\.">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+<FilesMatch "artisan|composer.json|composer.lock|error_log|note.txt|README.md|package.json|webpack.mix.js|yarn.lock|\.(env|editorconfig|gitattributes|.gitignore)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+# END ACCESS FORBIDDEN
+
+
+# # START REDIRECT ALL ERRORS
+# ErrorDocument 401 https://www.%{HTTP_HOST}
+# ErrorDocument 402 https://www.%{HTTP_HOST}
+# ErrorDocument 403 https://www.%{HTTP_HOST}
+# ErrorDocument 404 https://www.%{HTTP_HOST}
+# ErrorDocument 405 https://www.%{HTTP_HOST}
+# ErrorDocument 406 https://www.%{HTTP_HOST}
+# ErrorDocument 407 https://www.%{HTTP_HOST}
+# ErrorDocument 408 https://www.%{HTTP_HOST}
+# ErrorDocument 409 https://www.%{HTTP_HOST}
+# ErrorDocument 410 https://www.%{HTTP_HOST}
+# ErrorDocument 411 https://www.%{HTTP_HOST}
+# ErrorDocument 412 https://www.%{HTTP_HOST}
+# ErrorDocument 413 https://www.%{HTTP_HOST}
+# ErrorDocument 414 https://www.%{HTTP_HOST}
+# ErrorDocument 415 https://www.%{HTTP_HOST}
+# ErrorDocument 416 https://www.%{HTTP_HOST}
+# ErrorDocument 417 https://www.%{HTTP_HOST}
+# ErrorDocument 500 https://www.%{HTTP_HOST}
+# ErrorDocument 501 https://www.%{HTTP_HOST}
+# ErrorDocument 502 https://www.%{HTTP_HOST}
+# ErrorDocument 503 https://www.%{HTTP_HOST}
+# ErrorDocument 504 https://www.%{HTTP_HOST}
+# ErrorDocument 505 https://www.%{HTTP_HOST}
+# # END REDIRECT ALL ERRORS

@@ -1,0 +1,199 @@
+<?php
+
+namespace App\Http\Livewire\CMS;
+
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\View;
+use Livewire\Component as LivewireComponent;
+
+use App\Models\User;
+use App\Models\Contact;
+
+use App\Models\Repository;
+use App\Models\RepositoryFile;
+use App\Models\RepositoryContributor;
+use App\Models\RepositorySubject;
+
+use App\Models\StudyProgram;
+use App\Models\StudyProgramCategory;
+
+use App\Models\Course;
+use App\Models\CourseLecturer;
+
+use App\Models\Lecturer;
+use App\Models\LecturerEducation;
+use App\Models\LecturerWorkExperience;
+
+use App\Models\News;
+use App\Models\NewsCategory;
+use App\Models\NewsComment;
+
+use App\Models\Faq;
+use App\Models\FaqCategory;
+
+use App\Models\Gallery;
+use App\Models\Magazine;
+use App\Models\Banner;
+use App\Models\Slider;
+use App\Models\Testimony;
+
+use App\Models\Admin;
+use App\Models\Access;
+use App\Models\AccessMenu;
+use App\Models\Menu;
+use App\Models\MenuCategory;
+use App\Models\Setting;
+use App\Models\Log;
+
+class Component extends LivewireComponent
+{
+    public $sub_domain = "cms";
+
+    public function boot()
+    {
+        View::share("sub_domain", $this->sub_domain);
+
+        $this->setting = Setting::onlyActive()->orderByDesc("id")->first();
+        View::share("setting", $this->setting);
+
+        // $this->data_all_menu = Menu::whereNotNull("show")->where(function ($query) {
+        //     $query->whereNotNull("show")->where("sub", 1)->whereNull("menu_id");
+        // })->orWhere(function ($query) {
+        //     $query->whereNotNull("show")->whereNull("sub")->whereNull("menu_id");
+        // })->onlyActive()->orderBy("sort")->get();
+        // View::share("data_all_menu", $this->data_all_menu);
+
+        $this->data_all_menu = Menu::withoutMenuCategory()->orderBy("sort")->get();
+        View::share("data_all_menu", $this->data_all_menu);
+
+        $this->data_all_menu_category = MenuCategory::onlyActive()->orderBy("sort")->get();
+        View::share("data_all_menu_category", $this->data_all_menu_category);
+
+        if (Auth::check()) {
+            $this->data_access_menu_view = AccessMenu::where("access_id", Auth::user()->access_id)->where("view", 1)->onlyActive()->get()->toArray();
+            $this->access_menu_view = [];
+            View::share("access_menu_view", $this->access_menu_view);
+            foreach ($this->data_access_menu_view as $access_menu_view) {
+                $this->access_menu_view[] = $access_menu_view["menu_id"];
+                View::share("access_menu_view", $this->access_menu_view);
+            }
+
+            $this->data_access_menu_add = AccessMenu::where("access_id", Auth::user()->access_id)->where("add", 1)->onlyActive()->get()->toArray();
+            $this->access_menu_add = [];
+            View::share("access_menu_add", $this->access_menu_add);
+            foreach ($this->data_access_menu_add as $access_menu_add) {
+                $this->access_menu_add[] = $access_menu_add["menu_id"];
+                View::share("access_menu_add", $this->access_menu_add);
+            }
+
+            $this->data_access_menu_edit = AccessMenu::where("access_id", Auth::user()->access_id)->where("edit", 1)->onlyActive()->get()->toArray();
+            $this->access_menu_edit = [];
+            View::share("access_menu_edit", $this->access_menu_edit);
+            foreach ($this->data_access_menu_edit as $access_menu_edit) {
+                $this->access_menu_edit[] = $access_menu_edit["menu_id"];
+                View::share("access_menu_edit", $this->access_menu_edit);
+            }
+
+            $this->data_access_menu_delete = AccessMenu::where("access_id", Auth::user()->access_id)->where("delete", 1)->onlyActive()->get()->toArray();
+            $this->access_menu_delete = [];
+            View::share("access_menu_delete", $this->access_menu_delete);
+            foreach ($this->data_access_menu_delete as $access_menu_delete) {
+                $this->access_menu_delete[] = $access_menu_delete["menu_id"];
+                View::share("access_menu_delete", $this->access_menu_delete);
+            }
+        }
+
+        $this->total_user = User::cursor()->count();
+        View::share("total_user", $this->total_user);
+
+        $this->total_contact = Contact::cursor()->count();
+        View::share("total_contact", $this->total_contact);
+
+        $this->total_repository = Repository::cursor()->count();
+        View::share("total_repository", $this->total_repository);
+
+        $this->total_repository_file = RepositoryFile::cursor()->count();
+        View::share("total_repository_file", $this->total_repository_file);
+
+        $this->total_repository_contributor = RepositoryContributor::cursor()->count();
+        View::share("total_repository_contributor", $this->total_repository_contributor);
+
+        $this->total_repository_subject = RepositorySubject::cursor()->count();
+        View::share("total_repository_subject", $this->total_repository_subject);
+
+        $this->total_study_program = StudyProgram::cursor()->count();
+        View::share("total_study_program", $this->total_study_program);
+
+        $this->total_study_program_category = StudyProgramCategory::cursor()->count();
+        View::share("total_study_program_category", $this->total_study_program_category);
+
+        $this->total_course = Course::cursor()->count();
+        View::share("total_course", $this->total_course);
+
+        $this->total_course_lecturer = CourseLecturer::cursor()->count();
+        View::share("total_course_lecturer", $this->total_course_lecturer);
+
+        $this->total_lecturer = Lecturer::cursor()->count();
+        View::share("total_lecturer", $this->total_lecturer);
+
+        $this->total_lecturer_education = LecturerEducation::cursor()->count();
+        View::share("total_lecturer_education", $this->total_lecturer_education);
+
+        $this->total_lecturer_work_experience = LecturerWorkExperience::cursor()->count();
+        View::share("total_lecturer_work_experience", $this->total_lecturer_work_experience);
+
+        $this->total_news = News::cursor()->count();
+        View::share("total_news", $this->total_news);
+
+        $this->total_news_category = NewsCategory::cursor()->count();
+        View::share("total_news_category", $this->total_news_category);
+
+        $this->total_news_comment = NewsComment::cursor()->count();
+        View::share("total_news_comment", $this->total_news_comment);
+
+        $this->total_faq = Faq::cursor()->count();
+        View::share("total_faq", $this->total_faq);
+
+        $this->total_faq_category = FaqCategory::cursor()->count();
+        View::share("total_faq_category", $this->total_faq_category);
+
+        $this->total_gallery = Gallery::cursor()->count();
+        View::share("total_gallery", $this->total_gallery);
+
+        $this->total_magazine = Magazine::cursor()->count();
+        View::share("total_magazine", $this->total_magazine);
+
+        $this->total_banner = Banner::cursor()->count();
+        View::share("total_banner", $this->total_banner);
+
+        $this->total_slider = Slider::cursor()->count();
+        View::share("total_slider", $this->total_slider);
+
+        $this->total_testimony = Testimony::cursor()->count();
+        View::share("total_testimony", $this->total_testimony);
+
+        $this->total_admin = Admin::cursor()->count();
+        View::share("total_admin", $this->total_admin);
+
+        $this->total_access = Access::cursor()->count();
+        View::share("total_access", $this->total_access);
+
+        $this->total_menu = Menu::cursor()->count();
+        View::share("total_menu", $this->total_menu);
+
+        $this->total_menu_category = MenuCategory::cursor()->count();
+        View::share("total_menu_category", $this->total_menu_category);
+
+        $this->total_setting = Setting::cursor()->count();
+        View::share("total_setting", $this->total_setting);
+
+        $this->total_log = Log::cursor()->count();
+        View::share("total_log", $this->total_log);
+    }
+
+    public function message(string $message)
+    {
+        Session::flash("message", $message);
+    }
+}
