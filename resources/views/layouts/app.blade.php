@@ -549,7 +549,7 @@
 @section("footer")
     <footer class="htc__footer__area bg__theme">
         <div class="container">
-            <!-- Start Footer Top Area -->
+
             <div class="htc__footer__top">
                 <div class="row">
                     <div class="col-12">
@@ -568,12 +568,11 @@
                     </div>
                 </div>
             </div>
-            <!-- End Footer Top Area -->
-            <!-- Start Foooter Menu Area -->
+
             <div class="htc__footer__container pt--80 pb--70">
                 <div class="row mb-n8">
+
                     <div class="col-lg-2 col-md-3 mb-7">
-                        <!-- Start Footer Widget -->
                         <div class="footer">
                             <div class="footer__widget">
                                 <h2 class="footer__title">our school</h2>
@@ -585,10 +584,9 @@
                                 </ul>
                             </div>
                         </div>
-                        <!-- End Footer Widget -->
                     </div>
+
                     <div class="col-lg-1 col-md-2 offset-lg-1 mb-7">
-                        <!-- Start Footer Widget -->
                         <div class="footer">
                             <div class="footer__widget">
                                 <h2 class="footer__title">links</h2>
@@ -600,10 +598,9 @@
                                 </ul>
                             </div>
                         </div>
-                        <!-- End Footer Widget -->
                     </div>
+
                     <div class="col-lg-2 col-md-3 offset-lg-2 mb-7">
-                        <!-- Start Footer Widget -->
                         <div class="footer">
                             <div class="footer__widget">
                                 <h2 class="footer__title">support</h2>
@@ -615,10 +612,9 @@
                                 </ul>
                             </div>
                         </div>
-                        <!-- End Footer Widget -->
                     </div>
+
                     <div class="col-lg-3 col-md-4 offset-lg-1 mb-7">
-                        <!-- Start Footer Widget -->
                         <div class="footer">
                             <div class="footer__widget">
                                 <h2 class="footer__title">About us</h2>
@@ -629,12 +625,10 @@
                                 and receive weekly newsletter with</p>
                             </div>
                         </div>
-                        <!-- End Footer Widget -->
                     </div>
                 </div>
             </div>
-            <!-- End Foooter Menu Area -->
-            <!-- Start Copyright Area -->
+
             <div class="htc__copyright__area">
                 <div class="row">
                     <div class="col-12">
@@ -651,7 +645,6 @@
                     </div>
                 </div>
             </div>
-            <!-- End Copyright Area -->
         </div>
     </footer>
 @endsection

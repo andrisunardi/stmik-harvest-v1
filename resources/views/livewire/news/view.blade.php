@@ -131,10 +131,10 @@
                             <div class="input-group has-validation">
                                 <div class="input-group-text"><span class="icon-user"></span></div>
                                 <input wire:model="{{ $input }}" wire:keydown.enter="submit" id="{{ $input }}" name="{{ $input }}"
-                                    type="text" class="form-control @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has(Str::slug($input, "_")) ? "is-invalid" : "is-valid" }}@endif" minlength="1" maxlength="50" value="{{ old(Str::slug($input, "_")) }}"
+                                    type="text" class="form-control @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" minlength="1" maxlength="50" value="{{ old($input) }}"
                                     placeholder="{{ trans("validation.attributes.{$input}") }}" aria-label="{{ trans("validation.attributes.{$input}") }}" aria-describedby="{{ trans("validation.attributes.{$input}") }}"
                                     autocomplete="off" autocapitalize="none" required>
-                                @error(Str::slug($input, "_"))
+                                @error($input)
                                     <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
                                 @else
                                     <div class="valid-feedback rounded bg-success p-2 ms-0 mt-2 text-white">{{ trans("validation.Looks Good") }}</div>
@@ -148,10 +148,10 @@
                             <div class="input-group has-validation">
                                 <div class="input-group-text"><span class="icon-call"></span></div>
                                 <input wire:model="{{ $input }}" wire:keydown.enter="submit" id="{{ $input }}" name="{{ $input }}"
-                                    type="text" class="form-control @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has(Str::slug($input, "_")) ? "is-invalid" : "is-valid" }}@endif" minlength="1" maxlength="15" value="{{ old(Str::slug($input, "_")) }}"
+                                    type="text" class="form-control @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" minlength="1" maxlength="15" value="{{ old($input) }}"
                                     placeholder="{{ trans("validation.attributes.{$input}") }}" aria-label="{{ trans("validation.attributes.{$input}") }}" aria-describedby="{{ trans("validation.attributes.{$input}") }}"
                                     autocomplete="off" autocapitalize="none">
-                                @error(Str::slug($input, "_"))
+                                @error($input)
                                     <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
                                 @else
                                     <div class="valid-feedback rounded bg-success p-2 ms-0 mt-2 text-white">{{ trans("validation.Looks Good") }}</div>
@@ -167,10 +167,10 @@
                             <div class="input-group has-validation">
                                 <div class="input-group-text"><span class="icon-email"></span></div>
                                 <input wire:model="{{ $input }}" wire:keydown.enter="submit" id="{{ $input }}" name="{{ $input }}"
-                                    type="email" class="form-control @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has(Str::slug($input, "_")) ? "is-invalid" : "is-valid" }}@endif" minlength="1" maxlength="50" value="{{ old(Str::slug($input, "_")) }}"
+                                    type="email" class="form-control @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" minlength="1" maxlength="50" value="{{ old($input) }}"
                                     placeholder="{{ trans("validation.attributes.{$input}") }}" aria-label="{{ trans("validation.attributes.{$input}") }}" aria-describedby="{{ trans("validation.attributes.{$input}") }}"
                                     autocomplete="off" autocapitalize="none" required>
-                                @error(Str::slug($input, "_"))
+                                @error($input)
                                     <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
                                 @else
                                     <div class="valid-feedback rounded bg-success p-2 ms-0 mt-2 text-white">{{ trans("validation.Looks Good") }}</div>
@@ -184,10 +184,10 @@
                             <div class="input-group has-validation">
                                 <div class="input-group-text"><span class="icon-font"></span></div>
                                 <input wire:model="{{ $input }}" wire:keydown.enter="submit" id="{{ $input }}" name="{{ $input }}"
-                                    type="text" class="form-control @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has(Str::slug($input, "_")) ? "is-invalid" : "is-valid" }}@endif" minlength="1" maxlength="50" value="{{ old(Str::slug($input, "_")) }}"
+                                    type="text" class="form-control @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" minlength="1" maxlength="50" value="{{ old($input) }}"
                                     placeholder="{{ trans("validation.attributes.{$input}") }}" aria-label="{{ trans("validation.attributes.{$input}") }}" aria-describedby="{{ trans("validation.attributes.{$input}") }}"
                                     autocomplete="off" autocapitalize="none">
-                                @error(Str::slug($input, "_"))
+                                @error($input)
                                     <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
                                 @else
                                     <div class="valid-feedback rounded bg-success p-2 ms-0 mt-2 text-white">{{ trans("validation.Looks Good") }}</div>
@@ -203,10 +203,10 @@
                             <div class="input-group has-validation">
                                 <div class="input-group-text"><span class="icon-pencil"></span></div>
                                 <textarea wire:model="{{ $input }}" wire:keydown.enter="submit" id="{{ $input }}" name="{{ $input }}"
-                                    class="form-control @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has(Str::slug($input, "_")) ? "is-invalid" : "is-valid" }}@endif" minlength="1" maxlength="1000"
+                                    class="form-control @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" minlength="1" maxlength="1000"
                                     placeholder="{{ trans("validation.attributes.{$input}") }}" aria-label="{{ trans("validation.attributes.{$input}") }}" aria-describedby="{{ trans("validation.attributes.{$input}") }}"
-                                    autocomplete="off" autocapitalize="none" required>{{ old(Str::slug($input, "_")) }}</textarea>
-                                @error(Str::slug($input, "_"))
+                                    autocomplete="off" autocapitalize="none" required>{{ old($input) }}</textarea>
+                                @error($input)
                                     <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
                                 @else
                                     <div class="valid-feedback rounded bg-success p-2 ms-0 mt-2 text-white">{{ trans("validation.Looks Good") }}</div>

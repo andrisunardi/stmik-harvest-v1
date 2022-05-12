@@ -8,7 +8,7 @@
                 <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }} <span class="text-danger">*</span></label>
                 <div class="input-group has-validation">
                     <div class="input-group-text"><span class="bi bi-journal-text"></span></div>
-                    <select wire:model="{{ $input }}" class="form-select @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has(Str::slug($input, "_")) ? "is-invalid" : "is-valid" }}@endif" id="{{ $input }}" name="{{ $input }}" required>
+                    <select wire:model="{{ $input }}" class="form-select @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" id="{{ $input }}" name="{{ $input }}" required>
                         <option value="">{{ trans("general.Select") }} {{ trans("validation.attributes.{$input}") }}</option>
                         @foreach ($data_repository as $repository)
                             <option value="{{ $repository->id }}">{{ $repository->title }}</option>
@@ -17,7 +17,7 @@
                     <a draggable="false" href="javascript:;" class="btn btn-info" wire:click="getData{{ Str::studly($input) }}()">
                         <i class="fas fa-sync fa-spin"></i>
                     </a>
-                    @error(Str::slug($input, "_"))
+                    @error($input)
                         <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
                     @else
                         <div class="valid-feedback rounded bg-success p-2 ms-0 mt-2 text-white">{{ trans("validation.Looks Good") }}</div>
@@ -33,10 +33,10 @@
                 <div class="input-group has-validation">
                     <div class="input-group-text"><span class="bi bi-fonts"></span></div>
                     <input wire:model="{{ $input }}" wire:keydown.enter="submit" id="{{ $input }}" name="{{ $input }}"
-                        type="text" class="form-control @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has(Str::slug($input, "_")) ? "is-invalid" : "is-valid" }}@endif" minlength="1" maxlength="100" value="{{ old(Str::slug($input, "_")) }}"
+                        type="text" class="form-control @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" minlength="1" maxlength="100" value="{{ old($input) }}"
                         placeholder="{{ trans("validation.attributes.{$input}") }}" aria-label="{{ trans("validation.attributes.{$input}") }}" aria-describedby="{{ trans("validation.attributes.{$input}") }}"
                         autocomplete="off" autocapitalize="none" required>
-                    @error(Str::slug($input, "_"))
+                    @error($input)
                         <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
                     @else
                         <div class="valid-feedback rounded bg-success p-2 ms-0 mt-2 text-white">{{ trans("validation.Looks Good") }}</div>
@@ -53,10 +53,10 @@
                     <div wire:ignore wire:model.debounce.500ms="{{ $input }}">
                         <trix-editor input="{{ $input }}"></trix-editor>
                         <input type="text" wire:model="{{ $input }}" wire:keydown.enter="submit" id="{{ $input }}" name="{{ $input }}"
-                            class="form-control @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has(Str::slug($input, "_")) ? "is-invalid" : "is-valid" }}@endif" minlength="1" maxlength="65535"
+                            class="form-control @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" minlength="1" maxlength="65535"
                             placeholder="{{ trans("validation.attributes.{$input}") }}" aria-label="{{ trans("validation.attributes.{$input}") }}" aria-describedby="{{ trans("validation.attributes.{$input}") }}"
                             autocomplete="off" autocapitalize="none" value="{{ $this->description ?? $repository_file->description ?? null }}" readonly>
-                        @error(Str::slug($input, "_"))
+                        @error($input)
                             <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
                         @else
                             <div class="valid-feedback rounded bg-success p-2 ms-0 mt-2 text-white">{{ trans("validation.Looks Good") }}</div>
@@ -84,10 +84,10 @@
                 <div class="input-group has-validation">
                     <div class="input-group-text"><span class="bi bi-file-pdf"></span></div>
                     <input wire:model="{{ $input }}" wire:keydown.enter="submit" id="{{ $input }}" name="{{ $input }}"
-                        type="file" class="form-control @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has(Str::slug($input, "_")) ? "is-invalid" : "is-valid" }}@endif" minlength="1" maxlength="50" value="{{ old(Str::slug($input, "_")) }}"
+                        type="file" class="form-control @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" minlength="1" maxlength="50" value="{{ old($input) }}"
                         placeholder="{{ trans("validation.attributes.{$input}") }}" aria-label="{{ trans("validation.attributes.{$input}") }}" aria-describedby="{{ trans("validation.attributes.{$input}") }}"
                         accept="application/pdf" autocomplete="off" autocapitalize="none" required>
-                    @error(Str::slug($input, "_"))
+                    @error($input)
                         <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
                     @else
                         <div class="valid-feedback rounded bg-success p-2 ms-0 mt-2 text-white">{{ trans("validation.Looks Good") }}</div>
@@ -140,7 +140,7 @@
                 </div>
             </div>
             <div class="col-sm-6 mt-3 mt-sm-0">
-                <div class="single-plan-check {{ is_null(Str::slug($input, "_"))&& $menu_type != "add" ? "active" : null }} shadow-sm active-effect">
+                <div class="single-plan-check {{ is_null($input)&& $menu_type != "add" ? "active" : null }} shadow-sm active-effect">
                     <div class="form-check mb-0">
                         <input wire:model="{{ $input }}" class="form-check-input" type="radio" name="{{ $input }}" id="{{ $input }}-no" value="0" required>
                         <label class="form-check-label" for="{{ $input }}-no">{{ trans("general.No") }}</label>
@@ -167,7 +167,7 @@
                 </div>
             </div>
             <div class="col-sm-6 mt-3 mt-sm-0">
-                <div class="single-plan-check {{ is_null(Str::slug($input, "_"))&& $menu_type != "add" ? "active" : null }} shadow-sm active-effect">
+                <div class="single-plan-check {{ is_null($input)&& $menu_type != "add" ? "active" : null }} shadow-sm active-effect">
                     <div class="form-check mb-0">
                         <input wire:model="{{ $input }}" class="form-check-input" type="radio" name="{{ $input }}" id="non-active" value="0" required>
                         <label class="form-check-label" for="non-active">{{ trans("general.Non Active") }}</label>
