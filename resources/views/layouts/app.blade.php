@@ -67,344 +67,591 @@
 @section("css")
     @stack("css")
 
-    <link href="{{ asset("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;display=swap") }}" rel="stylesheet">
-    <link href="{{ asset("assets/css/bootstrap.min.css") }}" rel="stylesheet">
-    <link href="{{ asset("assets/css/style.css") }}" rel="stylesheet">
-    <link href="{{ asset("assets/css/vendors.css") }}" rel="stylesheet">
-    <link href="{{ asset("assets/css/icon_fonts/css/all_icons.min.css") }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset("assets/css/bootstrap.min.css") }}">
+    <link rel="stylesheet" href="{{ asset("assets/css/owl.carousel.min.css") }}">
+    <link rel="stylesheet" href="{{ asset("assets/css/owl.theme.default.min.css") }}">
+    <link rel="stylesheet" href="{{ asset("assets/css/core.css") }}">
+    <link rel="stylesheet" href="{{ asset("assets/css/shortcode/shortcodes.css") }}">
+    <link rel="stylesheet" href="{{ asset("assets/style.css") }}">
+    <link rel="stylesheet" href="{{ asset("assets/css/responsive.css") }}">
+    <link rel="stylesheet" href="{{ asset("assets/css/custom.css") }}">
 
-    <link href="{{ asset("assets/css/blog.css") }}" rel="stylesheet">
+    <script src="{{ asset("assets/js/vendor/modernizr-3.11.2.min.js") }}"></script>
 
-    <link href="{{ asset("assets/css/fullcalendar.css") }}" rel="stylesheet">
-    <link href="{{ asset("assets/css/fullcalendar.print.css") }}" rel="stylesheet" media="print">
-    <link href="{{ asset("assets/css/fullcalendar.print.css") }}" rel="stylesheet" media="print">
+	{{-- <link rel="preconnect" href="https://fonts.googleapis.com/">
+	<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&amp;family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
 
-    <link href="{{ asset("assets/layerslider/css/layerslider.css") }}" rel="stylesheet">
-    <link href="{{ asset("assets/layerslider/skins/v5/skin.css") }}" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/meanmenu.min.css">
+	<link rel="stylesheet" href="https://raw.githubusercontent.com/daneden/animate.css/master/animate.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/header.css">
+	<link rel="stylesheet" href="css/responsive.css">
 
-	<link href="{{ asset("assets/css/skins/square/grey.css") }}" rel="stylesheet">
+    <style type="text/css">
+        body {
+            color: #666666;
+            font-family: 'Raleway', sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 24px;
+        }
 
-    <link href="{{ asset("assets/css/custom.css") }}" rel="stylesheet">
+        h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+            color: #000;
+            font-family: 'Roboto Slab', serif;
+            font-variant-ligatures: common-ligatures;
+            font-weight: 400;
+            margin-bottom: 0;
+            margin-top: 0;
+        }
+        .hero-content h3 {
+            color: #fff;
+        }
+        .hero-content p span {
+            color: #fff;
+            font-size: 22px;
+            font-weight: 400;
+            letter-spacing: 2px;
+            font-family: 'Raleway', sans-serif;
+        }
+        .hero-content p {
+            color: #fff;
+            font-weight: 400;
+            line-height: 24px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .header-area.bg-off-white {
+            background: #000 none repeat scroll 0 0;
+        }
+        .hero-wrapper {
+            background-attachment: scroll;
+            background-image: url("img/educan/hero.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding: 270px 30px;
+            background-position: center center;
+        }
+        .hero-wrapper {
+            position: relative;
+            z-index: 1;
+        }
+        .hero-wrapper::before {
+            background: rgba(0, 0, 0, 0.6) none repeat scroll 0 0;
+            content: "";
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: -1;
+        }
+        .main-menu ul li a {
+            color: #fff;
+        }
+        .logo {
+            margin-top: 0;
+        }
+        .main-menu ul li ul li a {
+            color: #444;
+        }
+        .section-title h1 {
+            letter-spacing: 0;
+            text-transform: uppercase;
+        }
+        .demo-img a::before {
+            background: #000 none repeat scroll 0 0;
+        }
+        .single-demo:hover .demo-img a::before {
+            opacity: 0.9;
+        }
+        .support-team > a {
+            background: #000 none repeat scroll 0 0;
+        }
+        .main-menu ul li:hover > a {
+            color: #fff;
+        }
+
+        .main-menu ul li a {
+            font-family: 'Raleway', sans-serif;
+        }
+        .header-area.header-sticky.bg-off-white .row {
+            align-items: center;
+            display: flex;
+        }
+        .logo a {
+            display: block;
+        }
+        .button {
+            background: transparent none repeat scroll 0 0;
+            border-color: #fff;
+            border-radius: 30px;
+        }
+        .button.color-hover:hover {
+            background: #F36371 none repeat scroll 0 0;
+            border-color: #F36371;
+            color: #fff;
+        }
+        .section-title h1 {
+            text-transform: uppercase;
+        }
+        .demo-img a::before {
+            background: #f36371 none repeat scroll 0 0;
+        }
+        .button.large {
+            line-height: 40px;
+        }
+        .menu li ul li:hover a {
+        color: #000;
+        }
+
+        .counter-area .row .col-md-4:nth-child(1) .single-counter {
+            background: #9f1e49 none repeat scroll 0 0;
+        }
+        .counter-area .row .col-md-4:nth-child(2) .single-counter {
+            background: #005691 none repeat scroll 0 0;
+        }
+        .counter-area .row .col-md-4:nth-child(2) .single-counter {
+            background: #2db6a3 none repeat scroll 0 0;
+        }
+        .single-counter span {
+            font-family: 'Roboto Slab', serif;
+        }
+
+        #scrollUp {
+            border: 3px solid rgba(0, 0, 0, 0.1);
+            border-radius: 100%;
+            bottom: 15px;
+            box-sizing: content-box;
+            color: #fff;
+            font-size: 20px;
+            height: 50px;
+            line-height: 45px;
+            position: fixed;
+            right: 15px;
+            text-align: center;
+            transition: all 0.3s ease 0s;
+            width: 50px;
+            z-index: 200;
+        }
+
+        @-webkit-keyframes scroll-ani-to-top {
+        0% {
+            opacity: 0;
+            bottom: 0;
+        }
+        50% {
+            opacity: 1;
+            bottom: 50%;
+        }
+        100% {
+            opacity: 0;
+            bottom: 75%;
+        }
+        }
+        @-moz-keyframes scroll-ani-to-top {
+        0% {
+            opacity: 0;
+            bottom: 0;
+        }
+        50% {
+            opacity: 1;
+            bottom: 50%;
+        }
+        100% {
+            opacity: 0;
+            bottom: 75%;
+        }
+        }
+        @keyframes scroll-ani-to-top {
+        0% {
+            opacity: 0;
+            bottom: 0;
+        }
+        50% {
+            opacity: 1;
+            bottom: 50%;
+        }
+        100% {
+            opacity: 0;
+            bottom: 75%;
+        }
+        }
+        #scrollUp:hover i {
+            animation: 800ms linear 0s normal none infinite running scroll-ani-to-top;
+            height: 100%;
+            left: 0;
+            margin-bottom: -25px;
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+        }
+        #scrollUp i {
+            color: #fff;
+        }
+        #scrollUp {
+            background: #f36371 none repeat scroll 0 0;
+        }
+
+
+
+
+        /* Normal desktop :992px. */
+        @media (min-width: 992px) and (max-width: 1169px) {
+        .hero-wrapper {
+        padding: 149px 8px;
+        }
+        .hero-content h3 {
+        font-size: 34px;
+        letter-spacing: 1px;
+        }
+
+        }
+        /* tablet :768px. */
+        @media (min-width: 768px) and (max-width: 991px) {
+
+        .hero-content h3 {
+        font-size: 27px;
+        }
+
+
+        }
+        /* small mobile :320px. */
+        @media (max-width: 767px) {
+
+        .container {width:300px}
+
+        .hero-wrapper {
+        padding: 149px 8px;
+        }
+        .hero-content h3 {
+        font-size: 34px;
+        letter-spacing: 1px;
+        }
+        .hero-content h3 {
+        line-height: 41px;
+        }
+        .hero-content p span {
+        line-height: 33px;
+        }
+        .button.large {
+        line-height: 34px;
+        }
+        .hero-content.fix a + a {
+        margin-top: 20px;
+        }
+
+
+
+        }
+
+
+    </style> --}}
 @endsection
 
 @section("script")
     @stack("script")
 
-    <script src="{{ asset("assets/js/jquery-3.6.0.min.js") }}"></script>
-    <script src="{{ asset("assets/js/common_scripts.js") }}"></script>
+    <script src="{{ asset("assets/js/vendor/jquery-3.6.0.min.js") }}"></script>
+    <script src="{{ asset("assets/js/vendor/jquery-migrate-3.3.2.min.js") }}"></script>
+    <script src="{{ asset("assets/js/bootstrap.bundle.min.js") }}"></script>
+    <script src="{{ asset("assets/js/plugins.js") }}"></script>
+    <script src="{{ asset("assets/js/slick.min.js") }}"></script>
+    <script src="{{ asset("assets/js/owl.carousel.min.js") }}"></script>
+    <script src="{{ asset("assets/js/waypoints.min.js") }}"></script>
     <script src="{{ asset("assets/js/main.js") }}"></script>
-    <script src="{{ asset("assets/assets/validate.js") }}"></script>
-    <script src="{{ asset("assets/js/pw_strenght.js") }}"></script>
-
-    <script src="{{ asset("assets/js/moment.min.js") }}"></script>
-    <script src="{{ asset("assets/js/jquery-ui.custom.min.js") }}"></script>
-    <script src="{{ asset("assets/js/fullcalendar.min.js") }}"></script>
-    <script src="{{ asset("assets/js/fullcalendar_func.js") }}"></script>
-
-    <script src="{{ asset("assets/layerslider/js/greensock.js") }}"></script>
-    <script src="{{ asset("assets/layerslider/js/layerslider.transitions.js") }}"></script>
-    <script src="{{ asset("assets/layerslider/js/layerslider.kreaturamedia.jquery.js") }}"></script>
-    <script type="text/javascript">
-        "use strict";
-        $("#layerslider").layerSlider({
-            autoStart: true,
-            navButtons: false,
-            navStartStop: false,
-            showCircleTimer: false,
-            responsive: true,
-            responsiveUnder: 1280,
-            layersContainer: 1200,
-            skinsPath: "layerslider/skins/"
-        });
-    </script>
-
-    <script src="{{ asset("assets/js/jquery.cookiebar.js") }}"></script>
-    <script>
-        $(document).ready(function() {
-            "use strict";
-            $.cookieBar({
-                fixed: true
-            });
-        });
-    </script>
 @endsection
 
 @section("header")
-    <header class="header menu_2">
-        <div id="preloader">
-            <div data-loader="circle-side"></div>
-        </div>
-
-        <div id="logo">
-            <a draggable="false" href="{{ route("index") }}">
-                <img draggable="false" src="{{ asset("images/logo.png") }}" width="50" alt="{{ trans("general.Logo") }} - {{ env("APP_TITLE") }}">
-            </a>
-        </div>
-
-        <ul id="top_menu">
-            {{-- <li><a draggable="false" href="{{ route("index") }}" class="login">Login</a></li> --}}
-            <li><a draggable="false" href="javascript:;" class="search-overlay-menu-btn">Search</a></li>
-            <li class="hidden_tablet"><a draggable="false" href="https://hits.ecampuz.com/eadmisi" target="_blank" class="btn_1 rounded">{{ trans("general.Registration") }}</a></li>
-            <li class="hidden_tablet">
-                @if (Session::get("locale") == "id")
-                    <a draggable="false" href="{{ url("locale/en") }}">
-                        <img draggable="false" width="30" src="{{ asset("images/flag/en.png") }}"> EN
-                    </a>
-                @else
-                    <a draggable="false" href="{{ url("locale/id") }}">
-                        <img draggable="false" width="30" src="{{ asset("images/flag/id.png") }}"> ID
-                    </a>
-                @endif
-            </li>
-            <li><a draggable="false" href="https://www.facebook.com/{{ env("SOCIAL_MEDIA_FACEBOOK") }}" target="_blank"><i class="ti-facebook"></i></a></li>
-            <li><a draggable="false" href="https://www.instagram.com/{{ env("SOCIAL_MEDIA_INSTAGRAM") }}" target="_blank"><i class="ti-instagram"></i></a></li>
-            <li><a draggable="false" href="https://www.youtube.com/{{ env("SOCIAL_MEDIA_YOUTUBE") }}" target="_blank"><i class="ti-youtube"></i></a></li>
-        </ul>
-
-        <a draggable="false" href="#menu" class="btn_mobile">
-            <div class="hamburger hamburger--spin" id="hamburger">
-                <div class="hamburger-box">
-                    <div class="hamburger-inner"></div>
+    <div id="htc__header" class="htc-header header--one">
+        <div class="htc__header__top bg__theme d-none d-md-block">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="header__top__left">
+                            <ul class="header__address">
+                                <li><a href="tel:+00123456789"><i class="icon ion-android-call"></i>(+00) 123 456 789</a></li>
+                                <li><a href="mailto:www.yourmail.com"><i class="icon ion-android-mail"></i>support@yourmail.com</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="header__top__right">
+                            <ul class="social__icon">
+                                <li><a href="https://twitter.com/devitemsllc" target="_blank"><i class="icon ion-social-twitter"></i></a></li>
+                                <li><a href="https://www.instagram.com/devitems/" target="_blank"><i class="icon ion-social-instagram"></i></a></li>
+                                <li><a href="https://www.facebook.com/devitems/?ref=bookmarks" target="_blank"><i class="icon ion-social-facebook"></i></a></li>
+                                <li><a href="https://plus.google.com/" target="_blank"><i class="icon ion-social-googleplus"></i></a></li>
+                            </ul>
+                            <ul class="login__register">
+                                <li><a href="register.html">Register</a></li>
+                                <li><a href="login.html">Login</a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </a>
-
-        <nav id="menu" class="main-menu">
-            <ul>
-                <li><span><a draggable="false" href="{{ route("index") }}">{{ trans("page.Home") }}</a></span></li>
-                <li>
-                    <span><a draggable="false" href="{{ route("about.index") }}">{{ trans("page.About") }}</a></span>
-                    <ul>
-                        <li><a draggable="false" href="{{ route("about.index") }}">{{ trans("page.About HITS") }}</a></li>
-                        <li><a draggable="false" href="{{ route("lecturer.index") }}">{{ trans("page.Our Lecturer") }}</a></li>
-                        <li><a draggable="false" href="{{ route("gallery.index") }}">{{ trans("page.Gallery") }}</a></li>
-                        <li><a draggable="false" href="{{ route("faq.index") }}">{{ trans("page.FAQ") }}</a></li>
-                    </ul>
-                </li>
-                {{-- <li><span><a draggable="false" href="{{ route("about.index") }}">{{ trans("page.About") }}</a></span></li> --}}
-                <li><span><a draggable="false" href="{{ route("study-program.index") }}">{{ trans("page.Study Program") }}</a></span>
-                    <ul>
-                        <li class="d-block d-lg-none"><a draggable="false" href="{{ route("study-program.index") }}">{{ trans("general.All") }} {{ trans("page.Study Program") }}</a></li>
-                        @foreach ($data_all_study_program as $all_study_program)
-                            <li>
-                                <a draggable="false" href="{{ route("study-program.view", ["study_program_slug" => $all_study_program->slug]) }}">
-                                    {{ $all_study_program->translate_study_program }}
-                                </a>
-                            </li>
-                        @endforeach
-                    </ul>
-                </li>
-                {{-- <li>
-                    <span><a draggable="false" href="javascript:;">{{ trans("page.Admission") }}</a></span>
-                    <ul>
-                        <li><a draggable="false" href="{{ route("registration.index") }}">{{ trans("page.Registration") }}</a></li>
-                        <li><a draggable="false" href="{{ route("international-student.index") }}">{{ trans("page.International Students") }}</a></li>
-                        <li><a draggable="false" href="{{ route("scholarship.index") }}">{{ trans("page.Scholarship") }}</a></li>
-                    </ul>
-                </li> --}}
-                {{-- <li><span><a draggable="false" href="{{ route("lecturer.index") }}">{{ trans("page.Lecturer") }}</a></span></li> --}}
-                <li><span><a draggable="false" href="{{ route("news.index") }}">{{ trans("page.News & Event") }}</a></span></li>
-                {{-- <li><span><a draggable="false" href="{{ route("gallery.index") }}">{{ trans("page.Gallery") }}</a></span></li> --}}
-                {{-- <li><span><a draggable="false" href="{{ route("magazine.index") }}">{{ trans("page.Magazine") }}</a></span></li> --}}
-                {{-- <li><span><a draggable="false" href="{{ route("journal.index") }}">{{ trans("page.Journal") }}</a></span></li> --}}
-                <li>
-                    <span><a draggable="false" href="javascript:;">{{ trans("page.Research & Publication") }}</a></span>
-                    <ul>
-                        <li><a draggable="false" href="https://ojs.hits.ac.id" target="_blank">{{ trans("page.Journal") }}</a></li>
-                        <li><a draggable="false" href="{{ route("repository.index") }}">{{ trans("page.Repository") }}</a></li>
-                        <li><a draggable="false" href="{{ route("magazine.index") }}">{{ trans("page.Magazine") }}</a></li>
-                    </ul>
-                </li>
-                <li><span><a draggable="false" href="{{ route("contact-us.index") }}">{{ trans("page.Contact Us") }}</a></span></li>
-                @if (Auth::guard("user")->check())
-                    <li>
-                        <span><a draggable="false" href="{{ route("account.index") }}">{{ Auth::user()->name }}</a></span>
-                        <ul>
-                            <li><a draggable="false" href="{{ route("account.index") }}">{{ trans("page.Account") }}</a></li>
-                            <li><a draggable="false" href="{{ route("account.index") }}">{{ trans("page.Edit Profile") }}</a></li>
-                            <li><a draggable="false" href="{{ route("account.index") }}">{{ trans("page.Change Password") }}</a></li>
-                            @livewire("c-m-s.logout-component")
-                        </ul>
-                    </li>
-                @else
-                    <li>
-                        <span><a draggable="false" href="{{ route("login.index") }}">{{ trans("page.Account") }}</a></span>
-                        <ul>
-                            <li><a draggable="false" href="{{ route("login.index") }}">{{ trans("page.Login") }}</a></li>
-                            <li><a draggable="false" href="{{ route("register.index") }}">{{ trans("page.Register") }}</a></li>
-                            <li><a draggable="false" href="{{ route("forgot-password.index") }}">{{ trans("page.Forgot Password") }}</a></li>
-                        </ul>
-                    </li>
-                @endif
-                <li class="d-xl-none">
-                    <span><a draggable="false" href="javascript:;">{{ trans("language.Change Language") }}</a></span>
-                    <ul>
-                        <li>
-                            <a draggable="false" href="{{ Session::get("locale") == "en" ? "javascript:;" : url("locale/en") }}">
-                                <img draggable="false" width="30" src="{{ asset("images/flag/en.png") }}" class="me-1">
-                                <span class="{{ Session::get("locale") == "en" ? "fw-bold" : null }}">{{ trans("language.English") }}</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a draggable="false" href="{{ Session::get("locale") == "en" ? url("locale/id") : "javascript:;" }}">
-                                <img draggable="false" width="30" src="{{ asset("images/flag/id.png") }}" class="me-1">
-                                <span class="{{ Session::get("locale") == "id" ? null : "fw-bold" }}">{{ trans("language.Indonesia") }}</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-
-        <div class="search-overlay-menu">
-            <span class="search-overlay-close"><span class="closebt"><i class="ti-close"></i></span></span>
-            <form role="search" id="searchform" method="get" action="{{ route("news.index") }}">
-                <input wire:model="search" type="search" id="search" name="search" value="{{ Request::get("search") }}" placeholder="{{ trans("general.Search Here") }}" />
-                <button type="submit"><i class="icon_search"></i>
-                </button>
-            </form>
         </div>
-    </header>
+
+        <div id="sticky-header-with-topbar" class="mainmenu__area bg__white d-none d-lg-block sticky__header">
+            <div class="container">
+                <div class="row mainmenu__wrap">
+                    <div class="col-lg-2">
+                        <div class="logo">
+                            <a href="index.html">
+                                <img src="images/logo/educan.png" alt="logo">
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Start MAinmenu Ares -->
+                    <div class="col-lg-10">
+                        <nav class="mainmenu__nav">
+                            <ul class="main__menu">
+                                <li class="drop"><a href="index.html">Home</a>
+                                    <ul class="dropdown">
+                                        <li><a href="index.html">home defult</a></li>
+                                        <li><a href="index-2.html">home version two</a></li>
+                                        <li><a href="index-3.html">home version three</a></li>
+                                        <li><a href="index-4.html">home version four</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="about.html">About Us</a></li>
+                                <li><a href="gallery.html">Gallery</a></li>
+                                <li class="drop"><a href="courses-grid.html">Courses</a>
+                                    <ul class="dropdown">
+                                        <li><a href="courses-grid.html">courses grid</a></li>
+                                        <li><a href="courses-list.html">courses list</a></li>
+                                        <li><a href="courses-details.html">courses details</a></li>
+                                    </ul>
+                                </li>
+                                <li class="drop"><a href="#">pages</a>
+                                    <ul class="dropdown">
+                                        <li><a href="blog.html">blog</a></li>
+                                        <li><a href="blog-details.html">blog details</a></li>
+                                        <li><a href="courses-grid.html">courses grid</a></li>
+                                        <li><a href="courses-list.html">courses list</a></li>
+                                        <li><a href="courses-details.html">courses details</a></li>
+                                        <li><a href="shop-grid.html">shop grid</a></li>
+                                        <li><a href="shop-list.html">shop list</a></li>
+                                        <li><a href="shop-details.html">shop details</a></li>
+                                        <li><a href="about.html">about</a></li>
+                                        <li><a href="team.html">team</a></li>
+                                        <li><a href="profile.html">profile</a></li>
+                                        <li><a href="cart.html">cart</a></li>
+                                        <li><a href="login.html">log in</a></li>
+                                        <li><a href="register.html">register</a></li>
+                                        <li><a href="gallery.html">gallery</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="blog.html">Blog</a></li>
+                                <li class="drop"><a href="shop-grid.html">shop</a>
+                                    <ul class="dropdown">
+                                        <li><a href="shop-grid.html">shop grid</a></li>
+                                        <li><a href="shop-list.html">shop list</a></li>
+                                        <li><a href="shop-details.html">shop details</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="contact.html">Contact</a></li>
+                            </ul>
+                            <!-- Start Cart Search -->
+                        <div class="cart__search">
+                            <ul class="cart__search__list">
+                                <li class="search search__open"><a href="#"><i class="icon ion-ios-search-strong"></i></a></li>
+                            </ul>
+                        </div>
+                        <!-- End Cart Search -->
+                        </nav>
+                    </div>
+                    <!-- End MAinmenu Ares -->
+                </div>
+            </div>
+            <!-- Start Search Popap -->
+            <div class="search__area">
+                <div class="container" >
+                    <div class="row" >
+                        <div class="col-12">
+                            <div class="search__inner">
+                                <form action="#" method="get">
+                                    <input placeholder="Search here... " type="text">
+                                    <button type="submit"></button>
+                                </form>
+                                <div class="search__close__btn">
+                                    <span class="search__close__btn_icon"><i class="icon ion-android-close"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mobile-menu-area d-block d-lg-none">
+            <div class="fluid-container mobile-menu-container">
+                <div class="mobile-logo"><a href="index.html"><img src="images/logo/educan.png" alt="Mobile logo"></a></div>
+                <div class="mobile-menu clearfix">
+                    <nav id="mobile_dropdown">
+                        <ul>
+                            <li><a href="index.html">Home</a>
+                                <ul>
+                                    <li><a href="index.html">home defult</a></li>
+                                    <li><a href="index-2.html">home version two</a></li>
+                                    <li><a href="index-3.html">home version three</a></li>
+                                    <li><a href="index-4.html">home version four</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="gallery.html">Gallery</a></li>
+                            <li><a href="courses-grid.html">Courses</a>
+                                <ul>
+                                    <li><a href="courses-grid.html">courses grid</a></li>
+                                    <li><a href="courses-list.html">courses list</a></li>
+                                    <li><a href="courses-details.html">courses details</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">pages</a>
+                                <ul>
+                                    <li><a href="blog.html">blog</a></li>
+                                    <li><a href="blog-details.html">blog details</a></li>
+                                    <li><a href="courses-grid.html">courses grid</a></li>
+                                    <li><a href="courses-list.html">courses list</a></li>
+                                    <li><a href="courses-details.html">courses details</a></li>
+                                    <li><a href="shop-grid.html">shop grid</a></li>
+                                    <li><a href="shop-list.html">shop list</a></li>
+                                    <li><a href="shop-details.html">shop details</a></li>
+                                    <li><a href="about.html">about</a></li>
+                                    <li><a href="team.html">team</a></li>
+                                    <li><a href="profile.html">profile</a></li>
+                                    <li><a href="cart.html">cart</a></li>
+                                    <li><a href="login.html">log in</a></li>
+                                    <li><a href="register.html">register</a></li>
+                                    <li><a href="gallery.html">gallery</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="shop-grid.html">shop</a>
+                                <ul>
+                                    <li><a href="shop-grid.html">shop grid</a></li>
+                                    <li><a href="shop-list.html">shop list</a></li>
+                                    <li><a href="shop-details.html">shop details</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="contact.html">contact us</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 
 @section("footer")
-    <footer>
-        <div class="container margin_120_95">
-            <div class="row justify-content-between">
-
-                <div class="col-md-6 col-lg-3 col-xl-4">
-                    <p><img draggable="false" src="{{ asset("images/logo.png") }}" width="150" alt="{{ trans("general.Logo") }} - {{ env("APP_TITLE") }}"></p>
-                    <p>{{ env("APP_DESCRIPTION") }}</p>
-                    <div class="follow_us">
-                        <ul>
-                            <li>{{ trans("general.Follow Us") }}</li>
-                            <li><a draggable="false" href="https://www.facebook.com/{{ env("SOCIAL_MEDIA_FACEBOOK") }}" target="_blank"><i class="ti-facebook"></i></a></li>
-                            {{-- <li><a draggable="false" href="https://www.twitter.com/{{ env("SOCIAL_MEDIA_TWITTER") }}" target="_blank"><i class="ti-twitter-alt"></i></a></li> --}}
-                            {{-- <li><a draggable="false" href="https://www.g.page/{{ env("SOCIAL_MEDIA_GOOGLE") }}" target="_blank"><i class="ti-google"></i></a></li> --}}
-                            <li><a draggable="false" href="https://www.instagram.com/{{ env("SOCIAL_MEDIA_INSTAGRAM") }}" target="_blank"><i class="ti-instagram"></i></a></li>
-                            <li><a draggable="false" href="https://www.youtube.com/{{ env("SOCIAL_MEDIA_YOUTUBE") }}" target="_blank"><i class="ti-youtube"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-3 col-xl-2 ml-lg-auto">
-                    <h5>{{ trans("general.Navigation Menu") }}</h5>
-                    <ul class="links">
-                        <li><a draggable="false" href="{{ route("index") }}">{{ trans("page.Home") }}</a></li>
-                        <li><a draggable="false" href="{{ route("about.index") }}">{{ trans("page.About") }}</a></li>
-                        <li><a draggable="false" href="{{ route("study-program.index") }}">{{ trans("page.Study Program") }}</a></li>
-                        {{-- <li><a draggable="false" href="{{ route("registration.index") }}">{{ trans("page.Registration") }}</a></li> --}}
-                        {{-- <li><a draggable="false" href="{{ route("international-student.index") }}">{{ trans("page.International Student") }}</a></li> --}}
-                        {{-- <li><a draggable="false" href="{{ route("scholarship.index") }}">{{ trans("page.Scholarship") }}</a></li> --}}
-                        {{-- <li><a draggable="false" href="{{ route("event.index") }}">{{ trans("page.Event") }}</a></li> --}}
-                        <li><a draggable="false" href="{{ route("lecturer.index") }}">{{ trans("page.Lecturer") }}</a></li>
-                        <li><a draggable="false" href="{{ route("gallery.index") }}">{{ trans("page.Gallery") }}</a></li>
-                        <li><a draggable="false" href="{{ route("faq.index") }}">{{ trans("page.Faq") }}</a></li>
-                        <li><a draggable="false" href="{{ route("news.index") }}">{{ trans("page.News & Event") }}</a></li>
-                        <li><a draggable="false" href="{{ route("journal.index") }}">{{ trans("page.Journal") }}</a></li>
-                        <li><a draggable="false" href="{{ route("repository.index") }}">{{ trans("page.Repository") }}</a></li>
-                        <li><a draggable="false" href="{{ route("magazine.index") }}">{{ trans("page.Magazine") }}</a></li>
-                        <li><a draggable="false" href="{{ route("contact-us.index") }}">{{ trans("page.Contact Us") }}</a></li>
-                        <li><a draggable="false" href="{{ route("account.index") }}">{{ trans("page.Account") }}</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-md-6 col-lg-3 col-xl-2 ml-lg-auto">
-                    <h5>{{ trans("general.Study Program") }}</h5>
-                    <ul class="links">
-                        @foreach ($data_all_study_program as $all_study_program)
-                            <li>
-                                <a draggable="false" href="{{ route("study-program.view", ["study_program_slug" => $all_study_program->slug]) }}">
-                                    {{ $all_study_program->translate_name }}
+    <footer class="htc__footer__area bg__theme">
+        <div class="container">
+            <!-- Start Footer Top Area -->
+            <div class="htc__footer__top">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="htc__footer__inner">
+                            <div class="footer__logo">
+                                <a href="index.html">
+                                    <img src="images/logo/footer.png" alt="footer logo">
                                 </a>
-                            </li>
-                        @endforeach
-                    </ul>
-                </div>
-
-                <div class="col-md-6 col-lg-3">
-                    <h5>{{ trans("general.Contact Information") }}</h5>
-                    <ul class="contacts">
-                        <li>
-                            <a draggable="false" href="tel:+{{ Str::phone(env("CONTACT_PHONE")) }}">
-                                <i class="ti-mobile"></i>
-                                <b>{{ trans("general.Call") }}</b> : {{ env("CONTACT_PHONE") }}
-                            </a>
-                        </li>
-                        <li>
-                            <a draggable="false" href="tel:+{{ Str::phone(env("CONTACT_FAX")) }}">
-                                <i class="icon_mail"></i>
-                                <b>{{ trans("general.Fax") }}</b> : {{ env("CONTACT_FAX") }}
-                            </a>
-                        </li>
-                        <li>
-                            <a draggable="false" href="sms:+{{ Str::phone(env("CONTACT_WHATSAPP")) }}">
-                                <i class="ti-envelope"></i>
-                                <b>{{ trans("general.SMS") }}</b> : {{ env("CONTACT_WHATSAPP") }}
-                            </a>
-                        </li>
-                        <li>
-                            <a draggable="false" href="https://api.whatsapp.com/send?phone={{ Str::phone(env("CONTACT_WHATSAPP")) }}&text={{ trans("general.Hello, I know this number from the website") }} {{ env("APP_DOMAIN") }}" target="_blank">
-                                <i class="icon_phone"></i>
-                                <b>{{ trans("general.Whatsapp") }}</b> : {{ env("CONTACT_WHATSAPP") }}
-                            </a>
-                        </li>
-                        <li>
-                            <a draggable="false" href="mailto:{{ env("CONTACT_EMAIL") }}">
-                                <i class="ti-email"></i>
-                                <b>{{ trans("general.Email") }}</b> : {{ env("CONTACT_EMAIL") }}
-                            </a>
-                        </li>
-                        <li>
-                            <a draggable="false" href="{{ env("CONTACT_GOOGLE_MAPS") }}" target="_blank">
-                                <i class="ti-map"></i>
-                                <b>{{ trans("general.Address") }}</b> : {{ env("CONTACT_ADDRESS") }}
-                            </a>
-                        </li>
-                        <li>
-                            <a draggable="false" href="{{ env("CONTACT_GOOGLE_MAPS") }}" target="_blank">
-                                <i class="ti-alarm-clock"></i>
-                                {{ trans("datetime.Monday") }} - {{ trans("datetime.Friday") }} | {{ trans("datetime.08:00") }} - {{ trans("datetime.17:00") }}
-                            </a>
-                        </li>
-                    </ul>
-
-                    {{-- <div id="newsletter">
-                        <h6>{{ trans("general.Newsletter") }}</h6>
-                        <div id="message-newsletter"></div>
-                        <form method="post" action="{{ route("index") }}" name="newsletter_form" id="newsletter_form">
-                            <div class="form-group">
-                                <input type="email" name="email_newsletter" id="email_newsletter" class="form-control" placeholder="Your email">
-                                <input type="submit" value="Submit" id="submit-newsletter">
                             </div>
-                        </form>
-                    </div> --}}
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col-md-6">
-                    <ul id="additional_links">
-                        {{-- <li><a draggable="false" href="{{ route("terms-and-conditions.index") }}">Terms and conditions</a></li> --}}
-                        {{-- <li><a draggable="false" href="{{ route("privacy-policy.index") }}">Privacy Policy</a></li> --}}
-                        <li>
-                            {{ __("footer.Created and Designed by") }}
-                            <a draggable="false" href="https://www.diw.co.id" target="_blank">
-                                <img draggable="false" src="{{ asset("images/icon-diw.co.id.png") }}" alt="Icon DIW.co.id" title="{{ __("footer.Created and Designed by") }} DIW.co.id">
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-6">
-                    <div id="copy">
-                        &copy; {{ __("footer.Copyright") }} @if(env("APP_YEAR") && env("APP_YEAR") != date("Y")) {{ env("APP_YEAR") . " - " }} @endif {{ date("Y") }} &reg;&nbsp;
-                        <a draggable="false" href="{{ URL::to("/") }}" target="_blank">
-                            <strong>{{ env("APP_NAME") }}</strong>
-                        </a> &trade;
-                        {{ __("footer.All Rights Reserved") }}.
+                            <ul class="htc__footer__address">
+                                <li><p><i class="icon ion-ios-location"></i>   11st Floor Newt World Tower Miami</p></li>
+                                <li><a href="mailto:www.yourmail.com"><i class="icon ion-android-mail"></i> support@yourmail.com</a></li>
+                                <li><a href="tel:+00123456789"><i class="icon ion-android-call"></i> (801) 2345 - 6789</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
+            <!-- End Footer Top Area -->
+            <!-- Start Foooter Menu Area -->
+            <div class="htc__footer__container pt--80 pb--70">
+                <div class="row mb-n8">
+                    <div class="col-lg-2 col-md-3 mb-7">
+                        <!-- Start Footer Widget -->
+                        <div class="footer">
+                            <div class="footer__widget">
+                                <h2 class="footer__title">our school</h2>
+                                <ul class="htc__ft__list">
+                                    <li><a href="about.html">About Us</a></li>
+                                    <li><a href="login.html">Login</a></li>
+                                    <li><a href="register.html">Register</a></li>
+                                    <li><a href="blog.html">Blog</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- End Footer Widget -->
+                    </div>
+                    <div class="col-lg-1 col-md-2 offset-lg-1 mb-7">
+                        <!-- Start Footer Widget -->
+                        <div class="footer">
+                            <div class="footer__widget">
+                                <h2 class="footer__title">links</h2>
+                                <ul class="htc__ft__list">
+                                    <li><a href="#">Events</a></li>
+                                    <li><a href="gallery.html">Gallery</a></li>
+                                    <li><a href="course-list.html">Courses</a></li>
+                                    <li><a href="#">Forums</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- End Footer Widget -->
+                    </div>
+                    <div class="col-lg-2 col-md-3 offset-lg-2 mb-7">
+                        <!-- Start Footer Widget -->
+                        <div class="footer">
+                            <div class="footer__widget">
+                                <h2 class="footer__title">support</h2>
+                                <ul class="htc__ft__list">
+                                    <li><a href="#">Documentation</a></li>
+                                    <li><a href="#">Update Status</a></li>
+                                    <li><a href="#">Language Packs</a></li>
+                                    <li><a href="#">Release Status</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- End Footer Widget -->
+                    </div>
+                    <div class="col-lg-3 col-md-4 offset-lg-1 mb-7">
+                        <!-- Start Footer Widget -->
+                        <div class="footer">
+                            <div class="footer__widget">
+                                <h2 class="footer__title">About us</h2>
+                                <p class="footer__details">Subscribe now and receive weekly
+                                newsletter with educational materials,
+                                new courses, interesting posts, popular
+                                books and much more! Subscribe now
+                                and receive weekly newsletter with</p>
+                            </div>
+                        </div>
+                        <!-- End Footer Widget -->
+                    </div>
+                </div>
+            </div>
+            <!-- End Foooter Menu Area -->
+            <!-- Start Copyright Area -->
+            <div class="htc__copyright__area">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="copyright__inner">
+                            <div class="copyright">
+                                <p>© 2022  Educan. Made with <i class="fa fa-heart"></i> By <a target="_blank" href="https://hasthemes.com/">HasThemes</a></p>
+                            </div>
+                            <ul class="footer__menu">
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="#">Help</a></li>
+                                <li><a href="#">Sitemap</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Copyright Area -->
         </div>
     </footer>
 @endsection
@@ -447,29 +694,25 @@
 
     <body>
 
-        <div id="page">
+        <div class="wrapper">
 
             @yield("header")
 
-            <main>
+            @if(!trim($__env->yieldContent("code")))
 
-                @if(!trim($__env->yieldContent("code")))
+            @if (!Route::is("index"))
 
-                @if (!Route::is("index"))
+                @include("layouts.breadcrumbs")
 
-                    @include("layouts.breadcrumbs")
+            @endif
 
-                @endif
+                @yield("content")
 
-                    @yield("content")
+            @else
 
-                @else
+                @yield("error-content")
 
-                    @yield("error-content")
-
-                @endif
-
-            </main>
+            @endif
 
         </div>
 
