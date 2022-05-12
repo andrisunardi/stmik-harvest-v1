@@ -42,7 +42,7 @@
   position: relative;
 }
 .main__menu > li:hover > a{
-  color: #005691;
+  color: #18563F;
 }
 .main__menu li + li {
   margin-left: 20px;
@@ -192,7 +192,7 @@
   transition: all 0.4s ease 0s;
 }
 .main__menu li.drop ul.dropdown li:hover > a {
-    color: #005691;
+    color: #18563F;
 }
 .header--two .main__menu li.drop ul.dropdown li:hover > a {
     color: #2db6a3;
@@ -501,7 +501,7 @@ em.color.main-font {
   Search area
 -------------------------------*/
 .search__area {
-  background: #005691;
+  background: #18563F;
   box-shadow: 0 8px 10px rgba(0, 0, 0, 0.08);
   left: 0;
   position: fixed;
@@ -565,7 +565,7 @@ em.color.main-font {
   transition: 0.3s;
 }
 .search__area .search__inner form button:hover {
-  background: #f36371 none repeat scroll 0 0;
+  background: #80BD00 none repeat scroll 0 0;
 }
 .search__area .search__inner form button:hover::before {
   color: #fff;
@@ -604,7 +604,7 @@ em.color.main-font {
   font-size: 24px;
 }
 .cart__search__list li a:hover i {
-  color: #005691;
+  color: #18563F;
 }
 
 

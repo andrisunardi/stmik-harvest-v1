@@ -55,7 +55,7 @@ Slider images
 
 
 /**----------------------------------
-! 8. Background variation 
+! 8. Background variation
 -------------------------------------------**/
 .slider__full--screen {
   height: 100vh;
@@ -73,9 +73,9 @@ Slider images
   }
 }
 
-.slider__fixed_height .slide, 
-.slider__fixed_height .slide .container, 
-.slider__fixed_height .slide .container .row, 
+.slider__fixed_height .slide,
+.slider__fixed_height .slide .container,
+.slider__fixed_height .slide .container .row,
 .slider__fixed_height .slide .container .row div[class*="col-"]{
   height: 100%;
 }
@@ -91,10 +91,10 @@ Slider images
 .slider__position--relative {
     position: relative;
 }
-.slider__activation__wrap, 
-.slider__activation__wrap .owl-stage-outer, 
-.slider__activation__wrap .owl-item, 
-.slider__activation__wrap .slide, 
+.slider__activation__wrap,
+.slider__activation__wrap .owl-stage-outer,
+.slider__activation__wrap .owl-item,
+.slider__activation__wrap .slide,
 .slider__activation__wrap .owl-stage {
   height: 100%;
 }
@@ -151,7 +151,7 @@ Slider images
   opacity: 1;
 }
 .slider__activation__wrap.owl-theme .owl-nav [class*="owl-"]:hover {
-  background: #f36371 none repeat scroll 0 0;
+  background: #80BD00 none repeat scroll 0 0;
 }
 
 
@@ -219,12 +219,12 @@ Slider images
 /*----------------------------
   Slider Fornt Images
 -----------------------------*/
-.fornt__image--right, 
+.fornt__image--right,
 .fornt__image--right-2,
 .fornt__image--right-3 {
     position: relative;
 }
-.fornt__image--right::before, 
+.fornt__image--right::before,
 .fornt__image--right-2::before,
 .fornt__image--right-3::before {
     bottom: 0;
@@ -256,7 +256,7 @@ Slider images
   margin-top: 37px;
 }
 .htc__btn {
-  background: #005691 none repeat scroll 0 0;
+  background: #18563F none repeat scroll 0 0;
   color: #fff;
   display: inline-block;
   font-family: Roboto Slab;
@@ -271,7 +271,7 @@ Slider images
   z-index: 2;
 }
 .btn--theme {
-  background: #005691 none repeat scroll 0 0;
+  background: #18563F none repeat scroll 0 0;
   color: #fff;
   height: 48px;
   line-height: 48px;
@@ -308,7 +308,7 @@ Slider images
   z-index: -1;
 }
 .btn--theme::after {
-  background: #f36371 none repeat scroll 0 0;
+  background: #80BD00 none repeat scroll 0 0;
 }
 
 .htc__btn:hover::after {
@@ -443,7 +443,7 @@ Slider images
 
 
 
-.slider--2 .slider__display--center, 
+.slider--2 .slider__display--center,
 .slider--3 .slider__display--center {
   height: 100%;
 }

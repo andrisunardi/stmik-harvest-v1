@@ -8,7 +8,7 @@
 -----------------------------------------------------------------------------------*/
 
 
- 
+
 /*======================================
 
 [  Table of contents  ]
@@ -198,12 +198,12 @@ a {
 a:hover,
 a:focus,
 a:active {
-    color: #f36371;
+    color: #80BD00;
 }
 p a:hover,
 p a:focus,
 p a:active {
-    color: #f36371;
+    color: #80BD00;
 }
 h1 a,
 h2 a,
@@ -254,7 +254,7 @@ body {
   background: #fff;
 }
 .mark, mark {
-    background: #005691 none repeat scroll 0 0;
+    background: #18563F none repeat scroll 0 0;
     color: #ffffff;
 }
 
@@ -265,7 +265,7 @@ body {
   06. Bg-Color
 -------------------------------------*/
 .bg__theme {
-    background: #005691;
+    background: #18563F;
 }
 .bg__white {
   background: #fff;
@@ -345,19 +345,19 @@ body {
 /*-----------------------------
   09. Text Color
 --------------------------------*/
-.text--theme { 
-  color: #f36371;
+.text--theme {
+  color: #80BD00;
  }
-.text--blue { 
+.text--blue {
   color: #4FC1F0;
  }
-.text--white { 
+.text--white {
   color: #fff ;
 }
-.text--black { 
-  color: #363636; 
+.text--black {
+  color: #363636;
 }
-.text--white { 
+.text--white {
   color: #fff;
  }
 
@@ -401,7 +401,7 @@ body {
 
 
 /*----------------------------
-  11. Background overlay 
+  11. Background overlay
 ---------------------------------*/
 [data__overlay] {
     position: relative;
@@ -458,7 +458,7 @@ body {
 
 
 /*---------------------------------
-  12. Background Black Overlay 
+  12. Background Black Overlay
 ---------------------------------*/
 
 [data--black__overlay] {
@@ -517,7 +517,7 @@ body {
 
 
 /*---------------------------------
-  13. Background theme Overlay 
+  13. Background theme Overlay
 ---------------------------------*/
 
 [data--theme__overlay] {
@@ -554,7 +554,7 @@ input[type=password]{
 }
 select {
     width: 100%;
-    
+
 }
 input:focus {
     background: transparent;
@@ -562,15 +562,15 @@ input:focus {
 }
 textarea {
     resize: none;
-    background: #f36371;
-    border: 1px solid #f36371;
+    background: #80BD00;
+    border: 1px solid #80BD00;
     padding: 10px;
     width: 100%;
     font-size: 14px;
 }
 textarea:focus {
     background: transparent;
-    border: 1px solid #f36371;
+    border: 1px solid #80BD00;
     outline: none;
 }
 /*----------------------------
@@ -674,7 +674,7 @@ textarea:focus {
 
 
 /*------------------------------
-  19. Page section padding 
+  19. Page section padding
 -------------------------------*/
 .ptb--0 { padding: 0 }
 .ptb--10 { padding: 10px 0 }
@@ -695,7 +695,7 @@ textarea:focus {
 .ptb--150 { padding: 150px 0 }
 
 /*---------------------------
-  20. Page section margin 
+  20. Page section margin
 -----------------------------*/
 .mtb--0 { margin: 0 }
 .mtb--10 { margin: 10px 0 }
@@ -770,17 +770,17 @@ p.error {
 ------------------------------------------*/
 
 *::-moz-selection {
-    background: #005691;
+    background: #18563F;
     color: #fff;
     text-shadow: none;
 }
 ::-moz-selection {
-    background: #005691;
+    background: #18563F;
     color: #fff;
     text-shadow: none;
 }
 ::selection {
-    background: #005691;
+    background: #18563F;
     color: #fff;
     text-shadow: none;
 }
@@ -798,9 +798,9 @@ input::-moz-placeholder {
   background: rgba(0, 0, 0, 0) url("../../images/icons/select-option.png") no-repeat scroll 90% 21px / 10px 6px;
 }
 
-input [type="text"]:focus, 
+input [type="text"]:focus,
 input [type="text"]:focus::-moz-placeholder,
-input [type="email"]:focus, 
+input [type="email"]:focus,
 input [type="email"]:focus::-moz-placeholder{
   color: #333333;
 }
