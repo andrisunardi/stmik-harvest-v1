@@ -73,283 +73,13 @@
     <link rel="stylesheet" href="{{ asset("assets/css/core.css") }}">
     <link rel="stylesheet" href="{{ asset("assets/css/shortcode/shortcodes.css") }}">
     <link rel="stylesheet" href="{{ asset("assets/style.css") }}">
+    {{-- <link rel="stylesheet" href="{{ asset("assets/style-2.css") }}"> --}}
+    {{-- <link rel="stylesheet" href="{{ asset("assets/style-3.css") }}"> --}}
+    {{-- <link rel="stylesheet" href="{{ asset("assets/style-4.css") }}"> --}}
     <link rel="stylesheet" href="{{ asset("assets/css/responsive.css") }}">
     <link rel="stylesheet" href="{{ asset("assets/css/custom.css") }}">
 
     <script src="{{ asset("assets/js/vendor/modernizr-3.11.2.min.js") }}"></script>
-
-	{{-- <link rel="preconnect" href="https://fonts.googleapis.com/">
-	<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&amp;family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
-
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="css/meanmenu.min.css">
-	<link rel="stylesheet" href="https://raw.githubusercontent.com/daneden/animate.css/master/animate.css">
-	<link rel="stylesheet" href="css/style.css">
-	<link rel="stylesheet" href="css/header.css">
-	<link rel="stylesheet" href="css/responsive.css">
-
-    <style type="text/css">
-        body {
-            color: #666666;
-            font-family: 'Raleway', sans-serif;
-            font-size: 14px;
-            font-weight: 400;
-            line-height: 24px;
-        }
-
-        h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-            color: #000;
-            font-family: 'Roboto Slab', serif;
-            font-variant-ligatures: common-ligatures;
-            font-weight: 400;
-            margin-bottom: 0;
-            margin-top: 0;
-        }
-        .hero-content h3 {
-            color: #fff;
-        }
-        .hero-content p span {
-            color: #fff;
-            font-size: 22px;
-            font-weight: 400;
-            letter-spacing: 2px;
-            font-family: 'Raleway', sans-serif;
-        }
-        .hero-content p {
-            color: #fff;
-            font-weight: 400;
-            line-height: 24px;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-        .header-area.bg-off-white {
-            background: #000 none repeat scroll 0 0;
-        }
-        .hero-wrapper {
-            background-attachment: scroll;
-            background-image: url("img/educan/hero.jpg");
-            background-repeat: no-repeat;
-            background-size: cover;
-            padding: 270px 30px;
-            background-position: center center;
-        }
-        .hero-wrapper {
-            position: relative;
-            z-index: 1;
-        }
-        .hero-wrapper::before {
-            background: rgba(0, 0, 0, 0.6) none repeat scroll 0 0;
-            content: "";
-            height: 100%;
-            left: 0;
-            position: absolute;
-            top: 0;
-            width: 100%;
-            z-index: -1;
-        }
-        .main-menu ul li a {
-            color: #fff;
-        }
-        .logo {
-            margin-top: 0;
-        }
-        .main-menu ul li ul li a {
-            color: #444;
-        }
-        .section-title h1 {
-            letter-spacing: 0;
-            text-transform: uppercase;
-        }
-        .demo-img a::before {
-            background: #000 none repeat scroll 0 0;
-        }
-        .single-demo:hover .demo-img a::before {
-            opacity: 0.9;
-        }
-        .support-team > a {
-            background: #000 none repeat scroll 0 0;
-        }
-        .main-menu ul li:hover > a {
-            color: #fff;
-        }
-
-        .main-menu ul li a {
-            font-family: 'Raleway', sans-serif;
-        }
-        .header-area.header-sticky.bg-off-white .row {
-            align-items: center;
-            display: flex;
-        }
-        .logo a {
-            display: block;
-        }
-        .button {
-            background: transparent none repeat scroll 0 0;
-            border-color: #fff;
-            border-radius: 30px;
-        }
-        .button.color-hover:hover {
-            background: #F36371 none repeat scroll 0 0;
-            border-color: #F36371;
-            color: #fff;
-        }
-        .section-title h1 {
-            text-transform: uppercase;
-        }
-        .demo-img a::before {
-            background: #f36371 none repeat scroll 0 0;
-        }
-        .button.large {
-            line-height: 40px;
-        }
-        .menu li ul li:hover a {
-        color: #000;
-        }
-
-        .counter-area .row .col-md-4:nth-child(1) .single-counter {
-            background: #9f1e49 none repeat scroll 0 0;
-        }
-        .counter-area .row .col-md-4:nth-child(2) .single-counter {
-            background: #005691 none repeat scroll 0 0;
-        }
-        .counter-area .row .col-md-4:nth-child(2) .single-counter {
-            background: #2db6a3 none repeat scroll 0 0;
-        }
-        .single-counter span {
-            font-family: 'Roboto Slab', serif;
-        }
-
-        #scrollUp {
-            border: 3px solid rgba(0, 0, 0, 0.1);
-            border-radius: 100%;
-            bottom: 15px;
-            box-sizing: content-box;
-            color: #fff;
-            font-size: 20px;
-            height: 50px;
-            line-height: 45px;
-            position: fixed;
-            right: 15px;
-            text-align: center;
-            transition: all 0.3s ease 0s;
-            width: 50px;
-            z-index: 200;
-        }
-
-        @-webkit-keyframes scroll-ani-to-top {
-        0% {
-            opacity: 0;
-            bottom: 0;
-        }
-        50% {
-            opacity: 1;
-            bottom: 50%;
-        }
-        100% {
-            opacity: 0;
-            bottom: 75%;
-        }
-        }
-        @-moz-keyframes scroll-ani-to-top {
-        0% {
-            opacity: 0;
-            bottom: 0;
-        }
-        50% {
-            opacity: 1;
-            bottom: 50%;
-        }
-        100% {
-            opacity: 0;
-            bottom: 75%;
-        }
-        }
-        @keyframes scroll-ani-to-top {
-        0% {
-            opacity: 0;
-            bottom: 0;
-        }
-        50% {
-            opacity: 1;
-            bottom: 50%;
-        }
-        100% {
-            opacity: 0;
-            bottom: 75%;
-        }
-        }
-        #scrollUp:hover i {
-            animation: 800ms linear 0s normal none infinite running scroll-ani-to-top;
-            height: 100%;
-            left: 0;
-            margin-bottom: -25px;
-            position: absolute;
-            width: 100%;
-            bottom: 0;
-        }
-        #scrollUp i {
-            color: #fff;
-        }
-        #scrollUp {
-            background: #f36371 none repeat scroll 0 0;
-        }
-
-
-
-
-        /* Normal desktop :992px. */
-        @media (min-width: 992px) and (max-width: 1169px) {
-        .hero-wrapper {
-        padding: 149px 8px;
-        }
-        .hero-content h3 {
-        font-size: 34px;
-        letter-spacing: 1px;
-        }
-
-        }
-        /* tablet :768px. */
-        @media (min-width: 768px) and (max-width: 991px) {
-
-        .hero-content h3 {
-        font-size: 27px;
-        }
-
-
-        }
-        /* small mobile :320px. */
-        @media (max-width: 767px) {
-
-        .container {width:300px}
-
-        .hero-wrapper {
-        padding: 149px 8px;
-        }
-        .hero-content h3 {
-        font-size: 34px;
-        letter-spacing: 1px;
-        }
-        .hero-content h3 {
-        line-height: 41px;
-        }
-        .hero-content p span {
-        line-height: 33px;
-        }
-        .button.large {
-        line-height: 34px;
-        }
-        .hero-content.fix a + a {
-        margin-top: 20px;
-        }
-
-
-
-        }
-
-
-    </style> --}}
 @endsection
 
 @section("script")
@@ -373,22 +103,38 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="header__top__left">
                             <ul class="header__address">
-                                <li><a href="tel:+00123456789"><i class="icon ion-android-call"></i>(+00) 123 456 789</a></li>
-                                <li><a href="mailto:www.yourmail.com"><i class="icon ion-android-mail"></i>support@yourmail.com</a></li>
+                                <li>
+                                    <a draggable="false" href="tel:+{{ Str::phone(env("CONTACT_PHONE")) }}">
+                                        <i class="icon ion-android-call"></i>
+                                        {{ env("CONTACT_PHONE") }}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a draggable="false" href="tel:+{{ Str::phone(env("CONTACT_PHONE")) }}">
+                                        <i class="icon ion-whatsapp"></i>
+                                        {{ env("CONTACT_WHATSAPP") }}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a draggable="false" href="mailto:{{ env("CONTACT_EMAIL") }}">
+                                        <i class="icon ion-android-mail"></i>
+                                        {{ env("CONTACT_EMAIL") }}
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="header__top__right">
                             <ul class="social__icon">
-                                <li><a href="https://twitter.com/devitemsllc" target="_blank"><i class="icon ion-social-twitter"></i></a></li>
-                                <li><a href="https://www.instagram.com/devitems/" target="_blank"><i class="icon ion-social-instagram"></i></a></li>
-                                <li><a href="https://www.facebook.com/devitems/?ref=bookmarks" target="_blank"><i class="icon ion-social-facebook"></i></a></li>
-                                <li><a href="https://plus.google.com/" target="_blank"><i class="icon ion-social-googleplus"></i></a></li>
+                                <li><a draggable="false" href="https://twitter.com/devitemsllc" target="_blank"><i class="icon ion-social-twitter"></i></a></li>
+                                <li><a draggable="false" href="https://www.instagram.com/devitems/" target="_blank"><i class="icon ion-social-instagram"></i></a></li>
+                                <li><a draggable="false" href="https://www.facebook.com/devitems/?ref=bookmarks" target="_blank"><i class="icon ion-social-facebook"></i></a></li>
+                                <li><a draggable="false" href="https://plus.google.com/" target="_blank"><i class="icon ion-social-googleplus"></i></a></li>
                             </ul>
                             <ul class="login__register">
-                                <li><a href="register.html">Register</a></li>
-                                <li><a href="login.html">Login</a></li>
+                                <li><a draggable="false" href="register.html">Register</a></li>
+                                <li><a draggable="false" href="login.html">Login</a></li>
                             </ul>
                         </div>
                     </div>
@@ -401,8 +147,8 @@
                 <div class="row mainmenu__wrap">
                     <div class="col-lg-2">
                         <div class="logo">
-                            <a href="index.html">
-                                <img src="images/logo/educan.png" alt="logo">
+                            <a draggable="false" href="{{ route("index") }}">
+                                <img draggable="false" src="{{ asset("images/logo.png") }}" alt="{{ trans("general.Logo") }} - {{ env("APP_TITLE") }}">
                             </a>
                         </div>
                     </div>
@@ -410,56 +156,56 @@
                     <div class="col-lg-10">
                         <nav class="mainmenu__nav">
                             <ul class="main__menu">
-                                <li class="drop"><a href="index.html">Home</a>
+                                <li class="drop"><a draggable="false" href="index.html">Home</a>
                                     <ul class="dropdown">
-                                        <li><a href="index.html">home defult</a></li>
-                                        <li><a href="index-2.html">home version two</a></li>
-                                        <li><a href="index-3.html">home version three</a></li>
-                                        <li><a href="index-4.html">home version four</a></li>
+                                        <li><a draggable="false" href="index.html">home defult</a></li>
+                                        <li><a draggable="false" href="index-2.html">home version two</a></li>
+                                        <li><a draggable="false" href="index-3.html">home version three</a></li>
+                                        <li><a draggable="false" href="index-4.html">home version four</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="about.html">About Us</a></li>
-                                <li><a href="gallery.html">Gallery</a></li>
-                                <li class="drop"><a href="courses-grid.html">Courses</a>
+                                <li><a draggable="false" href="about.html">About Us</a></li>
+                                <li><a draggable="false" href="gallery.html">Gallery</a></li>
+                                <li class="drop"><a draggable="false" href="courses-grid.html">Courses</a>
                                     <ul class="dropdown">
-                                        <li><a href="courses-grid.html">courses grid</a></li>
-                                        <li><a href="courses-list.html">courses list</a></li>
-                                        <li><a href="courses-details.html">courses details</a></li>
+                                        <li><a draggable="false" href="courses-grid.html">courses grid</a></li>
+                                        <li><a draggable="false" href="courses-list.html">courses list</a></li>
+                                        <li><a draggable="false" href="courses-details.html">courses details</a></li>
                                     </ul>
                                 </li>
-                                <li class="drop"><a href="#">pages</a>
+                                <li class="drop"><a draggable="false" href="#">pages</a>
                                     <ul class="dropdown">
-                                        <li><a href="blog.html">blog</a></li>
-                                        <li><a href="blog-details.html">blog details</a></li>
-                                        <li><a href="courses-grid.html">courses grid</a></li>
-                                        <li><a href="courses-list.html">courses list</a></li>
-                                        <li><a href="courses-details.html">courses details</a></li>
-                                        <li><a href="shop-grid.html">shop grid</a></li>
-                                        <li><a href="shop-list.html">shop list</a></li>
-                                        <li><a href="shop-details.html">shop details</a></li>
-                                        <li><a href="about.html">about</a></li>
-                                        <li><a href="team.html">team</a></li>
-                                        <li><a href="profile.html">profile</a></li>
-                                        <li><a href="cart.html">cart</a></li>
-                                        <li><a href="login.html">log in</a></li>
-                                        <li><a href="register.html">register</a></li>
-                                        <li><a href="gallery.html">gallery</a></li>
+                                        <li><a draggable="false" href="blog.html">blog</a></li>
+                                        <li><a draggable="false" href="blog-details.html">blog details</a></li>
+                                        <li><a draggable="false" href="courses-grid.html">courses grid</a></li>
+                                        <li><a draggable="false" href="courses-list.html">courses list</a></li>
+                                        <li><a draggable="false" href="courses-details.html">courses details</a></li>
+                                        <li><a draggable="false" href="shop-grid.html">shop grid</a></li>
+                                        <li><a draggable="false" href="shop-list.html">shop list</a></li>
+                                        <li><a draggable="false" href="shop-details.html">shop details</a></li>
+                                        <li><a draggable="false" href="about.html">about</a></li>
+                                        <li><a draggable="false" href="team.html">team</a></li>
+                                        <li><a draggable="false" href="profile.html">profile</a></li>
+                                        <li><a draggable="false" href="cart.html">cart</a></li>
+                                        <li><a draggable="false" href="login.html">log in</a></li>
+                                        <li><a draggable="false" href="register.html">register</a></li>
+                                        <li><a draggable="false" href="gallery.html">gallery</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="blog.html">Blog</a></li>
-                                <li class="drop"><a href="shop-grid.html">shop</a>
+                                <li><a draggable="false" href="blog.html">Blog</a></li>
+                                <li class="drop"><a draggable="false" href="shop-grid.html">shop</a>
                                     <ul class="dropdown">
-                                        <li><a href="shop-grid.html">shop grid</a></li>
-                                        <li><a href="shop-list.html">shop list</a></li>
-                                        <li><a href="shop-details.html">shop details</a></li>
+                                        <li><a draggable="false" href="shop-grid.html">shop grid</a></li>
+                                        <li><a draggable="false" href="shop-list.html">shop list</a></li>
+                                        <li><a draggable="false" href="shop-details.html">shop details</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="contact.html">Contact</a></li>
+                                <li><a draggable="false" href="contact.html">Contact</a></li>
                             </ul>
                             <!-- Start Cart Search -->
                         <div class="cart__search">
                             <ul class="cart__search__list">
-                                <li class="search search__open"><a href="#"><i class="icon ion-ios-search-strong"></i></a></li>
+                                <li class="search search__open"><a draggable="false" href="#"><i class="icon ion-ios-search-strong"></i></a></li>
                             </ul>
                         </div>
                         <!-- End Cart Search -->
@@ -490,54 +236,58 @@
 
         <div class="mobile-menu-area d-block d-lg-none">
             <div class="fluid-container mobile-menu-container">
-                <div class="mobile-logo"><a href="index.html"><img src="images/logo/educan.png" alt="Mobile logo"></a></div>
+                <div class="mobile-logo">
+                    <a draggable="false" href="{{ route("index") }}">
+                        <img draggable="false" src="{{ asset("images/logo.png") }}" alt="{{ trans("general.Logo") }} - {{ env("APP_TITLE") }}">
+                    </a>
+                </div>
                 <div class="mobile-menu clearfix">
                     <nav id="mobile_dropdown">
                         <ul>
-                            <li><a href="index.html">Home</a>
+                            <li><a draggable="false" href="index.html">Home</a>
                                 <ul>
-                                    <li><a href="index.html">home defult</a></li>
-                                    <li><a href="index-2.html">home version two</a></li>
-                                    <li><a href="index-3.html">home version three</a></li>
-                                    <li><a href="index-4.html">home version four</a></li>
+                                    <li><a draggable="false" href="index.html">home defult</a></li>
+                                    <li><a draggable="false" href="index-2.html">home version two</a></li>
+                                    <li><a draggable="false" href="index-3.html">home version three</a></li>
+                                    <li><a draggable="false" href="index-4.html">home version four</a></li>
                                 </ul>
                             </li>
-                            <li><a href="gallery.html">Gallery</a></li>
-                            <li><a href="courses-grid.html">Courses</a>
+                            <li><a draggable="false" href="gallery.html">Gallery</a></li>
+                            <li><a draggable="false" href="courses-grid.html">Courses</a>
                                 <ul>
-                                    <li><a href="courses-grid.html">courses grid</a></li>
-                                    <li><a href="courses-list.html">courses list</a></li>
-                                    <li><a href="courses-details.html">courses details</a></li>
+                                    <li><a draggable="false" href="courses-grid.html">courses grid</a></li>
+                                    <li><a draggable="false" href="courses-list.html">courses list</a></li>
+                                    <li><a draggable="false" href="courses-details.html">courses details</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#">pages</a>
+                            <li><a draggable="false" href="#">pages</a>
                                 <ul>
-                                    <li><a href="blog.html">blog</a></li>
-                                    <li><a href="blog-details.html">blog details</a></li>
-                                    <li><a href="courses-grid.html">courses grid</a></li>
-                                    <li><a href="courses-list.html">courses list</a></li>
-                                    <li><a href="courses-details.html">courses details</a></li>
-                                    <li><a href="shop-grid.html">shop grid</a></li>
-                                    <li><a href="shop-list.html">shop list</a></li>
-                                    <li><a href="shop-details.html">shop details</a></li>
-                                    <li><a href="about.html">about</a></li>
-                                    <li><a href="team.html">team</a></li>
-                                    <li><a href="profile.html">profile</a></li>
-                                    <li><a href="cart.html">cart</a></li>
-                                    <li><a href="login.html">log in</a></li>
-                                    <li><a href="register.html">register</a></li>
-                                    <li><a href="gallery.html">gallery</a></li>
+                                    <li><a draggable="false" href="blog.html">blog</a></li>
+                                    <li><a draggable="false" href="blog-details.html">blog details</a></li>
+                                    <li><a draggable="false" href="courses-grid.html">courses grid</a></li>
+                                    <li><a draggable="false" href="courses-list.html">courses list</a></li>
+                                    <li><a draggable="false" href="courses-details.html">courses details</a></li>
+                                    <li><a draggable="false" href="shop-grid.html">shop grid</a></li>
+                                    <li><a draggable="false" href="shop-list.html">shop list</a></li>
+                                    <li><a draggable="false" href="shop-details.html">shop details</a></li>
+                                    <li><a draggable="false" href="about.html">about</a></li>
+                                    <li><a draggable="false" href="team.html">team</a></li>
+                                    <li><a draggable="false" href="profile.html">profile</a></li>
+                                    <li><a draggable="false" href="cart.html">cart</a></li>
+                                    <li><a draggable="false" href="login.html">log in</a></li>
+                                    <li><a draggable="false" href="register.html">register</a></li>
+                                    <li><a draggable="false" href="gallery.html">gallery</a></li>
                                 </ul>
                             </li>
-                            <li><a href="blog.html">Blog</a></li>
-                            <li><a href="shop-grid.html">shop</a>
+                            <li><a draggable="false" href="blog.html">Blog</a></li>
+                            <li><a draggable="false" href="shop-grid.html">shop</a>
                                 <ul>
-                                    <li><a href="shop-grid.html">shop grid</a></li>
-                                    <li><a href="shop-list.html">shop list</a></li>
-                                    <li><a href="shop-details.html">shop details</a></li>
+                                    <li><a draggable="false" href="shop-grid.html">shop grid</a></li>
+                                    <li><a draggable="false" href="shop-list.html">shop list</a></li>
+                                    <li><a draggable="false" href="shop-details.html">shop details</a></li>
                                 </ul>
                             </li>
-                            <li><a href="contact.html">contact us</a></li>
+                            <li><a draggable="false" href="contact.html">contact us</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -555,14 +305,14 @@
                     <div class="col-12">
                         <div class="htc__footer__inner">
                             <div class="footer__logo">
-                                <a href="index.html">
-                                    <img src="images/logo/footer.png" alt="footer logo">
+                                <a draggable="false" href="index.html">
+                                    <img draggable="false" src="images/logo/footer.png" alt="footer logo">
                                 </a>
                             </div>
                             <ul class="htc__footer__address">
                                 <li><p><i class="icon ion-ios-location"></i>   11st Floor Newt World Tower Miami</p></li>
-                                <li><a href="mailto:www.yourmail.com"><i class="icon ion-android-mail"></i> support@yourmail.com</a></li>
-                                <li><a href="tel:+00123456789"><i class="icon ion-android-call"></i> (801) 2345 - 6789</a></li>
+                                <li><a draggable="false" href="mailto:www.yourmail.com"><i class="icon ion-android-mail"></i> support@yourmail.com</a></li>
+                                <li><a draggable="false" href="tel:+00123456789"><i class="icon ion-android-call"></i> (801) 2345 - 6789</a></li>
                             </ul>
                         </div>
                     </div>
@@ -577,10 +327,10 @@
                             <div class="footer__widget">
                                 <h2 class="footer__title">our school</h2>
                                 <ul class="htc__ft__list">
-                                    <li><a href="about.html">About Us</a></li>
-                                    <li><a href="login.html">Login</a></li>
-                                    <li><a href="register.html">Register</a></li>
-                                    <li><a href="blog.html">Blog</a></li>
+                                    <li><a draggable="false" href="about.html">About Us</a></li>
+                                    <li><a draggable="false" href="login.html">Login</a></li>
+                                    <li><a draggable="false" href="register.html">Register</a></li>
+                                    <li><a draggable="false" href="blog.html">Blog</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -591,10 +341,10 @@
                             <div class="footer__widget">
                                 <h2 class="footer__title">links</h2>
                                 <ul class="htc__ft__list">
-                                    <li><a href="#">Events</a></li>
-                                    <li><a href="gallery.html">Gallery</a></li>
-                                    <li><a href="course-list.html">Courses</a></li>
-                                    <li><a href="#">Forums</a></li>
+                                    <li><a draggable="false" href="#">Events</a></li>
+                                    <li><a draggable="false" href="gallery.html">Gallery</a></li>
+                                    <li><a draggable="false" href="course-list.html">Courses</a></li>
+                                    <li><a draggable="false" href="#">Forums</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -605,10 +355,10 @@
                             <div class="footer__widget">
                                 <h2 class="footer__title">support</h2>
                                 <ul class="htc__ft__list">
-                                    <li><a href="#">Documentation</a></li>
-                                    <li><a href="#">Update Status</a></li>
-                                    <li><a href="#">Language Packs</a></li>
-                                    <li><a href="#">Release Status</a></li>
+                                    <li><a draggable="false" href="#">Documentation</a></li>
+                                    <li><a draggable="false" href="#">Update Status</a></li>
+                                    <li><a draggable="false" href="#">Language Packs</a></li>
+                                    <li><a draggable="false" href="#">Release Status</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -637,9 +387,9 @@
                                 <p>© 2022  Educan. Made with <i class="fa fa-heart"></i> By <a target="_blank" href="https://hasthemes.com/">HasThemes</a></p>
                             </div>
                             <ul class="footer__menu">
-                                <li><a href="index.html">Home</a></li>
-                                <li><a href="#">Help</a></li>
-                                <li><a href="#">Sitemap</a></li>
+                                <li><a draggable="false" href="index.html">Home</a></li>
+                                <li><a draggable="false" href="#">Help</a></li>
+                                <li><a draggable="false" href="#">Sitemap</a></li>
                             </ul>
                         </div>
                     </div>

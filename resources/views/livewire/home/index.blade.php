@@ -18,7 +18,7 @@
                                             <h1>English Test</h1>
                                             <p>Determine your proficiency level in English by taking our free Online English Test.</p>
                                             <div class="slider__btn action-wrapper">
-                                                <a class="htc__btn btn--theme" href="cart.html">ORDER NOW!</a>
+                                                <a draggable="false" class="htc__btn btn--theme" href="cart.html">ORDER NOW!</a>
                                             </div>
                                         </div>
                                     </div>
@@ -39,7 +39,7 @@
                                     <h1>MOBILE UX COURSE</h1>
                                     <p>The differences between desktop and mobile UX are so vast, and deepen so fast.</p>
                                     <div class="slider__btn">
-                                        <a class="htc__btn btn--theme" href="courses-details.html">learn more</a>
+                                        <a draggable="false" class="htc__btn btn--theme" href="courses-details.html">learn more</a>
                                     </div>
                                 </div>
                             </div>
@@ -58,7 +58,7 @@
                                     <h1  data-content="English Test"><span>English Test</span></h1>
                                     <p>Determine your proficiency level in English by taking our free Online English Test.</p>
                                     <div class="slider__btn action-wrapper">
-                                        <a class="htc__btn btn--theme" href="cart.html">ORDER NOW!</a>
+                                        <a draggable="false" class="htc__btn btn--theme" href="cart.html">ORDER NOW!</a>
                                     </div>
                                 </div>
                             </div>
@@ -115,7 +115,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="about__thumb">
-                        <img src="images/about/1.png" alt="about images">
+                        <img draggable="false" src="images/about/1.png" alt="about images">
                     </div>
                 </div>
             </div>
@@ -224,13 +224,13 @@
                     <!-- Start Single Courses -->
                     <div class="courses">
                         <div class="courses__thumb">
-                            <a href="#"><img src="images/course/1.jpg" alt="courses images"></a>
+                            <a draggable="false" href="#"><img draggable="false" src="images/course/1.jpg" alt="courses images"></a>
                             <div class="courses__hover__info">
                                 <div class="courses__hover__action">
                                     <div class="courses__hover__thumb">
-                                        <img src="images/course/sm-img/1.png" alt="small images">
+                                        <img draggable="false" src="images/course/sm-img/1.png" alt="small images">
                                     </div>
-                                    <h4><a href="#">Derek Spafford</a></h4>
+                                    <h4><a draggable="false" href="#">Derek Spafford</a></h4>
                                     <span class="crs__separator">/</span>
                                     <p>Professor</p>
                                 </div>
@@ -238,7 +238,7 @@
                         </div>
                         <div class="courses__details">
                             <div class="courses__details__inner">
-                                <h2><a href="courses-details.html">Mathematics and Statistics</a></h2>
+                                <h2><a draggable="false" href="courses-details.html">Mathematics and Statistics</a></h2>
                                 <p>All over the world, human beings create an immense and ever-increasing volume of data, with new kinds of data regularly...</p>
                             </div>
                             <ul class="courses__meta">
@@ -251,13 +251,13 @@
                     <!-- Start Single Courses -->
                     <div class="courses">
                         <div class="courses__thumb">
-                            <a href="#"><img src="images/course/2.jpg" alt="courses images"></a>
+                            <a draggable="false" href="#"><img draggable="false" src="images/course/2.jpg" alt="courses images"></a>
                             <div class="courses__hover__info">
                                 <div class="courses__hover__action">
                                     <div class="courses__hover__thumb">
-                                        <img src="images/course/sm-img/2.png" alt="small images">
+                                        <img draggable="false" src="images/course/sm-img/2.png" alt="small images">
                                     </div>
-                                    <h4><a href="#">Derek Spafford</a></h4>
+                                    <h4><a draggable="false" href="#">Derek Spafford</a></h4>
                                     <span class="crs__separator">/</span>
                                     <p>Professor</p>
                                 </div>
@@ -265,7 +265,7 @@
                         </div>
                         <div class="courses__details">
                             <div class="courses__details__inner">
-                                <h2><a href="courses-details.html">History and Modern Languages</a></h2>
+                                <h2><a draggable="false" href="courses-details.html">History and Modern Languages</a></h2>
                                 <p>All over the world, human beings create an immense and ever-increasing volume of data, with new kinds of data regularly...</p>
                             </div>
                             <ul class="courses__meta">
@@ -278,13 +278,13 @@
                     <!-- Start Single Courses -->
                     <div class="courses">
                         <div class="courses__thumb">
-                            <a href="#"><img src="images/course/1.jpg" alt="courses images"></a>
+                            <a draggable="false" href="#"><img draggable="false" src="images/course/1.jpg" alt="courses images"></a>
                             <div class="courses__hover__info">
                                 <div class="courses__hover__action">
                                     <div class="courses__hover__thumb">
-                                        <img src="images/course/sm-img/1.png" alt="small images">
+                                        <img draggable="false" src="images/course/sm-img/1.png" alt="small images">
                                     </div>
-                                    <h4><a href="#">Derek Spafford</a></h4>
+                                    <h4><a draggable="false" href="#">Derek Spafford</a></h4>
                                     <span class="crs__separator">/</span>
                                     <p>Professor</p>
                                 </div>
@@ -292,7 +292,7 @@
                         </div>
                         <div class="courses__details">
                             <div class="courses__details__inner">
-                                <h2><a href="courses-details.html">Mathematics and Statistics</a></h2>
+                                <h2><a draggable="false" href="courses-details.html">Mathematics and Statistics</a></h2>
                                 <p>All over the world, human beings create an immense and ever-increasing volume of data, with new kinds of data regularly...</p>
                             </div>
                             <ul class="courses__meta">
@@ -305,13 +305,13 @@
                     <!-- Start Single Courses -->
                     <div class="courses">
                         <div class="courses__thumb">
-                            <a href="#"><img src="images/course/2.jpg" alt="courses images"></a>
+                            <a draggable="false" href="#"><img draggable="false" src="images/course/2.jpg" alt="courses images"></a>
                             <div class="courses__hover__info">
                                 <div class="courses__hover__action">
                                     <div class="courses__hover__thumb">
-                                        <img src="images/course/sm-img/2.png" alt="small images">
+                                        <img draggable="false" src="images/course/sm-img/2.png" alt="small images">
                                     </div>
-                                    <h4><a href="#">Derek Spafford</a></h4>
+                                    <h4><a draggable="false" href="#">Derek Spafford</a></h4>
                                     <span class="crs__separator">/</span>
                                     <p>Professor</p>
                                 </div>
@@ -319,7 +319,7 @@
                         </div>
                         <div class="courses__details">
                             <div class="courses__details__inner">
-                                <h2><a href="courses-details.html">History and Modern Languages</a></h2>
+                                <h2><a draggable="false" href="courses-details.html">History and Modern Languages</a></h2>
                                 <p>All over the world, human beings create an immense and ever-increasing volume of data, with new kinds of data regularly...</p>
                             </div>
                             <ul class="courses__meta">
@@ -332,13 +332,13 @@
                     <!-- Start Single Courses -->
                     <div class="courses">
                         <div class="courses__thumb">
-                            <a href="#"><img src="images/course/3.jpg" alt="courses images"></a>
+                            <a draggable="false" href="#"><img draggable="false" src="images/course/3.jpg" alt="courses images"></a>
                             <div class="courses__hover__info">
                                 <div class="courses__hover__action">
                                     <div class="courses__hover__thumb">
-                                        <img src="images/course/sm-img/3.png" alt="small images">
+                                        <img draggable="false" src="images/course/sm-img/3.png" alt="small images">
                                     </div>
-                                    <h4><a href="#">Nipa Bali</a></h4>
+                                    <h4><a draggable="false" href="#">Nipa Bali</a></h4>
                                     <span class="crs__separator">/</span>
                                     <p>Professor</p>
                                 </div>
@@ -346,7 +346,7 @@
                         </div>
                         <div class="courses__details">
                             <div class="courses__details__inner">
-                                <h2><a href="courses-details.html">Physics and Philosophy</a></h2>
+                                <h2><a draggable="false" href="courses-details.html">Physics and Philosophy</a></h2>
                                 <p>All over the world, human beings create an immense and ever-increasing volume of data, with new kinds of data regularly...</p>
                             </div>
                             <ul class="courses__meta">
@@ -359,13 +359,13 @@
                     <!-- Start Single Courses -->
                     <div class="courses">
                         <div class="courses__thumb">
-                            <a href="#"><img src="images/course/3.jpg" alt="courses images"></a>
+                            <a draggable="false" href="#"><img draggable="false" src="images/course/3.jpg" alt="courses images"></a>
                             <div class="courses__hover__info">
                                 <div class="courses__hover__action">
                                     <div class="courses__hover__thumb">
-                                        <img src="images/course/sm-img/3.png" alt="small images">
+                                        <img draggable="false" src="images/course/sm-img/3.png" alt="small images">
                                     </div>
-                                    <h4><a href="#">Nipa Bali</a></h4>
+                                    <h4><a draggable="false" href="#">Nipa Bali</a></h4>
                                     <span class="crs__separator">/</span>
                                     <p>Professor</p>
                                 </div>
@@ -373,7 +373,7 @@
                         </div>
                         <div class="courses__details">
                             <div class="courses__details__inner">
-                                <h2><a href="courses-details.html">Physics and Philosophy</a></h2>
+                                <h2><a draggable="false" href="courses-details.html">Physics and Philosophy</a></h2>
                                 <p>All over the world, human beings create an immense and ever-increasing volume of data, with new kinds of data regularly...</p>
                             </div>
                             <ul class="courses__meta">
@@ -415,7 +415,7 @@
                             <input type="email"  placeholder="Email *">
                             <input type="tel"  placeholder="Phone *">
                             <div class="acount__btn">
-                                <a class="htc__btn btn--theme btn--smll" href="#">Get it now</a>
+                                <a draggable="false" class="htc__btn btn--theme btn--smll" href="#">Get it now</a>
                             </div>
                         </div>
 
@@ -444,8 +444,8 @@
                     <div class="upcoming">
                         <div class="upcoming__inner">
                             <div class="upcoming__thumb">
-                                <a href="#">
-                                    <img src="images/event/1.jpg" alt="upcoming images">
+                                <a draggable="false" href="#">
+                                    <img draggable="false" src="images/event/1.jpg" alt="upcoming images">
                                 </a>
                             </div>
                             <div class="upcoming__hover__info">
@@ -465,7 +465,7 @@
                                         <p>College Eucharist (Justin Martyr of Rome) at Bartlemas Chapel</p>
                                     </div>
                                     <div class="event__btn">
-                                        <a class="htc__btn btn--transparent" href="#">View Details</a>
+                                        <a draggable="false" class="htc__btn btn--transparent" href="#">View Details</a>
                                     </div>
                                 </div>
                             </div>
@@ -478,8 +478,8 @@
                     <div class="upcoming">
                         <div class="upcoming__inner">
                             <div class="upcoming__thumb">
-                                <a href="#">
-                                    <img src="images/event/2.jpg" alt="upcoming images">
+                                <a draggable="false" href="#">
+                                    <img draggable="false" src="images/event/2.jpg" alt="upcoming images">
                                 </a>
                             </div>
                             <div class="upcoming__hover__info">
@@ -499,7 +499,7 @@
                                         <p>Joint Roman Catholic Mass at Corpus Christi College Chapel</p>
                                     </div>
                                     <div class="event__btn">
-                                        <a class="htc__btn btn--transparent" href="#">View Details</a>
+                                        <a draggable="false" class="htc__btn btn--transparent" href="#">View Details</a>
                                     </div>
                                 </div>
                             </div>
@@ -532,7 +532,7 @@
                             <!-- Start Single Testimg -->
                             <div class="sin-testiImage">
                                 <div class="text-thumb">
-                                    <img src="images/test/client/1.png" alt="testimonial 1"/>
+                                    <img draggable="false" src="images/test/client/1.png" alt="testimonial 1"/>
                                 </div>
                                 <div class="test-info">
                                     <h4>Nipa Bali</h4>
@@ -543,7 +543,7 @@
                             <!-- Start Single Testimg -->
                             <div class="sin-testiImage">
                                 <div class="text-thumb">
-                                    <img src="images/test/client/2.png" alt="testimonial 1" />
+                                    <img draggable="false" src="images/test/client/2.png" alt="testimonial 1" />
                                 </div>
                                 <div class="test-info">
                                     <h4>Samira</h4>
@@ -554,7 +554,7 @@
                             <!-- Start Single Testimg -->
                             <div class="sin-testiImage">
                                 <div class="text-thumb">
-                                    <img src="images/test/client/3.png" alt="testimonial 1"/>
+                                    <img draggable="false" src="images/test/client/3.png" alt="testimonial 1"/>
                                 </div>
                                 <div class="test-info">
                                     <h4>Chapa</h4>
@@ -565,7 +565,7 @@
                             <!-- Start Single Testimg -->
                             <div class="sin-testiImage">
                                 <div class="text-thumb">
-                                    <img src="images/test/client/5.png" alt="testimonial 1"/>
+                                    <img draggable="false" src="images/test/client/5.png" alt="testimonial 1"/>
                                 </div>
                                 <div class="test-info">
                                     <h4>Nipa Bali</h4>
@@ -576,7 +576,7 @@
                             <!-- Start Single Testimg -->
                             <div class="sin-testiImage">
                                 <div class="text-thumb">
-                                    <img src="images/test/client/2.png" alt="testimonial 1" />
+                                    <img draggable="false" src="images/test/client/2.png" alt="testimonial 1" />
                                 </div>
                                 <div class="test-info">
                                     <h4>Samira</h4>
@@ -587,7 +587,7 @@
                             <!-- Start Single Testimg -->
                             <div class="sin-testiImage">
                                 <div class="text-thumb">
-                                    <img src="images/test/client/3.png" alt="testimonial 1"/>
+                                    <img draggable="false" src="images/test/client/3.png" alt="testimonial 1"/>
                                 </div>
                                 <div class="test-info">
                                     <h4>Chapa</h4>
@@ -643,18 +643,18 @@
                 <div class="col-lg-4 col-xl-4 col-md-6 mb-6">
                     <div class="blog">
                         <div class="blog__thumb">
-                            <a href="blog-details.html">
-                                <img src="images/blog/1.jpg" alt="blog images">
+                            <a draggable="false" href="blog-details.html">
+                                <img draggable="false" src="images/blog/1.jpg" alt="blog images">
                             </a>
                             <div class="blog__date">
                                 <span>AUGUST 8, 2022</span>
                             </div>
                         </div>
                         <div class="blog__details">
-                            <h2><a href="blog-details.html">Iceland’s volcano timelapse</a></h2>
+                            <h2><a draggable="false" href="blog-details.html">Iceland’s volcano timelapse</a></h2>
                             <p>The term minimalism is also used to describe a trend in design and architecture where in the subject is reduced to its n...</p>
                             <div class="blog__btn">
-                                <a class="read__more__btn" href="blog-details.html">Read More</a>
+                                <a draggable="false" class="read__more__btn" href="blog-details.html">Read More</a>
                             </div>
                         </div>
                     </div>
@@ -664,18 +664,18 @@
                 <div class="col-lg-4 col-xl-4 col-md-6 mb-6">
                     <div class="blog">
                         <div class="blog__thumb">
-                            <a href="blog-details.html">
-                                <img src="images/blog/2.jpg" alt="blog images">
+                            <a draggable="false" href="blog-details.html">
+                                <img draggable="false" src="images/blog/2.jpg" alt="blog images">
                             </a>
                             <div class="blog__date">
                                 <span>AUGUST 8, 2022</span>
                             </div>
                         </div>
                         <div class="blog__details">
-                            <h2><a href="blog-details.html">Iceland’s volcano timelapse</a></h2>
+                            <h2><a draggable="false" href="blog-details.html">Iceland’s volcano timelapse</a></h2>
                             <p>The term minimalism is also used to describe a trend in design and architecture where in the subject is reduced to its n...</p>
                             <div class="blog__btn">
-                                <a class="read__more__btn" href="blog-details.html">Read More</a>
+                                <a draggable="false" class="read__more__btn" href="blog-details.html">Read More</a>
                             </div>
                         </div>
                     </div>
@@ -685,18 +685,18 @@
                 <div class="col-lg-4 col-xl-4 col-md-6 mb-6">
                     <div class="blog">
                         <div class="blog__thumb">
-                            <a href="blog-details.html">
-                                <img src="images/blog/3.jpg" alt="blog images">
+                            <a draggable="false" href="blog-details.html">
+                                <img draggable="false" src="images/blog/3.jpg" alt="blog images">
                             </a>
                             <div class="blog__date">
                                 <span>AUGUST 8, 2022</span>
                             </div>
                         </div>
                         <div class="blog__details">
-                            <h2><a href="blog-details.html">Iceland’s volcano timelapse</a></h2>
+                            <h2><a draggable="false" href="blog-details.html">Iceland’s volcano timelapse</a></h2>
                             <p>The term minimalism is also used to describe a trend in design and architecture where in the subject is reduced to its n...</p>
                             <div class="blog__btn">
-                                <a class="read__more__btn" href="blog-details.html">Read More</a>
+                                <a draggable="false" class="read__more__btn" href="blog-details.html">Read More</a>
                             </div>
                         </div>
                     </div>
