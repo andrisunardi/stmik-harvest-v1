@@ -329,7 +329,7 @@
                         <div class="htc__footer__inner">
                             <div class="footer__logo">
                                 <a draggable="false" href="{{ route("index") }}">
-                                    <img draggable="false" src="{{ asset("images/logo.png") }}" alt="{{ trans("general.Logo") }} - {{ env("APP_TITLE") }}">
+                                    <img draggable="false" width="300" style="background-color:#000000; filter: invert(100%); -webkit-filter: invert(100%);" src="{{ asset("images/logo.png") }}" alt="{{ trans("general.Logo") }} - {{ env("APP_TITLE") }}">
                                 </a>
                             </div>
                             <ul class="htc__footer__address">
@@ -423,24 +423,22 @@
 @endsection
 
 @section("error-content")
-    <div id="error_page">
+    <section class="our__about__area bg__white pb--80 pt--100">
         <div class="container">
-            <div class="row justify-content-center text-center">
-                <div class="col-xl-7 col-lg-9">
-                    <h2>@yield("code") - <i class="icon_error-triangle_alt"></i></h2>
-                    <p>@yield("message")</p>
-                    <p>@yield("description")</p>
-                    <form role="form" method="get" action="{{ route("news.index") }}">
-                        <div class="search_bar_error">
-                            <input type="search" class="form-control" id="search" name="search" placeholder="{{ trans("general.What are you looking for?") }}">
-                            <input type="submit" value="{{ trans("button.Search") }}">
+            <div class="row about__wrapper">
+                <div class="col-12">
+                    <div class="about text-center">
+                        <div class="section__title">
+                            <h2 class="title__line">@yield("code")</h2>
+                            <p>@yield("message")</p>
                         </div>
-                    </form>
-                    <a draggable="false" href="{{ route("index") }}" class="btn btn-warning">Back To Home</a>
+                        <p class="about__details">@yield("description")</p>
+                        <a draggable="false" class="htc__btn btn--theme mt-5" href="{{ route("index") }}">{{ trans("general.Back To Home") }}</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 @endsection
 
 <!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -466,11 +464,11 @@
 
             @if(!trim($__env->yieldContent("code")))
 
-            @if (!Route::is("index"))
+                @if (!Route::is("index"))
 
-                @include("layouts.breadcrumbs")
+                    @include("layouts.breadcrumbs")
 
-            @endif
+                @endif
 
                 @yield("content")
 
