@@ -28,6 +28,51 @@ Route::group(["prefix" => Str::slug($page), "as" => Str::slug($page) . "."], fun
     Route::any("", Str::studly($page) . "Component")->name("index");
 });
 
+$page = "Our Profile";
+Route::group(["prefix" => Str::slug($page), "as" => Str::slug($page) . "."], function () use ($page) {
+    Route::any("", Str::studly($page) . "Component")->name("index");
+});
+
+$page = "Our Values";
+Route::group(["prefix" => Str::slug($page), "as" => Str::slug($page) . "."], function () use ($page) {
+    Route::any("", Str::studly($page) . "Component")->name("index");
+});
+
+$page = "Our Network";
+Route::group(["prefix" => Str::slug($page), "as" => Str::slug($page) . "."], function () use ($page) {
+    Route::any("", Str::studly($page) . "Component")->name("index");
+});
+
+$page = "Admission";
+Route::group(["prefix" => Str::slug($page), "as" => Str::slug($page) . "."], function () use ($page) {
+    Route::any("", Str::studly($page) . "Component")->name("index");
+});
+
+$page = "Online Registration";
+Route::group(["prefix" => Str::slug($page), "as" => Str::slug($page) . "."], function () use ($page) {
+    Route::any("", Str::studly($page) . "Component")->name("index");
+});
+
+$page = "Admission Calendar";
+Route::group(["prefix" => Str::slug($page), "as" => Str::slug($page) . "."], function () use ($page) {
+    Route::any("", Str::studly($page) . "Component")->name("index");
+});
+
+$page = "Tuition Fees";
+Route::group(["prefix" => Str::slug($page), "as" => Str::slug($page) . "."], function () use ($page) {
+    Route::any("", Str::studly($page) . "Component")->name("index");
+});
+
+$page = "Scholarships";
+Route::group(["prefix" => Str::slug($page), "as" => Str::slug($page) . "."], function () use ($page) {
+    Route::any("", Str::studly($page) . "Component")->name("index");
+});
+
+$page = "Procedure";
+Route::group(["prefix" => Str::slug($page), "as" => Str::slug($page) . "."], function () use ($page) {
+    Route::any("", Str::studly($page) . "Component")->name("index");
+});
+
 $page = "Lecturer";
 Route::group(["prefix" => Str::slug($page), "as" => Str::slug($page) . "."], function () use ($page) {
     Route::any("", Str::studly($page) . "Component")->name("index");
@@ -62,11 +107,6 @@ Route::group(["prefix" => Str::slug($page), "as" => Str::slug($page) . "."], fun
 });
 
 $page = "International Student";
-Route::group(["prefix" => Str::slug($page), "as" => Str::slug($page) . "."], function () use ($page) {
-    Route::any("", Str::studly($page) . "Component")->name("index");
-});
-
-$page = "Scholarship";
 Route::group(["prefix" => Str::slug($page), "as" => Str::slug($page) . "."], function () use ($page) {
     Route::any("", Str::studly($page) . "Component")->name("index");
 });

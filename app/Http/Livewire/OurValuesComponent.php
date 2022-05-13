@@ -4,12 +4,12 @@ namespace App\Http\Livewire;
 
 use App\Http\Livewire\Component;
 
-class ScholarshipComponent extends Component
+class OurValuesComponent extends Component
 {
-    public $menu_name = "Scholarship";
-    public $menu_icon = "fas fa-money";
-    public $menu_slug = "scholarship";
-    public $menu_table = "scholarship";
+    public $menu_name = "Our Values";
+    public $menu_icon = "fas fa-calendar";
+    public $menu_slug = "our-values";
+    public $menu_table = "our_values";
 
     public function render()
     {

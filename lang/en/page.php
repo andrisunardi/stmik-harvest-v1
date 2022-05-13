@@ -5,6 +5,11 @@ return [
     "About" => "About",
     "About Us" => "About Us",
     "About HITS" => "About HITS",
+
+    "Our Profile" => "Our Profile",
+    "Our Values" => "Our Values",
+    "Our Network" => "Our Network",
+
     "FAQ" => "FAQ",
     "Faq" => "Faq",
     "Academics" => "Academics",

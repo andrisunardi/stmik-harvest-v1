@@ -5,6 +5,11 @@ return [
     "About" => "Tentang",
     "About Us" => "Tentang Kami",
     "About HITS" => "Tentang HITS",
+
+    "Our Profile" => "Profil Kami",
+    "Our Values" => "Nilai-Nilai Kami",
+    "Our Network" => "Jaringan Kami",
+
     "FAQ" => "Tanya Jawab",
     "Faq" => "Tanya Jawab",
     "Academics" => "Akademik",

@@ -97,22 +97,22 @@
 
 @section("header")
     <div id="htc__header" class="htc-header header--one">
-        <div class="htc__header__top bg__theme d-none d-md-block">
+        <div class="htc__header__top bg__theme">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
                         <div class="header__top__left">
                             <ul class="header__address">
                                 <li>
-                                    <a draggable="false" href="tel:+{{ Str::phone(env("CONTACT_PHONE")) }}">
-                                        <i class="icon ion-android-call"></i>
-                                        {{ env("CONTACT_PHONE") }}
+                                    <a draggable="false" href="https://api.whatsapp.com/send?phone={{ Str::phone(env("CONTACT_WHATSAPP")) }}&text={{ trans("general.Hello, I know this number from the website") }} {{ env("APP_DOMAIN") }}" target="_blank">
+                                        <i class="icon ion-social-whatsapp"></i>
+                                        {{ env("CONTACT_WHATSAPP") }}
                                     </a>
                                 </li>
                                 <li>
                                     <a draggable="false" href="tel:+{{ Str::phone(env("CONTACT_PHONE")) }}">
-                                        <i class="icon ion-whatsapp"></i>
-                                        {{ env("CONTACT_WHATSAPP") }}
+                                        <i class="icon ion-android-call"></i>
+                                        {{ env("CONTACT_PHONE") }}
                                     </a>
                                 </li>
                                 <li>
@@ -124,15 +124,37 @@
                             </ul>
                         </div>
                     </div>
+
                     <div class="col-lg-6 col-md-6">
                         <div class="header__top__right">
                             <ul class="social__icon">
-                                <li><a draggable="false" href="https://twitter.com/devitemsllc" target="_blank"><i class="icon ion-social-twitter"></i></a></li>
-                                <li><a draggable="false" href="https://www.instagram.com/devitems/" target="_blank"><i class="icon ion-social-instagram"></i></a></li>
-                                <li><a draggable="false" href="https://www.facebook.com/devitems/?ref=bookmarks" target="_blank"><i class="icon ion-social-facebook"></i></a></li>
-                                <li><a draggable="false" href="https://plus.google.com/" target="_blank"><i class="icon ion-social-googleplus"></i></a></li>
+                                <li>
+                                    <a draggable="false" href="https://www.facebook.com/{{ env("SOCIAL_MEDIA_FACEBOOK") }}" target="_blank">
+                                        <i class="icon ion-social-facebook"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a draggable="false" href="https://www.twitter.com/{{ env("SOCIAL_MEDIA_TWITTER") }}" target="_blank">
+                                        <i class="icon ion-social-twitter"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a draggable="false" href="https://www.instagram.com/{{ env("SOCIAL_MEDIA_INSTAGRAM") }}" target="_blank">
+                                        <i class="icon ion-social-instagram"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a draggable="false" href="https://www.g.page/{{ env("SOCIAL_MEDIA_GOOGLE") }}" target="_blank">
+                                        <i class="icon ion-social-googleplus"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a draggable="false" href="https://www.youtube.com/{{ env("SOCIAL_MEDIA_YOUTUBE") }}" target="_blank">
+                                        <i class="icon ion-social-youtube"></i>
+                                    </a>
+                                </li>
                             </ul>
-                            <ul class="login__register">
+                            <ul class="login__register d-none d-md-flex">
                                 <li><a draggable="false" href="register.html">Register</a></li>
                                 <li><a draggable="false" href="login.html">Login</a></li>
                             </ul>
@@ -152,27 +174,28 @@
                             </a>
                         </div>
                     </div>
-                    <!-- Start MAinmenu Ares -->
+
                     <div class="col-lg-10">
                         <nav class="mainmenu__nav">
                             <ul class="main__menu">
-                                <li class="drop"><a draggable="false" href="index.html">Home</a>
+                                <li class="active"><a draggable="false" class="active" href="{{ route("index") }}">{{ trans("page.Home") }}</a></li>
+                                <li class="drop active"><a draggable="false" class="active" href="{{ route("about.index") }}">{{ trans("page.About Us") }}</a>
                                     <ul class="dropdown">
-                                        <li><a draggable="false" href="index.html">home defult</a></li>
-                                        <li><a draggable="false" href="index-2.html">home version two</a></li>
-                                        <li><a draggable="false" href="index-3.html">home version three</a></li>
-                                        <li><a draggable="false" href="index-4.html">home version four</a></li>
+                                        <li><a draggable="false" href="{{ route("our-profile.index") }}">{{ trans("page.Our Profile") }}</a></li>
+                                        <li><a draggable="false" href="{{ route("our-values.index") }}">{{ trans("page.Our Values") }}</a></li>
+                                        <li><a draggable="false" href="{{ route("our-network.index") }}">{{ trans("page.Our Network") }}</a></li>
                                     </ul>
                                 </li>
-                                <li><a draggable="false" href="about.html">About Us</a></li>
-                                <li><a draggable="false" href="gallery.html">Gallery</a></li>
-                                <li class="drop"><a draggable="false" href="courses-grid.html">Courses</a>
+                                <li class="drop"><a draggable="false" href="{{ route("admission.index") }}">{{ trans("page.Admission") }}</a>
                                     <ul class="dropdown">
-                                        <li><a draggable="false" href="courses-grid.html">courses grid</a></li>
-                                        <li><a draggable="false" href="courses-list.html">courses list</a></li>
-                                        <li><a draggable="false" href="courses-details.html">courses details</a></li>
+                                        <li><a draggable="false" href="{{ route("online-registration.index") }}">{{ trans("page.Online Registration") }}</a></li>
+                                        <li><a draggable="false" href="{{ route("admission-calendar.index") }}">{{ trans("page.Admission Calendar") }}</a></li>
+                                        <li><a draggable="false" href="{{ route("procedure.index") }}">{{ trans("page.Procedure") }}</a></li>
+                                        <li><a draggable="false" href="{{ route("tuition-fees.index") }}">{{ trans("page.Tuition Fees") }}</a></li>
+                                        <li><a draggable="false" href="{{ route("scholarships.index") }}">{{ trans("page.Scholarships") }}</a></li>
                                     </ul>
                                 </li>
+                                <li><a draggable="false" href="{{ route("admission.index") }}">{{ trans("page.Admission") }}</a></li>
                                 <li class="drop"><a draggable="false" href="#">pages</a>
                                     <ul class="dropdown">
                                         <li><a draggable="false" href="blog.html">blog</a></li>
@@ -305,8 +328,8 @@
                     <div class="col-12">
                         <div class="htc__footer__inner">
                             <div class="footer__logo">
-                                <a draggable="false" href="index.html">
-                                    <img draggable="false" src="images/logo/footer.png" alt="footer logo">
+                                <a draggable="false" href="{{ route("index") }}">
+                                    <img draggable="false" src="{{ asset("images/logo.png") }}" alt="{{ trans("general.Logo") }} - {{ env("APP_TITLE") }}">
                                 </a>
                             </div>
                             <ul class="htc__footer__address">
