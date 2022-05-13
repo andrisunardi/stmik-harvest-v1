@@ -446,6 +446,7 @@ return [
     "SKS" => "SKS",
     "Video" => "Video",
 
+    "About Us" => "About Us",
     "Back To Home" => "Back To Home",
     "Data" => "Data",
     "Data" => "Data",

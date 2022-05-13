@@ -329,13 +329,44 @@
                         <div class="htc__footer__inner">
                             <div class="footer__logo">
                                 <a draggable="false" href="{{ route("index") }}">
-                                    <img draggable="false" width="300" style="background-color:#000000; filter: invert(100%); -webkit-filter: invert(100%);" src="{{ asset("images/logo.png") }}" alt="{{ trans("general.Logo") }} - {{ env("APP_TITLE") }}">
+                                    <img draggable="false" width="300" src="{{ asset("images/logo-footer.png") }}" alt="{{ trans("general.Logo") }} - {{ env("APP_TITLE") }}">
                                 </a>
                             </div>
                             <ul class="htc__footer__address">
-                                <li><p><i class="icon ion-ios-location"></i>   11st Floor Newt World Tower Miami</p></li>
-                                <li><a draggable="false" href="mailto:www.yourmail.com"><i class="icon ion-android-mail"></i> support@yourmail.com</a></li>
-                                <li><a draggable="false" href="tel:+00123456789"><i class="icon ion-android-call"></i> (801) 2345 - 6789</a></li>
+                                {{-- <li>
+                                    <a draggable="false" href="{{ env("CONTACT_GOOGLE_MAPS") }}" target="_blank">
+                                        <i class="icon ion-ios-location"></i>
+                                        {{ env("CONTACT_ADDRESS") }}
+                                    </a>
+                                </li> --}}
+                                <li>
+                                    <a draggable="false" href="https://api.whatsapp.com/send?phone={{ Str::phone(env("CONTACT_WHATSAPP")) }}&text={{ trans("general.Hello, I know this number from the website") }} {{ env("APP_DOMAIN") }}" target="_blank">
+                                        <i class="icon ion-social-whatsapp"></i>
+                                        {{ env("CONTACT_WHATSAPP") }}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a draggable="false" href="tel:+{{ Str::phone(env("CONTACT_PHONE")) }}">
+                                        <i class="icon ion-android-call"></i>
+                                        {{ env("CONTACT_PHONE") }}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a draggable="false" href="mailto:{{ env("CONTACT_EMAIL") }}">
+                                        <i class="icon ion-android-mail"></i>
+                                        {{ env("CONTACT_EMAIL") }}
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="htc__footer__address">
+                                <li>
+                                    <p>
+                                        <i class="icon ion-ios-location"></i>
+                                        {{-- {{ env("CONTACT_ADDRESS") }} --}}
+                                        <strong>WORLD HARVEST CENTER</strong>
+                                        Taman Himalaya, Jl. Gunung Rinjani No.6 Lippo Village, Karawaci, Tangerang Banten, Indonesia 15811
+                                    </p>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -345,15 +376,25 @@
             <div class="htc__footer__container pt--80 pb--70">
                 <div class="row mb-n8">
 
-                    <div class="col-lg-2 col-md-3 mb-7">
+                    <div class="col-lg-3 col-md-4 mb-7">
                         <div class="footer">
                             <div class="footer__widget">
-                                <h2 class="footer__title">our school</h2>
+                                <h2 class="footer__title">{{ trans("general.About Us") }}</h2>
+                                <p class="footer__details">{{ env("APP_DESCRIPTION") }}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-3 offset-lg-1 mb-7">
+                        <div class="footer">
+                            <div class="footer__widget">
+                                <h2 class="footer__title">{{ trans("general.Quick Links") }}</h2>
                                 <ul class="htc__ft__list">
-                                    <li><a draggable="false" href="about.html">About Us</a></li>
-                                    <li><a draggable="false" href="login.html">Login</a></li>
-                                    <li><a draggable="false" href="register.html">Register</a></li>
-                                    <li><a draggable="false" href="blog.html">Blog</a></li>
+                                    <li><a draggable="false" href="{{ route("admission-calendar.index") }}">{{ trans("page.Admission Calendar") }}</a></li>
+                                    <li><a draggable="false" href="{{ route("information-system.index") }}">{{ trans("page.Information System") }}</a></li>
+                                    <li><a draggable="false" href="{{ route("our-gallery.index") }}">{{ trans("page.Our Gallery") }}</a></li>
+                                    <li><a draggable="false" href="{{ route("our-profile.index") }}">{{ trans("page.Our Profile") }}</a></li>
+                                    <li><a draggable="false" href="{{ route("our-values.index") }}">{{ trans("page.Our Values") }}</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -362,12 +403,9 @@
                     <div class="col-lg-1 col-md-2 offset-lg-1 mb-7">
                         <div class="footer">
                             <div class="footer__widget">
-                                <h2 class="footer__title">links</h2>
+                                <h2 class="footer__title">{{ trans("general.Working Hours") }}</h2>
                                 <ul class="htc__ft__list">
-                                    <li><a draggable="false" href="#">Events</a></li>
-                                    <li><a draggable="false" href="gallery.html">Gallery</a></li>
-                                    <li><a draggable="false" href="course-list.html">Courses</a></li>
-                                    <li><a draggable="false" href="#">Forums</a></li>
+                                    <li><a draggable="false" href="#">{{ trans("datetime.Monday") }}</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -376,26 +414,10 @@
                     <div class="col-lg-2 col-md-3 offset-lg-2 mb-7">
                         <div class="footer">
                             <div class="footer__widget">
-                                <h2 class="footer__title">support</h2>
+                                <h2 class="footer__title">{{ trans("general.Contact Information") }}</h2>
                                 <ul class="htc__ft__list">
-                                    <li><a draggable="false" href="#">Documentation</a></li>
-                                    <li><a draggable="false" href="#">Update Status</a></li>
-                                    <li><a draggable="false" href="#">Language Packs</a></li>
-                                    <li><a draggable="false" href="#">Release Status</a></li>
+                                    <li><a draggable="false" href="#">Whatsapp 087871113361</a></li>
                                 </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-4 offset-lg-1 mb-7">
-                        <div class="footer">
-                            <div class="footer__widget">
-                                <h2 class="footer__title">About us</h2>
-                                <p class="footer__details">Subscribe now and receive weekly
-                                newsletter with educational materials,
-                                new courses, interesting posts, popular
-                                books and much more! Subscribe now
-                                and receive weekly newsletter with</p>
                             </div>
                         </div>
                     </div>

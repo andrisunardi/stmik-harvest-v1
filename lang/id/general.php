@@ -449,5 +449,7 @@ return [
     "Sks" => "Sks",
     "SKS" => "SKS",
     "Video" => "Video",
-    "Back To Home" => "Back To Home",
+
+    "About Us" => "Tentang Kami",
+    "Back To Home" => "Kembali Ke Beranda",
 ];

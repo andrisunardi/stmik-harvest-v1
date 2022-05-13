@@ -8,6 +8,11 @@ use App\Models\News;
 use App\Models\Repository;
 use App\Models\StudyProgram;
 
+Breadcrumbs::for("errors.404", function (BreadcrumbTrail $trail) {
+    $trail->parent("index");
+    $trail->push(trans("page.Error"));
+});
+
 Breadcrumbs::for("index", function (BreadcrumbTrail $trail) {
     $trail->push(trans("page.Home"), route("index"));
 });

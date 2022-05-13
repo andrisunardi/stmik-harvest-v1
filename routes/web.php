@@ -43,6 +43,11 @@ Route::group(["prefix" => Str::slug($page), "as" => Str::slug($page) . "."], fun
     Route::any("", Str::studly($page) . "Component")->name("index");
 });
 
+$page = "Our Gallery";
+Route::group(["prefix" => Str::slug($page), "as" => Str::slug($page) . "."], function () use ($page) {
+    Route::any("", Str::studly($page) . "Component")->name("index");
+});
+
 $page = "Admission";
 Route::group(["prefix" => Str::slug($page), "as" => Str::slug($page) . "."], function () use ($page) {
     Route::any("", Str::studly($page) . "Component")->name("index");
@@ -54,6 +59,11 @@ Route::group(["prefix" => Str::slug($page), "as" => Str::slug($page) . "."], fun
 });
 
 $page = "Admission Calendar";
+Route::group(["prefix" => Str::slug($page), "as" => Str::slug($page) . "."], function () use ($page) {
+    Route::any("", Str::studly($page) . "Component")->name("index");
+});
+
+$page = "Information System";
 Route::group(["prefix" => Str::slug($page), "as" => Str::slug($page) . "."], function () use ($page) {
     Route::any("", Str::studly($page) . "Component")->name("index");
 });

@@ -1,6 +1,8 @@
 <?php
 
 return [
+    "Error" => "Error",
+
     "Home" => "Beranda",
     "About" => "Tentang",
     "About Us" => "Tentang Kami",
@@ -9,6 +11,10 @@ return [
     "Our Profile" => "Profil Kami",
     "Our Values" => "Nilai-Nilai Kami",
     "Our Network" => "Jaringan Kami",
+
+    "Admission Calendar" => "Kelander Admisi",
+    "Information System" => "Sistem Informasi",
+    "Our Gallery" => "Galeri Kami",
 
     "FAQ" => "Tanya Jawab",
     "Faq" => "Tanya Jawab",

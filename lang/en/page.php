@@ -1,6 +1,8 @@
 <?php
 
 return [
+    "Error" => "Error",
+
     "Home" => "Home",
     "About" => "About",
     "About Us" => "About Us",
@@ -9,6 +11,10 @@ return [
     "Our Profile" => "Our Profile",
     "Our Values" => "Our Values",
     "Our Network" => "Our Network",
+
+    "Admission Calendar" => "Admission Calendar",
+    "Information System" => "Information System",
+    "Our Gallery" => "Our Gallery",
 
     "FAQ" => "FAQ",
     "Faq" => "Faq",

@@ -230,6 +230,11 @@ class AppServiceProvider extends ServiceProvider
         $this->sub_domain = Request::segment(1);
         View::share("sub_domain", $this->sub_domain);
 
+        if (Schema::hasTable("banner")) {
+            $this->banner = Banner::onlyActive()->orderBy("id")->first();
+            View::share("banner", $this->banner);
+        }
+
         if (Schema::hasTable("setting")) {
             $this->setting = Setting::onlyActive()->orderByDesc("id")->first();
             View::share("setting", $this->setting);

@@ -9,39 +9,37 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="contact__wrap">
-                        <h2 class="title__style--2">Contact Info</h2>
+                        <h2 class="title__style--2">{{ trans("general.Contact Info") }}</h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
                         <div class="htc__contact__inner">
-                            <!-- Start Single Address -->
+
                             <div class="contact__address">
                                 <div class="cont__icon">
                                     <i class="icon ion-ios-location"></i>
-                                    <span>address</span>
+                                    <span>{{ trans("validation.attributes.address") }}</span>
                                 </div>
-                                <p>11st Floor New World Tower Miami</p>
+                                <p>{{ env("CONTACT_ADDRESS") }}</p>
                             </div>
-                            <!-- End Single Address -->
-                            <!-- Start Single Address -->
+
                             <div class="contact__address">
                                 <div class="cont__icon">
                                     <i class="icon ion-android-call"></i>
-                                    <span>phone</span>
+                                    <span>{{ trans("validation.attributes.phone6") }}</span>
                                 </div>
                                 <p><a href="tel:+00123456789">(801) 2345 - 6789</a></p>
                             </div>
-                            <!-- End Single Address -->
-                            <!-- Start Single Address -->
+
                             <div class="contact__address">
                                 <div class="cont__icon">
                                     <i class="icon ion-android-mail"></i>
                                     <span>Email</span>
                                 </div>
-                                <p><a href="mailto:www.yourmail.com">support@yourmail.com</a></p>
+                                <p><a draggable="false" href="mailto:{{ env("CONTACT_EMAIL") }}">{{ env("CONTACT_EMAIL") }}</a></p>
                             </div>
-                            <!-- End Single Address -->
                         </div>
                     </div>
                 </div>
+
                 <div class="col-lg-6 sm-mt-40 xs-mt-40">
                     <div class="htc__contact__form__wrap">
                         <h2 class="contact__title">Send A Message</h2>
