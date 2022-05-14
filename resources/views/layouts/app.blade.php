@@ -333,39 +333,35 @@
                                 </a>
                             </div>
                             <ul class="htc__footer__address">
-                                {{-- <li>
-                                    <a draggable="false" href="{{ env("CONTACT_GOOGLE_MAPS") }}" target="_blank">
-                                        <i class="icon ion-ios-location"></i>
-                                        {{ env("CONTACT_ADDRESS") }}
-                                    </a>
-                                </li> --}}
                                 <li>
-                                    <a draggable="false" href="https://api.whatsapp.com/send?phone={{ Str::phone(env("CONTACT_WHATSAPP")) }}&text={{ trans("general.Hello, I know this number from the website") }} {{ env("APP_DOMAIN") }}" target="_blank">
-                                        <i class="icon ion-social-whatsapp"></i>
-                                        {{ env("CONTACT_WHATSAPP") }}
+                                    <a draggable="false" href="https://www.facebook.com/{{ env("SOCIAL_MEDIA_FACEBOOK") }}" target="blank">
+                                        <i class="icon ion-social-facebook"></i>
+                                        Facebook : {{ env("SOCIAL_MEDIA_FACEBOOK") }}
                                     </a>
                                 </li>
                                 <li>
-                                    <a draggable="false" href="tel:+{{ Str::phone(env("CONTACT_PHONE")) }}">
-                                        <i class="icon ion-android-call"></i>
-                                        {{ env("CONTACT_PHONE") }}
+                                    <a draggable="false" href="https://www.twitter.com/{{ env("SOCIAL_MEDIA_TWITTER") }}" target="blank">
+                                        <i class="icon ion-social-twitter"></i>
+                                        Twitter : {{ env("SOCIAL_MEDIA_TWITTER") }}
                                     </a>
                                 </li>
                                 <li>
-                                    <a draggable="false" href="mailto:{{ env("CONTACT_EMAIL") }}">
-                                        <i class="icon ion-android-mail"></i>
-                                        {{ env("CONTACT_EMAIL") }}
+                                    <a draggable="false" href="https://www.instagram.com/{{ env("SOCIAL_MEDIA_INSTAGRAM") }}" target="blank">
+                                        <i class="icon ion-social-instagram"></i>
+                                        Instagram : {{ env("SOCIAL_MEDIA_INSTAGRAM") }}
                                     </a>
                                 </li>
-                            </ul>
-                            <ul class="htc__footer__address">
                                 <li>
-                                    <p>
-                                        <i class="icon ion-ios-location"></i>
-                                        {{-- {{ env("CONTACT_ADDRESS") }} --}}
-                                        <strong>WORLD HARVEST CENTER</strong>
-                                        Taman Himalaya, Jl. Gunung Rinjani No.6 Lippo Village, Karawaci, Tangerang Banten, Indonesia 15811
-                                    </p>
+                                    <a draggable="false" href="https://www.g.page/{{ env("SOCIAL_MEDIA_GOOGLE") }}" target="blank">
+                                        <i class="icon ion-social-google"></i>
+                                        Google : {{ env("SOCIAL_MEDIA_GOOGLE") }}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a draggable="false" href="https://www.youtube.com/{{ env("SOCIAL_MEDIA_YOUTUBE") }}" target="blank">
+                                        <i class="icon ion-social-youtube"></i>
+                                        Youtube : STMIK Harvest
+                                    </a>
                                 </li>
                             </ul>
                         </div>
@@ -381,6 +377,13 @@
                             <div class="footer__widget">
                                 <h2 class="footer__title">{{ trans("general.About Us") }}</h2>
                                 <p class="footer__details">{{ env("APP_DESCRIPTION") }}</p>
+                                <p class="footer__details">
+                                    <strong class="text-uppercase">{{ trans("general.Working Hours") }}</strong><br>
+                                    <i class="icon ion-android-calendar me-1"></i>
+                                    {{ trans("datetime.Monday") }} - {{ trans("datetime.Friday") }} : 08.00 - 17.00 WIB<br>
+                                    <i class="icon ion-android-calendar me-1"></i>
+                                    {{ trans("datetime.Saturday") }} - {{ trans("datetime.Sunday") }} - {{ trans("datetime.Holiday") }} : {{ trans("datetime.Closed") }}
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -390,6 +393,7 @@
                             <div class="footer__widget">
                                 <h2 class="footer__title">{{ trans("general.Quick Links") }}</h2>
                                 <ul class="htc__ft__list">
+                                    <li><a draggable="false" href="{{ route("index") }}">{{ trans("page.Home") }}</a></li>
                                     <li><a draggable="false" href="{{ route("admission-calendar.index") }}">{{ trans("page.Admission Calendar") }}</a></li>
                                     <li><a draggable="false" href="{{ route("information-system.index") }}">{{ trans("page.Information System") }}</a></li>
                                     <li><a draggable="false" href="{{ route("our-gallery.index") }}">{{ trans("page.Our Gallery") }}</a></li>
@@ -486,6 +490,15 @@
                                 </p>
                             </div>
                             <ul class="footer__menu">
+                                {{-- <li><a draggable="false" href="{{ route("index") }}">{{ trans("page.Home") }}</a></li>
+                                <li><a draggable="false" href="{{ route("index") }}">{{ trans("page.Registration") }}</a></li>
+                                <li><a draggable="false" href="{{ route("index") }}">{{ trans("page.Courses") }}</a></li>
+                                <li><a draggable="false" href="{{ route("index") }}">{{ trans("page.Our Gallery") }}</a></li>
+                                <li><a draggable="false" href="{{ route("index") }}">{{ trans("page.Event") }}</a></li>
+                                <li><a draggable="false" href="https://www.facebook.com/{{ env("SOCIAL_MEDIA_FACEBOOK") }}"><i class="icon ion-social-facebook"></i></a></li>
+                                <li><a draggable="false" href="https://www.twitter.com/{{ env("SOCIAL_MEDIA_TWITTER") }}"><i class="icon ion-social-twitter"></i></a></li>
+                                <li><a draggable="false" href="https://www.instagram.com/{{ env("SOCIAL_MEDIA_INSTAGRAM") }}"><i class="icon ion-social-instagram"></i></a></li>
+                                <li><a draggable="false" href="https://www.youtube.com/{{ env("SOCIAL_MEDIA_YOUTUBE") }}"><i class="icon ion-social-youtube"></i></a></li> --}}
                                 <li>
                                     <span class="text-white">{{ __("footer.Created and Designed by") }}</span>
                                     <a draggable="false" href="https://www.diw.co.id" target="_blank">

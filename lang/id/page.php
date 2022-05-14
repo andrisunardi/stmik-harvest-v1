@@ -15,6 +15,7 @@ return [
     "Admission Calendar" => "Kelander Admisi",
     "Information System" => "Sistem Informasi",
     "Our Gallery" => "Galeri Kami",
+    "Courses" => "Mata Kuliah",
 
     "FAQ" => "Tanya Jawab",
     "Faq" => "Tanya Jawab",

@@ -15,6 +15,7 @@ return [
     "Admission Calendar" => "Admission Calendar",
     "Information System" => "Information System",
     "Our Gallery" => "Our Gallery",
+    "Courses" => "Courses",
 
     "FAQ" => "FAQ",
     "Faq" => "Faq",
