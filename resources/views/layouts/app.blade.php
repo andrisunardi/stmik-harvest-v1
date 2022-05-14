@@ -155,8 +155,8 @@
                                 </li>
                             </ul>
                             <ul class="login__register d-none d-md-flex">
-                                <li><a draggable="false" href="register.html">Register</a></li>
-                                <li><a draggable="false" href="login.html">Login</a></li>
+                                <li><a draggable="false" href="register.html">Indonesia</a></li>
+                                <li><a draggable="false" href="login.html">English</a></li>
                             </ul>
                         </div>
                     </div>
@@ -170,7 +170,7 @@
                     <div class="col-lg-2">
                         <div class="logo">
                             <a draggable="false" href="{{ route("index") }}">
-                                <img draggable="false" src="{{ asset("images/logo.png") }}" alt="{{ trans("general.Logo") }} - {{ env("APP_TITLE") }}">
+                                <img draggable="false" src="{{ asset("images/logo.png") }}" class="img-fluid w-100" alt="{{ trans("general.Logo") }} - {{ env("APP_TITLE") }}">
                             </a>
                         </div>
                     </div>
@@ -178,8 +178,8 @@
                     <div class="col-lg-10">
                         <nav class="mainmenu__nav">
                             <ul class="main__menu">
-                                <li class="active"><a draggable="false" class="active" href="{{ route("index") }}">{{ trans("page.Home") }}</a></li>
-                                <li class="drop active"><a draggable="false" class="active" href="{{ route("about.index") }}">{{ trans("page.About Us") }}</a>
+                                <li><a draggable="false" href="{{ route("index") }}">{{ trans("page.Home") }}</a></li>
+                                <li class="drop"><a draggable="false" href="{{ route("about.index") }}">{{ trans("page.About Us") }}</a>
                                     <ul class="dropdown">
                                         <li><a draggable="false" href="{{ route("our-profile.index") }}">{{ trans("page.Our Profile") }}</a></li>
                                         <li><a draggable="false" href="{{ route("our-values.index") }}">{{ trans("page.Our Values") }}</a></li>
@@ -261,21 +261,20 @@
             <div class="fluid-container mobile-menu-container">
                 <div class="mobile-logo">
                     <a draggable="false" href="{{ route("index") }}">
-                        <img draggable="false" src="{{ asset("images/logo.png") }}" alt="{{ trans("general.Logo") }} - {{ env("APP_TITLE") }}">
+                        <img draggable="false" src="{{ asset("images/logo.png") }}" class="img-fluid w-100" alt="{{ trans("general.Logo") }} - {{ env("APP_TITLE") }}">
                     </a>
                 </div>
                 <div class="mobile-menu clearfix">
                     <nav id="mobile_dropdown">
                         <ul>
-                            <li><a draggable="false" href="index.html">Home</a>
+                            <li><a draggable="false" href="{{ route("index") }}">{{ trans("page.Home") }}</a></li>
+                            <li><a draggable="false" href="{{ route("about.index") }}">{{ trans("page.About Us") }}</a>
                                 <ul>
-                                    <li><a draggable="false" href="index.html">home defult</a></li>
-                                    <li><a draggable="false" href="index-2.html">home version two</a></li>
-                                    <li><a draggable="false" href="index-3.html">home version three</a></li>
-                                    <li><a draggable="false" href="index-4.html">home version four</a></li>
+                                    <li><a draggable="false" href="{{ route("our-profile.index") }}">{{ trans("page.Our Profile") }}</a></li>
+                                    <li><a draggable="false" href="{{ route("our-values.index") }}">{{ trans("page.Our Values") }}</a></li>
+                                    <li><a draggable="false" href="{{ route("our-network.index") }}">{{ trans("page.Our Network") }}</a></li>
                                 </ul>
                             </li>
-                            <li><a draggable="false" href="gallery.html">Gallery</a></li>
                             <li><a draggable="false" href="courses-grid.html">Courses</a>
                                 <ul>
                                     <li><a draggable="false" href="courses-grid.html">courses grid</a></li>

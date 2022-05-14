@@ -4,6 +4,66 @@
 @section("{$menu_slug}-active", "active")
 
 <div>
+    <section class="our__about__area bg__white pb--80 pt--100">
+        <div class="container">
+            <div class="row about__wrapper">
+                <div class="about">
+                    <div class="section__title text-left">
+                        <h2 class="title__line">{{ trans("general.Welcome To") }} Yayasan STMIK Harvest</h2>
+                        <p>College for Future Technopreneur</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about">
+                        <p class="about__details">
+                            {!! html_entity_decode($setting->translate_about_us) !!}
+                        </p>
+                        <p class="about__details">
+                            <h3 class="text-uppercase mb-2">{{ trans("general.Our Vision") }}</h3>
+                            {!! html_entity_decode($setting->translate_vision) !!}
+                        </p>
+                        <p class="about__details">
+                            <h3 class="text-uppercase mb-2">{{ trans("general.Our Mission") }}</h3>
+                            {!! html_entity_decode($setting->translate_mission) !!}
+                        </p>
+                        <p class="about__details">
+                            <h3 class="text-uppercase mb-2">{{ trans("general.Our History") }}</h3>
+                            {!! html_entity_decode($setting->translate_history) !!}
+                        </p>
+                    </div>
+                    <div class="about__thumb mt-3">
+                        <img draggable="false" class="img-fluid rounded w-100" src="{{ asset("images/our-values-2.webp") }}" alt="{{ trans("page.Our Values") }} - 2 - {{ env("APP_TITLE") }}">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about__thumb">
+                        <img draggable="false" class="img-fluid rounded w-100" src="{{ asset("images/about-us.webp") }}" alt="{{ trans("page.About Us") }} - {{ env("APP_TITLE") }}">
+                    </div>
+                    <div class="about__thumb mt-3">
+                        <img draggable="false" class="img-fluid rounded w-100" src="{{ asset("images/our-values-1.webp") }}" alt="{{ trans("page.Our Values") }} - 1 - {{ env("APP_TITLE") }}">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="htc__findout__area bg__cat--3">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="findout__wrap">
+                        <div class="findout__inner">
+                            <h2>Find out why students love <span>Educen Education!</span></h2>
+                            <div class="findout__btn">
+                                <a class="htc__btn btn--yellow" href="javascript:;">FIND OUT MORE</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="htc__service__area bg__white ptb--80">
         <div class="container">
             <div class="row htc__service__wrap">
@@ -73,60 +133,46 @@
         </div>
     </section>
 
-    <section class="htc__findout__area bg__cat--3">
+    <section class="our__about__area bg__white pb--80 pt--100 bg-light">
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <div class="findout__wrap">
-                        <div class="findout__inner">
-                            <h2>Find out why students love <span>Educen Education!</span></h2>
-                            <div class="findout__btn">
-                                <a class="htc__btn btn--yellow" href="javascript:;">FIND OUT MORE</a>
-                            </div>
-                        </div>
+                    <div class="section__title text-center">
+                        <h2 class="title__line">{{ trans("page.Our Network") }}</h2>
+                        <p>
+                            STMIK HARVEST bekerjasama dengan beberapa perguruan tinggi di luar negeri.<br>Beberapa agenda kerjasama antara lain program pengembangan dosen dan kurikulum, serta program pertukaran mahasiswa.
+                        </p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section class="our__about__area bg__white pb--80 pt--100">
-        <div class="container">
-            <div class="row about__wrapper">
-                <div class="about">
-                    <div class="section__title text-left">
-                        <h2 class="title__line">{{ trans("general.Welcome To") }} Yayasan STMIK Harvest</h2>
-                        <p>College for Future Technopreneur</p>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="about">
-                        <p class="about__details">
-                            {!! html_entity_decode($setting->translate_about_us) !!}
-                        </p>
-                        <p class="about__details">
-                            <h3 class="text-uppercase mb-2">{{ trans("general.Our Vision") }}</h3>
-                            {!! html_entity_decode($setting->translate_vision) !!}
-                        </p>
-                        <p class="about__details">
-                            <h3 class="text-uppercase mb-2">{{ trans("general.Our Mission") }}</h3>
-                            {!! html_entity_decode($setting->translate_mission) !!}
-                        </p>
-                        <p class="about__details">
-                            <h3 class="text-uppercase mb-2">{{ trans("general.Our History") }}</h3>
-                            {!! html_entity_decode($setting->translate_history) !!}
-                        </p>
-                    </div>
-                    <div class="about__thumb mt-3">
-                        <img draggable="false" class="img-fluid rounded w-100" src="{{ asset("images/our-values-2.webp") }}" alt="{{ trans("page.Our Values") }} - 2 - {{ env("APP_TITLE") }}">
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="about__thumb">
-                        <img draggable="false" class="img-fluid rounded w-100" src="{{ asset("images/about-us.webp") }}" alt="{{ trans("page.About Us") }} - {{ env("APP_TITLE") }}">
-                    </div>
-                    <div class="about__thumb mt-3">
-                        <img draggable="false" class="img-fluid rounded w-100" src="{{ asset("images/our-values-1.webp") }}" alt="{{ trans("page.Our Values") }} - 1 - {{ env("APP_TITLE") }}">
+            <div class="row">
+                <div class="col-12">
+                    <div class="shop__content__wrap">
+                        <div role="tabpanel" class="single__shop__view clearfix tab-pane fade show active" id="shop-view">
+                            <div class="row">
+                                @foreach ($data_network as $network)
+                                    <div class="col-lg-3 col-md-6">
+                                        <div class="shop">
+                                            <div class="shop__thumb">
+                                                <a draggable="false" href="{{ $network->link }}" target="_blank">
+                                                    <img draggable="false" src="{{ $network->assetImage() }}" class="img-fluid img-thumbnail rounded w-100" alt="{{ trans("general.Our Network") }} - {{ $network->name }} - {{ env("APP_TITLE") }}">
+                                                </a>
+                                            </div>
+                                            <div class="shop__details">
+                                                <h2><a draggable="false" href="{{ $network->link }}" target="_blank">{{ $network->name }}</a></h2>
+                                                <span class="product__price">{!! html_entity_decode($network->description) !!}</span>
+                                                <div class="shop__btn">
+                                                    <a class="htc__btn btn--transparent" href="{{ $network->link }}" target="_blank">
+                                                        <i class="icon ion-link"></i>
+                                                        <span class="text-lowercase">{{ Str::replace(["https://", "http://"], "", $network->link) }}</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
