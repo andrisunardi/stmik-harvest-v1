@@ -27,6 +27,15 @@ Breadcrumbs::for("our-profile.index", function (BreadcrumbTrail $trail) {
     $trail->push(trans("page.Our Profile"), route("our-profile.index"));
 });
 
+Breadcrumbs::for("our-values.index", function (BreadcrumbTrail $trail) {
+    $trail->parent("index");
+    $trail->push(trans("page.Our Values"), route("our-values.index"));
+});
+
+Breadcrumbs::for("our-network.index", function (BreadcrumbTrail $trail) {
+    $trail->parent("index");
+    $trail->push(trans("page.Our Network"), route("our-network.index"));
+});
 
 
 

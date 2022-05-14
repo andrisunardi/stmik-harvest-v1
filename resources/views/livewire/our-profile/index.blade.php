@@ -7,55 +7,54 @@
     <section class="htc__service__area bg__white ptb--80">
         <div class="container">
             <div class="row htc__service__wrap">
+
                 <div class="col-lg-3 col-md-4">
                     <div class="service text-center">
                         <div class="service__icon">
                             <i class="flaticon-student"></i>
                         </div>
                         <div class="service__details">
-                            <h2><a href="#">ONLINE COURSES</a></h2>
-                            <p>It is a long established fact that a reader will be distracted.</p>
+                            <h2><a href="#">Future Technology</a></h2>
+                            <p>Mahasiswa akan mempelajari teknologi terdepan yang sangat dibutuhkan industri pada 5-10 tahun mendatang, seperti Cloud Computing, Mobile Technology, Big Data, Internet of Things, Business Intelligence, dll.</p>
                         </div>
                     </div>
                 </div>
+
                 <div class="col-lg-3 col-md-4">
                     <div class="service text-center service__color--2">
-                        <div class="service__icon">
-                            <i class="flaticon-graduate-diploma"></i>
-                        </div>
-                        <div class="service__details">
-                            <h2><a href="#">BECOME AN INSTRUCTOR</a></h2>
-                            <p>It is a long established fact that a reader will be distracted.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Service -->
-                <!-- Start Single Service -->
-                <div class="col-lg-3 col-md-4">
-                    <div class="service text-center service__color--3">
                         <div class="service__icon">
                             <i class="flaticon-graduation-cap"></i>
                         </div>
                         <div class="service__details">
-                            <h2><a href="#">MULTI-MEDIA UNITS</a></h2>
-                            <p>It is a long established fact that a reader will be distracted.</p>
+                            <h2><a href="#">Future Technopreneur</a></h2>
+                            <p>Mahasiswa akan dibekali dengan pengetahuan dan skill untuk menjadi technopreneur atau pemimpin bisnis TI melalui Harvest Start-up Center.</p>
                         </div>
                     </div>
                 </div>
-                <!-- End Single Service -->
-                <!-- Start Single Service -->
+
                 <div class="col-lg-3 col-md-4">
-                    <div class="service text-center service__color--4">
+                    <div class="service text-center service__color--3">
                         <div class="service__icon">
                             <i class="flaticon-classroom"></i>
                         </div>
                         <div class="service__details">
-                            <h2><a href="#">SUBSCRIBE COURSES</a></h2>
-                            <p>It is a long established fact that a reader will be distracted.</p>
+                            <h2><a href="#">21st Century Skills</a></h2>
+                            <p>Mahasiswa akan diperlengkapi dengan soft skills yang sangat diperlukan untuk berkarir, yaitu Communication, Collaboration, Critical Thinking, Creativity and Innovation Skills.</p>
                         </div>
                     </div>
                 </div>
-                <!-- End Single Service -->
+
+                <div class="col-lg-3 col-md-4">
+                    <div class="service text-center service__color--4">
+                        <div class="service__icon">
+                            <i class="flaticon-graduate-diploma"></i>
+                        </div>
+                        <div class="service__details">
+                            <h2><a href="#">International Enrichment Program</a></h2>
+                            <p>Bagi mahasiswa yang berprestasi, tersedia kesempatan magang di luar negeri seperti di Singapore, Australia, Korea Selatan dan Amerika Serikat.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -105,17 +104,21 @@
                             <br>
                             Mengembangkan pendidikan sistem informasi yang mengedepankan pengembangan karakter di bidang kepemimpinan yang berwawasan global.
                         </p>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="about">
                         <p class="about__details">
                             <h3 class="text-uppercase mb-2">{{ trans("general.Our History") }}</h3>
                             STMIK KUWERA didirikan pada 17 Desember 1987. Pada tahun 2014, STMIK Kuwera melakukan relokasi dan sedang melakukan peberubahan nama menjadi STMIK HARVEST.
                         </p>
                     </div>
                     <div class="about__thumb mt-3">
-                        <img draggable="false" src="{{ asset("images/about-us.webp") }}" alt="about images">
+                        <img draggable="false" class="w-100" src="{{ asset("images/our-values-2.webp") }}" alt="{{ trans("page.Our Values") }} - 2 - {{ env("APP_TITLE") }}">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about__thumb">
+                        <img draggable="false" class="w-100" src="{{ asset("images/about-us.webp") }}" alt="{{ trans("page.About Us") }} - {{ env("APP_TITLE") }}">
+                    </div>
+                    <div class="about__thumb mt-3">
+                        <img draggable="false" class="w-100" src="{{ asset("images/our-values-1.webp") }}" alt="{{ trans("page.Our Values") }} - 1 - {{ env("APP_TITLE") }}">
                     </div>
                 </div>
             </div>
