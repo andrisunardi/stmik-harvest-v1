@@ -65,6 +65,70 @@
     </div>
     <div class="row my-2">
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+            <h6>{{ trans("field.About Us") }}</h6>
+        </div>
+        <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
+            {!! html_entity_decode($setting->about_us) !!}
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+            <h6>{{ trans("field.About Us ID") }}</h6>
+        </div>
+        <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
+            {!! html_entity_decode($setting->about_us_id) !!}
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+            <h6>{{ trans("field.Vision") }}</h6>
+        </div>
+        <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
+            {!! html_entity_decode($setting->vision) !!}
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+            <h6>{{ trans("field.Vision ID") }}</h6>
+        </div>
+        <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
+            {!! html_entity_decode($setting->vision_id) !!}
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+            <h6>{{ trans("field.Mission") }}</h6>
+        </div>
+        <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
+            {!! html_entity_decode($setting->mission) !!}
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+            <h6>{{ trans("field.Mission ID") }}</h6>
+        </div>
+        <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
+            {!! html_entity_decode($setting->mission_id) !!}
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+            <h6>{{ trans("field.History") }}</h6>
+        </div>
+        <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
+            {!! html_entity_decode($setting->history) !!}
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+            <h6>{{ trans("field.History ID") }}</h6>
+        </div>
+        <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
+            {!! html_entity_decode($setting->history_id) !!}
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
             <h6>{{ trans("field.Active") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">

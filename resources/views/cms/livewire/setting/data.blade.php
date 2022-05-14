@@ -12,6 +12,14 @@
                 <th>{{ trans("field.Address") }}</th>
                 <th>{{ trans("field.Google Maps") }}</th>
                 <th>{{ trans("field.Google Maps Iframe") }}</th>
+                <th>{{ trans("field.About Us") }}</th>
+                <th>{{ trans("field.About Us ID") }}</th>
+                <th>{{ trans("field.Vision") }}</th>
+                <th>{{ trans("field.Vision ID") }}</th>
+                <th>{{ trans("field.Mission") }}</th>
+                <th>{{ trans("field.Mission ID") }}</th>
+                <th>{{ trans("field.History") }}</th>
+                <th>{{ trans("field.History ID") }}</th>
                 <th>{{ trans("field.Active") }}</th>
                 <th>{{ trans("field.Created By") }}</th>
                 <th>{{ trans("field.Updated By") }}</th>
@@ -43,6 +51,14 @@
                     <td>{{ $setting->address }}</td>
                     <td><a draggable="false" href="{{ $setting->google_maps }}" target="_blank">{{ $setting->google_maps }}</a></td>
                     <td><iframe src="{{ $setting->google_maps_iframe }}" width="200" height="100" frameborder="0" scrolling="no"></iframe></td>
+                    <td>{!! html_entity_decode($setting->about_us) !!}</td>
+                    <td>{!! html_entity_decode($setting->about_us_id) !!}</td>
+                    <td>{!! html_entity_decode($setting->vision) !!}</td>
+                    <td>{!! html_entity_decode($setting->vision_id) !!}</td>
+                    <td>{!! html_entity_decode($setting->mission) !!}</td>
+                    <td>{!! html_entity_decode($setting->mission_id) !!}</td>
+                    <td>{!! html_entity_decode($setting->history) !!}</td>
+                    <td>{!! html_entity_decode($setting->history_id) !!}</td>
                     <td>
                         <span class="{{ "badge bg-" . Str::successdanger($setting->active) }}">
                             {{ trans("general." . Str::active($setting->active)) }}

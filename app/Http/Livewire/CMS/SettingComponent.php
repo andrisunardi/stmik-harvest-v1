@@ -47,6 +47,14 @@ class SettingComponent extends Component
     public $address;
     public $google_maps;
     public $google_maps_iframe;
+    public $about_us;
+    public $about_us_id;
+    public $vision;
+    public $vision_id;
+    public $mission;
+    public $mission_id;
+    public $history;
+    public $history_id;
 
     public $queryString = [
         "menu_type" => ["except" => "index"],
@@ -74,6 +82,14 @@ class SettingComponent extends Component
         "address" => ["except" => ""],
         "google_maps" => ["except" => ""],
         "google_maps_iframe" => ["except" => ""],
+        "about_us" => ["except" => ""],
+        "about_us_id" => ["except" => ""],
+        "vision" => ["except" => ""],
+        "vision_id" => ["except" => ""],
+        "mission" => ["except" => ""],
+        "mission_id" => ["except" => ""],
+        "history" => ["except" => ""],
+        "history_id" => ["except" => ""],
     ];
 
     public function refresh()
@@ -107,6 +123,14 @@ class SettingComponent extends Component
         $this->address = null;
         $this->google_maps = null;
         $this->google_maps_iframe = null;
+        $this->about_us = null;
+        $this->about_us_id = null;
+        $this->vision = null;
+        $this->vision_id = null;
+        $this->mission = null;
+        $this->mission_id = null;
+        $this->history = null;
+        $this->history_id = null;
     }
 
     public function resetForm()
@@ -120,6 +144,14 @@ class SettingComponent extends Component
         $this->address = $this->setting->address;
         $this->google_maps = $this->setting->google_maps;
         $this->google_maps_iframe = $this->setting->google_maps_iframe;
+        $this->about_us = $this->setting->about_us;
+        $this->about_us_id = $this->setting->about_us_id;
+        $this->vision = $this->setting->vision;
+        $this->vision_id = $this->setting->vision_id;
+        $this->mission = $this->setting->mission;
+        $this->mission_id = $this->setting->mission_id;
+        $this->history = $this->setting->history;
+        $this->history_id = $this->setting->history_id;
     }
 
     public function updatingPerPage()
@@ -227,6 +259,46 @@ class SettingComponent extends Component
         $this->resetPage();
     }
 
+    public function updatingAboutUs()
+    {
+        $this->resetPage();
+    }
+
+    public function updatingAboutUsId()
+    {
+        $this->resetPage();
+    }
+
+    public function updatingVision()
+    {
+        $this->resetPage();
+    }
+
+    public function updatingVisionId()
+    {
+        $this->resetPage();
+    }
+
+    public function updatingMission()
+    {
+        $this->resetPage();
+    }
+
+    public function updatingMissionId()
+    {
+        $this->resetPage();
+    }
+
+    public function updatingDna()
+    {
+        $this->resetPage();
+    }
+
+    public function updatingDnaId()
+    {
+        $this->resetPage();
+    }
+
     public function mount()
     {
         if (
@@ -329,6 +401,14 @@ class SettingComponent extends Component
             "address"               => "nullable|max:200",
             "google_maps"           => "nullable|url|max:100",
             "google_maps_iframe"    => "nullable|url|max:300",
+            "about_us"              => "nullable|max:65535",
+            "about_us_id"           => "nullable|max:65535",
+            "mission"               => "nullable|max:65535",
+            "mission_id"            => "nullable|max:65535",
+            "mission"               => "nullable|max:65535",
+            "mission_id"            => "nullable|max:65535",
+            "history"               => "nullable|max:65535",
+            "history_id"            => "nullable|max:65535",
         ];
     }
 
@@ -353,6 +433,14 @@ class SettingComponent extends Component
         $this->setting->address = $this->address;
         $this->setting->google_maps = $this->google_maps;
         $this->setting->google_maps_iframe = $this->google_maps_iframe;
+        $this->setting->about_us = $this->about_us;
+        $this->setting->about_us_id = $this->about_us_id;
+        $this->setting->vision = $this->vision;
+        $this->setting->vision_id = $this->vision_id;
+        $this->setting->mission = $this->mission;
+        $this->setting->mission_id = $this->mission_id;
+        $this->setting->history = $this->history;
+        $this->setting->history_id = $this->history_id;
         $this->setting->save();
 
         $this->menu_type_message = $this->menu_type == "add" || $this->menu_type == "edit" ? $this->menu_type . "ed" : $this->menu_type . "d";
@@ -533,6 +621,30 @@ class SettingComponent extends Component
                 })
                 ->when($this->google_maps_iframe, function ($query) {
                     $query->where("google_maps_iframe", "LIKE", "%{$this->google_maps_iframe}%");
+                })
+                ->when($this->about_us, function ($query) {
+                    $query->where("about_us", "LIKE", "%{$this->about_us}%");
+                })
+                ->when($this->about_us_id, function ($query) {
+                    $query->where("about_us_id", "LIKE", "%{$this->about_us_id}%");
+                })
+                ->when($this->vision, function ($query) {
+                    $query->where("vision", "LIKE", "%{$this->vision}%");
+                })
+                ->when($this->vision_id, function ($query) {
+                    $query->where("vision_id", "LIKE", "%{$this->vision_id}%");
+                })
+                ->when($this->mission, function ($query) {
+                    $query->where("mission", "LIKE", "%{$this->mission}%");
+                })
+                ->when($this->mission_id, function ($query) {
+                    $query->where("mission_id", "LIKE", "%{$this->mission_id}%");
+                })
+                ->when($this->history, function ($query) {
+                    $query->where("history", "LIKE", "%{$this->history}%");
+                })
+                ->when($this->history_id, function ($query) {
+                    $query->where("history_id", "LIKE", "%{$this->history_id}%");
                 });
 
                 if ($this->order_by == "created_by") {

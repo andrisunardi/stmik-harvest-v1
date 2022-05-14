@@ -26,6 +26,14 @@
                 <option value="address">{{ trans("field.Address") }}</option>
                 <option value="google_maps">{{ trans("field.Google Maps") }}</option>
                 <option value="google_maps_iframe">{{ trans("field.Google Maps Iframe") }}</option>
+                <option value="about_us">{{ trans("field.About Us") }}</option>
+                <option value="about_us_id">{{ trans("field.About Us") }}</option>
+                <option value="vision">{{ trans("field.Vision") }}</option>
+                <option value="vision_id">{{ trans("field.Vision ID") }}</option>
+                <option value="mission">{{ trans("field.Mission") }}</option>
+                <option value="mission_id">{{ trans("field.Mission ID") }}</option>
+                <option value="history">{{ trans("field.History") }}</option>
+                <option value="history_id">{{ trans("field.History ID") }}</option>
                 <option value="active">{{ trans("field.Active") }}</option>
                 <option value="created_by">{{ trans("field.Created By") }}</option>
                 <option value="updated_by">{{ trans("field.Updated By") }}</option>
@@ -205,6 +213,70 @@
 
     <div class="col-6 col-sm-4 col-lg-3 col-xl-auto">
         @php $input = "google_maps_iframe" @endphp
+        <div class="form-group">
+            <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
+            <input wire:model="{{ $input }}" type="search" class="form-control" id="{{ $input }}" name="{{ $input }}" placeholder="{{ trans("validation.attributes.{$input}") }}">
+        </div>
+    </div>
+
+    <div class="col-6 col-sm-4 col-lg-3 col-xl-auto">
+        @php $input = "about_us" @endphp
+        <div class="form-group">
+            <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
+            <input wire:model="{{ $input }}" type="search" class="form-control" id="{{ $input }}" name="{{ $input }}" placeholder="{{ trans("validation.attributes.{$input}") }}">
+        </div>
+    </div>
+
+    <div class="col-6 col-sm-4 col-lg-3 col-xl-auto">
+        @php $input = "about_us_id" @endphp
+        <div class="form-group">
+            <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
+            <input wire:model="{{ $input }}" type="search" class="form-control" id="{{ $input }}" name="{{ $input }}" placeholder="{{ trans("validation.attributes.{$input}") }}">
+        </div>
+    </div>
+
+    <div class="col-6 col-sm-4 col-lg-3 col-xl-auto">
+        @php $input = "vision" @endphp
+        <div class="form-group">
+            <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
+            <input wire:model="{{ $input }}" type="search" class="form-control" id="{{ $input }}" name="{{ $input }}" placeholder="{{ trans("validation.attributes.{$input}") }}">
+        </div>
+    </div>
+
+    <div class="col-6 col-sm-4 col-lg-3 col-xl-auto">
+        @php $input = "vision_id" @endphp
+        <div class="form-group">
+            <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
+            <input wire:model="{{ $input }}" type="search" class="form-control" id="{{ $input }}" name="{{ $input }}" placeholder="{{ trans("validation.attributes.{$input}") }}">
+        </div>
+    </div>
+
+    <div class="col-6 col-sm-4 col-lg-3 col-xl-auto">
+        @php $input = "mission" @endphp
+        <div class="form-group">
+            <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
+            <input wire:model="{{ $input }}" type="search" class="form-control" id="{{ $input }}" name="{{ $input }}" placeholder="{{ trans("validation.attributes.{$input}") }}">
+        </div>
+    </div>
+
+    <div class="col-6 col-sm-4 col-lg-3 col-xl-auto">
+        @php $input = "mission_id" @endphp
+        <div class="form-group">
+            <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
+            <input wire:model="{{ $input }}" type="search" class="form-control" id="{{ $input }}" name="{{ $input }}" placeholder="{{ trans("validation.attributes.{$input}") }}">
+        </div>
+    </div>
+
+    <div class="col-6 col-sm-4 col-lg-3 col-xl-auto">
+        @php $input = "history" @endphp
+        <div class="form-group">
+            <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
+            <input wire:model="{{ $input }}" type="search" class="form-control" id="{{ $input }}" name="{{ $input }}" placeholder="{{ trans("validation.attributes.{$input}") }}">
+        </div>
+    </div>
+
+    <div class="col-6 col-sm-4 col-lg-3 col-xl-auto">
+        @php $input = "history_id" @endphp
         <div class="form-group">
             <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
             <input wire:model="{{ $input }}" type="search" class="form-control" id="{{ $input }}" name="{{ $input }}" placeholder="{{ trans("validation.attributes.{$input}") }}">

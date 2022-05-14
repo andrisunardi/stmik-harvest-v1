@@ -21,6 +21,14 @@ class SettingFactory extends Factory
             "address" => $this->faker->sentence(),
             "google_maps" => $this->faker->url(),
             "google_maps_iframe" => $this->faker->url(),
+            "about_us" => $this->faker->paragraph(),
+            "about_us_id" => $this->faker->paragraph(),
+            "vision" => $this->faker->paragraph(),
+            "vision_id" => $this->faker->paragraph(),
+            "mission" => $this->faker->paragraph(),
+            "mission_id" => $this->faker->paragraph(),
+            "history" => $this->faker->paragraph(),
+            "history_id" => $this->faker->paragraph(),
             "active" => $this->faker->boolean(),
         ];
     }

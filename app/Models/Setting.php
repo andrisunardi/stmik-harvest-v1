@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\URL;
 
 class Setting extends Model
@@ -39,6 +40,14 @@ class Setting extends Model
         "address",
         "google_maps",
         "google_maps_iframe",
+        "about_us",
+        "about_us_id",
+        "vision",
+        "vision_id",
+        "mission",
+        "mission_id",
+        "history",
+        "history_id",
         "active",
     ];
 
@@ -70,6 +79,26 @@ class Setting extends Model
     public function deleted_by_admin()
     {
         return $this->belongsTo(Admin::class, "deleted_by", "id")->withTrashed()->withDefault(null);
+    }
+
+    public function getTranslateAboutUsAttribute()
+    {
+        return Session::get("locale") == "en" ? $this->about_us : $this->about_us_id;
+    }
+
+    public function getTranslateVisionAttribute()
+    {
+        return Session::get("locale") == "en" ? $this->vision : $this->vision_id;
+    }
+
+    public function getTranslateMissionAttribute()
+    {
+        return Session::get("locale") == "en" ? $this->mission : $this->mission_id;
+    }
+
+    public function getTranslateHistoryAttribute()
+    {
+        return Session::get("locale") == "en" ? $this->history : $this->history_id;
     }
 
     public function getImageUrlAttribute()

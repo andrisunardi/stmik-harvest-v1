@@ -18,6 +18,14 @@ return new class extends Migration
             $table->string("address", 200)->nullable();
             $table->string("google_maps", 100)->nullable();
             $table->string("google_maps_iframe", 300)->nullable();
+            $table->text("about_us")->nullable();
+            $table->text("about_us_id")->nullable();
+            $table->text("vision")->nullable();
+            $table->text("vision_id")->nullable();
+            $table->text("mission")->nullable();
+            $table->text("mission_id")->nullable();
+            $table->text("history")->nullable();
+            $table->text("history_id")->nullable();
             $table->boolean("active")->nullable()->unsigned()->comment("1 = Yes, 0 = No")->default("1");
             $table->foreignId("created_by")->nullable()->unsigned();
             $table->foreignId("updated_by")->nullable()->unsigned();

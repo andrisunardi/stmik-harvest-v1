@@ -110,6 +110,166 @@
             </div>
         </div>
 
+        <div class="row">
+            @php $input = "about_us" @endphp
+            <div class="form-group col-sm-6">
+                <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
+                <div class="has-validation">
+                    <div wire:ignore wire:model.debounce.500ms="{{ $input }}">
+                        <trix-editor input="{{ $input }}"></trix-editor>
+                        <input type="text" wire:model="{{ $input }}" wire:keydown.enter="submit" id="{{ $input }}" name="{{ $input }}"
+                            class="form-control @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" minlength="1" maxlength="65535"
+                            placeholder="{{ trans("validation.attributes.{$input}") }}" aria-label="{{ trans("validation.attributes.{$input}") }}" aria-describedby="{{ trans("validation.attributes.{$input}") }}"
+                            autocomplete="off" autocapitalize="none" value="{{ $this->about_us ?? $setting->about_us ?? null }}" readonly>
+                        @error($input)
+                            <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
+                        @else
+                            <div class="valid-feedback rounded bg-success p-2 ms-0 mt-2 text-white">{{ trans("validation.Looks Good") }}</div>
+                        @enderror
+                    </div>
+                </div>
+            </div>
+
+            @php $input = "about_us_id" @endphp
+            <div class="form-group col-sm-6">
+                <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
+                <div class="has-validation">
+                    <div wire:ignore wire:model.debounce.500ms="{{ $input }}">
+                        <trix-editor input="{{ $input }}"></trix-editor>
+                        <input type="text" wire:model="{{ $input }}" wire:keydown.enter="submit" id="{{ $input }}" name="{{ $input }}"
+                            class="form-control @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" minlength="1" maxlength="65535"
+                            placeholder="{{ trans("validation.attributes.{$input}") }}" aria-label="{{ trans("validation.attributes.{$input}") }}" aria-describedby="{{ trans("validation.attributes.{$input}") }}"
+                            autocomplete="off" autocapitalize="none" value="{{ $this->about_us_id ?? $setting->about_us_id ?? null }}" readonly>
+                        @error($input)
+                            <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
+                        @else
+                            <div class="valid-feedback rounded bg-success p-2 ms-0 mt-2 text-white">{{ trans("validation.Looks Good") }}</div>
+                        @enderror
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            @php $input = "vision" @endphp
+            <div class="form-group col-sm-6">
+                <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
+                <div class="has-validation">
+                    <div wire:ignore wire:model.debounce.500ms="{{ $input }}">
+                        <trix-editor input="{{ $input }}"></trix-editor>
+                        <input type="text" wire:model="{{ $input }}" wire:keydown.enter="submit" id="{{ $input }}" name="{{ $input }}"
+                            class="form-control @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" minlength="1" maxlength="65535"
+                            placeholder="{{ trans("validation.attributes.{$input}") }}" aria-label="{{ trans("validation.attributes.{$input}") }}" aria-describedby="{{ trans("validation.attributes.{$input}") }}"
+                            autocomplete="off" autocapitalize="none" value="{{ $this->vision ?? $setting->vision ?? null }}" readonly>
+                        @error($input)
+                            <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
+                        @else
+                            <div class="valid-feedback rounded bg-success p-2 ms-0 mt-2 text-white">{{ trans("validation.Looks Good") }}</div>
+                        @enderror
+                    </div>
+                </div>
+            </div>
+
+            @php $input = "vision_id" @endphp
+            <div class="form-group col-sm-6">
+                <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
+                <div class="has-validation">
+                    <div wire:ignore wire:model.debounce.500ms="{{ $input }}">
+                        <trix-editor input="{{ $input }}"></trix-editor>
+                        <input type="text" wire:model="{{ $input }}" wire:keydown.enter="submit" id="{{ $input }}" name="{{ $input }}"
+                            class="form-control @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" minlength="1" maxlength="65535"
+                            placeholder="{{ trans("validation.attributes.{$input}") }}" aria-label="{{ trans("validation.attributes.{$input}") }}" aria-describedby="{{ trans("validation.attributes.{$input}") }}"
+                            autocomplete="off" autocapitalize="none" value="{{ $this->vision_id ?? $setting->vision_id ?? null }}" readonly>
+                        @error($input)
+                            <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
+                        @else
+                            <div class="valid-feedback rounded bg-success p-2 ms-0 mt-2 text-white">{{ trans("validation.Looks Good") }}</div>
+                        @enderror
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            @php $input = "mission" @endphp
+            <div class="form-group col-sm-6">
+                <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
+                <div class="has-validation">
+                    <div wire:ignore wire:model.debounce.500ms="{{ $input }}">
+                        <trix-editor input="{{ $input }}"></trix-editor>
+                        <input type="text" wire:model="{{ $input }}" wire:keydown.enter="submit" id="{{ $input }}" name="{{ $input }}"
+                            class="form-control @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" minlength="1" maxlength="65535"
+                            placeholder="{{ trans("validation.attributes.{$input}") }}" aria-label="{{ trans("validation.attributes.{$input}") }}" aria-describedby="{{ trans("validation.attributes.{$input}") }}"
+                            autocomplete="off" autocapitalize="none" value="{{ $this->mission ?? $setting->mission ?? null }}" readonly>
+                        @error($input)
+                            <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
+                        @else
+                            <div class="valid-feedback rounded bg-success p-2 ms-0 mt-2 text-white">{{ trans("validation.Looks Good") }}</div>
+                        @enderror
+                    </div>
+                </div>
+            </div>
+
+            @php $input = "mission_id" @endphp
+            <div class="form-group col-sm-6">
+                <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
+                <div class="has-validation">
+                    <div wire:ignore wire:model.debounce.500ms="{{ $input }}">
+                        <trix-editor input="{{ $input }}"></trix-editor>
+                        <input type="text" wire:model="{{ $input }}" wire:keydown.enter="submit" id="{{ $input }}" name="{{ $input }}"
+                            class="form-control @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" minlength="1" maxlength="65535"
+                            placeholder="{{ trans("validation.attributes.{$input}") }}" aria-label="{{ trans("validation.attributes.{$input}") }}" aria-describedby="{{ trans("validation.attributes.{$input}") }}"
+                            autocomplete="off" autocapitalize="none" value="{{ $this->mission_id ?? $setting->mission_id ?? null }}" readonly>
+                        @error($input)
+                            <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
+                        @else
+                            <div class="valid-feedback rounded bg-success p-2 ms-0 mt-2 text-white">{{ trans("validation.Looks Good") }}</div>
+                        @enderror
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            @php $input = "history" @endphp
+            <div class="form-group col-sm-6">
+                <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
+                <div class="has-validation">
+                    <div wire:ignore wire:model.debounce.500ms="{{ $input }}">
+                        <trix-editor input="{{ $input }}"></trix-editor>
+                        <input type="text" wire:model="{{ $input }}" wire:keydown.enter="submit" id="{{ $input }}" name="{{ $input }}"
+                            class="form-control @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" minlength="1" maxlength="65535"
+                            placeholder="{{ trans("validation.attributes.{$input}") }}" aria-label="{{ trans("validation.attributes.{$input}") }}" aria-describedby="{{ trans("validation.attributes.{$input}") }}"
+                            autocomplete="off" autocapitalize="none" value="{{ $this->history ?? $setting->history ?? null }}" readonly>
+                        @error($input)
+                            <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
+                        @else
+                            <div class="valid-feedback rounded bg-success p-2 ms-0 mt-2 text-white">{{ trans("validation.Looks Good") }}</div>
+                        @enderror
+                    </div>
+                </div>
+            </div>
+
+            @php $input = "history_id" @endphp
+            <div class="form-group col-sm-6">
+                <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
+                <div class="has-validation">
+                    <div wire:ignore wire:model.debounce.500ms="{{ $input }}">
+                        <trix-editor input="{{ $input }}"></trix-editor>
+                        <input type="text" wire:model="{{ $input }}" wire:keydown.enter="submit" id="{{ $input }}" name="{{ $input }}"
+                            class="form-control @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" minlength="1" maxlength="65535"
+                            placeholder="{{ trans("validation.attributes.{$input}") }}" aria-label="{{ trans("validation.attributes.{$input}") }}" aria-describedby="{{ trans("validation.attributes.{$input}") }}"
+                            autocomplete="off" autocapitalize="none" value="{{ $this->history_id ?? $setting->history_id ?? null }}" readonly>
+                        @error($input)
+                            <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
+                        @else
+                            <div class="valid-feedback rounded bg-success p-2 ms-0 mt-2 text-white">{{ trans("validation.Looks Good") }}</div>
+                        @enderror
+                    </div>
+                </div>
+            </div>
+        </div>
+
         @php $input = "active" @endphp
         <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }} <span class="text-danger">*</span></label>
         <div class="row mb-3">
