@@ -249,6 +249,12 @@ return [
         "whatsapp" => "Whatsapp",
         "year" => "Year",
         "youtube" => "Youtube",
+
+        "vision" => "Vision",
+        "mission" => "Mission",
+        "history" => "History",
+        "youtube" => "Youtube",
+        "youtube" => "Youtube",
     ],
 
     "values" => [

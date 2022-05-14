@@ -448,9 +448,10 @@ return [
 
     "About Us" => "About Us",
     "Back To Home" => "Back To Home",
-    "Data" => "Data",
-    "Data" => "Data",
-    "Data" => "Data",
+    "Welcome To" => "Welcome To",
+    "Our Vision" => "Our Vision",
+    "Our Mission" => "Our Mission",
+    "Our History" => "Our History",
     "Data" => "Data",
     "Data" => "Data",
     "Data" => "Data",

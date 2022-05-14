@@ -249,5 +249,9 @@ return [
         "whatsapp" => "Whatsapp",
         "year" => "Tahun",
         "youtube" => "Youtube",
+
+        "vision" => "Visi",
+        "mission" => "Misi",
+        "history" => "Sejarah",
     ],
 ];

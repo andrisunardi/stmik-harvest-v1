@@ -452,4 +452,8 @@ return [
 
     "About Us" => "Tentang Kami",
     "Back To Home" => "Kembali Ke Beranda",
+    "Welcome To" => "Selamat Datang",
+    "Our Vision" => "Visi Kami",
+    "Our Mission" => "Misi Kami",
+    "Our History" => "Sejarah Kami",
 ];

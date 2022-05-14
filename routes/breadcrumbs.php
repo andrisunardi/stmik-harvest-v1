@@ -22,6 +22,21 @@ Breadcrumbs::for("about.index", function (BreadcrumbTrail $trail) {
     $trail->push(trans("page.About"), route("about.index"));
 });
 
+Breadcrumbs::for("our-profile.index", function (BreadcrumbTrail $trail) {
+    $trail->parent("index");
+    $trail->push(trans("page.Our Profile"), route("our-profile.index"));
+});
+
+
+
+
+
+
+
+
+
+
+
 Breadcrumbs::for("lecturer.index", function (BreadcrumbTrail $trail) {
     $trail->parent("index");
     $trail->push(trans("page.Lecturer"), route("lecturer.index"));
