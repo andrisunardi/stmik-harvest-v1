@@ -10,25 +10,25 @@
 
                 @foreach ($data_value as $value)
                     <div class="col-lg-3 col-md-4">
-                        <div class="service text-center">
+                        <div class="service text-center {{ !$loop->first ? "service__color--{$loop->iteration}" : null }}">
                             <div class="service__icon">
-                                <i class="flaticon-student"></i>
+                                <i class="{{ $value->icon }}"></i>
                             </div>
                             <div class="service__details">
-                                <h2><a href="#">Future Technology</a></h2>
-                                <p>Mahasiswa akan mempelajari teknologi terdepan yang sangat dibutuhkan industri pada 5-10 tahun mendatang, seperti Cloud Computing, Mobile Technology, Big Data, Internet of Things, Business Intelligence, dll.</p>
+                                <h2><a draggable="false" href="javascript:;">{{ $value->translate_name }}</a></h2>
+                                <p>{!! html_entity_decode($value->translate_description) !!}</p>
                             </div>
                         </div>
                     </div>
                 @endforeach
 
-                <div class="col-lg-3 col-md-4">
+                {{-- <div class="col-lg-3 col-md-4">
                     <div class="service text-center">
                         <div class="service__icon">
                             <i class="flaticon-student"></i>
                         </div>
                         <div class="service__details">
-                            <h2><a href="#">Future Technology</a></h2>
+                            <h2><a draggable="false" href="javascript:;">Future Technology</a></h2>
                             <p>Mahasiswa akan mempelajari teknologi terdepan yang sangat dibutuhkan industri pada 5-10 tahun mendatang, seperti Cloud Computing, Mobile Technology, Big Data, Internet of Things, Business Intelligence, dll.</p>
                         </div>
                     </div>
@@ -40,7 +40,7 @@
                             <i class="flaticon-graduation-cap"></i>
                         </div>
                         <div class="service__details">
-                            <h2><a href="#">Future Technopreneur</a></h2>
+                            <h2><a draggable="false" href="javascript:;">Future Technopreneur</a></h2>
                             <p>Mahasiswa akan dibekali dengan pengetahuan dan skill untuk menjadi technopreneur atau pemimpin bisnis TI melalui Harvest Start-up Center.</p>
                         </div>
                     </div>
@@ -52,7 +52,7 @@
                             <i class="flaticon-classroom"></i>
                         </div>
                         <div class="service__details">
-                            <h2><a href="#">21st Century Skills</a></h2>
+                            <h2><a draggable="false" href="javascript:;">21st Century Skills</a></h2>
                             <p>Mahasiswa akan diperlengkapi dengan soft skills yang sangat diperlukan untuk berkarir, yaitu Communication, Collaboration, Critical Thinking, Creativity and Innovation Skills.</p>
                         </div>
                     </div>
@@ -64,11 +64,11 @@
                             <i class="flaticon-graduate-diploma"></i>
                         </div>
                         <div class="service__details">
-                            <h2><a href="#">International Enrichment Program</a></h2>
+                            <h2><a draggable="false" href="javascript:;">International Enrichment Program</a></h2>
                             <p>Bagi mahasiswa yang berprestasi, tersedia kesempatan magang di luar negeri seperti di Singapore, Australia, Korea Selatan dan Amerika Serikat.</p>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </section>
@@ -81,7 +81,7 @@
                         <div class="findout__inner">
                             <h2>Find out why students love <span>Educen Education!</span></h2>
                             <div class="findout__btn">
-                                <a class="htc__btn btn--yellow" href="#">FIND OUT MORE</a>
+                                <a class="htc__btn btn--yellow" href="javascript:;">FIND OUT MORE</a>
                             </div>
                         </div>
                     </div>
@@ -241,13 +241,13 @@
                 <div class="col-xl-4 col-md-6 mb-6">
                     <div class="team">
                         <div class="team__thumb">
-                            <a href="#">
+                            <a draggable="false" href="javascript:;">
                                 <img src="images/teacher/1.jpg" alt="team images">
                             </a>
                         </div>
                         <div class="team__details">
                             <div class="team__inner">
-                                <h4><a href="profile.html">Sam K. Burns</a></h4>
+                                <h4><a draggable="false" href="profile.html">Sam K. Burns</a></h4>
                                 <h6>PROFESSOR</h6>
                             </div>
                             <div class="team__hover__info">
@@ -266,13 +266,13 @@
                 <div class="col-xl-4 col-md-6 mb-6">
                     <div class="team">
                         <div class="team__thumb">
-                            <a href="#">
+                            <a draggable="false" href="javascript:;">
                                 <img src="images/teacher/2.jpg" alt="team images">
                             </a>
                         </div>
                         <div class="team__details">
                             <div class="team__inner">
-                                <h4><a href="profile.html">Sam K. Burns</a></h4>
+                                <h4><a draggable="false" href="profile.html">Sam K. Burns</a></h4>
                                 <h6>PROFESSOR</h6>
                             </div>
                             <div class="team__hover__info">
@@ -291,13 +291,13 @@
                 <div class="col-xl-4 col-md-6 mb-6">
                     <div class="team">
                         <div class="team__thumb">
-                            <a href="#">
+                            <a draggable="false" href="javascript:;">
                                 <img src="images/teacher/3.jpg" alt="team images">
                             </a>
                         </div>
                         <div class="team__details">
                             <div class="team__inner">
-                                <h4><a href="profile.html">Sam K. Burns</a></h4>
+                                <h4><a draggable="false" href="profile.html">Sam K. Burns</a></h4>
                                 <h6>PROFESSOR</h6>
                             </div>
                             <div class="team__hover__info">

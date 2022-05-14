@@ -34,9 +34,11 @@ use App\Models\FaqCategory;
 
 use App\Models\Gallery;
 use App\Models\Magazine;
+use App\Models\Network;
 use App\Models\Banner;
 use App\Models\Slider;
 use App\Models\Testimony;
+use App\Models\Value;
 
 use App\Models\Admin;
 use App\Models\Access;
@@ -164,6 +166,9 @@ class Component extends LivewireComponent
         $this->total_magazine = Magazine::cursor()->count();
         View::share("total_magazine", $this->total_magazine);
 
+        $this->total_news = News::cursor()->count();
+        View::share("total_news", $this->total_news);
+
         $this->total_banner = Banner::cursor()->count();
         View::share("total_banner", $this->total_banner);
 
@@ -172,6 +177,9 @@ class Component extends LivewireComponent
 
         $this->total_testimony = Testimony::cursor()->count();
         View::share("total_testimony", $this->total_testimony);
+
+        $this->total_value = Value::cursor()->count();
+        View::share("total_value", $this->total_value);
 
         $this->total_admin = Admin::cursor()->count();
         View::share("total_admin", $this->total_admin);
