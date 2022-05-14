@@ -210,6 +210,12 @@ return new class extends Migration
             $table->foreign("updated_by")->references("id")->on("admin")->constrained()->nullable()->onUpdate("cascade")->onDelete("cascade");
             $table->foreign("deleted_by")->references("id")->on("admin")->constrained()->nullable()->onUpdate("cascade")->onDelete("cascade");
         });
+
+        Schema::table("value", function (Blueprint $table) {
+            $table->foreign("created_by")->references("id")->on("admin")->constrained()->nullable()->onUpdate("cascade")->onDelete("cascade");
+            $table->foreign("updated_by")->references("id")->on("admin")->constrained()->nullable()->onUpdate("cascade")->onDelete("cascade");
+            $table->foreign("deleted_by")->references("id")->on("admin")->constrained()->nullable()->onUpdate("cascade")->onDelete("cascade");
+        });
     }
 
     public function down()
@@ -407,6 +413,12 @@ return new class extends Migration
             });
 
             Schema::table("user", function (Blueprint $table) {
+                $table->dropConstrainedForeignId("created_by");
+                $table->dropConstrainedForeignId("updated_by");
+                $table->dropConstrainedForeignId("deleted_by");
+            });
+
+            Schema::table("value", function (Blueprint $table) {
                 $table->dropConstrainedForeignId("created_by");
                 $table->dropConstrainedForeignId("updated_by");
                 $table->dropConstrainedForeignId("deleted_by");

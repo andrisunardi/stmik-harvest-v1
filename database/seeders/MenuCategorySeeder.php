@@ -271,6 +271,14 @@ class MenuCategorySeeder extends Seeder
             $data->icon = "bi bi-chat-text";
             $data->sort = $sort++;
             $data->save();
+
+            $data = new Menu();
+            $data->menu_category_id = $menu_category->id;
+            $data->name = "Value";
+            $data->name_id = "Nilai";
+            $data->icon = "bi bi-star";
+            $data->sort = $sort++;
+            $data->save();
         // WEBSITE
 
         // CONFIGURATION

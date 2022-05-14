@@ -40,6 +40,7 @@ use App\Models\StudyProgram;
 use App\Models\StudyProgramCategory;
 use App\Models\Testimony;
 use App\Models\User;
+use App\Models\Value;
 
 use App\Observers\AccessObserver;
 use App\Observers\AccessMenuObserver;
@@ -71,6 +72,7 @@ use App\Observers\StudyProgramObserver;
 use App\Observers\StudyProgramCategoryObserver;
 use App\Observers\TestimonyObserver;
 use App\Observers\UserObserver;
+use App\Observers\ValueObserver;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -215,6 +217,7 @@ class AppServiceProvider extends ServiceProvider
         StudyProgramCategory::observe(StudyProgramCategoryObserver::class);
         Testimony::observe(TestimonyObserver::class);
         User::observe(UserObserver::class);
+        Value::observe(ValueObserver::class);
 
         Schema::defaultStringLength(191);
 

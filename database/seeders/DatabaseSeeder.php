@@ -55,6 +55,7 @@ class DatabaseSeeder extends Seeder
             BannerSeeder::class,
             SliderSeeder::class,
             TestimonySeeder::class,
+            ValueSeeder::class,
         ]);
 
         Schema::enableForeignKeyConstraints();
