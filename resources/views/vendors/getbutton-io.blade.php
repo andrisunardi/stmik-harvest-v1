@@ -2,18 +2,18 @@
     <script type="text/javascript">
         (function () {
             var options = {
-                whatsapp: "62{{ Str::substr(Str::slug(env("CONTACT_WHATSAPP"), ""), 1) }}",
+                whatsapp: "{{ Str::phone(env("CONTACT_WHATSAPP")) }}",
                 facebook: "{{ env("FACEBOOK_PAGE") }}",
                 instagram: "{{ env("SOCIAL_MEDIA_INSTAGRAM") }}",
                 email: "{{ env("CONTACT_EMAIL") }}",
-                call: "62{{ Str::substr(Str::slug(env("CONTACT_PHONE"), ""), 1) }}",
-                sms: "62{{ Str::substr(Str::slug(env("CONTACT_PHONE"), ""), 1) }}",
+                call: "{{ Str::phone(env("CONTACT_PHONE")) }}",
+                sms: "{{ Str::phone(env("CONTACT_PHONE")) }}",
                 link: "{{ env("APP_URL") }}",
                 greeting_message: "{{ trans("general.Welcome to") }} {{ env("APP_TITLE") }}",
                 disable_branding: "yes",
                 company_logo_url: "{{ env("APP_URL") }}/images/favicon.png",
                 call_to_action: "{{ trans("message.Contact Us If You Have Any Questions") }}",
-                button_color: "#{{ env("APP_COLOR") }}",
+                button_color: "#80BD00",
                 position: "left",
                 order: "whatsapp,instagram"
             };

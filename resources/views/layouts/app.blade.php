@@ -35,7 +35,7 @@
 
     @include("vendors.facebook-page")
 
-    {{-- @include("vendors.font-awesome") --}}
+    @include("vendors.font-awesome")
 
     {{-- @include("vendors.froala") --}}
 
@@ -400,7 +400,7 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-1 col-md-2 offset-lg-1 mb-7">
+                    <div class="col-lg-2 col-md-2 offset-lg-1 mb-7">
                         <div class="footer">
                             <div class="footer__widget">
                                 <h2 class="footer__title">{{ trans("general.Working Hours") }}</h2>
@@ -411,12 +411,61 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-2 col-md-3 offset-lg-2 mb-7">
+                    <div class="col-lg-3 col-md-3 offset-lg-1- mb-7">
                         <div class="footer">
                             <div class="footer__widget">
                                 <h2 class="footer__title">{{ trans("general.Contact Information") }}</h2>
                                 <ul class="htc__ft__list">
-                                    <li><a draggable="false" href="#">Whatsapp 087871113361</a></li>
+                                    <li>
+                                        <a draggable="false" href="https://api.whatsapp.com/send?phone={{ Str::phone(env("CONTACT_WHATSAPP")) }}&text={{ trans("general.Hello, I know this number from the website") }} {{ env("APP_DOMAIN") }}" target="_blank">
+                                            <i class="icon ion-social-whatsapp me-1"></i>
+                                            <strong>{{ trans("validation.attributes.whatsapp") }} :</strong>
+                                            {{ env("CONTACT_WHATSAPP") }}
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a draggable="false" href="https://line.me/ti/p/~{{ env("CONTACT_LINE") }}" target="_blank">
+                                            <i class="fab fa-line me-1"></i>
+                                            <strong>{{ trans("validation.attributes.line") }} :</strong>
+                                            {{ env("CONTACT_LINE") }}
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a draggable="false" href="http://www.pin.bbm.com/{{ env("CONTACT_BBM") }}" target="_blank">
+                                            <i class="fab fa-blackberry me-1"></i>
+                                            <strong>{{ trans("validation.attributes.bbm") }} :</strong>
+                                            {{ env("CONTACT_BBM") }}
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a draggable="false" href="tel:+{{ Str::phone(env("CONTACT_PHONE")) }}">
+                                            <i class="icon ion-android-call me-1"></i>
+                                            <strong>{{ trans("validation.attributes.phone") }} :</strong>
+                                            {{ env("CONTACT_PHONE") }}
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a draggable="false" href="sms:+{{ Str::phone(env("CONTACT_PHONE")) }}">
+                                            <i class="fas fa-sms me-1"></i>
+                                            <strong>{{ trans("validation.attributes.sms") }} :</strong>
+                                            {{ env("CONTACT_PHONE") }}
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a draggable="false" href="mailto:{{ env("CONTACT_EMAIL") }}">
+                                            <i class="icon ion-android-mail me-1"></i>
+                                            <strong>{{ trans("validation.attributes.email") }} :</strong>
+                                            <span class="text-lowercase">{{ env("CONTACT_EMAIL") }}</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a draggable="false" href="{{ env("CONTACT_GOOGLE_MAPS") }}" target="_blank" class="lh-base">
+                                            <i class="icon ion-ios-location me-1"></i>
+                                            <strong>{{ trans("validation.attributes.address") }} :</strong>
+                                            <strong>World Harvest Center</strong><br>
+                                            <div class="ms-3">{{ env("CONTACT_ADDRESS") }}</div>
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -424,17 +473,25 @@
                 </div>
             </div>
 
-            <div class="htc__copyright__area">
+            <div class="htc__copyright__area pb--70">
                 <div class="row">
                     <div class="col-12">
                         <div class="copyright__inner">
                             <div class="copyright">
-                                <p>© 2022  Educan. Made with <i class="fa fa-heart"></i> By <a target="_blank" href="https://hasthemes.com/">HasThemes</a></p>
+                                <p>
+                                    &copy; {{ __("footer.Copyright") }} @if(env("APP_YEAR") && env("APP_YEAR") != date("Y")) {{ env("APP_YEAR") . " - " }} @endif {{ date("Y") }} &reg;&nbsp;
+                                    <a draggable="false" href="{{ URL::to("/") }}" target="_blank">
+                                        <strong>{{ env("APP_NAME") }}</strong>
+                                    </a> &trade;
+                                </p>
                             </div>
                             <ul class="footer__menu">
-                                <li><a draggable="false" href="index.html">Home</a></li>
-                                <li><a draggable="false" href="#">Help</a></li>
-                                <li><a draggable="false" href="#">Sitemap</a></li>
+                                <li>
+                                    <span class="text-white">{{ __("footer.Created and Designed by") }}</span>
+                                    <a draggable="false" href="https://www.diw.co.id" target="_blank">
+                                        <img draggable="false" src="{{ asset("images/icon-diw.co.id.png") }}" alt="Icon DIW.co.id" title="{{ __("footer.Created and Designed by") }} DIW.co.id">
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>

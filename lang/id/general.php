@@ -65,7 +65,7 @@ return [
     "Email" => "Email",
     "Address" => "Alamat",
     "Quick Links" => "Tautan Langsung",
-    "Contact Information" => "Kontak Informasi",
+    "Contact Information" => "Informasi Kontak",
     "Photo" => "Foto",
     "Child" => "Anak",
     "Value" => "Nilai",

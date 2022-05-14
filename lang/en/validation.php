@@ -144,6 +144,9 @@ return [
 
         "confirm_reset" => "Confirm Reset",
 
+        "line" => "Line",
+        "bbm" => "BBM",
+
         "abstract" => "Abstract",
         "access" => "Access",
         "active" => "Active",

@@ -144,6 +144,9 @@ return [
 
         "confirm_reset" => "Konfirmasi Reset",
 
+        "line" => "Line",
+        "bbm" => "BBM",
+
         "abstract" => "Abstrak",
         "access" => "Akses",
         "active" => "Aktif",
