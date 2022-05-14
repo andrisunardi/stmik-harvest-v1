@@ -146,6 +146,7 @@ return [
 
         "line" => "Line",
         "bbm" => "BBM",
+        "google" => "Google",
 
         "abstract" => "Abstrak",
         "access" => "Akses",

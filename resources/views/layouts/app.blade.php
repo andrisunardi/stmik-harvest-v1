@@ -223,7 +223,7 @@
                                         <li><a draggable="false" href="shop-details.html">shop details</a></li>
                                     </ul>
                                 </li>
-                                <li><a draggable="false" href="contact.html">Contact</a></li>
+                                <li><a draggable="false" href="{{ route("contact-us.index") }}">{{ trans("page.Contact Us") }}</a></li>
                             </ul>
                             <!-- Start Cart Search -->
                         <div class="cart__search">
@@ -309,7 +309,7 @@
                                     <li><a draggable="false" href="shop-details.html">shop details</a></li>
                                 </ul>
                             </li>
-                            <li><a draggable="false" href="contact.html">contact us</a></li>
+                            <li><a draggable="false" href="{{ route("contact-us.index") }}">{{ trans("page.Contact Us") }}</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -335,31 +335,31 @@
                                 <li>
                                     <a draggable="false" href="https://www.facebook.com/{{ env("SOCIAL_MEDIA_FACEBOOK") }}" target="blank">
                                         <i class="icon ion-social-facebook"></i>
-                                        Facebook : {{ env("SOCIAL_MEDIA_FACEBOOK") }}
+                                        {{ trans("validation.attributes.facebook") }} : {{ env("SOCIAL_MEDIA_FACEBOOK") }}
                                     </a>
                                 </li>
                                 <li>
                                     <a draggable="false" href="https://www.twitter.com/{{ env("SOCIAL_MEDIA_TWITTER") }}" target="blank">
                                         <i class="icon ion-social-twitter"></i>
-                                        Twitter : {{ env("SOCIAL_MEDIA_TWITTER") }}
+                                        {{ trans("validation.attributes.twitter") }} : {{ env("SOCIAL_MEDIA_TWITTER") }}
                                     </a>
                                 </li>
                                 <li>
                                     <a draggable="false" href="https://www.instagram.com/{{ env("SOCIAL_MEDIA_INSTAGRAM") }}" target="blank">
                                         <i class="icon ion-social-instagram"></i>
-                                        Instagram : {{ env("SOCIAL_MEDIA_INSTAGRAM") }}
+                                        {{ trans("validation.attributes.instagram") }} : {{ env("SOCIAL_MEDIA_INSTAGRAM") }}
                                     </a>
                                 </li>
                                 <li>
                                     <a draggable="false" href="https://www.g.page/{{ env("SOCIAL_MEDIA_GOOGLE") }}" target="blank">
                                         <i class="icon ion-social-google"></i>
-                                        Google : {{ env("SOCIAL_MEDIA_GOOGLE") }}
+                                        {{ trans("validation.attributes.google") }} : {{ env("SOCIAL_MEDIA_GOOGLE") }}
                                     </a>
                                 </li>
                                 <li>
                                     <a draggable="false" href="https://www.youtube.com/{{ env("SOCIAL_MEDIA_YOUTUBE") }}" target="blank">
                                         <i class="icon ion-social-youtube"></i>
-                                        Youtube : STMIK Harvest
+                                        {{ trans("validation.attributes.youtube") }} : STMIK Harvest
                                     </a>
                                 </li>
                             </ul>
