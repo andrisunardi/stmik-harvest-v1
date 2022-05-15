@@ -452,8 +452,11 @@ return [
     "Our Vision" => "Our Vision",
     "Our Mission" => "Our Mission",
     "Our History" => "Our History",
-    "Data" => "Data",
-    "Data" => "Data",
+
+    "Our Social Media" => "Our Social Media",
+    "Social Media Contact" => "Social Media Contact",
+    "Follow and Subscribe Our Social Media to get our latest news" => "Follow and Subscribe Our Social Media to get our latest news",
+
     "Data" => "Data",
     "Data" => "Data",
     "Data" => "Data",

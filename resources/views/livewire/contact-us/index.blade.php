@@ -66,7 +66,7 @@
                                     <i class="icon ion-ios-location"></i>
                                     <span>{{ trans("validation.attributes.address") }}</span>
                                 </div>
-                                <p><a draggable="false" href="{{ env("CONTACT_GOOGLE_MAPS") }}" target="_blank">{{ env("CONTACT_ADDRESS") }} </a></p>
+                                <p><a draggable="false" href="{{ env("CONTACT_GOOGLE_MAPS") }}" target="_blank"> <strong>World Harvest Center</strong><br>{{ env("CONTACT_ADDRESS") }} </a></p>
                             </div>
                         </div>
                     </div>
@@ -183,11 +183,13 @@
                     <div class="contact__wrap">
                         <div class="htc__contact__inner">
 
+                            <h2 class="contact__title">{{ trans("general.Social Media Contact") }}</h2>
+                            <p>{{ trans("general.Follow and Subscribe Our Social Media to get our latest news") }}</p>
                             <div class="contact__address">
                                 <div class="cont__icon">
                                     <i class="fab fa-facebook"></i>
                                     <span>{{ trans("validation.attributes.facebook") }} :</span>
-                                    <a draggable="false" href="https://www.facebook.com/{{ env("SOCIAL_MEDIA_FACEBOOK") }}" target="_blank">{{ env("SOCIAL_MEDIA_FACEBOOK") }}</a>
+                                    <a draggable="false" class="text-dark" href="https://www.facebook.com/{{ env("SOCIAL_MEDIA_FACEBOOK") }}" target="_blank">{{ env("SOCIAL_MEDIA_FACEBOOK") }}</a>
                                 </div>
                             </div>
 
@@ -195,7 +197,7 @@
                                 <div class="cont__icon">
                                     <i class="fab fa-twitter"></i>
                                     <span>{{ trans("validation.attributes.twitter") }} :</span>
-                                    <a draggable="false" href="https://www.twitter.com/{{ env("SOCIAL_MEDIA_TWITTER") }}" target="_blank">{{ env("SOCIAL_MEDIA_TWITTER") }}</a>
+                                    <a draggable="false" class="text-dark" href="https://www.twitter.com/{{ env("SOCIAL_MEDIA_TWITTER") }}" target="_blank">{{ env("SOCIAL_MEDIA_TWITTER") }}</a>
                                 </div>
                             </div>
 
@@ -203,7 +205,7 @@
                                 <div class="cont__icon">
                                     <i class="fab fa-instagram"></i>
                                     <span>{{ trans("validation.attributes.instagram") }} :</span>
-                                    <a draggable="false" href="https://www.instagram.com/{{ env("SOCIAL_MEDIA_INSTAGRAM") }}" target="_blank">{{ env("SOCIAL_MEDIA_INSTAGRAM") }}</a>
+                                    <a draggable="false" class="text-dark" href="https://www.instagram.com/{{ env("SOCIAL_MEDIA_INSTAGRAM") }}" target="_blank">{{ env("SOCIAL_MEDIA_INSTAGRAM") }}</a>
                                 </div>
                             </div>
 
@@ -211,7 +213,7 @@
                                 <div class="cont__icon">
                                     <i class="fab fa-google"></i>
                                     <span>{{ trans("validation.attributes.google") }} :</span>
-                                    <a draggable="false" href="https://www.g.page/{{ env("SOCIAL_MEDIA_GOOGLE") }}" target="_blank">{{ env("SOCIAL_MEDIA_GOOGLE") }}</a>
+                                    <a draggable="false" class="text-dark" href="https://www.g.page/{{ env("SOCIAL_MEDIA_GOOGLE") }}" target="_blank">{{ env("SOCIAL_MEDIA_GOOGLE") }}</a>
                                 </div>
                             </div>
 
@@ -219,7 +221,7 @@
                                 <div class="cont__icon">
                                     <i class="fab fa-youtube"></i>
                                     <span>{{ trans("validation.attributes.youtube") }} :</span>
-                                    <a draggable="false" href="https://www.youtube.com/{{ env("SOCIAL_MEDIA_YOUTUBE") }}" target="_blank">{{ env("SOCIAL_MEDIA_YOUTUBE") }}</a>
+                                    <a draggable="false" class="text-dark" href="https://www.youtube.com/{{ env("SOCIAL_MEDIA_YOUTUBE") }}" target="_blank">STMIK Harvest</a>
                                 </div>
                             </div>
 

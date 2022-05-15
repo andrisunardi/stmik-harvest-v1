@@ -456,4 +456,8 @@ return [
     "Our Vision" => "Visi Kami",
     "Our Mission" => "Misi Kami",
     "Our History" => "Sejarah Kami",
+
+    "Our Social Media" => "Sosial Media Kami",
+    "Social Media Contact" => "Kontak Sosial Media",
+    "Follow and Subscribe Our Social Media to get our latest news" => "Ikuti dan Berlangganan Sosial Media Kami untuk mendapatkan berita terbaru kami",
 ];
