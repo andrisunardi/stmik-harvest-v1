@@ -460,4 +460,8 @@ return [
     "Our Social Media" => "Sosial Media Kami",
     "Social Media Contact" => "Kontak Sosial Media",
     "Follow and Subscribe Our Social Media to get our latest news" => "Ikuti dan Berlangganan Sosial Media Kami untuk mendapatkan berita terbaru kami",
+
+    "The following is the new student registration procedure" => "Berikut ini adalah prosedur pendaftaran mahasiswa baru",
+    "Ready to Join ?" => "Siap untuk Bergabung ?",
+    "It easy now to you for being our part, just click the button below and fill out the form with your data." => "Sekarang mudah bagi Anda untuk menjadi bagian kami, cukup klik tombol di bawah ini dan isi formulir dengan data Anda.",
 ];

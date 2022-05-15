@@ -50,10 +50,11 @@ class DatabaseSeeder extends Seeder
             FaqCategorySeeder::class,
             FaqSeeder::class,
 
+            BannerSeeder::class,
             GallerySeeder::class,
             MagazineSeeder::class,
             NetworkSeeder::class,
-            BannerSeeder::class,
+            ProcedureSeeder::class,
             SliderSeeder::class,
             TestimonySeeder::class,
             ValueSeeder::class,

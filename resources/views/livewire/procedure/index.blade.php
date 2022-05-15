@@ -6,28 +6,21 @@
 <div>
     <section class="our__about__area bg__white pb--80 pt--100">
         <div class="container">
-            <div class="row about__wrapper">
-                <div class="about">
-                    <div class="section__title text-left">
-                        <h2 class="title__line">{{ trans("general.Welcome To") }} Yayasan STMIK Harvest</h2>
-                        <p>College for Future Technopreneur</p>
+            <div class="section__title text-center">
+                <h2 class="title__line">{{ trans("page.Procedure") }}</h2>
+                <p>{{ trans("general.The following is the new student registration procedure") }}</p>
+            </div>
+            <div class="accordion mt-5" id="accordion-procedure">
+                @foreach ($data_procedure as $procedure)
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                            <button class="accordion-button {{ $loop->first ? null : "collapsed" }}" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse-{{ $loop->iteration }}" aria-expanded="{{ $loop->first ? "true" : "false" }}" aria-controls="panelsStayOpen-collapse-{{ $loop->iteration }}">{{ $procedure->translate_name }}</button>
+                        </h2>
+                        <div id="panelsStayOpen-collapse-{{ $loop->iteration }}" class="accordion-collapse collapse {{ $loop->first ? "show" : null }}" aria-labelledby="panelsStayOpen-headingOne">
+                            <div class="accordion-body">{!! html_entity_decode($procedure->translate_description) !!}</div>
+                        </div>
                     </div>
-                </div>
-                <div class="col-12">
-                    <div class="about">
-                        <p class="about__details">
-                            {!! html_entity_decode($setting->translate_about_us) !!}
-                        </p>
-                        <p class="about__details">
-                            <h3 class="text-uppercase mb-2">{{ trans("general.Our Vision") }}</h3>
-                            {!! html_entity_decode($setting->translate_vision) !!}
-                        </p>
-                        <p class="about__details">
-                            <h3 class="text-uppercase mb-2">{{ trans("general.Our Mission") }}</h3>
-                            {!! html_entity_decode($setting->translate_mission) !!}
-                        </p>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -36,11 +29,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <div class="findout__wrap">
+                    <div class="findout__wrap my-5 my-sm-auto">
                         <div class="findout__inner">
-                            <h2>Find out why students love <span>Educen Education!</span></h2>
+                            <h2>
+                                <span>{{ trans("general.Ready to Join ?") }}</span>
+                                {{ trans("general.It easy now to you for being our part, just click the button below and fill out the form with your data.") }}
+                            </h2>
                             <div class="findout__btn">
-                                <a class="htc__btn btn--yellow" href="javascript:;">FIND OUT MORE</a>
+                                <a draggable="false" class="htc__btn btn--yellow" href="{{ route("online-registration.index") }}">{{ trans("general.Register") }}</a>
                             </div>
                         </div>
                     </div>

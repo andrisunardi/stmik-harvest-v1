@@ -457,8 +457,9 @@ return [
     "Social Media Contact" => "Social Media Contact",
     "Follow and Subscribe Our Social Media to get our latest news" => "Follow and Subscribe Our Social Media to get our latest news",
 
-    "Data" => "Data",
-    "Data" => "Data",
+    "The following is the new student registration procedure" => "The following is the new student registration procedure",
+    "Ready to Join ?" => "Ready to Join ?",
+    "It easy now to you for being our part, just click the button below and fill out the form with your data." => "It easy now to you for being our part, just click the button below and fill out the form with your data.",
     "Data" => "Data",
     "Data" => "Data",
     "Data" => "Data",
