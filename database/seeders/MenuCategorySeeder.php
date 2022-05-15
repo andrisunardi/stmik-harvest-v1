@@ -234,6 +234,14 @@ class MenuCategorySeeder extends Seeder
 
             $data = new Menu();
             $data->menu_category_id = $menu_category->id;
+            $data->name = "Banner";
+            $data->name_id = "Sampul";
+            $data->icon = "bi bi-window";
+            $data->sort = $sort++;
+            $data->save();
+
+            $data = new Menu();
+            $data->menu_category_id = $menu_category->id;
             $data->name = "Gallery";
             $data->name_id = "Galeri";
             $data->icon = "bi bi-image";
@@ -258,9 +266,9 @@ class MenuCategorySeeder extends Seeder
 
             $data = new Menu();
             $data->menu_category_id = $menu_category->id;
-            $data->name = "Banner";
-            $data->name_id = "Sampul";
-            $data->icon = "bi bi-window";
+            $data->name = "Procedure";
+            $data->name_id = "Prosedur";
+            $data->icon = "bi bi-legal";
             $data->sort = $sort++;
             $data->save();
 

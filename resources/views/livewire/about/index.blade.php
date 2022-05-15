@@ -140,7 +140,8 @@
                     <div class="section__title text-center">
                         <h2 class="title__line">{{ trans("page.Our Network") }}</h2>
                         <p>
-                            STMIK HARVEST bekerjasama dengan beberapa perguruan tinggi di luar negeri.<br>Beberapa agenda kerjasama antara lain program pengembangan dosen dan kurikulum, serta program pertukaran mahasiswa.
+                            STMIK HARVEST bekerjasama dengan beberapa perguruan tinggi di luar negeri.<br>
+                            Beberapa agenda kerjasama antara lain program pengembangan dosen dan kurikulum, serta program pertukaran mahasiswa.
                         </p>
                     </div>
                 </div>

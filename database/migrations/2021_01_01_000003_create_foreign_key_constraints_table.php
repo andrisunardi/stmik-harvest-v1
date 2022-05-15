@@ -29,6 +29,12 @@ return new class extends Migration
             $table->foreign("deleted_by")->references("id")->on("admin")->constrained()->nullable()->onUpdate("cascade")->onDelete("cascade");
         });
 
+        Schema::table("banner", function (Blueprint $table) {
+            $table->foreign("created_by")->references("id")->on("admin")->constrained()->nullable()->onUpdate("cascade")->onDelete("cascade");
+            $table->foreign("updated_by")->references("id")->on("admin")->constrained()->nullable()->onUpdate("cascade")->onDelete("cascade");
+            $table->foreign("deleted_by")->references("id")->on("admin")->constrained()->nullable()->onUpdate("cascade")->onDelete("cascade");
+        });
+
         Schema::table("contact", function (Blueprint $table) {
             $table->foreign("created_by")->references("id")->on("admin")->constrained()->nullable()->onUpdate("cascade")->onDelete("cascade");
             $table->foreign("updated_by")->references("id")->on("admin")->constrained()->nullable()->onUpdate("cascade")->onDelete("cascade");
@@ -142,38 +148,7 @@ return new class extends Migration
             $table->foreign("deleted_by")->references("id")->on("admin")->constrained()->nullable()->onUpdate("cascade")->onDelete("cascade");
         });
 
-        Schema::table("banner", function (Blueprint $table) {
-            $table->foreign("created_by")->references("id")->on("admin")->constrained()->nullable()->onUpdate("cascade")->onDelete("cascade");
-            $table->foreign("updated_by")->references("id")->on("admin")->constrained()->nullable()->onUpdate("cascade")->onDelete("cascade");
-            $table->foreign("deleted_by")->references("id")->on("admin")->constrained()->nullable()->onUpdate("cascade")->onDelete("cascade");
-        });
-
-        Schema::table("repository", function (Blueprint $table) {
-            $table->foreign("repository_subject_id")->references("id")->on("repository_subject")->constrained()->nullable()->onUpdate("cascade")->onDelete("cascade");
-            $table->foreign("study_program_id")->references("id")->on("study_program")->constrained()->nullable()->onUpdate("cascade")->onDelete("cascade");
-            $table->foreign("user_id")->references("id")->on("user")->constrained()->nullable()->onUpdate("cascade")->onDelete("cascade");
-            $table->foreign("created_by")->references("id")->on("admin")->constrained()->nullable()->onUpdate("cascade")->onDelete("cascade");
-            $table->foreign("updated_by")->references("id")->on("admin")->constrained()->nullable()->onUpdate("cascade")->onDelete("cascade");
-            $table->foreign("deleted_by")->references("id")->on("admin")->constrained()->nullable()->onUpdate("cascade")->onDelete("cascade");
-        });
-
-        Schema::table("repository_contributor", function (Blueprint $table) {
-            $table->foreign("repository_id")->references("id")->on("repository")->constrained()->nullable()->onUpdate("cascade")->onDelete("cascade");
-            $table->foreign("lecturer_id")->references("id")->on("lecturer")->constrained()->nullable()->onUpdate("cascade")->onDelete("cascade");
-            $table->foreign("created_by")->references("id")->on("admin")->constrained()->nullable()->onUpdate("cascade")->onDelete("cascade");
-            $table->foreign("updated_by")->references("id")->on("admin")->constrained()->nullable()->onUpdate("cascade")->onDelete("cascade");
-            $table->foreign("deleted_by")->references("id")->on("admin")->constrained()->nullable()->onUpdate("cascade")->onDelete("cascade");
-        });
-
-        Schema::table("repository_file", function (Blueprint $table) {
-            $table->foreign("repository_id")->references("id")->on("repository")->constrained()->nullable()->onUpdate("cascade")->onDelete("cascade");
-            $table->foreign("created_by")->references("id")->on("admin")->constrained()->nullable()->onUpdate("cascade")->onDelete("cascade");
-            $table->foreign("updated_by")->references("id")->on("admin")->constrained()->nullable()->onUpdate("cascade")->onDelete("cascade");
-            $table->foreign("deleted_by")->references("id")->on("admin")->constrained()->nullable()->onUpdate("cascade")->onDelete("cascade");
-        });
-
-        Schema::table("repository_subject", function (Blueprint $table) {
-            $table->foreign("repository_subject_id")->references("id")->on("repository_subject")->constrained()->nullable()->onUpdate("cascade")->onDelete("cascade");
+        Schema::table("procedure", function (Blueprint $table) {
             $table->foreign("created_by")->references("id")->on("admin")->constrained()->nullable()->onUpdate("cascade")->onDelete("cascade");
             $table->foreign("updated_by")->references("id")->on("admin")->constrained()->nullable()->onUpdate("cascade")->onDelete("cascade");
             $table->foreign("deleted_by")->references("id")->on("admin")->constrained()->nullable()->onUpdate("cascade")->onDelete("cascade");
@@ -243,6 +218,12 @@ return new class extends Migration
 
             Schema::table("admin", function (Blueprint $table) {
                 $table->dropConstrainedForeignId("access_id");
+                $table->dropConstrainedForeignId("created_by");
+                $table->dropConstrainedForeignId("updated_by");
+                $table->dropConstrainedForeignId("deleted_by");
+            });
+
+            Schema::table("banner", function (Blueprint $table) {
                 $table->dropConstrainedForeignId("created_by");
                 $table->dropConstrainedForeignId("updated_by");
                 $table->dropConstrainedForeignId("deleted_by");
@@ -355,38 +336,7 @@ return new class extends Migration
                 $table->dropConstrainedForeignId("deleted_by");
             });
 
-            Schema::table("banner", function (Blueprint $table) {
-                $table->dropConstrainedForeignId("created_by");
-                $table->dropConstrainedForeignId("updated_by");
-                $table->dropConstrainedForeignId("deleted_by");
-            });
-
-            Schema::table("repository", function (Blueprint $table) {
-                $table->dropConstrainedForeignId("repository_subject_id");
-                $table->dropConstrainedForeignId("study_program_id");
-                $table->dropConstrainedForeignId("user_id");
-                $table->dropConstrainedForeignId("created_by");
-                $table->dropConstrainedForeignId("updated_by");
-                $table->dropConstrainedForeignId("deleted_by");
-            });
-
-            Schema::table("repository_contributor", function (Blueprint $table) {
-                $table->dropConstrainedForeignId("repository_id");
-                $table->dropConstrainedForeignId("lecturer_id");
-                $table->dropConstrainedForeignId("created_by");
-                $table->dropConstrainedForeignId("updated_by");
-                $table->dropConstrainedForeignId("deleted_by");
-            });
-
-            Schema::table("repository_file", function (Blueprint $table) {
-                $table->dropConstrainedForeignId("repository_id");
-                $table->dropConstrainedForeignId("created_by");
-                $table->dropConstrainedForeignId("updated_by");
-                $table->dropConstrainedForeignId("deleted_by");
-            });
-
-            Schema::table("repository_subject", function (Blueprint $table) {
-                $table->dropConstrainedForeignId("repository_subject_id");
+            Schema::table("procedure", function (Blueprint $table) {
                 $table->dropConstrainedForeignId("created_by");
                 $table->dropConstrainedForeignId("updated_by");
                 $table->dropConstrainedForeignId("deleted_by");

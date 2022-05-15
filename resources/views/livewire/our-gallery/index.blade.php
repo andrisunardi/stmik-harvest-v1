@@ -9,9 +9,9 @@
             <div class="row">
                 <div class="col-12 text-center">
                     <ul id="ml-filters" class="ml-port-filter-nav">
-                        <li data-filter="*" class="is-checked">All</li>
+                        <li data-filter="*" class="{{ $tag ? null : "is-checked" }}" wire:click="tag()">{{ trans("general.All") }}</li>
                         @foreach ($data_gallery_category as $gallery_category)
-                            <li data-filter=".{{ Str::slug($gallery_category->translate_tag) }}">{{ $gallery_category->translate_tag }}</li>
+                            <li data-filter=".{{ Str::slug($gallery_category->translate_tag) }}" class="{{ $tag == Str::slug($gallery_category->translate_tag) ? "is-checked" : null }}" wire:click="tag('{{ Str::slug($gallery_category->translate_tag) }}')">{{ $gallery_category->translate_tag }}</li>
                         @endforeach
                     </ul>
                 </div>
@@ -22,7 +22,7 @@
                     <div class="ml-portfolio-page grid clearfix">
                         <div class="row">
                             @foreach ($data_gallery as $gallery)
-                                <div class="pro-item col-md-6 col-lg-4 {{ $gallery_category->translate_tag }}">
+                                <div class="pro-item col-md-6 col-lg-4 {{ Str::slug($gallery->translate_tag) }}">
                                     <div class="ml-portfolio">
                                         <div class="ml-port-thumb">
                                             <img draggable="false" class="img-fluid w-100" src="{{ $gallery->assetImage() }}" alt="{{ trans("page.Gallery") }} - {{ $gallery->translate_name }} - {{ env("APP_TITLE") }}">
