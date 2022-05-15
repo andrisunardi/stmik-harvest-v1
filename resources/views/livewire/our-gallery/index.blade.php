@@ -53,16 +53,6 @@
 
             {{ $data_gallery->links("layouts.pagination") }}
 
-            <div class="row">
-               <div class="col-12">
-                    <ul class="htc-pagination clearfix">
-                        <li class="active"><a href="#">1</a></li>
-                        <li><a draggable="false" href="#">2</a></li>
-                        <li><a draggable="false" href="#"><i class="icon ion-ios-arrow-right"></i></a></li>
-                    </ul>
-               </div>
-            </div>
-
             {{-- <div class="row mt--50 text-center">
                 <div class="col-12">
                     <button class="text-center htc__load__btn">
