@@ -1,9 +1,10 @@
 <div>
     @if ($paginator->hasPages())
         @php(isset($this->numberOfPaginatorsRendered[$paginator->getPageName()]) ? $this->numberOfPaginatorsRendered[$paginator->getPageName()]++ : $this->numberOfPaginatorsRendered[$paginator->getPageName()] = 1)
-        
-        <div class="col-lg-12 col-md-12 col-sm-12">
+
+        <div class="col-12">
             <div class="pagination-area">
+                <ul class="htc-pagination clearfix">
                 @if ($paginator->onFirstPage())
                     <a draggable="false" href="javascript:;" class="prev page-numbers mb-3" disabled><i class="ri-arrow-left-s-line"></i></a>
                 @else

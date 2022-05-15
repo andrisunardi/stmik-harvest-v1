@@ -20,7 +20,7 @@ class OurGalleryComponent extends Component
 
         $this->data_gallery_category = Gallery::groupBy("category")->onlyActive()->orderBy("name")->get();
 
-        $this->data_gallery = Gallery::onlyActive()->orderByDesc("id")->get();
+        $this->data_gallery = Gallery::onlyActive()->orderBy("id")->get();
     }
 
     public function render()

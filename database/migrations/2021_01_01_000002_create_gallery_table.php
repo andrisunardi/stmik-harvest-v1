@@ -10,7 +10,7 @@ return new class extends Migration
     {
         Schema::create("gallery", function (Blueprint $table) {
             $table->id();
-            $table->boolean("category")->nullable()->unsigned()->comment("1 = Image, 2 = Video");
+            $table->boolean("category")->nullable()->unsigned()->comment("1 = Image, 2 = Video, 3 = Youtube");
             $table->string("name", 100)->nullable()->unique();
             $table->string("name_id", 100)->nullable()->unique();
             $table->text("description")->nullable();

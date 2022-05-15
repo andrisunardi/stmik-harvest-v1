@@ -29,10 +29,21 @@
                                         </div>
                                         <div class="ml-hover-information">
                                             <div class="ml-hover-action">
-                                                <a draggable="false" href="{{ $gallery->assetImage() }}" data-lightbox="tfportimg" data-title="{{ $gallery->translate_name }}"><i class="icon ion-ios-search-strong"></i></a>
+                                                @if ($gallery->category == 1)
+                                                    <a draggable="false" href="{{ $gallery->assetImage() }}" data-lightbox="tfportimg" data-title="{{ $gallery->translate_name }}"><i class="icon ion-ios-search-strong"></i></a>
+                                                @endif
+                                                @if ($gallery->category == 2)
+                                                    <a draggable="false" href="{{ $gallery->assetVideo() }}" target="_blank"><i class="icon ion-ios-videocam"></i></a>
+                                                @endif
+                                                @if ($gallery->category == 3)
+                                                    <a draggable="false" href="{{ $gallery->youtube }}" target="_blank"><i class="icon ion-social-youtube"></i></a>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
+                                    <h3 class="mt-3 mb-1">{{ $gallery->translate_name }}</h3>
+                                    <small>{{ trans("general.$gallery->category_text") }}</small>
+                                    <p>{!! html_entity_decode($gallery->translate_description) !!}</p>
                                 </div>
                             @endforeach
                         </div>
@@ -40,7 +51,7 @@
                 </div>
             </div>
 
-            {{-- {{ $data_news->links("vendor.livewire.bootstrap") }} --}}
+            {{ $data_gallery->links("layouts.pagination") }}
 
             <div class="row">
                <div class="col-12">
