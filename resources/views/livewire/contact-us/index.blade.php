@@ -15,7 +15,7 @@
 
                             <div class="contact__address">
                                 <div class="cont__icon">
-                                    <i class="fab fa-whatsapp"></i>
+                                    <i class="fab fa-whatsapp fa-fw me-2"></i>
                                     <span>{{ trans("validation.attributes.whatsapp") }}</span>
                                 </div>
                                 <p><a draggable="false" href="https://api.whatsapp.com/send?phone={{ Str::phone(env("CONTACT_WHATSAPP")) }}&text={{ trans("general.Hello, I know this number from the website") }} {{ env("APP_DOMAIN") }}" target="_blank">{{ env("CONTACT_WHATSAPP") }}</a></p>
@@ -23,7 +23,7 @@
 
                             <div class="contact__address">
                                 <div class="cont__icon">
-                                    <i class="fab fa-line"></i>
+                                    <i class="fab fa-line fa-fw me-2"></i>
                                     <span>{{ trans("validation.attributes.line") }}</span>
                                 </div>
                                 <p><a draggable="false" href="https://line.me/ti/p/~{{ env("CONTACT_LINE") }}" target="_blank">{{ env("CONTACT_WHATSAPP") }}</a></p>
@@ -31,7 +31,7 @@
 
                             <div class="contact__address">
                                 <div class="cont__icon">
-                                    <i class="fab fa-blackberry"></i>
+                                    <i class="fab fa-blackberry fa-fw me-2"></i>
                                     <span>{{ trans("validation.attributes.bbm") }}</span>
                                 </div>
                                 <p><a draggable="false" href="http://www.pin.bbm.com/{{ env("CONTACT_BBM") }}" target="_blank">{{ env("CONTACT_WHATSAPP") }}</a></p>
@@ -39,7 +39,7 @@
 
                             <div class="contact__address">
                                 <div class="cont__icon">
-                                    <i class="icon ion-android-call"></i>
+                                    <i class="fas fa-phone-alt fa-fw me-2"></i>
                                     <span>{{ trans("validation.attributes.phone") }}</span>
                                 </div>
                                 <p><a draggable="false" href="tel:+{{ Str::phone(env("CONTACT_PHONE")) }}">{{ env("CONTACT_PHONE") }}</a></p>
@@ -47,7 +47,7 @@
 
                             <div class="contact__address">
                                 <div class="cont__icon">
-                                    <i class="fas fa-sms"></i>
+                                    <i class="fas fa-sms fa-fw me-2"></i>
                                     <span>{{ trans("validation.attributes.sms") }}</span>
                                 </div>
                                 <p><a draggable="false" href="sms:+{{ Str::phone(env("CONTACT_PHONE")) }}">{{ env("CONTACT_PHONE") }}</a></p>
@@ -55,7 +55,7 @@
 
                             <div class="contact__address">
                                 <div class="cont__icon">
-                                    <i class="icon ion-android-mail"></i>
+                                    <i class="fas fa-envelope fa-fw me-2"></i>
                                     <span>{{ trans("validation.attributes.email") }}</span>
                                 </div>
                                 <p><a draggable="false" href="mailto:{{ env("CONTACT_EMAIL") }}">{{ env("CONTACT_EMAIL") }}</a></p>
@@ -63,7 +63,7 @@
 
                             <div class="contact__address">
                                 <div class="cont__icon">
-                                    <i class="icon ion-ios-location"></i>
+                                    <i class="fas fa-map-marked-alt fa-fw me-2"></i>
                                     <span>{{ trans("validation.attributes.address") }}</span>
                                 </div>
                                 <p><a draggable="false" href="{{ env("CONTACT_GOOGLE_MAPS") }}" target="_blank"> <strong>World Harvest Center</strong><br>{{ env("CONTACT_ADDRESS") }} </a></p>
@@ -75,6 +75,7 @@
                 <div class="col-lg-6 sm-mt-40 xs-mt-40">
                     <div class="htc__contact__form__wrap">
                         <h2 class="contact__title">{{ trans("general.Send A Message") }}</h2>
+
                         <div class="contact-form-wrap">
                             <form wire:submit.prevent="submit" enctype="multipart/form-data" class="was-validated-delete" method="post" role="form" action="{{ route("{$menu_slug}.index") }}" id="contact-form" autocomplete="off">
                                 @csrf
@@ -98,7 +99,7 @@
                                     </div>
 
                                     @php $input = "phone" @endphp
-                                    <div class="form-group col-sm-6">
+                                    <div class="form-group col-sm-6 mt-3 mt-sm-auto">
                                         <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
                                         <div class="input-group has-validation">
                                             <div class="input-group-text"><span class="fas fa-phone-alt"></span></div>
@@ -134,7 +135,7 @@
                                     </div>
 
                                     @php $input = "company" @endphp
-                                    <div class="form-group col-sm-6">
+                                    <div class="form-group col-sm-6 mt-3 mt-sm-auto">
                                         <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
                                         <div class="input-group has-validation">
                                             <div class="input-group-text"><span class="fas fa-building"></span></div>
@@ -171,10 +172,11 @@
                                 </div>
 
                                 <div class="contact-btn">
-                                    <button class="htc__btn btn--theme" type="button" wire:click="submit">Submit</button>
+                                    <button class="htc__btn btn--theme" type="button" wire:click="submit">{{ trans("button.Submit") }}</button>
                                 </div>
                             </form>
                         </div>
+
                         <div class="form-output">
                             <p class="form-messege"></p>
                         </div>
@@ -185,6 +187,7 @@
 
                             <h2 class="contact__title">{{ trans("general.Social Media Contact") }}</h2>
                             <p>{{ trans("general.Follow and Subscribe Our Social Media to get our latest news") }}</p>
+
                             <div class="contact__address">
                                 <div class="cont__icon">
                                     <i class="fab fa-facebook"></i>

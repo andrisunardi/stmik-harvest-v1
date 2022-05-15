@@ -51,11 +51,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <div class="findout__wrap">
+                    <div class="findout__wrap my-5 my-sm-auto">
                         <div class="findout__inner">
-                            <h2>Find out why students love <span>Educen Education!</span></h2>
+                            <h2>
+                                <span>{{ trans("general.Ready to Join ?") }}</span>
+                                {{ trans("general.It easy now to you for being our part, just click the button below and fill out the form with your data.") }}
+                            </h2>
                             <div class="findout__btn">
-                                <a class="htc__btn btn--yellow" href="javascript:;">FIND OUT MORE</a>
+                                <a draggable="false" class="htc__btn btn--yellow" href="{{ route("online-registration.index") }}">{{ trans("general.Register") }}</a>
                             </div>
                         </div>
                     </div>

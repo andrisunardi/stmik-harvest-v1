@@ -226,7 +226,7 @@
                     </div>
                 </div>
             </div>
-            <!-- Start Search Popap -->
+
             <div class="search__area">
                 <div class="container" >
                     <div class="row" >
@@ -264,38 +264,24 @@
                                     <li><a draggable="false" href="{{ route("our-network.index") }}">{{ trans("page.Our Network") }}</a></li>
                                 </ul>
                             </li>
-                            <li><a draggable="false" href="courses-grid.html">Courses</a>
+                            <li><a draggable="false" href="{{ route("admission.index") }}">{{ trans("page.Admission") }}</a>
                                 <ul>
-                                    <li><a draggable="false" href="courses-grid.html">courses grid</a></li>
-                                    <li><a draggable="false" href="courses-list.html">courses list</a></li>
-                                    <li><a draggable="false" href="courses-details.html">courses details</a></li>
+                                    <li><a draggable="false" href="{{ route("online-registration.index") }}">{{ trans("page.Online Registration") }}</a></li>
+                                    <li><a draggable="false" href="{{ route("admission-calendar.index") }}">{{ trans("page.Admission Calendar") }}</a></li>
+                                    <li><a draggable="false" href="{{ route("procedure.index") }}">{{ trans("page.Procedure") }}</a></li>
+                                    <li><a draggable="false" href="{{ route("tuition-fees.index") }}">{{ trans("page.Tuition Fees") }}</a></li>
+                                    <li><a draggable="false" href="{{ route("scholarships.index") }}">{{ trans("page.Scholarships") }}</a></li>
                                 </ul>
                             </li>
-                            <li><a draggable="false" href="#">pages</a>
+                            <li><a draggable="false" href="{{-- route("programme.index") --}}">{{ trans("page.Programme") }}</a>
                                 <ul>
-                                    <li><a draggable="false" href="blog.html">blog</a></li>
-                                    <li><a draggable="false" href="blog-details.html">blog details</a></li>
-                                    <li><a draggable="false" href="courses-grid.html">courses grid</a></li>
-                                    <li><a draggable="false" href="courses-list.html">courses list</a></li>
-                                    <li><a draggable="false" href="courses-details.html">courses details</a></li>
-                                    <li><a draggable="false" href="shop-grid.html">shop grid</a></li>
-                                    <li><a draggable="false" href="shop-list.html">shop list</a></li>
-                                    <li><a draggable="false" href="shop-details.html">shop details</a></li>
-                                    <li><a draggable="false" href="about.html">about</a></li>
-                                    <li><a draggable="false" href="team.html">team</a></li>
-                                    <li><a draggable="false" href="profile.html">profile</a></li>
-                                    <li><a draggable="false" href="cart.html">cart</a></li>
-                                    <li><a draggable="false" href="login.html">log in</a></li>
-                                    <li><a draggable="false" href="register.html">register</a></li>
-                                    <li><a draggable="false" href="gallery.html">gallery</a></li>
+                                    <li><a draggable="false" href="{{ route("procedure.index") }}">{{ trans("page.Procedure") }}</a></li>
                                 </ul>
                             </li>
-                            <li><a draggable="false" href="blog.html">Blog</a></li>
-                            <li><a draggable="false" href="shop-grid.html">shop</a>
+                            <li><a draggable="false" href="{{-- route("campus-activities.index") --}}">{{ trans("page.Campus Activities") }}</a>
                                 <ul>
-                                    <li><a draggable="false" href="shop-grid.html">shop grid</a></li>
-                                    <li><a draggable="false" href="shop-list.html">shop list</a></li>
-                                    <li><a draggable="false" href="shop-details.html">shop details</a></li>
+                                    <li><a draggable="false" href="{{ route("our-gallery.index") }}">{{ trans("page.Our Gallery") }}</a></li>
+                                    <li><a draggable="false" href="{{-- route("events.index") --}}">{{ trans("page.Events") }}</a></li>
                                 </ul>
                             </li>
                             <li><a draggable="false" href="{{ route("contact-us.index") }}">{{ trans("page.Contact Us") }}</a></li>
@@ -315,39 +301,39 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="htc__footer__inner">
-                            <div class="footer__logo">
+                            <div class="footer__logo text-center">
                                 <a draggable="false" href="{{ route("index") }}">
-                                    <img draggable="false" width="300" src="{{ asset("images/logo-footer.png") }}" alt="{{ trans("general.Logo") }} - {{ env("APP_TITLE") }}">
+                                    <img draggable="false" class="img-fluid" width="300" src="{{ asset("images/logo-footer.png") }}" alt="{{ trans("general.Logo") }} - {{ env("APP_TITLE") }}">
                                 </a>
                             </div>
                             <ul class="htc__footer__address">
                                 <li>
                                     <a draggable="false" href="https://www.facebook.com/{{ env("SOCIAL_MEDIA_FACEBOOK") }}" target="blank">
-                                        <i class="icon ion-social-facebook"></i>
+                                        <i class="fab fa-facebook fa-fw me-1"></i>
                                         {{ trans("validation.attributes.facebook") }} : {{ env("SOCIAL_MEDIA_FACEBOOK") }}
                                     </a>
                                 </li>
                                 <li>
                                     <a draggable="false" href="https://www.twitter.com/{{ env("SOCIAL_MEDIA_TWITTER") }}" target="blank">
-                                        <i class="icon ion-social-twitter"></i>
+                                        <i class="fab fa-twitter fa-fw me-1"></i>
                                         {{ trans("validation.attributes.twitter") }} : {{ env("SOCIAL_MEDIA_TWITTER") }}
                                     </a>
                                 </li>
                                 <li>
                                     <a draggable="false" href="https://www.instagram.com/{{ env("SOCIAL_MEDIA_INSTAGRAM") }}" target="blank">
-                                        <i class="icon ion-social-instagram"></i>
+                                        <i class="fab fa-instagram fa-fw me-1"></i>
                                         {{ trans("validation.attributes.instagram") }} : {{ env("SOCIAL_MEDIA_INSTAGRAM") }}
                                     </a>
                                 </li>
                                 <li>
                                     <a draggable="false" href="https://www.g.page/{{ env("SOCIAL_MEDIA_GOOGLE") }}" target="blank">
-                                        <i class="icon ion-social-google"></i>
+                                        <i class="fab fa-google fa-fw me-1"></i>
                                         {{ trans("validation.attributes.google") }} : {{ env("SOCIAL_MEDIA_GOOGLE") }}
                                     </a>
                                 </li>
                                 <li>
                                     <a draggable="false" href="https://www.youtube.com/{{ env("SOCIAL_MEDIA_YOUTUBE") }}" target="blank">
-                                        <i class="icon ion-social-youtube"></i>
+                                        <i class="fab fa-youtube fa-fw me-1"></i>
                                         {{ trans("validation.attributes.youtube") }} : STMIK Harvest
                                     </a>
                                 </li>
@@ -410,52 +396,52 @@
                                 <ul class="htc__ft__list">
                                     <li>
                                         <a draggable="false" href="https://api.whatsapp.com/send?phone={{ Str::phone(env("CONTACT_WHATSAPP")) }}&text={{ trans("general.Hello, I know this number from the website") }} {{ env("APP_DOMAIN") }}" target="_blank">
-                                            <i class="icon ion-social-whatsapp me-1"></i>
+                                            <i class="fab fa-whatsapp fa-fw me-1"></i>
                                             <strong>{{ trans("validation.attributes.whatsapp") }} :</strong>
                                             {{ env("CONTACT_WHATSAPP") }}
                                         </a>
                                     </li>
                                     <li>
                                         <a draggable="false" href="https://line.me/ti/p/~{{ env("CONTACT_LINE") }}" target="_blank">
-                                            <i class="fab fa-line me-1"></i>
+                                            <i class="fab fa-line fa-fw me-1"></i>
                                             <strong>{{ trans("validation.attributes.line") }} :</strong>
                                             {{ env("CONTACT_LINE") }}
                                         </a>
                                     </li>
                                     <li>
                                         <a draggable="false" href="http://www.pin.bbm.com/{{ env("CONTACT_BBM") }}" target="_blank">
-                                            <i class="fab fa-blackberry me-1"></i>
+                                            <i class="fab fa-blackberry fa-fw me-1"></i>
                                             <strong>{{ trans("validation.attributes.bbm") }} :</strong>
                                             {{ env("CONTACT_BBM") }}
                                         </a>
                                     </li>
                                     <li>
                                         <a draggable="false" href="tel:+{{ Str::phone(env("CONTACT_PHONE")) }}">
-                                            <i class="icon ion-android-call me-1"></i>
+                                            <i class="fas fa-phone-alt fa-fw me-1"></i>
                                             <strong>{{ trans("validation.attributes.phone") }} :</strong>
                                             {{ env("CONTACT_PHONE") }}
                                         </a>
                                     </li>
                                     <li>
                                         <a draggable="false" href="sms:+{{ Str::phone(env("CONTACT_PHONE")) }}">
-                                            <i class="fas fa-sms me-1"></i>
+                                            <i class="fas fa-sms fa-fw me-1"></i>
                                             <strong>{{ trans("validation.attributes.sms") }} :</strong>
                                             {{ env("CONTACT_PHONE") }}
                                         </a>
                                     </li>
                                     <li>
                                         <a draggable="false" href="mailto:{{ env("CONTACT_EMAIL") }}">
-                                            <i class="icon ion-android-mail me-1"></i>
+                                            <i class="fas fa-envelope fa-fw me-1"></i>
                                             <strong>{{ trans("validation.attributes.email") }} :</strong>
                                             <span class="text-lowercase">{{ env("CONTACT_EMAIL") }}</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a draggable="false" href="{{ env("CONTACT_GOOGLE_MAPS") }}" target="_blank" class="lh-base">
-                                            <i class="icon ion-ios-location me-1"></i>
+                                            <i class="fas fa-map-marked-alt fa-fw me-1"></i>
                                             <strong>{{ trans("validation.attributes.address") }} :</strong>
                                             <strong>World Harvest Center</strong><br>
-                                            <div class="ms-3">{{ env("CONTACT_ADDRESS") }}</div>
+                                            <div class="ms-5">{{ env("CONTACT_ADDRESS") }}</div>
                                         </a>
                                     </li>
                                 </ul>
