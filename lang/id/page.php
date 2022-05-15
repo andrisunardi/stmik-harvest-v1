@@ -16,6 +16,15 @@ return [
     "Information System" => "Sistem Informasi",
     "Our Gallery" => "Galeri Kami",
     "Courses" => "Mata Kuliah",
+    "Online Registration" => "Pendaftaran Online",
+    "Procedure" => "Prosedur",
+    "Tuition Fees" => "Biaya Pendidikan",
+    "Scholarships" => "Beasiswa",
+
+    "Programme" => "Program",
+    "Campus Activities" => "Aktivitas Kampus",
+    "Our Gallery" => "Galeri Kami",
+    "Events" => "Kegiatan",
 
     "FAQ" => "Tanya Jawab",
     "Faq" => "Tanya Jawab",

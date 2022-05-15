@@ -38,6 +38,8 @@ class Gallery extends Model
         "name_id",
         "description",
         "description_id",
+        "tag",
+        "tag_id",
         "image",
         "video",
         "youtube",
@@ -95,6 +97,11 @@ class Gallery extends Model
     public function getTranslateDescriptionAttribute()
     {
         return Session::get("locale") == "en" ? $this->description : $this->description_id;
+    }
+
+    public function getTranslateTagAttribute()
+    {
+        return Session::get("locale") == "en" ? $this->tag : $this->tag_id;
     }
 
     public function checkImage()

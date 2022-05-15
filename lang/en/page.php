@@ -16,6 +16,15 @@ return [
     "Information System" => "Information System",
     "Our Gallery" => "Our Gallery",
     "Courses" => "Courses",
+    "Online Registration" => "Online Registration",
+    "Procedure" => "Procedure",
+    "Tuition Fees" => "Tuition Fees",
+    "Scholarships" => "Scholarships",
+
+    "Programme" => "Programme",
+    "Campus Activities" => "Campus Activities",
+    "Our Gallery" => "Our Gallery",
+    "Events" => "Events",
 
     "FAQ" => "FAQ",
     "Faq" => "Faq",

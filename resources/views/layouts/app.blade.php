@@ -154,9 +154,18 @@
                                     </a>
                                 </li>
                             </ul>
+                            {{ Session::get("locale") }}
                             <ul class="login__register d-none d-md-flex">
-                                <li><a draggable="false" href="register.html">Indonesia</a></li>
-                                <li><a draggable="false" href="login.html">English</a></li>
+                                <li>
+                                    <a draggable="false" href="{{ Session::get("locale") == "en" ? "javascript:;" : url("locale/en") }}" class="{{ Session::get("locale") == "en" ? "fw-bold" : null }}">
+                                        {{ trans("language.English") }}
+                                    </a>
+                                    </li>
+                                <li>
+                                    <a draggable="false" href="{{ Session::get("locale") == "id" ? "javascript:;" : url("locale/id") }}" class="{{ Session::get("locale") == "id" ? "fw-bold" : null }}">
+                                        {{ trans("language.Indonesia") }}
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -195,46 +204,26 @@
                                         <li><a draggable="false" href="{{ route("scholarships.index") }}">{{ trans("page.Scholarships") }}</a></li>
                                     </ul>
                                 </li>
-                                <li><a draggable="false" href="{{ route("admission.index") }}">{{ trans("page.Admission") }}</a></li>
-                                <li class="drop"><a draggable="false" href="#">pages</a>
+                                <li class="drop"><a draggable="false" href="{{-- route("programme.index") --}}">{{ trans("page.Programme") }}</a>
                                     <ul class="dropdown">
-                                        <li><a draggable="false" href="blog.html">blog</a></li>
-                                        <li><a draggable="false" href="blog-details.html">blog details</a></li>
-                                        <li><a draggable="false" href="courses-grid.html">courses grid</a></li>
-                                        <li><a draggable="false" href="courses-list.html">courses list</a></li>
-                                        <li><a draggable="false" href="courses-details.html">courses details</a></li>
-                                        <li><a draggable="false" href="shop-grid.html">shop grid</a></li>
-                                        <li><a draggable="false" href="shop-list.html">shop list</a></li>
-                                        <li><a draggable="false" href="shop-details.html">shop details</a></li>
-                                        <li><a draggable="false" href="about.html">about</a></li>
-                                        <li><a draggable="false" href="team.html">team</a></li>
-                                        <li><a draggable="false" href="profile.html">profile</a></li>
-                                        <li><a draggable="false" href="cart.html">cart</a></li>
-                                        <li><a draggable="false" href="login.html">log in</a></li>
-                                        <li><a draggable="false" href="register.html">register</a></li>
-                                        <li><a draggable="false" href="gallery.html">gallery</a></li>
+                                        <li><a draggable="false" href="{{ route("procedure.index") }}">{{ trans("page.Procedure") }}</a></li>
                                     </ul>
                                 </li>
-                                <li><a draggable="false" href="blog.html">Blog</a></li>
-                                <li class="drop"><a draggable="false" href="shop-grid.html">shop</a>
+                                <li class="drop"><a draggable="false" href="{{-- route("campus-activities.index") --}}">{{ trans("page.Campus Activities") }}</a>
                                     <ul class="dropdown">
-                                        <li><a draggable="false" href="shop-grid.html">shop grid</a></li>
-                                        <li><a draggable="false" href="shop-list.html">shop list</a></li>
-                                        <li><a draggable="false" href="shop-details.html">shop details</a></li>
+                                        <li><a draggable="false" href="{{ route("our-gallery.index") }}">{{ trans("page.Our Gallery") }}</a></li>
+                                        <li><a draggable="false" href="{{-- route("events.index") --}}">{{ trans("page.Events") }}</a></li>
                                     </ul>
                                 </li>
                                 <li><a draggable="false" href="{{ route("contact-us.index") }}">{{ trans("page.Contact Us") }}</a></li>
                             </ul>
-                            <!-- Start Cart Search -->
-                        <div class="cart__search">
-                            <ul class="cart__search__list">
-                                <li class="search search__open"><a draggable="false" href="#"><i class="icon ion-ios-search-strong"></i></a></li>
-                            </ul>
-                        </div>
-                        <!-- End Cart Search -->
+                            <div class="cart__search">
+                                <ul class="cart__search__list">
+                                    <li class="search search__open"><a draggable="false" href="#"><i class="icon ion-ios-search-strong"></i></a></li>
+                                </ul>
+                            </div>
                         </nav>
                     </div>
-                    <!-- End MAinmenu Ares -->
                 </div>
             </div>
             <!-- Start Search Popap -->

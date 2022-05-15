@@ -11,34 +11,40 @@ class GallerySeeder extends Seeder
 {
     public function run()
     {
-        // $data = new Gallery();
-        // $data->category = 1;
-        // $data->name = "Image";
-        // $data->name_id = "Gambar";
-        // $data->description = "Description Image";
-        // $data->description_id = "Deskripsi Gambar";
-        // $data->image = Str::slug($data->name) . ".png";
-        // $data->save();
+        $data = new Gallery();
+        $data->category = 1;
+        $data->name = "Image";
+        $data->name_id = "Gambar";
+        $data->description = "Description Image";
+        $data->description_id = "Deskripsi Gambar";
+        $data->tag = "Library";
+        $data->tag_id = "Perpustakaan";
+        $data->image = Str::slug($data->name) . ".png";
+        $data->save();
 
-        // $data = new Gallery();
-        // $data->category = 2;
-        // $data->name = "Video";
-        // $data->name_id = "Video";
-        // $data->description = "Description Video";
-        // $data->description_id = "Deskripsi Video";
-        // $data->image = Str::slug($data->name) . ".png";
-        // $data->video = Str::slug($data->name) . ".mp4";
-        // $data->save();
+        $data = new Gallery();
+        $data->category = 2;
+        $data->name = "Video";
+        $data->name_id = "Video";
+        $data->description = "Description Video";
+        $data->description_id = "Deskripsi Video";
+        $data->tag = "Book";
+        $data->tag_id = "Buku";
+        $data->image = Str::slug($data->name) . ".png";
+        $data->video = Str::slug($data->name) . ".mp4";
+        $data->save();
 
-        // $data = new Gallery();
-        // $data->category = 3;
-        // $data->name = "SPIRITUAL DAY SESI 2 A Place of Power to Live Holy";
-        // $data->name_id = "SPIRITUAL DAY SESI 2 A Place of Power to Live Holy";
-        // $data->description = "Description SPIRITUAL DAY SESI 2 A Place of Power to Live Holy";
-        // $data->description_id = "Deskripsi SPIRITUAL DAY SESI 2 A Place of Power to Live Holy";
-        // $data->image = Str::slug($data->name) . ".png";
-        // $data->youtube = "https://www.youtube.com/watch?v=DAwvESRyGjk";
-        // $data->save();
+        $data = new Gallery();
+        $data->category = 3;
+        $data->name = "SPIRITUAL DAY SESI 2 A Place of Power to Live Holy";
+        $data->name_id = "SPIRITUAL DAY SESI 2 A Place of Power to Live Holy";
+        $data->description = "Description SPIRITUAL DAY SESI 2 A Place of Power to Live Holy";
+        $data->description_id = "Deskripsi SPIRITUAL DAY SESI 2 A Place of Power to Live Holy";
+        $data->tag = "Graduation";
+        $data->tag_id = "Kelulusan";
+        $data->image = Str::slug($data->name) . ".png";
+        $data->youtube = "https://www.youtube.com/watch?v=DAwvESRyGjk";
+        $data->save();
 
         $data = new Gallery();
         $data->category = 1;

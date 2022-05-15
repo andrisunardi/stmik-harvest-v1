@@ -37,6 +37,11 @@ Breadcrumbs::for("our-network.index", function (BreadcrumbTrail $trail) {
     $trail->push(trans("page.Our Network"), route("our-network.index"));
 });
 
+Breadcrumbs::for("our-gallery.index", function (BreadcrumbTrail $trail) {
+    $trail->parent("index");
+    $trail->push(trans("page.Our Gallery"), route("our-gallery.index"));
+});
+
 
 
 
