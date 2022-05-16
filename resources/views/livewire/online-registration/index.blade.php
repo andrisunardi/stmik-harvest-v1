@@ -4,7 +4,7 @@
 @section("{$menu_slug}-active", "active")
 
 <div>
-    <section class="htc__login__container text-center ptb--80 bg__white">
+    <section class="htc__login__container-delete text-center-delete ptb--80 bg__white">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -30,20 +30,79 @@
                                 @csrf
 
                                 <div class="login__form__box">
-                                    @php $input = "name" @endphp
-                                    <div class="login__form">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="{{ trans("validation.attributes.{$input}") }}" wire:model="{{ $input }}">
-                                            @error($input)
-                                                <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
-                                            @else
-                                                <div class="valid-feedback rounded bg-success p-2 ms-0 mt-2 text-white">{{ trans("validation.Looks Good") }}</div>
-                                            @enderror
+
+                                    <div class="login__form row">
+                                        @php $input = "name" @endphp
+                                        <div class="form-group col-sm-6">
+                                            <label class="form-label text-start text-left" for="{{ $input }}">{{ trans("general.Full Name") }} <span class="text-danger">*</span></label>
+                                            <div class="input-group has-validation">
+                                                <div class="input-group-text"><span class="fas fa-user"></span></div>
+                                                <input wire:model="{{ $input }}" wire:keydown.enter="submit" id="{{ $input }}" name="{{ $input }}"
+                                                    type="text" class="form-control @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" minlength="1" maxlength="50" value="{{ old($input) }}"
+                                                    placeholder="{{ trans("general.Full Name") }}" aria-label="{{ trans("general.Full Name") }}" aria-describedby="{{ trans("general.Full Name") }}"
+                                                    autocomplete="off" autocapitalize="none" required>
+                                                @error($input)
+                                                    <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
+                                                @else
+                                                    <div class="valid-feedback rounded bg-success p-2 ms-0 mt-2 text-white">{{ trans("validation.Looks Good") }}</div>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+                                        @php $input = "email" @endphp
+                                        <div class="form-group col-sm-6">
+                                            <label class="form-label text-start text-left" for="{{ $input }}">{{ trans("general.Email Address") }} <span class="text-danger">*</span></label>
+                                            <div class="input-group has-validation">
+                                                <div class="input-group-text"><span class="fas fa-envelope"></span></div>
+                                                <input wire:model="{{ $input }}" wire:keydown.enter="submit" id="{{ $input }}" name="{{ $input }}"
+                                                    type="email" class="form-control @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" minlength="1" maxlength="50" value="{{ old($input) }}"
+                                                    placeholder="{{ trans("general.Email Address") }}" aria-label="{{ trans("general.Email Address") }}" aria-describedby="{{ trans("general.Email Address") }}"
+                                                    autocomplete="off" autocapitalize="none" required>
+                                                @error($input)
+                                                    <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
+                                                @else
+                                                    <div class="valid-feedback rounded bg-success p-2 ms-0 mt-2 text-white">{{ trans("validation.Looks Good") }}</div>
+                                                @enderror
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="login__form">
-                                        <input type="email" placeholder="Email Address">
+
+                                    <div class="login__form row">
+                                        @php $input = "email" @endphp
+                                        <div class="form-group col-sm-6">
+                                            <label class="form-label text-start text-left" for="{{ $input }}">{{ trans("general.Full Name") }} <span class="text-danger">*</span></label>
+                                            <div class="input-group has-validation">
+                                                <div class="input-group-text"><span class="fas fa-envelope"></span></div>
+                                                <input wire:model="{{ $input }}" wire:keydown.enter="submit" id="{{ $input }}" name="{{ $input }}"
+                                                    type="email" class="form-control @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" minlength="1" maxlength="50" value="{{ old($input) }}"
+                                                    placeholder="{{ trans("general.Full Name") }}" aria-label="{{ trans("general.Full Name") }}" aria-describedby="{{ trans("general.Full Name") }}"
+                                                    autocomplete="off" autocapitalize="none" required>
+                                                @error($input)
+                                                    <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
+                                                @else
+                                                    <div class="valid-feedback rounded bg-success p-2 ms-0 mt-2 text-white">{{ trans("validation.Looks Good") }}</div>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+                                        @php $input = "school" @endphp
+                                        <div class="form-group col-sm-6">
+                                            <label class="form-label text-start text-left" for="{{ $input }}">{{ trans("general.Full Name") }} <span class="text-danger">*</span></label>
+                                            <div class="input-group has-validation">
+                                                <div class="input-group-text"><span class="fas fa-user"></span></div>
+                                                <input wire:model="{{ $input }}" wire:keydown.enter="submit" id="{{ $input }}" name="{{ $input }}"
+                                                    type="text" class="form-control @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" minlength="1" maxlength="50" value="{{ old($input) }}"
+                                                    placeholder="{{ trans("general.Full Name") }}" aria-label="{{ trans("general.Full Name") }}" aria-describedby="{{ trans("general.Full Name") }}"
+                                                    autocomplete="off" autocapitalize="none" required>
+                                                @error($input)
+                                                    <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
+                                                @else
+                                                    <div class="valid-feedback rounded bg-success p-2 ms-0 mt-2 text-white">{{ trans("validation.Looks Good") }}</div>
+                                                @enderror
+                                            </div>
+                                        </div>
                                     </div>
+
                                     <div class="login__btn">
                                         <button type="button" class="htc__btn btn--theme" wire:click="submit">{{ trans("button.Submit") }}</button>
                                     </div>
