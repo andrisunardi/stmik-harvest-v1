@@ -471,4 +471,8 @@ return [
     "The following is the cost of education at STMIK Harvest" => "Berikut ini adalah biaya pendidikan di STMIK Harvest",
     "Scholarships Scheme" => "Skema Beasiswa",
     "Harvest Education Assistance Program" => "Program Bantuan Pendidikan Harvest",
+    "Reduction of Base Fee (UB)" => "Keringanan Uang Pangkal (KUP)",
+    "Selection Path (KUP)" => "Jalur Seleksi (KUP)",
+    "Tuition Reduction (TR)" => "Keringanan Uang Kuliah (KUK)",
+    "Selection Path (KUK)" => "Jalur Seleksi (KUK)",
 ];
