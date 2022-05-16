@@ -15,6 +15,13 @@ class MenuCategorySeeder extends Seeder
         $sortCategory = 1;
 
         $data = new Menu();
+        $data->name = "Registration";
+        $data->name_id = "Pendaftaran";
+        $data->icon = "bi bi-pencil";
+        $data->sort = $sort++;
+        $data->save();
+
+        $data = new Menu();
         $data->name = "User";
         $data->name_id = "Pengguna";
         $data->icon = "bi bi-person";

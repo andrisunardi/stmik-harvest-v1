@@ -496,6 +496,12 @@ return [
     "Semester 3 onwards the scholarship will continue if the student succeeds in fulfilling the conditions set by STMIK Harvest." => "Semester 3 dan seterusnya beasiswa akan berlanjut apabila mahasiswa berhasil memenuhi ketentuan yang telah ditetapkan STMIK Harvest.",
     "NOTE" => "CATATAN",
     "If the prospective student gets a 100% scholarship for tuition and fees, then the prospective student is asked to give a sign of joining STMIK Harvest in the amount of Rp. 1,500,000,- as a commitment fee." => "Apabila calon mahasiswa mendapatkan 100% beasiswa untuk uang pangkal dan uang kuliah, maka calon mahasiswa tersebut diminta memberikan uang tanda jadi bergabung dengan STMIK Harvest sebesar Rp.1.500.000,- sebagai uang komitmen.",
+
+    "Man" => "Pria",
+    "Woman" => "Wanita",
+    "Morning - Afternoon Lecturer" => "Kuliah Pagi - Sore",
+    "Study & Work (Evening Lecture)" => "Kuliah & Bekerja (Kuliah Malam)",
+
     "test" => "test",
     "test" => "test",
     "test" => "test",
