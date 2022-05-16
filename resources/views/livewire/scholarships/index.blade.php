@@ -15,7 +15,7 @@
                 </div>
                 <div class="col-12">
                     <div class="about">
-                        <p class="about__details">Bantuan Pendidikan Harvest (BPH) diberikan kepada calon mahasiswa yang berhasil mendapatkan nilai memuaskan dalam Ujian Saringan Masuk STMIK Harvest. Bagi calon mahasiswa memiliki prestasi akademik di kelas maka bisa mendapatkan kesempatan potongan uang pangkal melalui jalur prestasi. Beasiswa diberikan mulai dari 25% hingga 100%.</p>
+                        <p class="about__details">{{ trans("general.Harvest Education Assistance (BPH) is given to prospective students who manage to get satisfactory scores in the Harvest STMIK Entrance Examination. For prospective students who have academic achievements in class, they can get the opportunity to deduct the base fee through the achievement path. Scholarships are awarded ranging from 25% to 100%.") }}</p>
                     </div>
                     <div class="about__thumb mt-3">
                         <img draggable="false" class="img-fluid w-100" src="{{ asset("images/scholarship/scholarship.webp") }}" alt="{{ trans("page.Scholarship") }} - 2 - {{ env("APP_TITLE") }}">
@@ -37,25 +37,25 @@
                 <div class="col-12">
                     <div class="about">
                         <p class="about__details">
-                            1.Proses Saringan Masuk STMIK Harvest.<br>
-                            2.Jalur Prestasi Kelas: Potongan diberikan berdasarkan peringkat di kelas selama Kelas X - XII.<br>
+                            1. {{ trans("general.STMIK Harvest Entry Screening Process.") }}<br>
+                            2. {{ trans("general.Class Achievement Path: Deductions are awarded based on rank in class during Class X - XII.") }}<br>
                             <br>
-                            Besarnya keringanan berupa pemotongan uang pangkal, berdasarkan table di bawah ini:
+                            {{ trans("general.The amount of relief is in the form of deductions from the base fee, based on the table below:") }}
                         </p>
                         <div class="table-responsive mt-3">
                             <table class="table table-striped table-hover table-bordered text-nowrap table-responsive align-middle text-center">
                                 <thead>
                                     <tr class="bg-success text-white text-center">
-                                        <th>Hasil Saringan Masuk <br> / Preastasi Kelas</th>
-                                        <th>Besaran Potongan<br> Uang Pangkal</th>
-                                        <th>Uang Pangkal<br> Yang Dibayarkan</th>
+                                        <th>{{ trans("general.Incoming Filter Results") }} <br> / {{ trans("general.Class Achievement") }}</th>
+                                        <th>{{ trans("general.Piece Size") }}<br> {{ trans("general.Entry Tuition Fee") }}</th>
+                                        <th>{{ trans("general.Entry Tuition Fee") }}<br> {{ trans("general.Paid") }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td>I</td>
                                         <td>100%</td>
-                                        <td>GRATIS</td>
+                                        <td>{{ trans("general.FREE") }}</td>
                                     </tr>
                                     <tr>
                                         <td>II</td>
@@ -123,23 +123,23 @@
                 <div class="col-12">
                     <div class="about">
                         <p class="about__details">
-                            Bantuan KUK memiliki satu jalur yaitu mengikuti Proses Saringan Masuk STMIK Harvest.<br>
-                            Potongan diberikan berdasarkan table dibawah ini:
+                            {{ trans("general.KUK assistance has one path, namely following the STMIK Harvest Entry Screening Process.") }}<br>
+                            {{ trans("general.Deductions are given based on the table below:") }}
                         </p>
                         <div class="table-responsive mt-3">
                             <table class="table table-striped table-hover table-bordered text-nowrap table-responsive align-middle text-center">
                                 <thead>
                                     <tr class="bg-success text-white text-center">
-                                        <th>Hasil <br> Saringan Masuk</th>
-                                        <th>Besaran Potongan<br> Uang Kuliah</th>
-                                        <th>Uang Kuliah<br> Yang Dibayarkan</th>
+                                        <th class="align-middle">{{ trans("general.Incoming Filter Results") }}</th>
+                                        <th>{{ trans("general.Piece Size") }}<br> {{ trans("general.Tuition Fee") }}</th>
+                                        <th>{{ trans("general.Tuition Fee") }}<br> {{ trans("general.Paid") }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td>A</td>
                                         <td>100%</td>
-                                        <td>GRATIS</td>
+                                        <td>{{ trans("general.FREE") }}</td>
                                     </tr>
                                     <tr>
                                         <td>B</td>
@@ -160,10 +160,10 @@
                             </table>
                         </div>
                         <p class="about__details">
-                            Besarnya keringanan berupa pemotongan uang kuliah, selama 2 semester penuh yang termasuk:
-                            * BPP Pokok Semester<br>
-                            * SKS (Paket)<br>
-                            Semester 3 dan seterusnya beasiswa akan berlanjut apabila mahasiswa berhasil memenuhi ketentuan yang telah ditetapkan STMIK Harvest.
+                            {{ trans("general.The amount of relief in the form of tuition deductions, for 2 full semesters which includes:") }}<br>
+                            * {{ trans("general.Basic BPP Semester") }}<br>
+                            * {{ trans("general.Credits (Package)") }}<br>
+                            {{ trans("general.Semester 3 onwards the scholarship will continue if the student succeeds in fulfilling the conditions set by STMIK Harvest.") }}
                         </p>
                     </div>
                 </div>
@@ -177,8 +177,8 @@
                 <div class="col-12">
                     <div class="about">
                         <p class="about__details">
-                            <strong>NOTE:</strong><br>
-                            Apabila calon mahasiswa mendapatkan 100% beasiswa untuk uang pangkal dan uang kuliah, maka calon mahasiswa tersebut diminta memberikan uang tanda jadi bergabung dengan STMIK Harvest sebesar Rp.1.500.000,- sebagai uang komitmen.
+                            <strong>{{ trans("general.NOTE") }}:</strong><br>
+                            {{ trans("general.If the prospective student gets a 100% scholarship for tuition and fees, then the prospective student is asked to give a sign of joining STMIK Harvest in the amount of Rp. 1,500,000,- as a commitment fee.") }}
                         </p>
                     </div>
                 </div>
