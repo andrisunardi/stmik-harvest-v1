@@ -63,7 +63,7 @@ return [
     "Quantity exceeds stock" => "Quantity exceeds stock",
     "Cart has been updated successfully" => "Cart has been updated successfully",
     "Thank you for your comment." => "Thank you for your comment.",
-    "Data" => "Data",
+    "Thank you for online registration" => "Thank you for online registration",
     "Data" => "Data",
     "Data" => "Data",
     "Data" => "Data",

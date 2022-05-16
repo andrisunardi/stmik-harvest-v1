@@ -28,6 +28,19 @@ class OnlineRegistrationComponent extends Component
     public $type;
     public $agree;
 
+    public function resetInputFields()
+    {
+        $this->name = "";
+        $this->email = "";
+        $this->phone = "";
+        $this->gender = "";
+        $this->school = "";
+        $this->major = "";
+        $this->city = "";
+        $this->type = "";
+        $this->agree = "";
+    }
+
     public function rules()
     {
         return [
@@ -64,8 +77,9 @@ class OnlineRegistrationComponent extends Component
         }
 
         $this->resetInputFields();
+        $this->resetErrorBag();
 
-        Session::flash("success", trans("message.Thank you for contacting us. We will answer as soon as possible"));
+        Session::flash("success", trans("message.Thank you for online registration."));
     }
 
     public function mount()

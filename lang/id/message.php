@@ -64,4 +64,5 @@ return [
     "Quantity exceeds stock" => "Jumlah melebihi stok",
     "Cart has been updated successfully" => "Keranjang telah berhasil di perbaharui",
     "Thank you for your comment." => "Terima kasih untuk komentar anda.",
+    "Thank you for online registration" => "Terima kasih untuk pendaftaran online",
 ];
