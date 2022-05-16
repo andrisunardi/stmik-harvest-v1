@@ -463,8 +463,8 @@ return [
 
     "STMIK HARVEST cooperates with several universities abroad." => "STMIK HARVEST cooperates with several universities abroad.",
     "Some of the cooperation agendas include lecturer and curriculum development programs, as well as student exchange programs." => "Some of the cooperation agendas include lecturer and curriculum development programs, as well as student exchange programs.",
-    "Data" => "Data",
-    "Data" => "Data",
+    "Become our student with an easy steps, click the button below" => "Become our student with an easy steps, click the button below",
+    "The following is the cost of education at STMIK Harvest" => "The following is the cost of education at STMIK Harvest",
     "Data" => "Data",
     "Data" => "Data",
     "Data" => "Data",

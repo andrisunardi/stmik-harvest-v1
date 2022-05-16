@@ -19,6 +19,7 @@ return [
     "Online Registration" => "Pendaftaran Online",
     "Procedure" => "Prosedur",
     "Tuition Fees" => "Biaya Pendidikan",
+    "Tuition Fee" => "Biaya Pendidikan",
     "Scholarships" => "Beasiswa",
 
     "Programme" => "Program",

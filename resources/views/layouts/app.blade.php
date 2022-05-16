@@ -162,7 +162,7 @@
                                     </a>
                                     </li>
                                 <li>
-                                    <a draggable="false" href="{{ Session::get("locale") == "id" ? "javascript:;" : url("locale/id") }}" class="{{ Session::get("locale") == "id" ? "fw-bold" : null }}">
+                                    <a draggable="false" href="{{ Session::get("locale") == "en" ? url("locale/id") : "javascript:;" }}" class="{{ Session::get("locale") == "en" ? null : "fw-bold" }}">
                                         {{ trans("language.Indonesia") }}
                                     </a>
                                 </li>

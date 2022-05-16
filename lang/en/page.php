@@ -19,6 +19,7 @@ return [
     "Online Registration" => "Online Registration",
     "Procedure" => "Procedure",
     "Tuition Fees" => "Tuition Fees",
+    "Tuition Fee" => "Tuition Fee",
     "Scholarships" => "Scholarships",
 
     "Programme" => "Programme",
