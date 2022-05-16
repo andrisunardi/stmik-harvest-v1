@@ -31,7 +31,7 @@
                             {!! html_entity_decode($setting->translate_history) !!}
                         </p>
                     </div>
-                    <div class="about__thumb mt-3">
+                    <div class="about__thumb mt-3 mb-3 mb-lg-auto">
                         <img draggable="false" class="img-fluid rounded w-100" src="{{ asset("images/our-values-2.webp") }}" alt="{{ trans("page.Our Values") }} - 2 - {{ env("APP_TITLE") }}">
                     </div>
                 </div>
@@ -72,7 +72,7 @@
             <div class="row htc__service__wrap">
 
                 @foreach ($data_value as $value)
-                    <div class="col-lg-3 col-md-4">
+                    <div class="col-lg-3 col-md-6">
                         <div class="service text-center {{ !$loop->first ? "service__color--{$loop->iteration}" : null }}">
                             <div class="service__icon">
                                 <i class="{{ $value->icon }}"></i>

@@ -100,7 +100,7 @@
         <div class="htc__header__top bg__theme">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-6 col-md-6">
+                    <div class="col-md-9">
                         <div class="header__top__left">
                             <ul class="header__address">
                                 <li>
@@ -125,9 +125,9 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-6 col-md-6">
+                    <div class="col-md-3">
                         <div class="header__top__right">
-                            <ul class="social__icon">
+                            <ul class="social__icon d-flex d-md-none d-xl-flex">
                                 <li>
                                     <a draggable="false" href="https://www.facebook.com/{{ env("SOCIAL_MEDIA_FACEBOOK") }}" target="_blank">
                                         <i class="icon ion-social-facebook"></i>
@@ -154,7 +154,6 @@
                                     </a>
                                 </li>
                             </ul>
-                            {{ Session::get("locale") }}
                             <ul class="login__register d-none d-md-flex">
                                 <li>
                                     <a draggable="false" href="{{ Session::get("locale") == "en" ? "javascript:;" : url("locale/en") }}" class="{{ Session::get("locale") == "en" ? "fw-bold" : null }}">
@@ -187,7 +186,12 @@
                     <div class="col-lg-10">
                         <nav class="mainmenu__nav">
                             <ul class="main__menu">
-                                <li><a draggable="false" href="{{ route("index") }}">{{ trans("page.Home") }}</a></li>
+                                <li>
+                                    <a draggable="false" href="{{ route("index") }}">
+                                        <span class="d-block d-lg-none d-xl-block">{{ trans("page.Home") }}</span>
+                                        <span class="d-none d-lg-block d-xl-none"><i class="fas fa-home"></i></span>
+                                    </a>
+                                </li>
                                 <li class="drop"><a draggable="false" href="{{ route("about.index") }}">{{ trans("page.About Us") }}</a>
                                     <ul class="dropdown">
                                         <li><a draggable="false" href="{{ route("our-profile.index") }}">{{ trans("page.Our Profile") }}</a></li>
@@ -346,7 +350,7 @@
             <div class="htc__footer__container pt--80 pb--70">
                 <div class="row mb-n8">
 
-                    <div class="col-lg-3 col-md-4 mb-7">
+                    <div class="col-md-6 col-lg-3 mb-7">
                         <div class="footer">
                             <div class="footer__widget">
                                 <h2 class="footer__title">{{ trans("general.About Us") }}</h2>
@@ -362,7 +366,7 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-2 col-md-3 offset-lg-1 mb-7">
+                    <div class="col-md-6 col-lg-3 col-xl-2 offset-xl-1 mb-7">
                         <div class="footer">
                             <div class="footer__widget">
                                 <h2 class="footer__title">{{ trans("general.Quick Links") }}</h2>
@@ -378,7 +382,7 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-2 col-md-2 offset-lg-1 mb-7">
+                    <div class="col-md-6 col-lg-2 offset-xl-1 mb-7">
                         <div class="footer">
                             <div class="footer__widget">
                                 <h2 class="footer__title">{{ trans("general.Working Hours") }}</h2>
@@ -389,7 +393,7 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-3 col-md-3 offset-lg-1- mb-7">
+                    <div class="col-md-6 col-lg-4 col-xl-3 mb-7">
                         <div class="footer">
                             <div class="footer__widget">
                                 <h2 class="footer__title">{{ trans("general.Contact Information") }}</h2>

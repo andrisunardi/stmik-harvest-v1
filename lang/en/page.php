@@ -21,6 +21,7 @@ return [
     "Tuition Fees" => "Tuition Fees",
     "Tuition Fee" => "Tuition Fee",
     "Scholarships" => "Scholarships",
+    "Scholarship" => "Scholarship",
 
     "Programme" => "Programme",
     "Campus Activities" => "Campus Activities",

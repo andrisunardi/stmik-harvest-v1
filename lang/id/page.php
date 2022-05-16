@@ -21,6 +21,7 @@ return [
     "Tuition Fees" => "Biaya Pendidikan",
     "Tuition Fee" => "Biaya Pendidikan",
     "Scholarships" => "Beasiswa",
+    "Scholarship" => "Beasiswa",
 
     "Programme" => "Program",
     "Campus Activities" => "Aktivitas Kampus",

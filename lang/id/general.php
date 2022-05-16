@@ -469,4 +469,6 @@ return [
     "Some of the cooperation agendas include lecturer and curriculum development programs, as well as student exchange programs." => "Beberapa agenda kerjasama antara lain program pengembangan dosen dan kurikulum, serta program pertukaran mahasiswa.",
     "Become our student with an easy steps, click the button below" => "Menjadi siswa kami dengan langkah mudah, klik tombol di bawah ini",
     "The following is the cost of education at STMIK Harvest" => "Berikut ini adalah biaya pendidikan di STMIK Harvest",
+    "Scholarships Scheme" => "Skema Beasiswa",
+    "Harvest Education Assistance Program" => "Program Bantuan Pendidikan Harvest",
 ];
