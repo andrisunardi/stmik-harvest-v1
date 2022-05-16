@@ -24,6 +24,8 @@ return [
     "Scholarship" => "Beasiswa",
 
     "Programme" => "Program",
+    "Undergraduate" => "Sarjana",
+    "Information System" => "Sistem Informasi",
     "Campus Activities" => "Aktivitas Kampus",
     "Our Gallery" => "Galeri Kami",
     "Events" => "Kegiatan",

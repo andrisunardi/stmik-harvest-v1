@@ -13,8 +13,8 @@ class TuitionFeeSeeder extends Seeder
         $data = new TuitionFee();
         $data->name = "Registration Fee (IDR)";
         $data->name_id = "Biaya Pendaftaran (iDR)";
-        $data->description = "150 Ribu<br>Pembayaran Sekali";
-        $data->description_id = "150 Ribu<br>Once Payment";
+        $data->description = "150 Ribu<br>Once Payment";
+        $data->description_id = "150 Ribu<br>Pembayaran Sekali";
         $data->save();
 
         $data = new TuitionFee();

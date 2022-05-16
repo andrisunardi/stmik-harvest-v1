@@ -241,6 +241,14 @@ class MenuCategorySeeder extends Seeder
 
             $data = new Menu();
             $data->menu_category_id = $menu_category->id;
+            $data->name = "Admission Calendar";
+            $data->name_id = "Kalender Akademis";
+            $data->icon = "bi bi-window";
+            $data->sort = $sort++;
+            $data->save();
+
+            $data = new Menu();
+            $data->menu_category_id = $menu_category->id;
             $data->name = "Banner";
             $data->name_id = "Sampul";
             $data->icon = "bi bi-window";

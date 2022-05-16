@@ -208,15 +208,15 @@
                                         <li><a draggable="false" href="{{ route("scholarships.index") }}">{{ trans("page.Scholarships") }}</a></li>
                                     </ul>
                                 </li>
-                                <li class="drop"><a draggable="false" href="{{-- route("programme.index") --}}">{{ trans("page.Programme") }}</a>
+                                <li class="drop"><a draggable="false" href="javascript:;">{{ trans("page.Programme") }}</a>
                                     <ul class="dropdown">
-                                        <li><a draggable="false" href="{{ route("procedure.index") }}">{{ trans("page.Procedure") }}</a></li>
+                                        <li><a draggable="false" href="{{ route("information-system.index") }}">{{ trans("page.Undergraduate") }} - {{ trans("page.Information System") }}</a></li>
                                     </ul>
                                 </li>
-                                <li class="drop"><a draggable="false" href="{{-- route("campus-activities.index") --}}">{{ trans("page.Campus Activities") }}</a>
+                                <li class="drop"><a draggable="false" href="javascript:;">{{ trans("page.Campus Activities") }}</a>
                                     <ul class="dropdown">
                                         <li><a draggable="false" href="{{ route("our-gallery.index") }}">{{ trans("page.Our Gallery") }}</a></li>
-                                        <li><a draggable="false" href="{{-- route("events.index") --}}">{{ trans("page.Events") }}</a></li>
+                                        <li><a draggable="false" href="{{ route("events.index") }}">{{ trans("page.Events") }}</a></li>
                                     </ul>
                                 </li>
                                 <li><a draggable="false" href="{{ route("contact-us.index") }}">{{ trans("page.Contact Us") }}</a></li>
@@ -277,15 +277,15 @@
                                     <li><a draggable="false" href="{{ route("scholarships.index") }}">{{ trans("page.Scholarships") }}</a></li>
                                 </ul>
                             </li>
-                            <li><a draggable="false" href="{{-- route("programme.index") --}}">{{ trans("page.Programme") }}</a>
+                            <li><a draggable="false" href="javascript:;">{{ trans("page.Programme") }}</a>
                                 <ul>
-                                    <li><a draggable="false" href="{{ route("procedure.index") }}">{{ trans("page.Procedure") }}</a></li>
+                                    <li><a draggable="false" href="{{ route("information-system.index") }}">{{ trans("page.Undergraduate") }} - {{ trans("page.Information System") }}</a></li>
                                 </ul>
                             </li>
-                            <li><a draggable="false" href="{{-- route("campus-activities.index") --}}">{{ trans("page.Campus Activities") }}</a>
+                            <li><a draggable="false" href="javascript:;">{{ trans("page.Campus Activities") }}</a>
                                 <ul>
                                     <li><a draggable="false" href="{{ route("our-gallery.index") }}">{{ trans("page.Our Gallery") }}</a></li>
-                                    <li><a draggable="false" href="{{-- route("events.index") --}}">{{ trans("page.Events") }}</a></li>
+                                    <li><a draggable="false" href="{{ route("events.index") }}">{{ trans("page.Events") }}</a></li>
                                 </ul>
                             </li>
                             <li><a draggable="false" href="{{ route("contact-us.index") }}">{{ trans("page.Contact Us") }}</a></li>

@@ -47,6 +47,11 @@ Breadcrumbs::for("online-registration.index", function (BreadcrumbTrail $trail) 
     $trail->push(trans("page.Online Registration"), route("online-registration.index"));
 });
 
+Breadcrumbs::for("admission-calendar.index", function (BreadcrumbTrail $trail) {
+    $trail->parent("index");
+    $trail->push(trans("page.Admission Calendar"), route("admission-calendar.index"));
+});
+
 Breadcrumbs::for("procedure.index", function (BreadcrumbTrail $trail) {
     $trail->parent("index");
     $trail->push(trans("page.Procedure"), route("procedure.index"));
@@ -60,6 +65,16 @@ Breadcrumbs::for("tuition-fees.index", function (BreadcrumbTrail $trail) {
 Breadcrumbs::for("scholarships.index", function (BreadcrumbTrail $trail) {
     $trail->parent("index");
     $trail->push(trans("page.Scholarships"), route("scholarships.index"));
+});
+
+Breadcrumbs::for("information-system.index", function (BreadcrumbTrail $trail) {
+    $trail->parent("index");
+    $trail->push(trans("page.Information System"), route("information-system.index"));
+});
+
+Breadcrumbs::for("events.index", function (BreadcrumbTrail $trail) {
+    $trail->parent("index");
+    $trail->push(trans("page.Events"), route("events.index"));
 });
 
 

@@ -83,6 +83,16 @@ Route::group(["prefix" => Str::slug($page), "as" => Str::slug($page) . "."], fun
     Route::any("", Str::studly($page) . "Component")->name("index");
 });
 
+$page = "Information System";
+Route::group(["prefix" => Str::slug($page), "as" => Str::slug($page) . "."], function () use ($page) {
+    Route::any("", Str::studly($page) . "Component")->name("index");
+});
+
+$page = "Events";
+Route::group(["prefix" => Str::slug($page), "as" => Str::slug($page) . "."], function () use ($page) {
+    Route::any("", Str::studly($page) . "Component")->name("index");
+});
+
 $page = "Lecturer";
 Route::group(["prefix" => Str::slug($page), "as" => Str::slug($page) . "."], function () use ($page) {
     Route::any("", Str::studly($page) . "Component")->name("index");

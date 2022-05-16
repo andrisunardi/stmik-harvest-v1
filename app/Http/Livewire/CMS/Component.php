@@ -33,6 +33,7 @@ use App\Models\NewsComment;
 use App\Models\Faq;
 use App\Models\FaqCategory;
 
+use App\Models\AdmissionCalendar;
 use App\Models\Banner;
 use App\Models\Gallery;
 use App\Models\Magazine;
@@ -165,6 +166,9 @@ class Component extends LivewireComponent
 
         $this->total_faq_category = FaqCategory::cursor()->count();
         View::share("total_faq_category", $this->total_faq_category);
+
+        $this->total_admission_calendar = AdmissionCalendar::cursor()->count();
+        View::share("total_admission_calendar", $this->total_admission_calendar);
 
         $this->total_banner = Banner::cursor()->count();
         View::share("total_banner", $this->total_banner);

@@ -50,6 +50,7 @@ class DatabaseSeeder extends Seeder
             FaqCategorySeeder::class,
             FaqSeeder::class,
 
+            AdmissionCalendarSeeder::class,
             BannerSeeder::class,
             GallerySeeder::class,
             MagazineSeeder::class,

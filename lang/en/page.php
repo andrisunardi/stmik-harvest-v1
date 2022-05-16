@@ -24,6 +24,8 @@ return [
     "Scholarship" => "Scholarship",
 
     "Programme" => "Programme",
+    "Undergraduate" => "Undergraduate",
+    "Information System" => "Information System",
     "Campus Activities" => "Campus Activities",
     "Our Gallery" => "Our Gallery",
     "Events" => "Events",
@@ -118,7 +120,6 @@ return [
     "Config" => "Config",
 
     "Faq Category" => "Faq Category",
-    "Data" => "Data",
     "Data" => "Data",
     "Data" => "Data",
     "Data" => "Data",
