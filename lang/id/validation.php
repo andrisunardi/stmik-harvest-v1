@@ -144,6 +144,12 @@ return [
 
         "confirm_reset" => "Konfirmasi Reset",
 
+        "preview_image" => "Pratinjau Image",
+        "preview_file" => "Pratinjau File",
+        "preview_pdf" => "Pratinjau PDF",
+        "preview_video" => "Pratinjau Video",
+        "preview_website" => "Pratinjau Website",
+
         "line" => "Line",
         "bbm" => "BBM",
         "google" => "Google",

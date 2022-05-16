@@ -3,7 +3,6 @@
 namespace App\Http\Livewire\CMS;
 
 use App\Http\Livewire\CMS\Component;
-use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Validation\Rule;
@@ -324,7 +323,7 @@ class RegistrationComponent extends Component
         return [
             "active"    => "required",
             "name"      => "required|max:50|unique:{$this->menu_table},name,{$id}",
-            "email"     => "required|max:50|unique:{$this->menu_table},email,{$id}",
+            "email"     => "required|max:50|email|unique:{$this->menu_table},email,{$id}",
             "phone"     => "required|max:15|unique:{$this->menu_table},phone,{$id}",
             "gender"    => "required|numeric|" . Rule::in([1, 2]),
             "school"    => "required|max:50",

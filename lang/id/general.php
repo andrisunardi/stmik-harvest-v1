@@ -502,7 +502,7 @@ return [
     "Morning - Afternoon Lecturer" => "Kuliah Pagi - Sore",
     "Study & Work (Evening Lecture)" => "Kuliah & Bekerja (Kuliah Malam)",
 
-    "test" => "test",
+    "Please complete registration form below to become our part" => "Silakan lengkapi formulir pendaftaran di bawah ini untuk menjadi bagian kami",
     "test" => "test",
     "test" => "test",
     "test" => "test",

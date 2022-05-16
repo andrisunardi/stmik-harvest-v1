@@ -497,7 +497,7 @@ return [
     "Woman" => "Woman",
     "Morning - Afternoon Lecturer" => "Morning - Afternoon Lecturer",
     "Study & Work (Evening Lecture)" => "Study & Work (Evening Lecture)",
-    "Data" => "Data",
+    "Please complete registration form below to become our part" => "Please complete registration form below to become our part",
     "Data" => "Data",
     "Data" => "Data",
     "Data" => "Data",

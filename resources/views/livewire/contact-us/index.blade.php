@@ -74,13 +74,15 @@
 
                 <div class="col-lg-6 sm-mt-40 xs-mt-40">
                     <div class="htc__contact__form__wrap">
-                        <h2 class="contact__title">{{ trans("general.Send A Message") }}</h2>
+                        <h2 class="contact__title mb-4">{{ trans("general.Send A Message") }}</h2>
+
+                        @include("layouts.alert")
 
                         <div class="contact-form-wrap">
                             <form wire:submit.prevent="submit" enctype="multipart/form-data" class="was-validated-delete" method="post" role="form" action="{{ route("{$menu_slug}.index") }}" id="contact-form" autocomplete="off">
                                 @csrf
 
-                                <div class="row mt-4">
+                                <div class="row">
                                     @php $input = "name" @endphp
                                     <div class="form-group col-sm-6">
                                         <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }} <span class="text-danger">*</span></label>

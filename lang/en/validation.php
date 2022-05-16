@@ -144,6 +144,12 @@ return [
 
         "confirm_reset" => "Confirm Reset",
 
+        "preview_image" => "Preview Image",
+        "preview_file" => "Preview File",
+        "preview_pdf" => "Preview PDF",
+        "preview_video" => "Preview Video",
+        "preview_website" => "Preview Website",
+
         "line" => "Line",
         "bbm" => "BBM",
         "google" => "Google",
