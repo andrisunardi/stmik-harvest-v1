@@ -186,7 +186,6 @@ return new class extends Migration
         });
 
         Schema::table("testimony", function (Blueprint $table) {
-            $table->foreign("study_program_id")->references("id")->on("study_program")->constrained()->nullable()->onUpdate("cascade")->onDelete("cascade");
             $table->foreign("created_by")->references("id")->on("admin")->constrained()->nullable()->onUpdate("cascade")->onDelete("cascade");
             $table->foreign("updated_by")->references("id")->on("admin")->constrained()->nullable()->onUpdate("cascade")->onDelete("cascade");
             $table->foreign("deleted_by")->references("id")->on("admin")->constrained()->nullable()->onUpdate("cascade")->onDelete("cascade");
@@ -386,7 +385,6 @@ return new class extends Migration
             });
 
             Schema::table("testimony", function (Blueprint $table) {
-                $table->dropConstrainedForeignId("study_program_id");
                 $table->dropConstrainedForeignId("created_by");
                 $table->dropConstrainedForeignId("updated_by");
                 $table->dropConstrainedForeignId("deleted_by");
