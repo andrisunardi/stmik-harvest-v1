@@ -143,8 +143,10 @@
                     <div class="section__title text-center">
                         <h2 class="title__line">{{ trans("page.Our Network") }}</h2>
                         <p>
-                            STMIK HARVEST bekerjasama dengan beberapa perguruan tinggi di luar negeri.<br>
-                            Beberapa agenda kerjasama antara lain program pengembangan dosen dan kurikulum, serta program pertukaran mahasiswa.
+                            {{ trans("general.STMIK HARVEST cooperates with several universities abroad.") }}<br>
+                            {{ trans("general.Some of the cooperation agendas include lecturer and curriculum development programs, as well as student exchange programs.") }}
+                            {{-- STMIK HARVEST bekerjasama dengan beberapa perguruan tinggi di luar negeri.<br>
+                            Beberapa agenda kerjasama antara lain program pengembangan dosen dan kurikulum, serta program pertukaran mahasiswa. --}}
                         </p>
                     </div>
                 </div>

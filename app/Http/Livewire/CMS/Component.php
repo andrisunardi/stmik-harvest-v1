@@ -38,6 +38,7 @@ use App\Models\Network;
 use App\Models\Banner;
 use App\Models\Slider;
 use App\Models\Testimony;
+use App\Models\TuitionFee;
 use App\Models\Value;
 
 use App\Models\Admin;
@@ -160,6 +161,9 @@ class Component extends LivewireComponent
         $this->total_faq_category = FaqCategory::cursor()->count();
         View::share("total_faq_category", $this->total_faq_category);
 
+        $this->total_banner = Banner::cursor()->count();
+        View::share("total_banner", $this->total_banner);
+
         $this->total_gallery = Gallery::cursor()->count();
         View::share("total_gallery", $this->total_gallery);
 
@@ -169,14 +173,17 @@ class Component extends LivewireComponent
         $this->total_news = News::cursor()->count();
         View::share("total_news", $this->total_news);
 
-        $this->total_banner = Banner::cursor()->count();
-        View::share("total_banner", $this->total_banner);
+        $this->total_network = Network::cursor()->count();
+        View::share("total_network", $this->total_network);
 
         $this->total_slider = Slider::cursor()->count();
         View::share("total_slider", $this->total_slider);
 
         $this->total_testimony = Testimony::cursor()->count();
         View::share("total_testimony", $this->total_testimony);
+
+        $this->total_tuition_fee = TuitionFee::cursor()->count();
+        View::share("total_tuition_fee", $this->total_tuition_fee);
 
         $this->total_value = Value::cursor()->count();
         View::share("total_value", $this->total_value);

@@ -290,6 +290,14 @@ class MenuCategorySeeder extends Seeder
 
             $data = new Menu();
             $data->menu_category_id = $menu_category->id;
+            $data->name = "Tuition Fee";
+            $data->name_id = "Biaya Kuliah";
+            $data->icon = "bi bi-money";
+            $data->sort = $sort++;
+            $data->save();
+
+            $data = new Menu();
+            $data->menu_category_id = $menu_category->id;
             $data->name = "Value";
             $data->name_id = "Nilai";
             $data->icon = "bi bi-star";

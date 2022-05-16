@@ -41,6 +41,7 @@ use App\Models\Slider;
 use App\Models\StudyProgram;
 use App\Models\StudyProgramCategory;
 use App\Models\Testimony;
+use App\Models\TuitionFee;
 use App\Models\User;
 use App\Models\Value;
 
@@ -75,6 +76,7 @@ use App\Observers\SliderObserver;
 use App\Observers\StudyProgramObserver;
 use App\Observers\StudyProgramCategoryObserver;
 use App\Observers\TestimonyObserver;
+use App\Observers\TuitionFeeObserver;
 use App\Observers\UserObserver;
 use App\Observers\ValueObserver;
 
@@ -222,6 +224,7 @@ class AppServiceProvider extends ServiceProvider
         StudyProgram::observe(StudyProgramObserver::class);
         StudyProgramCategory::observe(StudyProgramCategoryObserver::class);
         Testimony::observe(TestimonyObserver::class);
+        TuitionFee::observe(TuitionFeeObserver::class);
         User::observe(UserObserver::class);
         Value::observe(ValueObserver::class);
 

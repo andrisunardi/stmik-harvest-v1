@@ -464,4 +464,7 @@ return [
     "The following is the new student registration procedure" => "Berikut ini adalah prosedur pendaftaran mahasiswa baru",
     "Ready to Join ?" => "Siap untuk Bergabung ?",
     "It easy now to you for being our part, just click the button below and fill out the form with your data." => "Sekarang mudah bagi Anda untuk menjadi bagian kami, cukup klik tombol di bawah ini dan isi formulir dengan data Anda.",
+
+    "STMIK HARVEST cooperates with several universities abroad." => "STMIK HARVEST bekerjasama dengan beberapa perguruan tinggi di luar negeri.",
+    "Some of the cooperation agendas include lecturer and curriculum development programs, as well as student exchange programs." => "Beberapa agenda kerjasama antara lain program pengembangan dosen dan kurikulum, serta program pertukaran mahasiswa.",
 ];

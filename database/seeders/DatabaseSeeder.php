@@ -57,6 +57,7 @@ class DatabaseSeeder extends Seeder
             ProcedureSeeder::class,
             SliderSeeder::class,
             TestimonySeeder::class,
+            TuitionFeeSeeder::class,
             ValueSeeder::class,
         ]);
 

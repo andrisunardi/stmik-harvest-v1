@@ -460,8 +460,9 @@ return [
     "The following is the new student registration procedure" => "The following is the new student registration procedure",
     "Ready to Join ?" => "Ready to Join ?",
     "It easy now to you for being our part, just click the button below and fill out the form with your data." => "It easy now to you for being our part, just click the button below and fill out the form with your data.",
-    "Data" => "Data",
-    "Data" => "Data",
+
+    "STMIK HARVEST cooperates with several universities abroad." => "STMIK HARVEST cooperates with several universities abroad.",
+    "Some of the cooperation agendas include lecturer and curriculum development programs, as well as student exchange programs." => "Some of the cooperation agendas include lecturer and curriculum development programs, as well as student exchange programs.",
     "Data" => "Data",
     "Data" => "Data",
     "Data" => "Data",

@@ -47,6 +47,11 @@ Breadcrumbs::for("procedure.index", function (BreadcrumbTrail $trail) {
     $trail->push(trans("page.Procedure"), route("procedure.index"));
 });
 
+Breadcrumbs::for("tuition-fees.index", function (BreadcrumbTrail $trail) {
+    $trail->parent("index");
+    $trail->push(trans("page.Tuition Fees"), route("tuition-fees.index"));
+});
+
 
 
 

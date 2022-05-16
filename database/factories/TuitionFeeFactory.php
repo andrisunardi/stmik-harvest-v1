@@ -4,11 +4,11 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-use App\Models\Procedure;
+use App\Models\TuitionFee;
 
-class ProcedureFactory extends Factory
+class TuitionFeeFactory extends Factory
 {
-    protected $model = Procedure::class;
+    protected $model = TuitionFee::class;
 
     public function definition()
     {

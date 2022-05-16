@@ -4,12 +4,22 @@ namespace App\Http\Livewire;
 
 use App\Http\Livewire\Component;
 
+use App\Models\Banner;
+use App\Models\TuitionFee;
+
 class TuitionFeesComponent extends Component
 {
     public $menu_name = "Tuition Fees";
-    public $menu_icon = "fas fa-calendar";
+    public $menu_icon = "fas fa-money";
     public $menu_slug = "tuition-fees";
-    public $menu_table = "tuition_fees";
+    public $menu_table = "tuition_fee";
+
+    public function mount()
+    {
+        $this->banner = Banner::find(1);
+
+        $this->data_tuition_fee = TuitionFee::onlyActive()->orderBy("id")->get();
+    }
 
     public function render()
     {
