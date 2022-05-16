@@ -254,5 +254,11 @@ return [
         "vision" => "Visi",
         "mission" => "Misi",
         "history" => "Sejarah",
+
+        "gender" => "Jenis Kelamin",
+        "school" => "Sekolah",
+        "major" => "Jurusan",
+        "city" => "Kota",
+        "type" => "Tipe",
     ],
 ];

@@ -256,6 +256,12 @@ return [
         "history" => "History",
         "youtube" => "Youtube",
         "youtube" => "Youtube",
+
+        "gender" => "Gender",
+        "school" => "School",
+        "major" => "Major",
+        "city" => "City",
+        "type" => "Type",
     ],
 
     "values" => [

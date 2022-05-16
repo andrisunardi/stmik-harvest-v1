@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\View;
 use Livewire\Component as LivewireComponent;
 
+use App\Models\Registration;
 use App\Models\User;
 use App\Models\Contact;
 
@@ -32,10 +33,11 @@ use App\Models\NewsComment;
 use App\Models\Faq;
 use App\Models\FaqCategory;
 
+use App\Models\Banner;
 use App\Models\Gallery;
 use App\Models\Magazine;
 use App\Models\Network;
-use App\Models\Banner;
+use App\Models\Procedure;
 use App\Models\Slider;
 use App\Models\Testimony;
 use App\Models\TuitionFee;
@@ -107,6 +109,9 @@ class Component extends LivewireComponent
             }
         }
 
+        $this->total_registration = Registration::cursor()->count();
+        View::share("total_registration", $this->total_registration);
+
         $this->total_user = User::cursor()->count();
         View::share("total_user", $this->total_user);
 
@@ -175,6 +180,9 @@ class Component extends LivewireComponent
 
         $this->total_network = Network::cursor()->count();
         View::share("total_network", $this->total_network);
+
+        $this->total_procedure = Procedure::cursor()->count();
+        View::share("total_procedure", $this->total_procedure);
 
         $this->total_slider = Slider::cursor()->count();
         View::share("total_slider", $this->total_slider);

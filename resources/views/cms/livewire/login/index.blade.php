@@ -27,7 +27,7 @@
                     alt="{{ trans("general.{$menu_name}") }} - {{ env("APP_TITLE") }}">
             </div>
             <div class="register-form mt-4">
-                <h3 class="text-center">{{ trans("general.Welcome to") }} {{ trans("general.CMS") }} {{ env("APP_NAME") }}</h3>
+                <h3 class="text-center">{{ trans("general.Welcome to") }} {{ trans("general.CMS") }}<br>{{ env("APP_NAME") }}</h3>
                 <h6 class="mb-4 text-center">{{ trans("general.Sign in to your account to continue") }}</h6>
 
                 @include("{$sub_domain}.layouts.alert")

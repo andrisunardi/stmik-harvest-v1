@@ -323,6 +323,16 @@
                         </li>
 
                         @livewire("c-m-s.logout-component")
+
+                        {{-- <li>
+                            <div class="night-mode-nav">
+                                <i class="bi bi-moon"></i>
+                                {{ trans("general.Night Mode") }}
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input form-check-success" id="darkSwitch" type="checkbox">
+                                </div>
+                            </div>
+                        </li> --}}
                     </ul>
 
                     <div class="social-info-wrap">

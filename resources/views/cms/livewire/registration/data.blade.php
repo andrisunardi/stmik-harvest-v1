@@ -42,10 +42,20 @@
                             {{ $registration->name }}
                         </a>
                     </td>
+                    <td><a draggable="false" href="mailto:+{{ Str::phone($registration->email) }}">{{ $registration->email }}</a></td>
+                    <td><a draggable="false" href="tel:+{{ Str::phone($registration->phone) }}">{{ $registration->phone }}</a></td>
                     <td>
-                        <a draggable="false" href="">
-                            {{ $registration->name_id }}
-                        </a>
+                        <span class="{{ "badge bg-" . Str::color($registration->gender) }}">
+                            {{ trans("general.{$registration->gender_text}") }}
+                        </span>
+                    </td>
+                    <td>{{ $registration->school }}</td>
+                    <td>{{ $registration->major }}</td>
+                    <td>{{ $registration->city }}</td>
+                    <td>
+                        <span class="{{ "badge bg-" . Str::color($registration->type) }}">
+                            {{ trans("general.{$registration->type_text}") }}
+                        </span>
                     </td>
                     <td>
                         <span class="{{ "badge bg-" . Str::successdanger($registration->active) }}">
