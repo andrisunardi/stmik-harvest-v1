@@ -43,24 +43,24 @@ class AdmissionCalendarSeeder extends Seeder
         $data->save();
 
         $data = new AdmissionCalendar();
-        $data->name = "Wave II";
-        $data->name_id = "Gelombang II";
+        $data->name = "Wave II A";
+        $data->name_id = "Gelombang II A";
         $data->description = "Deadline Until February 28, 2019. The second batch will be opened on February 28, 2019. Please take note and don't miss it, register yourself immediately.";
         $data->description_id = "Batas Waktu Hingga 28 February 2019. Gelombang II akan dibuka pada tanggal 28 Februari 2019. Mohon untuk dicatat dan jangan sampai terlewatkan, Segera daftarkan diri anda.";
         $data->date = "2019-02-28";
         $data->save();
 
         $data = new AdmissionCalendar();
-        $data->name = "Wave III";
-        $data->name_id = "Gelombang III";
+        $data->name = "Wave III A";
+        $data->name_id = "Gelombang III A";
         $data->description = "Deadline Until May 31, 2019. The third batch will be opened on May 31, 2019. Please take note and don't miss it, register yourself immediately.";
         $data->description_id = "Batas Waktu Hingga 31 Mei 2019. Gelombang III akan dibuka pada tanggal 31 Mei 2019. Mohon untuk dicatat dan jangan sampai terlewatkan, Segera daftarkan diri anda.";
         $data->date = "2019-05-31";
         $data->save();
 
         $data = new AdmissionCalendar();
-        $data->name = "Wave IV";
-        $data->name_id = "Gelombang IV";
+        $data->name = "Wave IV A";
+        $data->name_id = "Gelombang IV A";
         $data->description = "Deadline Until August 31, 2017. The fourth batch will be opened on August 31, 2019. Please take note and don't miss it, register yourself immediately.";
         $data->description_id = "Batas Waktu Hingga 31 Agustus 2017. Gelombang IV akan dibuka pada tanggal 31 Agustus 2019. Mohon untuk dicatat dan jangan sampai terlewatkan, Segera daftarkan diri anda.";
         $data->date = "2019-08-31";

@@ -1,6 +1,7 @@
 <?php
 
 return [
+    "Send" => "Send",
     "Add" => "Add",
     "Edit" => "Edit",
     "View" => "View",

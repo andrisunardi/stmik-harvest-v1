@@ -566,6 +566,9 @@ return [
     "How Real People Said About STMIK Harvest" => "Bagaimana Orang Berkata Tentang STMIK Harvest",
     "You want to know more information" => "Anda ingin mengetahui informasi lebih lanjut",
     "Send us a mail" => "Kirim kami email",
+    "Now Open Admission For Registration" => "Sekarang Buka Penerimaan Untuk Pendaftaran",
+    "Register Now" => "Daftar Sekarang",
+    "Online Registration" => "Daftar Online",
 
     "test" => "test",
     "test" => "test",

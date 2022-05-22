@@ -3,13 +3,12 @@
 namespace App\Http\Livewire;
 
 use App\Http\Livewire\Component;
+use App\Models\Banner;
+use App\Models\Registration;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Validation\Rule;
-
-use App\Models\Banner;
-use App\Models\Registration;
 
 class OnlineRegistrationComponent extends Component
 {
@@ -72,7 +71,7 @@ class OnlineRegistrationComponent extends Component
                     ->to(env("CONTACT_EMAIL"))
                     ->cc(env("CONTACT_EMAIL"))
                     ->bcc(env("CONTACT_EMAIL"))
-                    ->subject("Contact Form - " . date("d F Y"));
+                    ->subject("Online Registration Form - " . date("d F Y"));
             });
         }
 

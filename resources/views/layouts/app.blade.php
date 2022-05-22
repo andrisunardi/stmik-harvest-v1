@@ -194,12 +194,13 @@
                                 </li>
                                 <li class="drop"><a draggable="false" href="{{ route("about.index") }}">{{ trans("page.About Us") }}</a>
                                     <ul class="dropdown">
+                                        <li><a draggable="false" href="{{ route("about.index") }}">{{ trans("page.About") }} STMIK Harvest</a></li>
                                         <li><a draggable="false" href="{{ route("our-profile.index") }}">{{ trans("page.Our Profile") }}</a></li>
                                         <li><a draggable="false" href="{{ route("our-values.index") }}">{{ trans("page.Our Values") }}</a></li>
                                         <li><a draggable="false" href="{{ route("our-network.index") }}">{{ trans("page.Our Network") }}</a></li>
                                     </ul>
                                 </li>
-                                <li class="drop"><a draggable="false" href="{{ route("admission.index") }}">{{ trans("page.Admission") }}</a>
+                                <li class="drop"><a draggable="false" href="javascript:;">{{ trans("page.Admission") }}</a>
                                     <ul class="dropdown">
                                         <li><a draggable="false" href="{{ route("online-registration.index") }}">{{ trans("page.Online Registration") }}</a></li>
                                         <li><a draggable="false" href="{{ route("admission-calendar.index") }}">{{ trans("page.Admission Calendar") }}</a></li>
@@ -217,6 +218,7 @@
                                     <ul class="dropdown">
                                         <li><a draggable="false" href="{{ route("our-gallery.index") }}">{{ trans("page.Our Gallery") }}</a></li>
                                         <li><a draggable="false" href="{{ route("events.index") }}">{{ trans("page.Events") }}</a></li>
+                                        <li><a draggable="false" href="{{ route("events.index") }}">{{ trans("page.Blogs") }}</a></li>
                                     </ul>
                                 </li>
                                 <li><a draggable="false" href="{{ route("contact-us.index") }}">{{ trans("page.Contact Us") }}</a></li>

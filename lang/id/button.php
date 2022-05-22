@@ -1,6 +1,7 @@
 <?php
 
 return [
+    "Send" => "Kirim",
     "Add" => "Tambah",
     "Edit" => "Ubah",
     "View" => "Lihat",

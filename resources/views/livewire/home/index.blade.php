@@ -4,11 +4,11 @@
 @section("{$menu_slug}-active", "active")
 
 <div>
-    <div class="slider__container slider__fixed_height slider__position--relative">
+    <div wire:ignore class="slider__container slider__fixed_height slider__position--relative">
         <div class="slider__activation__wrap owl-carousel owl-theme">
             @foreach ($data_slider as $slider)
                 @if ($loop->iteration == 1)
-                    <div class="slide text__align--left slider__bg__color--1 fornt__image--right" style="background-image: url({{ $slider->assetImage() }})">
+                    <div class="slide text__align--left slider__bg__color--1 fornt__image--right" style="background-image: url({{ $slider->assetImage() }}); background-size: cover;">
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-7">
@@ -32,7 +32,7 @@
                 @endif
 
                 @if ($loop->iteration == 2)
-                    <div class="slide slider__bg__color--2 text__align--left fornt__image--right-3" style="background-image: url({{ $slider->assetImage() }})">
+                    <div class="slide slider__bg__color--2 text__align--left fornt__image--right-3" style="background-image: url({{ $slider->assetImage() }}); background-size: cover;">
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-9 col-xl-7">
@@ -52,7 +52,7 @@
                 @endif
 
                 @if ($loop->iteration == 3)
-                    <div class="slide slider__bg__color--3 text__align--left fornt__image--right-2" style="background-image: url({{ $slider->assetImage() }})">
+                    <div class="slide slider__bg__color--3 text__align--left fornt__image--right-2" style="background-image: url({{ $slider->assetImage() }}); background-size: cover;">
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-7">
@@ -74,7 +74,7 @@
         </div>
     </div>
 
-    <section class="htc__offer__area bg--theme">
+    <section class="htc__offer__area bg--theme bg-success">
         <div class="container">
             <div class="row">
                 @foreach ($data_offer as $offer)
@@ -115,91 +115,7 @@
         </div>
     </section>
 
-    <section class="our__counterup__area ptb--70" data--black__overlay="4" style="background-image: url(images/bg/1.jpg); background-repeat: no-repeat; background-attachment: scroll;  background-size: cover;">
-        <div class="container">
-            <div class="row counterup__wrap">
-                <!-- Start Single Fact -->
-                <div class="col-lg-3 col-md-6">
-                    <div class="funfact">
-                        <div class="fact__icon">
-                            <i class="icon ion-university"></i>
-                        </div>
-                        <div class="fact__details">
-                            <div class="funfact__count__inner">
-                                <div class="fact__count ">
-                                    <span class="count odometer" data-count="98">00</span><span>%</span>
-                                </div>
-                            </div>
-                            <div class="fact__title">
-                                <h2>Graduates</h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Fact -->
-                <!-- Start Single Fact -->
-                <div class="col-lg-3 col-md-6">
-                    <div class="funfact">
-                        <div class="fact__icon">
-                            <i class="icon ion-ribbon-b"></i>
-                        </div>
-                        <div class="fact__details">
-                            <div class="funfact__count__inner">
-                                <div class="fact__count">
-                                    <span class="count odometer" data-count="30">00</span><span>+</span>
-                                </div>
-                            </div>
-                            <div class="fact__title">
-                                <h2>Certified Teachers</h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Fact -->
-                <!-- Start Single Fact -->
-                <div class="col-lg-3 col-md-6">
-                    <div class="funfact">
-                        <div class="fact__icon">
-                            <i class="icon ion-podium"></i>
-                        </div>
-                        <div class="fact__details">
-                            <div class="funfact__count__inner">
-                                <div class="fact__count">
-                                    <span class="count odometer" data-count="7">0</span>
-                                </div>
-                            </div>
-                            <div class="fact__title">
-                                <h2>Student Campuses</h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Fact -->
-                <!-- Start Single Fact -->
-                <div class="col-lg-3 col-md-6">
-                    <div class="funfact">
-                        <div class="fact__icon">
-                            <i class="icon ion-person-stalker"></i>
-                        </div>
-                        <div class="fact__details">
-                            <div class="funfact__count__inner">
-                                <div class="fact__count">
-                                    <span class="count odometer" data-count="5959">0000</span>
-                                </div>
-                            </div>
-                            <div class="fact__title">
-                                <h2>Students</h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Fact -->
-            </div>
-        </div>
-    </section>
-    <!-- End Our CounterUp Area -->
-    <!-- Start popular Courses Area -->
-    <section class="popular__courses__area ptb--80 bg__white">
+    <section wire:ignore class="popular__courses__area ptb--80 bg__white">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -379,36 +295,138 @@
             </div>
         </div>
     </section>
-    <!-- End popular Courses Area -->
-    <!-- Start Coutdown Area -->
+
     <section class="our__countdown__area ptb--100" data--theme__overlay="6" style="background: rgba(0, 0, 0, 0) url(images/bg/2.jpg) no-repeat scroll center center / cover ;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-xl-7">
                     <div class="countdown__wrap">
                         <div class="countdown__inner">
-                            <h4>GET 100s OF ONLINE COURSES FOR FREE</h4>
-                            <h2>REGISTER NOW</h2>
+                            <h4>{{ trans("general.Now Open Admission For Registration") }}</h4>
+                            <h2>{{ trans("general.Register Now") }}</h2>
                         </div>
                         <div class="ml-countdown-thumb">
                             <div class="box-timer">
-                            <div class="countbox timer-grid">
-                                <div  data-countdown="2023/03/01"></div>
+                                <div class="countbox timer-grid">
+                                    <div wire:ignore data-countdown="{{ $admission_calendar->date }}"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
                 <div class="col-lg-4 col-xl-5">
                     <div class="create__free__account__form">
-                        <h2><i class="icon ion-android-lock"></i>Create Your Free Account Now !</h2>
+                        <h2><i class="icon ion-android-document"></i> {{ trans("general.Online Registration") }}</h2>
                         <div class="account__form__box">
-                            <input type="text"  placeholder="Your Name *">
-                            <input type="email"  placeholder="Email *">
-                            <input type="tel"  placeholder="Phone *">
-                            <div class="acount__btn">
-                                <a draggable="false" class="htc__btn btn--theme btn--smll" href="#">Get it now</a>
-                            </div>
+
+                            <form wire:submit.prevent="submit" enctype="multipart/form-data" class="was-validated-delete" method="post" role="form" action="{{ route("index") }}" id="contact-form" autocomplete="off">
+                                @csrf
+
+                                @php $input = "name" @endphp
+                                <input wire:model="{{ $input }}" wire:keydown.enter="submit" id="{{ $input }}" name="{{ $input }}"
+                                    type="text" class="form-control @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" minlength="1" maxlength="50" value="{{ old($input) }}"
+                                    placeholder="{{ trans("validation.attributes.{$input}") }}" aria-label="{{ trans("validation.attributes.{$input}") }}" aria-describedby="{{ trans("validation.attributes.{$input}") }}"
+                                    autocomplete="off" autocapitalize="none" required>
+                                @error($input)
+                                    <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
+                                @else
+                                    <div class="valid-feedback rounded bg-success p-2 ms-0 mt-2 text-white">{{ trans("validation.Looks Good") }}</div>
+                                @enderror
+
+                                @php $input = "email" @endphp
+                                <input wire:model="{{ $input }}" wire:keydown.enter="submit" id="{{ $input }}" name="{{ $input }}"
+                                    type="email" class="form-control @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" minlength="1" maxlength="50" value="{{ old($input) }}"
+                                    placeholder="{{ trans("validation.attributes.{$input}") }}" aria-label="{{ trans("validation.attributes.{$input}") }}" aria-describedby="{{ trans("validation.attributes.{$input}") }}"
+                                    autocomplete="off" autocapitalize="none" required>
+                                @error($input)
+                                    <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
+                                @else
+                                    <div class="valid-feedback rounded bg-success p-2 ms-0 mt-2 text-white">{{ trans("validation.Looks Good") }}</div>
+                                @enderror
+
+                                @php $input = "phone" @endphp
+                                <input wire:model="{{ $input }}" wire:keydown.enter="submit" id="{{ $input }}" name="{{ $input }}"
+                                    type="text" class="form-control @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" minlength="1" maxlength="15" value="{{ old($input) }}"
+                                    placeholder="{{ trans("validation.attributes.{$input}") }}" aria-label="{{ trans("validation.attributes.{$input}") }}" aria-describedby="{{ trans("validation.attributes.{$input}") }}"
+                                    autocomplete="off" autocapitalize="none" required>
+                                @error($input)
+                                    <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
+                                @else
+                                    <div class="valid-feedback rounded bg-success p-2 ms-0 mt-2 text-white">{{ trans("validation.Looks Good") }}</div>
+                                @enderror
+
+                                @php $input = "gender" @endphp
+                                <select wire:model="{{ $input }}" id="{{ $input }}" name="{{ $input }}"
+                                    class="form-control mt-3 @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif"
+                                    placeholder="{{ trans("validation.attributes.{$input}") }}" aria-label="{{ trans("validation.attributes.{$input}") }}" aria-describedby="{{ trans("validation.attributes.{$input}") }}"
+                                    autocomplete="off" autocapitalize="none" required>
+                                    <option value="">{{ trans("general.Select") }} {{ trans("validation.attributes.{$input}") }}</option>
+                                    <option value="1">{{ trans("general.Man") }}</option>
+                                    <option value="2">{{ trans("general.Woman") }}</option>
+                                </select>
+                                @error($input)
+                                    <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
+                                @else
+                                    <div class="valid-feedback rounded bg-success p-2 ms-0 mt-2 text-white">{{ trans("validation.Looks Good") }}</div>
+                                @enderror
+
+                                @php $input = "school" @endphp
+                                <input wire:model="{{ $input }}" wire:keydown.enter="submit" id="{{ $input }}" name="{{ $input }}"
+                                    type="text" class="form-control @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" minlength="1" maxlength="50" value="{{ old($input) }}"
+                                    placeholder="{{ trans("validation.attributes.{$input}") }}" aria-label="{{ trans("validation.attributes.{$input}") }}" aria-describedby="{{ trans("validation.attributes.{$input}") }}"
+                                    autocomplete="off" autocapitalize="none" required>
+                                @error($input)
+                                    <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
+                                @else
+                                    <div class="valid-feedback rounded bg-success p-2 ms-0 mt-2 text-white">{{ trans("validation.Looks Good") }}</div>
+                                @enderror
+
+                                @php $input = "major" @endphp
+                                <input wire:model="{{ $input }}" wire:keydown.enter="submit" id="{{ $input }}" name="{{ $input }}"
+                                    type="text" class="form-control @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" minlength="1" maxlength="50" value="{{ old($input) }}"
+                                    placeholder="{{ trans("validation.attributes.{$input}") }}" aria-label="{{ trans("validation.attributes.{$input}") }}" aria-describedby="{{ trans("validation.attributes.{$input}") }}"
+                                    autocomplete="off" autocapitalize="none" required>
+                                @error($input)
+                                    <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
+                                @else
+                                    <div class="valid-feedback rounded bg-success p-2 ms-0 mt-2 text-white">{{ trans("validation.Looks Good") }}</div>
+                                @enderror
+
+                                @php $input = "city" @endphp
+                                <input wire:model="{{ $input }}" wire:keydown.enter="submit" id="{{ $input }}" name="{{ $input }}"
+                                    type="text" class="form-control @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" minlength="1" maxlength="50" value="{{ old($input) }}"
+                                    placeholder="{{ trans("validation.attributes.{$input}") }}" aria-label="{{ trans("validation.attributes.{$input}") }}" aria-describedby="{{ trans("validation.attributes.{$input}") }}"
+                                    autocomplete="off" autocapitalize="none" required>
+                                @error($input)
+                                    <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
+                                @else
+                                    <div class="valid-feedback rounded bg-success p-2 ms-0 mt-2 text-white">{{ trans("validation.Looks Good") }}</div>
+                                @enderror
+
+                                @php $input = "gender" @endphp
+                                <select wire:model="{{ $input }}" id="{{ $input }}" name="{{ $input }}"
+                                    class="form-control mt-3 @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif"
+                                    placeholder="{{ trans("validation.attributes.{$input}") }}" aria-label="{{ trans("validation.attributes.{$input}") }}" aria-describedby="{{ trans("validation.attributes.{$input}") }}"
+                                    autocomplete="off" autocapitalize="none" required>
+                                    <option value="">{{ trans("general.Which Do You Prefer") }}</option>
+                                    <option value="1">{{ trans("general.Morning - Afternoon Lecturer") }}</option>
+                                    <option value="2">{{ trans("general.Study & Work (Evening Lecture)") }}</option>
+                                </select>
+                                @error($input)
+                                    <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
+                                @else
+                                    <div class="valid-feedback rounded bg-success p-2 ms-0 mt-2 text-white">{{ trans("validation.Looks Good") }}</div>
+                                @enderror
+
+                                <div class="mt-3">
+                                    @include("layouts.alert")
+                                </div>
+
+                                <div class="acount__btn">
+                                    <button class="htc__btn btn--theme btn--smll" type="button" wire:click="submit">{{ trans("button.Submit") }}</button>
+                                </div>
+                            </form>
                         </div>
 
                     </div>
@@ -503,7 +521,7 @@
         </div>
     </section>
 
-    <section class="our__testimonial__area pt--80 pb--110" style="background: rgba(0, 0, 0, 0) url({{ asset("assets/images/bg/3.jpg") }}) no-repeat scroll center center / cover;">
+    <section wire:ignore class="our__testimonial__area pt--80 pb--110" style="background: rgba(0, 0, 0, 0) url({{ asset("assets/images/bg/3.jpg") }}) no-repeat scroll center center / cover;">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -633,7 +651,7 @@
                         <div class="newsletter__form">
                             <div class="input__box">
                                 <div id="mc_embed_signup">
-                                    <form wire:submit.prevent="submit" enctype="multipart/form-data" class="was-validated-delete validate" method="post" role="form" action="{{ route("index") }}" autocomplete="off" id="mc-embedded-subscribe-formz" novalidate>
+                                    <form wire:submit.prevent="newsletter" enctype="multipart/form-data" class="was-validated-delete validate" method="post" role="form" action="{{ route("index") }}" autocomplete="off" id="mc-embedded-subscribe-formz" novalidate>
                                         @csrf
 
                                         <div class="row justify-content-center">
@@ -645,7 +663,7 @@
                                         <div id="mc_embed_signup_scroll" class="htc__news__inner">
                                             @php $input = "email" @endphp
                                             <div class="news__input">
-                                                <input wire:model="{{ $input }}" wire:keydown.enter="submit" id="{{ $input }}" name="{{ $input }}"
+                                                <input wire:model="emailNewsletter" wire:keydown.enter="newsletter" id="{{ $input }}" name="{{ $input }}"
                                                     type="email" class="form-control-delete email @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" minlength="1" maxlength="50" value="{{ old($input) }}"
                                                     placeholder="{{ trans("validation.attributes.{$input}") }}" aria-label="{{ trans("validation.attributes.{$input}") }}" aria-describedby="{{ trans("validation.attributes.{$input}") }}"
                                                     autocomplete="off" autocapitalize="none" required>
@@ -656,7 +674,7 @@
                                                 @enderror
                                             </div>
                                             <div class="clearfix subscribe__btn">
-                                                <input wire:click="submit" type="button" value="Send" name="subscribe" id="mc-embedded-subscribe" class="bst__btn btn--white__color">
+                                                <input wire:click="newsletter" type="button" value="{{ trans("button.Send") }}" class="bst__btn btn--white__color">
                                             </div>
                                         </div>
                                     </form>
