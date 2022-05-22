@@ -281,6 +281,14 @@ class MenuCategorySeeder extends Seeder
 
             $data = new Menu();
             $data->menu_category_id = $menu_category->id;
+            $data->name = "Offer";
+            $data->name_id = "Penawaran";
+            $data->icon = "bi bi-promo";
+            $data->sort = $sort++;
+            $data->save();
+
+            $data = new Menu();
+            $data->menu_category_id = $menu_category->id;
             $data->name = "Procedure";
             $data->name_id = "Prosedur";
             $data->icon = "bi bi-legal";

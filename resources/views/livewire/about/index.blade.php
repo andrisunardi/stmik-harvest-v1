@@ -9,8 +9,8 @@
             <div class="row about__wrapper">
                 <div class="about">
                     <div class="section__title text-left">
-                        <h2 class="title__line">{{ trans("general.Welcome To") }} Yayasan STMIK Harvest</h2>
-                        <p>College for Future Technopreneur</p>
+                        <h2 class="title__line">{{ trans("general.Welcome To") }} {{ trans("general.Yayasan STMIK Harvest") }}</h2>
+                        <p>{{ trans("general.College for Future Technopreneur") }}</p>
                     </div>
                 </div>
                 <div class="col-lg-6">

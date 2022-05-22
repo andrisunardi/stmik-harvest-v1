@@ -38,6 +38,7 @@ use App\Models\Banner;
 use App\Models\Gallery;
 use App\Models\Magazine;
 use App\Models\Network;
+use App\Models\Offer;
 use App\Models\Procedure;
 use App\Models\Slider;
 use App\Models\Testimony;
@@ -184,6 +185,9 @@ class Component extends LivewireComponent
 
         $this->total_network = Network::cursor()->count();
         View::share("total_network", $this->total_network);
+
+        $this->total_offer = Offer::cursor()->count();
+        View::share("total_offer", $this->total_offer);
 
         $this->total_procedure = Procedure::cursor()->count();
         View::share("total_procedure", $this->total_procedure);

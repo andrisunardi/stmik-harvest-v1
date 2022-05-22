@@ -2,33 +2,24 @@
 
 namespace Database\Factories;
 
-use App\Models\Slider;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\File;
 
-class SliderFactory extends Factory
+use App\Models\Offer;
+
+class OfferFactory extends Factory
 {
-    protected $model = Slider::class;
+    protected $model = Offer::class;
 
     public function definition()
     {
-        $name = $this->faker->unique()->name();
-
-        File::copy(
-            public_path() . "/images/image.png",
-            public_path() . "/images/" . Str::kebab(Str::substr($this->model, 11)) . "/" . Str::slug($name) . ".png",
-        );
-
         return [
-            "name" => $name,
+            "name" => $this->faker->sentence(),
             "name_id" => $this->faker->sentence(),
             "description" => $this->faker->paragraph(),
             "description_id" => $this->faker->paragraph(),
             "button_name" => $this->faker->sentence(),
             "button_name_id" => $this->faker->sentence(),
             "button_link" => $this->faker->url(),
-            "image" => Str::slug($name) . ".png",
             "active" => $this->faker->boolean(),
         ];
     }

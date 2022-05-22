@@ -6,19 +6,20 @@
 <div>
     <div class="slider__container slider__fixed_height slider__position--relative">
         <div class="slider__activation__wrap owl-carousel owl-theme">
-            <!-- Start Single Slide -->
-            <div class="slide text__align--left slider__bg__color--1 fornt__image--right" >
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-7">
-                            <div class="slider__display--center cd-intro">
-                                <div class="cd-intro-content mask-2">
-                                    <div class="slider__inner content-wrapper">
-                                        <div>
-                                            <h1>English Test</h1>
-                                            <p>Determine your proficiency level in English by taking our free Online English Test.</p>
-                                            <div class="slider__btn action-wrapper">
-                                                <a draggable="false" class="htc__btn btn--theme" href="cart.html">ORDER NOW!</a>
+            @foreach ($data_slider as $slider)
+                <div class="slide text__align--left slider__bg__color--1 fornt__image--right" >
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-7">
+                                <div class="slider__display--center cd-intro">
+                                    <div class="cd-intro-content mask-2">
+                                        <div class="slider__inner content-wrapper">
+                                            <div>
+                                                <h1>{{ $slider->translate_name }}</h1>
+                                                <p>{!! html_entity_decode($slider->translate_description) !!}</p>
+                                                <div class="slider__btn action-wrapper">
+                                                    <a draggable="false" class="htc__btn btn--theme" href="{{ $slider->button_link }}">{{ $slider->translate_button_name }}</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -27,102 +28,88 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- End Single Slide -->
-            <!-- Start Single Slide -->
-            <div class="slide slider__bg__color--2 text__align--left fornt__image--right-3">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-9 col-xl-7">
-                            <div class="slider__display--center cd-intro">
-                                <div class="slider__inner cd-intro-content scale">
-                                    <h1>MOBILE UX COURSE</h1>
-                                    <p>The differences between desktop and mobile UX are so vast, and deepen so fast.</p>
-                                    <div class="slider__btn">
-                                        <a draggable="false" class="htc__btn btn--theme" href="courses-details.html">learn more</a>
+
+                <div class="slide slider__bg__color--2 text__align--left fornt__image--right-3">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-9 col-xl-7">
+                                <div class="slider__display--center cd-intro">
+                                    <div class="slider__inner cd-intro-content scale">
+                                        <h1>MOBILE UX COURSE</h1>
+                                        <p>The differences between desktop and mobile UX are so vast, and deepen so fast.</p>
+                                        <div class="slider__btn">
+                                            <a draggable="false" class="htc__btn btn--theme" href="courses-details.html">learn more</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- End Single Slide -->
-            <!-- Start Single Slide -->
-            <div class="slide slider__bg__color--3 text__align--left fornt__image--right-2">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-7">
-                            <div class="slider__display--center cd-intro">
-                                <div class="slider__inner cd-intro-content mask">
-                                    <h1  data-content="English Test"><span>English Test</span></h1>
-                                    <p>Determine your proficiency level in English by taking our free Online English Test.</p>
-                                    <div class="slider__btn action-wrapper">
-                                        <a draggable="false" class="htc__btn btn--theme" href="cart.html">ORDER NOW!</a>
+
+                <div class="slide slider__bg__color--3 text__align--left fornt__image--right-2">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-7">
+                                <div class="slider__display--center cd-intro">
+                                    <div class="slider__inner cd-intro-content mask">
+                                        <h1  data-content="English Test"><span>English Test</span></h1>
+                                        <p>Determine your proficiency level in English by taking our free Online English Test.</p>
+                                        <div class="slider__btn action-wrapper">
+                                            <a draggable="false" class="htc__btn btn--theme" href="cart.html">ORDER NOW!</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- End Single Slide -->
+            @endforeach
         </div>
     </div>
+
+    <section class="htc__offer__area bg--theme">
+        <div class="container">
+            <div class="row">
+                @foreach ($data_offer as $offer)
+                    <div class="col-md-6 col-lg-3 ">
+                        <div class="offer text-center {{ $loop->first ? null : "offer__separator" }}">
+                            <h2>{{ $offer->translate_name }}</h2>
+                            <p>{!! html_entity_decode($offer->translate_description) !!}</p>
+                            <div class="offer__btn">
+                                <a draggable="false" class="htc__btn btn--transparent btn--small" href="{{ $offer->button_link }}">
+                                    {{ $offer->translate_button_name }}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
 
     <section class="our__about__area bg__white pb--80 pt--100">
         <div class="container">
             <div class="row about__wrapper">
                 <div class="col-lg-6">
                     <div class="about">
-                        <!-- Start Section Title -->
                         <div class="section__title text-left">
-                            <h2 class="title__line">About us</h2>
-                            <p>Fable daycare, preschool, and kindergarten</p>
+                            <h2 class="title__line">{{ trans("general.Welcome To") }} {{ trans("general.Yayasan STMIK Harvest") }}</h2>
+                            <p>{{ trans("general.College for Future Technopreneur") }}</p>
                         </div>
-                        <!-- End Section Title -->
-                        <p class="about__details">Come with us, we also teach children about the basic values of human beings as honesty, kindness, generosity, courage, freedom, equality and respect. Learn to celebrate diversity in a spirit of understanding and tolerance and develop a positive regard and awareness of other people. They are taught the values and responsibilities needed to become active members of the community...</p>
-                        <div class="htc__skill__container">
-                            <!-- Start single skill -->
-                            <div class="single__skill">
-                                <p>Playing Science</p>
-                                <div class="progress">
-                                    <div class="progress-bar pen__coloe--1 wow fadeInLeft" data-wow-duration="0.8s" data-wow-delay=".5s" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width:90%"><span class="pen-lable">90%</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End single skill -->
-                            <!-- Start single skill -->
-                            <div class="single__skill">
-                                <p>Arts And Craft</p>
-                                <div class="progress">
-                                    <div class="progress-bar pen__coloe--2 wow fadeInLeft" data-wow-duration="0.8s" data-wow-delay=".5s" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width:95%"><span class="pen-lable">95%</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End single skill -->
-                            <!-- Start single skill -->
-                            <div class="single__skill">
-                                <p>Creative Writing</p>
-                                <div class="progress">
-                                    <div class="progress-bar pen__coloe--3 wow fadeInLeft" data-wow-duration="0.8s" data-wow-delay=".5s" role="progressbar" aria-valuenow="93" aria-valuemin="0" aria-valuemax="100" style="width:93%"><span class="pen-lable">93%</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End single skill -->
-                        </div>
+                        <p class="about__details">{!! html_entity_decode($setting->translate_about_us) !!}</p>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="about__thumb">
-                        <img draggable="false" src="images/about/1.png" alt="about images">
+                        {{-- <img draggable="false" class="img-fluid rounded w-100" src="{{ asset("images/our-values-2.webp") }}" alt="{{ trans("page.Our Values") }} - 2 - {{ env("APP_TITLE") }}"> --}}
+                        <iframe width="100%" height="300" src="https://www.youtube.com/embed/wROkewUpfe8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- End our About Area -->
-    <!-- Start Our CounterUp Area -->
+
     <section class="our__counterup__area ptb--70" data--black__overlay="4" style="background-image: url(images/bg/1.jpg); background-repeat: no-repeat; background-attachment: scroll;  background-size: cover;">
         <div class="container">
             <div class="row counterup__wrap">

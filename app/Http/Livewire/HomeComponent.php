@@ -3,11 +3,11 @@
 namespace App\Http\Livewire;
 
 use App\Http\Livewire\Component;
-
-use App\Models\Slider;
 use App\Models\Lecturer;
-use App\Models\StudyProgram;
 use App\Models\News;
+use App\Models\Offer;
+use App\Models\Slider;
+use App\Models\StudyProgram;
 
 class HomeComponent extends Component
 {
@@ -18,7 +18,9 @@ class HomeComponent extends Component
 
     public function mount()
     {
-        $this->data_slider = Slider::onlyActive()->orderByDesc("id")->get();
+        $this->data_slider = Slider::onlyActive()->orderByDesc("id")->limit(3)->get();
+
+        $this->data_offer = Offer::onlyActive()->orderBy("id")->get();
 
         $this->data_lecturer = Lecturer::onlyActive()->orderBy("id")->get();
 

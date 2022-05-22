@@ -546,6 +546,21 @@ return [
     "Customer Relationship Management" => "Customer Relationship Management",
     "Supply Chain Management" => "Supply Chain Management",
 
+    "STMIK Harvest Curicullum: Information System" => "STMIK Harvest Curicullum: Information System",
+    "STMIK Harvest Curicullum" => "STMIK Harvest Curicullum",
+    "Information System" => "Information System",
+    "Year" => "Year",
+    "Learning Outcome" => "Learning Outcome",
+    "Ready Web Programming" => "Ready Web Programming",
+    "As A Programming Basic" => "As A Programming Basic",
+    "System Design Capability And More" => "System Design Capability And More",
+    "Ready For Small Projects & More Specific To Concentration" => "Ready For Small Projects & More Specific To Concentration",
+    "Ready To Be In Society & Be A Technopreneur" => "Ready To Be In Society & Be A Technopreneur",
+    "Total SKS" => "Total SKS",
+
+    "Yayasan STMIK Harvest" => "Yayasan STMIK Harvest",
+    "College for Future Technopreneur" => "College for Future Technopreneur",
+
     "test" => "test",
     "test" => "test",
     "test" => "test",

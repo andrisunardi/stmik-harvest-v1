@@ -551,8 +551,9 @@ return [
     "Ready For Small Projects & More Specific To Concentration" => "Ready For Small Projects & More Specific To Concentration",
     "Ready To Be In Society & Be A Technopreneur" => "Ready To Be In Society & Be A Technopreneur",
     "Total SKS" => "Total SKS",
-    "Data" => "Data",
-    "Data" => "Data",
+
+    "Yayasan STMIK Harvest" => "Yayasan STMIK Harvest",
+    "College for Future Technopreneur" => "College for Future Technopreneur",
     "Data" => "Data",
     "Data" => "Data",
     "Data" => "Data",
