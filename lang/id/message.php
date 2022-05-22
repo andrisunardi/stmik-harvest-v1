@@ -65,4 +65,5 @@ return [
     "Cart has been updated successfully" => "Keranjang telah berhasil di perbaharui",
     "Thank you for your comment." => "Terima kasih untuk komentar anda.",
     "Thank you for online registration" => "Terima kasih untuk pendaftaran online",
+    "Thank you for subscribe our newsletter" => "Terima kasih untuk berlangganan kepada kami",
 ];

@@ -15,7 +15,7 @@
                                     <div class="cd-intro-content mask-2">
                                         <div class="slider__inner content-wrapper">
                                             <div>
-                                                <h1>{{ $slider->translate_name }}</h1>
+                                                <h1 class="lh-sm">{{ $slider->translate_name }}</h1>
                                                 <p>{!! html_entity_decode($slider->translate_description) !!}</p>
                                                 <div class="slider__btn action-wrapper">
                                                     <a draggable="false" class="htc__btn btn--theme" href="{{ $slider->button_link }}">{{ $slider->translate_button_name }}</a>
@@ -72,7 +72,7 @@
         <div class="container">
             <div class="row">
                 @foreach ($data_offer as $offer)
-                    <div class="col-md-6 col-lg-3 ">
+                    <div class="col-md-6 col-lg-3">
                         <div class="offer text-center {{ $loop->first ? null : "offer__separator" }}">
                             <h2>{{ $offer->translate_name }}</h2>
                             <p>{!! html_entity_decode($offer->translate_description) !!}</p>
@@ -94,7 +94,7 @@
                 <div class="col-lg-6">
                     <div class="about">
                         <div class="section__title text-left">
-                            <h2 class="title__line">{{ trans("general.Welcome To") }} {{ trans("general.Yayasan STMIK Harvest") }}</h2>
+                            <h2 class="title__line lh-sm">{{ trans("general.Welcome To") }} {{ trans("general.Yayasan STMIK Harvest") }}</h2>
                             <p>{{ trans("general.College for Future Technopreneur") }}</p>
                         </div>
                         <p class="about__details">{!! html_entity_decode($setting->translate_about_us) !!}</p>
@@ -102,7 +102,6 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="about__thumb">
-                        {{-- <img draggable="false" class="img-fluid rounded w-100" src="{{ asset("images/our-values-2.webp") }}" alt="{{ trans("page.Our Values") }} - 2 - {{ env("APP_TITLE") }}"> --}}
                         <iframe width="100%" height="300" src="https://www.youtube.com/embed/wROkewUpfe8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </div>
@@ -497,122 +496,48 @@
             </div>
         </div>
     </section>
-    <!-- End upcoming Area -->
-    <!-- Start Testimonial Area -->
-    <section class="our__testimonial__area pt--80 pb--110" style="background: rgba(0, 0, 0, 0) url(images/bg/3.jpg) no-repeat scroll center center / cover;">
+
+    <section class="our__testimonial__area pt--80 pb--110" style="background: rgba(0, 0, 0, 0) url({{ asset("assets/images/bg/3.jpg") }}) no-repeat scroll center center / cover;">
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <!-- Start Section Title -->
                     <div class="section__title text-center section--white">
-                        <h2 class="title__line">testimonials</h2>
-                        <p>How real people said about Education</p>
+                        <h2 class="title__line">{{ trans("general.Testimonials") }}</h2>
+                        <p>{{ trans("general.How Real People Said About STMIK Harvest") }}</p>
                     </div>
-                    <!-- End Section Title -->
                 </div>
             </div>
+
             <div class="row">
                 <div class="col-12">
-                    <!-- Testimonial Wrap -->
                     <div class="testimonial-wrap">
                         <div class="testimonial-image-slider text-center">
-                            <!-- Start Single Testimg -->
-                            <div class="sin-testiImage">
-                                <div class="text-thumb">
-                                    <img draggable="false" src="images/test/client/1.png" alt="testimonial 1"/>
+                            @foreach ($data_testimony as $testimony)
+                                <div class="sin-testiImage">
+                                    <div class="text-thumb">
+                                        <img draggable="false" src="{{ $testimony->assetImage() }}" class="rounded-circle" style="width: 90px; height:90px" alt="{{ trans("general.Testimony") }} - {{ $testimony->name }} - {{ env("APP_TITLE") }}"/>
+                                    </div>
+                                    <div class="test-info">
+                                        <h4>{{ $testimony->name }}</h4>
+                                        <p>{{ $testimony->graduate }}</p>
+                                    </div>
                                 </div>
-                                <div class="test-info">
-                                    <h4>Nipa Bali</h4>
-                                    <p>Chief Exceutive.</p>
-                                </div>
-                            </div>
-                            <!-- End Single Testimg -->
-                            <!-- Start Single Testimg -->
-                            <div class="sin-testiImage">
-                                <div class="text-thumb">
-                                    <img draggable="false" src="images/test/client/2.png" alt="testimonial 1" />
-                                </div>
-                                <div class="test-info">
-                                    <h4>Samira</h4>
-                                    <p>Chief Exceutive</p>
-                                </div>
-                            </div>
-                            <!-- End Single Testimg -->
-                            <!-- Start Single Testimg -->
-                            <div class="sin-testiImage">
-                                <div class="text-thumb">
-                                    <img draggable="false" src="images/test/client/3.png" alt="testimonial 1"/>
-                                </div>
-                                <div class="test-info">
-                                    <h4>Chapa</h4>
-                                    <p>Chief Exceutive</p>
-                                </div>
-                            </div>
-                            <!-- End Single Testimg -->
-                            <!-- Start Single Testimg -->
-                            <div class="sin-testiImage">
-                                <div class="text-thumb">
-                                    <img draggable="false" src="images/test/client/5.png" alt="testimonial 1"/>
-                                </div>
-                                <div class="test-info">
-                                    <h4>Nipa Bali</h4>
-                                    <p>Chief Exceutive.</p>
-                                </div>
-                            </div>
-                            <!-- End Single Testimg -->
-                            <!-- Start Single Testimg -->
-                            <div class="sin-testiImage">
-                                <div class="text-thumb">
-                                    <img draggable="false" src="images/test/client/2.png" alt="testimonial 1" />
-                                </div>
-                                <div class="test-info">
-                                    <h4>Samira</h4>
-                                    <p>Chief Exceutive</p>
-                                </div>
-                            </div>
-                            <!-- End Single Testimg -->
-                            <!-- Start Single Testimg -->
-                            <div class="sin-testiImage">
-                                <div class="text-thumb">
-                                    <img draggable="false" src="images/test/client/3.png" alt="testimonial 1"/>
-                                </div>
-                                <div class="test-info">
-                                    <h4>Chapa</h4>
-                                    <p>Chief Exceutive</p>
-                                </div>
-                            </div>
-                            <!-- End Single Testimg -->
+                            @endforeach
                         </div>
                     </div>
-                    <!--End Testimonial Wrap -->
-                    <!--Start Testimonial Text Slider -->
+
                     <div class="testimonial-text-slider text-center">
-                        <div class="sin-testiText">
-                            <p>Great theme, excellent support. We had a few small issues with getting the dropdown menus to work and support fixed them and let us know which files were changed so that we could replicate from dev to production. Very happy both with the theme and the company. Highly recommended.</p>
-                        </div>
-                        <div class="sin-testiText">
-                            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using</p>
-                        </div>
-                        <div class="sin-testiText">
-                            <p>Great theme, excellent support. We had a few small issues with getting the dropdown menus to work and support fixed them and let us know which files were changed so that we could replicate from dev to production. Very happy both with the theme and the company. Highly recommended.</p>
-                        </div>
-                        <div class="sin-testiText">
-                            <p>Great theme, excellent support. We had a few small issues with getting the dropdown menus to work and support fixed them and let us know which files were changed so that we could replicate from dev to production. Very happy both with the theme and the company. Highly recommended.</p>
-                        </div>
-                        <div class="sin-testiText">
-                            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using</p>
-                        </div>
-                        <div class="sin-testiText">
-                            <p>Great theme, excellent support. We had a few small issues with getting the dropdown menus to work and support fixed them and let us know which files were changed so that we could replicate from dev to production. Very happy both with the theme and the company. Highly recommended.</p>
-                        </div>
+                        @foreach ($data_testimony as $testimony)
+                            <div class="sin-testiText">
+                                <p>{!! html_entity_decode($testimony->description) !!}</p>
+                            </div>
+                        @endforeach
                     </div>
-                    <!--End Testimonial Text Slider -->
                 </div>
             </div>
         </div>
     </section>
-    <!-- End Testimonial Area -->
-    <!-- Start Our Blog Area -->
+
     <section class="our__blog__area ptb--80 bg__white">
         <div class="container">
             <div class="row">
@@ -698,19 +623,23 @@
             <div class="row">
                 <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                     <div class="newsletter__wrap bg--5">
-                        <h2>You want to know more infomation?<br> Send us a mail!</h2>
+                        <h2>{{ trans("general.You want to know more infomation") }}?<br> {{ trans("general.Send us a mail") }}!</h2>
                         <div class="newsletter__form">
                             <div class="input__box">
                                 <div id="mc_embed_signup">
-                                    <form action="https://devitems.us11.list-manage.com/subscribe/post?u=6bbb9b6f5827bd842d9640c82&amp;id=05d85f18ef" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                                    <form wire:submit.prevent="submit" enctype="multipart/form-data" class="was-validated-delete validate" method="post" role="form" action="{{ route("index") }}" autocomplete="off" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" novalidate>
+                                        @csrf
+
                                         <div id="mc_embed_signup_scroll" class="htc__news__inner">
+                                            @php $input = "email" @endphp
                                             <div class="news__input">
                                                 <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Enter your email..." required>
                                             </div>
-                                            <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                                            <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_6bbb9b6f5827bd842d9640c82_05d85f18ef" tabindex="-1" value=""></div>
-                                            <div class="clearfix subscribe__btn"><input type="submit" value="Send" name="subscribe" id="mc-embedded-subscribe" class="bst__btn btn--white__color">
-
+                                            <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                                                <input type="text" name="b_6bbb9b6f5827bd842d9640c82_05d85f18ef" tabindex="-1" value="">
+                                            </div>
+                                            <div class="clearfix subscribe__btn">
+                                                <input wire:click="submit" type="button" value="Send" name="subscribe" id="mc-embedded-subscribe" class="bst__btn btn--white__color">
                                             </div>
                                         </div>
                                     </form>

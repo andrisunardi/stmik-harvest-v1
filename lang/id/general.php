@@ -561,6 +561,12 @@ return [
     "Yayasan STMIK Harvest" => "Yayasan STMIK Harvest",
     "College for Future Technopreneur" => "College for Future Technopreneur",
 
+    "Testimonials" => "Testimoni",
+    "Testimony" => "Testimoni",
+    "How Real People Said About STMIK Harvest" => "Bagaimana Orang Berkata Tentang STMIK Harvest",
+    "You want to know more information" => "Anda ingin mengetahui informasi lebih lanjut",
+    "Send us a mail" => "Kirim kami email",
+
     "test" => "test",
     "test" => "test",
     "test" => "test",

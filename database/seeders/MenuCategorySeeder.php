@@ -35,6 +35,13 @@ class MenuCategorySeeder extends Seeder
         $data->sort = $sort++;
         $data->save();
 
+        $data = new Menu();
+        $data->name = "Newsletter";
+        $data->name_id = "Berlangganan";
+        $data->icon = "bi bi-envelope";
+        $data->sort = $sort++;
+        $data->save();
+
         // REPOSITORY
             $data = new MenuCategory();
             $data->name = "Repository";

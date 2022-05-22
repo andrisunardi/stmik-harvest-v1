@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
             LogSeeder::class,
 
             ContactSeeder::class,
+            NewsletterSeeder::class,
 
             RepositorySubjectSeeder::class,
             RepositorySeeder::class,

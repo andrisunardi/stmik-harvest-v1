@@ -64,7 +64,7 @@ return [
     "Cart has been updated successfully" => "Cart has been updated successfully",
     "Thank you for your comment." => "Thank you for your comment.",
     "Thank you for online registration" => "Thank you for online registration",
-    "Data" => "Data",
+    "Thank you for subscribe our newsletter" => "Thank you for subscribe our newsletter",
     "Data" => "Data",
     "Data" => "Data",
     "Data" => "Data",

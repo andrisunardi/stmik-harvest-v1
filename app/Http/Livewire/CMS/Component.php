@@ -10,6 +10,7 @@ use Livewire\Component as LivewireComponent;
 use App\Models\Registration;
 use App\Models\User;
 use App\Models\Contact;
+use App\Models\Newsletter;
 
 use App\Models\Repository;
 use App\Models\RepositoryFile;
@@ -119,6 +120,9 @@ class Component extends LivewireComponent
 
         $this->total_contact = Contact::cursor()->count();
         View::share("total_contact", $this->total_contact);
+
+        $this->total_newsletter = Newsletter::cursor()->count();
+        View::share("total_newsletter", $this->total_newsletter);
 
         $this->total_repository = Repository::cursor()->count();
         View::share("total_repository", $this->total_repository);

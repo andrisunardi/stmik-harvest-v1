@@ -15,9 +15,9 @@ class OfferSeeder extends Seeder
         $data->name_id = "Pengalaman Dari Dosen Terbaik";
         $data->description = "Our lecturers are consist of academicians, business leaders and practitioners. We makes sure you'll get the best experience.";
         $data->description_id = "Dosen kami terdiri dari akademisi, pemimpin bisnis dan praktisi. Kami memastikan Anda akan mendapatkan pengalaman terbaik.";
-        $data->button_name = "About Us";
-        $data->button_name_id = "Tentang Kami";
-        $data->button_link = env("APP_URL") . "/about";
+        $data->button_name = "Our Lecturers";
+        $data->button_name_id = "Dosen Kami";
+        $data->button_link = env("APP_URL") . "/lecturer";
         $data->save();
 
         $data = new Offer();
@@ -45,9 +45,9 @@ class OfferSeeder extends Seeder
         $data->name_id = "Lokasi Segar Dan Hebat Di Lippo Village";
         $data->description = "Our location is very great and fresh. It is in Lippo Village.";
         $data->description_id = "Lokasi kami sangat bagus dan segar. Tepatnya di Lippo Village.";
-        $data->button_name = "About Us";
-        $data->button_name_id = "Tentang Kami";
-        $data->button_link = env("APP_URL") . "/about";
+        $data->button_name = "Contact Us";
+        $data->button_name_id = "Kontak Kami";
+        $data->button_link = env("APP_URL") . "/contact-us";
         $data->save();
     }
 }
