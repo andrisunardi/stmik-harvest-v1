@@ -37,6 +37,7 @@ class AdmissionCalendar extends Model
         "name_id",
         "description",
         "description_id",
+        "date",
         "active",
     ];
 

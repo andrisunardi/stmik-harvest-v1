@@ -42,7 +42,6 @@ class SliderSeeder extends Seeder
         $data->button_name_id = "Dosen Kami";
         $data->button_link = env("APP_URL") . "/lecturer";
         $data->image = Str::slug($data->name) . ".png";
-        $data->active = false; // Update
         $data->save();
     }
 }

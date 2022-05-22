@@ -7,18 +7,20 @@
     <div class="slider__container slider__fixed_height slider__position--relative">
         <div class="slider__activation__wrap owl-carousel owl-theme">
             @foreach ($data_slider as $slider)
-                <div class="slide text__align--left slider__bg__color--1 fornt__image--right" >
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-7">
-                                <div class="slider__display--center cd-intro">
-                                    <div class="cd-intro-content mask-2">
-                                        <div class="slider__inner content-wrapper">
-                                            <div>
-                                                <h1 class="lh-sm">{{ $slider->translate_name }}</h1>
-                                                <p>{!! html_entity_decode($slider->translate_description) !!}</p>
-                                                <div class="slider__btn action-wrapper">
-                                                    <a draggable="false" class="htc__btn btn--theme" href="{{ $slider->button_link }}">{{ $slider->translate_button_name }}</a>
+                @if ($loop->iteration == 1)
+                    <div class="slide text__align--left slider__bg__color--1 fornt__image--right" style="background-image: url({{ $slider->assetImage() }})">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-7">
+                                    <div class="slider__display--center cd-intro">
+                                        <div class="cd-intro-content mask-2">
+                                            <div class="slider__inner content-wrapper">
+                                                <div>
+                                                    <h1 class="lh-sm">{{ $slider->translate_name }}</h1>
+                                                    <p>{!! html_entity_decode($slider->translate_description) !!}</p>
+                                                    <div class="slider__btn action-wrapper">
+                                                        <a draggable="false" class="htc__btn btn--theme" href="{{ $slider->button_link }}">{{ $slider->translate_button_name }}</a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -27,43 +29,47 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                @endif
 
-                <div class="slide slider__bg__color--2 text__align--left fornt__image--right-3">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-9 col-xl-7">
-                                <div class="slider__display--center cd-intro">
-                                    <div class="slider__inner cd-intro-content scale">
-                                        <h1>MOBILE UX COURSE</h1>
-                                        <p>The differences between desktop and mobile UX are so vast, and deepen so fast.</p>
-                                        <div class="slider__btn">
-                                            <a draggable="false" class="htc__btn btn--theme" href="courses-details.html">learn more</a>
+                @if ($loop->iteration == 2)
+                    <div class="slide slider__bg__color--2 text__align--left fornt__image--right-3" style="background-image: url({{ $slider->assetImage() }})">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-9 col-xl-7">
+                                    <div class="slider__display--center cd-intro">
+                                        <div class="slider__inner cd-intro-content scale">
+                                            <h1 class="lh-sm">{{ $slider->translate_name }}</h1>
+                                            <p>{!! html_entity_decode($slider->translate_description) !!}</p>
+                                            <div class="slider__btn">
+                                                <a draggable="false" class="htc__btn btn--theme" href="{{ $slider->button_link }}">{{ $slider->translate_button_name }}</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                @endif
 
-                <div class="slide slider__bg__color--3 text__align--left fornt__image--right-2">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-7">
-                                <div class="slider__display--center cd-intro">
-                                    <div class="slider__inner cd-intro-content mask">
-                                        <h1  data-content="English Test"><span>English Test</span></h1>
-                                        <p>Determine your proficiency level in English by taking our free Online English Test.</p>
-                                        <div class="slider__btn action-wrapper">
-                                            <a draggable="false" class="htc__btn btn--theme" href="cart.html">ORDER NOW!</a>
+                @if ($loop->iteration == 3)
+                    <div class="slide slider__bg__color--3 text__align--left fornt__image--right-2" style="background-image: url({{ $slider->assetImage() }})">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-7">
+                                    <div class="slider__display--center cd-intro">
+                                        <div class="slider__inner cd-intro-content mask">
+                                            <h1 class="lh-sm" data-content="{{ $slider->translate_name }}"><span>{{ $slider->translate_name }}</span></h1>
+                                            <p>{!! html_entity_decode($slider->translate_description) !!}</p>
+                                            <div class="slider__btn action-wrapper">
+                                                <a draggable="false" class="htc__btn btn--theme" href="{{ $slider->button_link }}">{{ $slider->translate_button_name }}</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                @endif
             @endforeach
         </div>
     </div>

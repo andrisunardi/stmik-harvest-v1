@@ -233,15 +233,15 @@ Slider images
     right: 180px;
     top: 14px;
     width: 757px;
-    background-image: url("../../images/slider/fornt-img/1.png");
+    /* background-image: url("../../images/slider/fornt-img/1.png"); */
 }
 .fornt__image--right-2::before {
-    background-image: url("../../images/slider/fornt-img/2.png");
+    /* background-image: url("../../images/slider/fornt-img/2.png"); */
     bottom: 0px !important;
     top: 15px;
 }
 .fornt__image--right-3::before {
-    background-image: url("../../images/slider/fornt-img/3.png");
+    /* background-image: url("../../images/slider/fornt-img/3.png"); */
     bottom: 0 !important;
     top: 25px;
 }

@@ -60,9 +60,9 @@ class HomeComponent extends Component
     {
         $this->data_slider = Slider::onlyActive()->orderByDesc("id")->limit(3)->get();
 
-        $this->data_offer = Offer::onlyActive()->orderBy("id")->get();
+        $this->data_offer = Offer::onlyActive()->orderBy("id")->limit(4)->get();
 
-        $this->data_testimony = Testimony::onlyActive()->orderByDesc("id")->get();
+        $this->data_testimony = Testimony::onlyActive()->orderByDesc("id")->limit(10)->get();
 
         $this->data_lecturer = Lecturer::onlyActive()->orderBy("id")->get();
 
