@@ -569,9 +569,8 @@ return [
     "Now Open Admission For Registration" => "Sekarang Buka Penerimaan Untuk Pendaftaran",
     "Register Now" => "Daftar Sekarang",
     "Online Registration" => "Daftar Online",
-
-    "test" => "test",
-    "test" => "test",
+    "Time is up, sorry!" => "Maaf, sudah lewat",
+    "Registration Is Now Closed" => "Pendaftaran Sudah Ditutup",
     "test" => "test",
     "test" => "test",
     "test" => "test",
