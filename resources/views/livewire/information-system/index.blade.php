@@ -62,18 +62,199 @@
         </div>
     </section>
 
-    <section class="htc__service__area bg__white ptb--80 bg-light">
+    <section class="htc__service__area bg__white ptb--80">
         <div class="container">
             <div class="about">
-
-                <div class="about__thumb mt-3 mb-3 mb-lg-auto">
-                    <img draggable="false" class="img-fluid rounded w-100" src="{{ asset("images/programme/information-system-1.webp") }}" alt="{{ trans("page.Information System") }} - 1 - {{ env("APP_TITLE") }}">
+                <div class="section__title text-center">
+                    <h2 class="title__line">{{ trans("general.STMIK Harvest Curicullum") }}</h2>
+                    <p>{{ trans("general.Information System") }}</p>
                 </div>
+            </div>
+            <div class="table-responsive mt-3">
+                <table class="table table-striped table-hover table-bordered text-nowrap table-responsive align-middle text-center">
+                    <thead>
+                        <tr class="bg-warning text-white text-center">
+                            <th colspan="5">
+                                {{ trans("general.Year") }} 1
+                                {{ trans("general.Learning Outcome") }}:
+                                {{ trans("general.Ready Web Programming") }}.
+                                {{ trans("general.As A Programming Basic") }}
+                            </th>
+                            <th></th>
+                            <th colspan="5">
+                                {{ trans("general.Year") }} 1
+                                {{ trans("general.Learning Outcome") }}:
+                                {{ trans("general.System Design Capability And More Programming") }}
+                            </th>
+                        </tr>
+                        <tr class="bg-success text-white text-center">
+                            <th colspan="2">{{ trans("general.Semester") }} 1</th>
+                            <th></th>
+                            <th colspan="2">{{ trans("general.Semester") }} 2</th>
+                            <th></th>
+                            <th colspan="2">{{ trans("general.Semester") }} 3</th>
+                            <th></th>
+                            <th colspan="2">{{ trans("general.Semester") }} 4</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{ trans("general.Discreet Math") }}</td>
+                            <td>3</td>
+                            <td></td>
+                            <td>{{ trans("general.English 1") }}</td>
+                            <td>2</td>
+                            <td></td>
+                            <td>{{ trans("general.Pancasila") }}</td>
+                            <td>3</td>
+                            <td></td>
+                            <td>{{ trans("general.English 2") }}</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>{{ trans("general.Character Building 1 (Religion)") }}</td>
+                            <td>3</td>
+                            <td></td>
+                            <td>{{ trans("general.English 1") }}</td>
+                            <td>2</td>
+                            <td></td>
+                            <td>{{ trans("general.Pancasila") }}</td>
+                            <td>3</td>
+                            <td></td>
+                            <td>{{ trans("general.English 2") }}</td>
+                            <td>2</td>
+                        </tr>
+                    </tbody>
+                    <thead>
+                        <tr class="bg-success text-white text-center">
+                            <th colspan="2">{{ trans("general.Semester") }} 5</th>
+                            <th></th>
+                            <th colspan="2">{{ trans("general.Semester") }} 6</th>
+                            <th></th>
+                            <th colspan="2">{{ trans("general.Semester") }} 7</th>
+                            <th></th>
+                            <th colspan="2">{{ trans("general.Semester") }} 8</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{ trans("general.Discreet Math") }}</td>
+                            <td>3</td>
+                            <td></td>
+                            <td>{{ trans("general.English 1") }}</td>
+                            <td>2</td>
+                            <td></td>
+                            <td>{{ trans("general.Pancasila") }}</td>
+                            <td>3</td>
+                            <td></td>
+                            <td>{{ trans("general.English 2") }}</td>
+                            <td>2</td>
+                        </tr>
+                    </tbody>
+                    <thead>
+                        <tr class="bg-warning text-white text-center">
+                            <th colspan="5">
+                                {{ trans("general.Year") }} 3
+                                {{ trans("general.Learning Outcome") }}:
+                                {{ trans("general.Ready For Small Projects & More Specific To Concentration") }}
+                            </th>
+                            <th></th>
+                            <th colspan="5">
+                                {{ trans("general.Year") }} 4
+                                {{ trans("general.Learning Outcome") }}:
+                                {{ trans("general.Ready To Be In Society & Be A Technopreneur") }}
+                            </th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </section>
 
-                <div class="about__thumb mt-3 mb-3 mb-lg-auto">
-                    <img draggable="false" class="img-fluid rounded w-100" src="{{ asset("images/programme/information-system-2.webp") }}" alt="{{ trans("page.Information System") }} - 2 - {{ env("APP_TITLE") }}">
-                </div>
+    <section class="htc__service__area bg__white ptb--80 bg-light">
+        <div class="container">
+            <div class="table-responsive mt-3">
+                <table class="table table-striped table-hover table-bordered text-nowrap table-responsive align-middle text-center">
+                    <thead>
+                        <tr class="bg-success text-white text-center">
+                            <th colspan="100%">{{ trans("general.Graduate Profile") }}</th>
+                        </tr>
+                        <tr class="bg-success text-white text-center">
+                            <th>{{ trans("general.ISS") }}</th>
+                            <th>{{ trans("general.BIS") }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{ trans("general.System Analyst") }}</td>
+                            <td>{{ trans("general.Business Analyst") }}</td>
+                        </tr>
+                        <tr>
+                            <td>{{ trans("general.Programmer") }}</td>
+                            <td>{{ trans("general.Management Information System (MIS)") }}</td>
+                        </tr>
+                        <tr>
+                            <td>{{ trans("general.Entrepreneur") }}</td>
+                            <td>{{ trans("general.Programmer (Web)") }}</td>
+                        </tr>
+                        <tr>
+                            <td>{{ trans("general.System Developer") }}</td>
+                            <td>{{ trans("general.Entrepreneur") }}</td>
+                        </tr>
+                        <tr>
+                            <td>{{ trans("general.IT Consultant") }}</td>
+                            <td>{{ trans("general.IT Auditor") }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
 
+    <section class="htc__service__area bg__white ptb--80">
+        <div class="container">
+            <div class="table-responsive mt-3">
+                <table class="table table-striped table-hover table-bordered text-nowrap table-responsive align-middle text-center">
+                    <thead>
+                        <tr class="bg-success text-white text-center">
+                            <th colspan="100%">{{ trans("general.Elective") }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{ trans("general.Business Intelligence") }}</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>{{ trans("general.Introduction to ERP") }}</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>{{ trans("general.C# Visual Programming") }}</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>{{ trans("general.Enterprise Architecture 2") }}</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>{{ trans("general.Knowledge Management") }}</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>{{ trans("general.Visual Communication Design") }}</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>{{ trans("general.Customer Relationship Management") }}</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>{{ trans("general.Supply Chain Management") }}</td>
+                            <td>3</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </section>
