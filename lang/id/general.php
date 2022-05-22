@@ -575,7 +575,7 @@ return [
     "If there is no question or answer you are looking for, please contact us" => "Jika tidak ada pertanyaan atau jawaban yang Anda cari, silakan hubungi kami",
     "Our Latest News" => "Berita Terbaru Kami",
     "Stay tuned with our latest news so you don't miss any information from us" => "Ikuti terus berita terbaru kami agar tidak ketinggalan informasi dari kami",
-    "test" => "test",
+    "Join our events to know us closer" => "Gabung di acara-acara kami untuk mengenali kami lebih dekat",
     "test" => "test",
     "test" => "test",
     "test" => "test",

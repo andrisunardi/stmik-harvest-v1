@@ -127,6 +127,10 @@ class HomeComponent extends Component
         $this->data_study_program = StudyProgram::onlyActive()->orderBy("id")->get();
 
         $this->data_news = News::onlyActive()->limit(3)->orderByDesc("id")->get();
+
+        $this->data_event = News::whereDate("date", "<=", now()->format("Y-m-d"))->onlyActive()->limit(6)->orderByDesc("id")->get();
+
+        $this->data_upcoming_event = News::whereDate("date", ">=", now()->format("Y-m-d"))->onlyActive()->limit(2)->orderByDesc("id")->get();
     }
 
     public function render()

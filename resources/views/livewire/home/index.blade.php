@@ -115,185 +115,70 @@
         </div>
     </section>
 
-    <section wire:ignore class="popular__courses__area ptb--80 bg__white">
+    <section class="htc__findout__area bg__cat--3">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="findout__wrap my-5 my-sm-auto">
+                        <div class="findout__inner">
+                            <h2>
+                                <span>{{ trans("general.Ready to Join ?") }}</span>
+                                {{ trans("general.It easy now to you for being our part, just click the button below and fill out the form with your data.") }}
+                            </h2>
+                            <div class="findout__btn">
+                                <a draggable="false" class="htc__btn btn--yellow" href="{{ route("online-registration.index") }}">{{ trans("general.Register") }}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{-- <section wire:ignore class="popular__courses__area ptb--80 bg__white">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <div class="section__title text-center">
-                        <h2 class="title__line">POPULAR COURSES</h2>
-                        <p>The Best In Our School</p>
+                        <h2 class="title__line">{{ trans("general.Our Events") }}</h2>
+                        <p>{{ trans("general.Join our events to know us closer") }}</p>
                     </div>
                 </div>
             </div>
 
             <div class="row">
                 <div class="popular__courses__wrap indicator__style--1 owl-carousel owl-theme clearfix mt--30 xs-mt-0">
-                    <!-- Start Single Courses -->
-                    <div class="courses">
-                        <div class="courses__thumb">
-                            <a draggable="false" href="#"><img draggable="false" src="images/course/1.jpg" alt="courses images"></a>
-                            <div class="courses__hover__info">
-                                <div class="courses__hover__action">
-                                    <div class="courses__hover__thumb">
-                                        <img draggable="false" src="images/course/sm-img/1.png" alt="small images">
+                    @foreach ($data_event as $event)
+                        <div class="courses">
+                            <div class="courses__thumb">
+                                <a draggable="false" href="#"><img draggable="false" src="images/course/1.jpg" alt="courses images"></a>
+                                <div class="courses__hover__info">
+                                    <div class="courses__hover__action">
+                                        <div class="courses__hover__thumb">
+                                            <img draggable="false" src="{{ $event->assetImage() }}" alt="small images">
+                                        </div>
+                                        <h4><a draggable="false" href="#">Derek Spafford</a></h4>
+                                        <span class="crs__separator">/</span>
+                                        <p>Professor</p>
                                     </div>
-                                    <h4><a draggable="false" href="#">Derek Spafford</a></h4>
-                                    <span class="crs__separator">/</span>
-                                    <p>Professor</p>
                                 </div>
                             </div>
-                        </div>
-                        <div class="courses__details">
-                            <div class="courses__details__inner">
-                                <h2><a draggable="false" href="courses-details.html">Mathematics and Statistics</a></h2>
-                                <p>All over the world, human beings create an immense and ever-increasing volume of data, with new kinds of data regularly...</p>
-                            </div>
-                            <ul class="courses__meta">
-                                <li><i class="icon ion-person-stalker"></i>50 Students</li>
-                                <li class="crs__price">$60.00</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- End Single Courses -->
-                    <!-- Start Single Courses -->
-                    <div class="courses">
-                        <div class="courses__thumb">
-                            <a draggable="false" href="#"><img draggable="false" src="images/course/2.jpg" alt="courses images"></a>
-                            <div class="courses__hover__info">
-                                <div class="courses__hover__action">
-                                    <div class="courses__hover__thumb">
-                                        <img draggable="false" src="images/course/sm-img/2.png" alt="small images">
-                                    </div>
-                                    <h4><a draggable="false" href="#">Derek Spafford</a></h4>
-                                    <span class="crs__separator">/</span>
-                                    <p>Professor</p>
+                            <div class="courses__details">
+                                <div class="courses__details__inner">
+                                    <h2><a draggable="false" href="courses-details.html">Mathematics and Statistics</a></h2>
+                                    <p>All over the world, human beings create an immense and ever-increasing volume of data, with new kinds of data regularly...</p>
                                 </div>
+                                <ul class="courses__meta">
+                                    <li><i class="icon ion-person-stalker"></i>50 Students</li>
+                                    <li class="crs__price">$60.00</li>
+                                </ul>
                             </div>
                         </div>
-                        <div class="courses__details">
-                            <div class="courses__details__inner">
-                                <h2><a draggable="false" href="courses-details.html">History and Modern Languages</a></h2>
-                                <p>All over the world, human beings create an immense and ever-increasing volume of data, with new kinds of data regularly...</p>
-                            </div>
-                            <ul class="courses__meta">
-                                <li><i class="icon ion-person-stalker"></i>50 Students</li>
-                                <li class="crs__price">$60.00</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- End Single Courses -->
-                    <!-- Start Single Courses -->
-                    <div class="courses">
-                        <div class="courses__thumb">
-                            <a draggable="false" href="#"><img draggable="false" src="images/course/1.jpg" alt="courses images"></a>
-                            <div class="courses__hover__info">
-                                <div class="courses__hover__action">
-                                    <div class="courses__hover__thumb">
-                                        <img draggable="false" src="images/course/sm-img/1.png" alt="small images">
-                                    </div>
-                                    <h4><a draggable="false" href="#">Derek Spafford</a></h4>
-                                    <span class="crs__separator">/</span>
-                                    <p>Professor</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="courses__details">
-                            <div class="courses__details__inner">
-                                <h2><a draggable="false" href="courses-details.html">Mathematics and Statistics</a></h2>
-                                <p>All over the world, human beings create an immense and ever-increasing volume of data, with new kinds of data regularly...</p>
-                            </div>
-                            <ul class="courses__meta">
-                                <li><i class="icon ion-person-stalker"></i>50 Students</li>
-                                <li class="crs__price">$60.00</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- End Single Courses -->
-                    <!-- Start Single Courses -->
-                    <div class="courses">
-                        <div class="courses__thumb">
-                            <a draggable="false" href="#"><img draggable="false" src="images/course/2.jpg" alt="courses images"></a>
-                            <div class="courses__hover__info">
-                                <div class="courses__hover__action">
-                                    <div class="courses__hover__thumb">
-                                        <img draggable="false" src="images/course/sm-img/2.png" alt="small images">
-                                    </div>
-                                    <h4><a draggable="false" href="#">Derek Spafford</a></h4>
-                                    <span class="crs__separator">/</span>
-                                    <p>Professor</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="courses__details">
-                            <div class="courses__details__inner">
-                                <h2><a draggable="false" href="courses-details.html">History and Modern Languages</a></h2>
-                                <p>All over the world, human beings create an immense and ever-increasing volume of data, with new kinds of data regularly...</p>
-                            </div>
-                            <ul class="courses__meta">
-                                <li><i class="icon ion-person-stalker"></i>50 Students</li>
-                                <li class="crs__price">$60.00</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- End Single Courses -->
-                    <!-- Start Single Courses -->
-                    <div class="courses">
-                        <div class="courses__thumb">
-                            <a draggable="false" href="#"><img draggable="false" src="images/course/3.jpg" alt="courses images"></a>
-                            <div class="courses__hover__info">
-                                <div class="courses__hover__action">
-                                    <div class="courses__hover__thumb">
-                                        <img draggable="false" src="images/course/sm-img/3.png" alt="small images">
-                                    </div>
-                                    <h4><a draggable="false" href="#">Nipa Bali</a></h4>
-                                    <span class="crs__separator">/</span>
-                                    <p>Professor</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="courses__details">
-                            <div class="courses__details__inner">
-                                <h2><a draggable="false" href="courses-details.html">Physics and Philosophy</a></h2>
-                                <p>All over the world, human beings create an immense and ever-increasing volume of data, with new kinds of data regularly...</p>
-                            </div>
-                            <ul class="courses__meta">
-                                <li><i class="icon ion-person-stalker"></i>50 Students</li>
-                                <li class="crs__free">Free</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- End Single Courses -->
-                    <!-- Start Single Courses -->
-                    <div class="courses">
-                        <div class="courses__thumb">
-                            <a draggable="false" href="#"><img draggable="false" src="images/course/3.jpg" alt="courses images"></a>
-                            <div class="courses__hover__info">
-                                <div class="courses__hover__action">
-                                    <div class="courses__hover__thumb">
-                                        <img draggable="false" src="images/course/sm-img/3.png" alt="small images">
-                                    </div>
-                                    <h4><a draggable="false" href="#">Nipa Bali</a></h4>
-                                    <span class="crs__separator">/</span>
-                                    <p>Professor</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="courses__details">
-                            <div class="courses__details__inner">
-                                <h2><a draggable="false" href="courses-details.html">Physics and Philosophy</a></h2>
-                                <p>All over the world, human beings create an immense and ever-increasing volume of data, with new kinds of data regularly...</p>
-                            </div>
-                            <ul class="courses__meta">
-                                <li><i class="icon ion-person-stalker"></i>50 Students</li>
-                                <li class="crs__free">Free</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- End Single Courses -->
+                    @endforeach
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
     <section class="our__countdown__area ptb--100" data--theme__overlay="6" style="background: rgba(0, 0, 0, 0) url(images/bg/2.jpg) no-repeat scroll center center / cover ;">
         <div class="container">
@@ -437,54 +322,52 @@
         </div>
     </section>
 
-    <section class="our__upcoming__area ptb--80 bg__white">
+    {{-- <section class="our__upcoming__area ptb--80 bg__white">
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <!-- Start Section Title -->
                     <div class="section__title text-center">
                         <h2 class="title__line">Upcoming events</h2>
                         <p>Upcoming Educational Events for your future career.</p>
                     </div>
-                    <!-- End Section Title -->
                 </div>
             </div>
             <div class="row upcoming__wrap mt-6">
-                <!-- Start Single Upcoming Event -->
-                <div class="col-lg-6">
-                    <div class="upcoming">
-                        <div class="upcoming__inner">
-                            <div class="upcoming__thumb">
-                                <a draggable="false" href="#">
-                                    <img draggable="false" src="images/event/1.jpg" alt="upcoming images">
-                                </a>
-                            </div>
-                            <div class="upcoming__hover__info">
-                                <div class="upcoming__hover__action">
-                                    <div class="upcoming__event__time">
-                                        <div class="event__time">
-                                            <span>25</span>
-                                            <span>june</span>
+                @foreach ($data_upcoming_event as $upcoming_event)
+                    <div class="col-lg-6">
+                        <div class="upcoming">
+                            <div class="upcoming__inner">
+                                <div class="upcoming__thumb">
+                                    <a draggable="false" href="#">
+                                        <img draggable="false" src="images/event/1.jpg" alt="upcoming images">
+                                    </a>
+                                </div>
+                                <div class="upcoming__hover__info">
+                                    <div class="upcoming__hover__action">
+                                        <div class="upcoming__event__time">
+                                            <div class="event__time">
+                                                <span>25</span>
+                                                <span>june</span>
+                                            </div>
+                                            <span class="event__separator"></span>
+                                            <ul class="event__location">
+                                                <li><i class="icon ion-android-time"></i>8:00 AM - 5:00 PM</li>
+                                                <li><i class="icon ion-ios-location"></i>Second Quad</li>
+                                            </ul>
                                         </div>
-                                        <span class="event__separator"></span>
-                                        <ul class="event__location">
-                                            <li><i class="icon ion-android-time"></i>8:00 AM - 5:00 PM</li>
-                                            <li><i class="icon ion-ios-location"></i>Second Quad</li>
-                                        </ul>
-                                    </div>
-                                    <div class="upcoming__details hidden-xs">
-                                        <p>College Eucharist (Justin Martyr of Rome) at Bartlemas Chapel</p>
-                                    </div>
-                                    <div class="event__btn">
-                                        <a draggable="false" class="htc__btn btn--transparent" href="#">View Details</a>
+                                        <div class="upcoming__details hidden-xs">
+                                            <p>College Eucharist (Justin Martyr of Rome) at Bartlemas Chapel</p>
+                                        </div>
+                                        <div class="event__btn">
+                                            <a draggable="false" class="htc__btn btn--transparent" href="#">View Details</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <!-- End Single Upcoming Event -->
-                <!-- Start Single Upcoming Event -->
+                @endforeach
+
                 <div class="col-lg-6 mt-6 mt-lg-0">
                     <div class="upcoming">
                         <div class="upcoming__inner">
@@ -517,10 +400,9 @@
                         </div>
                     </div>
                 </div>
-                <!-- End Single Upcoming Event -->
             </div>
         </div>
-    </section>
+    </section> --}}
 
     <section wire:ignore class="our__testimonial__area pt--80 pb--110" style="background: rgba(0, 0, 0, 0) url({{ asset("assets/images/bg/3.jpg") }}) no-repeat scroll center center / cover;">
         <div class="container">

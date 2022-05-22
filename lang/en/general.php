@@ -569,7 +569,7 @@ return [
     "If there is no question or answer you are looking for, please contact us" => "If there is no question or answer you are looking for, please contact us",
     "Our Latest News" => "Our Latest News",
     "Stay tuned with our latest news so you don't miss any information from us" => "Stay tuned with our latest news so you don't miss any information from us",
-    "Data" => "Data",
+    "Join our events to know us closer" => "Join our events to know us closer",
     "Data" => "Data",
     "Data" => "Data",
     "Data" => "Data",
