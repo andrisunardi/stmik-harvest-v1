@@ -26,7 +26,7 @@ class HomeComponent extends Component
     public function rules()
     {
         return [
-            "email" => "required|email|max:50",
+            "email" => "required|email|max:50|unique:newsletter,email",
         ];
     }
 
@@ -35,7 +35,7 @@ class HomeComponent extends Component
         $data = $this->validate();
 
         if (env("APP_ENV") != "testing") {
-            DB::statement(DB::raw("ALTER TABLE {$this->menu_table} AUTO_INCREMENT = 1"));
+            DB::statement(DB::raw("ALTER TABLE newsletter AUTO_INCREMENT = 1"));
         }
 
         $newsletter = Newsletter::create($data);

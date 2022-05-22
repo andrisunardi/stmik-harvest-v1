@@ -630,15 +630,24 @@
                                     <form wire:submit.prevent="submit" enctype="multipart/form-data" class="was-validated-delete validate" method="post" role="form" action="{{ route("index") }}" autocomplete="off" id="mc-embedded-subscribe-formz" novalidate>
                                         @csrf
 
-                                        @include("layouts.alert")
+                                        <div class="row justify-content-center">
+                                            <div class="col-5 col-sm-6 col-md-8 col-lg-7 col-xl-6">
+                                                @include("layouts.alert")
+                                            </div>
+                                        </div>
 
                                         <div id="mc_embed_signup_scroll" class="htc__news__inner">
                                             @php $input = "email" @endphp
                                             <div class="news__input">
-                                                <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Enter your email..." required>
-                                            </div>
-                                            <div style="position: absolute; left: -5000px;" aria-hidden="true">
-                                                <input type="text" name="b_6bbb9b6f5827bd842d9640c82_05d85f18ef" tabindex="-1" value="">
+                                                <input wire:model="{{ $input }}" wire:keydown.enter="submit" id="{{ $input }}" name="{{ $input }}"
+                                                    type="email" class="form-control-delete email @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" minlength="1" maxlength="50" value="{{ old($input) }}"
+                                                    placeholder="{{ trans("validation.attributes.{$input}") }}" aria-label="{{ trans("validation.attributes.{$input}") }}" aria-describedby="{{ trans("validation.attributes.{$input}") }}"
+                                                    autocomplete="off" autocapitalize="none" required>
+                                                @error($input)
+                                                    <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
+                                                @else
+                                                    <div class="valid-feedback rounded bg-success p-2 ms-0 mt-2 text-white">{{ trans("validation.Looks Good") }}</div>
+                                                @enderror
                                             </div>
                                             <div class="clearfix subscribe__btn">
                                                 <input wire:click="submit" type="button" value="Send" name="subscribe" id="mc-embedded-subscribe" class="bst__btn btn--white__color">
