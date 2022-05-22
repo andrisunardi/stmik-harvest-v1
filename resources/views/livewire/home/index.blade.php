@@ -623,12 +623,14 @@
             <div class="row">
                 <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                     <div class="newsletter__wrap bg--5">
-                        <h2>{{ trans("general.You want to know more infomation") }}?<br> {{ trans("general.Send us a mail") }}!</h2>
+                        <h2>{{ trans("general.You want to know more information") }}?<br> {{ trans("general.Send us a mail") }}!</h2>
                         <div class="newsletter__form">
                             <div class="input__box">
                                 <div id="mc_embed_signup">
-                                    <form wire:submit.prevent="submit" enctype="multipart/form-data" class="was-validated-delete validate" method="post" role="form" action="{{ route("index") }}" autocomplete="off" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" novalidate>
+                                    <form wire:submit.prevent="submit" enctype="multipart/form-data" class="was-validated-delete validate" method="post" role="form" action="{{ route("index") }}" autocomplete="off" id="mc-embedded-subscribe-formz" novalidate>
                                         @csrf
+
+                                        @include("layouts.alert")
 
                                         <div id="mc_embed_signup_scroll" class="htc__news__inner">
                                             @php $input = "email" @endphp
