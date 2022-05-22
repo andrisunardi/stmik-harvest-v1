@@ -33,7 +33,7 @@ class TestimonySeeder extends Seeder
         $data->save();
 
         $data = new Testimony();
-        $data->name = "Fernando";
+        $data->name = "Fernando 1";
         $data->graduate = "Alumni SMK Immanuel Pontianak 1";
         $data->description = "What a great chance for me to be here, meet with great lecturers, great friends and green environment";
         $data->image = Str::slug($data->name) . ".webp";
@@ -47,7 +47,7 @@ class TestimonySeeder extends Seeder
         $data->save();
 
         $data = new Testimony();
-        $data->name = "Fernando";
+        $data->name = "Fernando 2";
         $data->graduate = "Alumni SMK Immanuel Pontianak 2";
         $data->description = "What a great chance for me to be here, meet with great lecturers, great friends and green environment";
         $data->image = Str::slug($data->name) . ".webp";
