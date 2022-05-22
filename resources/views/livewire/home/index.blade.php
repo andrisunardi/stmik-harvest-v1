@@ -119,14 +119,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <!-- Start Section Title -->
                     <div class="section__title text-center">
                         <h2 class="title__line">POPULAR COURSES</h2>
                         <p>The Best In Our School</p>
                     </div>
-                    <!-- End Section Title -->
                 </div>
             </div>
+
             <div class="row">
                 <div class="popular__courses__wrap indicator__style--1 owl-carousel owl-theme clearfix mt--30 xs-mt-0">
                     <!-- Start Single Courses -->
@@ -568,78 +567,34 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <!-- Start Section Title -->
                     <div class="section__title text-center">
-                        <h2 class="title__line">our blogs</h2>
-                        <p>Education news all over the world.</p>
+                        <h2 class="title__line">{{ trans("general.Our Latest News") }}</h2>
+                        <p>{{ trans("general.Stay tuned with our latest news so you don't miss any information from us") }}</p>
                     </div>
-                    <!-- End Section Title -->
                 </div>
             </div>
             <div class="row our__blog__wrap mt-6 mb-n6">
-                <!-- Start Single Blog -->
-                <div class="col-lg-4 col-xl-4 col-md-6 mb-6">
-                    <div class="blog">
-                        <div class="blog__thumb">
-                            <a draggable="false" href="blog-details.html">
-                                <img draggable="false" src="images/blog/1.jpg" alt="blog images">
-                            </a>
-                            <div class="blog__date">
-                                <span>AUGUST 8, 2022</span>
+                @foreach ($data_news as $news)
+                    <div class="col-lg-4 col-xl-4 col-md-6 mb-6">
+                        <div class="blog">
+                            <div class="blog__thumb">
+                                <a draggable="false" href="{{ route("news.view", ["news_slug" => $news->slug]) }}">
+                                    <img draggable="false" src="{{ $news->assetImage() }}" alt="{{ trans("page.News") }} - {{ $news->translate_name }} - {{ env("APP_TITLE") }}">
+                                </a>
+                                <div class="blog__date">
+                                    <span>{{ Date::parse($news->date)->format("d F Y") }}</span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="blog__details">
-                            <h2><a draggable="false" href="blog-details.html">Iceland’s volcano timelapse</a></h2>
-                            <p>The term minimalism is also used to describe a trend in design and architecture where in the subject is reduced to its n...</p>
-                            <div class="blog__btn">
-                                <a draggable="false" class="read__more__btn" href="blog-details.html">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Blog -->
-                <!-- Start Single Blog -->
-                <div class="col-lg-4 col-xl-4 col-md-6 mb-6">
-                    <div class="blog">
-                        <div class="blog__thumb">
-                            <a draggable="false" href="blog-details.html">
-                                <img draggable="false" src="images/blog/2.jpg" alt="blog images">
-                            </a>
-                            <div class="blog__date">
-                                <span>AUGUST 8, 2022</span>
-                            </div>
-                        </div>
-                        <div class="blog__details">
-                            <h2><a draggable="false" href="blog-details.html">Iceland’s volcano timelapse</a></h2>
-                            <p>The term minimalism is also used to describe a trend in design and architecture where in the subject is reduced to its n...</p>
-                            <div class="blog__btn">
-                                <a draggable="false" class="read__more__btn" href="blog-details.html">Read More</a>
+                            <div class="blog__details">
+                                <h2><a draggable="false" href="{{ route("news.view", ["news_slug" => $news->slug]) }}">{{ $news->translate_name }}</a></h2>
+                                <p>{{ strip_tags(Str::limit($news->translate_description, 300)) }}</p>
+                                <div class="blog__btn">
+                                    <a draggable="false" class="read__more__btn" href="{{ route("news.view", ["news_slug" => $news->slug]) }}">{{ trans("button.Read More") }}</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <!-- End Single Blog -->
-                <!-- Start Single Blog -->
-                <div class="col-lg-4 col-xl-4 col-md-6 mb-6">
-                    <div class="blog">
-                        <div class="blog__thumb">
-                            <a draggable="false" href="blog-details.html">
-                                <img draggable="false" src="images/blog/3.jpg" alt="blog images">
-                            </a>
-                            <div class="blog__date">
-                                <span>AUGUST 8, 2022</span>
-                            </div>
-                        </div>
-                        <div class="blog__details">
-                            <h2><a draggable="false" href="blog-details.html">Iceland’s volcano timelapse</a></h2>
-                            <p>The term minimalism is also used to describe a trend in design and architecture where in the subject is reduced to its n...</p>
-                            <div class="blog__btn">
-                                <a draggable="false" class="read__more__btn" href="blog-details.html">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Blog -->
+                @endforeach
             </div>
         </div>
     </section>

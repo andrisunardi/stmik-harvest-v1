@@ -5,7 +5,7 @@ namespace App\Http\Livewire;
 use App\Http\Livewire\Component;
 
 use App\Models\Banner;
-use App\Models\FaqCategory;
+use App\Models\Faq;
 
 class FaqComponent extends Component
 {
@@ -18,7 +18,7 @@ class FaqComponent extends Component
     {
         $this->banner = Banner::find(4);
 
-        $this->data_faq_category = FaqCategory::onlyActive()->orderBy("id")->get();
+        $this->data_faq = Faq::onlyActive()->orderBy("id")->get();
     }
 
     public function render()

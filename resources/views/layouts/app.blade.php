@@ -198,6 +198,7 @@
                                         <li><a draggable="false" href="{{ route("our-profile.index") }}">{{ trans("page.Our Profile") }}</a></li>
                                         <li><a draggable="false" href="{{ route("our-values.index") }}">{{ trans("page.Our Values") }}</a></li>
                                         <li><a draggable="false" href="{{ route("our-network.index") }}">{{ trans("page.Our Network") }}</a></li>
+                                        <li><a draggable="false" href="{{ route("faq.index") }}">{{ trans("page.Faq") }}</a></li>
                                     </ul>
                                 </li>
                                 <li class="drop"><a draggable="false" href="javascript:;">{{ trans("page.Admission") }}</a>
@@ -218,7 +219,7 @@
                                     <ul class="dropdown">
                                         <li><a draggable="false" href="{{ route("our-gallery.index") }}">{{ trans("page.Our Gallery") }}</a></li>
                                         <li><a draggable="false" href="{{ route("events.index") }}">{{ trans("page.Events") }}</a></li>
-                                        <li><a draggable="false" href="{{ route("events.index") }}">{{ trans("page.Blogs") }}</a></li>
+                                        <li><a draggable="false" href="{{ route("news.index") }}">{{ trans("page.News") }}</a></li>
                                     </ul>
                                 </li>
                                 <li><a draggable="false" href="{{ route("contact-us.index") }}">{{ trans("page.Contact Us") }}</a></li>
@@ -268,9 +269,10 @@
                                     <li><a draggable="false" href="{{ route("our-profile.index") }}">{{ trans("page.Our Profile") }}</a></li>
                                     <li><a draggable="false" href="{{ route("our-values.index") }}">{{ trans("page.Our Values") }}</a></li>
                                     <li><a draggable="false" href="{{ route("our-network.index") }}">{{ trans("page.Our Network") }}</a></li>
+                                    <li><a draggable="false" href="{{ route("faq.index") }}">{{ trans("page.Faq") }}</a></li>
                                 </ul>
                             </li>
-                            <li><a draggable="false" href="{{ route("admission.index") }}">{{ trans("page.Admission") }}</a>
+                            <li><a draggable="false" href="javascript:;">{{ trans("page.Admission") }}</a>
                                 <ul>
                                     <li><a draggable="false" href="{{ route("online-registration.index") }}">{{ trans("page.Online Registration") }}</a></li>
                                     <li><a draggable="false" href="{{ route("admission-calendar.index") }}">{{ trans("page.Admission Calendar") }}</a></li>
@@ -288,6 +290,7 @@
                                 <ul>
                                     <li><a draggable="false" href="{{ route("our-gallery.index") }}">{{ trans("page.Our Gallery") }}</a></li>
                                     <li><a draggable="false" href="{{ route("events.index") }}">{{ trans("page.Events") }}</a></li>
+                                    <li><a draggable="false" href="{{ route("news.index") }}">{{ trans("page.News") }}</a></li>
                                 </ul>
                             </li>
                             <li><a draggable="false" href="{{ route("contact-us.index") }}">{{ trans("page.Contact Us") }}</a></li>
@@ -374,11 +377,16 @@
                                 <h2 class="footer__title">{{ trans("general.Quick Links") }}</h2>
                                 <ul class="htc__ft__list">
                                     <li><a draggable="false" href="{{ route("index") }}">{{ trans("page.Home") }}</a></li>
-                                    <li><a draggable="false" href="{{ route("admission-calendar.index") }}">{{ trans("page.Admission Calendar") }}</a></li>
-                                    <li><a draggable="false" href="{{ route("information-system.index") }}">{{ trans("page.Information System") }}</a></li>
-                                    <li><a draggable="false" href="{{ route("our-gallery.index") }}">{{ trans("page.Our Gallery") }}</a></li>
+                                    <li><a draggable="false" href="{{ route("about.index") }}">{{ trans("page.About") }} STMIK Harvest</a></li>
                                     <li><a draggable="false" href="{{ route("our-profile.index") }}">{{ trans("page.Our Profile") }}</a></li>
                                     <li><a draggable="false" href="{{ route("our-values.index") }}">{{ trans("page.Our Values") }}</a></li>
+                                    <li><a draggable="false" href="{{ route("our-network.index") }}">{{ trans("page.Our Network") }}</a></li>
+                                    <li><a draggable="false" href="{{ route("faq.index") }}">{{ trans("page.Faq") }}</a></li>
+                                    <li><a draggable="false" href="{{ route("information-system.index") }}">{{ trans("page.Information System") }}</a></li>
+                                    <li><a draggable="false" href="{{ route("our-gallery.index") }}">{{ trans("page.Our Gallery") }}</a></li>
+                                    <li><a draggable="false" href="{{ route("events.index") }}">{{ trans("page.Events") }}</a></li>
+                                    <li><a draggable="false" href="{{ route("news.index") }}">{{ trans("page.News") }}</a></li>
+                                    <li><a draggable="false" href="{{ route("contact-us.index") }}">{{ trans("page.Contact Us") }}</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -387,9 +395,13 @@
                     <div class="col-md-6 col-lg-2 offset-xl-1 mb-7">
                         <div class="footer">
                             <div class="footer__widget">
-                                <h2 class="footer__title">{{ trans("general.Working Hours") }}</h2>
+                                <h2 class="footer__title">{{ trans("page.Admission") }}</h2>
                                 <ul class="htc__ft__list">
-                                    <li><a draggable="false" href="#">{{ trans("datetime.Monday") }}</a></li>
+                                    <li><a draggable="false" href="{{ route("online-registration.index") }}">{{ trans("page.Online Registration") }}</a></li>
+                                    <li><a draggable="false" href="{{ route("admission-calendar.index") }}">{{ trans("page.Admission Calendar") }}</a></li>
+                                    <li><a draggable="false" href="{{ route("procedure.index") }}">{{ trans("page.Procedure") }}</a></li>
+                                    <li><a draggable="false" href="{{ route("tuition-fees.index") }}">{{ trans("page.Tuition Fees") }}</a></li>
+                                    <li><a draggable="false" href="{{ route("scholarships.index") }}">{{ trans("page.Scholarships") }}</a></li>
                                 </ul>
                             </div>
                         </div>

@@ -12,7 +12,7 @@ return [
     "Our Values" => "Nilai-Nilai Kami",
     "Our Network" => "Jaringan Kami",
 
-    "Admission Calendar" => "Kelander Admisi",
+    "Admission Calendar" => "Kalender Admisi",
     "Information System" => "Sistem Informasi",
     "Our Gallery" => "Galeri Kami",
     "Courses" => "Mata Kuliah",

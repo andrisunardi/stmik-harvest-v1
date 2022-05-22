@@ -43,12 +43,7 @@ Route::group(["prefix" => Str::slug($page), "as" => Str::slug($page) . "."], fun
     Route::any("", Str::studly($page) . "Component")->name("index");
 });
 
-$page = "Our Gallery";
-Route::group(["prefix" => Str::slug($page), "as" => Str::slug($page) . "."], function () use ($page) {
-    Route::any("", Str::studly($page) . "Component")->name("index");
-});
-
-$page = "Admission";
+$page = "Faq";
 Route::group(["prefix" => Str::slug($page), "as" => Str::slug($page) . "."], function () use ($page) {
     Route::any("", Str::studly($page) . "Component")->name("index");
 });
@@ -88,31 +83,14 @@ Route::group(["prefix" => Str::slug($page), "as" => Str::slug($page) . "."], fun
     Route::any("", Str::studly($page) . "Component")->name("index");
 });
 
+$page = "Our Gallery";
+Route::group(["prefix" => Str::slug($page), "as" => Str::slug($page) . "."], function () use ($page) {
+    Route::any("", Str::studly($page) . "Component")->name("index");
+});
+
 $page = "Events";
 Route::group(["prefix" => Str::slug($page), "as" => Str::slug($page) . "."], function () use ($page) {
     Route::any("", Str::studly($page) . "Component")->name("index");
-});
-
-$page = "Lecturer";
-Route::group(["prefix" => Str::slug($page), "as" => Str::slug($page) . "."], function () use ($page) {
-    Route::any("", Str::studly($page) . "Component")->name("index");
-    Route::any("{lecturer_slug}", Str::studly($page) . "ViewComponent")->name("view");
-});
-
-$page = "Gallery";
-Route::group(["prefix" => Str::slug($page), "as" => Str::slug($page) . "."], function () use ($page) {
-    Route::any("", Str::studly($page) . "Component")->name("index");
-});
-
-$page = "Faq";
-Route::group(["prefix" => Str::slug($page), "as" => Str::slug($page) . "."], function () use ($page) {
-    Route::any("", Str::studly($page) . "Component")->name("index");
-});
-
-$page = "Study Program";
-Route::group(["prefix" => Str::slug($page), "as" => Str::slug($page) . "."], function () use ($page) {
-    Route::any("", Str::studly($page) . "Component")->name("index");
-    Route::any("{study_program_slug}", Str::studly($page) . "ViewComponent")->name("view");
 });
 
 $page = "News";
@@ -121,72 +99,7 @@ Route::group(["prefix" => Str::slug($page), "as" => Str::slug($page) . "."], fun
     Route::any("{news_slug}", Str::studly($page) . "ViewComponent")->name("view");
 });
 
-$page = "Registration";
-Route::group(["prefix" => Str::slug($page), "as" => Str::slug($page) . "."], function () use ($page) {
-    Route::any("", Str::studly($page) . "Component")->name("index");
-});
-
-$page = "International Student";
-Route::group(["prefix" => Str::slug($page), "as" => Str::slug($page) . "."], function () use ($page) {
-    Route::any("", Str::studly($page) . "Component")->name("index");
-});
-
-$page = "Event";
-Route::group(["prefix" => Str::slug($page), "as" => Str::slug($page) . "."], function () use ($page) {
-    Route::any("", Str::studly($page) . "Component")->name("index");
-});
-
-$page = "Journal";
-Route::group(["prefix" => Str::slug($page), "as" => Str::slug($page) . "."], function () use ($page) {
-    Route::any("", Str::studly($page) . "Component")->name("index");
-});
-
-$page = "Repository";
-Route::group(["prefix" => Str::slug($page), "as" => Str::slug($page) . "."], function () use ($page) {
-    Route::any("", Str::studly($page) . "Component")->name("index");
-    Route::any("{repository_slug}", Str::studly($page) . "ViewComponent")->name("view");
-});
-
-$page = "Magazine";
-Route::group(["prefix" => Str::slug($page), "as" => Str::slug($page) . "."], function () use ($page) {
-    Route::any("", Str::studly($page) . "Component")->name("index");
-});
-
 $page = "Contact Us";
 Route::group(["prefix" => Str::slug($page), "as" => Str::slug($page) . "."], function () use ($page) {
     Route::any("", Str::studly($page) . "Component")->name("index");
-});
-
-$page = "Search";
-Route::group(["prefix" => Str::slug($page), "as" => Str::slug($page) . "."], function () use ($page) {
-    Route::any("", Str::studly($page) . "Component")->name("index");
-});
-
-$page = "Register";
-Route::group(["prefix" => Str::slug($page), "as" => Str::slug($page) . "."], function () use ($page) {
-    Route::any("", Str::studly($page) . "Component")->name("index");
-});
-
-$page = "Login";
-Route::group(["prefix" => Str::slug($page), "as" => Str::slug($page) . "."], function () use ($page) {
-    Route::any("", Str::studly($page) . "Component")->name("index");
-});
-
-$page = "Forgot Password";
-Route::group(["prefix" => Str::slug($page), "as" => Str::slug($page) . "."], function () use ($page) {
-    Route::any("", Str::studly($page) . "Component")->name("index");
-});
-
-Route::group(["middleware" => "auth:user"], function () {
-
-    $page = "Account";
-    Route::group(["prefix" => Str::slug($page), "as" => Str::slug($page) . "."], function () use ($page) {
-        Route::any("", Str::studly($page) . "Component")->name("index");
-    });
-
-    $page = "Logout";
-    Route::group(["prefix" => Str::slug($page), "as" => Str::slug($page) . "."], function () use ($page) {
-        Route::any("", Str::studly($page) . "Component")->name("index");
-    });
-
 });
