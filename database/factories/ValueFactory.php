@@ -22,4 +22,13 @@ class ValueFactory extends Factory
             "active" => $this->faker->boolean(),
         ];
     }
+
+    public function active()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                "active" => true,
+            ];
+        });
+    }
 }

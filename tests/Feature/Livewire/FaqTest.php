@@ -2,30 +2,30 @@
 
 namespace Tests\Feature;
 
-use App\Http\Livewire\HomeComponent;
+use App\Http\Livewire\FaqComponent;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Livewire\Livewire;
 use Tests\TestCase;
 
-class HomeTest extends TestCase
+class FaqTest extends TestCase
 {
     use DatabaseMigrations, RefreshDatabase, WithFaker;
 
-    public $menu_name = "Home";
-    public $menu_icon = "fas fa-home";
-    public $menu_slug = "home";
-    public $menu_table = "home";
+    public $menu_name = "Faq";
+    public $menu_icon = "fas fa-question";
+    public $menu_slug = "faq";
+    public $menu_table = "faq";
     public $menu_type = "index";
 
     public function test_index()
     {
-        $response = $this->get(route("index"));
+        $response = $this->get(route("{$this->menu_slug}.index"));
         $response->assertStatus(200);
-        $response->assertSeeLivewire(HomeComponent::class);
+        $response->assertSeeLivewire(FaqComponent::class);
 
-        Livewire::test(HomeComponent::class)
+        Livewire::test(FaqComponent::class)
             ->assertDontSee("custom.")
             ->assertDontSee("index.")
             ->assertDontSee("message.")
