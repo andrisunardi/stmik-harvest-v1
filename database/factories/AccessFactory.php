@@ -2,9 +2,8 @@
 
 namespace Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
-
 use App\Models\Access;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 class AccessFactory extends Factory
 {

@@ -17,7 +17,7 @@ class AdminFactory extends Factory
 
         return [
             "access_id" => Access::get()->random()->id,
-            "name" => $this->faker->name(),
+            "name" => $this->faker->unique()->name(),
             "email" => $this->faker->unique()->safeEmail(),
             "username" => $this->faker->username(),
             "password" => $this->faker->password(),

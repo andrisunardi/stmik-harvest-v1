@@ -2,11 +2,10 @@
 
 namespace Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
-
-use App\Models\AccessMenu;
 use App\Models\Access;
+use App\Models\AccessMenu;
 use App\Models\Menu;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 class AccessMenuFactory extends Factory
 {
