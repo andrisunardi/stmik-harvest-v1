@@ -80,6 +80,16 @@
     <link rel="stylesheet" href="{{ asset("assets/css/custom.css") }}">
 
     <script src="{{ asset("assets/js/vendor/modernizr-3.11.2.min.js") }}"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@100&display=swap" rel="stylesheet">
+
+<style>
+    body {
+        font-family: 'Work Sans', sans-serif;
+    }
+</style>
 @endsection
 
 @section("script")
