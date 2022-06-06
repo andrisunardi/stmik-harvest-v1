@@ -35,9 +35,9 @@ class OfferSeeder extends Seeder
         $data->name_id = "Fasilitas dan Gedung Modern";
         $data->description = "We provide the best environment for our students with modern facilities and building.";
         $data->description_id = "Kami menyediakan lingkungan terbaik bagi siswa kami dengan fasilitas dan bangunan modern.";
-        $data->button_name = "About Us";
-        $data->button_name_id = "Tentang Kami";
-        $data->button_link = env("APP_URL") . "/about";
+        $data->button_name = "Our Gallery";
+        $data->button_name_id = "Galeri Kami";
+        $data->button_link = env("APP_URL") . "/our-gallery";
         $data->save();
 
         $data = new Offer();
