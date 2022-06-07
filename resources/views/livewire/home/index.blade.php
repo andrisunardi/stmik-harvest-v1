@@ -135,7 +135,7 @@
         </div>
     </section>
 
-    {{-- <section wire:ignore class="popular__courses__area ptb--80 bg__white">
+    <section wire:ignore class="popular__courses__area ptb--80 bg__white">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -178,7 +178,7 @@
                 </div>
             </div>
         </div>
-    </section> --}}
+    </section>
 
     <section class="our__countdown__area ptb--100" data--theme__overlay="6" style="background: rgba(0, 0, 0, 0) url(images/bg/2.jpg) no-repeat scroll center center / cover ;">
         <div class="container">
@@ -322,7 +322,7 @@
         </div>
     </section>
 
-    {{-- <section class="our__upcoming__area ptb--80 bg__white">
+    <section class="our__upcoming__area ptb--80 bg__white">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -402,7 +402,7 @@
                 </div>
             </div>
         </div>
-    </section> --}}
+    </section>
 
     <section wire:ignore class="our__testimonial__area pt--80 pb--110" style="background: rgba(0, 0, 0, 0) url({{ asset("assets/images/bg/3.jpg") }}) no-repeat scroll center center / cover;">
         <div class="container">

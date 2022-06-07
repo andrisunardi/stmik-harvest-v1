@@ -33,8 +33,8 @@ class EventSeeder extends Seeder
         </ul>
          ";
         $data->location = "STMIK Harvest, Gedung World Harvest Center, International Room";
-        $data->date = "2017-09-09 08:00:00";
-        $data->date = "2017-09-10 17:00:00";
+        $data->start = "2017-09-09 08:00:00";
+        $data->end = "2017-09-10 17:00:00";
         $data->image = Str::slug($data->name) . ".png";
         $data->slug = Str::slug($data->name);
         $data->save();
