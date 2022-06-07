@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Feature\Livewire;
 
 use App\Http\Livewire\HomeComponent;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
