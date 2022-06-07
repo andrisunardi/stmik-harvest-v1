@@ -53,6 +53,7 @@ class DatabaseSeeder extends Seeder
 
             AdmissionCalendarSeeder::class,
             BannerSeeder::class,
+            EventSeeder::class,
             GallerySeeder::class,
             MagazineSeeder::class,
             NetworkSeeder::class,

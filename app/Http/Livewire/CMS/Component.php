@@ -36,6 +36,7 @@ use App\Models\FaqCategory;
 
 use App\Models\AdmissionCalendar;
 use App\Models\Banner;
+use App\Models\Event;
 use App\Models\Gallery;
 use App\Models\Magazine;
 use App\Models\Network;
@@ -177,6 +178,9 @@ class Component extends LivewireComponent
 
         $this->total_banner = Banner::cursor()->count();
         View::share("total_banner", $this->total_banner);
+
+        $this->total_event = Event::cursor()->count();
+        View::share("total_event", $this->total_event);
 
         $this->total_gallery = Gallery::cursor()->count();
         View::share("total_gallery", $this->total_gallery);
