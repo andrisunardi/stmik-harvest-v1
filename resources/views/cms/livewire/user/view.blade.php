@@ -199,16 +199,6 @@
                                         </a>
                                     @endif
                                 </td>
-                                <td>
-                                    @if ($repository->study_program?->id)
-                                        <a draggable="false" href="{{ route("{$sub_domain}.study-program.index") . "?menu_type=view&row={$repository->study_program?->id}" }}" target="_blank">
-                                            {{ $repository->study_program?->translate_name }}
-                                        </a>
-                                        <a draggable="false" href="{{ route("study-program.view", ["study_program_slug" => $repository->study_program?->slug]) }}" class="btn btn-link btn-sm" target="_blank">
-                                            <i class="bi bi-box-arrow-up-right"></i>
-                                        </a>
-                                    @endif
-                                </td>
                                 <td class="text-center">
                                     <span class="{{ "badge bg-" . Str::color($repository->status) }}">
                                         {{ trans("general.{$repository->status_text}") }}

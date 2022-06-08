@@ -11,7 +11,6 @@ use Livewire\WithPagination;
 use Livewire\WithFileUploads;
 
 use App\Models\Testimony;
-use App\Models\StudyProgram;
 use App\Models\Admin;
 
 class TestimonyComponent extends Component
@@ -43,7 +42,6 @@ class TestimonyComponent extends Component
     public $checkbox_id;
 
     public $testimony;
-    public $study_program = "";
     public $name;
     public $description;
     public $graduate;
@@ -67,7 +65,6 @@ class TestimonyComponent extends Component
         "active" => ["except" => ""],
         "row" => ["except" => ""],
 
-        "study_program" => ["except" => ""],
         "name" => ["except" => ""],
         "graduate" => ["except" => ""],
     ];
@@ -95,7 +92,6 @@ class TestimonyComponent extends Component
         $this->row = null;
 
         $this->testimony = null;
-        $this->study_program = "";
         $this->name = null;
         $this->description = null;
         $this->graduate = null;
@@ -105,7 +101,6 @@ class TestimonyComponent extends Component
     public function resetForm()
     {
         $this->active = $this->testimony->active;
-        $this->study_program = $this->testimony->study_program?->id;
         $this->name = $this->testimony->name;
         $this->description = $this->testimony->description;
         $this->graduate = $this->testimony->graduate;
@@ -290,7 +285,6 @@ class TestimonyComponent extends Component
 
         return [
             "active"        => "required",
-            "study_program" => "required|exists:study_program,id",
             "name"          => "required|max:100|unique:{$this->menu_table},name,{$id}",
             "description"   => "nullable|max:65535",
             "graduate"      => "nullable|max:65535",
@@ -314,7 +308,6 @@ class TestimonyComponent extends Component
 
         $this->testimony->active = $this->active;
 
-        $this->testimony->study_program_id = $this->study_program;
         $this->testimony->name = $this->name;
         $this->testimony->description = Str::of(htmlspecialchars($this->description))->swap(["&lt;" => "<", "&gt;" => ">"]);
         $this->testimony->graduate = $this->graduate;
@@ -503,9 +496,6 @@ class TestimonyComponent extends Component
                     $query->where("active", $this->active);
                 })
 
-                ->when($this->study_program, function ($query) {
-                    $query->where("study_program_id", $this->study_program);
-                })
                 ->when($this->name, function ($query) {
                     $query->where("name", "LIKE", "%{$this->name}%");
                 })
@@ -541,10 +531,6 @@ class TestimonyComponent extends Component
                     $data_testimony->join("admin", "admin.id", "{$this->menu_table}.deleted_by")
                         ->select("{$this->menu_table}.*", "admin.name as admin_name")
                         ->orderByRaw("admin_name {$this->sort_by}");
-                } else if ($this->order_by == "study_program_id") {
-                    $data_testimony->join("study_program", "study_program.id", "{$this->menu_table}.study_program_id")
-                        ->select("{$this->menu_table}.*", "study_program.name as study_program_name")
-                        ->orderByRaw("study_program_name {$this->sort_by}");
                 } else {
                     $data_testimony->orderBy($this->order_by ?? "id", $this->sort_by ?? "desc");
                 }
@@ -564,7 +550,6 @@ class TestimonyComponent extends Component
             "data_updated_by" => $this->getDataUpdatedBy(),
             "data_deleted_by" => $this->getDataDeletedBy(),
             "data_testimony" => $this->getDataTestimony(),
-            "data_study_program" => $this->getDataStudyProgram(),
         ])->extends("{$this->sub_domain}.layouts.app")->section("content");
     }
 }

@@ -6,7 +6,6 @@
                 <th>{{ trans("field.#") }}</th>
                 <th>{{ trans("field.ID") }}</th>
                 <th>{{ trans("field.Image") }}</th>
-                <th>{{ trans("field.Study Program") }}</th>
                 <th>{{ trans("field.Name") }}</th>
                 <th>{{ trans("field.Graduate") }}</th>
                 <th>{{ trans("field.Active") }}</th>
@@ -70,14 +69,6 @@
                                 </div>
                             </div>
                         @endif
-                    </td>
-                    <td>
-                        <a draggable="false" href="{{ $testimony->study_program?->id ? route("{$sub_domain}.study-program.index") . "?menu_type=view&row={$testimony->study_program?->id}" : null }}" target="_blank">
-                            {{ $testimony->study_program?->translate_name }}
-                        </a>
-                        <a draggable="false" href="{{ $testimony->study_program?->id ? route("study-program.view", ["study_program_slug" => $testimony->study_program?->slug]) : null }}" class="btn btn-link btn-sm" target="_blank">
-                            <i class="bi bi-box-arrow-up-right"></i>
-                        </a>
                     </td>
                     <td>
                         <a draggable="false" href="{{ route("{$sub_domain}.{$menu_slug}.index") . "?menu_type=view&row={$testimony->id}" }}">

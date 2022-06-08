@@ -26,34 +26,17 @@ class DatabaseSeeder extends Seeder
             SettingSeeder::class,
             LogSeeder::class,
 
+            RegistrationSeeder::class,
             ContactSeeder::class,
             NewsletterSeeder::class,
 
-            RepositorySubjectSeeder::class,
-            RepositorySeeder::class,
-            RepositoryFileSeeder::class,
-            RepositoryContributorSeeder::class,
-
-            LecturerSeeder::class,
-            LecturerEducationSeeder::class,
-            LecturerWorkExperienceSeeder::class,
-
-            CourseSeeder::class,
-            CourseLecturerSeeder::class,
-
-            StudyProgramCategorySeeder::class,
-            StudyProgramSeeder::class,
-
             NewsCategorySeeder::class,
             NewsSeeder::class,
-            NewsCommentSeeder::class,
-
-            FaqCategorySeeder::class,
-            FaqSeeder::class,
 
             AdmissionCalendarSeeder::class,
             BannerSeeder::class,
             EventSeeder::class,
+            FaqSeeder::class,
             GallerySeeder::class,
             NetworkSeeder::class,
             OfferSeeder::class,

@@ -30,7 +30,6 @@ class Faq extends Model
     // protected $dateFormat = "U";
 
     protected $fillable = [
-        "faq_category_id",
         "name",
         "name_id",
         "description",
@@ -76,10 +75,5 @@ class Faq extends Model
     public function getTranslateDescriptionAttribute()
     {
         return Session::get("locale") == "en" ? $this->description : $this->description_id;
-    }
-
-    public function faq_category()
-    {
-        return $this->belongsTo(FaqCategory::class)->withTrashed()->withDefault(null);
     }
 }

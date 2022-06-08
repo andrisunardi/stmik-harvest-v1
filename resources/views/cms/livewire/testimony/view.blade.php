@@ -52,19 +52,6 @@
     </div>
     <div class="row my-2">
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <h6>{{ trans("field.Study Program") }}</h6>
-        </div>
-        <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
-            <a draggable="false" href="{{ $testimony->study_program?->id ? route("{$sub_domain}.study-program.index") . "?menu_type=view&row={$testimony->study_program?->id}" : null }}" target="_blank">
-                {{ $testimony->study_program?->translate_name }}
-            </a>
-            <a draggable="false" href="{{ $testimony->study_program?->id ? route("study-program.view", ["study_program_slug" => $testimony->study_program?->slug]) : null }}" class="btn btn-link btn-sm" target="_blank">
-                <i class="bi bi-box-arrow-up-right"></i>
-            </a>
-        </div>
-    </div>
-    <div class="row my-2">
-        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
             <h6>{{ trans("field.Name") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">

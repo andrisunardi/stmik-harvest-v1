@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Session;
 use Livewire\WithPagination;
 
 use App\Models\Faq;
-use App\Models\FaqCategory;
 use App\Models\Admin;
 
 class FaqComponent extends Component
@@ -41,7 +40,6 @@ class FaqComponent extends Component
     public $checkbox_id;
 
     public $faq;
-    public $faq_category = "";
     public $name;
     public $name_id;
     public $description;
@@ -65,7 +63,6 @@ class FaqComponent extends Component
         "active" => ["except" => ""],
         "row" => ["except" => ""],
 
-        "faq_category" => ["except" => ""],
         "name" => ["except" => ""],
         "name_id" => ["except" => ""],
     ];
@@ -93,7 +90,6 @@ class FaqComponent extends Component
         $this->row = null;
 
         $this->faq = null;
-        $this->faq_category = "";
         $this->name = null;
         $this->name_id = null;
         $this->description = null;
@@ -103,7 +99,6 @@ class FaqComponent extends Component
     public function resetForm()
     {
         $this->active = $this->faq->active;
-        $this->faq_category = $this->faq->faq_category?->id;
         $this->name = $this->faq->name;
         $this->name_id = $this->faq->name_id;
         $this->description = $this->faq->description;
@@ -171,11 +166,6 @@ class FaqComponent extends Component
     }
 
     public function updatingActive()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingFaqCategory()
     {
         $this->resetPage();
     }
@@ -294,7 +284,6 @@ class FaqComponent extends Component
 
         return [
             "active"            => "required",
-            "faq_category"      => "required|exists:faq_category,id",
             "name"              => "required|max:100|unique:{$this->menu_table},name,{$id}",
             "name_id"           => "required|max:100|unique:{$this->menu_table},name_id,{$id}",
             "description"       => "nullable|max:65535",
@@ -315,7 +304,6 @@ class FaqComponent extends Component
 
         $this->faq->active = $this->active;
 
-        $this->faq->faq_category_id = $this->faq_category;
         $this->faq->name = $this->name;
         $this->faq->name_id = $this->name_id;
         $this->faq->description = Str::of(htmlspecialchars($this->description))->swap(["&lt;" => "<", "&gt;" => ">"]);
@@ -442,11 +430,6 @@ class FaqComponent extends Component
         return Admin::whereIn("id", $deleted_by)->onlyActive()->orderBy("name")->get();
     }
 
-    public function getDataFaqCategory()
-    {
-        return FaqCategory::onlyActive()->orderBy("name")->get();
-    }
-
     public function getDataFaq()
     {
         if ($this->menu_type == "index" || $this->menu_type == "trash") {
@@ -482,9 +465,6 @@ class FaqComponent extends Component
                     $query->where("active", $this->active);
                 })
 
-                ->when($this->faq_category, function ($query) {
-                    $query->where("faq_category_id", $this->faq_category);
-                })
                 ->when($this->name, function ($query) {
                     $query->where("name", "LIKE", "%{$this->name}%");
                 })
@@ -523,10 +503,6 @@ class FaqComponent extends Component
                     $data_faq->join("admin", "admin.id", "{$this->menu_table}.deleted_by")
                         ->select("{$this->menu_table}.*", "admin.name as admin_name")
                         ->orderByRaw("admin_name {$this->sort_by}");
-                } else if ($this->order_by == "{$this->menu_table}_category_id") {
-                    $data_faq->join("{$this->menu_table}_category", "{$this->menu_table}_category.id", "{$this->menu_table}.{$this->menu_table}_category_id")
-                        ->select("{$this->menu_table}.*", "{$this->menu_table}_category.name as {$this->menu_table}_category_name")
-                        ->orderByRaw("{$this->menu_table}_category_name {$this->sort_by}");
                 } else {
                     $data_faq->orderBy($this->order_by ?? "id", $this->sort_by ?? "desc");
                 }
@@ -546,7 +522,6 @@ class FaqComponent extends Component
             "data_updated_by" => $this->getDataUpdatedBy(),
             "data_deleted_by" => $this->getDataDeletedBy(),
             "data_faq" => $this->getDataFaq(),
-            "data_faq_category" => $this->getDataFaqCategory(),
         ])->extends("{$this->sub_domain}.layouts.app")->section("content");
     }
 }

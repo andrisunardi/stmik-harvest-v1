@@ -8,35 +8,16 @@ use Illuminate\Support\Facades\View;
 use Livewire\Component as LivewireComponent;
 
 use App\Models\Registration;
-use App\Models\User;
 use App\Models\Contact;
 use App\Models\Newsletter;
 
-use App\Models\Repository;
-use App\Models\RepositoryFile;
-use App\Models\RepositoryContributor;
-use App\Models\RepositorySubject;
-
-use App\Models\StudyProgram;
-use App\Models\StudyProgramCategory;
-
-use App\Models\Course;
-use App\Models\CourseLecturer;
-
-use App\Models\Lecturer;
-use App\Models\LecturerEducation;
-use App\Models\LecturerWorkExperience;
-
 use App\Models\News;
 use App\Models\NewsCategory;
-use App\Models\NewsComment;
-
-use App\Models\Faq;
-use App\Models\FaqCategory;
 
 use App\Models\AdmissionCalendar;
 use App\Models\Banner;
 use App\Models\Event;
+use App\Models\Faq;
 use App\Models\Gallery;
 use App\Models\Network;
 use App\Models\Offer;
@@ -124,53 +105,14 @@ class Component extends LivewireComponent
         $this->total_newsletter = Newsletter::cursor()->count();
         View::share("total_newsletter", $this->total_newsletter);
 
-        $this->total_repository = Repository::cursor()->count();
-        View::share("total_repository", $this->total_repository);
-
-        $this->total_repository_file = RepositoryFile::cursor()->count();
-        View::share("total_repository_file", $this->total_repository_file);
-
-        $this->total_repository_contributor = RepositoryContributor::cursor()->count();
-        View::share("total_repository_contributor", $this->total_repository_contributor);
-
-        $this->total_repository_subject = RepositorySubject::cursor()->count();
-        View::share("total_repository_subject", $this->total_repository_subject);
-
-        $this->total_study_program = StudyProgram::cursor()->count();
-        View::share("total_study_program", $this->total_study_program);
-
-        $this->total_study_program_category = StudyProgramCategory::cursor()->count();
-        View::share("total_study_program_category", $this->total_study_program_category);
-
-        $this->total_course = Course::cursor()->count();
-        View::share("total_course", $this->total_course);
-
-        $this->total_course_lecturer = CourseLecturer::cursor()->count();
-        View::share("total_course_lecturer", $this->total_course_lecturer);
-
-        $this->total_lecturer = Lecturer::cursor()->count();
-        View::share("total_lecturer", $this->total_lecturer);
-
-        $this->total_lecturer_education = LecturerEducation::cursor()->count();
-        View::share("total_lecturer_education", $this->total_lecturer_education);
-
-        $this->total_lecturer_work_experience = LecturerWorkExperience::cursor()->count();
-        View::share("total_lecturer_work_experience", $this->total_lecturer_work_experience);
-
         $this->total_news = News::cursor()->count();
         View::share("total_news", $this->total_news);
 
         $this->total_news_category = NewsCategory::cursor()->count();
         View::share("total_news_category", $this->total_news_category);
 
-        $this->total_news_comment = NewsComment::cursor()->count();
-        View::share("total_news_comment", $this->total_news_comment);
-
         $this->total_faq = Faq::cursor()->count();
         View::share("total_faq", $this->total_faq);
-
-        $this->total_faq_category = FaqCategory::cursor()->count();
-        View::share("total_faq_category", $this->total_faq_category);
 
         $this->total_admission_calendar = AdmissionCalendar::cursor()->count();
         View::share("total_admission_calendar", $this->total_admission_calendar);

@@ -144,22 +144,4 @@ class News extends Model
     {
         return $this->belongsTo(NewsCategory::class)->withTrashed()->withDefault(null);
     }
-
-    public function data_news_comment()
-    {
-        return $this->hasMany(NewsComment::class)->orderBy("id");
-    }
-
-    public static function boot()
-    {
-        parent::boot();
-
-        static::deleted(function ($table) {
-            $table->data_news_comment()->delete();
-        });
-
-        static::restored(function ($table) {
-            $table->data_news_comment()->restore();
-        });
-    }
 }

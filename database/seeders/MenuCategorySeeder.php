@@ -22,13 +22,6 @@ class MenuCategorySeeder extends Seeder
         $data->save();
 
         $data = new Menu();
-        $data->name = "User";
-        $data->name_id = "Pengguna";
-        $data->icon = "bi bi-person";
-        $data->sort = $sort++;
-        $data->save();
-
-        $data = new Menu();
         $data->name = "Contact";
         $data->name_id = "Kontak";
         $data->icon = "bi bi-telephone";
@@ -41,138 +34,6 @@ class MenuCategorySeeder extends Seeder
         $data->icon = "bi bi-envelope";
         $data->sort = $sort++;
         $data->save();
-
-        // REPOSITORY
-            $data = new MenuCategory();
-            $data->name = "Repository";
-            $data->name_id = "Repository";
-            $data->icon = "bi bi-journal-text";
-            $data->sort = $sortCategory++;
-            $data->save();
-
-            $menu_category = MenuCategory::find($data->id);
-
-            $data = new Menu();
-            $data->menu_category_id = $menu_category->id;
-            $data->name = "Repository";
-            $data->name_id = "Repository";
-            $data->icon = "bi bi-journal-text";
-            $data->sort = $sort++;
-            $data->save();
-
-            $data = new Menu();
-            $data->menu_category_id = $menu_category->id;
-            $data->name = "Repository File";
-            $data->name_id = "Dokumen Repository";
-            $data->icon = "bi bi-file-pdf";
-            $data->sort = $sort++;
-            $data->save();
-
-            $data = new Menu();
-            $data->menu_category_id = $menu_category->id;
-            $data->name = "Repository Contributor";
-            $data->name_id = "Kontributor Repository";
-            $data->icon = "bi bi-people-fill";
-            $data->sort = $sort++;
-            $data->save();
-
-            $data = new Menu();
-            $data->menu_category_id = $menu_category->id;
-            $data->name = "Repository Subject";
-            $data->name_id = "Subyek Repository";
-            $data->icon = "bi bi-tags";
-            $data->sort = $sort++;
-            $data->save();
-        // REPOSITORY
-
-        // STUDY PROGRAM
-            $data = new MenuCategory();
-            $data->name = "Study Program";
-            $data->name_id = "Program Studi";
-            $data->icon = "bi bi-book-half";
-            $data->sort = $sortCategory++;
-            $data->save();
-
-            $menu_category = MenuCategory::find($data->id);
-
-            $data = new Menu();
-            $data->menu_category_id = $menu_category->id;
-            $data->name = "Study Program";
-            $data->name_id = "Program Studi";
-            $data->icon = "bi bi-book-half";
-            $data->sort = $sort++;
-            $data->save();
-
-            $data = new Menu();
-            $data->menu_category_id = $menu_category->id;
-            $data->name = "Study Program Category";
-            $data->name_id = "Kategori Program Studi";
-            $data->icon = "bi bi-tags";
-            $data->sort = $sort++;
-            $data->save();
-        // STUDY PROGRAM
-
-        // COURSE
-            $data = new MenuCategory();
-            $data->name = "Course";
-            $data->name_id = "Mata Kuliah";
-            $data->icon = "bi bi-book";
-            $data->sort = $sortCategory++;
-            $data->save();
-
-            $menu_category = MenuCategory::find($data->id);
-
-            $data = new Menu();
-            $data->menu_category_id = $menu_category->id;
-            $data->name = "Course";
-            $data->name_id = "Mata Kuliah";
-            $data->icon = "bi bi-book";
-            $data->sort = $sort++;
-            $data->save();
-
-            $data = new Menu();
-            $data->menu_category_id = $menu_category->id;
-            $data->name = "Course Lecturer";
-            $data->name_id = "Mata Kuliah Dosen";
-            $data->icon = "bi bi-book-fill";
-            $data->sort = $sort++;
-            $data->save();
-        // COURSE
-
-        // LECTURER
-            $data = new MenuCategory();
-            $data->name = "Lecturer";
-            $data->name_id = "Dosen";
-            $data->icon = "bi bi-person-badge";
-            $data->sort = $sortCategory++;
-            $data->save();
-
-            $menu_category = MenuCategory::find($data->id);
-
-            $data = new Menu();
-            $data->menu_category_id = $menu_category->id;
-            $data->name = "Lecturer";
-            $data->name_id = "Dosen";
-            $data->icon = "bi bi-person-badge";
-            $data->sort = $sort++;
-            $data->save();
-
-            $data = new Menu();
-            $data->menu_category_id = $menu_category->id;
-            $data->name = "Lecturer Education";
-            $data->name_id = "Edukasi Dosen";
-            $data->icon = "bi bi-bank";
-            $data->sort = $sort++;
-            $data->save();
-
-            $data = new Menu();
-            $data->menu_category_id = $menu_category->id;
-            $data->name = "Lecturer Work Experience";
-            $data->name_id = "Pengalaman Kerja Dosen";
-            $data->icon = "bi bi-briefcase";
-            $data->sort = $sort++;
-            $data->save();
-        // LECTURER
 
         // NEWS
             $data = new MenuCategory();
@@ -199,42 +60,7 @@ class MenuCategorySeeder extends Seeder
             $data->icon = "bi bi-tags";
             $data->sort = $sort++;
             $data->save();
-
-            $data = new Menu();
-            $data->menu_category_id = $menu_category->id;
-            $data->name = "News Comment";
-            $data->name_id = "Komentar Berita";
-            $data->icon = "bi bi-chat-text";
-            $data->sort = $sort++;
-            $data->save();
         // NEWS
-
-        // FAQ
-            $data = new MenuCategory();
-            $data->name = "Faq";
-            $data->name_id = "Tanya Jawab";
-            $data->icon = "bi bi-question-circle";
-            $data->sort = $sortCategory++;
-            $data->save();
-
-            $menu_category = MenuCategory::find($data->id);
-
-            $data = new Menu();
-            $data->menu_category_id = $menu_category->id;
-            $data->name = "Faq";
-            $data->name_id = "Tanya Jawab";
-            $data->icon = "bi bi-question-circle";
-            $data->sort = $sort++;
-            $data->save();
-
-            $data = new Menu();
-            $data->menu_category_id = $menu_category->id;
-            $data->name = "Faq Category";
-            $data->name_id = "Kategori Tanya Jawab";
-            $data->icon = "bi bi-tags";
-            $data->sort = $sort++;
-            $data->save();
-        // FAQ
 
         // WEBSITE
             $data = new MenuCategory();
@@ -267,6 +93,14 @@ class MenuCategorySeeder extends Seeder
             $data->name = "Event";
             $data->name_id = "Acara";
             $data->icon = "bi bi-calendar";
+            $data->sort = $sort++;
+            $data->save();
+
+            $data = new Menu();
+            $data->menu_category_id = $menu_category->id;
+            $data->name = "Faq";
+            $data->name_id = "Tanya Jawab";
+            $data->icon = "bi bi-question-circle";
             $data->sort = $sort++;
             $data->save();
 

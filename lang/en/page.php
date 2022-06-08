@@ -43,9 +43,6 @@ return [
     "News And Event" => "News And Event",
     "Events" => "Events",
     "Event" => "Event",
-    "Our Lecturer" => "Our Lecturer",
-    "Lecturers" => "Lecturers",
-    "Lecturer" => "Lecturer",
     "Gallery" => "Gallery",
     "Research & Publication" => "Research & Publication",
     "Journal" => "Journal",
@@ -75,13 +72,6 @@ return [
 
     "Study Program" => "Study Program",
     "Study Program Category" => "Study Program Category",
-
-    "Course" => "Course",
-    "Course Lecturer" => "Course Lecturer",
-
-    "Lecturer" => "Lecturer",
-    "Lecturer Education" => "Lecturer Education",
-    "Lecturer Work Experience" => "Lecturer Work Experience",
 
     "News" => "News",
     "News Category" => "News Category",

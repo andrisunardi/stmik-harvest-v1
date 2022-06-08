@@ -16,36 +16,22 @@ use App\Models\Admin;
 use App\Models\AdmissionCalendar;
 use App\Models\Banner;
 use App\Models\Contact;
-use App\Models\Course;
-use App\Models\CourseLecturer;
 use App\Models\Event;
 use App\Models\Faq;
-use App\Models\FaqCategory;
 use App\Models\Gallery;
-use App\Models\Lecturer;
-use App\Models\LecturerEducation;
-use App\Models\LecturerWorkExperience;
 use App\Models\Log;
 use App\Models\Menu;
 use App\Models\MenuCategory;
 use App\Models\Network;
 use App\Models\News;
 use App\Models\NewsCategory;
-use App\Models\NewsComment;
 use App\Models\Newsletter;
 use App\Models\Offer;
 use App\Models\Procedure;
-use App\Models\Repository;
-use App\Models\RepositorySubject;
-use App\Models\RepositoryContributor;
-use App\Models\RepositoryFile;
 use App\Models\Setting;
 use App\Models\Slider;
-use App\Models\StudyProgram;
-use App\Models\StudyProgramCategory;
 use App\Models\Testimony;
 use App\Models\TuitionFee;
-use App\Models\User;
 use App\Models\Value;
 
 use App\Observers\AccessObserver;
@@ -54,36 +40,22 @@ use App\Observers\AdminObserver;
 use App\Observers\AdmissionCalendarObserver;
 use App\Observers\BannerObserver;
 use App\Observers\ContactObserver;
-use App\Observers\CourseObserver;
-use App\Observers\CourseLecturerObserver;
 use App\Observers\EventObserver;
 use App\Observers\FaqObserver;
-use App\Observers\FaqCategoryObserver;
 use App\Observers\GalleryObserver;
-use App\Observers\LecturerObserver;
-use App\Observers\LecturerEducationObserver;
-use App\Observers\LecturerWorkExperienceObserver;
 use App\Observers\LogObserver;
 use App\Observers\MenuObserver;
 use App\Observers\MenuCategoryObserver;
 use App\Observers\NetworkObserver;
 use App\Observers\NewsObserver;
 use App\Observers\NewsCategoryObserver;
-use App\Observers\NewsCommentObserver;
 use App\Observers\NewsletterObserver;
 use App\Observers\OfferObserver;
 use App\Observers\ProcedureObserver;
-use App\Observers\RepositoryObserver;
-use App\Observers\RepositorySubjectObserver;
-use App\Observers\RepositoryContributorObserver;
-use App\Observers\RepositoryFileObserver;
 use App\Observers\SettingObserver;
 use App\Observers\SliderObserver;
-use App\Observers\StudyProgramObserver;
-use App\Observers\StudyProgramCategoryObserver;
 use App\Observers\TestimonyObserver;
 use App\Observers\TuitionFeeObserver;
-use App\Observers\UserObserver;
 use App\Observers\ValueObserver;
 
 class AppServiceProvider extends ServiceProvider
@@ -205,36 +177,22 @@ class AppServiceProvider extends ServiceProvider
         AdmissionCalendar::observe(AdmissionCalendarObserver::class);
         Banner::observe(BannerObserver::class);
         Contact::observe(ContactObserver::class);
-        Course::observe(CourseObserver::class);
-        CourseLecturer::observe(CourseLecturerObserver::class);
         Event::observe(EventObserver::class);
         Faq::observe(FaqObserver::class);
-        FaqCategory::observe(FaqCategoryObserver::class);
         Gallery::observe(GalleryObserver::class);
-        Lecturer::observe(LecturerObserver::class);
-        LecturerEducation::observe(LecturerEducationObserver::class);
-        LecturerWorkExperience::observe(LecturerWorkExperienceObserver::class);
         Log::observe(LogObserver::class);
         Menu::observe(MenuObserver::class);
         MenuCategory::observe(MenuCategoryObserver::class);
         Network::observe(NetworkObserver::class);
         News::observe(NewsObserver::class);
         NewsCategory::observe(NewsCategoryObserver::class);
-        NewsComment::observe(NewsCommentObserver::class);
         Newsletter::observe(NewsletterObserver::class);
         Offer::observe(OfferObserver::class);
         Procedure::observe(ProcedureObserver::class);
-        Repository::observe(RepositoryObserver::class);
-        RepositorySubject::observe(RepositorySubjectObserver::class);
-        RepositoryContributor::observe(RepositoryContributorObserver::class);
-        RepositoryFile::observe(RepositoryFileObserver::class);
         Setting::observe(SettingObserver::class);
         Slider::observe(SliderObserver::class);
-        StudyProgram::observe(StudyProgramObserver::class);
-        StudyProgramCategory::observe(StudyProgramCategoryObserver::class);
         Testimony::observe(TestimonyObserver::class);
         TuitionFee::observe(TuitionFeeObserver::class);
-        User::observe(UserObserver::class);
         Value::observe(ValueObserver::class);
 
         Schema::defaultStringLength(191);
@@ -259,16 +217,6 @@ class AppServiceProvider extends ServiceProvider
         if (Schema::hasTable("setting")) {
             $this->setting = Setting::onlyActive()->orderByDesc("id")->first();
             View::share("setting", $this->setting);
-        }
-
-        if (Schema::hasTable("study_program")) {
-            $this->data_all_study_program = StudyProgram::onlyActive()->orderBy("id")->get();
-            View::share("data_all_study_program", $this->data_all_study_program);
-        }
-
-        if (Schema::hasTable("study_program_category")) {
-            $this->data_all_study_program_category = StudyProgramCategory::onlyActive()->orderBy("id")->get();
-            View::share("data_all_study_program_category", $this->data_all_study_program_category);
         }
     }
 }

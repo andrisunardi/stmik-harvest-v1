@@ -4,13 +4,11 @@ namespace App\Http\Livewire;
 
 use App\Http\Livewire\Component;
 use App\Models\AdmissionCalendar;
-use App\Models\Lecturer;
 use App\Models\News;
 use App\Models\Newsletter;
 use App\Models\Offer;
 use App\Models\Registration;
 use App\Models\Slider;
-use App\Models\StudyProgram;
 use App\Models\Testimony;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
@@ -121,10 +119,6 @@ class HomeComponent extends Component
         $this->admission_calendar = AdmissionCalendar::onlyActive()->orderByDesc("id")->first();
 
         $this->data_testimony = Testimony::onlyActive()->orderByDesc("id")->limit(10)->get();
-
-        $this->data_lecturer = Lecturer::onlyActive()->orderBy("id")->get();
-
-        $this->data_study_program = StudyProgram::onlyActive()->orderBy("id")->get();
 
         $this->data_news = News::onlyActive()->limit(3)->orderByDesc("id")->get();
 

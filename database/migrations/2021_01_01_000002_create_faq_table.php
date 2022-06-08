@@ -10,7 +10,6 @@ return new class extends Migration
     {
         Schema::create("faq", function (Blueprint $table) {
             $table->id();
-            $table->foreignId("faq_category_id")->nullable()->unsigned();
             $table->string("name", 100)->nullable()->unique();
             $table->string("name_id", 100)->nullable()->unique();
             $table->text("description")->nullable();

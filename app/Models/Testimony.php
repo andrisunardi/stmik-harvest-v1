@@ -32,7 +32,6 @@ class Testimony extends Model
     // protected $dateFormat = "U";
 
     protected $fillable = [
-        "study_program_id",
         "name",
         "description",
         "graduate",
@@ -103,9 +102,4 @@ class Testimony extends Model
     }
 
     protected $appends = ["image_url"];
-
-    public function study_program()
-    {
-        return $this->belongsTo(StudyProgram::class)->withTrashed()->withDefault(null);
-    }
 }

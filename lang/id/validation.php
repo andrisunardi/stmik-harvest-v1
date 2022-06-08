@@ -241,8 +241,6 @@ return [
         "sms" => "SMS",
         "sort" => "Urut",
         "status" => "Status",
-        "study_program_category" => "Kategori Program Studi",
-        "study_program" => "Program Studi",
         "tag" => "Tag",
         "tag_id" => "Tag ID",
         "title" => "Judul",

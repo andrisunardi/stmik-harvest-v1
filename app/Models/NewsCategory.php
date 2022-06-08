@@ -82,27 +82,16 @@ class NewsCategory extends Model
         return $this->hasMany(News::class)->orderBy("id");
     }
 
-    public function data_news_comment()
-    {
-        return $this->hasManyThrough(NewsComment::class, News::class);
-    }
-
     public static function boot()
     {
         parent::boot();
 
         static::deleted(function ($table) {
-            foreach ($table->data_news as $news) {
-                $news->data_news_comment()->delete();
-            }
             $table->data_news()->delete();
         });
 
         static::restored(function ($table) {
             $table->data_news()->restore();
-            foreach ($table->data_news as $news) {
-                $news->data_news_comment()->restore();
-            }
         });
     }
 }
