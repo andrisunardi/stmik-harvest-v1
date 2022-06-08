@@ -3,8 +3,6 @@
 namespace App\Http\Livewire;
 
 use App\Http\Livewire\Component;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 
 use App\Models\Banner;
@@ -37,37 +35,6 @@ class NewsViewComponent extends Component
         ];
     }
 
-    public function submit()
-    {
-        $data = $this->validate();
-
-        DB::statement(DB::raw("ALTER TABLE {$this->menu_table} AUTO_INCREMENT = 1"));
-
-        $news_comment = NewsComment::create($data + ["news_id" => $this->news->id]);
-
-        if (env("APP_ENV") == "production") {
-            Mail::send("email.news-comment", [
-                "news_comment" => $news_comment,
-                "created_at" => now(),
-            ], function ($message) {
-                $message
-                    ->to(env("CONTACT_EMAIL"))
-                    ->cc(env("CONTACT_EMAIL"))
-                    ->bcc(env("CONTACT_EMAIL"))
-                    ->subject("News Comment - {$this->news->name} - " . date("H:i:s l, d F Y"));
-            });
-        }
-
-        Session::flash("success", trans("message.Thank you for your comment."));
-
-        $this->name = null;
-        $this->phone = null;
-        $this->email = null;
-        $this->title = null;
-        $this->message = null;
-        $this->resetErrorBag();
-    }
-
     public function mount($news_slug)
     {
         $this->banner = Banner::find(6);
@@ -79,11 +46,6 @@ class NewsViewComponent extends Component
 
             return redirect()->route("{$this->menu_slug}.index");
         }
-
-        $this->data_news_comment = NewsComment::where("news_id", $this->news->id)
-            ->onlyActive()
-            ->orderBy("id")
-            ->get();
 
         $this->data_other_news = News::where("id", "!=", $this->news->id)
             ->onlyActive()

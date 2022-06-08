@@ -9,16 +9,6 @@
     </div>
     <div class="row my-2">
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <h6>{{ trans("field.Faq Category") }}</h6>
-        </div>
-        <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
-            <a draggable="false" href="{{ $faq->faq_category?->id ? route("{$sub_domain}.faq-category.index") . "?menu_type=view&row={$faq->faq_category?->id}" : null }}" target="_blank">
-                {{ $faq->faq_category?->translate_name }}
-            </a>
-        </div>
-    </div>
-    <div class="row my-2">
-        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
             <h6>{{ trans("field.Name") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">

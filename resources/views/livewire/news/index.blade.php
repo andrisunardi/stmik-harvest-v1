@@ -41,7 +41,7 @@
                                         <li>
                                             <a draggable="false" href="{{ route("{$menu_slug}.view", ["news_slug" => $news->slug]) }}#comments">
                                                 <i class="icon_comment_alt"></i>
-                                                {{ $news->data_news_comment->count() }}
+                                                99
                                             </a>
                                         </li>
                                     </ul>

@@ -3,30 +3,6 @@
         @csrf
 
         <div class="row">
-            @php $input = "faq_category" @endphp
-            <div class="form-group col-12">
-                <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }} <span class="text-danger">*</span></label>
-                <div class="input-group has-validation">
-                    <div class="input-group-text"><span class="bi bi-tags"></span></div>
-                    <select wire:model="{{ $input }}" class="form-select @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" id="{{ $input }}" name="{{ $input }}" required>
-                        <option value="">{{ trans("general.Select") }} {{ trans("validation.attributes.{$input}") }}</option>
-                        @foreach ($data_faq_category as $faq_category)
-                            <option value="{{ $faq_category->id }}">{{ $faq_category->translate_name }}</option>
-                        @endforeach
-                    </select>
-                    <a draggable="false" href="javascript:;" class="btn btn-info" wire:click="getData{{ Str::studly($input) }}()">
-                        <i class="fas fa-sync fa-spin"></i>
-                    </a>
-                    @error($input)
-                        <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
-                    @else
-                        <div class="valid-feedback rounded bg-success p-2 ms-0 mt-2 text-white">{{ trans("validation.Looks Good") }}</div>
-                    @enderror
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
             @php $input = "name" @endphp
             <div class="form-group col-sm-6">
                 <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }} <span class="text-danger">*</span></label>

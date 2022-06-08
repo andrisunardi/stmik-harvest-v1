@@ -190,7 +190,6 @@ return [
         "exception" => "Exception",
         "facebook" => "Facebook",
         "failed_at" => "Failed At",
-        "faq_category" => "Faq Category",
         "fax" => "Fax",
         "file" => "File",
         "first_name" => "First Name",

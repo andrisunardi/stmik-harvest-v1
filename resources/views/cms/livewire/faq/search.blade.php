@@ -19,7 +19,6 @@
             <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
             <select wire:model="{{ $input }}" class="form-select" id="{{ $input }}" name="{{ $input }}">
                 <option value="id">{{ trans("field.ID") }}</option>
-                <option value="faq_category_id">{{ trans("field.Faq Category") }}</option>
                 <option value="name">{{ trans("field.Name") }}</option>
                 <option value="name_id">{{ trans("field.Name ID") }}</option>
                 <option value="description">{{ trans("field.Description") }}</option>
@@ -149,19 +148,6 @@
                 <option value="">{{ trans("field.All") }}</option>
                 <option value="1">{{ trans("field.Active") }}</option>
                 <option value="0">{{ trans("field.Non Active") }}</option>
-            </select>
-        </div>
-    </div>
-
-    <div class="col-6 col-sm-4 col-lg-3 col-xl-auto">
-        @php $input = "faq_category" @endphp
-        <div class="form-group">
-            <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
-            <select wire:model="{{ $input }}" class="form-select" id="{{ $input }}" name="{{ $input }}">
-                <option value="">{{ trans("field.All") }}</option>
-                @foreach ($data_faq_category as $faq_category)
-                    <option value="{{ $faq_category->id }}">{{ $faq_category->translate_name }}</option>
-                @endforeach
             </select>
         </div>
     </div>

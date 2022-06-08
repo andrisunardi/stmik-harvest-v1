@@ -33,11 +33,6 @@
                         </button>
                     </td>
                     <td>
-                        <a draggable="false" href="{{ $faq->faq_category?->id ? route("{$sub_domain}.faq-category.index") . "?menu_type=view&row={$faq->faq_category?->id}" : null }}" target="_blank">
-                            {{ $faq->faq_category?->translate_name }}
-                        </a>
-                    </td>
-                    <td>
                         <a draggable="false" href="{{ route("{$sub_domain}.{$menu_slug}.index") . "?menu_type=view&row={$faq->id}" }}">
                             {{ $faq->name }}
                         </a>

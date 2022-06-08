@@ -48,7 +48,7 @@
                         <input type="text" wire:model="{{ $input }}" wire:keydown.enter="submit" id="{{ $input }}" name="{{ $input }}"
                             class="form-control @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" minlength="1" maxlength="65535"
                             placeholder="{{ trans("validation.attributes.{$input}") }}" aria-label="{{ trans("validation.attributes.{$input}") }}" aria-describedby="{{ trans("validation.attributes.{$input}") }}"
-                            autocomplete="off" autocapitalize="none" value="{{ $this->description ?? $faq_category->description ?? null }}" readonly>
+                            autocomplete="off" autocapitalize="none" value="{{ $this->description ?? $value->description ?? null }}" readonly>
                         @error($input)
                             <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
                         @else
@@ -67,7 +67,7 @@
                         <input type="text" wire:model="{{ $input }}" wire:keydown.enter="submit" id="{{ $input }}" name="{{ $input }}"
                             class="form-control @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" minlength="1" maxlength="65535"
                             placeholder="{{ trans("validation.attributes.{$input}") }}" aria-label="{{ trans("validation.attributes.{$input}") }}" aria-describedby="{{ trans("validation.attributes.{$input}") }}"
-                            autocomplete="off" autocapitalize="none" value="{{ $this->description_id ?? $faq_category->description_id ?? null }}" readonly>
+                            autocomplete="off" autocapitalize="none" value="{{ $this->description_id ?? $value->description_id ?? null }}" readonly>
                         @error($input)
                             <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
                         @else

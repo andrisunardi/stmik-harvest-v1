@@ -12,7 +12,6 @@
                 <th>{{ trans("field.Date") }}</th>
                 <th>{{ trans("field.Tag") }}</th>
                 <th>{{ trans("field.Tag ID") }}</th>
-                <th>{{ trans("field.Total") }} {{ trans("field.News Comment") }}</th>
                 <th>{{ trans("field.Active") }}</th>
                 <th>{{ trans("field.Created By") }}</th>
                 <th>{{ trans("field.Updated By") }}</th>
@@ -119,10 +118,6 @@
                         <span class="{{ "badge bg-" . Str::successdanger($news->active) }}">
                             {{ trans("general." . Str::active($news->active)) }}
                         </span>
-                    </td>
-                        <button type="button" class="btn btn-link text-decoration-none" wire:click="view({{ $news->id }})">
-                            {{ $news->data_news_comment->count() }}
-                        </button>
                     </td>
                     <td>
                         <a draggable="false" href="{{ $news->created_by_admin?->id || $news->created_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$news->created_by_admin?->id}" : null }}" target="_blank">

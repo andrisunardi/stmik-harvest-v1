@@ -23,92 +23,92 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($data_faq_category as $faq_category)
+            @foreach ($data_value as $value)
                 <tr>
-                    <td><input class="form-check-input" type="checkbox" wire:model="checkbox_id.{{ $faq_category->id }}"></td>
-                    <td class="text-center">{{ (($data_faq_category->currentPage() - 1) * $data_faq_category->perPage()) + $loop->iteration }}</td>
+                    <td><input class="form-check-input" type="checkbox" wire:model="checkbox_id.{{ $value->id }}"></td>
+                    <td class="text-center">{{ (($data_value->currentPage() - 1) * $data_value->perPage()) + $loop->iteration }}</td>
                     <td>
-                        <button type="button" class="btn btn-link text-decoration-none" wire:click="view({{ $faq_category->id }})">
-                            {{ $faq_category->id }}
+                        <button type="button" class="btn btn-link text-decoration-none" wire:click="view({{ $value->id }})">
+                            {{ $value->id }}
                         </button>
                     </td>
                     <td>
-                        <a draggable="false" href="{{ route("{$sub_domain}.{$menu_slug}.index") . "?menu_type=view&row={$faq_category->id}" }}">
-                            {{ $faq_category->name }}
+                        <a draggable="false" href="{{ route("{$sub_domain}.{$menu_slug}.index") . "?menu_type=view&row={$value->id}" }}">
+                            {{ $value->name }}
                         </a>
                     </td>
                     <td>
-                        <a draggable="false" href="{{ route("{$sub_domain}.{$menu_slug}.index") . "?menu_type=view&row={$faq_category->id}" }}">
-                            {{ $faq_category->name_id }}
+                        <a draggable="false" href="{{ route("{$sub_domain}.{$menu_slug}.index") . "?menu_type=view&row={$value->id}" }}">
+                            {{ $value->name_id }}
                         </a>
                     </td>
                     <td><i class="{{ $value->icon }}"></i> ({{ $value->icon }})</td>
                     <td>
-                        <span class="{{ "badge bg-" . Str::successdanger($faq_category->active) }}">
-                            {{ trans("general." . Str::active($faq_category->active)) }}
+                        <span class="{{ "badge bg-" . Str::successdanger($value->active) }}">
+                            {{ trans("general." . Str::active($value->active)) }}
                         </span>
                     </td>
                     <td>
-                        <a draggable="false" href="{{ $faq_category->created_by_admin?->id || $faq_category->created_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$faq_category->created_by_admin?->id}" : null }}" target="_blank">
-                            {{ $faq_category->created_by_admin?->name }}
+                        <a draggable="false" href="{{ $value->created_by_admin?->id || $value->created_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$value->created_by_admin?->id}" : null }}" target="_blank">
+                            {{ $value->created_by_admin?->name }}
                         </a>
                     </td>
                     <td>
-                        <a draggable="false" href="{{ $faq_category->updated_by_admin?->id || $faq_category->updated_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$faq_category->updated_by_admin?->id}" : null }}" target="_blank">
-                            {{ $faq_category->updated_by_admin?->name }}
+                        <a draggable="false" href="{{ $value->updated_by_admin?->id || $value->updated_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$value->updated_by_admin?->id}" : null }}" target="_blank">
+                            {{ $value->updated_by_admin?->name }}
                         </a>
                     </td>
                     @if ($menu_type == "trash")
                         <td>
-                            <a draggable="false" href="{{ $faq_category->deleted_by_admin?->id || $faq_category->deleted_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$faq_category->deleted_by_admin?->id}" : null }}" target="_blank">
-                                {{ $faq_category->deleted_by_admin?->name }}
+                            <a draggable="false" href="{{ $value->deleted_by_admin?->id || $value->deleted_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$value->deleted_by_admin?->id}" : null }}" target="_blank">
+                                {{ $value->deleted_by_admin?->name }}
                             </a>
                         </td>
                     @endif
-                    <td>{{ $faq_category->created_at?->format("H:i:s - l, d F Y") }} ({{ $faq_category->created_at?->diffForHumans() }})</td>
-                    <td>{{ $faq_category->updated_at?->format("H:i:s - l, d F Y") }} ({{ $faq_category->updated_at?->diffForHumans() }})</td>
+                    <td>{{ $value->created_at?->format("H:i:s - l, d F Y") }} ({{ $value->created_at?->diffForHumans() }})</td>
+                    <td>{{ $value->updated_at?->format("H:i:s - l, d F Y") }} ({{ $value->updated_at?->diffForHumans() }})</td>
                     @if ($menu_type == "trash")
-                        <td>{{ $faq_category->deleted_at?->format("H:i:s - l, d F Y") }} ({{ $faq_category->deleted_at?->diffForHumans() }})</td>
+                        <td>{{ $value->deleted_at?->format("H:i:s - l, d F Y") }} ({{ $value->deleted_at?->diffForHumans() }})</td>
                     @endif
                     <td>
                         @if ($menu_type == "index")
-                            @if ($faq_category->active)
-                                <button class="btn btn-creative btn-sm btn-danger" wire:click="nonActive({{ $faq_category->id }})">
+                            @if ($value->active)
+                                <button class="btn btn-creative btn-sm btn-danger" wire:click="nonActive({{ $value->id }})">
                                     <i class="bi bi-x-circle-fill me-1"></i>
                                     {{ trans("button.Non Active") }}
                                 </button>
                             @else
-                                <button class="btn btn-creative btn-sm btn-success" wire:click="active({{ $faq_category->id }})">
+                                <button class="btn btn-creative btn-sm btn-success" wire:click="active({{ $value->id }})">
                                     <i class="bi bi-check-circle-fill me-1"></i>
                                     {{ trans("button.Active") }}
                                 </button>
                             @endif
 
-                            <button class="btn btn-creative btn-sm btn-dark" wire:click="view({{ $faq_category->id }})">
+                            <button class="btn btn-creative btn-sm btn-dark" wire:click="view({{ $value->id }})">
                                 <i class="bi bi-eye me-1"></i>
                                 {{ trans("button.View") }}
                             </button>
 
-                            <button class="btn btn-creative btn-sm btn-info" wire:click="form('clone', {{ $faq_category->id }})">
+                            <button class="btn btn-creative btn-sm btn-info" wire:click="form('clone', {{ $value->id }})">
                                 <i class="bi bi-clipboard me-1"></i>
                                 {{ trans("button.Clone") }}
                             </button>
 
-                            <button class="btn btn-creative btn-sm btn-success" wire:click="form('edit', {{ $faq_category->id }})">
+                            <button class="btn btn-creative btn-sm btn-success" wire:click="form('edit', {{ $value->id }})">
                                 <i class="bi bi-pencil me-1"></i>
                                 {{ trans("button.Edit") }}
                             </button>
 
-                            <button class="btn btn-creative btn-sm btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#delete-{{ $faq_category->id }}">
+                            <button class="btn btn-creative btn-sm btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#delete-{{ $value->id }}">
                                 <i class="bi bi-trash me-1"></i>
                                 {{ trans("button.Delete") }}
                             </button>
 
-                            <div class="modal fade" id="delete-{{ $faq_category->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="delete-{{ $faq_category->id }}" aria-hidden="true">
+                            <div class="modal fade" id="delete-{{ $value->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="delete-{{ $value->id }}" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h6 class="modal-title" id="delete-{{ $faq_category->id }}">{{ trans("general.Delete") }} - {{ trans("page.{$menu_name}") }}</h6>
+                                            <h6 class="modal-title" id="delete-{{ $value->id }}">{{ trans("general.Delete") }} - {{ trans("page.{$menu_name}") }}</h6>
                                             <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body text-wrap">
@@ -120,7 +120,7 @@
                                                 <i class="bi bi-x me-1"></i>
                                                 {{ trans("button.Close") }}
                                             </button>
-                                            <button class="btn btn-creative btn-sm btn-danger" type="button" data-bs-dismiss="modal" wire:click="delete({{ $faq_category->id }})">
+                                            <button class="btn btn-creative btn-sm btn-danger" type="button" data-bs-dismiss="modal" wire:click="delete({{ $value->id }})">
                                                 <i class="bi bi-check me-1"></i>
                                                 {{ trans("button.Yes") }}
                                             </button>
@@ -131,16 +131,16 @@
                         @endif
 
                         @if ($menu_type == "trash")
-                            <button class="btn btn-creative btn-sm btn-success" type="button" data-bs-toggle="modal" data-bs-target="#restore-{{ $faq_category->id }}">
+                            <button class="btn btn-creative btn-sm btn-success" type="button" data-bs-toggle="modal" data-bs-target="#restore-{{ $value->id }}">
                                 <i class="bi bi-arrow-clockwise me-1"></i>
                                 {{ trans("button.Restore") }}
                             </button>
 
-                            <div class="modal fade" id="restore-{{ $faq_category->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="restore-{{ $faq_category->id }}" aria-hidden="true">
+                            <div class="modal fade" id="restore-{{ $value->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="restore-{{ $value->id }}" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h6 class="modal-title" id="restore-{{ $faq_category->id }}">{{ trans("general.Restore") }} - {{ trans("page.{$menu_name}") }}</h6>
+                                            <h6 class="modal-title" id="restore-{{ $value->id }}">{{ trans("general.Restore") }} - {{ trans("page.{$menu_name}") }}</h6>
                                             <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
@@ -151,7 +151,7 @@
                                                 <i class="bi bi-x me-1"></i>
                                                 {{ trans("button.Close") }}
                                             </button>
-                                            <button class="btn btn-creative btn-sm btn-success" type="button" data-bs-dismiss="modal" wire:click="restore({{ $faq_category->id }})">
+                                            <button class="btn btn-creative btn-sm btn-success" type="button" data-bs-dismiss="modal" wire:click="restore({{ $value->id }})">
                                                 <i class="bi bi-check me-1"></i>
                                                 {{ trans("button.Yes") }}
                                             </button>
@@ -160,16 +160,16 @@
                                 </div>
                             </div>
 
-                            <button class="btn btn-creative btn-sm btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#delete-permanent-{{ $faq_category->id }}">
+                            <button class="btn btn-creative btn-sm btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#delete-permanent-{{ $value->id }}">
                                 <i class="bi bi-trash2 me-1"></i>
                                 {{ trans("button.Delete Permanent") }}
                             </button>
 
-                            <div class="modal fade" id="delete-permanent-{{ $faq_category->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="delete-permanent-{{ $faq_category->id }}" aria-hidden="true">
+                            <div class="modal fade" id="delete-permanent-{{ $value->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="delete-permanent-{{ $value->id }}" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h6 class="modal-title" id="delete-permanent-{{ $faq_category->id }}">{{ trans("general.Delete Permanent") }} - {{ trans("page.{$menu_name}") }}</h6>
+                                            <h6 class="modal-title" id="delete-permanent-{{ $value->id }}">{{ trans("general.Delete Permanent") }} - {{ trans("page.{$menu_name}") }}</h6>
                                             <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body text-wrap">
@@ -182,7 +182,7 @@
                                                 <i class="bi bi-x me-1"></i>
                                                 {{ trans("button.Close") }}
                                             </button>
-                                            <button class="btn btn-creative btn-sm btn-danger" type="button" data-bs-dismiss="modal" wire:click="deletePermanent({{ $faq_category->id }})">
+                                            <button class="btn btn-creative btn-sm btn-danger" type="button" data-bs-dismiss="modal" wire:click="deletePermanent({{ $value->id }})">
                                                 <i class="bi bi-check me-1"></i>
                                                 {{ trans("button.Yes") }}
                                             </button>
@@ -194,7 +194,7 @@
                     </td>
                 </tr>
             @endforeach
-            @if (!$data_faq_category->count())
+            @if (!$data_value->count())
                 <tr>
                     <td class="text-center" colspan="100%">{{ trans("general.No Data Available") }}</td>
                 </tr>
@@ -203,4 +203,4 @@
     </table>
 </div>
 
-{{ $data_faq_category->links("{$sub_domain}.layouts.pagination") }}
+{{ $data_value->links("{$sub_domain}.layouts.pagination") }}

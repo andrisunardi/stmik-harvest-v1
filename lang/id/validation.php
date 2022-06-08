@@ -190,7 +190,6 @@ return [
         "exception" => "Eksepsi",
         "facebook" => "Facebook",
         "failed_at" => "Gagal Pada",
-        "faq_category" => "Kategori Tanya Jawab",
         "fax" => "Faks",
         "file" => "Dokumen",
         "first_name" => "Nama Depan",
