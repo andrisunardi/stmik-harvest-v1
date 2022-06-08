@@ -8,7 +8,7 @@
         <div class="slider__activation__wrap owl-carousel owl-theme">
             @foreach ($data_slider as $slider)
                 @if ($loop->iteration == 1)
-                    <div class="slide text__align--left slider__bg__color--1 fornt__image--right" style="background-image: url({{ $slider->assetImage() }}); background-size: cover;">
+                    <div class="slide text__align--left slider__bg__color--1 fornt__image--right" style="background-image: url({{ $slider->assetImage() }}); background-size: cover; background-position: center center;">
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-7">

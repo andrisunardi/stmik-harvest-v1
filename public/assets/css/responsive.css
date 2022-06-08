@@ -692,7 +692,9 @@
 
     /* Slider */
     .slider__fixed_height {
-        height: 520px;
+        /* height: 520px; ORIGINAL */
+        height: 300px;
+        background-size: 100% 100%;
     }
 
     .fornt__image--right::before,
