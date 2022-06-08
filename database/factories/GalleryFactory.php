@@ -2,9 +2,10 @@
 
 namespace Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
-
 use App\Models\Gallery;
+use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
 
 class GalleryFactory extends Factory
 {
@@ -12,17 +13,21 @@ class GalleryFactory extends Factory
 
     public function definition()
     {
+        $name = $this->faker->unique()->sentence();
+
+        File::copy(
+            public_path() . "/images/image.png",
+            public_path() . "/images/" . Str::kebab(Str::substr($this->model, 11)) . "/" . Str::slug($name) . ".png",
+        );
+
         return [
-            "category" => $this->faker->numberBetween(1, 3),
-            "name" => $this->faker->sentence(),
-            "name_id" => $this->faker->sentence(),
+            "name" => $name,
+            "name_id" => $this->faker->unique()->sentence(),
             "description" => $this->faker->paragraph(),
             "description_id" => $this->faker->paragraph(),
             "tag" => $this->faker->sentence(),
             "tag_id" => $this->faker->sentence(),
-            "image" => $this->faker->imageUrl(),
-            "video" => $this->faker->imageUrl(),
-            "youtube" => $this->faker->imageUrl(),
+            "image" => Str::slug($name) . ".png",
             "active" => $this->faker->boolean(),
         ];
     }
@@ -32,6 +37,49 @@ class GalleryFactory extends Factory
         return $this->state(function (array $attributes) {
             return [
                 "active" => true,
+            ];
+        });
+    }
+
+    public function nonActive()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                "active" => false,
+            ];
+        });
+    }
+
+    public function image()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                "category" => 1,
+            ];
+        });
+    }
+
+    public function video()
+    {
+        return $this->state(function (array $attributes) {
+            File::copy(
+                public_path() . "/videos/video.mp4",
+                public_path() . "/videos/" . Str::kebab(Str::substr($this->model, 11)) . "/" . Str::slug($attributes["name"]) . ".mp4",
+            );
+
+            return [
+                "category" => 2,
+                "video" => Str::slug($attributes["name"]) . ".mp4",
+            ];
+        });
+    }
+
+    public function youtube()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                "category" => 3,
+                "youtube" => "https://www.youtube.com/" . $this->faker->word(),
             ];
         });
     }

@@ -12,7 +12,7 @@ class AccessFactory extends Factory
     public function definition()
     {
         return [
-            "name" => $this->faker->name(),
+            "name" => $this->faker->unique()->name(),
             "active" => $this->faker->boolean(),
         ];
     }
@@ -22,6 +22,15 @@ class AccessFactory extends Factory
         return $this->state(function (array $attributes) {
             return [
                 "active" => true,
+            ];
+        });
+    }
+
+    public function nonActive()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                "active" => false,
             ];
         });
     }

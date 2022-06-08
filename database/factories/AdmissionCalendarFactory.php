@@ -2,9 +2,8 @@
 
 namespace Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
-
 use App\Models\AdmissionCalendar;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 class AdmissionCalendarFactory extends Factory
 {
@@ -13,8 +12,8 @@ class AdmissionCalendarFactory extends Factory
     public function definition()
     {
         return [
-            "name" => $this->faker->sentence(),
-            "name_id" => $this->faker->sentence(),
+            "name" => $this->faker->unique()->sentence(),
+            "name_id" => $this->faker->unique()->sentence(),
             "description" => $this->faker->paragraph(),
             "description_id" => $this->faker->paragraph(),
             "active" => $this->faker->boolean(),
@@ -26,6 +25,15 @@ class AdmissionCalendarFactory extends Factory
         return $this->state(function (array $attributes) {
             return [
                 "active" => true,
+            ];
+        });
+    }
+
+    public function nonActive()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                "active" => false,
             ];
         });
     }

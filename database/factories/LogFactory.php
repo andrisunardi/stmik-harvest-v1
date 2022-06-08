@@ -2,11 +2,10 @@
 
 namespace Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
-
-use App\Models\Log;
 use App\Models\Admin;
+use App\Models\Log;
 use App\Models\Menu;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 class LogFactory extends Factory
 {
@@ -32,6 +31,15 @@ class LogFactory extends Factory
         return $this->state(function (array $attributes) {
             return [
                 "active" => true,
+            ];
+        });
+    }
+
+    public function nonActive()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                "active" => false,
             ];
         });
     }

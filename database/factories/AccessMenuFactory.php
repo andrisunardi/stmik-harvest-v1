@@ -36,4 +36,67 @@ class AccessMenuFactory extends Factory
             ];
         });
     }
+
+    public function nonActive()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                "active" => false,
+            ];
+        });
+    }
+
+    public function addTrue()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                "add" => true,
+            ];
+        });
+    }
+
+    public function addFalse()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                "add" => false,
+            ];
+        });
+    }
+
+    public function editTrue()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                "edit" => true,
+            ];
+        });
+    }
+
+    public function editFalse()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                "edit" => false,
+            ];
+        });
+    }
+
+    public function deleteTrue()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                "delete" => true,
+            ];
+        });
+    }
+
+    public function deleteFalse()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                "delete" => false,
+            ];
+        });
+    }
 }

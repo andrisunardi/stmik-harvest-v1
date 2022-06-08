@@ -2,9 +2,8 @@
 
 namespace Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
-
 use App\Models\Setting;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 class SettingFactory extends Factory
 {
@@ -13,10 +12,10 @@ class SettingFactory extends Factory
     public function definition()
     {
         return [
-            "sms" => $this->faker->phoneNumber(),
-            "call" => $this->faker->phoneNumber(),
-            "fax" => $this->faker->phoneNumber(),
-            "whatsapp" => $this->faker->phoneNumber(),
+            "sms" => 0 . $this->faker->numberBetween(80000000000, 89999999999),
+            "call" => 0 . $this->faker->numberBetween(80000000000, 89999999999),
+            "fax" => 0 . $this->faker->numberBetween(80000000000, 89999999999),
+            "whatsapp" => 0 . $this->faker->numberBetween(80000000000, 89999999999),
             "email" => $this->faker->email(),
             "address" => $this->faker->sentence(),
             "google_maps" => $this->faker->url(),
@@ -38,6 +37,15 @@ class SettingFactory extends Factory
         return $this->state(function (array $attributes) {
             return [
                 "active" => true,
+            ];
+        });
+    }
+
+    public function nonActive()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                "active" => false,
             ];
         });
     }

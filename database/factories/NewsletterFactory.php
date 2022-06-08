@@ -2,9 +2,8 @@
 
 namespace Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
-
 use App\Models\Newsletter;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 class NewsletterFactory extends Factory
 {
@@ -23,6 +22,15 @@ class NewsletterFactory extends Factory
         return $this->state(function (array $attributes) {
             return [
                 "active" => true,
+            ];
+        });
+    }
+
+    public function nonActive()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                "active" => false,
             ];
         });
     }

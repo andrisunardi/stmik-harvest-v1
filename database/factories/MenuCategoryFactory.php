@@ -2,9 +2,8 @@
 
 namespace Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
-
 use App\Models\MenuCategory;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 class MenuCategoryFactory extends Factory
 {
@@ -13,10 +12,10 @@ class MenuCategoryFactory extends Factory
     public function definition()
     {
         return [
-            "name" => $this->faker->sentence(),
-            "name_id" => $this->faker->sentence(),
-            "icon" => $this->faker->name(),
-            "sort" => $this->faker->randomNumber(),
+            "name" => $this->faker->unique()->sentence(),
+            "name_id" => $this->faker->unique()->sentence(),
+            "icon" => "bi bi-" . $this->faker->word(),
+            "sort" => $this->faker->randomNumber(1, 99999999999),
             "active" => $this->faker->boolean(),
         ];
     }
@@ -26,6 +25,15 @@ class MenuCategoryFactory extends Factory
         return $this->state(function (array $attributes) {
             return [
                 "active" => true,
+            ];
+        });
+    }
+
+    public function nonActive()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                "active" => false,
             ];
         });
     }

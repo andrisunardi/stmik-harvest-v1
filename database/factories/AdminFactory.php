@@ -2,10 +2,11 @@
 
 namespace Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
-
 use App\Models\Access;
 use App\Models\Admin;
+use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
 
 class AdminFactory extends Factory
 {
@@ -15,13 +16,20 @@ class AdminFactory extends Factory
     {
         Access::first() ?? Access::factory()->create();
 
+        $name = $this->faker->unique()->name();
+
+        File::copy(
+            public_path() . "/images/image.png",
+            public_path() . "/images/" . Str::kebab(Str::substr($this->model, 11)) . "/" . Str::slug($name) . ".png",
+        );
+
         return [
             "access_id" => Access::get()->random()->id,
-            "name" => $this->faker->unique()->name(),
-            "email" => $this->faker->unique()->safeEmail(),
-            "username" => $this->faker->username(),
+            "name" => $name,
+            "email" => $this->faker->unique()->email(),
+            "username" => $this->faker->unique()->username(),
             "password" => $this->faker->password(),
-            "image" => $this->faker->imageUrl(),
+            "image" => Str::slug($name) . ".png",
             "active" => $this->faker->boolean(),
         ];
     }
@@ -31,6 +39,15 @@ class AdminFactory extends Factory
         return $this->state(function (array $attributes) {
             return [
                 "active" => true,
+            ];
+        });
+    }
+
+    public function nonActive()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                "active" => false,
             ];
         });
     }

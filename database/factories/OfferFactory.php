@@ -2,9 +2,8 @@
 
 namespace Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
-
 use App\Models\Offer;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 class OfferFactory extends Factory
 {
@@ -13,8 +12,8 @@ class OfferFactory extends Factory
     public function definition()
     {
         return [
-            "name" => $this->faker->sentence(),
-            "name_id" => $this->faker->sentence(),
+            "name" => $this->faker->unique()->sentence(),
+            "name_id" => $this->faker->unique()->sentence(),
             "description" => $this->faker->paragraph(),
             "description_id" => $this->faker->paragraph(),
             "button_name" => $this->faker->sentence(),
@@ -29,6 +28,15 @@ class OfferFactory extends Factory
         return $this->state(function (array $attributes) {
             return [
                 "active" => true,
+            ];
+        });
+    }
+
+    public function nonActive()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                "active" => false,
             ];
         });
     }

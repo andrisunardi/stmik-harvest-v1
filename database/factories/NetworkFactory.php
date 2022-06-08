@@ -2,9 +2,10 @@
 
 namespace Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
-
 use App\Models\Network;
+use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
 
 class NetworkFactory extends Factory
 {
@@ -12,11 +13,18 @@ class NetworkFactory extends Factory
 
     public function definition()
     {
+        $name = $this->faker->unique()->company();
+
+        File::copy(
+            public_path() . "/images/image.png",
+            public_path() . "/images/" . Str::kebab(Str::substr($this->model, 11)) . "/" . Str::slug($name) . ".png",
+        );
+
         return [
-            "name" => $this->faker->name(),
+            "name" => $name,
             "description" => $this->faker->paragraph(),
             "link" => $this->faker->url(),
-            "image" => $this->faker->imageUrl(),
+            "image" => Str::slug($name) . ".png",
             "active" => $this->faker->boolean(),
         ];
     }
@@ -26,6 +34,15 @@ class NetworkFactory extends Factory
         return $this->state(function (array $attributes) {
             return [
                 "active" => true,
+            ];
+        });
+    }
+
+    public function nonActive()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                "active" => false,
             ];
         });
     }
