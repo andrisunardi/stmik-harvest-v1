@@ -109,12 +109,6 @@ return new class extends Migration
             $table->foreign("deleted_by")->references("id")->on("admin")->constrained()->nullable()->onUpdate("cascade")->onDelete("cascade");
         });
 
-        Schema::table("magazine", function (Blueprint $table) {
-            $table->foreign("created_by")->references("id")->on("admin")->constrained()->nullable()->onUpdate("cascade")->onDelete("cascade");
-            $table->foreign("updated_by")->references("id")->on("admin")->constrained()->nullable()->onUpdate("cascade")->onDelete("cascade");
-            $table->foreign("deleted_by")->references("id")->on("admin")->constrained()->nullable()->onUpdate("cascade")->onDelete("cascade");
-        });
-
         Schema::table("menu", function (Blueprint $table) {
             $table->foreign("menu_category_id")->references("id")->on("menu_category")->constrained()->nullable()->onUpdate("cascade")->onDelete("cascade");
             $table->foreign("created_by")->references("id")->on("admin")->constrained()->nullable()->onUpdate("cascade")->onDelete("cascade");

@@ -1305,10 +1305,6 @@ return [
     "Instagram" => "Instagram",
     "Youtube" => "Youtube",
 
-    "Magazine" => "Magazine",
-    "Read Our Magazine" => "Read Our Magazine",
-    "Download Our Magazine To Know Us" => "Download Our Magazine To Know Us",
-
     "Registration" => "Registration",
     "Admission Requirements" => "Admission Requirements",
     "International Student" => "International Student",

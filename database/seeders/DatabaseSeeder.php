@@ -55,7 +55,6 @@ class DatabaseSeeder extends Seeder
             BannerSeeder::class,
             EventSeeder::class,
             GallerySeeder::class,
-            MagazineSeeder::class,
             NetworkSeeder::class,
             OfferSeeder::class,
             ProcedureSeeder::class,

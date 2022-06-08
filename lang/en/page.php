@@ -50,7 +50,6 @@ return [
     "Research & Publication" => "Research & Publication",
     "Journal" => "Journal",
     "Repository" => "Repository",
-    "Magazine" => "Magazine",
     "News & Event" => "News & Event",
     "Contact Us" => "Contact Us",
 
@@ -94,7 +93,6 @@ return [
     "Web" => "Web",
     "Website" => "Website",
     "Gallery" => "Gallery",
-    "Magazine" => "Magazine",
     "Banner" => "Banner",
     "Slider" => "Slider",
     "Testimony" => "Testimony",

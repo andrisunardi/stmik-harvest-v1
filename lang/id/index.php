@@ -357,10 +357,6 @@ return [
     "Instagram" => "Instagram",
     "Youtube" => "Youtube",
 
-    "Magazine" => "Majalah",
-    "Read Our Magazine" => "Baca Majalah Kami",
-    "Download Our Magazine To Know Us" => "Unduh Majalah Kami Untuk Mengenal Kami",
-
     "Registration" => "Pendaftaran",
     "Admission Requirements" => "Persyaratan Pendaftaran",
     "International Student" => "Murid Internasional",

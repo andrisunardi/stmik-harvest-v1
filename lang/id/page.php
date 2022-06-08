@@ -50,7 +50,6 @@ return [
     "Research & Publication" => "Penelitian & Publikasi",
     "Journal" => "Jurnal",
     "Repository" => "Repository",
-    "Magazine" => "Majalah",
     "News & Event" => "Berita & Kegiatan",
     "Contact Us" => "Kontak Kami",
 
@@ -94,7 +93,6 @@ return [
     "Web" => "Situs",
     "Website" => "Situs Web",
     "Gallery" => "Galeri",
-    "Magazine" => "Majalah",
     "Banner" => "Sampul",
     "Slider" => "Slider",
     "Testimony" => "Testimoni",

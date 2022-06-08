@@ -54,12 +54,6 @@ class BannerSeeder extends Seeder
         $data->save();
 
         $data = new Banner();
-        $data->name = "Magazine";
-        $data->name_id = "Majalah";
-        $data->image = Str::slug($data->name) . ".png";
-        $data->save();
-
-        $data = new Banner();
         $data->name = "Contact Us";
         $data->name_id = "Kontak Kami";
         $data->image = Str::slug($data->name) . ".png";

@@ -129,11 +129,6 @@ Breadcrumbs::for("news.view", function (BreadcrumbTrail $trail, $news_slug) {
     $trail->push("{$news->translate_name}", route("news.view", $news_slug));
 });
 
-Breadcrumbs::for("magazine.index", function (BreadcrumbTrail $trail) {
-    $trail->parent("index");
-    $trail->push(trans("page.Magazine"), route("magazine.index"));
-});
-
 Breadcrumbs::for("contact-us.index", function (BreadcrumbTrail $trail) {
     $trail->parent("index");
     $trail->push(trans("page.Contact Us"), route("contact-us.index"));
@@ -146,7 +141,7 @@ Breadcrumbs::for("event.index", function (BreadcrumbTrail $trail) {
 
 Breadcrumbs::for("international-student.index", function (BreadcrumbTrail $trail) {
     $trail->parent("index");
-    $trail->push(trans("page.Magazine"), route("international-student.index"));
+    $trail->push(trans("page.International Student"), route("international-student.index"));
 });
 
 Breadcrumbs::for("journal.index", function (BreadcrumbTrail $trail) {
