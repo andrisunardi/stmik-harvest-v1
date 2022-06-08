@@ -1,7 +1,7 @@
 <div>
     <div class="row my-2">
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <h6>{{ trans("field.ID") }}</h6>
+            <h6>{{ trans("index.ID") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             {{ $gallery->id }}
@@ -9,7 +9,7 @@
     </div>
     <div class="row my-2">
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <h6>{{ trans("field.Image") }}</h6>
+            <h6>{{ trans("index.Image") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             @if ($gallery->checkImage())
@@ -17,13 +17,13 @@
                     <img draggable="false" width="100"
                         src="{{ $gallery->assetImage() }}"
                         alt="{{ trans("page.{$menu_name}") }} - {{ $gallery->translate_name }} - {{ env("APP_TITLE") }}"
-                        data-bs-toggle="tooltip" data-bs-placement="top" title="{{ trans("general.Click To View") }}">
+                        data-bs-toggle="tooltip" data-bs-placement="top" title="{{ trans("index.Click To View") }}">
                 </a>
                 <div class="modal fade" id="image" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="image" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h6 class="modal-title" id="image">{{ trans("general.Image") }} - {{ trans("page.{$menu_name}") }}</h6>
+                                <h6 class="modal-title" id="image">{{ trans("index.Image") }} - {{ trans("page.{$menu_name}") }}</h6>
                                 <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
@@ -31,17 +31,17 @@
                                     <img draggable="false" class="img-fluid w-100"
                                         src="{{ $gallery->assetImage() }}"
                                         alt="{{ trans("page.{$menu_name}") }} - {{ $gallery->translate_name }} - {{ env("APP_TITLE") }}"
-                                        data-bs-toggle="tooltip" data-bs-placement="top" title="{{ trans("general.Click To View") }}">
+                                        data-bs-toggle="tooltip" data-bs-placement="top" title="{{ trans("index.Click To View") }}">
                                 </a>
                             </div>
                             <div class="modal-footer justify-content-between">
                                 <button class="btn btn-creative btn-sm btn-light" type="button" data-bs-dismiss="modal">
                                     <i class="bi bi-x me-1"></i>
-                                    {{ trans("button.Close") }}
+                                    {{ trans("index.Close") }}
                                 </button>
                                 <a draggable="false" class="btn btn-creative btn-sm btn-primary" href="{{ $gallery->assetImage() }}" download>
                                     <i class="bi bi-download me-1"></i>
-                                    {{ trans("button.Download") }}
+                                    {{ trans("index.Download") }}
                                 </a>
                             </div>
                         </div>
@@ -52,7 +52,7 @@
     </div>
     <div class="row my-2">
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <h6>{{ trans("field.Video") }}</h6>
+            <h6>{{ trans("index.Video") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             @if ($gallery->checkVideo())
@@ -60,13 +60,13 @@
                     <img draggable="false" width="100"
                         src="{{ $gallery->assetVideo() }}"
                         alt="{{ trans("page.{$menu_name}") }} - {{ $gallery->translate_name }} - {{ env("APP_TITLE") }}"
-                        data-bs-toggle="tooltip" data-bs-placement="top" title="{{ trans("general.Click To View") }}">
+                        data-bs-toggle="tooltip" data-bs-placement="top" title="{{ trans("index.Click To View") }}">
                 </a>
                 <div class="modal fade" id="video" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="video" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h6 class="modal-title" id="video">{{ trans("general.Video") }} - {{ trans("page.{$menu_name}") }}</h6>
+                                <h6 class="modal-title" id="video">{{ trans("index.Video") }} - {{ trans("page.{$menu_name}") }}</h6>
                                 <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
@@ -74,17 +74,17 @@
                                     <img draggable="false" class="img-fluid w-100"
                                         src="{{ $gallery->assetVideo() }}"
                                         alt="{{ trans("page.{$menu_name}") }} - {{ $gallery->translate_name }} - {{ env("APP_TITLE") }}"
-                                        data-bs-toggle="tooltip" data-bs-placement="top" title="{{ trans("general.Click To View") }}">
+                                        data-bs-toggle="tooltip" data-bs-placement="top" title="{{ trans("index.Click To View") }}">
                                 </a>
                             </div>
                             <div class="modal-footer justify-content-between">
                                 <button class="btn btn-creative btn-sm btn-light" type="button" data-bs-dismiss="modal">
                                     <i class="bi bi-x me-1"></i>
-                                    {{ trans("button.Close") }}
+                                    {{ trans("index.Close") }}
                                 </button>
                                 <a draggable="false" class="btn btn-creative btn-sm btn-primary" href="{{ $gallery->assetVideo() }}" download>
                                     <i class="bi bi-download me-1"></i>
-                                    {{ trans("button.Download") }}
+                                    {{ trans("index.Download") }}
                                 </a>
                             </div>
                         </div>
@@ -95,17 +95,17 @@
     </div>
     <div class="row my-2">
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <h6>{{ trans("field.Category") }}</h6>
+            <h6>{{ trans("index.Category") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             <span class="{{ "badge bg-" . Str::color($gallery->category) }}">
-                {{ trans("general.{$gallery->category_text}") }}
+                {{ trans("index.{$gallery->category_text}") }}
             </span>
         </div>
     </div>
     <div class="row my-2">
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <h6>{{ trans("field.Name") }}</h6>
+            <h6>{{ trans("index.Name") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             {{ $gallery->name }}
@@ -113,7 +113,7 @@
     </div>
     <div class="row my-2">
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <h6>{{ trans("field.Name ID") }}</h6>
+            <h6>{{ trans("index.Name ID") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             {{ $gallery->name_id }}
@@ -121,7 +121,7 @@
     </div>
     <div class="row my-2">
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <h6>{{ trans("field.Description") }}</h6>
+            <h6>{{ trans("index.Description") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             {!! html_entity_decode($gallery->description) !!}
@@ -129,7 +129,7 @@
     </div>
     <div class="row my-2">
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <h6>{{ trans("field.Description ID") }}</h6>
+            <h6>{{ trans("index.Description ID") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             {!! html_entity_decode($gallery->description_id) !!}
@@ -137,7 +137,7 @@
     </div>
     <div class="row my-2">
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <h6>{{ trans("field.Youtube") }}</h6>
+            <h6>{{ trans("index.Youtube") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             <a draggable="false" href="{{ $gallery->youtube }}" target="_blank">
@@ -147,17 +147,17 @@
     </div>
     <div class="row my-2">
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <h6>{{ trans("field.Active") }}</h6>
+            <h6>{{ trans("index.Active") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             <span class="{{ "badge bg-" . Str::successdanger($gallery->active) }}">
-                {{ trans("general." . Str::active($gallery->active)) }}
+                {{ trans("index." . Str::active($gallery->active)) }}
             </span>
         </div>
     </div>
     <div class="row my-2">
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <h6>{{ trans("field.Created By") }}</h6>
+            <h6>{{ trans("index.Created By") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             <a draggable="false" href="{{ $gallery->created_by_admin?->id || $gallery->created_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$gallery->created_by_admin?->id}" : null }}" target="_blank">
@@ -167,7 +167,7 @@
     </div>
     <div class="row my-2">
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <h6>{{ trans("field.Updated By") }}</h6>
+            <h6>{{ trans("index.Updated By") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             <a draggable="false" href="{{ $gallery->updated_by_admin?->id || $gallery->updated_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$gallery->updated_by_admin?->id}" : null }}" target="_blank">
@@ -178,7 +178,7 @@
     @if ($gallery->trashed())
         <div class="row my-2">
             <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-                <h6>{{ trans("field.Deleted By") }}</h6>
+                <h6>{{ trans("index.Deleted By") }}</h6>
             </div>
             <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
                 <a draggable="false" href="{{ $gallery->deleted_by_admin?->id || $gallery->deleted_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$gallery->deleted_by_admin?->id}" : null }}" target="_blank">
@@ -189,7 +189,7 @@
     @endif
     <div class="row my-2">
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <h6>{{ trans("field.Created At") }}</h6>
+            <h6>{{ trans("index.Created At") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             {{ $gallery->created_at->format("H:i:s - l, d F Y") }} <br class="d-md-none"> ({{ $gallery->created_at->diffForHumans() }})
@@ -197,7 +197,7 @@
     </div>
     <div class="row my-2">
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <h6>{{ trans("field.Updated At") }}</h6>
+            <h6>{{ trans("index.Updated At") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             {{ $gallery->updated_at->format("H:i:s - l, d F Y") }} <br class="d-md-none"> ({{ $gallery->updated_at->diffForHumans() }})
@@ -206,7 +206,7 @@
     @if ($gallery->trashed())
         <div class="row my-2">
             <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-                <h6>{{ trans("field.Deleted At") }}</h6>
+                <h6>{{ trans("index.Deleted At") }}</h6>
             </div>
             <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
                 {{ $gallery->deleted_at->format("H:i:s - l, d F Y") }} <br class="d-md-none"> ({{ $gallery->deleted_at->diffForHumans() }})
@@ -218,14 +218,14 @@
             <div class="col-12 col-sm-auto mt-3 mt-sm-0">
                 <button class="btn btn-creative btn-sm btn-success w-100" type="button" data-bs-toggle="modal" data-bs-target="#restore-{{ $gallery->id }}">
                     <i class="bi bi-arrow-clockwise me-1"></i>
-                    {{ trans("button.Restore") }}
+                    {{ trans("index.Restore") }}
                 </button>
 
                 <div class="modal fade" id="restore-{{ $gallery->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="restore-{{ $gallery->id }}" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h6 class="modal-title" id="restore-{{ $gallery->id }}">{{ trans("general.Restore") }} - {{ trans("page.{$menu_name}") }}</h6>
+                                <h6 class="modal-title" id="restore-{{ $gallery->id }}">{{ trans("index.Restore") }} - {{ trans("page.{$menu_name}") }}</h6>
                                 <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
@@ -234,11 +234,11 @@
                             <div class="modal-footer justify-content-between">
                                 <button class="btn btn-creative btn-sm btn-light" type="button" data-bs-dismiss="modal">
                                     <i class="bi bi-x me-1"></i>
-                                    {{ trans("button.Close") }}
+                                    {{ trans("index.Close") }}
                                 </button>
                                 <button class="btn btn-creative btn-sm btn-success" type="button" data-bs-dismiss="modal" wire:click="restore({{ $gallery->id }})">
                                     <i class="bi bi-check me-1"></i>
-                                    {{ trans("button.Yes") }}
+                                    {{ trans("index.Yes") }}
                                 </button>
                             </div>
                         </div>
@@ -248,14 +248,14 @@
             <div class="col-12 col-sm-auto mt-3 mt-sm-0">
                 <button class="btn btn-creative btn-sm btn-danger w-100" type="button" data-bs-toggle="modal" data-bs-target="#delete-permanent-{{ $gallery->id }}">
                     <i class="bi bi-trash2 me-1"></i>
-                    {{ trans("button.Delete Permanent") }}
+                    {{ trans("index.Delete Permanent") }}
                 </button>
 
                 <div class="modal fade" id="delete-permanent-{{ $gallery->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="delete-permanent-{{ $gallery->id }}" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h6 class="modal-title" id="delete-permanent-{{ $gallery->id }}">{{ trans("general.Delete Permanent") }} - {{ trans("page.{$menu_name}") }}</h6>
+                                <h6 class="modal-title" id="delete-permanent-{{ $gallery->id }}">{{ trans("index.Delete Permanent") }} - {{ trans("page.{$menu_name}") }}</h6>
                                 <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
@@ -266,11 +266,11 @@
                             <div class="modal-footer">
                                 <button class="btn btn-creative btn-sm btn-light" type="button" data-bs-dismiss="modal">
                                     <i class="bi bi-x me-1"></i>
-                                    {{ trans("button.Close") }}
+                                    {{ trans("index.Close") }}
                                 </button>
                                 <button class="btn btn-creative btn-sm btn-danger" type="button" data-bs-dismiss="modal" wire:click="deletePermanent({{ $gallery->id }})">
                                     <i class="bi bi-check me-1"></i>
-                                    {{ trans("button.Yes") }}
+                                    {{ trans("index.Yes") }}
                                 </button>
                             </div>
                         </div>
@@ -281,33 +281,33 @@
             <div class="col-6 col-sm-auto">
                 <button class="btn btn-creative btn-sm btn-success w-100" wire:click="active({{ $gallery->id }})">
                     <i class="bi bi-check-circle-fill me-1"></i>
-                    {{ trans("button.Active") }}
+                    {{ trans("index.Active") }}
                 </button>
             </div>
             <div class="col-6 col-sm-auto">
                 <button class="btn btn-creative btn-sm btn-danger w-100" wire:click="nonActive({{ $gallery->id }})">
                     <i class="bi bi-x-circle-fill me-1"></i>
-                    {{ trans("button.Non Active") }}
+                    {{ trans("index.Non Active") }}
                 </button>
             </div>
 
             <div class="col-6 col-sm-auto mt-3 mt-sm-0">
                 <button class="btn btn-creative btn-sm btn-success w-100" wire:click="form('edit', {{ $gallery->id }})">
                     <i class="bi bi-pencil me-1"></i>
-                    {{ trans("button.Edit") }}
+                    {{ trans("index.Edit") }}
                 </button>
             </div>
             <div class="col-6 col-sm-auto mt-3 mt-sm-0">
                 <button class="btn btn-creative btn-sm btn-danger w-100" type="button" data-bs-toggle="modal" data-bs-target="#delete-{{ $gallery->id }}">
                     <i class="bi bi-trash me-1"></i>
-                    {{ trans("button.Delete") }}
+                    {{ trans("index.Delete") }}
                 </button>
 
                 <div class="modal fade" id="delete-{{ $gallery->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="delete-{{ $gallery->id }}" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h6 class="modal-title" id="delete-{{ $gallery->id }}">{{ trans("general.Delete") }} - {{ trans("page.{$menu_name}") }}</h6>
+                                <h6 class="modal-title" id="delete-{{ $gallery->id }}">{{ trans("index.Delete") }} - {{ trans("page.{$menu_name}") }}</h6>
                                 <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
@@ -317,11 +317,11 @@
                             <div class="modal-footer justify-content-between">
                                 <button class="btn btn-creative btn-sm btn-light" type="button" data-bs-dismiss="modal">
                                     <i class="bi bi-x me-1"></i>
-                                    {{ trans("button.Close") }}
+                                    {{ trans("index.Close") }}
                                 </button>
                                 <button class="btn btn-creative btn-sm btn-danger" type="button" data-bs-dismiss="modal" wire:click="delete({{ $gallery->id }})">
                                     <i class="bi bi-check me-1"></i>
-                                    {{ trans("button.Yes") }}
+                                    {{ trans("index.Yes") }}
                                 </button>
                             </div>
                         </div>

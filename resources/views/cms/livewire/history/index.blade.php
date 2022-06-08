@@ -27,7 +27,7 @@
                                 <li class="breadcrumb-item"><a draggable="false" href="javascript:;" wire:click="index()"><i class="@yield("icon") me-1"></i> @yield("name")</a></li>
                             @endif
                             @if ($menu_type == "view")
-                                <li class="breadcrumb-item active" aria-current="page"><i class="bi bi-eye me-1"></i> {{ trans("general.View") }}</li>
+                                <li class="breadcrumb-item active" aria-current="page"><i class="bi bi-eye me-1"></i> {{ trans("index.View") }}</li>
                             @endif
                         </ol>
                     </nav>
@@ -43,13 +43,13 @@
                             <div class="alert unread custom-alert-3 alert-primary" role="alert">
                                 <img draggable="false" class="img-circle me-2" width="35" height="35"
                                     src="{{ $log->admin?->assetImage() }}"
-                                    alt="{{ trans("general.Admin") }} - {{ $log->admin?->name }} - {{ env("APP_TITLE") }}">
+                                    alt="{{ trans("index.Admin") }} - {{ $log->admin?->name }} - {{ env("APP_TITLE") }}">
                                 <div class="alert-text w-75">
                                     <h6 class="text-truncate">
-                                        {{ $log->admin?->name }} {{ trans("general.has been") }} {{ $log->activity_text }} {{ trans("general.at menu") }} {{ $log->menu?->name }} {{ trans("general.on row") }} {{ $log->row }}
+                                        {{ $log->admin?->name }} {{ trans("index.has been") }} {{ $log->activity_text }} {{ trans("index.at menu") }} {{ $log->menu?->name }} {{ trans("index.on row") }} {{ $log->row }}
                                     </h6>
                                     <span class="text-truncate">
-                                        {{ trans("general.Date Time") }}
+                                        {{ trans("index.Date Time") }}
                                         {{ $log->updated_at?->format("H:i:s - l, d F Y") }} ({{ $log->updated_at?->diffForHumans() }})
                                     </span>
                                 </div>
@@ -70,50 +70,50 @@
                 @if ($menu_type == "view")
                     <div class="card">
                         <div class="card-body direction-rtl">
-                            <p>{{ $log->admin?->name }} {{ trans("general.has been") }} {{ $log->activity_text }} {{ trans("general.at menu") }} {{ $log->menu?->name }} {{ trans("general.on row") }} {{ $log->row }}</p>
+                            <p>{{ $log->admin?->name }} {{ trans("index.has been") }} {{ $log->activity_text }} {{ trans("index.at menu") }} {{ $log->menu?->name }} {{ trans("index.on row") }} {{ $log->row }}</p>
                             <div class="border-bottom border-top py-4">
                                 <p>
                                     <a draggable="false" class="btn btn-creative btn-light" wire:click="index()">
                                         <i class="bi bi-arrow-left me-1"></i>
-                                        {{ trans("button.Back") }}
+                                        {{ trans("index.Back") }}
                                     </a>
                                 </p>
-                                <p>{{ trans("general.Admin") }} : {{ $log->admin?->name }}</p>
-                                <p>{{ trans("general.Menu") }} : {{ $log->menu?->name }}</p>
-                                <p>{{ trans("general.Activity") }} : {{ $log->activity_text }}</p>
+                                <p>{{ trans("index.Admin") }} : {{ $log->admin?->name }}</p>
+                                <p>{{ trans("index.Menu") }} : {{ $log->menu?->name }}</p>
+                                <p>{{ trans("index.Activity") }} : {{ $log->activity_text }}</p>
                                 <p>
-                                    {{ trans("general.Active") }} :
+                                    {{ trans("index.Active") }} :
                                     <span class="{{ "badge bg-" . Str::successdanger($log->active) }}">
-                                        {{ trans("general." . Str::active($log->active)) }}
+                                        {{ trans("index." . Str::active($log->active)) }}
                                     </span>
                                 </p>
-                                <p>{{ trans("general.Created By") }} : {{ $log->created_by_admin?->name }}</p>
-                                <p>{{ trans("general.Updated By") }} : {{ $log->updated_by_admin?->name }}</p>
+                                <p>{{ trans("index.Created By") }} : {{ $log->created_by_admin?->name }}</p>
+                                <p>{{ trans("index.Updated By") }} : {{ $log->updated_by_admin?->name }}</p>
                                 @if ($log->trashed())
-                                    <p>{{ trans("general.Deleted By") }} : {{ $log->deleted_by_admin?->name }}</p>
+                                    <p>{{ trans("index.Deleted By") }} : {{ $log->deleted_by_admin?->name }}</p>
                                 @endif
                                 @IF ($log->action != 5)
                                     <a draggable="false" class="btn btn-primary btn-creative btn-sm"
                                         href="{{ $log->menu->id ? route("{$sub_domain}." . Str::slug($log->menu?->name) . ".index") . "?menu_type=view&row={$log->row}" : null }}">
                                         <i class="bi bi-eye me-1"></i>
-                                        {{ trans("general.View Data") }}
+                                        {{ trans("index.View Data") }}
                                     </a>
                                 @endif
                             </div>
                             <p class="mb-0 fz-12 mt-4">
                                 <i class="bi bi-clock mx-1"></i>
-                                {{ trans("general.Created At") }}
+                                {{ trans("index.Created At") }}
                                 {{ $log->created_at?->format("H:i:s - l, d F Y") }} <br class="d-md-none"> ({{ $log->created_at?->diffForHumans() }})
                             </p>
                             <p class="mb-0 fz-12 mt-4">
                                 <i class="bi bi-clock mx-1"></i>
-                                {{ trans("general.Updated At") }}
+                                {{ trans("index.Updated At") }}
                                 {{ $log->updated_at?->format("H:i:s - l, d F Y") }} <br class="d-md-none"> ({{ $log->updated_at?->diffForHumans() }})
                             </p>
                             @if ($log->trashed())
                                 <p class="mb-0 fz-12 mt-4">
                                     <i class="bi bi-clock mx-1"></i>
-                                    {{ trans("general.Deleted At") }}
+                                    {{ trans("index.Deleted At") }}
                                     {{ $log->deleted_at?->format("H:i:s - l, d F Y") }} <br class="d-md-none"> ({{ $log->deleted_at?->diffForHumans() }})
                                 </p>
                             @endif

@@ -9,7 +9,7 @@
             <div class="row">
                 <div class="col-12 text-center">
                     <ul id="ml-filters" class="ml-port-filter-nav">
-                        <li data-filter="*" class="{{ $tag ? null : "is-checked" }}" wire:click="tag()">{{ trans("general.All") }}</li>
+                        <li data-filter="*" class="{{ $tag ? null : "is-checked" }}" wire:click="tag()">{{ trans("index.All") }}</li>
                         @foreach ($data_gallery_category as $gallery_category)
                             <li data-filter=".{{ Str::slug($gallery_category->translate_tag) }}" class="{{ $tag == Str::slug($gallery_category->translate_tag) ? "is-checked" : null }}" wire:click="tag('{{ Str::slug($gallery_category->translate_tag) }}')">{{ $gallery_category->translate_tag }}</li>
                         @endforeach
@@ -42,7 +42,7 @@
                                         </div>
                                     </div>
                                     <h3 class="mt-3 mb-1">{{ $gallery->translate_name }}</h3>
-                                    <small>{{ trans("general.$gallery->category_text") }}</small>
+                                    <small>{{ trans("index.$gallery->category_text") }}</small>
                                     <p>{!! html_entity_decode($gallery->translate_description) !!}</p>
                                 </div>
                             @endforeach
@@ -57,7 +57,7 @@
                 <div class="col-12">
                     <button class="text-center htc__load__btn">
                         <i class="fa fa-spinner fa-pulse"></i>
-                        <span class="loadding-test">{{ trans("general.Loading") }}...</span>
+                        <span class="loadding-test">{{ trans("index.Loading") }}...</span>
                     </button>
                 </div>
             </div> --}}

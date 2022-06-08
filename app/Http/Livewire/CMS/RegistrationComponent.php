@@ -238,7 +238,7 @@ class RegistrationComponent extends Component
             $this->menu_type != "view" &&
             $this->menu_type != "trash"
         ) {
-            Session::flash("danger", trans("general.Menu Type") . " " . trans("message.not found or has been deleted"));
+            Session::flash("danger", trans("index.Menu Type") . " " . trans("message.not found or has been deleted"));
             return redirect()->route("{$this->sub_domain}.{$this->menu_slug}.index");
         }
 

@@ -13,7 +13,7 @@
                             <div class="res__title">
                                 <h2>{{ trans("page.{$menu_name}") }}</h2>
                                 <div class="res__right">
-                                    <h4>{{ trans("general.Please see our procedure first") }}</h4>
+                                    <h4>{{ trans("index.Please see our procedure first") }}</h4>
                                     <div class="sign__btn">
                                         <a draggable="false" class="htc__sign__btn" href="{{ route("procedure.index") }}">{{ trans("page.Procedure") }}</a>
                                     </div>
@@ -21,7 +21,7 @@
                             </div>
 
                             <div class="res__title mt-3 mb-3">
-                                <h6>{{ trans("general.Please complete registration form below to become our part") }}</h6>
+                                <h6>{{ trans("index.Please complete registration form below to become our part") }}</h6>
                             </div>
 
                             @include("layouts.alert")
@@ -34,12 +34,12 @@
                                     <div class="login__form row">
                                         @php $input = "name" @endphp
                                         <div class="form-group col-sm-6">
-                                            <label class="form-label" for="{{ $input }}">{{ trans("general.Full Name") }} <span class="text-danger">*</span></label>
+                                            <label class="form-label" for="{{ $input }}">{{ trans("index.Full Name") }} <span class="text-danger">*</span></label>
                                             <div class="input-group has-validation">
                                                 <div class="input-group-text"><span class="fas fa-user"></span></div>
                                                 <input wire:model="{{ $input }}" wire:keydown.enter="submit" id="{{ $input }}" name="{{ $input }}"
                                                     type="text" class="form-control @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" minlength="1" maxlength="50" value="{{ old($input) }}"
-                                                    placeholder="{{ trans("general.Full Name") }}" aria-label="{{ trans("general.Full Name") }}" aria-describedby="{{ trans("general.Full Name") }}"
+                                                    placeholder="{{ trans("index.Full Name") }}" aria-label="{{ trans("index.Full Name") }}" aria-describedby="{{ trans("index.Full Name") }}"
                                                     autocomplete="off" autocapitalize="none" required>
                                                 @error($input)
                                                     <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
@@ -51,12 +51,12 @@
 
                                         @php $input = "email" @endphp
                                         <div class="form-group col-sm-6">
-                                            <label class="form-label" for="{{ $input }}">{{ trans("general.Email Address") }} <span class="text-danger">*</span></label>
+                                            <label class="form-label" for="{{ $input }}">{{ trans("index.Email Address") }} <span class="text-danger">*</span></label>
                                             <div class="input-group has-validation">
                                                 <div class="input-group-text"><span class="fas fa-envelope"></span></div>
                                                 <input wire:model="{{ $input }}" wire:keydown.enter="submit" id="{{ $input }}" name="{{ $input }}"
                                                     type="email" class="form-control @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" minlength="1" maxlength="50" value="{{ old($input) }}"
-                                                    placeholder="{{ trans("general.Email Address") }}" aria-label="{{ trans("general.Email Address") }}" aria-describedby="{{ trans("general.Email Address") }}"
+                                                    placeholder="{{ trans("index.Email Address") }}" aria-label="{{ trans("index.Email Address") }}" aria-describedby="{{ trans("index.Email Address") }}"
                                                     autocomplete="off" autocapitalize="none" required>
                                                 @error($input)
                                                     <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
@@ -70,12 +70,12 @@
                                     <div class="login__form row">
                                         @php $input = "phone" @endphp
                                         <div class="form-group col-sm-6">
-                                            <label class="form-label" for="{{ $input }}">{{ trans("general.Phone Number") }} <span class="text-danger">*</span></label>
+                                            <label class="form-label" for="{{ $input }}">{{ trans("index.Phone Number") }} <span class="text-danger">*</span></label>
                                             <div class="input-group has-validation">
                                                 <div class="input-group-text"><span class="fas fa-envelope"></span></div>
                                                 <input wire:model="{{ $input }}" wire:keydown.enter="submit" id="{{ $input }}" name="{{ $input }}"
                                                     type="text" class="form-control @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" minlength="1" maxlength="15" value="{{ old($input) }}"
-                                                    placeholder="{{ trans("general.Phone Number") }}" aria-label="{{ trans("general.Phone Number") }}" aria-describedby="{{ trans("general.Phone Number") }}"
+                                                    placeholder="{{ trans("index.Phone Number") }}" aria-label="{{ trans("index.Phone Number") }}" aria-describedby="{{ trans("index.Phone Number") }}"
                                                     autocomplete="off" autocapitalize="none" required>
                                                 @error($input)
                                                     <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
@@ -87,12 +87,12 @@
 
                                         @php $input = "school" @endphp
                                         <div class="form-group col-sm-6">
-                                            <label class="form-label" for="{{ $input }}">{{ trans("general.Origin High School / Vocational School") }} <span class="text-danger">*</span></label>
+                                            <label class="form-label" for="{{ $input }}">{{ trans("index.Origin High School / Vocational School") }} <span class="text-danger">*</span></label>
                                             <div class="input-group has-validation">
                                                 <div class="input-group-text"><span class="fas fa-user"></span></div>
                                                 <input wire:model="{{ $input }}" wire:keydown.enter="submit" id="{{ $input }}" name="{{ $input }}"
                                                     type="text" class="form-control @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" minlength="1" maxlength="50" value="{{ old($input) }}"
-                                                    placeholder="{{ trans("general.Origin High School / Vocational School") }}" aria-label="{{ trans("general.Origin High School / Vocational School") }}" aria-describedby="{{ trans("general.Origin High School / Vocational School") }}"
+                                                    placeholder="{{ trans("index.Origin High School / Vocational School") }}" aria-label="{{ trans("index.Origin High School / Vocational School") }}" aria-describedby="{{ trans("index.Origin High School / Vocational School") }}"
                                                     autocomplete="off" autocapitalize="none" required>
                                                 @error($input)
                                                     <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
@@ -106,12 +106,12 @@
                                     <div class="login__form row">
                                         @php $input = "major" @endphp
                                         <div class="form-group col-sm-6">
-                                            <label class="form-label" for="{{ $input }}">{{ trans("general.Major In SMA / SMK") }} <span class="text-danger">*</span></label>
+                                            <label class="form-label" for="{{ $input }}">{{ trans("index.Major In SMA / SMK") }} <span class="text-danger">*</span></label>
                                             <div class="input-group has-validation">
                                                 <div class="input-group-text"><span class="fas fa-envelope"></span></div>
                                                 <input wire:model="{{ $input }}" wire:keydown.enter="submit" id="{{ $input }}" name="{{ $input }}"
                                                     type="text" class="form-control @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" minlength="1" maxlength="15" value="{{ old($input) }}"
-                                                    placeholder="{{ trans("general.Major In SMA / SMK") }}" aria-label="{{ trans("general.Major In SMA / SMK") }}" aria-describedby="{{ trans("general.Major In SMA / SMK") }}"
+                                                    placeholder="{{ trans("index.Major In SMA / SMK") }}" aria-label="{{ trans("index.Major In SMA / SMK") }}" aria-describedby="{{ trans("index.Major In SMA / SMK") }}"
                                                     autocomplete="off" autocapitalize="none" required>
                                                 @error($input)
                                                     <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
@@ -123,12 +123,12 @@
 
                                         @php $input = "city" @endphp
                                         <div class="form-group col-sm-6">
-                                            <label class="form-label" for="{{ $input }}">{{ trans("general.Home Town") }} <span class="text-danger">*</span></label>
+                                            <label class="form-label" for="{{ $input }}">{{ trans("index.Home Town") }} <span class="text-danger">*</span></label>
                                             <div class="input-group has-validation">
                                                 <div class="input-group-text"><span class="fas fa-user"></span></div>
                                                 <input wire:model="{{ $input }}" wire:keydown.enter="submit" id="{{ $input }}" name="{{ $input }}"
                                                     type="text" class="form-control @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" minlength="1" maxlength="50" value="{{ old($input) }}"
-                                                    placeholder="{{ trans("general.Home Town") }}" aria-label="{{ trans("general.Home Town") }}" aria-describedby="{{ trans("general.Home Town") }}"
+                                                    placeholder="{{ trans("index.Home Town") }}" aria-label="{{ trans("index.Home Town") }}" aria-describedby="{{ trans("index.Home Town") }}"
                                                     autocomplete="off" autocapitalize="none" required>
                                                 @error($input)
                                                     <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
@@ -146,11 +146,11 @@
                                             <div class="input-group-delete has-validation">
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="radio" name="{{ $input }}" id="{{ $input }}-1" value="1" wire:model="{{ $input }}" required>
-                                                    <label class="form-check-label" for="{{ $input }}-1">{{ trans("general.Man") }}</label>
+                                                    <label class="form-check-label" for="{{ $input }}-1">{{ trans("index.Man") }}</label>
                                                 </div>
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="radio" name="{{ $input }}" id="{{ $input }}-2" value="2" wire:model="{{ $input }}" required>
-                                                    <label class="form-check-label" for="{{ $input }}-2">{{ trans("general.Woman") }}</label>
+                                                    <label class="form-check-label" for="{{ $input }}-2">{{ trans("index.Woman") }}</label>
                                                 </div>
                                                 @error($input)
                                                     <div class="invalid-feedback-delete rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
@@ -164,15 +164,15 @@
 
                                         @php $input = "type" @endphp
                                         <div class="form-group col-sm-6">
-                                            <label class="form-label" for="{{ $input }}">{{ trans("general.Which Do You Prefer") }} <span class="text-danger">*</span></label>
+                                            <label class="form-label" for="{{ $input }}">{{ trans("index.Which Do You Prefer") }} <span class="text-danger">*</span></label>
                                             <div class="input-group-delete has-validation">
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="radio" name="{{ $input }}" id="{{ $input }}-1" value="1" wire:model="{{ $input }}" required>
-                                                    <label class="form-check-label" for="{{ $input }}-1">{{ trans("general.Morning - Afternoon Lecturer") }}</label>
+                                                    <label class="form-check-label" for="{{ $input }}-1">{{ trans("index.Morning - Afternoon Lecturer") }}</label>
                                                 </div>
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="radio" name="{{ $input }}" id="{{ $input }}-2" value="2" wire:model="{{ $input }}" required>
-                                                    <label class="form-check-label" for="{{ $input }}-2">{{ trans("general.Study & Work (Evening Lecture)") }}</label>
+                                                    <label class="form-check-label" for="{{ $input }}-2">{{ trans("index.Study & Work (Evening Lecture)") }}</label>
                                                 </div>
                                                 @error($input)
                                                     <div class="invalid-feedback-delete rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
@@ -186,13 +186,13 @@
                                     </div>
 
                                     <div class="login__btn">
-                                        <button type="button" class="htc__btn btn--theme" wire:click="submit">{{ trans("button.Submit") }}</button>
+                                        <button type="button" class="htc__btn btn--theme" wire:click="submit">{{ trans("index.Submit") }}</button>
                                     </div>
                                 </div>
                             </form>
 
                             <div class="login__social__link">
-                                <h2>{{ trans("general.Our Tuition Fees and Our Scholarships") }}</h2>
+                                <h2>{{ trans("index.Our Tuition Fees and Our Scholarships") }}</h2>
                                 <ul class="htc__social__btn">
                                     <li>
                                         <a draggable="false" href="{{ route("tuition-fees.index") }}">

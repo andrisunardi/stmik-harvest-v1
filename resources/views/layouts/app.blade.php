@@ -114,7 +114,7 @@
                         <div class="header__top__left">
                             <ul class="header__address">
                                 <li>
-                                    <a draggable="false" href="https://api.whatsapp.com/send?phone={{ Str::phone(env("CONTACT_WHATSAPP")) }}&text={{ trans("general.Hello, I know this number from the website") }} {{ env("APP_DOMAIN") }}" target="_blank">
+                                    <a draggable="false" href="https://api.whatsapp.com/send?phone={{ Str::phone(env("CONTACT_WHATSAPP")) }}&text={{ trans("index.Hello, I know this number from the website") }} {{ env("APP_DOMAIN") }}" target="_blank">
                                         <i class="icon ion-social-whatsapp"></i>
                                         {{ env("CONTACT_WHATSAPP") }}
                                     </a>
@@ -167,12 +167,12 @@
                             <ul class="login__register d-none d-md-flex">
                                 <li>
                                     <a draggable="false" href="{{ Session::get("locale") == "en" ? "javascript:;" : url("locale/en") }}" class="{{ Session::get("locale") == "en" ? "fw-bold" : null }}">
-                                        {{ trans("language.English") }}
+                                        {{ trans("index.English") }}
                                     </a>
                                     </li>
                                 <li>
                                     <a draggable="false" href="{{ Session::get("locale") == "en" ? url("locale/id") : "javascript:;" }}" class="{{ Session::get("locale") == "en" ? null : "fw-bold" }}">
-                                        {{ trans("language.Indonesia") }}
+                                        {{ trans("index.Indonesia") }}
                                     </a>
                                 </li>
                             </ul>
@@ -188,7 +188,7 @@
                     <div class="col-lg-2">
                         <div class="logo">
                             <a draggable="false" href="{{ route("index") }}">
-                                <img draggable="false" src="{{ asset("images/logo.png") }}" class="img-fluid w-100" alt="{{ trans("general.Logo") }} - {{ env("APP_TITLE") }}">
+                                <img draggable="false" src="{{ asset("images/logo.png") }}" class="img-fluid w-100" alt="{{ trans("index.Logo") }} - {{ env("APP_TITLE") }}">
                             </a>
                         </div>
                     </div>
@@ -267,7 +267,7 @@
             <div class="fluid-container mobile-menu-container">
                 <div class="mobile-logo">
                     <a draggable="false" href="{{ route("index") }}">
-                        <img draggable="false" src="{{ asset("images/logo.png") }}" class="img-fluid w-100" alt="{{ trans("general.Logo") }} - {{ env("APP_TITLE") }}">
+                        <img draggable="false" src="{{ asset("images/logo.png") }}" class="img-fluid w-100" alt="{{ trans("index.Logo") }} - {{ env("APP_TITLE") }}">
                     </a>
                 </div>
                 <div class="mobile-menu clearfix">
@@ -322,7 +322,7 @@
                         <div class="htc__footer__inner">
                             <div class="footer__logo text-center">
                                 <a draggable="false" href="{{ route("index") }}">
-                                    <img draggable="false" class="img-fluid" width="300" src="{{ asset("images/logo-footer.png") }}" alt="{{ trans("general.Logo") }} - {{ env("APP_TITLE") }}">
+                                    <img draggable="false" class="img-fluid" width="300" src="{{ asset("images/logo-footer.png") }}" alt="{{ trans("index.Logo") }} - {{ env("APP_TITLE") }}">
                                 </a>
                             </div>
                             <ul class="htc__footer__address">
@@ -368,14 +368,14 @@
                     <div class="col-md-6 col-lg-3 mb-7">
                         <div class="footer">
                             <div class="footer__widget">
-                                <h2 class="footer__title">{{ trans("general.About Us") }}</h2>
+                                <h2 class="footer__title">{{ trans("index.About Us") }}</h2>
                                 <p class="footer__details">{{ env("APP_DESCRIPTION") }}</p>
                                 <p class="footer__details">
-                                    <strong class="text-uppercase">{{ trans("general.Working Hours") }}</strong><br>
+                                    <strong class="text-uppercase">{{ trans("index.Working Hours") }}</strong><br>
                                     <i class="icon ion-android-calendar me-1"></i>
-                                    {{ trans("datetime.Monday") }} - {{ trans("datetime.Friday") }} : 08.00 - 17.00 WIB<br>
+                                    {{ trans("index.Monday") }} - {{ trans("index.Friday") }} : 08.00 - 17.00 WIB<br>
                                     <i class="icon ion-android-calendar me-1"></i>
-                                    {{ trans("datetime.Saturday") }} - {{ trans("datetime.Sunday") }} - {{ trans("datetime.Holiday") }} : {{ trans("datetime.Closed") }}
+                                    {{ trans("index.Saturday") }} - {{ trans("index.Sunday") }} - {{ trans("index.Holiday") }} : {{ trans("index.Closed") }}
                                 </p>
                             </div>
                         </div>
@@ -384,7 +384,7 @@
                     <div class="col-md-6 col-lg-3 col-xl-2 offset-xl-1 mb-7">
                         <div class="footer">
                             <div class="footer__widget">
-                                <h2 class="footer__title">{{ trans("general.Quick Links") }}</h2>
+                                <h2 class="footer__title">{{ trans("index.Quick Links") }}</h2>
                                 <ul class="htc__ft__list">
                                     <li><a draggable="false" href="{{ route("index") }}">{{ trans("page.Home") }}</a></li>
                                     <li><a draggable="false" href="{{ route("about.index") }}">{{ trans("page.About") }} STMIK Harvest</a></li>
@@ -420,10 +420,10 @@
                     <div class="col-md-6 col-lg-4 col-xl-3 mb-7">
                         <div class="footer">
                             <div class="footer__widget">
-                                <h2 class="footer__title">{{ trans("general.Contact Information") }}</h2>
+                                <h2 class="footer__title">{{ trans("index.Contact Information") }}</h2>
                                 <ul class="htc__ft__list">
                                     <li>
-                                        <a draggable="false" href="https://api.whatsapp.com/send?phone={{ Str::phone(env("CONTACT_WHATSAPP")) }}&text={{ trans("general.Hello, I know this number from the website") }} {{ env("APP_DOMAIN") }}" target="_blank">
+                                        <a draggable="false" href="https://api.whatsapp.com/send?phone={{ Str::phone(env("CONTACT_WHATSAPP")) }}&text={{ trans("index.Hello, I know this number from the website") }} {{ env("APP_DOMAIN") }}" target="_blank">
                                             <i class="fab fa-whatsapp fa-fw me-1"></i>
                                             <strong>{{ trans("validation.attributes.whatsapp") }} :</strong>
                                             {{ env("CONTACT_WHATSAPP") }}
@@ -527,7 +527,7 @@
                             <p>@yield("message")</p>
                         </div>
                         <p class="about__details">@yield("description")</p>
-                        <a draggable="false" class="htc__btn btn--theme mt-5" href="{{ route("index") }}">{{ trans("general.Back To Home") }}</a>
+                        <a draggable="false" class="htc__btn btn--theme mt-5" href="{{ route("index") }}">{{ trans("index.Back To Home") }}</a>
                     </div>
                 </div>
             </div>

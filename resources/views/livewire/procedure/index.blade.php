@@ -8,7 +8,7 @@
         <div class="container">
             <div class="section__title text-center">
                 <h2 class="title__line">{{ trans("page.Procedure") }}</h2>
-                <p>{{ trans("general.The following is the new student registration procedure") }}</p>
+                <p>{{ trans("index.The following is the new student registration procedure") }}</p>
             </div>
             <div class="accordion mt-5" id="accordion-procedure">
                 @foreach ($data_procedure as $procedure)
@@ -32,11 +32,11 @@
                     <div class="findout__wrap my-5 my-sm-auto">
                         <div class="findout__inner">
                             <h2>
-                                <span>{{ trans("general.Ready to Join ?") }}</span>
-                                {{ trans("general.It easy now to you for being our part, just click the button below and fill out the form with your data.") }}
+                                <span>{{ trans("index.Ready to Join ?") }}</span>
+                                {{ trans("index.It easy now to you for being our part, just click the button below and fill out the form with your data.") }}
                             </h2>
                             <div class="findout__btn">
-                                <a draggable="false" class="htc__btn btn--yellow" href="{{ route("online-registration.index") }}">{{ trans("general.Register") }}</a>
+                                <a draggable="false" class="htc__btn btn--yellow" href="{{ route("online-registration.index") }}">{{ trans("index.Register") }}</a>
                             </div>
                         </div>
                     </div>

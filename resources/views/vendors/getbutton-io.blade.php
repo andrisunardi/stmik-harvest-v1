@@ -9,7 +9,7 @@
                 call: "{{ Str::phone(env("CONTACT_PHONE")) }}",
                 sms: "{{ Str::phone(env("CONTACT_PHONE")) }}",
                 link: "{{ env("APP_URL") }}",
-                greeting_message: "{{ trans("general.Welcome to") }} {{ env("APP_TITLE") }}",
+                greeting_message: "{{ trans("index.Welcome to") }} {{ env("APP_TITLE") }}",
                 disable_branding: "yes",
                 company_logo_url: "{{ env("APP_URL") }}/images/favicon.png",
                 call_to_action: "{{ trans("message.Contact Us If You Have Any Questions") }}",

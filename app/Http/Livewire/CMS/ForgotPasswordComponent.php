@@ -52,7 +52,7 @@ class ForgotPasswordComponent extends Component
         $admin->password = Hash::make($password);
         $admin->save();
 
-        Session::flash("success", trans("field.New Password") . " :  $password");
+        Session::flash("success", trans("index.New Password") . " :  $password");
         return redirect()->route("{$this->sub_domain}.login.index");
     }
 

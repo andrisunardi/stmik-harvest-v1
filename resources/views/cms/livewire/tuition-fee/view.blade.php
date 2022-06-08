@@ -1,7 +1,7 @@
 <div>
     <div class="row my-2">
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <h6>{{ trans("field.ID") }}</h6>
+            <h6>{{ trans("index.ID") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             {{ $tuition_fee->id }}
@@ -9,7 +9,7 @@
     </div>
     <div class="row my-2">
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <h6>{{ trans("field.Name") }}</h6>
+            <h6>{{ trans("index.Name") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             {{ $tuition_fee->name }}
@@ -17,7 +17,7 @@
     </div>
     <div class="row my-2">
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <h6>{{ trans("field.Name ID") }}</h6>
+            <h6>{{ trans("index.Name ID") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             {{ $tuition_fee->name_id }}
@@ -25,7 +25,7 @@
     </div>
     <div class="row my-2">
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <h6>{{ trans("field.Description") }}</h6>
+            <h6>{{ trans("index.Description") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             {!! html_entity_decode($tuition_fee->description) !!}
@@ -33,7 +33,7 @@
     </div>
     <div class="row my-2">
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <h6>{{ trans("field.Description ID") }}</h6>
+            <h6>{{ trans("index.Description ID") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             {!! html_entity_decode($tuition_fee->description_id) !!}
@@ -41,17 +41,17 @@
     </div>
     <div class="row my-2">
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <h6>{{ trans("field.Active") }}</h6>
+            <h6>{{ trans("index.Active") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             <span class="{{ "badge bg-" . Str::successdanger($tuition_fee->active) }}">
-                {{ trans("general." . Str::active($tuition_fee->active)) }}
+                {{ trans("index." . Str::active($tuition_fee->active)) }}
             </span>
         </div>
     </div>
     <div class="row my-2">
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <h6>{{ trans("field.Created By") }}</h6>
+            <h6>{{ trans("index.Created By") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             <a draggable="false" href="{{ $tuition_fee->created_by_admin?->id || $tuition_fee->created_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$tuition_fee->created_by_admin?->id}" : null }}" target="_blank">
@@ -61,7 +61,7 @@
     </div>
     <div class="row my-2">
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <h6>{{ trans("field.Updated By") }}</h6>
+            <h6>{{ trans("index.Updated By") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             <a draggable="false" href="{{ $tuition_fee->updated_by_admin?->id || $tuition_fee->updated_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$tuition_fee->updated_by_admin?->id}" : null }}" target="_blank">
@@ -72,7 +72,7 @@
     @if ($tuition_fee->trashed())
         <div class="row my-2">
             <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-                <h6>{{ trans("field.Deleted By") }}</h6>
+                <h6>{{ trans("index.Deleted By") }}</h6>
             </div>
             <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
                 <a draggable="false" href="{{ $tuition_fee->deleted_by_admin?->id || $tuition_fee->deleted_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$tuition_fee->deleted_by_admin?->id}" : null }}" target="_blank">
@@ -83,7 +83,7 @@
     @endif
     <div class="row my-2">
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <h6>{{ trans("field.Created At") }}</h6>
+            <h6>{{ trans("index.Created At") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             {{ $tuition_fee->created_at->format("H:i:s - l, d F Y") }} <br class="d-md-none"> ({{ $tuition_fee->created_at->diffForHumans() }})
@@ -91,7 +91,7 @@
     </div>
     <div class="row my-2">
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <h6>{{ trans("field.Updated At") }}</h6>
+            <h6>{{ trans("index.Updated At") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             {{ $tuition_fee->updated_at->format("H:i:s - l, d F Y") }} <br class="d-md-none"> ({{ $tuition_fee->updated_at->diffForHumans() }})
@@ -100,7 +100,7 @@
     @if ($tuition_fee->trashed())
         <div class="row my-2">
             <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-                <h6>{{ trans("field.Deleted At") }}</h6>
+                <h6>{{ trans("index.Deleted At") }}</h6>
             </div>
             <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
                 {{ $tuition_fee->deleted_at->format("H:i:s - l, d F Y") }} <br class="d-md-none"> ({{ $tuition_fee->deleted_at->diffForHumans() }})
@@ -113,14 +113,14 @@
             <div class="col-12 col-sm-auto mt-3 mt-sm-0">
                 <button class="btn btn-creative btn-sm btn-success w-100" type="button" data-bs-toggle="modal" data-bs-target="#restore-{{ $tuition_fee->id }}">
                     <i class="bi bi-arrow-clockwise me-1"></i>
-                    {{ trans("button.Restore") }}
+                    {{ trans("index.Restore") }}
                 </button>
 
                 <div class="modal fade" id="restore-{{ $tuition_fee->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="restore-{{ $tuition_fee->id }}" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h6 class="modal-title" id="restore-{{ $tuition_fee->id }}">{{ trans("general.Restore") }} - {{ trans("page.{$menu_name}") }}</h6>
+                                <h6 class="modal-title" id="restore-{{ $tuition_fee->id }}">{{ trans("index.Restore") }} - {{ trans("page.{$menu_name}") }}</h6>
                                 <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
@@ -129,11 +129,11 @@
                             <div class="modal-footer justify-content-between">
                                 <button class="btn btn-creative btn-sm btn-light" type="button" data-bs-dismiss="modal">
                                     <i class="bi bi-x me-1"></i>
-                                    {{ trans("button.Close") }}
+                                    {{ trans("index.Close") }}
                                 </button>
                                 <button class="btn btn-creative btn-sm btn-success" type="button" data-bs-dismiss="modal" wire:click="restore({{ $tuition_fee->id }})">
                                     <i class="bi bi-check me-1"></i>
-                                    {{ trans("button.Yes") }}
+                                    {{ trans("index.Yes") }}
                                 </button>
                             </div>
                         </div>
@@ -143,14 +143,14 @@
             <div class="col-12 col-sm-auto mt-3 mt-sm-0">
                 <button class="btn btn-creative btn-sm btn-danger w-100" type="button" data-bs-toggle="modal" data-bs-target="#delete-permanent-{{ $tuition_fee->id }}">
                     <i class="bi bi-trash2 me-1"></i>
-                    {{ trans("button.Delete Permanent") }}
+                    {{ trans("index.Delete Permanent") }}
                 </button>
 
                 <div class="modal fade" id="delete-permanent-{{ $tuition_fee->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="delete-permanent-{{ $tuition_fee->id }}" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h6 class="modal-title" id="delete-permanent-{{ $tuition_fee->id }}">{{ trans("general.Delete Permanent") }} - {{ trans("page.{$menu_name}") }}</h6>
+                                <h6 class="modal-title" id="delete-permanent-{{ $tuition_fee->id }}">{{ trans("index.Delete Permanent") }} - {{ trans("page.{$menu_name}") }}</h6>
                                 <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
@@ -161,11 +161,11 @@
                             <div class="modal-footer">
                                 <button class="btn btn-creative btn-sm btn-light" type="button" data-bs-dismiss="modal">
                                     <i class="bi bi-x me-1"></i>
-                                    {{ trans("button.Close") }}
+                                    {{ trans("index.Close") }}
                                 </button>
                                 <button class="btn btn-creative btn-sm btn-danger" type="button" data-bs-dismiss="modal" wire:click="deletePermanent({{ $tuition_fee->id }})">
                                     <i class="bi bi-check me-1"></i>
-                                    {{ trans("button.Yes") }}
+                                    {{ trans("index.Yes") }}
                                 </button>
                             </div>
                         </div>
@@ -176,33 +176,33 @@
             <div class="col-6 col-sm-auto">
                 <button class="btn btn-creative btn-sm btn-success w-100" wire:click="active({{ $tuition_fee->id }})">
                     <i class="bi bi-check-circle-fill me-1"></i>
-                    {{ trans("button.Active") }}
+                    {{ trans("index.Active") }}
                 </button>
             </div>
             <div class="col-6 col-sm-auto">
                 <button class="btn btn-creative btn-sm btn-danger w-100" wire:click="nonActive({{ $tuition_fee->id }})">
                     <i class="bi bi-x-circle-fill me-1"></i>
-                    {{ trans("button.Non Active") }}
+                    {{ trans("index.Non Active") }}
                 </button>
             </div>
 
             <div class="col-6 col-sm-auto mt-3 mt-sm-0">
                 <button class="btn btn-creative btn-sm btn-success w-100" wire:click="form('edit', {{ $tuition_fee->id }})">
                     <i class="bi bi-pencil me-1"></i>
-                    {{ trans("button.Edit") }}
+                    {{ trans("index.Edit") }}
                 </button>
             </div>
             <div class="col-6 col-sm-auto mt-3 mt-sm-0">
                 <button class="btn btn-creative btn-sm btn-danger w-100" type="button" data-bs-toggle="modal" data-bs-target="#delete-{{ $tuition_fee->id }}">
                     <i class="bi bi-trash me-1"></i>
-                    {{ trans("button.Delete") }}
+                    {{ trans("index.Delete") }}
                 </button>
 
                 <div class="modal fade" id="delete-{{ $tuition_fee->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="delete-{{ $tuition_fee->id }}" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h6 class="modal-title" id="delete-{{ $tuition_fee->id }}">{{ trans("general.Delete") }} - {{ trans("page.{$menu_name}") }}</h6>
+                                <h6 class="modal-title" id="delete-{{ $tuition_fee->id }}">{{ trans("index.Delete") }} - {{ trans("page.{$menu_name}") }}</h6>
                                 <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
@@ -212,11 +212,11 @@
                             <div class="modal-footer justify-content-between">
                                 <button class="btn btn-creative btn-sm btn-light" type="button" data-bs-dismiss="modal">
                                     <i class="bi bi-x me-1"></i>
-                                    {{ trans("button.Close") }}
+                                    {{ trans("index.Close") }}
                                 </button>
                                 <button class="btn btn-creative btn-sm btn-danger" type="button" data-bs-dismiss="modal" wire:click="delete({{ $tuition_fee->id }})">
                                     <i class="bi bi-check me-1"></i>
-                                    {{ trans("button.Yes") }}
+                                    {{ trans("index.Yes") }}
                                 </button>
                             </div>
                         </div>

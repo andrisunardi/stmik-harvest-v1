@@ -7,8 +7,8 @@
     <section class="our__about__area bg__white pb--80 pt--100">
         <div class="container">
             <div class="section__title text-center">
-                <h2 class="title__line">{{ trans("general.List of Scheduled Waves Registration Is Open") }}</h2>
-                <p>{{ trans("general.Don't miss the registration, here's an important schedule you can take note of") }}</p>
+                <h2 class="title__line">{{ trans("index.List of Scheduled Waves Registration Is Open") }}</h2>
+                <p>{{ trans("index.Don't miss the registration, here's an important schedule you can take note of") }}</p>
             </div>
             <div class="accordion mt-5" id="accordion-admission-calendar">
                 @foreach ($data_- as $-)
@@ -32,11 +32,11 @@
                     <div class="findout__wrap my-5 my-sm-auto">
                         <div class="findout__inner">
                             <h2>
-                                <span>{{ trans("general.Ready to Join ?") }}</span>
-                                {{ trans("general.It easy now to you for being our part, just click the button below and fill out the form with your data.") }}
+                                <span>{{ trans("index.Ready to Join ?") }}</span>
+                                {{ trans("index.It easy now to you for being our part, just click the button below and fill out the form with your data.") }}
                             </h2>
                             <div class="findout__btn">
-                                <a draggable="false" class="htc__btn btn--yellow" href="{{ route("online-registration.index") }}">{{ trans("general.Register") }}</a>
+                                <a draggable="false" class="htc__btn btn--yellow" href="{{ route("online-registration.index") }}">{{ trans("index.Register") }}</a>
                             </div>
                         </div>
                     </div>

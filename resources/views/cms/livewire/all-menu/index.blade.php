@@ -50,7 +50,7 @@
             <div class="card">
                 <div class="card-body">
                     <div class="form-group mb-0">
-                        <input class="form-control" id="elementsSearchInput" type="search" onkeyup="elementsSearch()" placeholder="{{ trans("general.Search") }} {{ trans("general.Menu") }}...">
+                        <input class="form-control" id="elementsSearchInput" type="search" onkeyup="elementsSearch()" placeholder="{{ trans("index.Search") }} {{ trans("index.Menu") }}...">
                     </div>
                 </div>
             </div>

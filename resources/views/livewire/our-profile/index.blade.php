@@ -9,8 +9,8 @@
             <div class="row about__wrapper">
                 <div class="about">
                     <div class="section__title text-left">
-                        <h2 class="title__line">{{ trans("general.Welcome To") }} {{ trans("general.Yayasan STMIK Harvest") }}</h2>
-                        <p>{{ trans("general.College for Future Technopreneur") }}</p>
+                        <h2 class="title__line">{{ trans("index.Welcome To") }} {{ trans("index.Yayasan STMIK Harvest") }}</h2>
+                        <p>{{ trans("index.College for Future Technopreneur") }}</p>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -19,22 +19,22 @@
                             {!! html_entity_decode($setting->translate_about_us) !!}
                         </p>
                         <p class="about__details">
-                            <h3 class="text-uppercase mb-2">{{ trans("general.Our Vision") }}</h3>
+                            <h3 class="text-uppercase mb-2">{{ trans("index.Our Vision") }}</h3>
                             {!! html_entity_decode($setting->translate_vision) !!}
                         </p>
                         <p class="about__details">
-                            <h3 class="text-uppercase mb-2">{{ trans("general.Our Mission") }}</h3>
+                            <h3 class="text-uppercase mb-2">{{ trans("index.Our Mission") }}</h3>
                             {!! html_entity_decode($setting->translate_mission) !!}
                         </p>
                         {{-- <p class="about__details">
                             Yayasan STMIK Harvest memiliki sebuah perguruan tinggi bernama STMIK Kuwera <b>(Sedang Proses menjadi STMIK Harvest)</b>. Berdiri sejak 1987, bermula di Jakarta selatan, hingga saat ini masih berdiri dengan visi dan misi yang baru dan lebih terdepan mengikuti perkembangan jaman teknologi saat ini.
                         </p>
                         <p class="about__details">
-                            <h3 class="text-uppercase mb-2">{{ trans("general.Our Vision") }}</h3>
+                            <h3 class="text-uppercase mb-2">{{ trans("index.Our Vision") }}</h3>
                             Terwujudnya program studi sistem informasi yang unggul dengan menciptakan lulusan yang cerdas dan kompetitif serta memiliki semangat technoprenuership yang memiliki karakter kepemimpinan pada tahun 2025.
                         </p>
                         <p class="about__details">
-                            <h3 class="text-uppercase mb-2">{{ trans("general.Our Mission") }}</h3>
+                            <h3 class="text-uppercase mb-2">{{ trans("index.Our Mission") }}</h3>
                             Menyelenggarakan pendidikan dalam bidang sistem informasi.<br>
                             <br>
                             Melaksanakan kajian-kajian dan pengembangan guna menghasilkan inovasi yang mendukung pengembangan kehidupan bermasyarakat, khususnya di bidang sistem informasi.<br>
@@ -47,11 +47,11 @@
                 </div>
                 <div class="col-lg-6">
                     <p class="about__details">
-                        <h3 class="text-uppercase mb-2">{{ trans("general.Our History") }}</h3>
+                        <h3 class="text-uppercase mb-2">{{ trans("index.Our History") }}</h3>
                         {!! html_entity_decode($setting->translate_history) !!}
                     </p>
                     {{-- <p class="about__details">
-                        <h3 class="text-uppercase mb-2">{{ trans("general.Our History") }}</h3>
+                        <h3 class="text-uppercase mb-2">{{ trans("index.Our History") }}</h3>
                         STMIK KUWERA didirikan pada 17 Desember 1987. Pada tahun 2014, STMIK Kuwera melakukan relokasi dan sedang melakukan peberubahan nama menjadi STMIK HARVEST.
                     </p> --}}
                     <div class="about__thumb mt-3">

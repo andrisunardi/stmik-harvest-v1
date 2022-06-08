@@ -9,7 +9,7 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="contact__wrap">
-                        <h2 class="title__style--2">{{ trans("general.Contact Information") }}</h2>
+                        <h2 class="title__style--2">{{ trans("index.Contact Information") }}</h2>
                         <p>{{ env("APP_DESCRIPTION") }}</p>
                         <div class="htc__contact__inner">
 
@@ -18,7 +18,7 @@
                                     <i class="fab fa-whatsapp fa-fw me-2"></i>
                                     <span>{{ trans("validation.attributes.whatsapp") }}</span>
                                 </div>
-                                <p><a draggable="false" href="https://api.whatsapp.com/send?phone={{ Str::phone(env("CONTACT_WHATSAPP")) }}&text={{ trans("general.Hello, I know this number from the website") }} {{ env("APP_DOMAIN") }}" target="_blank">{{ env("CONTACT_WHATSAPP") }}</a></p>
+                                <p><a draggable="false" href="https://api.whatsapp.com/send?phone={{ Str::phone(env("CONTACT_WHATSAPP")) }}&text={{ trans("index.Hello, I know this number from the website") }} {{ env("APP_DOMAIN") }}" target="_blank">{{ env("CONTACT_WHATSAPP") }}</a></p>
                             </div>
 
                             <div class="contact__address">
@@ -74,7 +74,7 @@
 
                 <div class="col-lg-6 sm-mt-40 xs-mt-40">
                     <div class="htc__contact__form__wrap">
-                        <h2 class="contact__title mb-4">{{ trans("general.Send A Message") }}</h2>
+                        <h2 class="contact__title mb-4">{{ trans("index.Send A Message") }}</h2>
 
                         @include("layouts.alert")
 
@@ -174,7 +174,7 @@
                                 </div>
 
                                 <div class="contact-btn">
-                                    <button class="htc__btn btn--theme" type="button" wire:click="submit">{{ trans("button.Submit") }}</button>
+                                    <button class="htc__btn btn--theme" type="button" wire:click="submit">{{ trans("index.Submit") }}</button>
                                 </div>
                             </form>
                         </div>
@@ -187,8 +187,8 @@
                     <div class="contact__wrap">
                         <div class="htc__contact__inner">
 
-                            <h2 class="contact__title">{{ trans("general.Social Media Contact") }}</h2>
-                            <p>{{ trans("general.Follow and Subscribe Our Social Media to get our latest news") }}</p>
+                            <h2 class="contact__title">{{ trans("index.Social Media Contact") }}</h2>
+                            <p>{{ trans("index.Follow and Subscribe Our Social Media to get our latest news") }}</p>
 
                             <div class="contact__address">
                                 <div class="cont__icon">

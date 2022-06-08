@@ -123,7 +123,7 @@
                 <svg class="bi bi-moon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M14.53 10.53a7 7 0 0 1-9.058-9.058A7.003 7.003 0 0 0 8 15a7.002 7.002 0 0 0 6.53-4.47z"></path>
                 </svg>
-                <p class="mb-0">{{ trans("general.Switching To Dark Mode") }}</p>
+                <p class="mb-0">{{ trans("index.Switching To Dark Mode") }}</p>
             </div>
             <div class="light-mode-text text-center">
                 <svg class="bi bi-brightness-high" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 16 16">
@@ -131,7 +131,7 @@
                         d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"
                     ></path>
                 </svg>
-                <p class="mb-0">{{ trans("general.Switching To Light Mode") }}</p>
+                <p class="mb-0">{{ trans("index.Switching To Light Mode") }}</p>
             </div>
         </div>
     </div>
@@ -145,7 +145,7 @@
                         d="M6 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-4-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm4-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-4-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"
                     ></path>
                 </svg>
-                <p class="mb-0">{{ trans("general.Switching To RTL Mode") }}</p>
+                <p class="mb-0">{{ trans("index.Switching To RTL Mode") }}</p>
             </div>
             <div class="ltr-mode-text text-center">
                 <svg class="bi bi-text-left" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
@@ -154,7 +154,7 @@
                         d="M2 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"
                     ></path>
                 </svg>
-                <p class="mb-0">{{ trans("general.Switching To Default Mode") }}</p>
+                <p class="mb-0">{{ trans("index.Switching To Default Mode") }}</p>
             </div>
         </div>
     </div>
@@ -165,31 +165,31 @@
         <div class="card-body">
             <div class="container">
                 <div class="setting-heading d-flex align-items-center justify-content-between mb-3">
-                    <p class="mb-0">{{ trans("general.Settings") }}</p>
+                    <p class="mb-0">{{ trans("index.Settings") }}</p>
                     <div class="btn-close" id="settingCardClose"></div>
                 </div>
                 <div class="single-setting-panel">
                     <div class="form-check form-switch mb-2">
                         <input class="form-check-input" type="checkbox" id="availabilityStatus" checked />
-                        <label class="form-check-label" for="availabilityStatus">{{ trans("general.Availability Status") }}</label>
+                        <label class="form-check-label" for="availabilityStatus">{{ trans("index.Availability Status") }}</label>
                     </div>
                 </div>
                 <div class="single-setting-panel">
                     <div class="form-check form-switch mb-2">
                         <input class="form-check-input" type="checkbox" id="sendMeNotifications" checked />
-                        <label class="form-check-label" for="sendMeNotifications">{{ trans("general.Send Me Notifications") }}</label>
+                        <label class="form-check-label" for="sendMeNotifications">{{ trans("index.Send Me Notifications") }}</label>
                     </div>
                 </div>
                 <div class="single-setting-panel">
                     <div class="form-check form-switch mb-2">
                         <input class="form-check-input" type="checkbox" id="darkSwitch" />
-                        <label class="form-check-label" for="darkSwitch">{{ trans("general.Dark Mode") }}</label>
+                        <label class="form-check-label" for="darkSwitch">{{ trans("index.Dark Mode") }}</label>
                     </div>
                 </div>
                 <div class="single-setting-panel">
                     <div class="form-check form-switch">
                         <input class="form-check-input" type="checkbox" id="rtlSwitch" />
-                        <label class="form-check-label" for="rtlSwitch">{{ trans("general.RTL Mode") }}</label>
+                        <label class="form-check-label" for="rtlSwitch">{{ trans("index.RTL Mode") }}</label>
                     </div>
                 </div>
             </div>
@@ -200,7 +200,7 @@
 @section("preloader")
     <div id="preloader">
         <div class="spinner-border text-primary" role="status">
-            <span class="visually-hidden">{{ trans("general.Loading") }}...</span>
+            <span class="visually-hidden">{{ trans("index.Loading") }}...</span>
         </div>
     </div>
 @endsection
@@ -269,7 +269,7 @@
                         <div class="user-profile">
                             <img draggable="false"
                                 src="{{ Auth::user()->assetImage() }}"
-                                alt="{{ trans("general.Admin") }} - {{ Auth::user()->name }} - {{ env("APP_TITLE") }}">
+                                alt="{{ trans("index.Admin") }} - {{ Auth::user()->name }} - {{ env("APP_TITLE") }}">
                         </div>
                         <div class="user-info">
                             <h6 class="user-name mb-0">{{ Auth::user()->name }}</h6>
@@ -327,7 +327,7 @@
                         {{-- <li>
                             <div class="night-mode-nav">
                                 <i class="bi bi-moon"></i>
-                                {{ trans("general.Night Mode") }}
+                                {{ trans("index.Night Mode") }}
                                 <div class="form-check form-switch">
                                     <input class="form-check-input form-check-success" id="darkSwitch" type="checkbox">
                                 </div>
@@ -346,15 +346,15 @@
 
                     <div class="copyright-info">
                         <p>
-                            &copy; {{ trans("footer.Copyright") }} @if(env("APP_YEAR") && env("APP_YEAR") != date("Y")) {{ env("APP_YEAR") . " - " }} @endif {{ date("Y") }} &reg;&nbsp;
+                            &copy; {{ trans("index.Copyright") }} @if(env("APP_YEAR") && env("APP_YEAR") != date("Y")) {{ env("APP_YEAR") . " - " }} @endif {{ date("Y") }} &reg;&nbsp;
                             <br>
                             <a draggable="false" href="{{ URL::to("/") }}" target="_blank"><strong>{{ env("APP_NAME") }}</strong></a> &trade;
-                            {{ trans("footer.All Rights Reserved") }}.
+                            {{ trans("index.All Rights Reserved") }}.
                         </p>
                         <p class="mt-2">
-                            {{ trans("footer.Created and Designed by") }}
+                            {{ trans("index.Created and Designed by") }}
                             <a draggable="false" href="https://www.diw.co.id" target="_blank">
-                                <img draggable="false" src="{{ asset("images/icon-diw.co.id.png") }}" alt="Icon DIW.co.id" title="{{ trans("footer.Created and Designed by") }} DIW.co.id">
+                                <img draggable="false" src="{{ asset("images/icon-diw.co.id.png") }}" alt="Icon DIW.co.id" title="{{ trans("index.Created and Designed by") }} DIW.co.id">
                             </a>
                         </p>
                     </div>
@@ -429,7 +429,7 @@
         <div class="custom-container">
             <div class="card">
                 <div class="card-body px-5 text-center">
-                    <img draggable="false" class="mb-4" src="{{ asset("assets/{$sub_domain}/img/bg-img/39.png") }}" alt="{{ trans("general.Error") }} - {{ env("APP_TITLE") }}">
+                    <img draggable="false" class="mb-4" src="{{ asset("assets/{$sub_domain}/img/bg-img/39.png") }}" alt="{{ trans("index.Error") }} - {{ env("APP_TITLE") }}">
                     <h4>@yield("code")<br>@yield("message")</h4>
                     <p class="mb-4">@yield("description")</p>
                     <a draggable="false" class="btn btn-creative btn-primary" href="{{ route("{$sub_domain}.index") }}">Back to Home</a>

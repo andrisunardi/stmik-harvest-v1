@@ -18,23 +18,23 @@
         <div class="form-group">
             <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
             <select wire:model="{{ $input }}" class="form-select" id="{{ $input }}" name="{{ $input }}">
-                <option value="id">{{ trans("field.ID") }}</option>
-                <option value="category">{{ trans("field.Category") }}</option>
-                <option value="name">{{ trans("field.Name") }}</option>
-                <option value="name_id">{{ trans("field.Name ID") }}</option>
-                <option value="description">{{ trans("field.Description") }}</option>
-                <option value="description_id">{{ trans("field.Description ID") }}</option>
-                <option value="youtube">{{ trans("field.Youtube") }}</option>
-                <option value="active">{{ trans("field.Active") }}</option>
-                <option value="created_by">{{ trans("field.Created By") }}</option>
-                <option value="updated_by">{{ trans("field.Updated By") }}</option>
+                <option value="id">{{ trans("index.ID") }}</option>
+                <option value="category">{{ trans("index.Category") }}</option>
+                <option value="name">{{ trans("index.Name") }}</option>
+                <option value="name_id">{{ trans("index.Name ID") }}</option>
+                <option value="description">{{ trans("index.Description") }}</option>
+                <option value="description_id">{{ trans("index.Description ID") }}</option>
+                <option value="youtube">{{ trans("index.Youtube") }}</option>
+                <option value="active">{{ trans("index.Active") }}</option>
+                <option value="created_by">{{ trans("index.Created By") }}</option>
+                <option value="updated_by">{{ trans("index.Updated By") }}</option>
                 @if ($menu_type == "trash")
-                    <option value="deleted_by">{{ trans("field.Deleted By") }}</option>
+                    <option value="deleted_by">{{ trans("index.Deleted By") }}</option>
                 @endif
-                <option value="created_at">{{ trans("field.Created At") }}</option>
-                <option value="updated_at">{{ trans("field.Updated At") }}</option>
+                <option value="created_at">{{ trans("index.Created At") }}</option>
+                <option value="updated_at">{{ trans("index.Updated At") }}</option>
                 @if ($menu_type == "trash")
-                    <option value="deleted_at">{{ trans("field.Deleted At") }}</option>
+                    <option value="deleted_at">{{ trans("index.Deleted At") }}</option>
                 @endif
             </select>
         </div>
@@ -45,8 +45,8 @@
         <div class="form-group">
             <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
             <select wire:model="{{ $input }}" class="form-select" id="{{ $input }}" name="{{ $input }}">
-                <option value="asc">{{ trans("field.Ascending") }}</option>
-                <option value="desc">{{ trans("field.Descending") }}</option>
+                <option value="asc">{{ trans("index.Ascending") }}</option>
+                <option value="desc">{{ trans("index.Descending") }}</option>
             </select>
         </div>
     </div>
@@ -56,7 +56,7 @@
         <div class="form-group">
             <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
             <select wire:model="{{ $input }}" class="form-select" id="{{ $input }}" name="{{ $input }}">
-                <option value="">{{ trans("field.All") }}</option>
+                <option value="">{{ trans("index.All") }}</option>
                 @foreach ($data_created_by as $created_by)
                     <option value="{{ $created_by->id }}">{{ $created_by->name }}</option>
                 @endforeach
@@ -69,7 +69,7 @@
         <div class="form-group">
             <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
             <select wire:model="{{ $input }}" class="form-select" id="{{ $input }}" name="{{ $input }}">
-                <option value="">{{ trans("field.All") }}</option>
+                <option value="">{{ trans("index.All") }}</option>
                 @foreach ($data_updated_by as $updated_by)
                     <option value="{{ $updated_by->id }}">{{ $updated_by->name }}</option>
                 @endforeach
@@ -83,7 +83,7 @@
             <div class="form-group">
                 <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
                 <select wire:model="{{ $input }}" class="form-select" id="{{ $input }}" name="{{ $input }}">
-                    <option value="">{{ trans("field.All") }}</option>
+                    <option value="">{{ trans("index.All") }}</option>
                     @foreach ($data_deleted_by as $deleted_by)
                         <option value="{{ $deleted_by->id }}">{{ $deleted_by->name }}</option>
                     @endforeach
@@ -147,9 +147,9 @@
         <div class="form-group">
             <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
             <select wire:model="{{ $input }}" class="form-select" id="{{ $input }}" name="{{ $input }}">
-                <option value="">{{ trans("field.All") }}</option>
-                <option value="1">{{ trans("field.Active") }}</option>
-                <option value="0">{{ trans("field.Non Active") }}</option>
+                <option value="">{{ trans("index.All") }}</option>
+                <option value="1">{{ trans("index.Active") }}</option>
+                <option value="0">{{ trans("index.Non Active") }}</option>
             </select>
         </div>
     </div>
@@ -159,10 +159,10 @@
         <div class="form-group">
             <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
             <select wire:model="{{ $input }}" class="form-select" id="{{ $input }}" name="{{ $input }}">
-                <option value="">{{ trans("field.All") }}</option>
-                <option value="1">{{ trans("field.Image") }}</option>
-                <option value="2">{{ trans("field.Video") }}</option>
-                <option value="3">{{ trans("field.Youtube") }}</option>
+                <option value="">{{ trans("index.All") }}</option>
+                <option value="1">{{ trans("index.Image") }}</option>
+                <option value="2">{{ trans("index.Video") }}</option>
+                <option value="3">{{ trans("index.Youtube") }}</option>
             </select>
         </div>
     </div>

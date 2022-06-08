@@ -42,7 +42,7 @@
     <p>Alamat Email : {{ $registration->email }}</p>
 </div>
 <div>
-    <p>Jenis Kelamin : {{ trans("general.$registration->gender_text") }}</p>
+    <p>Jenis Kelamin : {{ trans("index.$registration->gender_text") }}</p>
 </div>
 <div>
     <p>Sekolah : {{ $registration->school }}</p>
@@ -54,7 +54,7 @@
     <p>Kota : {{ $registration->city }}</p>
 </div>
 <div>
-    <p>Tipe : {{ trans("general.{$registration->type_text}") }}</p>
+    <p>Tipe : {{ trans("index.{$registration->type_text}") }}</p>
 </div>
 <div>
     <p>Tanggal Dibuat : {{ $registration->created_at }}</p>

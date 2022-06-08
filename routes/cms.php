@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Session;
 Route::any("locale/{locale}", function ($locale) {
     Session::put("locale", $locale);
     App::setLocale($locale);
-    return redirect()->back()->withInfo(trans("language.Language has been changed"));
+    return redirect()->back()->withInfo(trans("index.Language has been changed"));
 });
 
 $page = "Login";

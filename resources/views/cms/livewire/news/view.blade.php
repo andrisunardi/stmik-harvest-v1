@@ -1,7 +1,7 @@
 <div>
     <div class="row my-2">
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <h6>{{ trans("field.ID") }}</h6>
+            <h6>{{ trans("index.ID") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             {{ $news->id }}
@@ -9,7 +9,7 @@
     </div>
     <div class="row my-2">
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <h6>{{ trans("field.Image") }}</h6>
+            <h6>{{ trans("index.Image") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             @if ($news->checkImage())
@@ -17,13 +17,13 @@
                     <img draggable="false" width="100"
                         src="{{ $news->assetImage() }}"
                         alt="{{ trans("page.{$menu_name}") }} - {{ $news->translate_name }} - {{ env("APP_TITLE") }}"
-                        data-bs-toggle="tooltip" data-bs-placement="top" title="{{ trans("general.Click To View") }}">
+                        data-bs-toggle="tooltip" data-bs-placement="top" title="{{ trans("index.Click To View") }}">
                 </a>
                 <div class="modal fade" id="image" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="image" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h6 class="modal-title" id="image">{{ trans("general.Image") }} - {{ trans("page.{$menu_name}") }}</h6>
+                                <h6 class="modal-title" id="image">{{ trans("index.Image") }} - {{ trans("page.{$menu_name}") }}</h6>
                                 <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
@@ -31,17 +31,17 @@
                                     <img draggable="false" class="img-fluid w-100"
                                         src="{{ $news->assetImage() }}"
                                         alt="{{ trans("page.{$menu_name}") }} - {{ $news->translate_name }} - {{ env("APP_TITLE") }}"
-                                        data-bs-toggle="tooltip" data-bs-placement="top" title="{{ trans("general.Click To View") }}">
+                                        data-bs-toggle="tooltip" data-bs-placement="top" title="{{ trans("index.Click To View") }}">
                                 </a>
                             </div>
                             <div class="modal-footer justify-content-between">
                                 <button class="btn btn-creative btn-sm btn-light" type="button" data-bs-dismiss="modal">
                                     <i class="bi bi-x me-1"></i>
-                                    {{ trans("button.Close") }}
+                                    {{ trans("index.Close") }}
                                 </button>
                                 <a draggable="false" class="btn btn-creative btn-sm btn-primary" href="{{ $news->assetImage() }}" download>
                                     <i class="bi bi-download me-1"></i>
-                                    {{ trans("button.Download") }}
+                                    {{ trans("index.Download") }}
                                 </a>
                             </div>
                         </div>
@@ -52,7 +52,7 @@
     </div>
     <div class="row my-2">
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <h6>{{ trans("field.News Category") }}</h6>
+            <h6>{{ trans("index.News Category") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             <a draggable="false" href="{{ $news->news_category?->id ? route("{$sub_domain}.news-category.index") . "?menu_type=view&row={$news->news_category?->id}" : null }}" target="_blank">
@@ -65,7 +65,7 @@
     </div>
     <div class="row my-2">
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <h6>{{ trans("field.Name") }}</h6>
+            <h6>{{ trans("index.Name") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             {{ $news->name }}
@@ -76,7 +76,7 @@
     </div>
     <div class="row my-2">
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <h6>{{ trans("field.Name ID") }}</h6>
+            <h6>{{ trans("index.Name ID") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             {{ $news->name_id }}
@@ -87,7 +87,7 @@
     </div>
     <div class="row my-2">
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <h6>{{ trans("field.Description") }}</h6>
+            <h6>{{ trans("index.Description") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             {!! html_entity_decode($news->description) !!}
@@ -95,7 +95,7 @@
     </div>
     <div class="row my-2">
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <h6>{{ trans("field.Description ID") }}</h6>
+            <h6>{{ trans("index.Description ID") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             {!! html_entity_decode($news->description_id) !!}
@@ -103,7 +103,7 @@
     </div>
     <div class="row my-2">
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <h6>{{ trans("field.Date") }}</h6>
+            <h6>{{ trans("index.Date") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             @if ($news->date && $news->date != "0000-00-00")
@@ -114,7 +114,7 @@
     </div>
     <div class="row my-2">
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <h6>{{ trans("field.Tag") }}</h6>
+            <h6>{{ trans("index.Tag") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             @foreach ($news->data_tag() as $tag)
@@ -124,7 +124,7 @@
     </div>
     <div class="row my-2">
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <h6>{{ trans("field.Tag ID") }}</h6>
+            <h6>{{ trans("index.Tag ID") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             @foreach ($news->data_tag_id() as $tag_id)
@@ -134,17 +134,17 @@
     </div>
     <div class="row my-2">
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <h6>{{ trans("field.Active") }}</h6>
+            <h6>{{ trans("index.Active") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             <span class="{{ "badge bg-" . Str::successdanger($news->active) }}">
-                {{ trans("general." . Str::active($news->active)) }}
+                {{ trans("index." . Str::active($news->active)) }}
             </span>
         </div>
     </div>
     <div class="row my-2">
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <h6>{{ trans("field.Created By") }}</h6>
+            <h6>{{ trans("index.Created By") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             <a draggable="false" href="{{ $news->created_by_admin?->id || $news->created_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$news->created_by_admin?->id}" : null }}" target="_blank">
@@ -154,7 +154,7 @@
     </div>
     <div class="row my-2">
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <h6>{{ trans("field.Updated By") }}</h6>
+            <h6>{{ trans("index.Updated By") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             <a draggable="false" href="{{ $news->updated_by_admin?->id || $news->updated_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$news->updated_by_admin?->id}" : null }}" target="_blank">
@@ -165,7 +165,7 @@
     @if ($news->trashed())
         <div class="row my-2">
             <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-                <h6>{{ trans("field.Deleted By") }}</h6>
+                <h6>{{ trans("index.Deleted By") }}</h6>
             </div>
             <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
                 <a draggable="false" href="{{ $news->deleted_by_admin?->id || $news->deleted_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$news->deleted_by_admin?->id}" : null }}" target="_blank">
@@ -176,7 +176,7 @@
     @endif
     <div class="row my-2">
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <h6>{{ trans("field.Created At") }}</h6>
+            <h6>{{ trans("index.Created At") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             {{ $news->created_at->format("H:i:s - l, d F Y") }} <br class="d-md-none"> ({{ $news->created_at->diffForHumans() }})
@@ -184,7 +184,7 @@
     </div>
     <div class="row my-2">
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <h6>{{ trans("field.Updated At") }}</h6>
+            <h6>{{ trans("index.Updated At") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             {{ $news->updated_at->format("H:i:s - l, d F Y") }} <br class="d-md-none"> ({{ $news->updated_at->diffForHumans() }})
@@ -193,7 +193,7 @@
     @if ($news->trashed())
         <div class="row my-2">
             <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-                <h6>{{ trans("field.Deleted At") }}</h6>
+                <h6>{{ trans("index.Deleted At") }}</h6>
             </div>
             <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
                 {{ $news->deleted_at->format("H:i:s - l, d F Y") }} <br class="d-md-none"> ({{ $news->deleted_at->diffForHumans() }})
@@ -205,14 +205,14 @@
             <div class="col-12 col-sm-auto mt-3 mt-sm-0">
                 <button class="btn btn-creative btn-sm btn-success w-100" type="button" data-bs-toggle="modal" data-bs-target="#restore-{{ $news->id }}">
                     <i class="bi bi-arrow-clockwise me-1"></i>
-                    {{ trans("button.Restore") }}
+                    {{ trans("index.Restore") }}
                 </button>
 
                 <div class="modal fade" id="restore-{{ $news->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="restore-{{ $news->id }}" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h6 class="modal-title" id="restore-{{ $news->id }}">{{ trans("general.Restore") }} - {{ trans("page.{$menu_name}") }}</h6>
+                                <h6 class="modal-title" id="restore-{{ $news->id }}">{{ trans("index.Restore") }} - {{ trans("page.{$menu_name}") }}</h6>
                                 <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
@@ -221,11 +221,11 @@
                             <div class="modal-footer justify-content-between">
                                 <button class="btn btn-creative btn-sm btn-light" type="button" data-bs-dismiss="modal">
                                     <i class="bi bi-x me-1"></i>
-                                    {{ trans("button.Close") }}
+                                    {{ trans("index.Close") }}
                                 </button>
                                 <button class="btn btn-creative btn-sm btn-success" type="button" data-bs-dismiss="modal" wire:click="restore({{ $news->id }})">
                                     <i class="bi bi-check me-1"></i>
-                                    {{ trans("button.Yes") }}
+                                    {{ trans("index.Yes") }}
                                 </button>
                             </div>
                         </div>
@@ -235,14 +235,14 @@
             <div class="col-12 col-sm-auto mt-3 mt-sm-0">
                 <button class="btn btn-creative btn-sm btn-danger w-100" type="button" data-bs-toggle="modal" data-bs-target="#delete-permanent-{{ $news->id }}">
                     <i class="bi bi-trash2 me-1"></i>
-                    {{ trans("button.Delete Permanent") }}
+                    {{ trans("index.Delete Permanent") }}
                 </button>
 
                 <div class="modal fade" id="delete-permanent-{{ $news->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="delete-permanent-{{ $news->id }}" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h6 class="modal-title" id="delete-permanent-{{ $news->id }}">{{ trans("general.Delete Permanent") }} - {{ trans("page.{$menu_name}") }}</h6>
+                                <h6 class="modal-title" id="delete-permanent-{{ $news->id }}">{{ trans("index.Delete Permanent") }} - {{ trans("page.{$menu_name}") }}</h6>
                                 <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
@@ -253,11 +253,11 @@
                             <div class="modal-footer">
                                 <button class="btn btn-creative btn-sm btn-light" type="button" data-bs-dismiss="modal">
                                     <i class="bi bi-x me-1"></i>
-                                    {{ trans("button.Close") }}
+                                    {{ trans("index.Close") }}
                                 </button>
                                 <button class="btn btn-creative btn-sm btn-danger" type="button" data-bs-dismiss="modal" wire:click="deletePermanent({{ $news->id }})">
                                     <i class="bi bi-check me-1"></i>
-                                    {{ trans("button.Yes") }}
+                                    {{ trans("index.Yes") }}
                                 </button>
                             </div>
                         </div>
@@ -268,33 +268,33 @@
             <div class="col-6 col-sm-auto">
                 <button class="btn btn-creative btn-sm btn-success w-100" wire:click="active({{ $news->id }})">
                     <i class="bi bi-check-circle-fill me-1"></i>
-                    {{ trans("button.Active") }}
+                    {{ trans("index.Active") }}
                 </button>
             </div>
             <div class="col-6 col-sm-auto">
                 <button class="btn btn-creative btn-sm btn-danger w-100" wire:click="nonActive({{ $news->id }})">
                     <i class="bi bi-x-circle-fill me-1"></i>
-                    {{ trans("button.Non Active") }}
+                    {{ trans("index.Non Active") }}
                 </button>
             </div>
 
             <div class="col-6 col-sm-auto mt-3 mt-sm-0">
                 <button class="btn btn-creative btn-sm btn-success w-100" wire:click="form('edit', {{ $news->id }})">
                     <i class="bi bi-pencil me-1"></i>
-                    {{ trans("button.Edit") }}
+                    {{ trans("index.Edit") }}
                 </button>
             </div>
             <div class="col-6 col-sm-auto mt-3 mt-sm-0">
                 <button class="btn btn-creative btn-sm btn-danger w-100" type="button" data-bs-toggle="modal" data-bs-target="#delete-{{ $news->id }}">
                     <i class="bi bi-trash me-1"></i>
-                    {{ trans("button.Delete") }}
+                    {{ trans("index.Delete") }}
                 </button>
 
                 <div class="modal fade" id="delete-{{ $news->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="delete-{{ $news->id }}" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h6 class="modal-title" id="delete-{{ $news->id }}">{{ trans("general.Delete") }} - {{ trans("page.{$menu_name}") }}</h6>
+                                <h6 class="modal-title" id="delete-{{ $news->id }}">{{ trans("index.Delete") }} - {{ trans("page.{$menu_name}") }}</h6>
                                 <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
@@ -304,11 +304,11 @@
                             <div class="modal-footer justify-content-between">
                                 <button class="btn btn-creative btn-sm btn-light" type="button" data-bs-dismiss="modal">
                                     <i class="bi bi-x me-1"></i>
-                                    {{ trans("button.Close") }}
+                                    {{ trans("index.Close") }}
                                 </button>
                                 <button class="btn btn-creative btn-sm btn-danger" type="button" data-bs-dismiss="modal" wire:click="delete({{ $news->id }})">
                                     <i class="bi bi-check me-1"></i>
-                                    {{ trans("button.Yes") }}
+                                    {{ trans("index.Yes") }}
                                 </button>
                             </div>
                         </div>

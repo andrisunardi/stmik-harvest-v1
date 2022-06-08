@@ -10,7 +10,7 @@ Route::any("locale/{locale}", function ($locale) {
     App::setLocale($locale);
     Config::set("app.locale", $locale);
     Session::put("locale", $locale);
-    return redirect()->back()->withInfo(trans("language.Language has been changed"));
+    return redirect()->back()->withInfo(trans("index.Language has been changed"));
 });
 
 Route::name("cms.")->as("cms.")->namespace("CMS")->prefix("cms")

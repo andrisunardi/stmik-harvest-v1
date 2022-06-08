@@ -17,9 +17,9 @@
                                 <figure>
                                     <a draggable="false" href="{{ route("{$menu_slug}.view", ["news_slug" => $news->slug]) }}">
                                         <img draggable="false" src="{{ $news->assetImage() }}" class="img-fluid w-100"
-                                            alt="{{ trans("general.News") }} - {{ $news->translate_name }} - {{ env("APP_TITLE") }}">
+                                            alt="{{ trans("index.News") }} - {{ $news->translate_name }} - {{ env("APP_TITLE") }}">
                                         <div class="preview">
-                                            <span>{{ trans("general.Read More") }}</span>
+                                            <span>{{ trans("index.Read More") }}</span>
                                         </div>
                                     </a>
                                 </figure>
@@ -34,7 +34,7 @@
                                         <li>
                                             <div class="thumb">
                                                 <img draggable="false" src="{{ asset("images/logo.png") }}" class="img-fluid w-100"
-                                                    alt="{{ trans("general.Logo") }} - {{ env("APP_TITLE") }}">
+                                                    alt="{{ trans("index.Logo") }} - {{ env("APP_TITLE") }}">
                                             </div>
                                             Administrator
                                         </li>

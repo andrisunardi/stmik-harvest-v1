@@ -4,12 +4,12 @@
 
         <div class="d-lg-flex justify-content-between mt-3">
             <p class="text-center mt-lg-1 text-lg-end">
-                {{ trans("general.Showing") }}
+                {{ trans("index.Showing") }}
                 {{ ($paginator->perPage() * $paginator->currentPage()) - $paginator->perPage() + 1 }}
-                {{ trans("general.to") }}
+                {{ trans("index.to") }}
                 {{ $paginator->hasMorePages() ? $paginator->perPage() * $paginator->currentPage() : $paginator->total() }}
-                {{ trans("general.of") }}
-                {{ $paginator->total() }} {{ trans("general.Results") }}
+                {{ trans("index.of") }}
+                {{ $paginator->total() }} {{ trans("index.Results") }}
             </p>
             <div class="table-responsive pb-3">
                 <nav>

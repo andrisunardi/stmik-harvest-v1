@@ -100,8 +100,8 @@
                 <div class="col-lg-6">
                     <div class="about">
                         <div class="section__title text-left">
-                            <h2 class="title__line lh-sm">{{ trans("general.Welcome To") }} {{ trans("general.Yayasan STMIK Harvest") }}</h2>
-                            <p>{{ trans("general.College for Future Technopreneur") }}</p>
+                            <h2 class="title__line lh-sm">{{ trans("index.Welcome To") }} {{ trans("index.Yayasan STMIK Harvest") }}</h2>
+                            <p>{{ trans("index.College for Future Technopreneur") }}</p>
                         </div>
                         <p class="about__details">{!! html_entity_decode($setting->translate_about_us) !!}</p>
                     </div>
@@ -122,11 +122,11 @@
                     <div class="findout__wrap my-5 my-sm-auto">
                         <div class="findout__inner">
                             <h2>
-                                <span>{{ trans("general.Ready to Join ?") }}</span>
-                                {{ trans("general.It easy now to you for being our part, just click the button below and fill out the form with your data.") }}
+                                <span>{{ trans("index.Ready to Join ?") }}</span>
+                                {{ trans("index.It easy now to you for being our part, just click the button below and fill out the form with your data.") }}
                             </h2>
                             <div class="findout__btn">
-                                <a draggable="false" class="htc__btn btn--yellow" href="{{ route("online-registration.index") }}">{{ trans("general.Register") }}</a>
+                                <a draggable="false" class="htc__btn btn--yellow" href="{{ route("online-registration.index") }}">{{ trans("index.Register") }}</a>
                             </div>
                         </div>
                     </div>
@@ -140,8 +140,8 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section__title text-center">
-                        <h2 class="title__line">{{ trans("general.Our Events") }}</h2>
-                        <p>{{ trans("general.Join our events to know us closer") }}</p>
+                        <h2 class="title__line">{{ trans("index.Our Events") }}</h2>
+                        <p>{{ trans("index.Join our events to know us closer") }}</p>
                     </div>
                 </div>
             </div>
@@ -186,8 +186,8 @@
                 <div class="col-lg-8 col-xl-7">
                     <div class="countdown__wrap">
                         <div class="countdown__inner">
-                            <h4>{{ trans("general.Now Open Admission For Registration") }}</h4>
-                            <h2>{{ trans("general.Register Now") }}</h2>
+                            <h4>{{ trans("index.Now Open Admission For Registration") }}</h4>
+                            <h2>{{ trans("index.Register Now") }}</h2>
                         </div>
                         <div class="ml-countdown-thumb">
                             <div class="box-timer">
@@ -201,7 +201,7 @@
 
                 <div class="col-lg-4 col-xl-5">
                     <div class="create__free__account__form">
-                        <h2><i class="icon ion-android-document"></i> {{ trans("general.Online Registration") }}</h2>
+                        <h2><i class="icon ion-android-document"></i> {{ trans("index.Online Registration") }}</h2>
                         <div class="account__form__box">
                             @if (now()->format("Y-m-d") <= $admission_calendar->date)
                                 <form wire:submit.prevent="submit" enctype="multipart/form-data" class="was-validated-delete" method="post" role="form" action="{{ route("index") }}" id="contact-form" autocomplete="off">
@@ -245,9 +245,9 @@
                                         class="form-control mt-3 @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif"
                                         placeholder="{{ trans("validation.attributes.{$input}") }}" aria-label="{{ trans("validation.attributes.{$input}") }}" aria-describedby="{{ trans("validation.attributes.{$input}") }}"
                                         autocomplete="off" autocapitalize="none" required>
-                                        <option value="">{{ trans("general.Select") }} {{ trans("validation.attributes.{$input}") }}</option>
-                                        <option value="1">{{ trans("general.Man") }}</option>
-                                        <option value="2">{{ trans("general.Woman") }}</option>
+                                        <option value="">{{ trans("index.Select") }} {{ trans("validation.attributes.{$input}") }}</option>
+                                        <option value="1">{{ trans("index.Man") }}</option>
+                                        <option value="2">{{ trans("index.Woman") }}</option>
                                     </select>
                                     @error($input)
                                         <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
@@ -293,9 +293,9 @@
                                         class="form-control mt-3 @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif"
                                         placeholder="{{ trans("validation.attributes.{$input}") }}" aria-label="{{ trans("validation.attributes.{$input}") }}" aria-describedby="{{ trans("validation.attributes.{$input}") }}"
                                         autocomplete="off" autocapitalize="none" required>
-                                        <option value="">{{ trans("general.Which Do You Prefer") }}</option>
-                                        <option value="1">{{ trans("general.Morning - Afternoon Lecturer") }}</option>
-                                        <option value="2">{{ trans("general.Study & Work (Evening Lecture)") }}</option>
+                                        <option value="">{{ trans("index.Which Do You Prefer") }}</option>
+                                        <option value="1">{{ trans("index.Morning - Afternoon Lecturer") }}</option>
+                                        <option value="2">{{ trans("index.Study & Work (Evening Lecture)") }}</option>
                                     </select>
                                     @error($input)
                                         <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
@@ -308,11 +308,11 @@
                                     </div>
 
                                     <div class="acount__btn">
-                                        <button class="htc__btn btn--theme btn--smll" type="button" wire:click="submit">{{ trans("button.Submit") }}</button>
+                                        <button class="htc__btn btn--theme btn--smll" type="button" wire:click="submit">{{ trans("index.Submit") }}</button>
                                     </div>
                                 </form>
                             @else
-                                <h3 class="mt-5 text-center text-danger">{{ trans("general.Registration Is Now Closed") }}</h2>
+                                <h3 class="mt-5 text-center text-danger">{{ trans("index.Registration Is Now Closed") }}</h2>
                             @endif
                         </div>
 
@@ -409,8 +409,8 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section__title text-center section--white">
-                        <h2 class="title__line">{{ trans("general.Testimonials") }}</h2>
-                        <p>{{ trans("general.How Real People Said About STMIK Harvest") }}</p>
+                        <h2 class="title__line">{{ trans("index.Testimonials") }}</h2>
+                        <p>{{ trans("index.How Real People Said About STMIK Harvest") }}</p>
                     </div>
                 </div>
             </div>
@@ -422,7 +422,7 @@
                             @foreach ($data_testimony as $testimony)
                                 <div class="sin-testiImage">
                                     <div class="text-thumb">
-                                        <img draggable="false" src="{{ $testimony->assetImage() }}" class="rounded-circle" style="width: 90px; height:90px" alt="{{ trans("general.Testimony") }} - {{ $testimony->name }} - {{ env("APP_TITLE") }}"/>
+                                        <img draggable="false" src="{{ $testimony->assetImage() }}" class="rounded-circle" style="width: 90px; height:90px" alt="{{ trans("index.Testimony") }} - {{ $testimony->name }} - {{ env("APP_TITLE") }}"/>
                                     </div>
                                     <div class="test-info">
                                         <h4>{{ $testimony->name }}</h4>
@@ -450,8 +450,8 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section__title text-center">
-                        <h2 class="title__line">{{ trans("general.Our Latest News") }}</h2>
-                        <p>{{ trans("general.Stay tuned with our latest news so you don't miss any information from us") }}</p>
+                        <h2 class="title__line">{{ trans("index.Our Latest News") }}</h2>
+                        <p>{{ trans("index.Stay tuned with our latest news so you don't miss any information from us") }}</p>
                     </div>
                 </div>
             </div>
@@ -471,7 +471,7 @@
                                 <h2><a draggable="false" href="{{ route("news.view", ["news_slug" => $news->slug]) }}">{{ $news->translate_name }}</a></h2>
                                 <p>{{ strip_tags(Str::limit($news->translate_description, 300)) }}</p>
                                 <div class="blog__btn">
-                                    <a draggable="false" class="read__more__btn" href="{{ route("news.view", ["news_slug" => $news->slug]) }}">{{ trans("button.Read More") }}</a>
+                                    <a draggable="false" class="read__more__btn" href="{{ route("news.view", ["news_slug" => $news->slug]) }}">{{ trans("index.Read More") }}</a>
                                 </div>
                             </div>
                         </div>
@@ -486,7 +486,7 @@
             <div class="row">
                 <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                     <div class="newsletter__wrap bg--5">
-                        <h2>{{ trans("general.You want to know more information") }}?<br> {{ trans("general.Send us a mail") }}!</h2>
+                        <h2>{{ trans("index.You want to know more information") }}?<br> {{ trans("index.Send us a mail") }}!</h2>
                         <div class="newsletter__form">
                             <div class="input__box">
                                 <div id="mc_embed_signup">
@@ -513,7 +513,7 @@
                                                 @enderror
                                             </div>
                                             <div class="clearfix subscribe__btn">
-                                                <input wire:click="newsletter" type="button" value="{{ trans("button.Send") }}" class="bst__btn btn--white__color">
+                                                <input wire:click="newsletter" type="button" value="{{ trans("index.Send") }}" class="bst__btn btn--white__color">
                                             </div>
                                         </div>
                                     </form>

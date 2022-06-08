@@ -18,25 +18,25 @@
         <div class="form-group">
             <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
             <select wire:model="{{ $input }}" class="form-select" id="{{ $input }}" name="{{ $input }}">
-                <option value="id">{{ trans("field.ID") }}</option>
-                <option value="name">{{ trans("field.Name") }}</option>
-                <option value="email">{{ trans("field.Email") }}</option>
-                <option value="phone">{{ trans("field.Phone") }}</option>
-                <option value="gender">{{ trans("field.Gender") }}</option>
-                <option value="school">{{ trans("field.School") }}</option>
-                <option value="major">{{ trans("field.Major") }}</option>
-                <option value="city">{{ trans("field.City") }}</option>
-                <option value="type">{{ trans("field.Type") }}</option>
-                <option value="active">{{ trans("field.Active") }}</option>
-                <option value="created_by">{{ trans("field.Created By") }}</option>
-                <option value="updated_by">{{ trans("field.Updated By") }}</option>
+                <option value="id">{{ trans("index.ID") }}</option>
+                <option value="name">{{ trans("index.Name") }}</option>
+                <option value="email">{{ trans("index.Email") }}</option>
+                <option value="phone">{{ trans("index.Phone") }}</option>
+                <option value="gender">{{ trans("index.Gender") }}</option>
+                <option value="school">{{ trans("index.School") }}</option>
+                <option value="major">{{ trans("index.Major") }}</option>
+                <option value="city">{{ trans("index.City") }}</option>
+                <option value="type">{{ trans("index.Type") }}</option>
+                <option value="active">{{ trans("index.Active") }}</option>
+                <option value="created_by">{{ trans("index.Created By") }}</option>
+                <option value="updated_by">{{ trans("index.Updated By") }}</option>
                 @if ($menu_type == "trash")
-                    <option value="deleted_by">{{ trans("field.Deleted By") }}</option>
+                    <option value="deleted_by">{{ trans("index.Deleted By") }}</option>
                 @endif
-                <option value="created_at">{{ trans("field.Created At") }}</option>
-                <option value="updated_at">{{ trans("field.Updated At") }}</option>
+                <option value="created_at">{{ trans("index.Created At") }}</option>
+                <option value="updated_at">{{ trans("index.Updated At") }}</option>
                 @if ($menu_type == "trash")
-                    <option value="deleted_at">{{ trans("field.Deleted At") }}</option>
+                    <option value="deleted_at">{{ trans("index.Deleted At") }}</option>
                 @endif
             </select>
         </div>
@@ -47,8 +47,8 @@
         <div class="form-group">
             <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
             <select wire:model="{{ $input }}" class="form-select" id="{{ $input }}" name="{{ $input }}">
-                <option value="asc">{{ trans("field.Ascending") }}</option>
-                <option value="desc">{{ trans("field.Descending") }}</option>
+                <option value="asc">{{ trans("index.Ascending") }}</option>
+                <option value="desc">{{ trans("index.Descending") }}</option>
             </select>
         </div>
     </div>
@@ -58,7 +58,7 @@
         <div class="form-group">
             <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
             <select wire:model="{{ $input }}" class="form-select" id="{{ $input }}" name="{{ $input }}">
-                <option value="">{{ trans("field.All") }}</option>
+                <option value="">{{ trans("index.All") }}</option>
                 @foreach ($data_created_by as $created_by)
                     <option value="{{ $created_by->id }}">{{ $created_by->name }}</option>
                 @endforeach
@@ -71,7 +71,7 @@
         <div class="form-group">
             <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
             <select wire:model="{{ $input }}" class="form-select" id="{{ $input }}" name="{{ $input }}">
-                <option value="">{{ trans("field.All") }}</option>
+                <option value="">{{ trans("index.All") }}</option>
                 @foreach ($data_updated_by as $updated_by)
                     <option value="{{ $updated_by->id }}">{{ $updated_by->name }}</option>
                 @endforeach
@@ -85,7 +85,7 @@
             <div class="form-group">
                 <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
                 <select wire:model="{{ $input }}" class="form-select" id="{{ $input }}" name="{{ $input }}">
-                    <option value="">{{ trans("field.All") }}</option>
+                    <option value="">{{ trans("index.All") }}</option>
                     @foreach ($data_deleted_by as $deleted_by)
                         <option value="{{ $deleted_by->id }}">{{ $deleted_by->name }}</option>
                     @endforeach
@@ -149,9 +149,9 @@
         <div class="form-group">
             <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
             <select wire:model="{{ $input }}" class="form-select" id="{{ $input }}" name="{{ $input }}">
-                <option value="">{{ trans("field.All") }}</option>
-                <option value="1">{{ trans("field.Active") }}</option>
-                <option value="0">{{ trans("field.Non Active") }}</option>
+                <option value="">{{ trans("index.All") }}</option>
+                <option value="1">{{ trans("index.Active") }}</option>
+                <option value="0">{{ trans("index.Non Active") }}</option>
             </select>
         </div>
     </div>
@@ -185,9 +185,9 @@
         <div class="form-group">
             <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
             <select wire:model="{{ $input }}" class="form-select" id="{{ $input }}" name="{{ $input }}">
-                <option value="">{{ trans("field.All") }}</option>
-                <option value="1">{{ trans("field.Man") }}</option>
-                <option value="2">{{ trans("field.Woman") }}</option>
+                <option value="">{{ trans("index.All") }}</option>
+                <option value="1">{{ trans("index.Man") }}</option>
+                <option value="2">{{ trans("index.Woman") }}</option>
             </select>
         </div>
     </div>
@@ -221,9 +221,9 @@
         <div class="form-group">
             <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
             <select wire:model="{{ $input }}" class="form-select" id="{{ $input }}" name="{{ $input }}">
-                <option value="">{{ trans("field.All") }}</option>
-                <option value="1">{{ trans("field.Morning - Afternoon Lecturer") }}</option>
-                <option value="2">{{ trans("field.Study & Work (Evening Lecture)") }}</option>
+                <option value="">{{ trans("index.All") }}</option>
+                <option value="1">{{ trans("index.Morning - Afternoon Lecturer") }}</option>
+                <option value="2">{{ trans("index.Study & Work (Evening Lecture)") }}</option>
             </select>
         </div>
     </div>

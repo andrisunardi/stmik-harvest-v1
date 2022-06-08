@@ -37,28 +37,28 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-5 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-                            <h6>{{ trans("general.Server Time") }}</p>
+                            <h6>{{ trans("index.Server Time") }}</p>
                         </div>
                         <div class="col-7 col-sm-6 col-md-8 col-lg-9 col-xl-10 text-end text-sm-start">
                             <p id="clock"></p>
                         </div>
                     </div>
 
-                    <h6>{{ trans("language.Change Language") }}</h6>
+                    <h6>{{ trans("index.Change Language") }}</h6>
                     <div class="language-area-wrapper">
                         <ul class="ps-0 language-lists">
                             <li>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="language" id="English"
                                         wire:click="changeLanguage('en')" {{ Session::get("locale") == "en" ? "checked" : null }}>
-                                    <label class="form-check-label" for="English">{{ trans("language.English") }}</label>
+                                    <label class="form-check-label" for="English">{{ trans("index.English") }}</label>
                                 </div>
                             </li>
                             <li>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="language" id="indonesia"
                                         wire:click="changeLanguage('id')" {{ Session::get("locale") == "id" ? "checked" : null }}>
-                                    <label class="form-check-label" for="indonesia">{{ trans("language.Indonesia") }}</label>
+                                    <label class="form-check-label" for="indonesia">{{ trans("index.Indonesia") }}</label>
                                 </div>
                             </li>
                         </ul>

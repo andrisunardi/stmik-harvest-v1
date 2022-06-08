@@ -28,8 +28,8 @@
                     {{ $menu_type == "trash" ? "bg-warning" : null }}
                     {{ $menu_type == "view" ? "bg-dark" : null }}
                 ">
-                    {{ $menu_type == "index" ? trans("general.Data") :
-                        trans("general." . Str::title($menu_type)) }}
+                    {{ $menu_type == "index" ? trans("index.Data") :
+                        trans("index." . Str::title($menu_type)) }}
                     @yield("name")
                 </div>
 

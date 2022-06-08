@@ -44,7 +44,7 @@
                     <a draggable="false" href="{{ route("{$sub_domain}.index") }}">
                         <img draggable="false" class="img-circle" width="30" height="30"
                             src="{{ Auth::user()->assetImage() }}"
-                            alt="{{ trans("general.Admin") }} - {{ Auth::user()->name }} - {{ env("APP_TITLE") }}">
+                            alt="{{ trans("index.Admin") }} - {{ Auth::user()->name }} - {{ env("APP_TITLE") }}">
                         <span>{{ Auth::user()->name }}</span>
                     </a>
                 </li>

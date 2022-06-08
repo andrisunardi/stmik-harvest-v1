@@ -66,7 +66,7 @@
             <div class="col-12 col-sm-auto">
                 <button class="btn btn-primary w-100" type="button" wire:click="changePasswordSubmit">
                     <i class="bi bi-save-fill me-1"></i>
-                    {{ trans("button.Save Changes") }}
+                    {{ trans("index.Save Changes") }}
                 </button>
             </div>
         </div>

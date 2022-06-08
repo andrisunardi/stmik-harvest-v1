@@ -16,7 +16,7 @@
             <aside>
                 <figure>
                     <a draggable="false" href="{{ route("index") }}">
-                        <img draggable="false" src="{{ asset("images/logo.png") }}" width="150" alt="{{ trans("general.Logo") }}">
+                        <img draggable="false" src="{{ asset("images/logo.png") }}" width="150" alt="{{ trans("index.Logo") }}">
                     </a>
                 </figure> --}}
                 <div class="row justify-content-center">
@@ -27,7 +27,7 @@
                                 <a draggable="false" href="#0" class="social_bt google">Login with Google</a>
                                 <a draggable="false" href="#0" class="social_bt linkedin">Login with Linkedin</a>
                             </div>
-                            <div class="divider"><span>{{ trans("general.OR") }}</span></div> --}}
+                            <div class="divider"><span>{{ trans("index.OR") }}</span></div> --}}
                             <div class="form-group">
                                 <span class="input">
                                     <input class="input_field" type="email" autocomplete="off" name="email">

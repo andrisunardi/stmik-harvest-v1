@@ -27,10 +27,10 @@
                                 <li class="breadcrumb-item"><a draggable="false" href="javascript:;" wire:click="index()"><i class="@yield("icon") me-1"></i> @yield("name")</a></li>
                             @endif
                             @if ($menu_type == "edit-profile")
-                                <li class="breadcrumb-item active" aria-current="page"><i class="bi bi-pencil me-1"></i> {{ trans("general.Edit Profile") }}</li>
+                                <li class="breadcrumb-item active" aria-current="page"><i class="bi bi-pencil me-1"></i> {{ trans("index.Edit Profile") }}</li>
                             @endif
                             @if ($menu_type == "change-password")
-                                <li class="breadcrumb-item active" aria-current="page"><i class="bi bi-lock me-1"></i> {{ trans("general.Change Password") }}</li>
+                                <li class="breadcrumb-item active" aria-current="page"><i class="bi bi-lock me-1"></i> {{ trans("index.Change Password") }}</li>
                             @endif
                         </ol>
                     </nav>
@@ -44,7 +44,7 @@
                     <div class="user-profile me-3">
                         <img draggable="false"
                             src="{{ Auth::user()->assetImage() }}"
-                            alt="{{ trans("general.Admin") }} - {{ Auth::user()->name }} - {{ env("APP_TITLE") }}">
+                            alt="{{ trans("index.Admin") }} - {{ Auth::user()->name }} - {{ env("APP_TITLE") }}">
                         <i class="bi bi-pencil"></i>
                         <form action="#">
                             <input class="form-control" type="file" />
@@ -75,7 +75,7 @@
                     @if ($menu_type == "index")
                         <div class="row my-2">
                             <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-                                <h6>{{ trans("field.Access") }}</h6>
+                                <h6>{{ trans("index.Access") }}</h6>
                             </div>
                             <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
                                 {{ Auth::user()->access->name }}
@@ -84,7 +84,7 @@
 
                         <div class="row my-2">
                             <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-                                <h6>{{ trans("field.Name") }}</h6>
+                                <h6>{{ trans("index.Name") }}</h6>
                             </div>
                             <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
                                 {{ Auth::user()->name }}
@@ -93,7 +93,7 @@
 
                         <div class="row my-2">
                             <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-                                <h6>{{ trans("field.Email") }}</h6>
+                                <h6>{{ trans("index.Email") }}</h6>
                             </div>
                             <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
                                 {{ Auth::user()->email }}
@@ -102,7 +102,7 @@
 
                         <div class="row my-2">
                             <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-                                <h6>{{ trans("field.Username") }}</h6>
+                                <h6>{{ trans("index.Username") }}</h6>
                             </div>
                             <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
                                 {{ Auth::user()->username }}
@@ -111,18 +111,18 @@
 
                         <div class="row my-2">
                             <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-                                <h6>{{ trans("field.Active") }}</h6>
+                                <h6>{{ trans("index.Active") }}</h6>
                             </div>
                             <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
                                 <span class="{{ "badge bg-" . Str::successdanger(Auth::user()->active) }}">
-                                    {{ trans("general." . Str::active(Auth::user()->active)) }}
+                                    {{ trans("index." . Str::active(Auth::user()->active)) }}
                                 </span>
                             </div>
                         </div>
 
                         <div class="row my-2">
                             <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-                                <h6>{{ trans("field.Created By") }}</h6>
+                                <h6>{{ trans("index.Created By") }}</h6>
                             </div>
                             <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
                                 {{ Auth::user()->created_by_admin?->name }}
@@ -131,7 +131,7 @@
 
                         <div class="row my-2">
                             <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-                                <h6>{{ trans("field.Updated By") }}</h6>
+                                <h6>{{ trans("index.Updated By") }}</h6>
                             </div>
                             <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
                                 {{ Auth::user()->updated_by_admin?->name }}
@@ -140,7 +140,7 @@
 
                         <div class="row my-2">
                             <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-                                <h6>{{ trans("field.Created At") }}</h6>
+                                <h6>{{ trans("index.Created At") }}</h6>
                             </div>
                             <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
                                 {{ Auth::user()->created_at?->format("H:i:s - l, d F Y") }} <br class="d-md-none"> ({{ Auth::user()->created_at?->diffForHumans() }})
@@ -149,7 +149,7 @@
 
                         <div class="row my-2">
                             <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-                                <h6>{{ trans("field.Updated At") }}</h6>
+                                <h6>{{ trans("index.Updated At") }}</h6>
                             </div>
                             <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
                                 {{ Auth::user()->created_at?->format("H:i:s - l, d F Y") }} <br class="d-md-none"> ({{ Auth::user()->created_at?->diffForHumans() }})
@@ -160,7 +160,7 @@
                             <div class="col-12 col-sm-auto">
                                 <button class="btn btn-danger w-100" type="button" wire:click="logout">
                                     <i class="bi bi-box-arrow-right me-1"></i>
-                                    {{ trans("button.Logout") }}
+                                    {{ trans("index.Logout") }}
                                 </button>
                             </div>
                         </div>

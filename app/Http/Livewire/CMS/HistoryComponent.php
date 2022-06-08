@@ -31,7 +31,7 @@ class HistoryComponent extends Component
     public function mount()
     {
         if ($this->menu_type != "index" &&$this->menu_type != "view") {
-            Session::flash("danger", trans("general.Menu Type") . " " . trans("message.not found or has been deleted"));
+            Session::flash("danger", trans("index.Menu Type") . " " . trans("message.not found or has been deleted"));
             return redirect()->route("{$this->sub_domain}.{$this->menu_slug}.index");
         }
 

@@ -3,25 +3,25 @@
         <thead>
             <tr class="bg-primary text-white text-center">
                 <th><input class="form-check-input" type="checkbox" wire:model="checkbox_all"></th>
-                <th>{{ trans("field.#") }}</th>
-                <th>{{ trans("field.ID") }}</th>
-                <th>{{ trans("field.Image") }}</th>
-                <th>{{ trans("field.Access") }}</th>
-                <th>{{ trans("field.Name") }}</th>
-                <th>{{ trans("field.Email") }}</th>
-                <th>{{ trans("field.Username") }}</th>
-                <th>{{ trans("field.Active") }}</th>
-                <th>{{ trans("field.Created By") }}</th>
-                <th>{{ trans("field.Updated By") }}</th>
+                <th>{{ trans("index.#") }}</th>
+                <th>{{ trans("index.ID") }}</th>
+                <th>{{ trans("index.Image") }}</th>
+                <th>{{ trans("index.Access") }}</th>
+                <th>{{ trans("index.Name") }}</th>
+                <th>{{ trans("index.Email") }}</th>
+                <th>{{ trans("index.Username") }}</th>
+                <th>{{ trans("index.Active") }}</th>
+                <th>{{ trans("index.Created By") }}</th>
+                <th>{{ trans("index.Updated By") }}</th>
                 @if ($menu_type == "trash")
-                    <th>{{ trans("field.Deleted By") }}</th>
+                    <th>{{ trans("index.Deleted By") }}</th>
                 @endif
-                <th>{{ trans("field.Created At") }}</th>
-                <th>{{ trans("field.Updated At") }}</th>
+                <th>{{ trans("index.Created At") }}</th>
+                <th>{{ trans("index.Updated At") }}</th>
                 @if ($menu_type == "trash")
-                    <th>{{ trans("field.Deleted At") }}</th>
+                    <th>{{ trans("index.Deleted At") }}</th>
                 @endif
-                <th>{{ trans("field.Action") }}</th>
+                <th>{{ trans("index.Action") }}</th>
             </tr>
         </thead>
         <tbody>
@@ -40,13 +40,13 @@
                                 <img draggable="false" width="100"
                                     src="{{ $admin->assetImage() }}"
                                     alt="{{ trans("page.{$menu_name}") }} - {{ $admin->name }} - {{ env("APP_TITLE") }}"
-                                    data-bs-toggle="tooltip" data-bs-placement="top" title="{{ trans("general.Click To View") }}">
+                                    data-bs-toggle="tooltip" data-bs-placement="top" title="{{ trans("index.Click To View") }}">
                             </a>
                             <div class="modal fade" id="image-{{ $admin->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="image-{{ $admin->id }}" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h6 class="modal-title" id="image-{{ $admin->id }}">{{ trans("general.Image") }} - {{ trans("page.{$menu_name}") }}</h6>
+                                            <h6 class="modal-title" id="image-{{ $admin->id }}">{{ trans("index.Image") }} - {{ trans("page.{$menu_name}") }}</h6>
                                             <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
@@ -54,17 +54,17 @@
                                                 <img draggable="false" class="img-fluid w-100"
                                                     src="{{ $admin->assetImage() }}"
                                                     alt="{{ trans("page.{$menu_name}") }} - {{ $admin->name }} - {{ env("APP_TITLE") }}"
-                                                    data-bs-toggle="tooltip" data-bs-placement="top" title="{{ trans("general.Click To View") }}">
+                                                    data-bs-toggle="tooltip" data-bs-placement="top" title="{{ trans("index.Click To View") }}">
                                             </a>
                                         </div>
                                         <div class="modal-footer justify-content-between">
                                             <button class="btn btn-creative btn-sm btn-light" type="button" data-bs-dismiss="modal">
                                                 <i class="bi bi-x me-1"></i>
-                                                {{ trans("button.Close") }}
+                                                {{ trans("index.Close") }}
                                             </button>
                                             <a draggable="false" class="btn btn-creative btn-sm btn-primary" href="{{ $admin->assetImage() }}" download>
                                                 <i class="bi bi-download me-1"></i>
-                                                {{ trans("button.Download") }}
+                                                {{ trans("index.Download") }}
                                             </a>
                                         </div>
                                     </div>
@@ -88,7 +88,7 @@
                     <td>{{ $admin->username }}</td>
                     <td>
                         <span class="{{ "badge bg-" . Str::successdanger($admin->active) }}">
-                            {{ trans("general." . Str::active($admin->active)) }}
+                            {{ trans("index." . Str::active($admin->active)) }}
                         </span>
                     </td>
                     <td>
@@ -122,40 +122,40 @@
                             @if ($admin->active)
                                 <button class="btn btn-creative btn-sm btn-danger" wire:click="nonActive({{ $admin->id }})">
                                     <i class="bi bi-x-circle-fill me-1"></i>
-                                    {{ trans("button.Non Active") }}
+                                    {{ trans("index.Non Active") }}
                                 </button>
                             @else
                                 <button class="btn btn-creative btn-sm btn-success" wire:click="active({{ $admin->id }})">
                                     <i class="bi bi-check-circle-fill me-1"></i>
-                                    {{ trans("button.Active") }}
+                                    {{ trans("index.Active") }}
                                 </button>
                             @endif
 
                             <button class="btn btn-creative btn-sm btn-dark" wire:click="view({{ $admin->id }})">
                                 <i class="bi bi-eye me-1"></i>
-                                {{ trans("button.View") }}
+                                {{ trans("index.View") }}
                             </button>
 
                             <button class="btn btn-creative btn-sm btn-info" wire:click="form('clone', {{ $admin->id }})">
                                 <i class="bi bi-clipboard me-1"></i>
-                                {{ trans("button.Clone") }}
+                                {{ trans("index.Clone") }}
                             </button>
 
                             <button class="btn btn-creative btn-sm btn-success" wire:click="form('edit', {{ $admin->id }})">
                                 <i class="bi bi-pencil me-1"></i>
-                                {{ trans("button.Edit") }}
+                                {{ trans("index.Edit") }}
                             </button>
 
                             <button class="btn btn-creative btn-sm btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#delete-{{ $admin->id }}">
                                 <i class="bi bi-trash me-1"></i>
-                                {{ trans("button.Delete") }}
+                                {{ trans("index.Delete") }}
                             </button>
 
                             <div class="modal fade" id="delete-{{ $admin->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="delete-{{ $admin->id }}" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h6 class="modal-title" id="delete-{{ $admin->id }}">{{ trans("general.Delete") }} - {{ trans("page.{$menu_name}") }}</h6>
+                                            <h6 class="modal-title" id="delete-{{ $admin->id }}">{{ trans("index.Delete") }} - {{ trans("page.{$menu_name}") }}</h6>
                                             <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body text-wrap">
@@ -165,11 +165,11 @@
                                         <div class="modal-footer justify-content-between">
                                             <button class="btn btn-creative btn-sm btn-light" type="button" data-bs-dismiss="modal">
                                                 <i class="bi bi-x me-1"></i>
-                                                {{ trans("button.Close") }}
+                                                {{ trans("index.Close") }}
                                             </button>
                                             <button class="btn btn-creative btn-sm btn-danger" type="button" data-bs-dismiss="modal" wire:click="delete({{ $admin->id }})">
                                                 <i class="bi bi-check me-1"></i>
-                                                {{ trans("button.Yes") }}
+                                                {{ trans("index.Yes") }}
                                             </button>
                                         </div>
                                     </div>
@@ -180,14 +180,14 @@
                         @if ($menu_type == "trash")
                             <button class="btn btn-creative btn-sm btn-success" type="button" data-bs-toggle="modal" data-bs-target="#restore-{{ $admin->id }}">
                                 <i class="bi bi-arrow-clockwise me-1"></i>
-                                {{ trans("button.Restore") }}
+                                {{ trans("index.Restore") }}
                             </button>
 
                             <div class="modal fade" id="restore-{{ $admin->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="restore-{{ $admin->id }}" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h6 class="modal-title" id="restore-{{ $admin->id }}">{{ trans("general.Restore") }} - {{ trans("page.{$menu_name}") }}</h6>
+                                            <h6 class="modal-title" id="restore-{{ $admin->id }}">{{ trans("index.Restore") }} - {{ trans("page.{$menu_name}") }}</h6>
                                             <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
@@ -196,11 +196,11 @@
                                         <div class="modal-footer justify-content-between">
                                             <button class="btn btn-creative btn-sm btn-light" type="button" data-bs-dismiss="modal">
                                                 <i class="bi bi-x me-1"></i>
-                                                {{ trans("button.Close") }}
+                                                {{ trans("index.Close") }}
                                             </button>
                                             <button class="btn btn-creative btn-sm btn-success" type="button" data-bs-dismiss="modal" wire:click="restore({{ $admin->id }})">
                                                 <i class="bi bi-check me-1"></i>
-                                                {{ trans("button.Yes") }}
+                                                {{ trans("index.Yes") }}
                                             </button>
                                         </div>
                                     </div>
@@ -209,14 +209,14 @@
 
                             <button class="btn btn-creative btn-sm btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#delete-permanent-{{ $admin->id }}">
                                 <i class="bi bi-trash2 me-1"></i>
-                                {{ trans("button.Delete Permanent") }}
+                                {{ trans("index.Delete Permanent") }}
                             </button>
 
                             <div class="modal fade" id="delete-permanent-{{ $admin->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="delete-permanent-{{ $admin->id }}" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h6 class="modal-title" id="delete-permanent-{{ $admin->id }}">{{ trans("general.Delete Permanent") }} - {{ trans("page.{$menu_name}") }}</h6>
+                                            <h6 class="modal-title" id="delete-permanent-{{ $admin->id }}">{{ trans("index.Delete Permanent") }} - {{ trans("page.{$menu_name}") }}</h6>
                                             <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body text-wrap">
@@ -227,11 +227,11 @@
                                         <div class="modal-footer">
                                             <button class="btn btn-creative btn-sm btn-light" type="button" data-bs-dismiss="modal">
                                                 <i class="bi bi-x me-1"></i>
-                                                {{ trans("button.Close") }}
+                                                {{ trans("index.Close") }}
                                             </button>
                                             <button class="btn btn-creative btn-sm btn-danger" type="button" data-bs-dismiss="modal" wire:click="deletePermanent({{ $admin->id }})">
                                                 <i class="bi bi-check me-1"></i>
-                                                {{ trans("button.Yes") }}
+                                                {{ trans("index.Yes") }}
                                             </button>
                                         </div>
                                     </div>
@@ -243,7 +243,7 @@
             @endforeach
             @if (!$data_admin->count())
                 <tr>
-                    <td class="text-center" colspan="100%">{{ trans("general.No Data Available") }}</td>
+                    <td class="text-center" colspan="100%">{{ trans("index.No Data Available") }}</td>
                 </tr>
             @endif
         </tbody>

@@ -9,8 +9,8 @@
             <div class="row about__wrapper">
                 <div class="about">
                     <div class="section__title text-left">
-                        <h2 class="title__line">{{ trans("general.Welcome To") }} {{ trans("general.Yayasan STMIK Harvest") }}</h2>
-                        <p>{{ trans("general.College for Future Technopreneur") }}</p>
+                        <h2 class="title__line">{{ trans("index.Welcome To") }} {{ trans("index.Yayasan STMIK Harvest") }}</h2>
+                        <p>{{ trans("index.College for Future Technopreneur") }}</p>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -19,15 +19,15 @@
                             {!! html_entity_decode($setting->translate_about_us) !!}
                         </p>
                         <p class="about__details">
-                            <h3 class="text-uppercase mb-2">{{ trans("general.Our Vision") }}</h3>
+                            <h3 class="text-uppercase mb-2">{{ trans("index.Our Vision") }}</h3>
                             {!! html_entity_decode($setting->translate_vision) !!}
                         </p>
                         <p class="about__details">
-                            <h3 class="text-uppercase mb-2">{{ trans("general.Our Mission") }}</h3>
+                            <h3 class="text-uppercase mb-2">{{ trans("index.Our Mission") }}</h3>
                             {!! html_entity_decode($setting->translate_mission) !!}
                         </p>
                         <p class="about__details">
-                            <h3 class="text-uppercase mb-2">{{ trans("general.Our History") }}</h3>
+                            <h3 class="text-uppercase mb-2">{{ trans("index.Our History") }}</h3>
                             {!! html_entity_decode($setting->translate_history) !!}
                         </p>
                     </div>
@@ -54,11 +54,11 @@
                     <div class="findout__wrap my-5 my-sm-auto">
                         <div class="findout__inner">
                             <h2>
-                                <span>{{ trans("general.Ready to Join ?") }}</span>
-                                {{ trans("general.It easy now to you for being our part, just click the button below and fill out the form with your data.") }}
+                                <span>{{ trans("index.Ready to Join ?") }}</span>
+                                {{ trans("index.It easy now to you for being our part, just click the button below and fill out the form with your data.") }}
                             </h2>
                             <div class="findout__btn">
-                                <a draggable="false" class="htc__btn btn--yellow" href="{{ route("online-registration.index") }}">{{ trans("general.Register") }}</a>
+                                <a draggable="false" class="htc__btn btn--yellow" href="{{ route("online-registration.index") }}">{{ trans("index.Register") }}</a>
                             </div>
                         </div>
                     </div>
@@ -143,8 +143,8 @@
                     <div class="section__title text-center">
                         <h2 class="title__line">{{ trans("page.Our Network") }}</h2>
                         <p>
-                            {{ trans("general.STMIK HARVEST cooperates with several universities abroad.") }}<br>
-                            {{ trans("general.Some of the cooperation agendas include lecturer and curriculum development programs, as well as student exchange programs.") }}
+                            {{ trans("index.STMIK HARVEST cooperates with several universities abroad.") }}<br>
+                            {{ trans("index.Some of the cooperation agendas include lecturer and curriculum development programs, as well as student exchange programs.") }}
                             {{-- STMIK HARVEST bekerjasama dengan beberapa perguruan tinggi di luar negeri.<br>
                             Beberapa agenda kerjasama antara lain program pengembangan dosen dan kurikulum, serta program pertukaran mahasiswa. --}}
                         </p>
@@ -161,7 +161,7 @@
                                         <div class="shop">
                                             <div class="shop__thumb">
                                                 <a draggable="false" href="{{ $network->link }}" target="_blank">
-                                                    <img draggable="false" src="{{ $network->assetImage() }}" class="img-fluid img-thumbnail rounded w-100" alt="{{ trans("general.Our Network") }} - {{ $network->name }} - {{ env("APP_TITLE") }}">
+                                                    <img draggable="false" src="{{ $network->assetImage() }}" class="img-fluid img-thumbnail rounded w-100" alt="{{ trans("index.Our Network") }} - {{ $network->name }} - {{ env("APP_TITLE") }}">
                                                 </a>
                                             </div>
                                             <div class="shop__details">
