@@ -45,14 +45,50 @@ class GallerySeeder extends Seeder
 
         $data = new Gallery();
         $data->category = 3;
-        $data->name = "SPIRITUAL DAY SESI 2 A Place of Power to Live Holy";
-        $data->name_id = "SPIRITUAL DAY SESI 2 A Place of Power to Live Holy";
-        $data->description = "Description SPIRITUAL DAY SESI 2 A Place of Power to Live Holy";
-        $data->description_id = "Deskripsi SPIRITUAL DAY SESI 2 A Place of Power to Live Holy";
-        $data->tag = "Graduation";
-        $data->tag_id = "Kelulusan";
+        $data->name = "STMIK Harvest 2016-2017";
+        $data->name_id = "STMIK Harvest 2016-2017";
+        $data->description = "STMIK Harvest 2016-2017";
+        $data->description_id = "STMIK Harvest 2016-2017";
+        $data->tag = "Company Profile";
+        $data->tag_id = "Profil Perusahaan";
         $data->image = Str::slug($data->name) . ".png";
-        $data->youtube = "https://www.youtube.com/watch?v=DAwvESRyGjk";
+        $data->youtube = "https://www.youtube.com/watch?v=wROkewUpfe8";
+        $data->save();
+
+        $data = new Gallery();
+        $data->category = 3;
+        $data->name = "STMIK Harvest";
+        $data->name_id = "STMIK Harvest";
+        $data->description = "STMIK Harvest";
+        $data->description_id = "STMIK Harvest";
+        $data->tag = "Company Profile";
+        $data->tag_id = "Profil Perusahaan";
+        $data->image = Str::slug($data->name) . ".png";
+        $data->youtube = "https://www.youtube.com/watch?v=hmUwBHxYLDw";
+        $data->save();
+
+        $data = new Gallery();
+        $data->category = 3;
+        $data->name = "Webinar STMIK Kuwera - Harvest, Techno-Sociopreneur, Sampah Jadi Rupiah bersama Duitin";
+        $data->name_id = "Webinar STMIK Kuwera - Harvest, Techno-Sociopreneur, Sampah Jadi Rupiah bersama Duitin";
+        $data->description = "Webinar STMIK Kuwera - Harvest, Techno-Sociopreneur, Sampah Jadi Rupiah bersama Duitin";
+        $data->description_id = "Webinar STMIK Kuwera - Harvest, Techno-Sociopreneur, Sampah Jadi Rupiah bersama Duitin";
+        $data->tag = "Webinar";
+        $data->tag_id = "Webinar";
+        $data->image = Str::slug($data->name) . ".png";
+        $data->youtube = "https://www.youtube.com/watch?v=JmN2oJaqpv4";
+        $data->save();
+
+        $data = new Gallery();
+        $data->category = 3;
+        $data->name = "Wisuda Online Mahasiswa S1 Sistem Informasi STMIK Kuwera 2021";
+        $data->name_id = "Wisuda Online Mahasiswa S1 Sistem Informasi STMIK Kuwera 2021";
+        $data->description = "Wisuda Online Mahasiswa S1 Sistem Informasi STMIK Kuwera 2021";
+        $data->description_id = "Wisuda Online Mahasiswa S1 Sistem Informasi STMIK Kuwera 2021";
+        $data->tag = "Company Profile";
+        $data->tag_id = "Profil Perusahaan";
+        $data->image = Str::slug($data->name) . ".png";
+        $data->youtube = "https://www.youtube.com/watch?v=QwaRy3jJEVk";
         $data->save();
     }
 }
