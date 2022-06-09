@@ -1127,4 +1127,6 @@ return [
     "Gallery Description" => "Lihat Galeri Kami Untuk Mengenal Kami Lebih Lanjut",
     "related_blog" => "Blog Terkait",
     "posted_by" => "Diposting oleh",
+    "our_latest" => ":name Terbaru Kami",
+    "event" => "Acara",
 ];

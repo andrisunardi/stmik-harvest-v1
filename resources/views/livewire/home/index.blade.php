@@ -450,7 +450,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section__title text-center">
-                        <h2 class="title__line">{{ trans("index.Our Latest Blog") }}</h2>
+                        <h2 class="title__line">{{ trans("index.our_latest", ["name" => trans("index.event")]) }}</h2>
                         <p>{{ trans("index.Stay tuned with our latest news so you don't miss any information from us") }}</p>
                     </div>
                 </div>
