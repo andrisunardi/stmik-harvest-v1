@@ -17,7 +17,7 @@ class OfferSeeder extends Seeder
         $data->description_id = "Dosen kami terdiri dari akademisi, pemimpin bisnis dan praktisi. Kami memastikan Anda akan mendapatkan pengalaman terbaik.";
         $data->button_name = "Our Lecturers";
         $data->button_name_id = "Dosen Kami";
-        $data->button_link = env("APP_URL") . "/lecturer";
+        $data->button_link = env("APP_URL") . "/our-values";
         $data->save();
 
         $data = new Offer();

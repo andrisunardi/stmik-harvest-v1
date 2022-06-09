@@ -13,7 +13,7 @@ class BlogSeeder extends Seeder
     {
         for ($i=1; $i < 5; $i++) {
             $data = new Blog();
-            $data->news_category_id = 1;
+            $data->blog_category_id = 1;
             $data->name = "Welcome To Our Website {$i}";
             $data->name_id = "Selamat Datang Di Website Kami {$i}";
             $data->description = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, dolor molestias? Debitis ullam odit voluptates, fuga sed ab eveniet ratione quam, consequuntur nostrum ducimus deleniti repellendus eum incidunt odio exercitationem?";

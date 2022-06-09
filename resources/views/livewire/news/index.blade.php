@@ -1,4 +1,4 @@
-@section("name", $news_category ? $news_category->translate_name : trans("page.{$menu_name}"))
+@section("name", $blog_category ? $blog_category->translate_name : trans("page.{$menu_name}"))
 @section("icon", $menu_icon)
 
 @section("{$menu_slug}-active", "active")
@@ -10,14 +10,14 @@
 
         <div class="row">
             <div class="col-lg-9">
-                @foreach ($data_news as $news)
+                @foreach ($data_blog as $blog)
                     <article class="blog wow-delete fadeIn-delete">
                         <div class="row g-0">
                             <div class="col-lg-7">
                                 <figure>
-                                    <a draggable="false" href="{{ route("{$menu_slug}.view", ["news_slug" => $news->slug]) }}">
-                                        <img draggable="false" src="{{ $news->assetImage() }}" class="img-fluid w-100"
-                                            alt="{{ trans("index.News") }} - {{ $news->translate_name }} - {{ env("APP_TITLE") }}">
+                                    <a draggable="false" href="{{ route("{$menu_slug}.view", ["blog_slug" => $blog->slug]) }}">
+                                        <img draggable="false" src="{{ $blog->assetImage() }}" class="img-fluid w-100"
+                                            alt="{{ trans("index.Blog") }} - {{ $blog->translate_name }} - {{ env("APP_TITLE") }}">
                                         <div class="preview">
                                             <span>{{ trans("index.Read More") }}</span>
                                         </div>
@@ -27,9 +27,9 @@
 
                             <div class="col-lg-5">
                                 <div class="post_info">
-                                    <small>{{ Date::parse($news->date)->format("d F Y") }}</small>
-                                    <h3><a draggable="false" href="{{ route("{$menu_slug}.view", ["news_slug" => $news->slug]) }}">{{ $news->translate_name }}</a></h3>
-                                    <p>{{ strip_tags(Str::limit($news->translate_description, 300)) }}</p>
+                                    <small>{{ Date::parse($blog->date)->format("d F Y") }}</small>
+                                    <h3><a draggable="false" href="{{ route("{$menu_slug}.view", ["blog_slug" => $blog->slug]) }}">{{ $blog->translate_name }}</a></h3>
+                                    <p>{{ strip_tags(Str::limit($blog->translate_description, 300)) }}</p>
                                     <ul>
                                         <li>
                                             <div class="thumb">
@@ -39,7 +39,7 @@
                                             Administrator
                                         </li>
                                         <li>
-                                            <a draggable="false" href="{{ route("{$menu_slug}.view", ["news_slug" => $news->slug]) }}#comments">
+                                            <a draggable="false" href="{{ route("{$menu_slug}.view", ["blog_slug" => $blog->slug]) }}#comments">
                                                 <i class="icon_comment_alt"></i>
                                                 99
                                             </a>
@@ -51,7 +51,7 @@
                     </article>
                 @endforeach
 
-                {{ $data_news->links("vendor.livewire.bootstrap") }}
+                {{ $data_blog->links("vendor.livewire.bootstrap") }}
 
             </div>
 

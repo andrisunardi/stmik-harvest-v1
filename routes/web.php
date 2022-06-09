@@ -93,10 +93,10 @@ Route::group(["prefix" => Str::slug($page), "as" => Str::slug($page) . "."], fun
     Route::any("", Str::studly($page) . "Component")->name("index");
 });
 
-$page = "News";
+$page = "Blog";
 Route::group(["prefix" => Str::slug($page), "as" => Str::slug($page) . "."], function () use ($page) {
     Route::any("", Str::studly($page) . "Component")->name("index");
-    Route::any("{news_slug}", Str::studly($page) . "ViewComponent")->name("view");
+    Route::any("{blog_slug}", Str::studly($page) . "ViewComponent")->name("view");
 });
 
 $page = "Contact Us";

@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Session;
 use App\Models\Banner;
 use App\Models\Blog;
 use App\Models\BlogCategory;
-use App\Models\BlogComment;
 
 class BlogViewComponent extends Component
 {

@@ -3,8 +3,8 @@
         <div class="htc__blog__courses">
             <h2 class="title__style--2">All Courses</h2>
             <ul class="blog__courses">
-                @foreach ($data_news_category as $news_category)
-                    <li><a draggable="false" href="{{ route("{$menu_name}.index") . "?category={$news}" }}">{{ $news_category->translate_name }}</a></li>
+                @foreach ($data_blog_category as $blog_category)
+                    <li><a draggable="false" href="{{ route("{$menu_name}.index") . "?category={$blog}" }}">{{ $blog_category->translate_name }}</a></li>
                 @endforeach
             </ul>
         </div>
@@ -15,12 +15,12 @@
                 <!-- Start Single POst -->
                 <div class="single__courses">
                     <div class="recent__post__thumb">
-                        <a href="{{ route("{$menu_slug}.view", ["news_slug" => $news->slug]) }}">
+                        <a href="{{ route("{$menu_slug}.view", ["blog_slug" => $blog->slug]) }}">
                             <img src="images/blog/sm-img/1.jpg" alt="recent post images">
                         </a>
                     </div>
                     <div class="recent__post__details">
-                        <h2><a href="{{ route("{$menu_slug}.view", ["news_slug" => $news->slug]) }}">Mathematics and Statistics</a></h2>
+                        <h2><a href="{{ route("{$menu_slug}.view", ["blog_slug" => $blog->slug]) }}">Mathematics and Statistics</a></h2>
                         <span class="post__price">$60.00</span>
                     </div>
                 </div>
@@ -28,12 +28,12 @@
                 <!-- Start Single POst -->
                 <div class="single__courses">
                     <div class="recent__post__thumb">
-                        <a href="{{ route("{$menu_slug}.view", ["news_slug" => $news->slug]) }}">
+                        <a href="{{ route("{$menu_slug}.view", ["blog_slug" => $blog->slug]) }}">
                             <img src="images/blog/sm-img/1.jpg" alt="recent post images">
                         </a>
                     </div>
                     <div class="recent__post__details">
-                        <h2><a href="{{ route("{$menu_slug}.view", ["news_slug" => $news->slug]) }}">Mathematics and Statistics</a></h2>
+                        <h2><a href="{{ route("{$menu_slug}.view", ["blog_slug" => $blog->slug]) }}">Mathematics and Statistics</a></h2>
                         <span class="post__price">$60.00</span>
                     </div>
                 </div>
@@ -41,12 +41,12 @@
                 <!-- Start Single POst -->
                 <div class="single__courses">
                     <div class="recent__post__thumb">
-                        <a href="{{ route("{$menu_slug}.view", ["news_slug" => $news->slug]) }}">
+                        <a href="{{ route("{$menu_slug}.view", ["blog_slug" => $blog->slug]) }}">
                             <img src="images/blog/sm-img/1.jpg" alt="recent post images">
                         </a>
                     </div>
                     <div class="recent__post__details">
-                        <h2><a href="{{ route("{$menu_slug}.view", ["news_slug" => $news->slug]) }}">Mathematics and Statistics</a></h2>
+                        <h2><a href="{{ route("{$menu_slug}.view", ["blog_slug" => $blog->slug]) }}">Mathematics and Statistics</a></h2>
                         <span class="post__price">$60.00</span>
                     </div>
                 </div>
@@ -54,12 +54,12 @@
                 <!-- Start Single POst -->
                 <div class="single__courses">
                     <div class="recent__post__thumb">
-                        <a href="{{ route("{$menu_slug}.view", ["news_slug" => $news->slug]) }}">
+                        <a href="{{ route("{$menu_slug}.view", ["blog_slug" => $blog->slug]) }}">
                             <img src="images/blog/sm-img/1.jpg" alt="recent post images">
                         </a>
                     </div>
                     <div class="recent__post__details">
-                        <h2><a href="{{ route("{$menu_slug}.view", ["news_slug" => $news->slug]) }}">Mathematics and Statistics</a></h2>
+                        <h2><a href="{{ route("{$menu_slug}.view", ["blog_slug" => $blog->slug]) }}">Mathematics and Statistics</a></h2>
                         <span class="post__price">$60.00</span>
                     </div>
                 </div>

@@ -3,7 +3,7 @@
 use Diglactic\Breadcrumbs\Breadcrumbs;
 use Diglactic\Breadcrumbs\Generator as BreadcrumbTrail;
 
-use App\Models\News;
+use App\Models\Blog;
 
 Breadcrumbs::for("errors.404", function (BreadcrumbTrail $trail) {
     $trail->parent("index");
@@ -79,15 +79,15 @@ Breadcrumbs::for("faq.index", function (BreadcrumbTrail $trail) {
     $trail->push(trans("page.Faq"), route("faq.index"));
 });
 
-Breadcrumbs::for("news.index", function (BreadcrumbTrail $trail) {
+Breadcrumbs::for("blog.index", function (BreadcrumbTrail $trail) {
     $trail->parent("index");
-    $trail->push(trans("page.News & Event"), route("news.index"));
+    $trail->push(trans("page.Blog"), route("blog.index"));
 });
 
-Breadcrumbs::for("news.view", function (BreadcrumbTrail $trail, $news_slug) {
-    $news = News::where("slug", $news_slug)->onlyActive()->firstOrFail();
-    $trail->parent("news.index");
-    $trail->push("{$news->translate_name}", route("news.view", $news_slug));
+Breadcrumbs::for("blog.view", function (BreadcrumbTrail $trail, $blog_slug) {
+    $blog = Blog::where("slug", $blog_slug)->onlyActive()->firstOrFail();
+    $trail->parent("blog.index");
+    $trail->push("{$blog->translate_name}", route("blog.view", $blog_slug));
 });
 
 Breadcrumbs::for("contact-us.index", function (BreadcrumbTrail $trail) {
