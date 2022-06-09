@@ -83,7 +83,7 @@ Route::group(["prefix" => Str::slug($page), "as" => Str::slug($page) . "."], fun
     Route::any("", Str::studly($page) . "Component")->name("index");
 });
 
-$page = "Our Gallery";
+$page = "Gallery";
 Route::group(["prefix" => Str::slug($page), "as" => Str::slug($page) . "."], function () use ($page) {
     Route::any("", Str::studly($page) . "Component")->name("index");
 });

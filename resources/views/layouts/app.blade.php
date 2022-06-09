@@ -227,7 +227,7 @@
                                 </li>
                                 <li class="drop"><a draggable="false" href="javascript:;">{{ trans("page.Campus Activities") }}</a>
                                     <ul class="dropdown">
-                                        <li><a draggable="false" href="{{ route("our-gallery.index") }}">{{ trans("page.Our Gallery") }}</a></li>
+                                        <li><a draggable="false" href="{{ route("gallery.index") }}">{{ trans("page.Gallery") }}</a></li>
                                         <li><a draggable="false" href="{{ route("event.index") }}">{{ trans("page.Event") }}</a></li>
                                         <li><a draggable="false" href="{{ route("blog.index") }}">{{ trans("page.Blog") }}</a></li>
                                     </ul>
@@ -298,7 +298,7 @@
                             </li>
                             <li><a draggable="false" href="javascript:;">{{ trans("page.Campus Activities") }}</a>
                                 <ul>
-                                    <li><a draggable="false" href="{{ route("our-gallery.index") }}">{{ trans("page.Our Gallery") }}</a></li>
+                                    <li><a draggable="false" href="{{ route("gallery.index") }}">{{ trans("page.Gallery") }}</a></li>
                                     <li><a draggable="false" href="{{ route("event.index") }}">{{ trans("page.Event") }}</a></li>
                                     <li><a draggable="false" href="{{ route("blog.index") }}">{{ trans("page.Blog") }}</a></li>
                                 </ul>
@@ -393,7 +393,7 @@
                                     <li><a draggable="false" href="{{ route("our-network.index") }}">{{ trans("page.Our Network") }}</a></li>
                                     <li><a draggable="false" href="{{ route("faq.index") }}">{{ trans("page.Faq") }}</a></li>
                                     <li><a draggable="false" href="{{ route("information-system.index") }}">{{ trans("page.Information System") }}</a></li>
-                                    <li><a draggable="false" href="{{ route("our-gallery.index") }}">{{ trans("page.Our Gallery") }}</a></li>
+                                    <li><a draggable="false" href="{{ route("gallery.index") }}">{{ trans("page.Gallery") }}</a></li>
                                     <li><a draggable="false" href="{{ route("event.index") }}">{{ trans("page.Event") }}</a></li>
                                     <li><a draggable="false" href="{{ route("blog.index") }}">{{ trans("page.Blog") }}</a></li>
                                     <li><a draggable="false" href="{{ route("contact-us.index") }}">{{ trans("page.Contact Us") }}</a></li>

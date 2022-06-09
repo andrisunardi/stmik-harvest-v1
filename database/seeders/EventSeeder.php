@@ -14,7 +14,27 @@ class EventSeeder extends Seeder
         $data->name = "New Student Orientation 2015/2016";
         $data->name_id = "Orientasi Mahasiswa Baru 2015/2016";
         $data->description = "TEST";
-        $data->description_id = "TEST";
+        $data->description_id = "
+        Orientasi Mahasiswa Baru untuk mahasiswa STMIK Harvest Sistem Informasi Tahun Ajaran 2015/2016 berlangsung pada tanggal 19 Sept 2015.<br>
+        <br>
+        Menyambut mahasiswa baru yang bergabung dengan STMIK Harvest dan memberikan pembekalan yang dirasa perlu untuk perkuliahan nantinya.<br>
+        <br>
+        Orientasi mahasiswa ini dilakukan dengan serangkaian kegiatan antara lain:
+        <ul>
+        <li>Perkenalan dari departemen dan personel yang ada di dalam STMIK Harvest</li>
+        <li>Games</li>
+        <li>Updated skills and strategies</li>
+        </ul>
+        <br>
+        Rangkaian Seminar seperti:<br>
+        <ul>
+        <li>Pemaparan Visi & Misi</li>
+        <li>Leadership training</li>
+        <li>Life Goal & Setting</li>
+        <li>How to Study</li>
+        <li>Academic Overview</li>
+        </ul>
+        ";
         $data->location = "Gedung World Harvest Center, International Room.";
         $data->start = "2015-09-19 08:00:00";
         $data->end = "2015-09-19 17:00:00";

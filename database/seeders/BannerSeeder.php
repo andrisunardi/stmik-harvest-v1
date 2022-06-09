@@ -83,8 +83,8 @@ class BannerSeeder extends Seeder
         $data->save();
 
         $data = new Banner();
-        $data->name = "Our Gallery";
-        $data->name_id = "Galeri Kami";
+        $data->name = "Gallery";
+        $data->name_id = "Galeri";
         $data->image = Str::slug($data->name) . ".png";
         $data->save();
 
