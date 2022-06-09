@@ -30,8 +30,8 @@ class DatabaseSeeder extends Seeder
             ContactSeeder::class,
             NewsletterSeeder::class,
 
-            NewsCategorySeeder::class,
-            NewsSeeder::class,
+            BlogCategorySeeder::class,
+            BlogSeeder::class,
 
             AdmissionCalendarSeeder::class,
             BannerSeeder::class,

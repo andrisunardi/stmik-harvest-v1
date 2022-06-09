@@ -1505,7 +1505,7 @@ return [
     "Testimonials" => "Testimonials",
     "Testimony" => "Testimony",
     "How Real People Said About STMIK Harvest" => "How Real People Said About STMIK Harvest",
-    "You want to know more infomation" => "You want to know more infomation",
+    "You want to know more information" => "You want to know more information",
     "Send us a mail" => "Send us a mail",
     "Now Open Admission For Registration" => "Now Open Admission For Registration",
     "Register Now" => "Register Now",
@@ -1517,4 +1517,6 @@ return [
     "Our Latest News" => "Our Latest News",
     "Stay tuned with our latest news so you don't miss any information from us" => "Stay tuned with our latest news so you don't miss any information from us",
     "Join our events to know us closer" => "Join our events to know us closer",
+    "related_news" => "Berita Terkait",
+    "posted_by" => "Posted by",
 ];

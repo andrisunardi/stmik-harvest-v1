@@ -6,7 +6,7 @@ use App\Models\Access;
 use App\Models\AccessMenu;
 use App\Models\Admin;
 use App\Models\Contact;
-use App\Models\News;
+use App\Models\Blog;
 use App\Models\Newsletter;
 use App\Models\Log;
 use App\Models\Menu;

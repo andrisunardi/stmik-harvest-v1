@@ -1,68 +1,88 @@
-<aside class="col-lg-3">
-    <div class="widget">
-        @if (Request::routeIs("{$menu_slug}.view"))
-            <form method="get" role="form" action="{{ route("{$menu_slug}.index") }}">
-                <div class="form-group">
-                    <input type="search" name="search" id="search" class="form-control" placeholder="{{ trans("index.Search Here") }}" required />
-                </div>
-                <button type="submit" id="submit" class="btn_1 rounded"> {{ trans("index.Search") }}</button>
-            </form>
-        @else
-            <form wire:submit.prevent="render" method="get" role="form" action="{{ route("{$menu_slug}.index") }}">
-                <div class="form-group">
-                    <input wire:model.lazy="search" type="search" name="search" id="search" class="form-control" placeholder="{{ trans("index.Search Here") }}" required />
-                </div>
-                <button wire:submit="render" type="button" id="submit" class="btn_1 rounded"> {{ trans("index.Search") }}</button>
-            </form>
-        @endif
-    </div>
-
-    <div class="widget">
-        <div class="widget-title">
-            <h4>{{ trans("index.Recent News") }}</h4>
+<div class="col-lg-3 sm-mt-40 xs-mt-40">
+    <div class="htc__blog__right__sidebar">
+        <div class="htc__blog__courses">
+            <h2 class="title__style--2">All Courses</h2>
+            <ul class="blog__courses">
+                @foreach ($data_news_category as $news_category)
+                    <li><a draggable="false" href="{{ route("{$menu_name}.index") . "?category={$news}" }}">{{ $news_category->translate_name }}</a></li>
+                @endforeach
+            </ul>
         </div>
-        <ul class="comments-list">
-            @foreach ($data_recent_news as $recent_news)
-                <li>
-                    <div class="alignleft">
-                        <a draggable="false" href="{{ route("{$menu_slug}.view", ["news_slug" => $recent_news->slug]) }}">
-                            <img draggable="false" src="{{ $recent_news->assetImage() }}" class="img-fluid w-100"
-                                alt="{{ trans("index.News") }} - {{ $recent_news->translate_name }} - {{ env("APP_TITLE") }}">
+
+        <div class="blog__recent__courses">
+            <h2 class="title__style--2">Recent COURSES</h2>
+            <div class="recent__courses__inner">
+                <!-- Start Single POst -->
+                <div class="single__courses">
+                    <div class="recent__post__thumb">
+                        <a href="{{ route("{$menu_slug}.view", ["news_slug" => $news->slug]) }}">
+                            <img src="images/blog/sm-img/1.jpg" alt="recent post images">
                         </a>
                     </div>
-                    <small>{{ Date::parse($recent_news->date)->format("d F Y") }}</small>
-                    <h3><a draggable="false" href="{{ route("{$menu_slug}.view", ["news_slug" => $recent_news->slug]) }}">{{ $recent_news->translate_name }}</a></h3>
-                </li>
-            @endforeach
-        </ul>
-    </div>
+                    <div class="recent__post__details">
+                        <h2><a href="{{ route("{$menu_slug}.view", ["news_slug" => $news->slug]) }}">Mathematics and Statistics</a></h2>
+                        <span class="post__price">$60.00</span>
+                    </div>
+                </div>
+                <!-- End Single POst -->
+                <!-- Start Single POst -->
+                <div class="single__courses">
+                    <div class="recent__post__thumb">
+                        <a href="{{ route("{$menu_slug}.view", ["news_slug" => $news->slug]) }}">
+                            <img src="images/blog/sm-img/1.jpg" alt="recent post images">
+                        </a>
+                    </div>
+                    <div class="recent__post__details">
+                        <h2><a href="{{ route("{$menu_slug}.view", ["news_slug" => $news->slug]) }}">Mathematics and Statistics</a></h2>
+                        <span class="post__price">$60.00</span>
+                    </div>
+                </div>
+                <!-- End Single POst -->
+                <!-- Start Single POst -->
+                <div class="single__courses">
+                    <div class="recent__post__thumb">
+                        <a href="{{ route("{$menu_slug}.view", ["news_slug" => $news->slug]) }}">
+                            <img src="images/blog/sm-img/1.jpg" alt="recent post images">
+                        </a>
+                    </div>
+                    <div class="recent__post__details">
+                        <h2><a href="{{ route("{$menu_slug}.view", ["news_slug" => $news->slug]) }}">Mathematics and Statistics</a></h2>
+                        <span class="post__price">$60.00</span>
+                    </div>
+                </div>
+                <!-- End Single POst -->
+                <!-- Start Single POst -->
+                <div class="single__courses">
+                    <div class="recent__post__thumb">
+                        <a href="{{ route("{$menu_slug}.view", ["news_slug" => $news->slug]) }}">
+                            <img src="images/blog/sm-img/1.jpg" alt="recent post images">
+                        </a>
+                    </div>
+                    <div class="recent__post__details">
+                        <h2><a href="{{ route("{$menu_slug}.view", ["news_slug" => $news->slug]) }}">Mathematics and Statistics</a></h2>
+                        <span class="post__price">$60.00</span>
+                    </div>
+                </div>
+                <!-- End Single POst -->
+            </div>
+        </div>
 
-    <div class="widget">
-        <div class="widget-title">
-            <h4>{{ trans("index.News Categories") }}</h4>
-        </div>
-        <ul class="cats">
-            @foreach ($data_news_category as $news_category)
-                <li>
-                    <a draggable="false" href="{{ route("{$menu_slug}.index") . "?category={$news_category->id}" }}">
-                        {{ $news_category->translate_name }}
-                        <span>({{ $news_category->data_news->count() }})</span>
-                    </a>
-                </li>
-            @endforeach
-        </ul>
-    </div>
+        {{-- <div class="blog__discount__area bg--8">
+            <div class="blog__discount__inner">
+                <h4>NEW SCHOOLYEAR</h4>
+                <h2>GET 70% OFF</h2>
+            </div>
+        </div> --}}
 
-    <div class="widget">
-        <div class="widget-title">
-            <h4>{{ trans("index.Popular Tags") }}</h4>
-        </div>
-        <div class="tags">
-            @if ($data_popular_tags?->data_tags())
-                @foreach ($data_popular_tags->data_tags() as $popular_tags)
-                    <a draggable="false" href="{{ route("{$menu_slug}.index") . "?search=" . Str::slug($popular_tags) }}">{{ $popular_tags }}</a>
-                @endforeach
-            @endif
+        <div class="blog__tag mt--50">
+            <h2 class="title__style--2">Tags</h2>
+            <ul class="tag__list">
+                @if ($data_popular_tags?->data_tags())
+                    @foreach ($data_popular_tags->data_tags() as $popular_tags)
+                        <li><a draggable="false" href="{{ route("{$menu_slug}.index") . "?search=" . Str::slug($popular_tags) }}">{{ $popular_tags }}</a></li>
+                    @endforeach
+                @endif
+            </ul>
         </div>
     </div>
-</aside>
+</div>

@@ -450,28 +450,28 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section__title text-center">
-                        <h2 class="title__line">{{ trans("index.Our Latest News") }}</h2>
+                        <h2 class="title__line">{{ trans("index.Our Latest Blog") }}</h2>
                         <p>{{ trans("index.Stay tuned with our latest news so you don't miss any information from us") }}</p>
                     </div>
                 </div>
             </div>
             <div class="row our__blog__wrap mt-6 mb-n6">
-                @foreach ($data_news as $news)
+                @foreach ($data_blog as $blog)
                     <div class="col-lg-4 col-xl-4 col-md-6 mb-6">
                         <div class="blog">
                             <div class="blog__thumb">
-                                <a draggable="false" href="{{ route("news.view", ["news_slug" => $news->slug]) }}">
-                                    <img draggable="false" src="{{ $news->assetImage() }}" alt="{{ trans("page.News") }} - {{ $news->translate_name }} - {{ env("APP_TITLE") }}">
+                                <a draggable="false" href="{{ route("blog.view", ["blog_slug" => $blog->slug]) }}">
+                                    <img draggable="false" src="{{ $blog->assetImage() }}" alt="{{ trans("page.Blog") }} - {{ $blog->translate_name }} - {{ env("APP_TITLE") }}">
                                 </a>
                                 <div class="blog__date">
-                                    <span>{{ Date::parse($news->date)->format("d F Y") }}</span>
+                                    <span>{{ Date::parse($blog->date)->format("d F Y") }}</span>
                                 </div>
                             </div>
                             <div class="blog__details">
-                                <h2><a draggable="false" href="{{ route("news.view", ["news_slug" => $news->slug]) }}">{{ $news->translate_name }}</a></h2>
-                                <p>{{ strip_tags(Str::limit($news->translate_description, 300)) }}</p>
+                                <h2><a draggable="false" href="{{ route("blog.view", ["blog_slug" => $blog->slug]) }}">{{ $blog->translate_name }}</a></h2>
+                                <p>{{ strip_tags(Str::limit($blog->translate_description, 300)) }}</p>
                                 <div class="blog__btn">
-                                    <a draggable="false" class="read__more__btn" href="{{ route("news.view", ["news_slug" => $news->slug]) }}">{{ trans("index.Read More") }}</a>
+                                    <a draggable="false" class="read__more__btn" href="{{ route("blog.view", ["blog_slug" => $blog->slug]) }}">{{ trans("index.Read More") }}</a>
                                 </div>
                             </div>
                         </div>

@@ -11,8 +11,8 @@ use App\Models\Registration;
 use App\Models\Contact;
 use App\Models\Newsletter;
 
-use App\Models\News;
-use App\Models\NewsCategory;
+use App\Models\Blog;
+use App\Models\BlogCategory;
 
 use App\Models\AdmissionCalendar;
 use App\Models\Banner;
@@ -105,11 +105,11 @@ class Component extends LivewireComponent
         $this->total_newsletter = Newsletter::cursor()->count();
         View::share("total_newsletter", $this->total_newsletter);
 
-        $this->total_news = News::cursor()->count();
-        View::share("total_news", $this->total_news);
+        $this->total_blog = Blog::cursor()->count();
+        View::share("total_blog", $this->total_blog);
 
-        $this->total_news_category = NewsCategory::cursor()->count();
-        View::share("total_news_category", $this->total_news_category);
+        $this->total_blog_category = BlogCategory::cursor()->count();
+        View::share("total_blog_category", $this->total_blog_category);
 
         $this->total_faq = Faq::cursor()->count();
         View::share("total_faq", $this->total_faq);
@@ -125,9 +125,6 @@ class Component extends LivewireComponent
 
         $this->total_gallery = Gallery::cursor()->count();
         View::share("total_gallery", $this->total_gallery);
-
-        $this->total_news = News::cursor()->count();
-        View::share("total_news", $this->total_news);
 
         $this->total_network = Network::cursor()->count();
         View::share("total_network", $this->total_network);

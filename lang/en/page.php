@@ -6,7 +6,6 @@ return [
     "Home" => "Home",
     "About" => "About",
     "About Us" => "About Us",
-    "About HITS" => "About HITS",
 
     "Our Profile" => "Our Profile",
     "Our Values" => "Our Values",

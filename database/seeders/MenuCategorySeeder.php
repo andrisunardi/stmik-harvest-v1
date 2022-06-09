@@ -35,10 +35,10 @@ class MenuCategorySeeder extends Seeder
         $data->sort = $sort++;
         $data->save();
 
-        // NEWS
+        // BLOG
             $data = new MenuCategory();
-            $data->name = "News";
-            $data->name_id = "Berita";
+            $data->name = "Blog";
+            $data->name_id = "Blog";
             $data->icon = "bi bi-newspaper";
             $data->sort = $sortCategory++;
             $data->save();
@@ -47,20 +47,20 @@ class MenuCategorySeeder extends Seeder
 
             $data = new Menu();
             $data->menu_category_id = $menu_category->id;
-            $data->name = "News";
-            $data->name_id = "Berita";
+            $data->name = "Blog";
+            $data->name_id = "Blog";
             $data->icon = "bi bi-newspaper";
             $data->sort = $sort++;
             $data->save();
 
             $data = new Menu();
             $data->menu_category_id = $menu_category->id;
-            $data->name = "News Category";
-            $data->name_id = "Kategori Berita";
+            $data->name = "Blog Category";
+            $data->name_id = "Kategori Blog";
             $data->icon = "bi bi-tags";
             $data->sort = $sort++;
             $data->save();
-        // NEWS
+        // BLOG
 
         // WEBSITE
             $data = new MenuCategory();
