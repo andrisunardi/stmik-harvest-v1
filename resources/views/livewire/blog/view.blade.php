@@ -14,11 +14,11 @@
                             <ul class="blog__meta">
                                 <li><i class="icon ion-android-calendar"></i> {{ Date::parse($blog->date)->format("d F Y") }}</li>
                                 <li class="meta__separator"><i class="icon ion-person"></i> {{ trans("index.posted_by") }} : Administrator</li>
-                                <li class="meta__separator"><i class="icon ion-pricetag"></i> <a draggable="false" href="{{ route("{$menu_slug}.view", ["blog_slug" => $blog->slug]) }}">{{ $blog->blog_category->translate_name }}</a></li>
+                                <li class="meta__separator"><i class="icon ion-pricetag"></i> <a draggable="false" href="{{ route("{$menu_slug}.index") . "?category={$blog->blog_category->id}" }}">{{ $blog->blog_category->translate_name }}</a></li>
                             </ul>
                         </div>
                         <div class="blog__details__thumb">
-                            <img draggable="false" class="w-100" src="{{ $blog->assetImage() }}" alt="{{ trans("page.{$menu_name}") }} - {{ $blog->translate_name }} - {{ env("APP_TITLE") }}">
+                            <img draggable="false" class="img-fluid w-100" src="{{ $blog->assetImage() }}" alt="{{ trans("page.{$menu_name}") }} - {{ $blog->translate_name }} - {{ env("APP_TITLE") }}">
                         </div>
                         <div class="htc__blog__details">
                             <div class="single__details">{!! html_entity_decode($blog->translate_description) !!}</div>
@@ -33,7 +33,7 @@
                                             <div class="blog">
                                                 <div class="blog__thumb">
                                                     <a draggable="false" href="{{ route("{$menu_slug}.view", ["blog_slug" => $blog->slug]) }}">
-                                                        <img draggable="false" class="w-100" src="{{ $other_blog->assetImage() }}" alt="{{ trans("page.{$menu_name}") }} - {{ $other_blog->translate_name }} - {{ env("APP_TITLE") }}">
+                                                        <img draggable="false" class="img-fluid w-100" src="{{ $other_blog->assetImage() }}" alt="{{ trans("page.{$menu_name}") }} - {{ $other_blog->translate_name }} - {{ env("APP_TITLE") }}">
                                                     </a>
                                                     <div class="blog__date">
                                                         <span>{{ Date::parse($other_blog->date)->format("d F Y") }}</span>

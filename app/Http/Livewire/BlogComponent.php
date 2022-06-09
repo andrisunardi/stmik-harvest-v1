@@ -15,7 +15,7 @@ class BlogComponent extends Component
     use WithPagination;
 
     public $menu_name = "Blog";
-    public $menu_icon = "fas fa-blogpaper";
+    public $menu_icon = "fas fa-newspaper";
     public $menu_slug = "blog";
     public $menu_table = "blog";
 

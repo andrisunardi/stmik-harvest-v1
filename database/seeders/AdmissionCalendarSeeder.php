@@ -72,5 +72,13 @@ class AdmissionCalendarSeeder extends Seeder
         $data->description_id = "Batas Waktu Hingga 31 Mei 2022. Gelombang V akan dibuka pada tanggal 31 Mei 2022. Mohon untuk dicatat dan jangan sampai terlewatkan, Segera daftarkan diri anda.";
         $data->date = "2022-05-31";
         $data->save();
+
+        $data = new AdmissionCalendar();
+        $data->name = "Wave VI";
+        $data->name_id = "Gelombang VI";
+        $data->description = "Deadline Until October 31, 2022. The sixth batch will be opened on October 31, 2022. Please take note and don't miss it, register yourself immediately.";
+        $data->description_id = "Batas Waktu Hingga 31 Oktober 2022. Gelombang VI akan dibuka pada tanggal 31 Oktober 2022. Mohon untuk dicatat dan jangan sampai terlewatkan, Segera daftarkan diri anda.";
+        $data->date = "2022-10-31";
+        $data->save();
     }
 }

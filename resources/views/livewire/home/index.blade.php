@@ -461,7 +461,7 @@
                         <div class="blog">
                             <div class="blog__thumb">
                                 <a draggable="false" href="{{ route("blog.view", ["blog_slug" => $blog->slug]) }}">
-                                    <img draggable="false" src="{{ $blog->assetImage() }}" alt="{{ trans("page.Blog") }} - {{ $blog->translate_name }} - {{ env("APP_TITLE") }}">
+                                    <img draggable="false" class="img-fluid w-100" src="{{ $blog->assetImage() }}" alt="{{ trans("page.Blog") }} - {{ $blog->translate_name }} - {{ env("APP_TITLE") }}">
                                 </a>
                                 <div class="blog__date">
                                     <span>{{ Date::parse($blog->date)->format("d F Y") }}</span>

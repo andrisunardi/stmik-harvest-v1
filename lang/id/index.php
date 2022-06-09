@@ -1125,6 +1125,6 @@ return [
     "Thank you for contacting us. We will answer as soon as possible" => "Terima kasih sudah menghubungi kami. Kami akan menjawab secepatnya",
 
     "Gallery Description" => "Lihat Galeri Kami Untuk Mengenal Kami Lebih Lanjut",
-    "related_news" => "Berita Terkait",
+    "related_blog" => "Blog Terkait",
     "posted_by" => "Diposting oleh",
 ];

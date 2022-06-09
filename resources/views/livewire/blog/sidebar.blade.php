@@ -1,69 +1,34 @@
 <div class="col-lg-3 sm-mt-40 xs-mt-40">
     <div class="htc__blog__right__sidebar">
         <div class="htc__blog__courses">
-            <h2 class="title__style--2">All Courses</h2>
+            <h2 class="title__style--2">{{ trans("index.All Category") }}</h2>
             <ul class="blog__courses">
                 @foreach ($data_blog_category as $blog_category)
-                    <li><a draggable="false" href="{{ route("{$menu_name}.index") . "?category={$blog}" }}">{{ $blog_category->translate_name }}</a></li>
+                    <li><a draggable="false" href="{{ route("{$menu_slug}.index") . "?category={$blog}" }}">{{ $blog_category->translate_name }}</a></li>
                 @endforeach
             </ul>
         </div>
 
         <div class="blog__recent__courses">
-            <h2 class="title__style--2">Recent COURSES</h2>
+            <h2 class="title__style--2">{{ trans("index.Recent Blog") }}</h2>
             <div class="recent__courses__inner">
-                <!-- Start Single POst -->
-                <div class="single__courses">
-                    <div class="recent__post__thumb">
-                        <a href="{{ route("{$menu_slug}.view", ["blog_slug" => $blog->slug]) }}">
-                            <img src="images/blog/sm-img/1.jpg" alt="recent post images">
-                        </a>
+                @foreach ($data_recent_blog as $recent_blog)
+                    <div class="single__courses">
+                        <div class="recent__post__thumb">
+                            <a href="{{ route("{$menu_slug}.view", ["blog_slug" => $blog->slug]) }}">
+                                <img draggable="false" class="img-fluid w-100" src="{{ $recent_blog->assetImage() }}" alt="{{ trans("page.{$menu_name}") }} - {{ $recent_blog->translate_name }} - {{ env("APP_TITLE") }}">
+                            </a>
+                        </div>
+                        <div class="recent__post__details">
+                            <h2><a draggable="false" href="{{ route("{$menu_slug}.view", ["blog_slug" => $blog->slug]) }}">{{ $recent_blog->translate_name }}</a></h2>
+                            <a draggable="false" href="{{ route("{$menu_slug}.index") . "?category={$recent_blog->blog_category->id}" }}">
+                                <span class="post__price">
+                                    {{ $recent_blog->blog_category->translate_name }}
+                                </span>
+                            </a>
+                        </div>
                     </div>
-                    <div class="recent__post__details">
-                        <h2><a href="{{ route("{$menu_slug}.view", ["blog_slug" => $blog->slug]) }}">Mathematics and Statistics</a></h2>
-                        <span class="post__price">$60.00</span>
-                    </div>
-                </div>
-                <!-- End Single POst -->
-                <!-- Start Single POst -->
-                <div class="single__courses">
-                    <div class="recent__post__thumb">
-                        <a href="{{ route("{$menu_slug}.view", ["blog_slug" => $blog->slug]) }}">
-                            <img src="images/blog/sm-img/1.jpg" alt="recent post images">
-                        </a>
-                    </div>
-                    <div class="recent__post__details">
-                        <h2><a href="{{ route("{$menu_slug}.view", ["blog_slug" => $blog->slug]) }}">Mathematics and Statistics</a></h2>
-                        <span class="post__price">$60.00</span>
-                    </div>
-                </div>
-                <!-- End Single POst -->
-                <!-- Start Single POst -->
-                <div class="single__courses">
-                    <div class="recent__post__thumb">
-                        <a href="{{ route("{$menu_slug}.view", ["blog_slug" => $blog->slug]) }}">
-                            <img src="images/blog/sm-img/1.jpg" alt="recent post images">
-                        </a>
-                    </div>
-                    <div class="recent__post__details">
-                        <h2><a href="{{ route("{$menu_slug}.view", ["blog_slug" => $blog->slug]) }}">Mathematics and Statistics</a></h2>
-                        <span class="post__price">$60.00</span>
-                    </div>
-                </div>
-                <!-- End Single POst -->
-                <!-- Start Single POst -->
-                <div class="single__courses">
-                    <div class="recent__post__thumb">
-                        <a href="{{ route("{$menu_slug}.view", ["blog_slug" => $blog->slug]) }}">
-                            <img src="images/blog/sm-img/1.jpg" alt="recent post images">
-                        </a>
-                    </div>
-                    <div class="recent__post__details">
-                        <h2><a href="{{ route("{$menu_slug}.view", ["blog_slug" => $blog->slug]) }}">Mathematics and Statistics</a></h2>
-                        <span class="post__price">$60.00</span>
-                    </div>
-                </div>
-                <!-- End Single POst -->
+                @endforeach
             </div>
         </div>
 

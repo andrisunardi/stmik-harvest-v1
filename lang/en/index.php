@@ -1517,6 +1517,6 @@ return [
     "Our Latest News" => "Our Latest News",
     "Stay tuned with our latest news so you don't miss any information from us" => "Stay tuned with our latest news so you don't miss any information from us",
     "Join our events to know us closer" => "Join our events to know us closer",
-    "related_news" => "Berita Terkait",
+    "related_blog" => "Related Blog",
     "posted_by" => "Posted by",
 ];

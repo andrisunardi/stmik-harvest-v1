@@ -4,58 +4,210 @@
 @section("{$menu_slug}-active", "active")
 
 <div>
-    <div class="container margin_60_35">
-
-        @include("layouts.alert")
-
-        <div class="row">
-            <div class="col-lg-9">
-                @foreach ($data_blog as $blog)
-                    <article class="blog wow-delete fadeIn-delete">
-                        <div class="row g-0">
-                            <div class="col-lg-7">
-                                <figure>
-                                    <a draggable="false" href="{{ route("{$menu_slug}.view", ["blog_slug" => $blog->slug]) }}">
-                                        <img draggable="false" src="{{ $blog->assetImage() }}" class="img-fluid w-100"
-                                            alt="{{ trans("index.Blog") }} - {{ $blog->translate_name }} - {{ env("APP_TITLE") }}">
-                                        <div class="preview">
-                                            <span>{{ trans("index.Read More") }}</span>
-                                        </div>
-                                    </a>
-                                </figure>
-                            </div>
-
-                            <div class="col-lg-5">
-                                <div class="post_info">
-                                    <small>{{ Date::parse($blog->date)->format("d F Y") }}</small>
-                                    <h3><a draggable="false" href="{{ route("{$menu_slug}.view", ["blog_slug" => $blog->slug]) }}">{{ $blog->translate_name }}</a></h3>
-                                    <p>{{ strip_tags(Str::limit($blog->translate_description, 300)) }}</p>
-                                    <ul>
-                                        <li>
-                                            <div class="thumb">
-                                                <img draggable="false" src="{{ asset("images/logo.png") }}" class="img-fluid w-100"
-                                                    alt="{{ trans("index.Logo") }} - {{ env("APP_TITLE") }}">
-                                            </div>
-                                            Administrator
-                                        </li>
-                                        <li>
-                                            <a draggable="false" href="{{ route("{$menu_slug}.view", ["blog_slug" => $blog->slug]) }}#comments">
-                                                <i class="icon_comment_alt"></i>
-                                                99
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
+    <section class="htc__blog__area ptb--80 bg__white">
+        <div class="container">
+            <div class="row pb--40 htc__blog__wrap">
+                <!-- Start Single Blog -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="blog">
+                        <div class="blog__thumb">
+                            <a href="blog-details.html">
+                                <img src="images/blog/1.jpg" alt="blog images">
+                            </a>
+                            <div class="blog__date">
+                                <span>AUGUST 8, 2022</span>
                             </div>
                         </div>
-                    </article>
-                @endforeach
-
-                {{ $data_blog->links("vendor.livewire.bootstrap") }}
-
+                        <div class="blog__details">
+                            <h2><a href="blog-details.html">Iceland’s volcano timelapse</a></h2>
+                            <p>The term minimalism is also used to describe a trend in design and architecture where in the subject is reduced to its n...</p>
+                            <div class="blog__btn">
+                                <a class="read__more__btn" href="blog-details.html">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Single Blog -->
+                <!-- Start Single Blog -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="blog">
+                        <div class="blog__thumb">
+                            <a href="blog-details.html">
+                                <img src="images/blog/2.jpg" alt="blog images">
+                            </a>
+                            <div class="blog__date">
+                                <span>AUGUST 8, 2022</span>
+                            </div>
+                        </div>
+                        <div class="blog__details">
+                            <h2><a href="blog-details.html">Iceland’s volcano timelapse</a></h2>
+                            <p>The term minimalism is also used to describe a trend in design and architecture where in the subject is reduced to its n...</p>
+                            <div class="blog__btn">
+                                <a class="read__more__btn" href="blog-details.html">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Single Blog -->
+                <!-- Start Single Blog -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="blog">
+                        <div class="blog__thumb">
+                            <a href="blog-details.html">
+                                <img src="images/blog/3.jpg" alt="blog images">
+                            </a>
+                            <div class="blog__date">
+                                <span>AUGUST 8, 2022</span>
+                            </div>
+                        </div>
+                        <div class="blog__details">
+                            <h2><a href="blog-details.html">Iceland’s volcano timelapse</a></h2>
+                            <p>The term minimalism is also used to describe a trend in design and architecture where in the subject is reduced to its n...</p>
+                            <div class="blog__btn">
+                                <a class="read__more__btn" href="blog-details.html">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Single Blog -->
+                <!-- Start Single Blog -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="blog">
+                        <div class="blog__thumb">
+                            <a href="blog-details.html">
+                                <img src="images/blog/4.jpg" alt="blog images">
+                            </a>
+                            <div class="blog__date">
+                                <span>AUGUST 8, 2022</span>
+                            </div>
+                        </div>
+                        <div class="blog__details">
+                            <h2><a href="blog-details.html">Iceland’s volcano timelapse</a></h2>
+                            <p>The term minimalism is also used to describe a trend in design and architecture where in the subject is reduced to its n...</p>
+                            <div class="blog__btn">
+                                <a class="read__more__btn" href="blog-details.html">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Single Blog -->
+                <!-- Start Single Blog -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="blog">
+                        <div class="blog__thumb">
+                            <a href="blog-details.html">
+                                <img src="images/blog/5.jpg" alt="blog images">
+                            </a>
+                            <div class="blog__date">
+                                <span>AUGUST 8, 2022</span>
+                            </div>
+                        </div>
+                        <div class="blog__details">
+                            <h2><a href="blog-details.html">Iceland’s volcano timelapse</a></h2>
+                            <p>The term minimalism is also used to describe a trend in design and architecture where in the subject is reduced to its n...</p>
+                            <div class="blog__btn">
+                                <a class="read__more__btn" href="blog-details.html">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Single Blog -->
+                <!-- Start Single Blog -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="blog">
+                        <div class="blog__thumb">
+                            <a href="blog-details.html">
+                                <img src="images/blog/6.jpg" alt="blog images">
+                            </a>
+                            <div class="blog__date">
+                                <span>AUGUST 8, 2022</span>
+                            </div>
+                        </div>
+                        <div class="blog__details">
+                            <h2><a href="blog-details.html">Iceland’s volcano timelapse</a></h2>
+                            <p>The term minimalism is also used to describe a trend in design and architecture where in the subject is reduced to its n...</p>
+                            <div class="blog__btn">
+                                <a class="read__more__btn" href="blog-details.html">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Single Blog -->
+                <!-- Start Single Blog -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="blog">
+                        <div class="blog__thumb">
+                            <a href="blog-details.html">
+                                <img src="images/blog/3.jpg" alt="blog images">
+                            </a>
+                            <div class="blog__date">
+                                <span>AUGUST 8, 2022</span>
+                            </div>
+                        </div>
+                        <div class="blog__details">
+                            <h2><a href="blog-details.html">Iceland’s volcano timelapse</a></h2>
+                            <p>The term minimalism is also used to describe a trend in design and architecture where in the subject is reduced to its n...</p>
+                            <div class="blog__btn">
+                                <a class="read__more__btn" href="blog-details.html">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Single Blog -->
+                <!-- Start Single Blog -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="blog">
+                        <div class="blog__thumb">
+                            <a href="blog-details.html">
+                                <img src="images/blog/2.jpg" alt="blog images">
+                            </a>
+                            <div class="blog__date">
+                                <span>AUGUST 8, 2022</span>
+                            </div>
+                        </div>
+                        <div class="blog__details">
+                            <h2><a href="blog-details.html">Iceland’s volcano timelapse</a></h2>
+                            <p>The term minimalism is also used to describe a trend in design and architecture where in the subject is reduced to its n...</p>
+                            <div class="blog__btn">
+                                <a class="read__more__btn" href="blog-details.html">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Single Blog -->
+                <!-- Start Single Blog -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="blog">
+                        <div class="blog__thumb">
+                            <a href="blog-details.html">
+                                <img src="images/blog/1.jpg" alt="blog images">
+                            </a>
+                            <div class="blog__date">
+                                <span>AUGUST 8, 2022</span>
+                            </div>
+                        </div>
+                        <div class="blog__details">
+                            <h2><a href="blog-details.html">Iceland’s volcano timelapse</a></h2>
+                            <p>The term minimalism is also used to describe a trend in design and architecture where in the subject is reduced to its n...</p>
+                            <div class="blog__btn">
+                                <a class="read__more__btn" href="blog-details.html">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Single Blog -->
             </div>
-
-            @include("livewire.{$menu_slug}.sidebar")
+            <!-- Start Pagenation Area -->
+            <div class="row">
+               <div class="col-12">
+                    <ul class="htc-pagination clearfix">
+                        <li class="active"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#"><i class="icon ion-ios-arrow-right"></i></a></li>
+                    </ul>
+               </div>
+            </div>
+            <!-- End Pagenation Area -->
         </div>
-    </div>
+    </section>
 </div>
