@@ -8,7 +8,7 @@
         <div class="slider__activation__wrap owl-carousel owl-theme">
             @foreach ($data_slider as $slider)
                 @if ($loop->iteration == 1)
-                    <div class="slide text__align--left slider__bg__color--1 fornt__image--right" style="background-image: url({{ $slider->assetImage() }}); background-size: cover; background-position: center center;">
+                    <div class="slide text__align--left slider__bg__color--1 fornt__image--right" style="background-image: url({{ $slider->assetImage() }}); background-size: 100% 100%; background-position: center center;">
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-7">
@@ -32,7 +32,7 @@
                 @endif
 
                 @if ($loop->iteration == 2)
-                    <div class="slide slider__bg__color--2 text__align--left fornt__image--right-3" style="background-image: url({{ $slider->assetImage() }}); background-size: cover;">
+                    <div class="slide slider__bg__color--2 text__align--left fornt__image--right-3" style="background-image: url({{ $slider->assetImage() }}); background-size: 100% 100%;">
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-9 col-xl-7">
@@ -52,7 +52,7 @@
                 @endif
 
                 @if ($loop->iteration == 3)
-                    <div class="slide slider__bg__color--3 text__align--left fornt__image--right-2" style="background-image: url({{ $slider->assetImage() }}); background-size: cover;">
+                    <div class="slide slider__bg__color--3 text__align--left fornt__image--right-2" style="background-image: url({{ $slider->assetImage() }}); background-size: 100% 100%;">
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-7">
