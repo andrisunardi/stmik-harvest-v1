@@ -11,6 +11,90 @@ class EventSeeder extends Seeder
     public function run()
     {
         $data = new Event();
+        $data->name = "New Student Orientation 2015/2016";
+        $data->name_id = "Orientasi Mahasiswa Baru 2015/2016";
+        $data->description = "TEST";
+        $data->description_id = "TEST";
+        $data->location = "Gedung World Harvest Center, International Room.";
+        $data->start = "2015-09-19 08:00:00";
+        $data->end = "2015-09-19 17:00:00";
+        $data->image = Str::slug($data->name) . ".png";
+        $data->slug = Str::slug($data->name);
+        $data->save();
+
+        $data = new Event();
+        $data->name = "TEST";
+        $data->name_id = "TEST";
+        $data->description = "TEST";
+        $data->description_id = "TEST";
+        $data->location = "STMIK Harvest, Gedung World Harvest Center, International Room";
+        $data->start = "2017-09-09 08:00:00";
+        $data->end = "2017-09-10 17:00:00";
+        $data->image = Str::slug($data->name) . ".png";
+        $data->slug = Str::slug($data->name);
+        $data->save();
+
+        $data = new Event();
+        $data->name = "TEST";
+        $data->name_id = "TEST";
+        $data->description = "TEST";
+        $data->description_id = "TEST";
+        $data->location = "STMIK Harvest, Gedung World Harvest Center, International Room";
+        $data->start = "2017-09-09 08:00:00";
+        $data->end = "2017-09-10 17:00:00";
+        $data->image = Str::slug($data->name) . ".png";
+        $data->slug = Str::slug($data->name);
+        $data->save();
+
+        $data = new Event();
+        $data->name = "TEST";
+        $data->name_id = "TEST";
+        $data->description = "TEST";
+        $data->description_id = "TEST";
+        $data->location = "STMIK Harvest, Gedung World Harvest Center, International Room";
+        $data->start = "2017-09-09 08:00:00";
+        $data->end = "2017-09-10 17:00:00";
+        $data->image = Str::slug($data->name) . ".png";
+        $data->slug = Str::slug($data->name);
+        $data->save();
+
+        $data = new Event();
+        $data->name = "TEST";
+        $data->name_id = "TEST";
+        $data->description = "TEST";
+        $data->description_id = "TEST";
+        $data->location = "STMIK Harvest, Gedung World Harvest Center, International Room";
+        $data->start = "2017-09-09 08:00:00";
+        $data->end = "2017-09-10 17:00:00";
+        $data->image = Str::slug($data->name) . ".png";
+        $data->slug = Str::slug($data->name);
+        $data->save();
+
+        $data = new Event();
+        $data->name = "TEST";
+        $data->name_id = "TEST";
+        $data->description = "TEST";
+        $data->description_id = "TEST";
+        $data->location = "STMIK Harvest, Gedung World Harvest Center, International Room";
+        $data->start = "2017-09-09 08:00:00";
+        $data->end = "2017-09-10 17:00:00";
+        $data->image = Str::slug($data->name) . ".png";
+        $data->slug = Str::slug($data->name);
+        $data->save();
+
+        $data = new Event();
+        $data->name = "TEST";
+        $data->name_id = "TEST";
+        $data->description = "TEST";
+        $data->description_id = "TEST";
+        $data->location = "STMIK Harvest, Gedung World Harvest Center, International Room";
+        $data->start = "2017-09-09 08:00:00";
+        $data->end = "2017-09-10 17:00:00";
+        $data->image = Str::slug($data->name) . ".png";
+        $data->slug = Str::slug($data->name);
+        $data->save();
+
+        $data = new Event();
         $data->name = "";
         $data->name_id = "Orientasi Mahasiswa Baru 2017/2018";
         $data->description = "";

@@ -4,6 +4,7 @@ use Diglactic\Breadcrumbs\Breadcrumbs;
 use Diglactic\Breadcrumbs\Generator as BreadcrumbTrail;
 
 use App\Models\Blog;
+use App\Models\Event;
 
 Breadcrumbs::for("errors.404", function (BreadcrumbTrail $trail) {
     $trail->parent("index");
@@ -69,9 +70,15 @@ Breadcrumbs::for("information-system.index", function (BreadcrumbTrail $trail) {
     $trail->push(trans("page.Information System"), route("information-system.index"));
 });
 
-Breadcrumbs::for("events.index", function (BreadcrumbTrail $trail) {
+Breadcrumbs::for("event.index", function (BreadcrumbTrail $trail) {
     $trail->parent("index");
-    $trail->push(trans("page.Events"), route("events.index"));
+    $trail->push(trans("page.Event"), route("event.index"));
+});
+
+Breadcrumbs::for("event.view", function (BreadcrumbTrail $trail, $event_slug) {
+    $event = Event::where("slug", $event_slug)->onlyActive()->firstOrFail();
+    $trail->parent("event.index");
+    $trail->push("{$event->translate_name}", route("event.view", $event_slug));
 });
 
 Breadcrumbs::for("faq.index", function (BreadcrumbTrail $trail) {

@@ -7,11 +7,11 @@ use App\Http\Livewire\Component;
 use App\Models\Banner;
 use App\Models\Event;
 
-class EventsComponent extends Component
+class EventComponent extends Component
 {
-    public $menu_name = "Events";
+    public $menu_name = "Event";
     public $menu_icon = "fas fa-calendar";
-    public $menu_slug = "events";
+    public $menu_slug = "event";
     public $menu_table = "event";
 
     public function mount()

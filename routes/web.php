@@ -88,9 +88,10 @@ Route::group(["prefix" => Str::slug($page), "as" => Str::slug($page) . "."], fun
     Route::any("", Str::studly($page) . "Component")->name("index");
 });
 
-$page = "Events";
+$page = "Event";
 Route::group(["prefix" => Str::slug($page), "as" => Str::slug($page) . "."], function () use ($page) {
     Route::any("", Str::studly($page) . "Component")->name("index");
+    Route::any("{event_slug}", Str::studly($page) . "ViewComponent")->name("view");
 });
 
 $page = "Blog";
