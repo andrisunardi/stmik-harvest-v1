@@ -16,7 +16,7 @@ class AdmissionCalendarComponent extends Component
 
     public function mount()
     {
-        $this->banner = Banner::find(2);
+        $this->banner = Banner::find(8);
 
         $this->data_admission_calendar = AdmissionCalendar::onlyActive()->orderByDesc("id")->get();
     }

@@ -86,7 +86,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
     <style>
-        body * {
+        body * :not(i[class^="fas fa-"], i[class^="fab fa-"], i[class^="far fa-"]) {
             font-family: "Work Sans", sans-serif !important;
         }
     </style>
@@ -485,7 +485,7 @@
                         <div class="copyright__inner">
                             <div class="copyright">
                                 <p>
-                                    &copy; {{ __("footer.Copyright") }} @if(env("APP_YEAR") && env("APP_YEAR") != date("Y")) {{ env("APP_YEAR") . " - " }} @endif {{ date("Y") }} &reg;&nbsp;
+                                    &copy; {{ trans("index.Copyright") }} @if(env("APP_YEAR") && env("APP_YEAR") != date("Y")) {{ env("APP_YEAR") . " - " }} @endif {{ date("Y") }} &reg;&nbsp;
                                     <a draggable="false" href="{{ URL::to("/") }}" target="_blank">
                                         <strong>{{ env("APP_NAME") }}</strong>
                                     </a> &trade;
@@ -502,9 +502,9 @@
                                 <li><a draggable="false" href="https://www.instagram.com/{{ env("SOCIAL_MEDIA_INSTAGRAM") }}"><i class="icon ion-social-instagram"></i></a></li>
                                 <li><a draggable="false" href="https://www.youtube.com/{{ env("SOCIAL_MEDIA_YOUTUBE") }}"><i class="icon ion-social-youtube"></i></a></li> --}}
                                 <li>
-                                    <span class="text-white">{{ __("footer.Created and Designed by") }}</span>
+                                    <span class="text-white">{{ trans("index.Created and Designed by") }}</span>
                                     <a draggable="false" href="https://www.diw.co.id" target="_blank">
-                                        <img draggable="false" src="{{ asset("images/icon-diw.co.id.png") }}" alt="Icon DIW.co.id" title="{{ __("footer.Created and Designed by") }} DIW.co.id">
+                                        <img draggable="false" src="{{ asset("images/icon-diw.co.id.png") }}" alt="Icon DIW.co.id" title="{{ trans("index.Created and Designed by") }} DIW.co.id">
                                     </a>
                                 </li>
                             </ul>
@@ -567,6 +567,8 @@
                 @yield("content")
 
             @else
+
+                @include("layouts.breadcrumbs")
 
                 @yield("error-content")
 

@@ -72,7 +72,7 @@ class ContactUsComponent extends Component
 
     public function mount()
     {
-        $this->banner = Banner::find(9);
+        $this->banner = Banner::find(16);
     }
 
     public function render()

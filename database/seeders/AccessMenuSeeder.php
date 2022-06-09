@@ -2,10 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
-
 use App\Models\AccessMenu;
 use App\Models\Menu;
+use Illuminate\Database\Seeder;
 
 class AccessMenuSeeder extends Seeder
 {

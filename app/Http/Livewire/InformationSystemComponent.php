@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Http\Livewire\Component;
+use App\Models\Banner;
 
 class InformationSystemComponent extends Component
 {
@@ -11,21 +12,10 @@ class InformationSystemComponent extends Component
     public $menu_slug = "information-system";
     public $menu_table = "information_system";
 
-    // public function mount()
-    // {
-    //     $this->data_course = collect(
-    //         [
-    //             "name" => "Discreet Math",
-    //             "semester" => 1,
-    //             "category" => null,
-    //         ],
-    //         [
-    //             "name" => "Discreet Math",
-    //             "semester" => 1,
-    //             "category" => "BIS",
-    //         ],
-    //     );
-    // }
+    public function mount()
+    {
+        $this->banner = Banner::find(12);
+    }
 
     public function render()
     {

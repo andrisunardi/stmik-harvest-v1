@@ -16,7 +16,7 @@ class ProcedureComponent extends Component
 
     public function mount()
     {
-        $this->banner = Banner::find(2);
+        $this->banner = Banner::find(9);
 
         $this->data_procedure = Procedure::onlyActive()->orderBy("id")->get();
     }

@@ -2,10 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Testimony;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
-
-use App\Models\Testimony;
 
 class TestimonySeeder extends Seeder
 {

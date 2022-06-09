@@ -2,10 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Slider;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
-
-use App\Models\Slider;
 
 class SliderSeeder extends Seeder
 {

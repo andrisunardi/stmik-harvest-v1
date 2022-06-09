@@ -16,7 +16,7 @@ class FaqComponent extends Component
 
     public function mount()
     {
-        $this->banner = Banner::find(4);
+        $this->banner = Banner::find(6);
 
         $this->data_faq = Faq::onlyActive()->orderBy("id")->get();
     }

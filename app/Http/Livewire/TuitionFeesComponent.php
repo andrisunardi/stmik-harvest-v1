@@ -16,7 +16,7 @@ class TuitionFeesComponent extends Component
 
     public function mount()
     {
-        $this->banner = Banner::find(1);
+        $this->banner = Banner::find(10);
 
         $this->data_tuition_fee = TuitionFee::onlyActive()->orderBy("id")->get();
     }

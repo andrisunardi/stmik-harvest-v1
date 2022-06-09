@@ -16,7 +16,7 @@ class EventsComponent extends Component
 
     public function mount()
     {
-        $this->banner = Banner::find(3);
+        $this->banner = Banner::find(14);
 
         $this->data_event = Event::onlyActive()->orderByDesc("id")->get();
     }

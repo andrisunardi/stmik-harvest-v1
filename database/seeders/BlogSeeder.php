@@ -2,10 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Blog;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
-
-use App\Models\Blog;
 
 class BlogSeeder extends Seeder
 {

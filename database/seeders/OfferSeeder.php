@@ -2,9 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
-
 use App\Models\Offer;
+use Illuminate\Database\Seeder;
 
 class OfferSeeder extends Seeder
 {

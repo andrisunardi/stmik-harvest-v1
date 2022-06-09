@@ -2,10 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Gallery;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
-
-use App\Models\Gallery;
 
 class GallerySeeder extends Seeder
 {

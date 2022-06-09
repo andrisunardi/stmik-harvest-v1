@@ -16,7 +16,7 @@ class OurNetworkComponent extends Component
 
     public function mount()
     {
-        $this->banner = Banner::find(1);
+        $this->banner = Banner::find(5);
 
         $this->data_network = Network::onlyActive()->orderByDesc("id")->get();
     }

@@ -2,10 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
-
-use App\Models\MenuCategory;
 use App\Models\Menu;
+use App\Models\MenuCategory;
+use Illuminate\Database\Seeder;
 
 class MenuCategorySeeder extends Seeder
 {

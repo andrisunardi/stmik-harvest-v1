@@ -41,7 +41,7 @@ class BlogComponent extends Component
 
     public function mount()
     {
-        $this->banner = Banner::find(6);
+        $this->banner = Banner::find(15);
 
         $this->blog_category = BlogCategory::find($this->category);
 

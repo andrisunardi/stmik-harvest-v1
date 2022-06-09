@@ -27,7 +27,7 @@ class OurGalleryComponent extends Component
 
     public function mount()
     {
-        $this->banner = Banner::find(3);
+        $this->banner = Banner::find(13);
 
         $this->data_gallery_category = Gallery::groupBy("category")->onlyActive()->orderBy("name")->get();
     }

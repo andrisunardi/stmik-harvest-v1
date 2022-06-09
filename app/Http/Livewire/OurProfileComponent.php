@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Http\Livewire\Component;
+use App\Models\Banner;
 
 class OurProfileComponent extends Component
 {
@@ -10,6 +11,11 @@ class OurProfileComponent extends Component
     public $menu_icon = "fas fa-calendar";
     public $menu_slug = "our-profile";
     public $menu_table = "our_profile";
+
+    public function mount()
+    {
+        $this->banner = Banner::find(3);
+    }
 
     public function render()
     {

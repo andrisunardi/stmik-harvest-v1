@@ -83,7 +83,7 @@ class OnlineRegistrationComponent extends Component
 
     public function mount()
     {
-        $this->banner = Banner::find(9);
+        $this->banner = Banner::find(7);
     }
 
     public function render()

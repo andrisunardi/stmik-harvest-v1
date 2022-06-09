@@ -2,9 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
-
 use App\Models\Value;
+use Illuminate\Database\Seeder;
 
 class ValueSeeder extends Seeder
 {

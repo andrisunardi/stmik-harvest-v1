@@ -3,7 +3,6 @@
 namespace App\Http\Livewire;
 
 use App\Http\Livewire\Component;
-
 use App\Models\Banner;
 use App\Models\Network;
 use App\Models\Value;
@@ -17,7 +16,7 @@ class AboutComponent extends Component
 
     public function mount()
     {
-        $this->banner = Banner::find(1);
+        $this->banner = Banner::find(2);
 
         $this->data_network = Network::onlyActive()->orderByDesc("id")->get();
 

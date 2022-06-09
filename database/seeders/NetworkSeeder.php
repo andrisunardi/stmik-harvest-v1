@@ -2,10 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Network;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
-
-use App\Models\Network;
 
 class NetworkSeeder extends Seeder
 {

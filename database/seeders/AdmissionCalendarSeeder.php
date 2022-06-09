@@ -2,9 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
-
 use App\Models\AdmissionCalendar;
+use Illuminate\Database\Seeder;
 
 class AdmissionCalendarSeeder extends Seeder
 {

@@ -36,7 +36,7 @@ class BlogViewComponent extends Component
 
     public function mount($blog_slug)
     {
-        $this->banner = Banner::find(6);
+        $this->banner = Banner::find(15);
 
         $this->blog = Blog::where("slug", $blog_slug)->onlyActive()->first();
 

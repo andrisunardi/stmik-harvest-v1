@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Http\Livewire\Component;
+use App\Models\Banner;
 
 class ScholarshipsComponent extends Component
 {
@@ -10,6 +11,11 @@ class ScholarshipsComponent extends Component
     public $menu_icon = "fas fa-money";
     public $menu_slug = "scholarships";
     public $menu_table = "scholarships";
+
+    public function mount()
+    {
+        $this->banner = Banner::find(11);
+    }
 
     public function render()
     {

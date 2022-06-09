@@ -16,7 +16,7 @@ class OurValuesComponent extends Component
 
     public function mount()
     {
-        $this->banner = Banner::find(1);
+        $this->banner = Banner::find(4);
 
         $this->data_value = Value::onlyActive()->orderByDesc("id")->get();
     }
