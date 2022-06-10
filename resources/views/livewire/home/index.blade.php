@@ -334,12 +334,12 @@
             </div>
             <div class="row upcoming__wrap mt-6">
                 @foreach ($data_upcoming_event as $upcoming_event)
-                    <div class="col-lg-6">
+                    <div class="col-lg-6 {{ $loop->first ? "" : "mt-6 mt-lg-0" }}">
                         <div class="upcoming">
                             <div class="upcoming__inner">
                                 <div class="upcoming__thumb">
                                     <a draggable="false" href="#">
-                                        <img draggable="false" src="images/event/1.jpg" alt="upcoming images">
+                                        <img draggable="false" class="img-fluid w-100" src="{{ $upcoming_event->assetImage() }}" alt="{{ trans("page.Event") }} - {{ $upcoming_event->translate_name }} - {{ env("APP_TITLE") }}">
                                     </a>
                                 </div>
                                 <div class="upcoming__hover__info">
@@ -367,39 +367,6 @@
                         </div>
                     </div>
                 @endforeach
-
-                <div class="col-lg-6 mt-6 mt-lg-0">
-                    <div class="upcoming">
-                        <div class="upcoming__inner">
-                            <div class="upcoming__thumb">
-                                <a draggable="false" href="#">
-                                    <img draggable="false" src="images/event/2.jpg" alt="upcoming images">
-                                </a>
-                            </div>
-                            <div class="upcoming__hover__info">
-                                <div class="upcoming__hover__action">
-                                    <div class="upcoming__event__time">
-                                        <div class="event__time">
-                                            <span>25</span>
-                                            <span>june</span>
-                                        </div>
-                                        <span class="event__separator"></span>
-                                        <ul class="event__location">
-                                            <li><i class="icon ion-android-time"></i>8:00 AM - 5:00 PM</li>
-                                            <li><i class="icon ion-ios-location"></i>Second Quad</li>
-                                        </ul>
-                                    </div>
-                                    <div class="upcoming__details hidden-xs">
-                                        <p>Joint Roman Catholic Mass at Corpus Christi College Chapel</p>
-                                    </div>
-                                    <div class="event__btn">
-                                        <a draggable="false" class="htc__btn btn--transparent" href="#">View Details</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>

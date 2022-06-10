@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Http\Livewire\Component;
 use App\Models\AdmissionCalendar;
 use App\Models\Blog;
+use App\Models\Event;
 use App\Models\Newsletter;
 use App\Models\Offer;
 use App\Models\Registration;
@@ -122,9 +123,11 @@ class HomeComponent extends Component
 
         $this->data_blog = Blog::onlyActive()->limit(3)->orderByDesc("id")->get();
 
-        $this->data_event = Blog::whereDate("date", "<=", now()->format("Y-m-d"))->onlyActive()->limit(6)->orderByDesc("id")->get();
+        // $this->data_event = Event::where("end", "<=", now()->format("Y-m-d"))->onlyActive()->limit(6)->orderByDesc("id")->get();
+        $this->data_event = Event::onlyActive()->limit(6)->orderByDesc("id")->get();
 
-        $this->data_upcoming_event = Blog::whereDate("date", ">=", now()->format("Y-m-d"))->onlyActive()->limit(2)->orderByDesc("id")->get();
+        // $this->data_upcoming_event = Event::where("start", ">=", now()->format("Y-m-d"))->onlyActive()->limit(2)->orderByDesc("id")->get();
+        $this->data_upcoming_event = Event::onlyActive()->limit(2)->orderByDesc("id")->get();
     }
 
     public function render()
