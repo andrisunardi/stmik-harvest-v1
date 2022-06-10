@@ -338,7 +338,7 @@
                         <div class="upcoming">
                             <div class="upcoming__inner">
                                 <div class="upcoming__thumb">
-                                    <a draggable="false" href="#">
+                                    <a draggable="false" href="{{ route("event.view", ["event_slug" => $upcoming_event->slug]) }}">
                                         <img draggable="false" class="img-fluid w-100" src="{{ $upcoming_event->assetImage() }}" alt="{{ trans("page.Event") }} - {{ $upcoming_event->translate_name }} - {{ env("APP_TITLE") }}">
                                     </a>
                                 </div>
