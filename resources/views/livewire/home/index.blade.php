@@ -156,7 +156,7 @@
                         <div class="courses">
                             <div class="courses__thumb">
                                 <a draggable="false" href="{{ route("event.view", ["event_slug" => $event->slug]) }}">
-                                    <img draggable="false" claszs="img-fluid w-100" src="{{ $event->assetImage() }}" alt="{{ trans("page.Event") }} - {{ $event->translate_name }} - {{ env("APP_TITLE") }}">
+                                    <img draggable="false" class="img-fluid w-100" src="{{ $event->assetImage() }}" alt="{{ trans("page.Event") }} - {{ $event->translate_name }} - {{ env("APP_TITLE") }}">
                                 </a>
                                 <div class="courses__hover__info">
                                     <div class="courses__hover__action">

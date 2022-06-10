@@ -12,14 +12,14 @@
                         <div class="courses__grid__inner">
                             <div class="view-mode-wrap">
                                 <ul class="view-mode nav" role="tablist">
-                                    <li role="presentation" class="grid-view"><a href="#grid-view" role="tab" data-bs-toggle="tab"><i class="icon ion-grid"></i></a></li>
-                                    <li role="presentation" class="list-view"><a class="active" href="#list-view" role="tab" data-bs-toggle="tab"><i class="icon ion-navicon-round"></i></a></li>
+                                    <li role="presentation" class="grid-view"><a draggable="false" href="#grid-view" role="tab" data-bs-toggle="tab"><i class="icon ion-grid"></i></a></li>
+                                    <li role="presentation" class="list-view"><a draggable="false" class="active" href="#list-view" role="tab" data-bs-toggle="tab"><i class="icon ion-navicon-round"></i></a></li>
                                 </ul>
                                 <span class="show__result">Showing 12- of results</span>
                             </div>
                             <div class="courses__searsh__box">
                                 <input type="text" placeholder="Search Courses...">
-                                <a href="#"><i class="icon ion-ios-search-strong"></i></a>
+                                <a draggable="false" href="#"><i class="icon ion-ios-search-strong"></i></a>
                             </div>
                         </div>
                     </div>
@@ -32,29 +32,40 @@
                         <div role="tabpanel" class="single__grid__view popular__courses--5 clearfix tab-pane fade" id="grid-view">
                             <div class="row">
                                 @foreach ($data_event as $event)
-                                    <div class="col-xl-4 col-md-6">
+                                    <div class="col-md-6">
                                         <div class="courses">
                                             <div class="courses__thumb">
-                                                <a href="#"><img src="images/course/11.jpg" alt="courses images"></a>
+                                                <a draggable="false" href="{{ route("{$menu_slug}.view", ["event_slug" => $event->slug]) }}">
+                                                    <img draggable="false" class="img-fluid w-100" src="{{ $event->assetImage() }}" alt="{{ trans("page.{$menu_name}") }} - {{ $event->translate_name }} - {{ env("APP_TITLE") }}">
+                                                </a>
                                                 <div class="courses__hover__info">
                                                     <div class="courses__hover__action">
                                                         <div class="courses__hover__thumb">
-                                                            <img src="images/course/sm-img/2.png" alt="small images">
+                                                            <img draggable="false" src="{{ asset("images/logo-square.png") }}" class="rounded-circle" style="width:50px" alt="Administrator - {{ $event->translate_name }} - {{ env("APP_TITLE") }}">
                                                         </div>
-                                                        <h4><a href="#">Derek Spafford</a></h4>
+                                                        <h4>Administrator</h4>
                                                         <span class="crs__separator">/</span>
-                                                        <p>Professor</p>
+                                                        <p>Admin</p>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="courses__details">
                                                 <div class="courses__details__inner">
-                                                    <h2><a href="courses-details.html">Physics and Philosophy</a></h2>
-                                                    <p>All over the world, human beings create an immense and ever-increasing volume of data, with new kinds of data regularly...</p>
+                                                    <h2><a draggable="false" href="{{ route("{$menu_slug}.view", ["event_slug" => $event->slug]) }}">{{ $event->translate_name }}</a></h2>
+                                                    <p>{{ strip_tags(Str::limit($event->translate_description, 100)) }}</p>
                                                 </div>
                                                 <ul class="courses__meta">
-                                                    <li><i class="icon ion-person-stalker"></i>50 Students</li>
-                                                    <li class="crs__free">Free</li>
+                                                    <li class="crs__price">
+                                                        <i class="icon ion-calendar"></i>
+                                                        {{ Date::parse($event->start)->format("d M Y H:i") }} -
+                                                        {{ Date::parse($event->end)->format("d M Y H:i") }}
+                                                    </li>
+                                                </ul>
+                                                <ul class="courses__meta">
+                                                    <li>
+                                                        <i class="icon ion-map"></i>
+                                                        {{ $event->location }}
+                                                    </li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -71,8 +82,8 @@
                                             <div class="row">
                                                 <div class="col-lg-5">
                                                     <div class="single__list">
-                                                        <a href="#">
-                                                            <img src="images/course/1.jpg" alt="list view images">
+                                                        <a draggable="false" href="{{ route("{$menu_slug}.view", ["event_slug" => $event->slug]) }}">
+                                                            <img draggable="false" class="img-fluid w-100" src="{{ $event->assetImage() }}" alt="{{ trans("page.{$menu_name}") }} - {{ $event->translate_name }} - {{ env("APP_TITLE") }}">
                                                         </a>
                                                     </div>
                                                 </div>
@@ -80,22 +91,31 @@
                                                     <div class="list__view__inner">
                                                         <div class="list__view__info">
                                                             <div class="list__sm__image">
-                                                                <img src="images/course/sm-img/2.png" alt="small images">
+                                                                <img draggable="false" src="{{ asset("images/logo-square.png") }}" class="rounded-circle" style="width:50px" alt="Administrator - {{ $event->translate_name }} - {{ env("APP_TITLE") }}">
                                                             </div>
-                                                            <h4><a href="#">Derek Spafford</a></h4>
+                                                            <h4>Administrator</h4>
                                                             <span class="crs__separator">/</span>
-                                                            <p>Professor</p>
+                                                            <p>Admin</p>
                                                         </div>
                                                         <div class="lst__view__details">
-                                                            <h2><a href="courses-details.html">Mathematics and Statistics</a></h2>
-                                                            <p>All over the world, human beings create an immense and ever-increasing volume of data, with new kinds of data regularly...</p>
+                                                            <h2><a draggable="false" href="{{ route("{$menu_slug}.view", ["event_slug" => $event->slug]) }}">{{ $event->translate_name }}</a></h2>
+                                                            <p>{{ strip_tags(Str::limit($event->translate_description, 100)) }}</p>
                                                         </div>
                                                         <ul class="list__meta">
-                                                            <li class="crs__price">$60.00</li>
-                                                            <li><i class="icon ion-person-stalker"></i>50 Students</li>
+                                                            <li class="crs__price">
+                                                                <i class="icon ion-calendar"></i>
+                                                                {{ Date::parse($event->start)->format("d M Y H:i") }} -
+                                                                {{ Date::parse($event->end)->format("d M Y H:i") }}
+                                                            </li>
+                                                        </ul>
+                                                        <ul class="list__meta">
+                                                            <li>
+                                                                <i class="icon ion-map"></i>
+                                                                {{ $event->location }}
+                                                            </li>
                                                         </ul>
                                                         <div class="list__btn">
-                                                            <a class="htc__btn btn--theme" href="courses-details.html">Read More</a>
+                                                            <a draggable="false" class="htc__btn btn--theme" href="{{ route("{$menu_slug}.view", ["event_slug" => $event->slug]) }}">{{ trans("index.Read More") }}</a>
                                                         </div>
                                                     </div>
                                                 </div>
