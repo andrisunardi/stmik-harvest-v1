@@ -90,5 +90,17 @@ class GallerySeeder extends Seeder
         $data->image = Str::slug($data->name) . ".png";
         $data->youtube = "https://www.youtube.com/watch?v=QwaRy3jJEVk";
         $data->save();
+
+        $data = new Gallery();
+        $data->category = 2;
+        $data->name = "Company Profile STMIK Kuwera";
+        $data->name_id = "Company Profile STMIK Kuwera";
+        $data->description = "Company Profile STMIK Kuwera";
+        $data->description_id = "Company Profile STMIK Kuwera";
+        $data->tag = "Company Profile";
+        $data->tag_id = "Profil Perusahaan";
+        $data->image = Str::slug($data->name) . ".png";
+        $data->video = Str::slug($data->name) . ".mp4";
+        $data->save();
     }
 }

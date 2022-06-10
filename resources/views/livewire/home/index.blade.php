@@ -346,20 +346,24 @@
                                     <div class="upcoming__hover__action">
                                         <div class="upcoming__event__time">
                                             <div class="event__time">
-                                                <span>25</span>
-                                                <span>june</span>
+                                                <span>{{ Date::parse($upcoming_event->start)->format("d") }}</span>
+                                                <span>{{ Date::parse($upcoming_event->start)->format("F") }}</span>
                                             </div>
                                             <span class="event__separator"></span>
                                             <ul class="event__location">
-                                                <li><i class="icon ion-android-time"></i>8:00 AM - 5:00 PM</li>
-                                                <li><i class="icon ion-ios-location"></i>Second Quad</li>
+                                                <li>
+                                                    <i class="icon ion-android-time"></i>
+                                                    {{ Date::parse($upcoming_event->start)->format("H:i") }} -
+                                                    {{ Date::parse($upcoming_event->end)->format("H:i") }}
+                                                </li>
+                                                <li><i class="icon ion-ios-location"></i> {{ $upcoming_event->location }}</li>
                                             </ul>
                                         </div>
                                         <div class="upcoming__details hidden-xs">
-                                            <p>College Eucharist (Justin Martyr of Rome) at Bartlemas Chapel</p>
+                                            <p>{{ $upcoming_event->translate_name }}</p>
                                         </div>
                                         <div class="event__btn">
-                                            <a draggable="false" class="htc__btn btn--transparent" href="#">View Details</a>
+                                            <a draggable="false" class="htc__btn btn--transparent" href="{{ route("event.view", ["event_slug" => $upcoming_event->slug]) }}">{{ trans("index.View Detail") }}</a>
                                         </div>
                                     </div>
                                 </div>
