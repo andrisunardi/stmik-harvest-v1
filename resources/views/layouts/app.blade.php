@@ -313,7 +313,7 @@
 @endsection
 
 @section("footer")
-    <footer class="htc__footer__area bg__theme">
+    <footer class="htc__footer__area bg__theme" style="background-color: #222222">
         <div class="container">
 
             <div class="htc__footer__top">

@@ -265,11 +265,10 @@ body {
   06. Bg-Color
 -------------------------------------*/
 .bg__theme {
-    /* background: #18563F; ORIGINAL */
-    background: #222222;
+    background: #18563F;
 }
 .bg__white {
-  background: #fff;
+  background: #fff;222222
 }
 .bg__gray {
     background: #f1f1f1;
