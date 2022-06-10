@@ -14,7 +14,7 @@
                             <ul class="blog__meta">
                                 <li><i class="icon ion-android-calendar"></i> {{ trans("index.Created At") }} : {{ Date::parse($blog->date)->format("d F Y") }}</li>
                                 <li class="meta__separator"><i class="icon ion-person"></i> {{ trans("index.posted_by") }} : Administrator</li>
-                                <li class="meta__separator"><i class="icon ion-pricetag"></i> {{ trans("index.Category") }} : <a draggable="false" href="{{ route("{$menu_slug}.index") . "?category={$blog->blog_category->id}" }}">{{ $blog->blog_category->translate_name }}</a></li>
+                                <li class="meta__separator"><i class="icon ion-pricetag"></i> {{ trans("index.Category") }} : <a draggable="false" href="{{ route("{$menu_slug}.index") . "?category={$blog->blog_category->slug}" }}">{{ $blog->blog_category->translate_name }}</a></li>
                             </ul>
                         </div>
                         <div class="blog__details__thumb">

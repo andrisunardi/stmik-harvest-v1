@@ -34,7 +34,7 @@ class eventViewComponent extends Component
 
     public function mount($event_slug)
     {
-        $this->banner = Banner::find(15);
+        $this->banner = Banner::find(14);
 
         $this->event = Event::where("slug", $event_slug)->onlyActive()->first();
 

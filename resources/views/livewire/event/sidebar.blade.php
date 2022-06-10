@@ -1,53 +1,104 @@
-<div class="col-lg-3 sm-mt-40 xs-mt-40">
-    <div class="htc__blog__right__sidebar">
-        <div class="htc__blog__courses">
-            <h2 class="title__style--2">{{ trans("index.All Category") }}</h2>
-            <ul class="blog__courses">
-                @foreach ($data_blog_category as $event_category)
-                    <li><a draggable="false" href="{{ route("{$menu_slug}.index") . "?category={$event_category->id}" }}">{{ $event_category->translate_name }}</a></li>
-                @endforeach
-            </ul>
-        </div>
 
-        <div class="blog__recent__courses">
-            <h2 class="title__style--2">{{ trans("index.Recent Blog") }}</h2>
-            <div class="recent__courses__inner">
-                @foreach ($data_recent_blog as $recent_blog)
-                    <div class="single__courses">
-                        <div class="recent__post__thumb">
-                            <a href="{{ route("{$menu_slug}.view", ["blog_slug" => $event->slug]) }}">
-                                <img draggable="false" class="img-fluid w-100" src="{{ $recent_blog->assetImage() }}" alt="{{ trans("page.{$menu_name}") }} - {{ $recent_blog->translate_name }} - {{ env("APP_TITLE") }}">
-                            </a>
+                <div class="col-lg-3">
+                    <div class="htc__blog__right__sidebar mt--50">
+                        <!-- Start All Courses -->
+                        <div class="htc__blog__courses">
+                            <h2 class="title__style--2">All Courses</h2>
+                            <ul class="blog__courses">
+                                <li><a href="#">Art Course</a></li>
+                                <li><a href="#">Sports Course</a></li>
+                                <li><a href="#">Math Course</a></li>
+                                <li><a href="#">Art Course</a></li>
+                                <li><a href="#">Sports Course</a></li>
+                                <li><a href="#">Math Course</a></li>
+                            </ul>
                         </div>
-                        <div class="recent__post__details">
-                            <h2><a draggable="false" href="{{ route("{$menu_slug}.view", ["blog_slug" => $event->slug]) }}">{{ $recent_blog->translate_name }}</a></h2>
-                            <a draggable="false" href="{{ route("{$menu_slug}.index") . "?category={$recent_blog->blog_category->id}" }}">
-                                <span class="post__price">
-                                    {{ $recent_blog->blog_category->translate_name }}
-                                </span>
-                            </a>
+                        <!-- End All Courses -->
+                        <!-- Start Recent Post -->
+                        <div class="blog__recent__courses">
+                            <h2 class="title__style--2">Recent COURSES</h2>
+                            <div class="recent__courses__inner">
+                                <!-- Start Single POst -->
+                                <div class="single__courses">
+                                    <div class="recent__post__thumb">
+                                        <a href="blog-details.html">
+                                            <img src="images/blog/sm-img/1.jpg" alt="recent post images">
+                                        </a>
+                                    </div>
+                                    <div class="recent__post__details">
+                                        <h2><a href="blog-details.html">Mathematics and Statistics</a></h2>
+                                        <span class="post__price">$60.00</span>
+                                    </div>
+                                </div>
+                                <!-- End Single POst -->
+                                <!-- Start Single POst -->
+                                <div class="single__courses">
+                                    <div class="recent__post__thumb">
+                                        <a href="blog-details.html">
+                                            <img src="images/blog/sm-img/1.jpg" alt="recent post images">
+                                        </a>
+                                    </div>
+                                    <div class="recent__post__details">
+                                        <h2><a href="blog-details.html">Mathematics and Statistics</a></h2>
+                                        <span class="post__price">$60.00</span>
+                                    </div>
+                                </div>
+                                <!-- End Single POst -->
+                                <!-- Start Single POst -->
+                                <div class="single__courses">
+                                    <div class="recent__post__thumb">
+                                        <a href="blog-details.html">
+                                            <img src="images/blog/sm-img/1.jpg" alt="recent post images">
+                                        </a>
+                                    </div>
+                                    <div class="recent__post__details">
+                                        <h2><a href="blog-details.html">Mathematics and Statistics</a></h2>
+                                        <span class="post__price">$60.00</span>
+                                    </div>
+                                </div>
+                                <!-- End Single POst -->
+                                <!-- Start Single POst -->
+                                <div class="single__courses">
+                                    <div class="recent__post__thumb">
+                                        <a href="blog-details.html">
+                                            <img src="images/blog/sm-img/1.jpg" alt="recent post images">
+                                        </a>
+                                    </div>
+                                    <div class="recent__post__details">
+                                        <h2><a href="blog-details.html">Mathematics and Statistics</a></h2>
+                                        <span class="post__price">$60.00</span>
+                                    </div>
+                                </div>
+                                <!-- End Single POst -->
+                            </div>
                         </div>
+                        <!-- End Recent Post -->
+                        <!-- Start BLog Discount -->
+                        <div class="blog__discount__area bg--8">
+                            <div class="blog__discount__inner">
+                                <h4>NEW SCHOOLYEAR</h4>
+                                <h2>GET 70% OFF</h2>
+                            </div>
+                        </div>
+                        <!-- End BLog Discount -->
+                        <!-- Start Blog TAg -->
+                        <div class="blog__tag mt--50">
+                            <h2 class="title__style--2">Tags</h2>
+                            <ul class="tag__list">
+                                <li><a href="#">Art class</a></li>
+                                <li><a href="#">class</a></li>
+                                <li><a href="#">letter</a></li>
+                                <li><a href="#">Sport class</a></li>
+                                <li><a href="#">math</a></li>
+                                <li><a href="#">color</a></li>
+                                <li><a href="#">Art class</a></li>
+                                <li><a href="#">class</a></li>
+                                <li><a href="#">letter</a></li>
+                                <li><a href="#">Sport class</a></li>
+                                <li><a href="#">math</a></li>
+                                <li><a href="#">color</a></li>
+                            </ul>
+                        </div>
+                        <!-- End Blog TAg -->
                     </div>
-                @endforeach
-            </div>
-        </div>
-
-        {{-- <div class="blog__discount__area bg--8">
-            <div class="blog__discount__inner">
-                <h4>NEW SCHOOLYEAR</h4>
-                <h2>GET 70% OFF</h2>
-            </div>
-        </div> --}}
-
-        <div class="blog__tag mt--50">
-            <h2 class="title__style--2">Tags</h2>
-            <ul class="tag__list">
-                @if ($data_popular_tags?->data_tags())
-                    @foreach ($data_popular_tags->data_tags() as $popular_tags)
-                        <li><a draggable="false" href="{{ route("{$menu_slug}.index") . "?search=" . Str::slug($popular_tags) }}">{{ $popular_tags }}</a></li>
-                    @endforeach
-                @endif
-            </ul>
-        </div>
-    </div>
-</div>
+                </div>

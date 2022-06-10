@@ -42,7 +42,7 @@ class BlogComponent extends Component
     {
         $this->banner = Banner::find(15);
 
-        $this->blog_category = BlogCategory::find($this->category);
+        $this->blog_category = BlogCategory::where("slug", $this->category)->first();
 
         if ($this->category && !$this->blog_category) {
             Session::flash("danger", trans("page.Blog Category") . " " . trans("message.not found or has been deleted"));
@@ -64,9 +64,9 @@ class BlogComponent extends Component
                 ->orWhere("name_id", "like", "%{$this->search}%")
                 ->orWhere("description", "like", "%{$this->search}%")
                 ->orWhere("description", "like", "%{$this->search}%")
-        )->when($this->category, fn ($query) =>
-            $query->where("blog_category_id", $this->category)
-        )
+            )->when($this->category, fn ($query) =>
+                $query->where("blog_category_id", $this->blog_category->id)
+            )
             ->onlyActive()->orderByDesc("id");
 
         if ($this->search) {
