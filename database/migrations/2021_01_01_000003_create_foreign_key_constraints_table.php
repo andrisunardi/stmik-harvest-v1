@@ -60,6 +60,19 @@ return new class extends Migration
             $table->foreign("deleted_by")->references("id")->on("admin")->constrained()->nullable()->onUpdate("cascade")->onDelete("cascade");
         });
 
+        Schema::table("event", function (Blueprint $table) {
+            $table->foreign("event_category_id")->references("id")->on("event_category")->constrained()->nullable()->onUpdate("cascade")->onDelete("cascade");
+            $table->foreign("created_by")->references("id")->on("admin")->constrained()->nullable()->onUpdate("cascade")->onDelete("cascade");
+            $table->foreign("updated_by")->references("id")->on("admin")->constrained()->nullable()->onUpdate("cascade")->onDelete("cascade");
+            $table->foreign("deleted_by")->references("id")->on("admin")->constrained()->nullable()->onUpdate("cascade")->onDelete("cascade");
+        });
+
+        Schema::table("event_category", function (Blueprint $table) {
+            $table->foreign("created_by")->references("id")->on("admin")->constrained()->nullable()->onUpdate("cascade")->onDelete("cascade");
+            $table->foreign("updated_by")->references("id")->on("admin")->constrained()->nullable()->onUpdate("cascade")->onDelete("cascade");
+            $table->foreign("deleted_by")->references("id")->on("admin")->constrained()->nullable()->onUpdate("cascade")->onDelete("cascade");
+        });
+
         Schema::table("faq", function (Blueprint $table) {
             $table->foreign("created_by")->references("id")->on("admin")->constrained()->nullable()->onUpdate("cascade")->onDelete("cascade");
             $table->foreign("updated_by")->references("id")->on("admin")->constrained()->nullable()->onUpdate("cascade")->onDelete("cascade");
@@ -186,6 +199,19 @@ return new class extends Migration
             });
 
             Schema::table("contact", function (Blueprint $table) {
+                $table->dropConstrainedForeignId("created_by");
+                $table->dropConstrainedForeignId("updated_by");
+                $table->dropConstrainedForeignId("deleted_by");
+            });
+
+            Schema::table("event", function (Blueprint $table) {
+                $table->dropConstrainedForeignId("event_category_id");
+                $table->dropConstrainedForeignId("created_by");
+                $table->dropConstrainedForeignId("updated_by");
+                $table->dropConstrainedForeignId("deleted_by");
+            });
+
+            Schema::table("event_category", function (Blueprint $table) {
                 $table->dropConstrainedForeignId("created_by");
                 $table->dropConstrainedForeignId("updated_by");
                 $table->dropConstrainedForeignId("deleted_by");

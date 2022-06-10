@@ -3,15 +3,13 @@
 namespace App\Http\Livewire;
 
 use App\Http\Livewire\Component;
-use Illuminate\Support\Facades\Session;
-
 use App\Models\Banner;
-use App\Models\event;
-use App\Models\eventCategory;
+use App\Models\Event;
+use Illuminate\Support\Facades\Session;
 
 class eventViewComponent extends Component
 {
-    public $menu_name = "event";
+    public $menu_name = "Event";
     public $menu_icon = "fas fa-newspaper";
     public $menu_slug = "event";
     public $menu_table = "event";
@@ -38,7 +36,7 @@ class eventViewComponent extends Component
     {
         $this->banner = Banner::find(15);
 
-        $this->event = event::where("slug", $event_slug)->onlyActive()->first();
+        $this->event = Event::where("slug", $event_slug)->onlyActive()->first();
 
         if (!$this->event) {
             Session::flash("danger", trans("page.{$this->menu_name}") . " " . trans("message.not found or has been deleted"));
@@ -46,17 +44,15 @@ class eventViewComponent extends Component
             return redirect()->route("{$this->menu_slug}.index");
         }
 
-        $this->data_other_event = event::where("id", "!=", $this->event->id)
+        $this->data_other_event = Event::where("id", "!=", $this->event->id)
             ->onlyActive()
             ->inRandomOrder()
             ->limit("3")
             ->get();
 
-        $this->data_event_category = eventCategory::onlyActive()->orderByDesc("id")->get();
+        $this->data_recent_event = Event::onlyActive()->orderByDesc("id")->limit(3)->get();
 
-        $this->data_recent_event = event::onlyActive()->orderByDesc("id")->limit(3)->get();
-
-        $this->data_popular_tags = event::onlyActive()->orderByDesc("id")->first();
+        $this->data_popular_tags = Event::onlyActive()->orderByDesc("id")->first();
     }
 
     public function render()

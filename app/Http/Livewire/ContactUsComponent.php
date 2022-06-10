@@ -3,12 +3,11 @@
 namespace App\Http\Livewire;
 
 use App\Http\Livewire\Component;
+use App\Models\Banner;
+use App\Models\Contact;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
-
-use App\Models\Banner;
-use App\Models\Contact;
 
 class ContactUsComponent extends Component
 {

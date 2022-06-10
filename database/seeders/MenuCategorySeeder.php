@@ -61,6 +61,33 @@ class MenuCategorySeeder extends Seeder
             $data->save();
         // BLOG
 
+        // EVENT
+            $data = new MenuCategory();
+            $data->name = "Event";
+            $data->name_id = "Event";
+            $data->icon = "bi bi-calendar";
+            $data->sort = $sortCategory++;
+            $data->save();
+
+            $menu_category = MenuCategory::find($data->id);
+
+            $data = new Menu();
+            $data->menu_category_id = $menu_category->id;
+            $data->name = "Event";
+            $data->name_id = "Event";
+            $data->icon = "bi bi-calendar";
+            $data->sort = $sort++;
+            $data->save();
+
+            $data = new Menu();
+            $data->menu_category_id = $menu_category->id;
+            $data->name = "Event Category";
+            $data->name_id = "Kategori Event";
+            $data->icon = "bi bi-tags";
+            $data->sort = $sort++;
+            $data->save();
+        // EVENT
+
         // WEBSITE
             $data = new MenuCategory();
             $data->name = "Website";
@@ -84,14 +111,6 @@ class MenuCategorySeeder extends Seeder
             $data->name = "Banner";
             $data->name_id = "Sampul";
             $data->icon = "bi bi-window";
-            $data->sort = $sort++;
-            $data->save();
-
-            $data = new Menu();
-            $data->menu_category_id = $menu_category->id;
-            $data->name = "Event";
-            $data->name_id = "Acara";
-            $data->icon = "bi bi-calendar";
             $data->sort = $sort++;
             $data->save();
 

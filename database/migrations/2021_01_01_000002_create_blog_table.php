@@ -15,9 +15,9 @@ return new class extends Migration
             $table->string("name_id", 100)->nullable()->unique();
             $table->text("description")->nullable();
             $table->text("description_id")->nullable();
+            $table->date("date")->nullable();
             $table->text("tag")->nullable();
             $table->text("tag_id")->nullable();
-            $table->date("date")->nullable();
             $table->string("image", 120)->nullable();
             $table->string("slug", 100)->nullable()->unique();
             $table->boolean("active")->nullable()->unsigned()->comment("1 = Yes, 0 = No")->default("1");

@@ -3,7 +3,6 @@
 namespace App\Http\Livewire;
 
 use App\Http\Livewire\Component;
-
 use App\Models\Banner;
 use App\Models\AdmissionCalendar;
 

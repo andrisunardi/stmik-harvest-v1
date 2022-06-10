@@ -14,9 +14,11 @@ use App\Models\Newsletter;
 use App\Models\Blog;
 use App\Models\BlogCategory;
 
+use App\Models\Event;
+use App\Models\EventCategory;
+
 use App\Models\AdmissionCalendar;
 use App\Models\Banner;
-use App\Models\Event;
 use App\Models\Faq;
 use App\Models\Gallery;
 use App\Models\Network;
@@ -96,9 +98,6 @@ class Component extends LivewireComponent
         $this->total_registration = Registration::cursor()->count();
         View::share("total_registration", $this->total_registration);
 
-        $this->total_user = User::cursor()->count();
-        View::share("total_user", $this->total_user);
-
         $this->total_contact = Contact::cursor()->count();
         View::share("total_contact", $this->total_contact);
 
@@ -111,8 +110,11 @@ class Component extends LivewireComponent
         $this->total_blog_category = BlogCategory::cursor()->count();
         View::share("total_blog_category", $this->total_blog_category);
 
-        $this->total_faq = Faq::cursor()->count();
-        View::share("total_faq", $this->total_faq);
+        $this->total_event = Event::cursor()->count();
+        View::share("total_event", $this->total_event);
+
+        $this->total_event_category = EventCategory::cursor()->count();
+        View::share("total_event_category", $this->total_event_category);
 
         $this->total_admission_calendar = AdmissionCalendar::cursor()->count();
         View::share("total_admission_calendar", $this->total_admission_calendar);
@@ -120,8 +122,8 @@ class Component extends LivewireComponent
         $this->total_banner = Banner::cursor()->count();
         View::share("total_banner", $this->total_banner);
 
-        $this->total_event = Event::cursor()->count();
-        View::share("total_event", $this->total_event);
+        $this->total_faq = Faq::cursor()->count();
+        View::share("total_faq", $this->total_faq);
 
         $this->total_gallery = Gallery::cursor()->count();
         View::share("total_gallery", $this->total_gallery);

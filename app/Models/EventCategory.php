@@ -7,18 +7,15 @@ use DateTimeInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\URL;
 
-class Event extends Model
+class EventCategory extends Model
 {
     use HasFactory, SoftDeletes;
 
     // protected $connection = "mysql";
 
-    protected $table = "event";
+    protected $table = "event_category";
 
     protected $primaryKey = "id";
 
@@ -26,24 +23,17 @@ class Event extends Model
 
     public $timestamps = true;
 
-    protected $guarded = ["event"];
+    protected $guarded = ["event_category"];
 
     protected $dates = ["deleted_at"];
 
     // protected $dateFormat = "U";
 
     protected $fillable = [
-        "event_category_id",
         "name",
         "name_id",
         "description",
         "description_id",
-        "start",
-        "end",
-        "tag",
-        "tag_id",
-        "image",
-        "slug",
         "active",
     ];
 
@@ -87,57 +77,21 @@ class Event extends Model
         return Session::get("locale") == "en" ? $this->description : $this->description_id;
     }
 
-    public function checkImage()
+    public function data_event()
     {
-        if ($this->image && File::exists(public_path() . "/images/" . Str::slug($this->table) . "/{$this->image}")) {
-            return true;
-        }
+        return $this->hasMany(Event::class)->orderBy("id");
     }
 
-    public function assetImage()
+    public static function boot()
     {
-        if ($this->checkImage()) {
-            return asset("images/" . Str::slug($this->table) . "/{$this->image}");
-        } else {
-            return asset("images/image-not-available.png");
-        }
-    }
+        parent::boot();
 
-    public function deleteImage()
-    {
-        if ($this->checkImage()) {
-            File::delete(public_path() . "/images/" . Str::slug($this->table) . "/{$this->image}");
-        }
-    }
+        static::deleted(function ($table) {
+            $table->data_event()->delete();
+        });
 
-    public function getImageUrlAttribute()
-    {
-        if ($this->checkImage()) {
-            return URL::to("/") . "/images/" . Str::slug($this->table) . "/{$this->image}";
-        }
-
-        return null;
-    }
-
-    protected $appends = ["image_url"];
-
-    public function data_tags()
-    {
-        return explode(",", $this->translate_tag);
-    }
-
-    public function data_tag()
-    {
-        return explode(",", $this->tag);
-    }
-
-    public function data_tag_id()
-    {
-        return explode(",", $this->tag_id);
-    }
-
-    public function event_category()
-    {
-        return $this->belongsTo(EventCategory::class)->withTrashed()->withDefault(null);
+        static::restored(function ($table) {
+            $table->data_event()->restore();
+        });
     }
 }

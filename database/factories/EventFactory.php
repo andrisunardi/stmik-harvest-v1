@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Event;
+use App\Models\EventCategory;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
@@ -13,6 +14,8 @@ class EventFactory extends Factory
 
     public function definition()
     {
+        EventCategory::first() ?? EventCategory::factory()->create();
+
         $name = $this->faker->unique()->sentence();
 
         File::copy(
@@ -21,6 +24,7 @@ class EventFactory extends Factory
         );
 
         return [
+            "event_category_id" => EventCategory::get()->random()->id,
             "name" => $name,
             "name_id" => $this->faker->unique()->sentence(),
             "description" => $this->faker->paragraph(),

@@ -2,36 +2,20 @@
 
 namespace Database\Factories;
 
-use App\Models\BlogCategory;
-use App\Models\Blog;
+use App\Models\EventCategory;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Str;
 
-class BlogFactory extends Factory
+class EventCategoryFactory extends Factory
 {
-    protected $model = Blog::class;
+    protected $model = EventCategory::class;
 
     public function definition()
     {
-        BlogCategory::first() ?? BlogCategory::factory()->create();
-
-        $name = $this->faker->unique()->sentence();
-
-        File::copy(
-            public_path() . "/images/image.png",
-            public_path() . "/images/" . Str::kebab(Str::substr($this->model, 11)) . "/" . Str::slug($name) . ".png",
-        );
-
         return [
-            "blog_category_id" => BlogCategory::get()->random()->id,
-            "name" => $name,
+            "name" => $this->faker->unique()->sentence(),
             "name_id" => $this->faker->unique()->sentence(),
             "description" => $this->faker->paragraph(),
             "description_id" => $this->faker->paragraph(),
-            "date" => $this->faker->date(),
-            "image" => Str::slug($name) . ".png",
-            "slug" => Str::slug($name),
             "active" => $this->faker->boolean(),
         ];
     }

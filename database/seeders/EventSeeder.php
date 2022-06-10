@@ -11,6 +11,7 @@ class EventSeeder extends Seeder
     public function run()
     {
         $data = new Event();
+        $data->event_category_id = 1;
         $data->name = "New Student Orientation 2015/2016";
         $data->name_id = "Orientasi Mahasiswa Baru 2015/2016";
         $data->description = "
@@ -58,6 +59,8 @@ class EventSeeder extends Seeder
         $data->location = "Gedung World Harvest Center, International Room.";
         $data->start = "2015-09-19 08:00:00";
         $data->end = "2015-09-19 17:00:00";
+        $data->tag = "Orientation";
+        $data->tag_id = "Orientasi";
         $data->image = Str::slug($data->name) . ".png";
         $data->slug = Str::slug($data->name);
         $data->save();

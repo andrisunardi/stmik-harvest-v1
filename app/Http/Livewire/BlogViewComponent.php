@@ -3,11 +3,10 @@
 namespace App\Http\Livewire;
 
 use App\Http\Livewire\Component;
-use Illuminate\Support\Facades\Session;
-
 use App\Models\Banner;
 use App\Models\Blog;
 use App\Models\BlogCategory;
+use Illuminate\Support\Facades\Session;
 
 class BlogViewComponent extends Component
 {
