@@ -739,7 +739,7 @@ return [
     "SAC Coordinator" => "Koordinator SAC",
     "Start" => "Mulai",
     "End" => "Akhir",
-    "Event" => "Kegiatan",
+    "Event" => "Acara",
     "Wedding Date" => "Tanggal Pernikahan",
     "User Input" => "Masukan Pengguna",
     "Spp" => "Spp",
@@ -1127,6 +1127,7 @@ return [
     "Gallery Description" => "Lihat Galeri Kami Untuk Mengenal Kami Lebih Lanjut",
     "related_blog" => "Blog Terkait",
     "posted_by" => "Diposting oleh",
-    "our_latest" => ":name Terbaru Kami",
+    "our_latest" => ":Name Terbaru Kami",
     "event" => "Acara",
+    "our" => ":Name Kami"
 ];

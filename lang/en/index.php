@@ -1519,6 +1519,7 @@ return [
     "Join our events to know us closer" => "Join our events to know us closer",
     "related_blog" => "Related Blog",
     "posted_by" => "Posted by",
-    "our_latest" => "Our Latest :name",
+    "our_latest" => "Our Latest :Name",
     "event" => "Event",
+    "our" => "Our :Name"
 ];

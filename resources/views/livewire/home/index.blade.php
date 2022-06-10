@@ -144,7 +144,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section__title text-center">
-                        <h2 class="title__line">{{ trans("index.Our Events") }}</h2>
+                        <h2 class="title__line">{{ trans("index.our", ["name" => trans("index.Event")]) }}</h2>
                         <p>{{ trans("index.Join our events to know us closer") }}</p>
                     </div>
                 </div>
@@ -155,28 +155,37 @@
                     @foreach ($data_event as $event)
                         <div class="courses">
                             <div class="courses__thumb">
-                                <a draggable="false" href="#">
-                                    <img draggable="false" class="img-fluid w-100" src="{{ $event->assetImage() }}" alt="{{ trans("page.Event") }} - {{ $event->translate_name }} - {{ env("APP_TITLE") }}">
+                                <a draggable="false" href="{{ route("event.view", ["event_slug" => $event->slug]) }}">
+                                    <img draggable="false" claszs="img-fluid w-100" src="{{ $event->assetImage() }}" alt="{{ trans("page.Event") }} - {{ $event->translate_name }} - {{ env("APP_TITLE") }}">
                                 </a>
                                 <div class="courses__hover__info">
                                     <div class="courses__hover__action">
                                         <div class="courses__hover__thumb">
-                                            <img draggable="false" src="{{ $event->assetImage() }}" alt="small images">
+                                            <img draggable="false" src="{{ asset("images/logo-square.png") }}" class="rounded-circle" style="width:50px" alt="Administrator - {{ $event->translate_name }} - {{ env("APP_TITLE") }}">
                                         </div>
-                                        <h4><a draggable="false" href="#">Derek Spafford</a></h4>
+                                        <h4>Administrator</h4>
                                         <span class="crs__separator">/</span>
-                                        <p>Professor</p>
+                                        <p>Admin</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="courses__details">
                                 <div class="courses__details__inner">
-                                    <h2><a draggable="false" href="courses-details.html">Mathematics and Statistics</a></h2>
-                                    <p>All over the world, human beings create an immense and ever-increasing volume of data, with new kinds of data regularly...</p>
+                                    <h2><a draggable="false" href="{{ route("event.view", ["event_slug" => $event->slug]) }}">{{ $event->translate_name }}</a></h2>
+                                    <p>{{ strip_tags(Str::limit($event->translate_description, 100)) }}</p>
                                 </div>
                                 <ul class="courses__meta">
-                                    <li><i class="icon ion-person-stalker"></i>50 Students</li>
-                                    <li class="crs__price">$60.00</li>
+                                    <li class="crs__price">
+                                        <i class="icon ion-calendar"></i>
+                                        {{ Date::parse($event->start)->format("d M Y H:i") }} -
+                                        {{ Date::parse($event->end)->format("d M Y H:i") }}
+                                    </li>
+                                </ul>
+                                <ul class="courses__meta">
+                                    <li>
+                                        <i class="icon ion-map"></i>
+                                        {{ $event->location }}
+                                    </li>
                                 </ul>
                             </div>
                         </div>
