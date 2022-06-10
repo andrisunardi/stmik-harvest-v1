@@ -110,8 +110,6 @@
                     <div class="about__thumb">
                         {{-- <iframe width="100%" height="300" src="https://www.youtube.com/embed/hmUwBHxYLDw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> --}}
 
-                        {{-- <iframe width="100%" height="300" src="{{ asset("videos/gallery/company-profile-stmik-kuwera.mp4") }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> --}}
-
                         <video width="100%" height="100%" controls controlsList="noplaybackrate nodownload">
                             <source src="{{ asset("videos/gallery/company-profile-stmik-kuwera.mp4") }}" type="video/mp4">
                         </video>
@@ -157,7 +155,9 @@
                     @foreach ($data_event as $event)
                         <div class="courses">
                             <div class="courses__thumb">
-                                <a draggable="false" href="#"><img draggable="false" src="images/course/1.jpg" alt="courses images"></a>
+                                <a draggable="false" href="#">
+                                    <img draggable="false" class="img-fluid w-100" src="{{ $event->assetImage() }}" alt="{{ trans("page.Event") }} - {{ $event->translate_name }} - {{ env("APP_TITLE") }}">
+                                </a>
                                 <div class="courses__hover__info">
                                     <div class="courses__hover__action">
                                         <div class="courses__hover__thumb">
