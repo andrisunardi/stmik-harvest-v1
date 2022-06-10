@@ -166,13 +166,13 @@
                             </ul>
                             <ul class="login__register d-none d-md-flex">
                                 <li>
-                                    <a draggable="false" href="{{ Session::get("locale") == "en" ? "javascript:;" : url("locale/en") }}" class="{{ Session::get("locale") == "en" ? "fw-bold" : null }}">
-                                        {{ trans("index.English") }}
-                                    </a>
-                                    </li>
-                                <li>
                                     <a draggable="false" href="{{ Session::get("locale") == "en" ? url("locale/id") : "javascript:;" }}" class="{{ Session::get("locale") == "en" ? null : "fw-bold" }}">
                                         {{ trans("index.Indonesia") }}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a draggable="false" href="{{ Session::get("locale") == "en" ? "javascript:;" : url("locale/en") }}" class="{{ Session::get("locale") == "en" ? "fw-bold" : null }}">
+                                        {{ trans("index.English") }}
                                     </a>
                                 </li>
                             </ul>
