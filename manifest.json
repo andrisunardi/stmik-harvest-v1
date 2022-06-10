@@ -1,6 +1,6 @@
 {
-    "short_name": "HITS",
-    "name": "HITS",
+    "short_name": "STMIK Harvest",
+    "name": "STMIK Harvest",
     "display": "standalone",
     "icons": [{
         "src": "images/logo.png",

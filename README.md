@@ -1,2 +1,2 @@
-# hits
-HITS
+# stmik-harvest
+STMIK Harvest

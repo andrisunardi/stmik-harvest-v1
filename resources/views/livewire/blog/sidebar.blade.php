@@ -4,7 +4,7 @@
             <h2 class="title__style--2">{{ trans("index.All Category") }}</h2>
             <ul class="blog__courses">
                 @foreach ($data_blog_category as $blog_category)
-                    <li><a draggable="false" href="{{ route("{$menu_slug}.index") . "?category={$blog}" }}">{{ $blog_category->translate_name }}</a></li>
+                    <li><a draggable="false" href="{{ route("{$menu_slug}.index") . "?category={$blog_category->id}" }}">{{ $blog_category->translate_name }}</a></li>
                 @endforeach
             </ul>
         </div>

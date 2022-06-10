@@ -35,8 +35,8 @@ class SliderSeeder extends Seeder
         $data = new Slider();
         $data->name = "High Quality Lecturers";
         $data->name_id = "Dosen Berkualitas Tinggi";
-        $data->description = "HITS Will Give You The Best Education Through The Most Competent Lecturers And Creative Way Of Learning";
-        $data->description_id = "HITS Akan Memberikan Anda Pendidikan Terbaik Melalui Dosen Terkompeten Dan Cara Belajar Yang Kreatif";
+        $data->description = "STMIK Harvest Will Give You The Best Education Through The Most Competent Lecturers And Creative Way Of Learning";
+        $data->description_id = "STMIK Harvest Akan Memberikan Anda Pendidikan Terbaik Melalui Dosen Terkompeten Dan Cara Belajar Yang Kreatif";
         $data->button_name = "Our Lecturer";
         $data->button_name_id = "Dosen Kami";
         $data->button_link = env("APP_URL") . "/lecturer";
