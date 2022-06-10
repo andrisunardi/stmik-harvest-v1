@@ -173,8 +173,8 @@
 
     <section class="htc__service__area bg__white ptb--80 bg-light">
         <div class="container">
-            <div class="table-responsive mt-3">
-                <table class="table table-striped table-hover table-bordered text-nowrap table-responsive align-middle text-center">
+            <div class="mt-3">
+                <table class="table table-striped table-hover table-bordered align-middle">
                     <thead>
                         <tr class="bg-success text-white text-center">
                             <th colspan="100%">{{ trans("index.Graduate Profile") }}</th>
@@ -213,8 +213,8 @@
 
     <section class="htc__service__area bg__white ptb--80">
         <div class="container">
-            <div class="table-responsive mt-3">
-                <table class="table table-striped table-hover table-bordered text-nowrap table-responsive align-middle text-center">
+            <div class="mt-3">
+                <table class="table table-striped table-hover table-bordered text-nowrap align-middle">
                     <thead>
                         <tr class="bg-success text-white text-center">
                             <th colspan="100%">{{ trans("index.Elective") }}</th>
@@ -223,35 +223,35 @@
                     <tbody>
                         <tr>
                             <td>{{ trans("index.Business Intelligence") }}</td>
-                            <td>3</td>
+                            <td class="text-center">3</td>
                         </tr>
                         <tr>
                             <td>{{ trans("index.Introduction to ERP") }}</td>
-                            <td>3</td>
+                            <td class="text-center">3</td>
                         </tr>
                         <tr>
                             <td>{{ trans("index.C# Visual Programming") }}</td>
-                            <td>3</td>
+                            <td class="text-center">3</td>
                         </tr>
                         <tr>
                             <td>{{ trans("index.Enterprise Architecture 2") }}</td>
-                            <td>3</td>
+                            <td class="text-center">3</td>
                         </tr>
                         <tr>
                             <td>{{ trans("index.Knowledge Management") }}</td>
-                            <td>3</td>
+                            <td class="text-center">3</td>
                         </tr>
                         <tr>
                             <td>{{ trans("index.Visual Communication Design") }}</td>
-                            <td>3</td>
+                            <td class="text-center">3</td>
                         </tr>
                         <tr>
                             <td>{{ trans("index.Customer Relationship Management") }}</td>
-                            <td>3</td>
+                            <td class="text-center">3</td>
                         </tr>
                         <tr>
                             <td>{{ trans("index.Supply Chain Management") }}</td>
-                            <td>3</td>
+                            <td class="text-center">3</td>
                         </tr>
                     </tbody>
                 </table>
