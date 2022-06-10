@@ -304,6 +304,22 @@
                                 </ul>
                             </li>
                             <li><a draggable="false" href="{{ route("contact-us.index") }}">{{ trans("page.Contact Us") }}</a></li>
+                            <li><a draggable="false" href="javascript:;">{{ trans("index.Change Language") }}</a>
+                                <ul>
+                                    <li>
+                                        <a draggable="false" href="{{ url("locale/id") }}" class="{{ Session::get("locale") == "en" ? null : "fw-bold" }}">
+                                            <img draggable="false" width="25" class="me-1" src="{{ asset("images/flag/id.png") }}">
+                                            {{ trans("index.Indonesia") }}
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a draggable="false" href="{{ url("locale/en") }}" class="{{ Session::get("locale") == "en" ? "fw-bold" : null }}">
+                                            <img draggable="false" width="25" class="me-1" src="{{ asset("images/flag/en.png") }}">
+                                            {{ trans("index.English") }}
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
                         </ul>
                     </nav>
                 </div>
