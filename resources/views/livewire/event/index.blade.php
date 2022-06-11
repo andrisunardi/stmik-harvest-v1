@@ -6,6 +6,9 @@
 <div>
     <section class="htc__courses__grid bg__white ptb--80">
         <div class="container">
+
+            @include("layouts.alert")
+
             <div class="row">
                 <div class="col-12">
                     <div class="courses__tab__wrap">
@@ -15,11 +18,18 @@
                                     <li role="presentation" class="grid-view"><a draggable="false" href="#grid-view" role="tab" data-bs-toggle="tab"><i class="icon ion-grid"></i></a></li>
                                     <li role="presentation" class="list-view"><a draggable="false" class="active" href="#list-view" role="tab" data-bs-toggle="tab"><i class="icon ion-navicon-round"></i></a></li>
                                 </ul>
-                                <span class="show__result">Showing 12- of results</span>
+                                <span class="show__result">
+                                    {{ trans("index.Showing") }}
+                                    {{ ($data_event->perPage() * $data_event->currentPage()) - $data_event->perPage() + 1 }}
+                                    {{ trans("index.to") }}
+                                    {{ $data_event->hasMorePages() ? $data_event->perPage() * $data_event->currentPage() : $data_event->total() }}
+                                    {{ trans("index.of") }}
+                                    {{ $data_event->total() }} {{ trans("index.Results") }}
+                                </span>
                             </div>
                             <div class="courses__searsh__box">
-                                <input type="text" placeholder="Search Courses...">
-                                <a draggable="false" href="#"><i class="icon ion-ios-search-strong"></i></a>
+                                <input wire:model="search" type="search" placeholder="{{ trans("index.search", ["name" => trans("index.event")]) }}">
+                                <a draggable="false" href="javascript:;"><i class="icon ion-ios-search-strong"></i></a>
                             </div>
                         </div>
                     </div>

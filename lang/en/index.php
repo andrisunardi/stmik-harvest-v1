@@ -1522,5 +1522,5 @@ return [
     "our_latest" => "Our Latest :Name",
     "event" => "Event",
     "our" => "Our :Name",
-    "recent" => "Recent :Name",
+    "search" => "Search :Name",
 ];

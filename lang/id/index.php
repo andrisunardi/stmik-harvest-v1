@@ -1131,4 +1131,5 @@ return [
     "event" => "Acara",
     "our" => ":Name Kami",
     "recent" => ":Name Terkini",
+    "search" => "Cari :Name",
 ];

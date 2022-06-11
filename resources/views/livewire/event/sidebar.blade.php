@@ -40,7 +40,7 @@
         </div> --}}
 
         <div class="blog__tag mt--50">
-            <h2 class="title__style--2">Tags</h2>
+            <h2 class="title__style--2">{{ trans("index.Tags") }}</h2>
             <ul class="tag__list">
                 @if ($data_popular_tags?->data_tags())
                     @foreach ($data_popular_tags->data_tags() as $popular_tags)
