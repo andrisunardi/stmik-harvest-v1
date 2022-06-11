@@ -37,14 +37,14 @@ class EventViewComponent extends Component
         $this->data_other_event = Event::where("id", "!=", $this->event->id)
             ->onlyActive()
             ->inRandomOrder()
-            ->limit("3")
+            ->limit("2")
             ->get();
 
-        $this->data_event_category = EventCategory::onlyActive()->orderByDesc("id")->get();
+        $this->data_event_category = EventCategory::onlyActive()->orderBy("name")->get();
 
-        $this->data_recent_event = Event::onlyActive()->orderByDesc("id")->limit(3)->get();
+        $this->data_recent_event = Event::onlyActive()->orderByDesc("start")->limit(3)->get();
 
-        $this->data_popular_tags = Event::onlyActive()->orderByDesc("id")->first();
+        $this->data_popular_tags = Event::onlyActive()->orderByDesc("start")->first();
     }
 
     public function render()

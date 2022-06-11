@@ -68,7 +68,7 @@ class EventSeeder extends Seeder
         <p>Give parents and teachers an idea of how social media is in our midst, and parents are encouraged to understand their children's activities.</p>
         <p><b>What We Do :</b></p>
         <ul>
-            <li>>1. Seminar on Social Media 101 is a seminar that aims to provide a basic overview for parents or teachers who do not really understand about the internet and social media. The team from STMIK Harvest gave an explanation and also an explanation of the functions, advantages and disadvantages of the internet and social media, as well as what social media is already in the midst of our children today</li>
+            <li>1. Seminar on Social Media 101 is a seminar that aims to provide a basic overview for parents or teachers who do not really understand about the internet and social media. The team from STMIK Harvest gave an explanation and also an explanation of the functions, advantages and disadvantages of the internet and social media, as well as what social media is already in the midst of our children today</li>
             <li>2. The seminar was also continued with additional explanations about child psychology which aims to make parents or teachers understand how children behave.</li>
         </ul>
         ";
@@ -77,12 +77,25 @@ class EventSeeder extends Seeder
         <p>Memberikan gambaran kepada orang tua dan guru tentang bagaimana social media sudah ada ditengah-tengah kita, dan orang-tua dihimbau untuk bisa memahami kegiatan anak-anak mereka.</p>
         <p><b>Apa Yang Kita Lakukan :</b></p>
         <ul>
-            <li>>1. Seminar Social Media 101 adalah seminar yang bertujuan untuk memberikan gambaran dasar bagi para orang tua ataupun guru yang belum begitu memahami tentang internet dan social media. Tim dari STMIK Harvest memberikan pemaparan dan juga penjelasan mengenai fungsi, kelebihan dan kekurangan dari internet dan social media, serta social media apa saja yang sudah ada di tengah-tengah anak-anak kita saat ini</li>
+            <li>1. Seminar Social Media 101 adalah seminar yang bertujuan untuk memberikan gambaran dasar bagi para orang tua ataupun guru yang belum begitu memahami tentang internet dan social media. Tim dari STMIK Harvest memberikan pemaparan dan juga penjelasan mengenai fungsi, kelebihan dan kekurangan dari internet dan social media, serta social media apa saja yang sudah ada di tengah-tengah anak-anak kita saat ini</li>
             <li>2. Seminar dilanjutkan juga dengan penjelasan tambahan mengenai psikologi anak yang bertujuan agar para orang tua ataupun guru dapat memahami bagaimana perilaku dari pada anak-anak.</li>
         </ul>
         ";
         $data->location = "Sekolah Wahana Harapan Kampung Melayu";
         $data->start = "2015-09-01 09:00:00";
+        $data->end = "2015-09-10 17:00:00";
+        $data->image = Str::slug($data->name) . ".png";
+        $data->slug = Str::slug($data->name);
+        $data->save();
+
+        $data = new Event();
+        $data->event_category_id = 3;
+        $data->name = "Seminar Computational Thinking";
+        $data->name_id = "Seminar Computational Thinking";
+        $data->description = "TEST";
+        $data->description_id = "TEST";
+        $data->location = "STMIK Harvest, Harvest Square Room";
+        $data->start = "2015-09-09 08:00:00";
         $data->end = "2015-09-10 17:00:00";
         $data->image = Str::slug($data->name) . ".png";
         $data->slug = Str::slug($data->name);

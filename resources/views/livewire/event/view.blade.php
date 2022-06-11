@@ -136,6 +136,52 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="courses__content__wrap mt--20 list__view__page">
+                            <div class="row">
+                                @foreach ($data_other_event as $other_event)
+                                    <div class="col-md-6">
+                                        <div class="courses">
+                                            <div class="courses__thumb">
+                                                <a draggable="false" href="{{ route("{$menu_slug}.view", ["event_slug" => $other_event->slug]) }}">
+                                                    <img draggable="false" class="img-fluid w-100" src="{{ $other_event->assetImage() }}" alt="{{ trans("page.{$menu_name}") }} - {{ $other_event->translate_name }} - {{ env("APP_TITLE") }}">
+                                                </a>
+                                                <div class="courses__hover__info">
+                                                    <div class="courses__hover__action">
+                                                        <div class="courses__hover__thumb">
+                                                            <img draggable="false" src="{{ asset("images/logo-square.png") }}" class="rounded-circle" style="width:50px" alt="Administrator - {{ $other_event->translate_name }} - {{ env("APP_TITLE") }}">
+                                                        </div>
+                                                        <h4>Administrator</h4>
+                                                        <span class="crs__separator">/</span>
+                                                        <p>Admin</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="courses__details">
+                                                <div class="courses__details__inner">
+                                                    <h2><a draggable="false" href="{{ route("{$menu_slug}.view", ["event_slug" => $other_event->slug]) }}">{{ $other_event->translate_name }}</a></h2>
+                                                    <p>{{ strip_tags(Str::limit($other_event->translate_description, 100)) }}</p>
+                                                </div>
+                                                <ul class="courses__meta">
+                                                    <li class="crs__price">
+                                                        <i class="icon ion-calendar"></i>
+                                                        {{ Date::parse($other_event->start)->format("d M Y H:i") }} -
+                                                        {{ Date::parse($other_event->end)->format("d M Y H:i") }}
+                                                    </li>
+                                                </ul>
+                                                <ul class="courses__meta">
+                                                    <li>
+                                                        <i class="icon ion-map"></i>
+                                                        {{ $other_event->location }}
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
