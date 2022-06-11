@@ -66,103 +66,367 @@
         <div class="container">
             <div class="about">
                 <div class="section__title text-center">
-                    <h2 class="title__line">{{ trans("index.STMIK Harvest Curicullum") }}</h2>
-                    <p>{{ trans("index.Information System") }}</p>
+                    <h2 class="title__line">{{ trans("STMIK Harvest Curicullum") }}</h2>
+                    <p>{{ trans("Information System") }}</p>
                 </div>
             </div>
             <div class="table-responsive mt-3">
-                <table class="table table-striped table-hover table-bordered text-nowrap table-responsive align-middle text-center">
+                <table class="table table-striped table-hover table-bordered text-nowrap table-responsive align-middle">
                     <thead>
                         <tr class="bg-warning text-white text-center">
                             <th colspan="5">
-                                {{ trans("index.Year") }} 1
-                                {{ trans("index.Learning Outcome") }}:
-                                {{ trans("index.Ready Web Programming") }}.
-                                {{ trans("index.As A Programming Basic") }}
+                                {{ trans("Year") }} 1
+                                {{ trans("Learning Outcome") }}:
+                                {{ trans("Ready Web Programming") }}.
+                                {{ trans("As A Programming Basic") }}
                             </th>
                             <th></th>
                             <th colspan="5">
-                                {{ trans("index.Year") }} 1
-                                {{ trans("index.Learning Outcome") }}:
-                                {{ trans("index.System Design Capability And More Programming") }}
+                                {{ trans("Year") }} 1
+                                {{ trans("Learning Outcome") }}:
+                                {{ trans("System Design Capability And More Programming") }}
                             </th>
                         </tr>
                         <tr class="bg-success text-white text-center">
-                            <th colspan="2">{{ trans("index.Semester") }} 1</th>
+                            <th colspan="2">{{ trans("Semester") }} 1</th>
                             <th></th>
-                            <th colspan="2">{{ trans("index.Semester") }} 2</th>
+                            <th colspan="2">{{ trans("Semester") }} 2</th>
                             <th></th>
-                            <th colspan="2">{{ trans("index.Semester") }} 3</th>
+                            <th colspan="2">{{ trans("Semester") }} 3</th>
                             <th></th>
-                            <th colspan="2">{{ trans("index.Semester") }} 4</th>
+                            <th colspan="2">{{ trans("Semester") }} 4</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>{{ trans("index.Discreet Math") }}</td>
+                            <td>{{ trans("Discreet Math") }}</td>
                             <td>3</td>
                             <td></td>
-                            <td>{{ trans("index.English 1") }}</td>
+                            <td>{{ trans("English 1") }}</td>
                             <td>2</td>
                             <td></td>
-                            <td>{{ trans("index.Pancasila") }}</td>
+                            <td>{{ trans("Pancasila") }}</td>
                             <td>3</td>
                             <td></td>
-                            <td>{{ trans("index.English 2") }}</td>
+                            <td>{{ trans("English 2") }}</td>
                             <td>2</td>
                         </tr>
                         <tr>
-                            <td>{{ trans("index.Character Building 1 (Religion)") }}</td>
+                            <td>{{ trans("Character Building 1 (Religion)") }}</td>
                             <td>3</td>
                             <td></td>
-                            <td>{{ trans("index.English 1") }}</td>
+                            <td>{{ trans("Character Building 2 (Citizenship)") }}</td>
                             <td>2</td>
                             <td></td>
-                            <td>{{ trans("index.Pancasila") }}</td>
+                            <td>{{ trans("Bahasa Indonesia") }}</td>
                             <td>3</td>
                             <td></td>
-                            <td>{{ trans("index.English 2") }}</td>
+                            <td>{{ trans("Statistics") }}</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>{{ trans("Leadership") }}</td>
                             <td>2</td>
+                            <td></td>
+                            <td>{{ trans("Management Information System") }}</td>
+                            <td>3</td>
+                            <td></td>
+                            <td>{{ trans("Introduction to Accounting") }}</td>
+                            <td>3</td>
+                            <td></td>
+                            <td>{{ trans("Research Methodology") }}</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>{{ trans("Algorithm and Programming") }}</td>
+                            <td>4</td>
+                            <td></td>
+                            <td>{{ trans("Web Programming 2") }}</td>
+                            <td>3</td>
+                            <td></td>
+                            <td>{{ trans("Introduction to Marketing") }}</td>
+                            <td>2</td>
+                            <td></td>
+                            <td>{{ trans("System Design and Analysis") }}</td>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <td>{{ trans("Introduction to Information Syste,") }}</td>
+                            <td>3</td>
+                            <td></td>
+                            <td>{{ trans("C Programming") }}</td>
+                            <td>3</td>
+                            <td></td>
+                            <td>{{ trans("Database 1") }}</td>
+                            <td>3</td>
+                            <td></td>
+                            <td>{{ trans("Operating System") }}</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>{{ trans("Web Programming 1") }}</td>
+                            <td>3</td>
+                            <td></td>
+                            <td>{{ trans("Data Structure") }}</td>
+                            <td>3</td>
+                            <td></td>
+                            <td>{{ trans("Information System Project Management") }}</td>
+                            <td>3</td>
+                            <td></td>
+                            <td>{{ trans("Mobile Programming 1") }}</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>{{ trans("Introduction to Business") }}</td>
+                            <td>2</td>
+                            <td></td>
+                            <td>{{ trans("Introduction to Management") }}</td>
+                            <td>2</td>
+                            <td></td>
+                            <td>{{ trans("Object Oriented Programming") }}</td>
+                            <td>3</td>
+                            <td></td>
+                            <td>{{ trans("Web Programming 3") }}</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>{{ trans("Matrix and Linear Transformation") }}</td>
+                            <td>2</td>
+                            <td></td>
+                            <td>{{ trans("Introduction to Computer Networking") }}</td>
+                            <td>2</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><b>{{ trans("Total") }}</b></td>
+                            <td>19</td>
+                            <td></td>
+                            <td><b>{{ trans("Total") }}</b></td>
+                            <td>20</td>
+                            <td></td>
+                            <td><b>{{ trans("Total") }}</b></td>
+                            <td>22</td>
+                            <td></td>
+                            <td><b>{{ trans("Total") }}</b></td>
+                            <td>21</td>
                         </tr>
                     </tbody>
                     <thead>
                         <tr class="bg-success text-white text-center">
-                            <th colspan="2">{{ trans("index.Semester") }} 5</th>
+                            <th colspan="2">{{ trans("Semester") }} 5</th>
                             <th></th>
-                            <th colspan="2">{{ trans("index.Semester") }} 6</th>
+                            <th colspan="2">{{ trans("Semester") }} 6</th>
                             <th></th>
-                            <th colspan="2">{{ trans("index.Semester") }} 7</th>
+                            <th colspan="2">{{ trans("Semester") }} 7</th>
                             <th></th>
-                            <th colspan="2">{{ trans("index.Semester") }} 8</th>
+                            <th colspan="2">{{ trans("Semester") }} 8</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>{{ trans("index.Discreet Math") }}</td>
-                            <td>3</td>
-                            <td></td>
-                            <td>{{ trans("index.English 1") }}</td>
+                            <td>{{ trans("Business Ethics") }}</td>
                             <td>2</td>
                             <td></td>
-                            <td>{{ trans("index.Pancasila") }}</td>
+                            <td>{{ trans("Enterpreneurship 1") }}</td>
                             <td>3</td>
                             <td></td>
-                            <td>{{ trans("index.English 2") }}</td>
+                            <td>{{ trans("Community Development") }}</td>
+                            <td>4</td>
+                            <td></td>
+                            <td>{{ trans("Final Project") }}</td>
+                            <td>6</td>
+                        </tr>
+                        <tr>
+                            <td>{{ trans("Database 2") }}</td>
+                            <td>3</td>
+                            <td></td>
+                            <td>{{ trans("Project 2") }}</td>
+                            <td>3</td>
+                            <td></td>
+                            <td>{{ trans("Intership") }}</td>
+                            <td>4</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>{{ trans("Distributed System & Cloud Computing") }}</td>
+                            <td>3</td>
+                            <td></td>
+                            <td>{{ trans("Computer Security & Risk Management") }}</td>
+                            <td>3</td>
+                            <td></td>
+                            <td>{{ trans("Information System Security") }}</td>
+                            <td>3</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>{{ trans("Project 1") }}</td>
+                            <td>3</td>
+                            <td></td>
+                            <td>{{ trans("Finance for non Finance") }}</td>
+                            <td>3</td>
+                            <td></td>
+                            <td>{{ trans("Human Computer Interaction") }}</td>
                             <td>2</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>{{ trans("Enterpreneurship 2") }}</td>
+                            <td>2</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                     </tbody>
+
+                    <thead>
+                        <tr class="bg-warning text-white text-center">
+                            <th colspan="100%">{{ trans("custom.BUSINESS INFORMATION SYSTEM (BIS)") }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{ trans("E-Business") }}</td>
+                            <td>3</td>
+                            <td></td>
+                            <td>{{ trans("IT Strategic Planning") }}</td>
+                            <td>3</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>{{ trans("Business Communication") }}</td>
+                            <td>2</td>
+                            <td></td>
+                            <td>{{ trans("Elective") }}</td>
+                            <td>3</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>{{ trans("Asset Management & IT Audit") }}</td>
+                            <td>3</td>
+                            <td></td>
+                            <td>{{ trans("Elective") }}</td>
+                            <td>3</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><b>{{ trans("Total") }}</b></td>
+                            <td>20</td>
+                            <td></td>
+                            <td><b>{{ trans("Total") }}</b></td>
+                            <td>21</td>
+                            <td></td>
+                            <td><b>{{ trans("Total") }}</b></td>
+                            <td>15</td>
+                            <td></td>
+                            <td><b>{{ trans("Total") }}</b></td>
+                            <td>6</td>
+                        </tr>
+                    </tbody>
+
+                    <thead>
+                        <tr class="bg-warning text-white text-center">
+                            <th colspan="100%">{{ trans("custom.INFORMATION SYSTEM SPECIALIST (ISS)") }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{ trans("Mobile Programming 2") }}</td>
+                            <td>3</td>
+                            <td></td>
+                            <td>{{ trans("Enterprise Architecture") }}</td>
+                            <td>3</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>{{ trans("Software Testing") }}</td>
+                            <td>2</td>
+                            <td></td>
+                            <td>{{ trans("Elective") }}</td>
+                            <td>3</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>{{ trans("Software Engineering") }}</td>
+                            <td>3</td>
+                            <td></td>
+                            <td>{{ trans("Elective") }}</td>
+                            <td>3</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><b>{{ trans("Total") }}</b></td>
+                            <td>20</td>
+                            <td></td>
+                            <td><b>{{ trans("Total") }}</b></td>
+                            <td>21</td>
+                            <td></td>
+                            <td><b>{{ trans("Total") }}</b></td>
+                            <td>15</td>
+                            <td></td>
+                            <td><b>{{ trans("Total") }}</b></td>
+                            <td>6</td>
+                        </tr>
+                    </tbody>
+
                     <thead>
                         <tr class="bg-warning text-white text-center">
                             <th colspan="5">
-                                {{ trans("index.Year") }} 3
-                                {{ trans("index.Learning Outcome") }}:
-                                {{ trans("index.Ready For Small Projects & More Specific To Concentration") }}
+                                {{ trans("Year") }} 3
+                                {{ trans("Learning Outcome") }}:
+                                {{ trans("Ready For Small Projects & More Specific To Concentration") }}
                             </th>
                             <th></th>
                             <th colspan="5">
-                                {{ trans("index.Year") }} 4
-                                {{ trans("index.Learning Outcome") }}:
-                                {{ trans("index.Ready To Be In Society & Be A Technopreneur") }}
+                                {{ trans("Year") }} 4
+                                {{ trans("Learning Outcome") }}:
+                                {{ trans("Ready To Be In Society & Be A Technopreneur") }}
                             </th>
                         </tr>
                     </thead>

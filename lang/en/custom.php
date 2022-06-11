@@ -441,6 +441,9 @@ return [
     "My Profile" => "My Profile",
     "Edit Profile" => "Edit Profile",
     "Change Password" => "Change Password",
-    "Logout" => "Logout"
+    "Logout" => "Logout",
     // PAGE
+
+    "BUSINESS INFORMATION SYSTEM (BIS)" => "BUSINESS INFORMATION SYSTEM (BIS)",
+    "INFORMATION SYSTEM SPECIALIST (ISS)" => "INFORMATION SYSTEM SPECIALIST (ISS)",
 ];

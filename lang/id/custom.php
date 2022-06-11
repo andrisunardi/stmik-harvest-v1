@@ -249,4 +249,6 @@ return [
     "Thank you for contacting us. We will answer as soon as possible" => "Terima kasih sudah menghubungi kami. Kami akan menjawab secepatnya",
 
     "Gallery Description" => "Lihat Galeri Kami Untuk Mengenal Kami Lebih Lanjut",
+    "BUSINESS INFORMATION SYSTEM (BIS)" => "BUSINESS INFORMATION SYSTEM (BIS)",
+    "INFORMATION SYSTEM SPECIALIST (ISS)" => "INFORMATION SYSTEM SPECIALIST (ISS)",
 ];
