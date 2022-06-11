@@ -86,7 +86,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
     <style>
-        body * :not(i[class^="fas fa-"], i[class^="fab fa-"], i[class^="far fa-"]) {
+        body * :not(i[class^="fas fa-"], i[class^="fab fa-"], i[class^="far fa-"], span[class^="fas fa-"], span[class^="fab fa-"], span[class^="far fa-"]) {
             font-family: "Work Sans", sans-serif !important;
         }
     </style>
@@ -236,7 +236,9 @@
                             </ul>
                             <div class="cart__search">
                                 <ul class="cart__search__list">
-                                    <li class="search search__open"><a draggable="false" href="#"><i class="icon ion-ios-search-strong"></i></a></li>
+                                    <li class="search search__open">
+                                        <a draggable="false" href="#"><i class="icon ion-ios-search-strong"></i></a>
+                                    </li>
                                 </ul>
                             </div>
                         </nav>
@@ -249,8 +251,8 @@
                     <div class="row" >
                         <div class="col-12">
                             <div class="search__inner">
-                                <form action="#" method="get">
-                                    <input placeholder="Search here... " type="text">
+                                <form method="get" role="form" action="{{ route("blog.index") }}" autocomplete="off">
+                                    <input type="text" id="search" name="search" value="{{ $search ?? null }}" placeholder="{{ trans("index.search", ["name" => trans("index.here")]) }}..." required>
                                     <button type="submit"></button>
                                 </form>
                                 <div class="search__close__btn">

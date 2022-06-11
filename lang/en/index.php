@@ -1523,4 +1523,5 @@ return [
     "event" => "Event",
     "our" => "Our :Name",
     "search" => "Search :Name",
+    "here" => "Here",
 ];

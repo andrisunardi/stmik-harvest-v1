@@ -75,6 +75,8 @@ class BlogComponent extends Component
 
         $data_blog = $data_blog->paginate(10);
 
-        return view("livewire.{$this->menu_slug}.index", ["data_blog" => $data_blog])->extends("layouts.app", ["banner" => $this->banner])->section("content");
+        return view("livewire.{$this->menu_slug}.index", ["data_blog" => $data_blog])
+            ->extends("layouts.app", ["banner" => $this->banner, "search" => $this->search])
+            ->section("content");
     }
 }

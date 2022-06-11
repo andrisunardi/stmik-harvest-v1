@@ -1132,4 +1132,5 @@ return [
     "our" => ":Name Kami",
     "recent" => ":Name Terkini",
     "search" => "Cari :Name",
+    "here" => "Disini",
 ];
