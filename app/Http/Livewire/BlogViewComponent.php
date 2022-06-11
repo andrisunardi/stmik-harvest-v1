@@ -22,17 +22,6 @@ class BlogViewComponent extends Component
     public $title;
     public $message;
 
-    public function rules()
-    {
-        return [
-            "name"      => "required|max:50",
-            "phone"     => "nullable|max:15",
-            "email"     => "required|email|max:50",
-            "title"     => "nullable|max:100",
-            "message"   => "required|max:1000",
-        ];
-    }
-
     public function mount($blog_slug)
     {
         $this->banner = Banner::find(15);

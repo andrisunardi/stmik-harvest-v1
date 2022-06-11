@@ -4,7 +4,7 @@
             <h2 class="title__style--2">{{ trans("index.All Category") }}</h2>
             <ul class="blog__courses">
                 @foreach ($data_event_category as $event_category)
-                    <li><a draggable="false" href="{{ route("{$menu_slug}.index") . "?category={$event_category->id}" }}">{{ $event_category->translate_name }}</a></li>
+                    <li><a draggable="false" href="{{ route("{$menu_slug}.index") . "?category={$event_category->slug}" }}">{{ $event_category->translate_name }}</a></li>
                 @endforeach
             </ul>
         </div>
@@ -31,13 +31,6 @@
                 @endforeach
             </div>
         </div>
-
-        {{-- <div class="blog__discount__area bg--8">
-            <div class="blog__discount__inner">
-                <h4>NEW SCHOOLYEAR</h4>
-                <h2>GET 70% OFF</h2>
-            </div>
-        </div> --}}
 
         <div class="blog__tag mt--50">
             <h2 class="title__style--2">{{ trans("index.Tags") }}</h2>

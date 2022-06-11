@@ -5,12 +5,13 @@ namespace App\Http\Livewire;
 use App\Http\Livewire\Component;
 use App\Models\Banner;
 use App\Models\Event;
+use App\Models\EventCategory;
 use Illuminate\Support\Facades\Session;
 
-class eventViewComponent extends Component
+class EventViewComponent extends Component
 {
     public $menu_name = "Event";
-    public $menu_icon = "fas fa-newspaper";
+    public $menu_icon = "fas fa-calendar";
     public $menu_slug = "event";
     public $menu_table = "event";
 
@@ -21,20 +22,9 @@ class eventViewComponent extends Component
     public $title;
     public $message;
 
-    public function rules()
-    {
-        return [
-            "name"      => "required|max:50",
-            "phone"     => "nullable|max:15",
-            "email"     => "required|email|max:50",
-            "title"     => "nullable|max:100",
-            "message"   => "required|max:1000",
-        ];
-    }
-
     public function mount($event_slug)
     {
-        $this->banner = Banner::find(14);
+        $this->banner = Banner::find(15);
 
         $this->event = Event::where("slug", $event_slug)->onlyActive()->first();
 
@@ -49,6 +39,8 @@ class eventViewComponent extends Component
             ->inRandomOrder()
             ->limit("3")
             ->get();
+
+        $this->data_event_category = EventCategory::onlyActive()->orderByDesc("id")->get();
 
         $this->data_recent_event = Event::onlyActive()->orderByDesc("id")->limit(3)->get();
 

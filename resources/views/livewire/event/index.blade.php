@@ -9,6 +9,13 @@
 
             @include("layouts.alert")
 
+            @if ($event_category)
+                <div class="section__title text-center mb--40">
+                    <h2 class="title__line">{{ $event_category->translate_name }}</h2>
+                    <p>{!! html_entity_decode($event_category->translate_description) !!}</p>
+                </div>
+            @endif
+
             <div class="row">
                 <div class="col-12">
                     <div class="courses__tab__wrap">
