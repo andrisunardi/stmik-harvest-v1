@@ -1392,6 +1392,7 @@ return [
     "Sks" => "Sks",
     "SKS" => "SKS",
     "Video" => "Video",
+    "Major" => "Major",
 
     "About Us" => "About Us",
     "Back To Home" => "Back To Home",

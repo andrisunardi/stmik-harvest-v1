@@ -4,6 +4,7 @@ namespace App\Http\Livewire\CMS;
 
 use App\Http\Livewire\CMS\Component;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Validation\Rule;
 use Livewire\WithPagination;
@@ -103,11 +104,11 @@ class RegistrationComponent extends Component
         $this->name = null;
         $this->email = null;
         $this->phone = null;
-        $this->gender = null;
+        $this->gender = "";
         $this->school = null;
         $this->major = null;
         $this->city = null;
-        $this->type = null;
+        $this->type = "";
     }
 
     public function resetForm()
@@ -355,6 +356,19 @@ class RegistrationComponent extends Component
         $this->registration->city = $this->city;
         $this->registration->type = $this->type;
         $this->registration->save();
+
+        if (env("APP_ENV") == "production") {
+            Mail::send("email.registration", [
+                "registration" => $this->registration,
+                "created_at" => now(),
+            ], function ($message) {
+                $message
+                    ->to(env("CONTACT_EMAIL"))
+                    ->cc(env("CONTACT_EMAIL"))
+                    ->bcc(env("CONTACT_EMAIL"))
+                    ->subject("Online Registration Form - " . date("d F Y"));
+            });
+        }
 
         $this->menu_type_message = $this->menu_type == "add" || $this->menu_type == "edit" ? $this->menu_type . "ed" : $this->menu_type . "d";
         Session::flash("success", trans("page.{$this->menu_name}") . " " . trans("message.has been {$this->menu_type_message} successfully"));

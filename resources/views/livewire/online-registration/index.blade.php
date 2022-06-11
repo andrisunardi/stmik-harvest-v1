@@ -44,7 +44,7 @@
                                                 @error($input)
                                                     <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
                                                 @else
-                                                    <div class="valid-feedback rounded bg-success p-2 ms-0 mt-2 text-white">{{ trans("validation.Looks Good") }}</div>
+                                                    <div class="valid-feedback rounded bg-success p-2 ms-0 mt-2 text-white">{{ trans("validation.success") }}</div>
                                                 @enderror
                                             </div>
                                         </div>
@@ -61,7 +61,7 @@
                                                 @error($input)
                                                     <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
                                                 @else
-                                                    <div class="valid-feedback rounded bg-success p-2 ms-0 mt-2 text-white">{{ trans("validation.Looks Good") }}</div>
+                                                    <div class="valid-feedback rounded bg-success p-2 ms-0 mt-2 text-white">{{ trans("validation.success") }}</div>
                                                 @enderror
                                             </div>
                                         </div>
@@ -80,7 +80,7 @@
                                                 @error($input)
                                                     <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
                                                 @else
-                                                    <div class="valid-feedback rounded bg-success p-2 ms-0 mt-2 text-white">{{ trans("validation.Looks Good") }}</div>
+                                                    <div class="valid-feedback rounded bg-success p-2 ms-0 mt-2 text-white">{{ trans("validation.success") }}</div>
                                                 @enderror
                                             </div>
                                         </div>
@@ -97,7 +97,7 @@
                                                 @error($input)
                                                     <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
                                                 @else
-                                                    <div class="valid-feedback rounded bg-success p-2 ms-0 mt-2 text-white">{{ trans("validation.Looks Good") }}</div>
+                                                    <div class="valid-feedback rounded bg-success p-2 ms-0 mt-2 text-white">{{ trans("validation.success") }}</div>
                                                 @enderror
                                             </div>
                                         </div>
@@ -116,7 +116,7 @@
                                                 @error($input)
                                                     <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
                                                 @else
-                                                    <div class="valid-feedback rounded bg-success p-2 ms-0 mt-2 text-white">{{ trans("validation.Looks Good") }}</div>
+                                                    <div class="valid-feedback rounded bg-success p-2 ms-0 mt-2 text-white">{{ trans("validation.success") }}</div>
                                                 @enderror
                                             </div>
                                         </div>
@@ -133,7 +133,7 @@
                                                 @error($input)
                                                     <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
                                                 @else
-                                                    <div class="valid-feedback rounded bg-success p-2 ms-0 mt-2 text-white">{{ trans("validation.Looks Good") }}</div>
+                                                    <div class="valid-feedback rounded bg-success p-2 ms-0 mt-2 text-white">{{ trans("validation.success") }}</div>
                                                 @enderror
                                             </div>
                                         </div>
@@ -156,7 +156,7 @@
                                                     <div class="invalid-feedback-delete rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
                                                 @else
                                                     @if($this->gender)
-                                                        <div class="valid-feedback-delete rounded bg-success p-2 ms-0 mt-2 text-white">{{ trans("validation.Looks Good") }}</div>
+                                                        <div class="valid-feedback-delete rounded bg-success p-2 ms-0 mt-2 text-white">{{ trans("validation.success") }}</div>
                                                     @endif
                                                 @enderror
                                             </div>
@@ -178,7 +178,7 @@
                                                     <div class="invalid-feedback-delete rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
                                                 @else
                                                     @if($this->type)
-                                                        <div class="valid-feedback-delete rounded bg-success p-2 ms-0 mt-2 text-white">{{ trans("validation.Looks Good") }}</div>
+                                                        <div class="valid-feedback-delete rounded bg-success p-2 ms-0 mt-2 text-white">{{ trans("validation.success") }}</div>
                                                     @endif
                                                 @enderror
                                             </div>

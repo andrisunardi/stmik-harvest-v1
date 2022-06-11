@@ -1075,6 +1075,7 @@ return [
     "Reject" => "Tolak",
 
     "View Detail" => "Lihat Detail",
+    "Major" => "Jurusan",
 
     "is not your donor child" => "bukan anak donor anda",
     "Let's Make Their Dreams Come True" => "Mari Wujudkan Impian Mereka",

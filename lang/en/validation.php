@@ -208,6 +208,7 @@ return [
         "last_name" => "Last Name",
         "last_page" => "Last Page",
         "linkedin" => "Linkedin",
+        "major" => "Major",
         "menu_category" => "Menu Category",
         "menu" => "Menu",
         "message" => "Message",

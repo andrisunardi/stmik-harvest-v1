@@ -209,6 +209,7 @@ return [
         "last_page" => "Halaman Terakhir",
         "lecturer" => "Dosen",
         "linkedin" => "Linkedin",
+        "major" => "Jurusan",
         "menu_category" => "Kategori Menu",
         "menu" => "Menu",
         "message" => "Pesan",
