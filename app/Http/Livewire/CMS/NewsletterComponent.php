@@ -5,6 +5,7 @@ namespace App\Http\Livewire\CMS;
 use App\Http\Livewire\CMS\Component;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 use Livewire\WithPagination;
 
@@ -318,6 +319,19 @@ class NewsletterComponent extends Component
         $this->newsletter->company = $this->company;
         $this->newsletter->message = Str::of(htmlspecialchars($this->message))->swap(["&lt;" => "<", "&gt;" => ">"]);
         $this->newsletter->save();
+
+        if (env("APP_ENV") == "production") {
+            Mail::send("email.newsletter", [
+                "newsletter" => $this->newsletter,
+                "created_at" => now(),
+            ], function ($message) {
+                $message
+                    ->to(env("CONTACT_EMAIL"))
+                    ->cc(env("CONTACT_EMAIL"))
+                    ->bcc(env("CONTACT_EMAIL"))
+                    ->subject("Newsletter Form - " . date("d F Y"));
+            });
+        }
 
         $this->menu_type_message = $this->menu_type == "add" || $this->menu_type == "edit" ? $this->menu_type . "ed" : $this->menu_type . "d";
         Session::flash("success", trans("page.{$this->menu_name}") . " " . trans("message.has been {$this->menu_type_message} successfully"));
