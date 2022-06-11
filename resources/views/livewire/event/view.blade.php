@@ -14,9 +14,7 @@
                             <div class="courses__top--left">
                                 <div class="courses__teacher">
                                     <div class="crs__teacher__images">
-                                        <a draggable="false" href="{{ $event->assetImage() }}" target="_blank">
-                                            <img draggable="false" src="{{ asset("images/logo-square.png") }}" class="rounded-circle" style="width:50px" alt="Administrator - {{ $event->translate_name }} - {{ env("APP_TITLE") }}">
-                                        </a>
+                                        <img draggable="false" src="{{ asset("images/logo-square.png") }}" class="rounded-circle" style="width:50px" alt="Administrator - {{ $event->translate_name }} - {{ env("APP_TITLE") }}">
                                     </div>
                                     <h4>Administrator</h4>
                                     <span>/</span>
@@ -57,7 +55,9 @@
                 <div class="col-lg-8">
                     <div class="htc__courses__leftsidebar">
                         <div class="courses__details__thumb">
-                            <img draggable="false" class="img-fluid w-100" src="{{ $event->assetImage() }}" alt="{{ trans("page.{$menu_name}") }} - {{ $event->translate_name }} - {{ env("APP_TITLE") }}">
+                            <a draggable="false" href="{{ $event->assetImage() }}" target="_blank">
+                                <img draggable="false" class="img-fluid w-100" src="{{ $event->assetImage() }}" alt="{{ trans("page.{$menu_name}") }} - {{ $event->translate_name }} - {{ env("APP_TITLE") }}">
+                            </a>
                         </div>
                         <div class="htc__crs__tab__wrap">
                             <ul class="courses__view mt--50 nav" role="tablist">
@@ -137,7 +137,8 @@
                             </div>
                         </div>
 
-                        <div class="courses__content__wrap mt--20 list__view__page">
+                        <div class="courses__content__wrap mt--40 list__view__page">
+                            <h2 class="title__style--3">{{ trans("index.related", ["name" => trans("index.event")]) }}</h2>
                             <div class="row">
                                 @foreach ($data_other_event as $other_event)
                                     <div class="col-md-6">

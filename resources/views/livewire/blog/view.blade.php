@@ -34,7 +34,9 @@
                             </ul>
                         </div>
                         <div class="blog__details__thumb">
-                            <img draggable="false" class="img-fluid w-100" src="{{ $blog->assetImage() }}" alt="{{ trans("page.{$menu_name}") }} - {{ $blog->translate_name }} - {{ env("APP_TITLE") }}">
+                            <a draggable="false" href="{{ $blog->assetImage() }}" target="_blank">
+                                <img draggable="false" class="img-fluid w-100" src="{{ $blog->assetImage() }}" alt="{{ trans("page.{$menu_name}") }} - {{ $blog->translate_name }} - {{ env("APP_TITLE") }}">
+                            </a>
                         </div>
                         <div class="htc__blog__details">
                             <div class="single__details">{!! html_entity_decode($blog->translate_description) !!}</div>

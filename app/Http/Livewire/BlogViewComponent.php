@@ -35,6 +35,7 @@ class BlogViewComponent extends Component
         }
 
         $this->data_other_blog = Blog::where("id", "!=", $this->blog->id)
+            ->where("blog_category_id", $this->blog->blog_category->id)
             ->onlyActive()
             ->inRandomOrder()
             ->limit("3")

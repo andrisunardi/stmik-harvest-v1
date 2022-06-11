@@ -1144,4 +1144,5 @@ return [
     "contact" => "Kontak :Name",
     "us" => "Kami",
     "information" => "Informasi :Name",
+    "related" => ":Name Terkait",
 ];

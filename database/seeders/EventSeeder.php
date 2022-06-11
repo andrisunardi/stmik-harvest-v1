@@ -151,6 +151,35 @@ class EventSeeder extends Seeder
         $data->save();
 
         $data = new Event();
+        $data->event_category_id = 3;
+        $data->name = "Seminar Social Media And Me";
+        $data->name_id = "Seminar Social Media And Me";
+        $data->description = "
+        <p>Seminar in collaboration with World Teach Indonesia with the theme 'Social Media and Me'.</p>
+        <p>Providing insight into what social media are currently developing and how much they are growing. We all have dreams or aspirations, but don't let the internet and social media become a barrier for us so that our time is not effective. for that STMIK Harvest provides direction on how to use social media well.</p>
+        <p><b>What's new :</b></p>
+        <ul>
+            <li>The Social Media and Me Seminar is divided into two parts. The first part is presented by World Teach Indonesia which provides an illustration that each of the existing students must be able to identify themselves. They must have goals, be serious about life, and not play around too much. This first part is expected to inspire the students to get to know themselves and also to make good use of their time.</li>
+            <li>The second part of this seminar was presented by STMIK Harvest where STMIK Harvest explained that the internet and social media can help us to be smarter or better but also can make us waste our time doing things that are not too important. For this reason, STMIK Harvest provides exposure on how to use social media with good ethics.</li>
+        </ul>
+        ";
+        $data->description_id = "
+        <p>Seminar yang bekerjasama dengan World Teach Indonesia dengan tema 'Social Media and Me'.</p>
+        <p>Memberikan wawasan mengenai apa saja media sosial yang sedang berkembang dan seberapa besar pertumbuhannya. kita semua memiliki mimpi ataupun cita-cita, tapi janganlah internet dan sosial media menjadi penghalang bagi kita sehingga waktu-waktu kita tidak efektif. untuk itu STMIK Harvest memberikan arahan bagaimana menggunakan sosial media dengan baik.</p>
+        <p><b>Apa yang baru :</b></p>
+        <ul>
+            <li>Seminar Social Media and Me dibagi menjadi dua bagian. Bagian pertama dibawakan oleh World Teach Indonesia yang memberikan gambaran bahwa setiap dari murid yang ada harus bisa mengenali diri mereka sendiri. Mereka harus memiliki target, serius dalam menjalani hidup, dan tidak terlalu banyak main-main. Bagian pertama ini diharapkan dapat membangkitkan semangat para murid untuk bisa mengenal diri mereka sendiri dan juga memanfaatkan waktu-waktu mereka dengan baik.</li>
+            <li>Bagian kedua seminar ini dibawakan oleh STMIK Harvest dimana STMIK Harvest menjelaskan bahwa internet dan social media bisa membantu kita untuk kita bisa semakin pintar ataupun semakin baik tapi juga bisa membuat kita membuang waktu kita melakukan hal yang tidak terlalu penting. Untuk itulah STMIK Harvest memberikan paparan bagimana menggunakan social media dengan etika yang baik.</li>
+        </ul>
+        ";
+        $data->location = "SMAN 23 Tomang Jakarta Barat";
+        $data->start = "2016-05-11 13:00:00";
+        $data->end = "2016-05-11 15:00:00";
+        $data->image = Str::slug($data->name) . ".png";
+        $data->slug = Str::slug($data->name);
+        $data->save();
+
+        $data = new Event();
         $data->event_category_id = 1;
         $data->name = "New Student Orientation 2017/2018";
         $data->name_id = "Orientasi Mahasiswa Baru 2017/2018";

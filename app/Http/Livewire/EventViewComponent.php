@@ -35,6 +35,7 @@ class EventViewComponent extends Component
         }
 
         $this->data_other_event = Event::where("id", "!=", $this->event->id)
+            ->where("event_category_id", $this->event->event_category->id)
             ->onlyActive()
             ->inRandomOrder()
             ->limit("2")

@@ -1535,4 +1535,5 @@ return [
     "contact" => "Contact :Name",
     "us" => "Us",
     "information" => ":Name Information",
+    "related" => "Related :Name",
 ];
