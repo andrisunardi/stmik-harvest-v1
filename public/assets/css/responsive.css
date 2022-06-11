@@ -1297,7 +1297,7 @@
     }
 
     .testimonial-wrap .slick-dots {
-        bottom: -150%;
+        /* bottom: -150%; ORIGINAL */
     }
 
     .bg--4 {
