@@ -151,7 +151,7 @@
                         </div>
 
                         <div class="cres__features">
-                            <h2 class="title__style--2">{{ trans("index.recent", ["name" => trans("index.event")]) }}</h2>
+                            <h2 class="title__style--2">{{ trans("index.information", ["name" => trans("index.event")]) }}</h2>
                             <div class="crs__features__list">
                                 <ul class="feature__duration text-nowrap">
                                     <li><i class="icon ion-ios-pricetag"></i> {{ trans("index.category") }} :</li>
