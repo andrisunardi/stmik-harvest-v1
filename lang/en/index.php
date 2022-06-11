@@ -1521,5 +1521,6 @@ return [
     "posted_by" => "Posted by",
     "our_latest" => "Our Latest :Name",
     "event" => "Event",
-    "our" => "Our :Name"
+    "our" => "Our :Name",
+    "recent" => "Recent :Name",
 ];

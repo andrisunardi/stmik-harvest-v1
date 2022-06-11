@@ -15,12 +15,12 @@
                 @foreach ($data_recent_blog as $recent_blog)
                     <div class="single__courses">
                         <div class="recent__post__thumb">
-                            <a href="{{ route("{$menu_slug}.view", ["blog_slug" => $blog->slug]) }}">
+                            <a draggable="false" href="{{ route("{$menu_slug}.view", ["blog_slug" => $recent_blog->slug]) }}">
                                 <img draggable="false" class="img-fluid w-100" src="{{ $recent_blog->assetImage() }}" alt="{{ trans("page.{$menu_name}") }} - {{ $recent_blog->translate_name }} - {{ env("APP_TITLE") }}">
                             </a>
                         </div>
                         <div class="recent__post__details">
-                            <h2><a draggable="false" href="{{ route("{$menu_slug}.view", ["blog_slug" => $blog->slug]) }}">{{ $recent_blog->translate_name }}</a></h2>
+                            <h2><a draggable="false" href="{{ route("{$menu_slug}.view", ["blog_slug" => $recent_blog->slug]) }}">{{ $recent_blog->translate_name }}</a></h2>
                             <a draggable="false" href="{{ route("{$menu_slug}.index") . "?category={$recent_blog->blog_category->slug}" }}">
                                 <span class="post__price">
                                     {{ $recent_blog->blog_category->translate_name }}

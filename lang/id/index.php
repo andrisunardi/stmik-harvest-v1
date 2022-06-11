@@ -1129,5 +1129,6 @@ return [
     "posted_by" => "Diposting oleh",
     "our_latest" => ":Name Terbaru Kami",
     "event" => "Acara",
-    "our" => ":Name Kami"
+    "our" => ":Name Kami",
+    "recent" => ":Name Terkini",
 ];

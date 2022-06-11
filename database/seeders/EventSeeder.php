@@ -138,6 +138,7 @@ class EventSeeder extends Seeder
         // $data->save();
 
         $data = new Event();
+        $data->event_category_id = 1;
         $data->name = "New Student Orientation 2017/2018";
         $data->name_id = "Orientasi Mahasiswa Baru 2017/2018";
         $data->description = "
@@ -179,6 +180,8 @@ class EventSeeder extends Seeder
         $data->location = "STMIK Harvest, Gedung World Harvest Center, International Room";
         $data->start = "2017-09-09 08:00:00";
         $data->end = "2017-09-10 17:00:00";
+        $data->tag = "Orientation";
+        $data->tag_id = "Orientasi";
         $data->image = Str::slug($data->name) . ".png";
         $data->slug = Str::slug($data->name);
         $data->save();
