@@ -115,7 +115,7 @@ class HomeComponent extends Component
     {
         $this->data_slider = Slider::onlyActive()->orderByDesc("id")->limit(3)->get();
 
-        $this->data_offer = Offer::onlyActive()->orderBy("id")->limit(4)->get();
+        $this->data_offer = Offer::onlyActive()->orderByDesc("id")->limit(4)->get();
 
         $this->admission_calendar = AdmissionCalendar::onlyActive()->orderByDesc("id")->first();
 
