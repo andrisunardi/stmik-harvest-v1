@@ -180,11 +180,162 @@ class EventSeeder extends Seeder
         $data->save();
 
         $data = new Event();
+        $data->event_category_id = 2;
+        $data->name = "Community Service at Immanuel Elementary School, West Jakarta";
+        $data->name_id = "Pengabdian Kepada Masyarakat SD Immanuel Jakarta Barat";
+        $data->description = "
+        <p>Community Service (PKM) which was held in collaboration with World Teach Indonesia with the theme 'Social Media and Me'.</p>
+        <p>gives an idea to Immanuel Elementary School students to be able to make better use of their cellphones and not just spend time playing games.</p>
+        <p><b>What's new :</b></p>
+        <ul>
+            <li>The Social Media and Me Seminar is divided into two parts. The first part is presented by World Teach Indonesia which provides an illustration that each of the existing students must be able to identify themselves. This first part is expected to inspire the students to get to know themselves and also to make good use of their time.</li>
+            <li>The second part of this seminar was presented by STMIK Harvest where STMIK Harvest explained that the internet and social media and games can help us to be smarter or better but also can make us waste our time doing things that are not too important. For this reason, STMIK Harvest provides an explanation of how students can reduce playing time and learn more.</li>
+        </ul>
+        ";
+        $data->description_id = "
+        <p>Pengabdian Kepada Masyarakat (PKM) yang diselenggarakan bekerjasama dengan World Teach Indonesia dengan tema 'Social Media and Me'.</p>
+        <p>memberikan gambaran kepada murid-murid SD Immanuel untuk bisa lebih memanfaatkan handphone dengan lebih baik dan tidak menghabiskan waktu untuk bermain saja.</p>
+        <p><b>Apa yang baru :</b></p>
+        <ul>
+            <li>Seminar Social Media and Me dibagi menjadi dua bagian. Bagian pertama dibawakan oleh World Teach Indonesia yang memberikan gambaran bahwa setiap dari murid yang ada harus bisa mengenali diri mereka sendiri. Bagian pertama ini diharapkan dapat membangkitkan semangat para murid untuk bisa mengenal diri mereka sendiri dan juga memanfaatkan waktu-waktu mereka dengan baik.</li>
+            <li>Bagian kedua seminar ini dibawakan oleh STMIK Harvest dimana STMIK Harvest menjelaskan bahwa internet dan social media dan game bisa membantu kita untuk kita bisa semakin pintar ataupun semakin baik tapi juga bisa membuat kita membuang waktu kita melakukan hal yang tidak terlalu penting. Untuk itulah STMIK Harvest memberikan paparan bagimana untuk bisa para murid mengurangi waktu bermain dan lebih memperbanyak belajar.</li>
+        </ul>
+        ";
+        $data->location = "SD Immanuel Jakarta Barat";
+        $data->start = "2016-06-22 10:00:00";
+        $data->end = "2016-06-22 11:00:00";
+        $data->image = Str::slug($data->name) . ".png";
+        $data->slug = Str::slug($data->name);
+        $data->save();
+
+        $data = new Event();
+        $data->event_category_id = 1;
+        $data->name = "New Student Orientation 2016/2017";
+        $data->name_id = "Orientasi Mahasiswa Baru 2016/2017";
+        $data->description = "
+        <p>New Student Orientation for STMIK Harvest Information System students for 2016/2017 Academic Year will take place on 17 September 2016.</p>
+         <p>Welcoming new students who join STMIK Harvest and providing briefing and motivation.</p>
+         <p><b>This student orientation is carried out with a series of activities, including:</b></p>
+         <ul>
+             <li>Introduction of the departments and personnel in STMIK Harvest.</li>
+             <li>Games by BEM STMIK Harvest.</li>
+             <li>Sharing and motivation from alumni.</li>
+         </ul>
+         <p><b>Seminar series such as:</b></p>
+         <ul>
+             <li>“A Good Habit Starts from a Good Character” by Mr Yohanes Sumarno.</li>
+             <li>“Technopreneur” by Mr. Beny Saputro, CEO of Nataproperty (Nataproperty.com).</li>
+         </ul>
+        ";
+        $data->description_id = "
+        <p>Orientasi Mahasiswa Baru untuk mahasiswa STMIK Harvest Sistem Informasi Tahun Ajaran 2016/2017 berlangsung pada tanggal 17 Sept 2016.</p>
+        <p>Menyambut mahasiswa baru yang bergabung dengan STMIK Harvest dan memberikan pembekalan dan juga motivasi.</p>
+        <p><b>Orientasi mahasiswa ini dilakukan dengan serangkaian kegiatan antara lain:</b></p>
+        <ul>
+            <li>Perkenalan dari departemen dan personel yang ada di dalam STMIK Harvest.</li>
+            <li>Games oleh BEM STMIK Harvest.</li>
+            <li>Sharing dan motivasi dari alumni.</li>
+        </ul>
+        <p><b>Rangkaian Seminar seperti:</b></p>
+        <ul>
+            <li>“A Good Habit Starts from a Good Character” oleh Bpk Yohanes Sumarno.</li>
+            <li>“Technopreneur” oleh Bpk Beny Saputro, CEO Nataproperty (Nataproperty.com).</li>
+        </ul>
+        ";
+        $data->location = "STMIK Harvest";
+        $data->start = "2016-09-17 08:00:00";
+        $data->end = "2016-09-17 19:00:00";
+        $data->image = Str::slug($data->name) . ".png";
+        $data->slug = Str::slug($data->name);
+        $data->save();
+
+        $data = new Event();
+        $data->event_category_id = 3;
+        $data->name = "Citra Berkat High School Citra Raya Tangerang Seminar";
+        $data->name_id = "Seminar SMA Citra Berkat Citra Raya";
+        $data->description = "
+        <p>Sexuality & Pornography Seminar for Citra Berkat Citra Raya Tangerang High School students took place on February 14, 2017.</p>
+        <p>In the context of Valentine's Day, which is widely celebrated by young people, Citra Berkat School holds a Sexuality & Pornography seminar, so that students at Citra Berkat High School can become more mature individuals in the face of the times.</p>
+        <p><b>This seminar is carried out with a series of activities, including:</b></p>
+        <ul>
+            <li>Separate sexuality seminar for men & women.</li>
+            <li>A joint seminar on the dangers of pornography.</li>
+            <li>Responses and impressions of messages from students.</li>
+        </ul>
+        <p><b>Seminar hosted by:</b></p>
+        <ul>
+            <li>Mr Charlton from World Teach Indonesia.</li>
+            <li>Yasinta Indrianti, M.Psi, Psychologist from STMIK Harvest.</li>
+        </ul>
+        ";
+        $data->description_id = "
+        <p>Seminar Seksualitas & Pornografi untuk siswa/i SMA Citra Berkat Citra Raya Tangerang berlangsung pada tanggal 14 Februari 2017.</p>
+        <p>Dalam rangka acara hari Valentine yang dirayakan secara luas oleh anak muda, sekolah Citra Berkat mengadakan seminar Seksualitas & Pornografi, agar siswa siswi di SMA Citra Berkat bisa menjadi pribadi yang lebih dewasa dalam menghadapi perkembangan jaman.</p>
+        <p><b>Seminar ini dilaksanakan dengan serangkaian kegiatan antara lain:</b></p>
+        <ul>
+            <li>Seminar seksualitas terpisah untuk laki-laki & perempuan.</li>
+            <li>Seminar gabungan mengenai bahaya pornografi.</li>
+            <li>Tanggapan dan kesan pesan dari para murid.</li>
+        </ul>
+        <p><b>Seminar dibawakan oleh:</b></p>
+        <ul>
+            <li>Bpk Charlton dari World Teach Indonesia.</li>
+            <li>Yasinta Indrianti, M.Psi, Psikolog dari STMIK Harvest.</li>
+        </ul>
+        ";
+        $data->location = "SMA Citra Berkat, Citra Raya, Tangerang";
+        $data->start = "2017-02-14 10:30:00";
+        $data->end = "2017-02-14 14:30:00";
+        $data->image = Str::slug($data->name) . ".png";
+        $data->slug = Str::slug($data->name);
+        $data->save();
+
+        $data = new Event();
+        $data->event_category_id = 3;
+        $data->name = "PGRI 1 Tangerang Vocational High School Motivation Seminar";
+        $data->name_id = "Seminar Motivasi SMK PGRI 1 Tangerang";
+        $data->description = "
+        <p>The motivational seminar for new students at SMK PGRI 1 Tangerang will take place on July 21, 2017.</p>
+        <p>In a series of new student orientations at SMK PGRI 1 Tangerang, STMIK Harvest brought a motivational material to 10th graders who had just joined. This motivational seminar aims to make the existing students more enthusiastic about entering a new chapter in their education and not to never give up for the future.</p>
+        <p><b>Some points in this seminar:</b></p>
+        <ul>
+            <li>Believe in yourself.</li>
+            <li>Be more wise with the time you have.</li>
+            <li>Strive and try to improve yourself every day.</li>
+        </ul>
+        <p><b>Seminar hosted by:</b></p>
+        <ul>
+            <li>Yoas Arnest Sutopo, S.Inf, M.M, Marketing Manager of STMIK Harvest.</li>
+        </ul>
+        ";
+        $data->description_id = "
+        <p>Seminar Motivasi untuk siswa/i baru di SMK PGRI 1 Tangerang berlangsung pada tanggal 21 Juli 2017.</p>
+        <p>Dalam rangkaian orientasi murid baru di SMK PGRI 1 Tangerang, STMIK Harvest membawakan sebuah materi motivasi kepada murid-murid kelas 10 yang baru saja bergabung. Seminar Motivasi ini bertujuan agar para siswa/i yang ada dapat lebih semangat memasuki babak baru dalam pendidikan mereka dan tidak pantang menyerah untuk keadaan yang akan datang.</p>
+        <p><b>Beberapa poin dalam seminar ini:</b></p>
+        <ul>
+            <li>Percaya pada kemampuan diri sendiri.</li>
+            <li>Lebih Bijaksama menggunakan waktu yang ada.</li>
+            <li>Berjuang dan berusaha memperbaiki diri setiap harinya.</li>
+        </ul>
+        <p><b>Seminar dibawakan oleh:</b></p>
+        <ul>
+            <li>Yoas Arnest Sutopo, S.Inf, M.M, Marketing Manager STMIK Harvest.</li>
+        </ul>
+        ";
+        $data->location = "SMK PGRI 1 Tangerang";
+        $data->start = "2017-07-21 08:00:00";
+        $data->end = "2017-07-21 10:00:00";
+        $data->image = Str::slug($data->name) . ".png";
+        $data->slug = Str::slug($data->name);
+        $data->save();
+
+        $data = new Event();
         $data->event_category_id = 1;
         $data->name = "New Student Orientation 2017/2018";
         $data->name_id = "Orientasi Mahasiswa Baru 2017/2018";
         $data->description = "
         <p>New Student Orientation for STMIK Harvest Information System students for the 2017/2018 academic year took place on 9 September 2017.</p>
+        <p>STMIK Harvest provides a series of motivational seminars, briefings, and introductions about campus.</p>
         <p><b>This student orientation is carried out with a series of activities, including:</b></p>
         <ul>
             <li>1. Matriculation to support students who still need additional lessons.</li>
@@ -201,6 +352,7 @@ class EventSeeder extends Seeder
         ";
         $data->description_id = "
         <p>Orientasi Mahasiswa Baru untuk mahasiswa STMIK Harvest Sistem Informasi Tahun Ajaran 2017/2018 berlangsung pada tanggal 9 Sept 2017.</p>
+        <p>STMIK Harvest memberikan serangkaian seminar motivasi, pembekalan, serta pengenalan tentang kampus.</p>
         <p><b>Orientasi mahasiswa ini dilakukan dengan serangkaian kegiatan antara lain:</b></p>
         <ul>
             <li>1. Matrikulasi untuk menunjang para mahasiswa yang masih memerlukan pelajaran tambahan.</li>
@@ -224,21 +376,49 @@ class EventSeeder extends Seeder
         $data->slug = Str::slug($data->name);
         $data->save();
 
-        // $data = new Event();
-        // $data->event_category_id = 1;
-        // $data->name = "TEST";
-        // $data->name_id = "TEST";
-        // $data->description = "
-        //
-        // ";
-        // $data->description_id = "
-        //
-        // ";
-        // $data->location = "TEST";
-        // $data->start = "2017-09-09 08:00:00";
-        // $data->end = "2017-09-10 17:00:00";
-        // $data->image = Str::slug($data->name) . ".png";
-        // $data->slug = Str::slug($data->name);
-        // $data->save();
+        $data = new Event();
+        $data->event_category_id = 1;
+        $data->name = "IP Activator Program";
+        $data->name_id = "IP Activator Program";
+        $data->description = "
+        <p>IP Activator Program at STMIK Harvest.</p>
+        <p>IP Activator is an entrepreneurship program to encourage students to have ideas and learn how to become entrepreneurs quickly.</p>
+        <p><b>The IP Activator program consists of:</b></p>
+        <ul>
+            <li>Mentoring session with Practitioners (CEO, COO, CFO, Director, VP, etc) / Entrepreneur (http://www.ipactivator.com/mentor) levels.</li>
+            <li>Pitching Ideas: everyone is required to have an idea, and make it a reality.</li>
+            <li>Interesting learning methods that make lectures more fun.</li>
+        </ul>
+        <p><b>Results from this program:</b></p>
+        <ul>
+            <li>Opportunity to meet with Business Mentors & Investors.</li>
+            <li>The best 5 people will get seed funding of Rp. 100,000,000 (One Hundred Million Rupiah) to actually run their business.</li>
+            <li>Get a chance to meet great people and the potential to get a job as an IT Professional
+            <li>Lectures are more interesting and dynamic.</li>
+        </ul>
+        ";
+        $data->description_id = "
+        <p>Program IP Activator di STMIK Harvest.</p>
+        <p>IP Activator adalah program enterpreneurship untuk mendorong para mahasiswa memiliki ide dan mempelajari bagaimana menjadi pengusaha dalam waktu yang cepat.</p>
+        <p><b>Rangkaian program IP Activator terdiri dari:</b></p>
+        <ul>
+            <li>Mentoring session dengan Praktisi (Level CEO, COO, CFO, Direktur, VP, dll) / Pengusaha (http://www.ipactivator.com/mentor).</li>
+            <li>Pitching Ideas: setiap orang dituntut untuk meiliki ide, dan menjadikan ide tersebut hingga bisa dijalankan.</li>
+            <li>Metode pembelajaran yang menarik yang menjadikan perkuliahan menjadi lebih menyenangkan.</li>
+        </ul>
+        <p><b>Hasil yang didapatkan dari Program ini:</b></p>
+        <ul>
+            <li>Berkesempatan untuk bertemu dengan Mentor Bisnis & Investor.</li>
+            <li>5 orang terbaik akan mendapatkan seed funding sebesar Rp. 100.000.000 (Seratus Juta Rupiah) untuk betul-betul menjalankan usaha / bisnis mereka.</li>
+            <li>Mendapatkan kesempatan bertemu dengan orang-orang hebat dan potensi mendapatkan pekerjaan sebagai IT Professional
+            <li>Perkuliahan yang lebih menarik dan dinamis.</li>
+        </ul>
+        ";
+        $data->location = "Plaza Semanggi 5th Floor, Jakarta";
+        $data->start = "2022-05-01 08:00:00";
+        $data->end = "2022-05-01 17:00:00";
+        $data->image = Str::slug($data->name) . ".png";
+        $data->slug = Str::slug($data->name);
+        $data->save();
     }
 }
