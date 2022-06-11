@@ -116,7 +116,7 @@
                                                         </div>
                                                         <div class="lst__view__details">
                                                             <h2><a draggable="false" href="{{ route("{$menu_slug}.view", ["event_slug" => $event->slug]) }}">{{ $event->translate_name }}</a></h2>
-                                                            <p>{{ strip_tags(Str::limit($event->translate_description, 100)) }}</p>
+                                                            <p>{{ strip_tags(Str::limit($event->translate_description, 130)) }}</p>
                                                         </div>
                                                         <ul class="list__meta">
                                                             <li class="crs__price">

@@ -17,5 +17,13 @@ class EventCategorySeeder extends Seeder
         $data->description_id = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, dolor molestias? Debitis ullam odit voluptates, fuga sed ab eveniet ratione quam, consequuntur nostrum ducimus deleniti repellendus eum incidunt odio exercitationem?";
         $data->slug = Str::slug($data->name);
         $data->save();
+
+        $data = new EventCategory();
+        $data->name = "Community Service";
+        $data->name_id = "Pengabdian Kepada Masyarakat";
+        $data->description = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, dolor molestias? Debitis ullam odit voluptates, fuga sed ab eveniet ratione quam, consequuntur nostrum ducimus deleniti repellendus eum incidunt odio exercitationem?";
+        $data->description_id = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, dolor molestias? Debitis ullam odit voluptates, fuga sed ab eveniet ratione quam, consequuntur nostrum ducimus deleniti repellendus eum incidunt odio exercitationem?";
+        $data->slug = Str::slug($data->name);
+        $data->save();
     }
 }
