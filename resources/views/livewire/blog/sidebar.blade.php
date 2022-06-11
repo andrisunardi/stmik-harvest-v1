@@ -21,23 +21,18 @@
                         </div>
                         <div class="recent__post__details">
                             <h2><a draggable="false" href="{{ route("{$menu_slug}.view", ["blog_slug" => $recent_blog->slug]) }}">{{ $recent_blog->translate_name }}</a></h2>
-                            <a draggable="false" href="{{ route("{$menu_slug}.index") . "?category={$recent_blog->blog_category->slug}" }}">
-                                <span class="post__price">
-                                    {{ $recent_blog->blog_category->translate_name }}
-                                </span>
-                            </a>
+                            @if ($recent_blog->blog_category)
+                                <a draggable="false" href="{{ route("{$menu_slug}.index") . "?category={$recent_blog->blog_category->slug}" }}">
+                                    <span class="post__price">
+                                        {{ $recent_blog->blog_category->translate_name }}
+                                    </span>
+                                </a>
+                            @endif
                         </div>
                     </div>
                 @endforeach
             </div>
         </div>
-
-        {{-- <div class="blog__discount__area bg--8">
-            <div class="blog__discount__inner">
-                <h4>NEW SCHOOLYEAR</h4>
-                <h2>GET 70% OFF</h2>
-            </div>
-        </div> --}}
 
         <div class="blog__tag mt--50">
             <h2 class="title__style--2">Tags</h2>

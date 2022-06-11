@@ -30,18 +30,18 @@
                                     <li><i class="icon ion-android-star"></i></li>
                                     <li><i class="icon ion-android-star"></i></li>
                                     <li class="crs__review">Reviews (2)</li> --}}
-                                    <li>{{ $event->location }}</li>
+                                    <li>
+                                        @if ($event->event_category)
+                                            <a draggable="false" href="{{ route("{$menu_slug}.index") . "?category={$event->event_category?->slug}" }}">
+                                                {{ $event->event_category?->translate_name }}
+                                            </a>
+                                        @endif
+                                    </li>
                                 </ul>
                             </div>
 
                             <div class="courses__top--right">
-                                <span class="cres__price">
-                                    @if ($event->event_category)
-                                        <a draggable="false" href="{{ route("{$menu_slug}.index") . "?category={$event->event_category?->slug}" }}">
-                                            {{ $event->event_category?->translate_name }}
-                                        </a>
-                                    @endif
-                                </span>
+                                <span class="cres__price">{{ trans("index.event") }}</span>
                                 <div class="crs__btn">
                                     <a class="htc__btn btn--theme" href="{{ route("contact-us.index") }}">
                                         {{ trans("index.contact", ["name" => trans("index.us")]) }}
@@ -197,11 +197,13 @@
                                         </div>
                                         <div class="recent__post__details">
                                             <h2><a draggable="false" href="{{ route("{$menu_slug}.view", ["event_slug" => $recent_event->slug]) }}">{{ $recent_event->translate_name }}</a></h2>
-                                            <a draggable="false" href="{{ route("{$menu_slug}.index") . "?category={$recent_event->event_category->slug}" }}">
-                                                <span class="post__price">
-                                                    {{ $recent_event->event_category->translate_name }}
-                                                </span>
-                                            </a>
+                                            @if ($recent_event->event_category)
+                                                <a draggable="false" href="{{ route("{$menu_slug}.index") . "?category={$recent_event->event_category->slug}" }}">
+                                                    <span class="post__price">
+                                                        {{ $recent_event->event_category->translate_name }}
+                                                    </span>
+                                                </a>
+                                            @endif
                                         </div>
                                     </div>
                                 @endforeach
