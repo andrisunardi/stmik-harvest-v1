@@ -371,7 +371,7 @@
                                                     {{ Date::parse($upcoming_event->start)->format("H:i") }} -
                                                     {{ Date::parse($upcoming_event->end)->format("H:i") }}
                                                 </li>
-                                                <li><i class="icon ion-ios-location"></i> {{ $upcoming_event->location }}</li>
+                                                <li><i class="icon ion-ios-location"></i> {{ strip_tags(Str::limit($upcoming_event->location, 15)) }}</li>
                                             </ul>
                                         </div>
                                         <div class="upcoming__details hidden-xs">

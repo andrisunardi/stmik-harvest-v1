@@ -42,7 +42,11 @@ class HomeTest extends TestCase
         $blog_category = BlogCategory::factory()->active()->create();
         $blog = Blog::factory()->active()->create(["blog_category_id" => $blog_category->id]);
         $event_category = EventCategory::factory()->active()->create();
-        $event = Event::factory()->active()->create(["event_category_id" => $event_category->id]);
+        $event = Event::factory()->active()->create([
+            "event_category_id" => $event_category->id,
+            "start" => now(),
+            "end" => now(),
+        ]);
 
         $response = $this->get(route("index"));
         $response->assertStatus(200);
@@ -58,21 +62,21 @@ class HomeTest extends TestCase
             ->assertSee($offer->translate_description)
             ->assertSee($offer->translate_button_name)
             ->assertSee($offer->button_link)
-            // ->assertSee($lecturer->name)
-            // ->assertSee(strip_tags(Str::limit($lecturer->description, 200)))
-            // ->assertSee($lecturer->job)
-            // ->assertSee($lecturer->instagram)
-            // ->assertSee($lecturer->image)
-            // ->assertSee($lecturer->slug)
-            // ->assertSee($study_program->name_id)
-            // ->assertSee($study_program->image)
-            // ->assertSee($study_program->data_course->count())
-            // ->assertSee($news->name_id)
-            // ->assertSee(strip_tags(Str::limit($news->description_id, 100)))
-            // ->assertSee($news->image)
-            // ->assertSee(Carbon::parse($news->date)->format("d"))
-            // ->assertSee(Carbon::parse($news->date)->format("M"))
-            // ->assertSee(Carbon::parse($news->date)->format("d F Y"))
+            ->assertSee($event->translate_name)
+            ->assertSee(strip_tags(Str::limit($event->translate_description, 100)))
+            ->assertSee(strip_tags(Str::limit($event->location, 15)))
+            ->assertSee(Carbon::parse($event->start)->format("d M Y H:i"))
+            ->assertSee(Carbon::parse($event->end)->format("d M Y H:i"))
+            ->assertSee($event->image)
+            ->assertSee($event->slug)
+            ->assertSee($testimony->name)
+            ->assertSee($testimony->description)
+            ->assertSee($testimony->graduate)
+            ->assertSee($testimony->image)
+            ->assertSee($blog->translate_name)
+            ->assertSee(strip_tags(Str::limit($blog->translate_description, 300)))
+            ->assertSee($blog->image)
+            ->assertSee($blog->slug)
             ->assertDontSee("custom.")
             ->assertDontSee("index.")
             ->assertDontSee("message.")
