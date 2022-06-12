@@ -62,7 +62,9 @@ class HomeComponent extends Component
             "type"      => "required|numeric|" . Rule::in([1, 2]),
         ]);
 
-        DB::statement(DB::raw("ALTER TABLE registration AUTO_INCREMENT = 1"));
+        if (env("APP_ENV") != "testing") {
+            DB::statement(DB::raw("ALTER TABLE registration AUTO_INCREMENT = 1"));
+        }
 
         $registration = Registration::create($data);
 

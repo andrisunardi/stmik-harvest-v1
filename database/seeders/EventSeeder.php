@@ -415,8 +415,8 @@ class EventSeeder extends Seeder
         </ul>
         ";
         $data->location = "Plaza Semanggi 5th Floor, Jakarta";
-        $data->start = "2022-05-01 08:00:00";
-        $data->end = "2022-05-01 17:00:00";
+        $data->start = "2018-03-05 19:00:00";
+        $data->end = "2018-07-16 19:00:00";
         $data->image = Str::slug($data->name) . ".png";
         $data->slug = Str::slug($data->name);
         $data->save();

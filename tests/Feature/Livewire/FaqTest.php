@@ -3,6 +3,7 @@
 namespace Tests\Feature\Livewire;
 
 use App\Http\Livewire\FaqComponent;
+use App\Models\Faq;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -21,16 +22,22 @@ class FaqTest extends TestCase
 
     public function test_index()
     {
+        $faq = Faq::factory()->active()->create();
+
         $response = $this->get(route("{$this->menu_slug}.index"));
         $response->assertStatus(200);
         $response->assertSeeLivewire(FaqComponent::class);
 
         Livewire::test(FaqComponent::class)
+            ->assertSee($faq->translate_name)
+            ->assertSee($faq->translate_description)
             ->assertDontSee("custom.")
             ->assertDontSee("index.")
             ->assertDontSee("message.")
             ->assertDontSee("page.")
             ->assertDontSee("validation.")
             ->assertStatus(200);
+
+        $this->assertTrue($faq->exists());
     }
 }
