@@ -107,6 +107,7 @@ class OnlineRegistrationTest extends TestCase
                 ->whereCity($data["city"])
                 ->whereGender($data["gender"])
                 ->whereType($data["type"])
+                ->whereActive(true)
             ->exists());
     }
 }

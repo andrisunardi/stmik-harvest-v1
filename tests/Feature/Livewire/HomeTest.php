@@ -191,10 +191,49 @@ class HomeTest extends TestCase
                 ->whereCity($data["city"])
                 ->whereGender($data["gender"])
                 ->whereType($data["type"])
+                ->whereActive(true)
             ->exists());
     }
 
     public function test_newsletter()
     {
+        $response = $this->get(route("index"));
+        $response->assertStatus(200);
+        $response->assertSeeLivewire(HomeComponent::class);
+
+        Livewire::test(HomeComponent::class)
+            ->assertSee("email")
+            ->assertSee("submit")
+            ->set("email", null)
+            ->call("newsletter")
+            ->assertHasErrors([
+                "emailNewsletter" => "required",
+            ])
+            ->assertDontSee("custom.")
+            ->assertDontSee("index.")
+            ->assertDontSee("message.")
+            ->assertDontSee("page.")
+            ->assertDontSee("validation.")
+            ->assertStatus(200);
+
+        $data = [
+            "email" => $this->faker->unique()->email(),
+        ];
+
+        Livewire::test(HomeComponent::class)
+            ->assertSee("email")
+            ->assertSee("submit")
+            ->set("emailNewsletter", $data["email"])
+            ->call("newsletter")
+            ->assertHasNoErrors()
+            ->assertDontSee("custom.")
+            ->assertDontSee("index.")
+            ->assertDontSee("message.")
+            ->assertDontSee("page.")
+            ->assertDontSee("validation.")
+            ->assertStatus(200);
+
+        $this->assertTrue(
+            Newsletter::whereEmail($data["email"])->whereActive(true)->exists());
     }
 }
