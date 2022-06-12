@@ -3,26 +3,23 @@
 namespace Tests\Feature\Livewire;
 
 use App\Http\Livewire\AboutComponent;
-use App\Models\Banner;
-use App\Models\Value;
 use App\Models\Network;
+use App\Models\Value;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Livewire;
 use Tests\TestCase;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Storage;
 
 class AboutTest extends TestCase
 {
     use DatabaseMigrations, RefreshDatabase, WithFaker;
 
     public $menu_name = "About";
-    public $menu_icon = "fas fa-home";
-    public $menu_slug = "home";
-    public $menu_table = "home";
+    public $menu_icon = "fas fa-building";
+    public $menu_slug = "about";
+    public $menu_table = "about";
     public $menu_type = "index";
 
     public function test_index()
@@ -30,7 +27,7 @@ class AboutTest extends TestCase
         $value = Value::factory()->active()->create();
         $network = Network::factory()->active()->create();
 
-        $response = $this->get(route("about.index"));
+        $response = $this->get(route("{$this->menu_slug}.index"));
         $response->assertStatus(200);
         $response->assertSeeLivewire(AboutComponent::class);
 
