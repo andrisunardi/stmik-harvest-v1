@@ -18,15 +18,15 @@ class EventComponent extends Component
     public $menu_slug = "event";
     public $menu_table = "event";
 
+    public $page = 1;
+    public $search;
+    public $category;
+
     public $queryString = [
         "page" => ["except" => 1],
         "search" => ["except" => ""],
         "category" => ["except" => ""],
     ];
-
-    public $page = 1;
-    public $search;
-    public $category;
 
     public function updatingSearch()
     {
@@ -52,7 +52,7 @@ class EventComponent extends Component
 
         $this->data_event_category = EventCategory::onlyActive()->orderBy("name")->get();
 
-        $this->data_recent_event = Event::onlyActive()->orderByDesc("start")->limit(3)->get();
+        $this->data_recent_event = Event::onlyActive()->orderByDesc("id")->limit(3)->get();
 
         $this->data_popular_tags = Event::onlyActive()->orderByDesc("start")->first();
     }

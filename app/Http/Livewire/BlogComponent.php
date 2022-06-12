@@ -18,15 +18,15 @@ class BlogComponent extends Component
     public $menu_slug = "blog";
     public $menu_table = "blog";
 
+    public $page = 1;
+    public $search;
+    public $category;
+
     public $queryString = [
         "page" => ["except" => 1],
         "search" => ["except" => ""],
         "category" => ["except" => ""],
     ];
-
-    public $page = 1;
-    public $search;
-    public $category;
 
     public function updatingSearch()
     {

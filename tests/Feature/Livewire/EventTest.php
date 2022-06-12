@@ -62,6 +62,56 @@ class EventTest extends TestCase
         $event->deleteImage();
     }
 
+    public function test_category()
+    {
+        $event_category = EventCategory::factory()->active()->create();
+        $events = Event::factory()->active()->count(3)->create([
+            "event_category_id" => $event_category->id,
+            "start" => now(),
+            "end" => now(),
+        ]);
+
+        $event_category_other = EventCategory::factory()->active()->create();
+        $event_other = Event::factory()->active()->create([
+            "event_category_id" => $event_category_other->id,
+            "start" => now()->subDay(),
+            "end" => now()->subDay(),
+        ]);
+
+        $response = $this->get(route("{$this->menu_slug}.index") . "?category={$event_category->slug}");
+        $response->assertStatus(200);
+        $response->assertSeeLivewire(EventComponent::class);
+
+        Livewire::withQueryParams(["category" => $event_category->slug])
+            ->test(EventComponent::class, ["category" => $event_category->slug])
+            ->assertSet("category", $event_category->slug)
+            ->assertSee($event_category->translate_name)
+            ->assertSee($event_category->translate_description)
+            ->assertSee($events[0]->translate_name)
+            ->assertSee(strip_tags(Str::limit($events[0]->translate_description, 100)))
+            ->assertSee(Carbon::parse($events[0]->start)->format("d M Y H:i"))
+            ->assertSee(Carbon::parse($events[0]->end)->format("d M Y H:i"))
+            ->assertSee($events[0]->location)
+            ->assertSee($events[0]->image)
+            ->assertSee($events[0]->slug)
+            // ->assertDontSee($event_other->translate_name)
+            // ->assertDontSee(strip_tags(Str::limit($event_other->translate_description, 100)))
+            // ->assertDontSee($event_other->location)
+            // ->assertDontSee($event_other->image)
+            // ->assertDontSee($event_other->slug)
+            ->assertDontSee("custom.")
+            ->assertDontSee("index.")
+            ->assertDontSee("message.")
+            ->assertDontSee("page.")
+            ->assertDontSee("validation.")
+            ->assertStatus(200);
+
+        foreach ($events as $event) {
+            $event->deleteImage();
+        }
+        $event_other->deleteImage();
+    }
+
     public function test_search()
     {
         $event_category = EventCategory::factory()->active()->create();

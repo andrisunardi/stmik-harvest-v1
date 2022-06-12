@@ -46,7 +46,9 @@ class ContactUsComponent extends Component
     {
         $data = $this->validate();
 
-        DB::statement(DB::raw("ALTER TABLE {$this->menu_table} AUTO_INCREMENT = 1"));
+        if (env("APP_ENV") != "testing") {
+            DB::statement(DB::raw("ALTER TABLE {$this->menu_table} AUTO_INCREMENT = 1"));
+        }
 
         $contact = Contact::create($data);
 
