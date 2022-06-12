@@ -63,11 +63,10 @@ class EventComponent extends Component
             $query->where("name", "like", "%{$this->search}%")
                 ->orWhere("name_id", "like", "%{$this->search}%")
                 ->orWhere("description", "like", "%{$this->search}%")
-                ->orWhere("description", "like", "%{$this->search}%")
+                ->orWhere("description_id", "like", "%{$this->search}%")
             )->when($this->category, fn ($query) =>
                 $query->where("event_category_id", $this->event_category->id)
-            )
-            ->onlyActive()->orderByDesc("id");
+            )->onlyActive()->orderByDesc("id");
 
         if ($this->search) {
             Session::flash("success", trans("message.Found") . " <b>'{$data_event->count()}'</b> " . trans("message.results for") . " <b>'{$this->search}'</b>");

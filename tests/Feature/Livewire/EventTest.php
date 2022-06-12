@@ -74,8 +74,6 @@ class EventTest extends TestCase
         $response->assertStatus(200);
         $response->assertSeeLivewire(EventComponent::class);
 
-        dd(Event::whereIn("id", [$event[10]->id, $event[0]->id])->get()->toArray());
-
         Livewire::test(EventComponent::class)
             ->set("search", $event[10]->translate_name)
             ->assertSet("search", $event[10]->translate_name)
@@ -91,8 +89,6 @@ class EventTest extends TestCase
             ->assertHasNoErrors()
             ->assertDontSee($event[0]->translate_name)
             ->assertDontSee(strip_tags(Str::limit($event[0]->translate_description, 100)))
-            ->assertDontSee(Carbon::parse($event[0]->start)->format("d M Y H:i"))
-            ->assertDontSee(Carbon::parse($event[0]->end)->format("d M Y H:i"))
             ->assertDontSee($event[0]->location)
             ->assertDontSee($event[0]->image)
             ->assertDontSee($event[0]->slug)
