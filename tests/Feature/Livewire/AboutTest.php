@@ -51,7 +51,6 @@ class AboutTest extends TestCase
 
         Storage::disk("images")->assertExists("network/{$network->image}");
 
-        $value->deleteImage();
         $network->deleteImage();
     }
 }
