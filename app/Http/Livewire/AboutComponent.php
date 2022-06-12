@@ -20,7 +20,7 @@ class AboutComponent extends Component
 
         $this->data_network = Network::onlyActive()->orderByDesc("id")->get();
 
-        $this->data_value = Value::onlyActive()->orderBy("id")->get();
+        $this->data_value = Value::onlyActive()->orderByDesc("id")->limit(4)->get();
     }
 
     public function render()
