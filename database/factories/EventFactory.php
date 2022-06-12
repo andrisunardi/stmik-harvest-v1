@@ -32,6 +32,8 @@ class EventFactory extends Factory
             "location" => $this->faker->address(),
             "start" => $this->faker->dateTime(),
             "end" => $this->faker->dateTime(),
+            "tag" => $this->faker->word(),
+            "tag_id" => $this->faker->word(),
             "image" => Str::slug($name) . ".png",
             "slug" => Str::slug($name),
             "active" => $this->faker->boolean(),
