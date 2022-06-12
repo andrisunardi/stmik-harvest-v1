@@ -27,23 +27,6 @@ class AboutTest extends TestCase
 
     public function test_index()
     {
-        $name = $this->faker->unique()->name();
-
-        File::copy(
-            public_path() . "/images/image.png",
-            public_path() . "/images/banner/" . Str::slug($name) . ".png",
-        );
-
-        $banner = Banner::find(2);
-        $banner->update([
-            "name" => $name,
-            "name_id" => $this->faker->name(),
-            "description" => $this->faker->paragraph(),
-            "description_id" => $this->faker->paragraph(),
-            "image" => Str::slug($name) . ".png",
-        ]);
-        $banner->refresh();
-
         $value = Value::factory()->active()->create();
         $network = Network::factory()->active()->create();
 
@@ -52,9 +35,6 @@ class AboutTest extends TestCase
         $response->assertSeeLivewire(AboutComponent::class);
 
         Livewire::test(AboutComponent::class)
-            // ->assertSee($banner->translate_name)
-            // ->assertSee($banner->translate_description)
-            // ->assertSee($banner->image)
             ->assertSee($value->translate_name)
             ->assertSee($value->translate_description)
             ->assertSee($value->icon)
@@ -69,14 +49,12 @@ class AboutTest extends TestCase
             ->assertDontSee("validation.")
             ->assertStatus(200);
 
-        $this->assertTrue($banner->exists());
         $this->assertTrue($value->exists());
         $this->assertTrue($network->exists());
 
-        Storage::disk("images")->assertExists("banner/{$banner->image}");
         Storage::disk("images")->assertExists("network/{$network->image}");
 
-        $banner->deleteImage();
+        $value->deleteImage();
         $network->deleteImage();
     }
 }
