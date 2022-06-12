@@ -3,6 +3,7 @@
 namespace Tests\Feature\Livewire;
 
 use App\Http\Livewire\EventComponent;
+use App\Http\Livewire\EventViewComponent;
 use App\Models\Event;
 use App\Models\EventCategory;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
@@ -64,34 +65,37 @@ class EventTest extends TestCase
     public function test_search()
     {
         $event_category = EventCategory::factory()->active()->create();
-        $event = Event::factory()->active()->count(11)->create([
+        $events = Event::factory()->active()->count(11)->create([
             "event_category_id" => $event_category->id,
-            "start" => now(),
-            "end" => now(),
         ]);
+
+        $now = now();
+        foreach ($events as $event) {
+            $event->update(["start" => $now->addDay()]);
+        }
 
         $response = $this->get(route("{$this->menu_slug}.index"));
         $response->assertStatus(200);
         $response->assertSeeLivewire(EventComponent::class);
 
         Livewire::test(EventComponent::class)
-            ->set("search", $event[10]->translate_name)
-            ->assertSet("search", $event[10]->translate_name)
-            ->assertSee($event[10]->translate_name)
-            ->assertSee($event[10]->event_category->translate_name)
-            ->assertSee($event[10]->translate_name)
-            ->assertSee(strip_tags(Str::limit($event[10]->translate_description, 100)))
-            ->assertSee(Carbon::parse($event[10]->start)->format("d M Y H:i"))
-            ->assertSee(Carbon::parse($event[10]->end)->format("d M Y H:i"))
-            ->assertSee($event[10]->location)
-            ->assertSee($event[10]->image)
-            ->assertSee($event[10]->slug)
+            ->set("search", $events[10]->translate_name)
+            ->assertSet("search", $events[10]->translate_name)
+            ->assertSee($events[10]->translate_name)
+            ->assertSee($events[10]->event_category->translate_name)
+            ->assertSee($events[10]->translate_name)
+            ->assertSee(strip_tags(Str::limit($events[10]->translate_description, 100)))
+            ->assertSee(Carbon::parse($events[10]->start)->format("d M Y H:i"))
+            ->assertSee(Carbon::parse($events[10]->end)->format("d M Y H:i"))
+            ->assertSee($events[10]->location)
+            ->assertSee($events[10]->image)
+            ->assertSee($events[10]->slug)
             ->assertHasNoErrors()
-            ->assertDontSee($event[0]->translate_name)
-            ->assertDontSee(strip_tags(Str::limit($event[0]->translate_description, 100)))
-            ->assertDontSee($event[0]->location)
-            ->assertDontSee($event[0]->image)
-            ->assertDontSee($event[0]->slug)
+            ->assertDontSee($events[0]->translate_name)
+            ->assertDontSee(strip_tags(Str::limit($events[0]->translate_description, 100)))
+            ->assertDontSee($events[0]->location)
+            ->assertDontSee($events[0]->image)
+            ->assertDontSee($events[0]->slug)
             ->assertDontSee("custom.")
             ->assertDontSee("index.")
             ->assertDontSee("message.")
@@ -99,32 +103,48 @@ class EventTest extends TestCase
             ->assertDontSee("validation.")
             ->assertStatus(200);
 
-        for ($i=0; $i <= 10; $i++) {
-            $event[$i]->deleteImage();
+        foreach ($events as $event) {
+            $event->deleteImage();
         }
     }
 
     public function test_view()
     {
         $event_category = EventCategory::factory()->active()->create();
-        $event = Event::factory()->active()->create([
+        $events = Event::factory()->active()->count(3)->create([
             "event_category_id" => $event_category->id,
-            "start" => now(),
-            "end" => now(),
         ]);
 
-        $response = $this->get(route("{$this->menu_slug}.view", ["event_slug" => $event->slug]));
+        $response = $this->get(route("{$this->menu_slug}.view", ["event_slug" => $events[0]->slug]));
         $response->assertStatus(200);
         $response->assertSeeLivewire(EventViewComponent::class);
 
-        Livewire::test(EventViewComponent::class, ["event_slug" => $event->slug])
+        Livewire::test(EventViewComponent::class, ["event_slug" => $events[0]->slug])
             ->assertSee($event_category->translate_name)
-            ->assertSee($event->event_category->translate_name)
-            ->assertSee($event->translate_name)
-            ->assertSee($event->translate_description)
-            ->assertSee(Carbon::parse($event->date)->format("d F Y"))
-            ->assertSee($event->tag_id)
-            ->assertSee($event->image)
+            ->assertSee($event_category->slug)
+            ->assertSee($events[0]->event_category->translate_name)
+            ->assertSee($events[0]->translate_name)
+            ->assertSee($events[0]->translate_description)
+            ->assertSee(Carbon::parse($events[0]->start)->format("H:i:s - d F Y"))
+            ->assertSee(Carbon::parse($events[0]->start)->diffForHumans())
+            ->assertSee(Carbon::parse($events[0]->end)->format("H:i:s - d F Y"))
+            ->assertSee(Carbon::parse($events[0]->end)->diffForHumans())
+            ->assertSee($events[0]->location)
+            ->assertSee($events[0]->image)
+            ->assertSee($events[1]->translate_name)
+            ->assertSee(strip_tags(Str::limit($events[1]->translate_description, 100)))
+            ->assertSee(Carbon::parse($events[1]->start)->format("d M Y H:i"))
+            ->assertSee(Carbon::parse($events[1]->end)->format("d M Y H:i"))
+            ->assertSee($events[1]->location)
+            ->assertSee($events[1]->image)
+            ->assertSee($events[1]->slug)
+            ->assertSee($events[2]->translate_name)
+            ->assertSee(strip_tags(Str::limit($events[2]->translate_description, 100)))
+            ->assertSee(Carbon::parse($events[2]->start)->format("d M Y H:i"))
+            ->assertSee(Carbon::parse($events[2]->end)->format("d M Y H:i"))
+            ->assertSee($events[2]->location)
+            ->assertSee($events[2]->image)
+            ->assertSee($events[2]->slug)
             ->assertDontSee("custom.")
             ->assertDontSee("index.")
             ->assertDontSee("message.")
@@ -132,11 +152,13 @@ class EventTest extends TestCase
             ->assertDontSee("validation.")
             ->assertStatus(200);
 
-        $this->assertTrue($event->exists());
+        $this->assertTrue($events[0]->exists());
         $this->assertTrue($event_category->exists());
 
-        Storage::disk("images")->assertExists("{$this->menu_slug}/{$event->image}");
+        Storage::disk("images")->assertExists("{$this->menu_slug}/{$events[0]->image}");
 
-        $event->deleteImage();
+        foreach ($events as $event) {
+            $event->deleteImage();
+        }
     }
 }

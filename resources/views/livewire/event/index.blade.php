@@ -145,7 +145,7 @@
                     </div>
                 </div>
 
-                {{-- @include("livewire.{$menu_slug}.sidebar") --}}
+                @include("livewire.{$menu_slug}.sidebar")
 
             </div>
 
