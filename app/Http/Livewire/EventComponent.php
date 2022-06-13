@@ -52,7 +52,7 @@ class EventComponent extends Component
 
         $this->data_event_category = EventCategory::onlyActive()->orderBy("name")->get();
 
-        $this->data_recent_event = Event::onlyActive()->orderByDesc("id")->limit(3)->get();
+        $this->data_recent_event = Event::onlyActive()->orderByDesc("start")->limit(3)->get();
 
         $this->data_popular_tags = Event::onlyActive()->orderByDesc("start")->first();
     }

@@ -78,6 +78,9 @@ class EventTest extends TestCase
             "end" => now()->subDay(),
         ]);
 
+        $response = $this->get(route("{$this->menu_slug}.index") . "?category={$this->faker->slug()}");
+        $response->assertStatus(302);
+
         $response = $this->get(route("{$this->menu_slug}.index") . "?category={$event_category->slug}");
         $response->assertStatus(200);
         $response->assertSeeLivewire(EventComponent::class);
@@ -94,11 +97,11 @@ class EventTest extends TestCase
             ->assertSee($events[0]->location)
             ->assertSee($events[0]->image)
             ->assertSee($events[0]->slug)
-            // ->assertDontSee($event_other->translate_name)
-            // ->assertDontSee(strip_tags(Str::limit($event_other->translate_description, 100)))
-            // ->assertDontSee($event_other->location)
-            // ->assertDontSee($event_other->image)
-            // ->assertDontSee($event_other->slug)
+            ->assertDontSee($event_other->translate_name)
+            ->assertDontSee(strip_tags(Str::limit($event_other->translate_description, 100)))
+            ->assertDontSee($event_other->location)
+            ->assertDontSee($event_other->image)
+            ->assertDontSee($event_other->slug)
             ->assertDontSee("custom.")
             ->assertDontSee("index.")
             ->assertDontSee("message.")
