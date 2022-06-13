@@ -38,11 +38,9 @@ class BlogTest extends TestCase
         $response->assertSeeLivewire(BlogComponent::class);
 
         Livewire::test(BlogComponent::class)
-            ->assertSee($blog_category->translate_name)
-            ->assertSee($blog->blog_category->translate_name)
             ->assertSee($blog->translate_name)
-            ->assertSee(strip_tags(Str::limit($blog->translate_description, 100)))
-            ->assertSee(Carbon::parse($blog->date)->format("d M Y H:i"))
+            ->assertSee(strip_tags(Str::limit($blog->translate_description, 300)))
+            ->assertSee(Carbon::parse($blog->date)->format("d F Y"))
             ->assertSee($blog->image)
             ->assertSee($blog->slug)
             ->assertDontSee("custom.")
@@ -62,7 +60,7 @@ class BlogTest extends TestCase
     public function test_search()
     {
         $blog_category = BlogCategory::factory()->active()->create();
-        $blogs = Blog::factory()->active()->count(11)->create([
+        $blogs = Blog::factory()->active()->count(2)->create([
             "blog_category_id" => $blog_category->id,
         ]);
 
@@ -76,18 +74,16 @@ class BlogTest extends TestCase
         $response->assertSeeLivewire(BlogComponent::class);
 
         Livewire::test(BlogComponent::class)
-            ->set("search", $blogs[10]->translate_name)
-            ->assertSet("search", $blogs[10]->translate_name)
-            ->assertSee($blogs[10]->translate_name)
-            ->assertSee($blogs[10]->blog_category->translate_name)
-            ->assertSee($blogs[10]->translate_name)
-            ->assertSee(strip_tags(Str::limit($blogs[10]->translate_description, 100)))
-            ->assertSee(Carbon::parse($blogs[10]->date)->format("d M Y H:i"))
-            ->assertSee($blogs[10]->image)
-            ->assertSee($blogs[10]->slug)
+            ->set("search", $blogs[1]->translate_name)
+            ->assertSet("search", $blogs[1]->translate_name)
+            ->assertSee($blogs[1]->translate_name)
+            ->assertSee(strip_tags(Str::limit($blogs[1]->translate_description, 300)))
+            ->assertSee(Carbon::parse($blogs[1]->date)->format("d F Y"))
+            ->assertSee($blogs[1]->image)
+            ->assertSee($blogs[1]->slug)
             ->assertHasNoErrors()
             ->assertDontSee($blogs[0]->translate_name)
-            ->assertDontSee(strip_tags(Str::limit($blogs[0]->translate_description, 100)))
+            ->assertDontSee(strip_tags(Str::limit($blogs[0]->translate_description, 300)))
             ->assertDontSee($blogs[0]->image)
             ->assertDontSee($blogs[0]->slug)
             ->assertDontSee("custom.")
@@ -119,17 +115,16 @@ class BlogTest extends TestCase
             ->assertSee($blogs[0]->blog_category->translate_name)
             ->assertSee($blogs[0]->translate_name)
             ->assertSee($blogs[0]->translate_description)
-            ->assertSee(Carbon::parse($blogs[0]->date)->format("H:i:s - d F Y"))
-            ->assertSee(Carbon::parse($blogs[0]->date)->diffForHumans())
+            ->assertSee(Carbon::parse($blogs[0]->date)->format("d F Y"))
             ->assertSee($blogs[0]->image)
             ->assertSee($blogs[1]->translate_name)
             ->assertSee(strip_tags(Str::limit($blogs[1]->translate_description, 100)))
-            ->assertSee(Carbon::parse($blogs[1]->date)->format("d M Y H:i"))
+            ->assertSee(Carbon::parse($blogs[1]->date)->format("d F Y"))
             ->assertSee($blogs[1]->image)
             ->assertSee($blogs[1]->slug)
             ->assertSee($blogs[2]->translate_name)
             ->assertSee(strip_tags(Str::limit($blogs[2]->translate_description, 100)))
-            ->assertSee(Carbon::parse($blogs[2]->date)->format("d M Y H:i"))
+            ->assertSee(Carbon::parse($blogs[2]->date)->format("d F Y"))
             ->assertSee($blogs[2]->image)
             ->assertSee($blogs[2]->slug)
             ->assertDontSee("custom.")

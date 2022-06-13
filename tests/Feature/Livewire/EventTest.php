@@ -134,7 +134,7 @@ class EventTest extends TestCase
         Livewire::test(EventComponent::class)
             ->set("search", $events[10]->translate_name)
             ->assertSet("search", $events[10]->translate_name)
-            ->assertSee($events[10]->translate_name)
+            ->assertSee($event_category->translate_name)
             ->assertSee($events[10]->event_category->translate_name)
             ->assertSee($events[10]->translate_name)
             ->assertSee(strip_tags(Str::limit($events[10]->translate_description, 100)))
