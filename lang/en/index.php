@@ -1539,4 +1539,5 @@ return [
     "related" => "Related :Name",
     "Hello, I know this number from the website" => "Hello, I know this number from the website",
     "Logo" => "Logo",
+    "upcoming" => "Upcoming :Name",
 ];

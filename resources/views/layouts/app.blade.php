@@ -213,7 +213,8 @@
                                 </li>
                                 <li class="drop"><a draggable="false" href="javascript:;">{{ trans("page.Admission") }}</a>
                                     <ul class="dropdown">
-                                        <li><a draggable="false" href="{{ route("online-registration.index") }}">{{ trans("page.Online Registration") }}</a></li>
+                                        {{-- <li><a draggable="false" href="{{ route("online-registration.index") }}">{{ trans("page.Online Registration") }}</a></li> --}}
+                                        <li><a draggable="false" href="https://pmb.harvest.id" target="_blank">{{ trans("page.Online Registration") }}</a></li>
                                         <li><a draggable="false" href="{{ route("admission-calendar.index") }}">{{ trans("page.Admission Calendar") }}</a></li>
                                         <li><a draggable="false" href="{{ route("procedure.index") }}">{{ trans("page.Procedure") }}</a></li>
                                         <li><a draggable="false" href="{{ route("tuition-fees.index") }}">{{ trans("page.Tuition Fees") }}</a></li>
@@ -286,7 +287,8 @@
                             </li>
                             <li><a draggable="false" href="javascript:;">{{ trans("page.Admission") }}</a>
                                 <ul>
-                                    <li><a draggable="false" href="{{ route("online-registration.index") }}">{{ trans("page.Online Registration") }}</a></li>
+                                    {{-- <li><a draggable="false" href="{{ route("online-registration.index") }}">{{ trans("page.Online Registration") }}</a></li> --}}
+                                    <li><a draggable="false" href="https://pmb.harvest.id" target="_blank">{{ trans("page.Online Registration") }}</a></li>
                                     <li><a draggable="false" href="{{ route("admission-calendar.index") }}">{{ trans("page.Admission Calendar") }}</a></li>
                                     <li><a draggable="false" href="{{ route("procedure.index") }}">{{ trans("page.Procedure") }}</a></li>
                                     <li><a draggable="false" href="{{ route("tuition-fees.index") }}">{{ trans("page.Tuition Fees") }}</a></li>
@@ -425,7 +427,8 @@
                             <div class="footer__widget">
                                 <h2 class="footer__title">{{ trans("page.Admission") }}</h2>
                                 <ul class="htc__ft__list">
-                                    <li><a draggable="false" href="{{ route("online-registration.index") }}">{{ trans("page.Online Registration") }}</a></li>
+                                    {{-- <li><a draggable="false" href="{{ route("online-registration.index") }}">{{ trans("page.Online Registration") }}</a></li> --}}
+                                    <li><a draggable="false" href="https://pmb.harvest.id" target="_blank">{{ trans("page.Online Registration") }}</a></li>
                                     <li><a draggable="false" href="{{ route("admission-calendar.index") }}">{{ trans("page.Admission Calendar") }}</a></li>
                                     <li><a draggable="false" href="{{ route("procedure.index") }}">{{ trans("page.Procedure") }}</a></li>
                                     <li><a draggable="false" href="{{ route("tuition-fees.index") }}">{{ trans("page.Tuition Fees") }}</a></li>

@@ -130,7 +130,8 @@
                                 {{ trans("index.It easy now to you for being our part, just click the button below and fill out the form with your data.") }}
                             </h2>
                             <div class="findout__btn">
-                                <a draggable="false" class="htc__btn btn--yellow" href="{{ route("online-registration.index") }}">{{ trans("index.Register") }}</a>
+                                {{-- <a draggable="false" class="htc__btn btn--yellow" href="{{ route("online-registration.index") }}">{{ trans("index.Register") }}</a> --}}
+                                <a draggable="false" class="htc__btn btn--yellow" href="https://pmb.harvest.id/" target="_blank">{{ trans("index.Register") }}</a>
                             </div>
                         </div>
                     </div>
@@ -195,7 +196,7 @@
         </div>
     </section>
 
-    <section class="our__countdown__area ptb--100" data--theme__overlay="6" style="background: rgba(0, 0, 0, 0) url(images/bg/2.jpg) no-repeat scroll center center / cover ;">
+    {{-- <section class="our__countdown__area ptb--100" data--theme__overlay="6" style="background: rgba(0, 0, 0, 0) url(images/bg/2.jpg) no-repeat scroll center center / cover ;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-xl-7">
@@ -335,15 +336,15 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
-    <section class="our__upcoming__area ptb--80 bg__white">
+    <section class="our__upcoming__area ptb--80 bg__gray">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <div class="section__title text-center">
-                        <h2 class="title__line">Upcoming events</h2>
-                        <p>Upcoming Educational Events for your future career.</p>
+                        <h2 class="title__line">{{ trans("index.upcoming", ["name" => trans("index.event")]) }}</h2>
+                        <p>{{ trans("custom.Upcoming Educational Events for your future career") }}</p>
                     </div>
                 </div>
             </div>

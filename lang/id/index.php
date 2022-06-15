@@ -1148,4 +1148,5 @@ return [
     "related" => ":Name Terkait",
     "Hello, I know this number from the website" => "Halo, Saya mengetahui nomor ini dari situs web",
     "Logo" => "Logo",
+    "upcoming" => ":Name Mendatang",
 ];
