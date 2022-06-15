@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string("email", 50)->nullable();
             $table->string("address", 200)->nullable();
             $table->string("google_maps", 100)->nullable();
-            $table->string("google_maps_iframe", 300)->nullable();
+            $table->string("google_maps_iframe", 500)->nullable();
             $table->text("about_us")->nullable();
             $table->text("about_us_id")->nullable();
             $table->text("vision")->nullable();

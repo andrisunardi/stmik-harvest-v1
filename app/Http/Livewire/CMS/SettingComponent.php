@@ -400,7 +400,7 @@ class SettingComponent extends Component
             "email"                 => "nullable|email|max:50",
             "address"               => "nullable|max:200",
             "google_maps"           => "nullable|url|max:100",
-            "google_maps_iframe"    => "nullable|url|max:300",
+            "google_maps_iframe"    => "nullable|url|max:500",
             "about_us"              => "nullable|max:65535",
             "about_us_id"           => "nullable|max:65535",
             "mission"               => "nullable|max:65535",
