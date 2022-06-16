@@ -16,22 +16,13 @@ class AccessFactory extends Factory
             "active" => $this->faker->boolean(),
         ];
     }
-
     public function active()
     {
-        return $this->state(function (array $attributes) {
-            return [
-                "active" => true,
-            ];
-        });
+        return $this->state(fn ($attributes) => ["active" => true]);
     }
 
     public function nonActive()
     {
-        return $this->state(function (array $attributes) {
-            return [
-                "active" => false,
-            ];
-        });
+        return $this->state(fn ($attributes) => ["active" => false]);
     }
 }

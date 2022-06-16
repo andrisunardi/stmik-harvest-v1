@@ -26,55 +26,31 @@ class RegistrationFactory extends Factory
 
     public function active()
     {
-        return $this->state(function (array $attributes) {
-            return [
-                "active" => true,
-            ];
-        });
+        return $this->state(fn ($attributes) => ["active" => true]);
     }
 
     public function nonActive()
     {
-        return $this->state(function (array $attributes) {
-            return [
-                "active" => false,
-            ];
-        });
+        return $this->state(fn ($attributes) => ["active" => false]);
     }
 
     public function man()
     {
-        return $this->state(function (array $attributes) {
-            return [
-                "gender" => 1,
-            ];
-        });
+        return $this->state(fn ($attributes) => ["gender" => 1]);
     }
 
     public function woman()
     {
-        return $this->state(function (array $attributes) {
-            return [
-                "gender" => 2,
-            ];
-        });
+        return $this->state(fn ($attributes) => ["gender" => 2]);
     }
 
     public function typeOne()
     {
-        return $this->state(function (array $attributes) {
-            return [
-                "type" => 1,
-            ];
-        });
+        return $this->state(fn ($attributes) => ["type" => 1]);
     }
 
     public function typeTwo()
     {
-        return $this->state(function (array $attributes) {
-            return [
-                "type" => 2,
-            ];
-        });
+        return $this->state(fn ($attributes) => ["type" => 2]);
     }
 }

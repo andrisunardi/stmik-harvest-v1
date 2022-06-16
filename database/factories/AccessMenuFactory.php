@@ -30,73 +30,41 @@ class AccessMenuFactory extends Factory
 
     public function active()
     {
-        return $this->state(function (array $attributes) {
-            return [
-                "active" => true,
-            ];
-        });
+        return $this->state(fn ($attributes) => ["active" => true]);
     }
 
     public function nonActive()
     {
-        return $this->state(function (array $attributes) {
-            return [
-                "active" => false,
-            ];
-        });
+        return $this->state(fn ($attributes) => ["active" => false]);
     }
 
     public function addTrue()
     {
-        return $this->state(function (array $attributes) {
-            return [
-                "add" => true,
-            ];
-        });
+        return $this->state(fn ($attributes) => ["add" => true]);
     }
 
     public function addFalse()
     {
-        return $this->state(function (array $attributes) {
-            return [
-                "add" => false,
-            ];
-        });
+        return $this->state(fn ($attributes) => ["add" => false]);
     }
 
     public function editTrue()
     {
-        return $this->state(function (array $attributes) {
-            return [
-                "edit" => true,
-            ];
-        });
+        return $this->state(fn ($attributes) => ["edit" => true]);
     }
 
     public function editFalse()
     {
-        return $this->state(function (array $attributes) {
-            return [
-                "edit" => false,
-            ];
-        });
+        return $this->state(fn ($attributes) => ["edit" => false]);
     }
 
     public function deleteTrue()
     {
-        return $this->state(function (array $attributes) {
-            return [
-                "delete" => true,
-            ];
-        });
+        return $this->state(fn ($attributes) => ["delete" => true]);
     }
 
     public function deleteFalse()
     {
-        return $this->state(function (array $attributes) {
-            return [
-                "delete" => false,
-            ];
-        });
+        return $this->state(fn ($attributes) => ["delete" => false]);
     }
 }

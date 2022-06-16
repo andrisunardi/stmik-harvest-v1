@@ -34,29 +34,17 @@ class GalleryFactory extends Factory
 
     public function active()
     {
-        return $this->state(function (array $attributes) {
-            return [
-                "active" => true,
-            ];
-        });
+        return $this->state(fn ($attributes) => ["active" => true]);
     }
 
     public function nonActive()
     {
-        return $this->state(function (array $attributes) {
-            return [
-                "active" => false,
-            ];
-        });
+        return $this->state(fn ($attributes) => ["active" => false]);
     }
 
     public function image()
     {
-        return $this->state(function (array $attributes) {
-            return [
-                "category" => 1,
-            ];
-        });
+        return $this->state(fn ($attributes) => ["category" => 1]);
     }
 
     public function video()
@@ -76,11 +64,9 @@ class GalleryFactory extends Factory
 
     public function youtube()
     {
-        return $this->state(function (array $attributes) {
-            return [
-                "category" => 3,
-                "youtube" => "https://www.youtube.com/" . $this->faker->word(),
-            ];
-        });
+        return $this->state(fn ($attributes) => [
+            "category" => 3,
+            "youtube" => "https://www.youtube.com/" . $this->faker->word(),
+        ]);
     }
 }
