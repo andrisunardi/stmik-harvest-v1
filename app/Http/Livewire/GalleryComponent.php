@@ -29,7 +29,7 @@ class GalleryComponent extends Component
     {
         $this->banner = Banner::find(13);
 
-        $this->data_gallery_category = Gallery::groupBy("tag")->onlyActive()->orderBy("name")->get();
+        $this->data_gallery_category = Gallery::groupBy("tag")->active()->orderBy("name")->get();
     }
 
     public function tag($tag = null)
@@ -39,7 +39,7 @@ class GalleryComponent extends Component
 
     public function render()
     {
-        $data_gallery = Gallery::when($this->tag, fn ($query) => $query->where("tag", Str::headline($this->tag))->orWhere("tag_id", Str::headline($this->tag)))->onlyActive()->orderBy("id")->paginate(12);
+        $data_gallery = Gallery::when($this->tag, fn ($query) => $query->where("tag", Str::headline($this->tag))->orWhere("tag_id", Str::headline($this->tag)))->active()->orderBy("id")->paginate(12);
 
         return view("livewire.{$this->menu_slug}.index", ["data_gallery" => $data_gallery])->extends("layouts.app", ["banner" => $this->banner])->section("content");
     }

@@ -76,7 +76,7 @@ Breadcrumbs::for("event.index", function (BreadcrumbTrail $trail) {
 });
 
 Breadcrumbs::for("event.view", function (BreadcrumbTrail $trail, $event_slug) {
-    $event = Event::where("slug", $event_slug)->onlyActive()->firstOrFail();
+    $event = Event::where("slug", $event_slug)->active()->firstOrFail();
     $trail->parent("event.index");
     $trail->push("{$event->translate_name}", route("event.view", $event_slug));
 });
@@ -92,7 +92,7 @@ Breadcrumbs::for("blog.index", function (BreadcrumbTrail $trail) {
 });
 
 Breadcrumbs::for("blog.view", function (BreadcrumbTrail $trail, $blog_slug) {
-    $blog = Blog::where("slug", $blog_slug)->onlyActive()->firstOrFail();
+    $blog = Blog::where("slug", $blog_slug)->active()->firstOrFail();
     $trail->parent("blog.index");
     $trail->push("{$blog->translate_name}", route("blog.view", $blog_slug));
 });

@@ -42,12 +42,12 @@ class BlogCategory extends Model
         return $date->format("Y-m-d H:i:s");
     }
 
-    public function scopeOnlyActive($query)
+    public function scopeActive($query)
     {
         return $query->where("active", true);
     }
 
-    public function scopeOnlyNonActive($query)
+    public function scopeNonActive($query)
     {
         return $query->where("active", false);
     }

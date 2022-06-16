@@ -45,24 +45,24 @@ class Component extends LivewireComponent
     {
         View::share("sub_domain", $this->sub_domain);
 
-        $this->setting = Setting::onlyActive()->orderByDesc("id")->first();
+        $this->setting = Setting::active()->orderByDesc("id")->first();
         View::share("setting", $this->setting);
 
         // $this->data_all_menu = Menu::whereNotNull("show")->where(function ($query) {
         //     $query->whereNotNull("show")->where("sub", 1)->whereNull("menu_id");
         // })->orWhere(function ($query) {
         //     $query->whereNotNull("show")->whereNull("sub")->whereNull("menu_id");
-        // })->onlyActive()->orderBy("sort")->get();
+        // })->active()->orderBy("sort")->get();
         // View::share("data_all_menu", $this->data_all_menu);
 
         $this->data_all_menu = Menu::withoutMenuCategory()->orderBy("sort")->get();
         View::share("data_all_menu", $this->data_all_menu);
 
-        $this->data_all_menu_category = MenuCategory::onlyActive()->orderBy("sort")->get();
+        $this->data_all_menu_category = MenuCategory::active()->orderBy("sort")->get();
         View::share("data_all_menu_category", $this->data_all_menu_category);
 
         if (Auth::check()) {
-            $this->data_access_menu_view = AccessMenu::where("access_id", Auth::user()->access_id)->where("view", 1)->onlyActive()->get()->toArray();
+            $this->data_access_menu_view = AccessMenu::where("access_id", Auth::user()->access_id)->where("view", 1)->active()->get()->toArray();
             $this->access_menu_view = [];
             View::share("access_menu_view", $this->access_menu_view);
             foreach ($this->data_access_menu_view as $access_menu_view) {
@@ -70,7 +70,7 @@ class Component extends LivewireComponent
                 View::share("access_menu_view", $this->access_menu_view);
             }
 
-            $this->data_access_menu_add = AccessMenu::where("access_id", Auth::user()->access_id)->where("add", 1)->onlyActive()->get()->toArray();
+            $this->data_access_menu_add = AccessMenu::where("access_id", Auth::user()->access_id)->where("add", 1)->active()->get()->toArray();
             $this->access_menu_add = [];
             View::share("access_menu_add", $this->access_menu_add);
             foreach ($this->data_access_menu_add as $access_menu_add) {
@@ -78,7 +78,7 @@ class Component extends LivewireComponent
                 View::share("access_menu_add", $this->access_menu_add);
             }
 
-            $this->data_access_menu_edit = AccessMenu::where("access_id", Auth::user()->access_id)->where("edit", 1)->onlyActive()->get()->toArray();
+            $this->data_access_menu_edit = AccessMenu::where("access_id", Auth::user()->access_id)->where("edit", 1)->active()->get()->toArray();
             $this->access_menu_edit = [];
             View::share("access_menu_edit", $this->access_menu_edit);
             foreach ($this->data_access_menu_edit as $access_menu_edit) {
@@ -86,7 +86,7 @@ class Component extends LivewireComponent
                 View::share("access_menu_edit", $this->access_menu_edit);
             }
 
-            $this->data_access_menu_delete = AccessMenu::where("access_id", Auth::user()->access_id)->where("delete", 1)->onlyActive()->get()->toArray();
+            $this->data_access_menu_delete = AccessMenu::where("access_id", Auth::user()->access_id)->where("delete", 1)->active()->get()->toArray();
             $this->access_menu_delete = [];
             View::share("access_menu_delete", $this->access_menu_delete);
             foreach ($this->data_access_menu_delete as $access_menu_delete) {

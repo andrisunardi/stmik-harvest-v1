@@ -17,7 +17,7 @@ class ProcedureComponent extends Component
     {
         $this->banner = Banner::find(9);
 
-        $this->data_procedure = Procedure::onlyActive()->orderBy("id")->get();
+        $this->data_procedure = Procedure::active()->orderBy("id")->get();
     }
 
     public function render()

@@ -115,24 +115,24 @@ class HomeComponent extends Component
 
     public function mount()
     {
-        $this->data_slider = Slider::onlyActive()->orderByDesc("id")->limit(3)->get();
+        $this->data_slider = Slider::active()->orderByDesc("id")->limit(3)->get();
 
-        $this->data_offer = Offer::onlyActive()->orderByDesc("id")->limit(4)->get();
+        $this->data_offer = Offer::active()->orderByDesc("id")->limit(4)->get();
 
-        $this->admission_calendar = AdmissionCalendar::onlyActive()->orderByDesc("id")->first();
+        $this->admission_calendar = AdmissionCalendar::active()->orderByDesc("id")->first();
 
-        $this->data_testimony = Testimony::onlyActive()->orderByDesc("id")->limit(10)->get();
+        $this->data_testimony = Testimony::active()->orderByDesc("id")->limit(10)->get();
 
-        $this->data_blog = Blog::onlyActive()->limit(3)->orderByDesc("id")->get();
+        $this->data_blog = Blog::active()->limit(3)->orderByDesc("id")->get();
 
-        $this->data_event = Event::where("end", "<=", now()->format("Y-m-d"))->onlyActive()->limit(6)->orderByDesc("start")->get();
+        $this->data_event = Event::where("end", "<=", now()->format("Y-m-d"))->active()->limit(6)->orderByDesc("start")->get();
         if ($this->data_event) {
-            $this->data_event = Event::onlyActive()->limit(6)->orderByDesc("start")->get();
+            $this->data_event = Event::active()->limit(6)->orderByDesc("start")->get();
         }
 
-        $this->data_upcoming_event = Event::where("start", ">=", now()->format("Y-m-d"))->onlyActive()->limit(2)->orderByDesc("start")->get();
+        $this->data_upcoming_event = Event::where("start", ">=", now()->format("Y-m-d"))->active()->limit(2)->orderByDesc("start")->get();
         if ($this->data_upcoming_event) {
-            $this->data_upcoming_event = Event::onlyActive()->limit(2)->orderByDesc("start")->get();
+            $this->data_upcoming_event = Event::active()->limit(2)->orderByDesc("start")->get();
         }
     }
 

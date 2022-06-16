@@ -18,7 +18,7 @@ class HomeComponent extends Component
 
     public function render()
     {
-        $this->data_menu = Menu::onlyActive()->orderBy("sort")->get();
+        $this->data_menu = Menu::active()->orderBy("sort")->get();
 
         return view("{$this->sub_domain}.livewire.{$this->menu_slug}.index")
             ->extends("{$this->sub_domain}.layouts.app")->section("content");

@@ -70,7 +70,7 @@ class HistoryComponent extends Component
     public function getDataLog()
     {
         if ($this->menu_type == "index") {
-            return Log::onlyActive()->orderByDesc("id")->paginate(10);
+            return Log::active()->orderByDesc("id")->paginate(10);
         }
     }
 

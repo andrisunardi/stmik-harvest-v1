@@ -26,7 +26,7 @@ class EventViewComponent extends Component
     {
         $this->banner = Banner::find(14);
 
-        $this->event = Event::where("slug", $event_slug)->onlyActive()->first();
+        $this->event = Event::where("slug", $event_slug)->active()->first();
 
         if (!$this->event) {
             Session::flash("danger", trans("page.{$this->menu_name}") . " " . trans("message.not found or has been deleted"));
@@ -36,16 +36,16 @@ class EventViewComponent extends Component
 
         $this->data_other_event = Event::where("id", "!=", $this->event->id)
             ->where("event_category_id", $this->event->event_category->id)
-            ->onlyActive()
+            ->active()
             ->inRandomOrder()
             ->limit("2")
             ->get();
 
-        $this->data_event_category = EventCategory::onlyActive()->orderBy("name")->get();
+        $this->data_event_category = EventCategory::active()->orderBy("name")->get();
 
-        $this->data_recent_event = Event::onlyActive()->orderByDesc("start")->limit(3)->get();
+        $this->data_recent_event = Event::active()->orderByDesc("start")->limit(3)->get();
 
-        $this->data_popular_tags = Event::onlyActive()->orderByDesc("start")->first();
+        $this->data_popular_tags = Event::active()->orderByDesc("start")->first();
     }
 
     public function render()

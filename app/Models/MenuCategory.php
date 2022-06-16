@@ -43,12 +43,12 @@ class MenuCategory extends Model
         return $date->format("Y-m-d H:i:s");
     }
 
-    public function scopeOnlyActive($query)
+    public function scopeActive($query)
     {
         return $query->where("active", true);
     }
 
-    public function scopeOnlyNonActive($query)
+    public function scopeNonActive($query)
     {
         return $query->where("active", false);
     }
@@ -80,7 +80,7 @@ class MenuCategory extends Model
 
     public function data_menu()
     {
-        return $this->hasMany(Menu::class)->onlyActive()->orderBy("sort");
+        return $this->hasMany(Menu::class)->active()->orderBy("sort");
     }
 
     public static function boot()

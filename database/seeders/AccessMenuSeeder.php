@@ -10,7 +10,7 @@ class AccessMenuSeeder extends Seeder
 {
     public function run()
     {
-        $data_menu = Menu::onlyActive()->orderBy("id")->get();
+        $data_menu = Menu::active()->orderBy("id")->get();
 
         foreach ($data_menu as $menu) {
             $data = new AccessMenu();

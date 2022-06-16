@@ -17,7 +17,7 @@ class TuitionFeesComponent extends Component
     {
         $this->banner = Banner::find(10);
 
-        $this->data_tuition_fee = TuitionFee::onlyActive()->orderBy("id")->get();
+        $this->data_tuition_fee = TuitionFee::active()->orderBy("id")->get();
     }
 
     public function render()

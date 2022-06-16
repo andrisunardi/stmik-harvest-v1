@@ -47,7 +47,7 @@ Route::group(["middleware" => "auth:admin"], function () {
     });
 
     if (Schema::hasTable("menu")) {
-        $data_menu = Menu::onlyActive()->orderBy("sort")->get();
+        $data_menu = Menu::active()->orderBy("sort")->get();
         foreach ($data_menu as $menu) {
             $page = $menu->name;
             Route::group(["prefix" => Str::slug($page), "as" => Str::slug($page) . "."], function () use ($page) {

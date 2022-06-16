@@ -50,11 +50,11 @@ class BlogComponent extends Component
             return redirect()->route("{$this->menu_slug}.index");
         }
 
-        $this->data_blog_category = BlogCategory::onlyActive()->orderBy("name")->get();
+        $this->data_blog_category = BlogCategory::active()->orderBy("name")->get();
 
-        $this->data_recent_blog = Blog::onlyActive()->orderByDesc("date")->limit(3)->get();
+        $this->data_recent_blog = Blog::active()->orderByDesc("date")->limit(3)->get();
 
-        $this->data_popular_tags = Blog::onlyActive()->orderByDesc("date")->first();
+        $this->data_popular_tags = Blog::active()->orderByDesc("date")->first();
     }
 
     public function render()
@@ -66,7 +66,7 @@ class BlogComponent extends Component
                 ->orWhere("description_id", "like", "%{$this->search}%")
             )->when($this->category, fn ($query) =>
                 $query->where("blog_category_id", $this->blog_category->id)
-            )->onlyActive()->orderByDesc("id");
+            )->active()->orderByDesc("id");
 
         if ($this->search) {
             Session::flash("success", trans("message.Found") . " <b>'{$data_blog->count()}'</b> " . trans("message.results for") . " <b>'{$this->search}'</b>");

@@ -547,20 +547,20 @@ class SettingComponent extends Component
 
     public function getDataCreatedBy()
     {
-        $created_by = Setting::groupBy("created_by")->onlyActive()->pluck("created_by");
-        return Admin::whereIn("id", $created_by)->onlyActive()->orderBy("name")->get();
+        $created_by = Setting::groupBy("created_by")->active()->pluck("created_by");
+        return Admin::whereIn("id", $created_by)->active()->orderBy("name")->get();
     }
 
     public function getDataUpdatedBy()
     {
-        $updated_by = Setting::groupBy("updated_by")->onlyActive()->pluck("updated_by");
-        return Admin::whereIn("id", $updated_by)->onlyActive()->orderBy("name")->get();
+        $updated_by = Setting::groupBy("updated_by")->active()->pluck("updated_by");
+        return Admin::whereIn("id", $updated_by)->active()->orderBy("name")->get();
     }
 
     public function getDataDeletedBy()
     {
-        $deleted_by = Setting::groupBy("deleted_by")->onlyActive()->pluck("deleted_by");
-        return Admin::whereIn("id", $deleted_by)->onlyActive()->orderBy("name")->get();
+        $deleted_by = Setting::groupBy("deleted_by")->active()->pluck("deleted_by");
+        return Admin::whereIn("id", $deleted_by)->active()->orderBy("name")->get();
     }
 
     public function getDataSetting()

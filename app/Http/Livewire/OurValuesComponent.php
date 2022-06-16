@@ -17,7 +17,7 @@ class OurValuesComponent extends Component
     {
         $this->banner = Banner::find(4);
 
-        $this->data_value = Value::onlyActive()->orderByDesc("id")->get();
+        $this->data_value = Value::active()->orderByDesc("id")->get();
     }
 
     public function render()

@@ -17,7 +17,7 @@ class OurNetworkComponent extends Component
     {
         $this->banner = Banner::find(5);
 
-        $this->data_network = Network::onlyActive()->orderByDesc("id")->get();
+        $this->data_network = Network::active()->orderByDesc("id")->get();
     }
 
     public function render()

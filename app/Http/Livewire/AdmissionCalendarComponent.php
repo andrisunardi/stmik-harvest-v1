@@ -17,7 +17,7 @@ class AdmissionCalendarComponent extends Component
     {
         $this->banner = Banner::find(8);
 
-        $this->data_admission_calendar = AdmissionCalendar::onlyActive()->orderByDesc("id")->get();
+        $this->data_admission_calendar = AdmissionCalendar::active()->orderByDesc("id")->get();
     }
 
     public function render()

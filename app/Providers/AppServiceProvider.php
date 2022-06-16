@@ -213,12 +213,12 @@ class AppServiceProvider extends ServiceProvider
         View::share("sub_domain", $this->sub_domain);
 
         if (Schema::hasTable("banner")) {
-            $this->banner = Banner::onlyActive()->orderBy("id")->first();
+            $this->banner = Banner::active()->orderBy("id")->first();
             View::share("banner", $this->banner);
         }
 
         if (Schema::hasTable("setting")) {
-            $this->setting = Setting::onlyActive()->orderByDesc("id")->first();
+            $this->setting = Setting::active()->orderByDesc("id")->first();
             View::share("setting", $this->setting);
         }
     }

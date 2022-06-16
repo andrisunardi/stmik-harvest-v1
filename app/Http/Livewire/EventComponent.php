@@ -50,11 +50,11 @@ class EventComponent extends Component
             return redirect()->route("{$this->menu_slug}.index");
         }
 
-        $this->data_event_category = EventCategory::onlyActive()->orderBy("name")->get();
+        $this->data_event_category = EventCategory::active()->orderBy("name")->get();
 
-        $this->data_recent_event = Event::onlyActive()->orderByDesc("start")->limit(3)->get();
+        $this->data_recent_event = Event::active()->orderByDesc("start")->limit(3)->get();
 
-        $this->data_popular_tags = Event::onlyActive()->orderByDesc("start")->first();
+        $this->data_popular_tags = Event::active()->orderByDesc("start")->first();
     }
 
     public function render()
@@ -66,7 +66,7 @@ class EventComponent extends Component
                 ->orWhere("description_id", "like", "%{$this->search}%")
             )->when($this->category, fn ($query) =>
                 $query->where("event_category_id", $this->event_category->id)
-            )->onlyActive()->orderByDesc("id");
+            )->active()->orderByDesc("id");
 
         if ($this->search) {
             Session::flash("success", trans("message.Found") . " <b>'{$data_event->count()}'</b> " . trans("message.results for") . " <b>'{$this->search}'</b>");

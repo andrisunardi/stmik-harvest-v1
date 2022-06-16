@@ -18,9 +18,9 @@ class AboutComponent extends Component
     {
         $this->banner = Banner::find(2);
 
-        $this->data_network = Network::onlyActive()->orderByDesc("id")->get();
+        $this->data_network = Network::active()->orderByDesc("id")->get();
 
-        $this->data_value = Value::onlyActive()->orderByDesc("id")->limit(4)->get();
+        $this->data_value = Value::active()->orderByDesc("id")->limit(4)->get();
     }
 
     public function render()

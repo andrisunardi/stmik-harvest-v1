@@ -17,7 +17,7 @@ class FaqComponent extends Component
     {
         $this->banner = Banner::find(6);
 
-        $this->data_faq = Faq::onlyActive()->orderBy("id")->get();
+        $this->data_faq = Faq::active()->orderBy("id")->get();
     }
 
     public function render()
