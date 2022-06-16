@@ -29,13 +29,13 @@
                                 <p><a draggable="false" href="https://line.me/ti/p/~{{ env("CONTACT_LINE") }}" target="_blank">{{ env("CONTACT_WHATSAPP") }}</a></p>
                             </div>
 
-                            <div class="contact__address">
+                            {{-- <div class="contact__address">
                                 <div class="cont__icon">
                                     <i class="fab fa-blackberry fa-fw me-2"></i>
                                     <span>{{ trans("validation.attributes.bbm") }}</span>
                                 </div>
                                 <p><a draggable="false" href="http://www.pin.bbm.com/{{ env("CONTACT_BBM") }}" target="_blank">{{ env("CONTACT_WHATSAPP") }}</a></p>
-                            </div>
+                            </div> --}}
 
                             <div class="contact__address">
                                 <div class="cont__icon">
@@ -66,7 +66,7 @@
                                     <i class="fas fa-map-marked-alt fa-fw me-2"></i>
                                     <span>{{ trans("validation.attributes.address") }}</span>
                                 </div>
-                                <p><a draggable="false" href="{{ env("CONTACT_GOOGLE_MAPS") }}" target="_blank"> <strong>World Harvest Center</strong><br>{{ env("CONTACT_ADDRESS") }} </a></p>
+                                <p><a draggable="false" href="{{ env("CONTACT_GOOGLE_MAPS") }}" target="_blank"> <strong>STMIK Harvest</strong><br>{{ env("CONTACT_ADDRESS") }} </a></p>
                             </div>
                         </div>
                     </div>

@@ -457,13 +457,13 @@
                                             {{ env("CONTACT_LINE") }}
                                         </a>
                                     </li>
-                                    <li>
+                                    {{-- <li>
                                         <a draggable="false" href="http://www.pin.bbm.com/{{ env("CONTACT_BBM") }}" target="_blank">
                                             <i class="fab fa-blackberry fa-fw me-1"></i>
                                             <strong>{{ trans("validation.attributes.bbm") }} :</strong>
                                             {{ env("CONTACT_BBM") }}
                                         </a>
-                                    </li>
+                                    </li> --}}
                                     <li>
                                         <a draggable="false" href="tel:+{{ Str::phone(env("CONTACT_PHONE")) }}">
                                             <i class="fas fa-phone-alt fa-fw me-1"></i>
@@ -489,7 +489,7 @@
                                         <a draggable="false" href="{{ env("CONTACT_GOOGLE_MAPS") }}" target="_blank" class="lh-base">
                                             <i class="fas fa-map-marked-alt fa-fw me-1"></i>
                                             <strong>{{ trans("validation.attributes.address") }} :</strong>
-                                            <strong>World Harvest Center</strong><br>
+                                            <strong>STMIK Harvest</strong><br>
                                             <div class="ms-5">{{ env("CONTACT_ADDRESS") }}</div>
                                         </a>
                                     </li>
