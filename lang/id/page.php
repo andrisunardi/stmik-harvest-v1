@@ -56,7 +56,7 @@ return [
     "Event" => "Acara",
     "Faq" => "Tanya Jawab",
     "Gallery" => "Galeri",
-    "Network" => "jaringan",
+    "Network" => "Jaringan",
     "Offer" => "Tawaran",
     "Procedure" => "Prosedur",
     "Slider" => "Slider",

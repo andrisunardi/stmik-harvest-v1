@@ -212,6 +212,7 @@ return [
         "keyword" => "Keyword",
         "last_name" => "Last Name",
         "last_page" => "Last Page",
+        "link" => "Link",
         "linkedin" => "Linkedin",
         "location" => "Location",
         "major" => "Major",
@@ -261,6 +262,7 @@ return [
         "user" => "User",
         "username" => "Username",
         "uuid" => "UUID",
+        "value" => "Value",
         "video" => "Video",
         "view" => "View",
         "vision_id" => "Vision ID",
@@ -269,6 +271,5 @@ return [
         "whatsapp" => "Whatsapp",
         "year" => "Year",
         "youtube" => "Youtube",
-        "link" => "Tautan",
     ],
 ];

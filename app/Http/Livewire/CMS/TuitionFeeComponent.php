@@ -17,7 +17,7 @@ class TuitionFeeComponent extends Component
 
     public $menu_name = "Tuition Fee";
     public $menu_icon = "bi bi-money";
-    public $menu_slug = "tuition_fee";
+    public $menu_slug = "tuition-fee";
     public $menu_table = "tuition_fee";
     public $menu_type = "index";
 
