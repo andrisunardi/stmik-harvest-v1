@@ -101,22 +101,24 @@
                 </div>
             </div>
 
-            @php $input = "youtube" @endphp
-            <div class="form-group col-sm-6">
-                <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
-                <div class="input-group has-validation">
-                    <div class="input-group-text"><span class="bi bi-youtube"></span></div>
-                    <input wire:model="{{ $input }}" wire:keydown.enter="submit" id="{{ $input }}" name="{{ $input }}"
-                        type="text" class="form-control @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" minlength="1" maxlength="50" value="{{ old($input) }}"
-                        placeholder="{{ trans("validation.attributes.{$input}") }}" aria-label="{{ trans("validation.attributes.{$input}") }}" aria-describedby="{{ trans("validation.attributes.{$input}") }}"
-                        autocomplete="off" autocapitalize="none">
-                    @error($input)
-                        <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
-                    @else
-                        <div class="valid-feedback rounded bg-success p-2 ms-0 mt-2 text-white">{{ trans("validation.success") }}</div>
-                    @enderror
+            @if ($category == 3)
+                @php $input = "youtube" @endphp
+                <div class="form-group col-sm-6">
+                    <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
+                    <div class="input-group has-validation">
+                        <div class="input-group-text"><span class="bi bi-youtube"></span></div>
+                        <input wire:model="{{ $input }}" wire:keydown.enter="submit" id="{{ $input }}" name="{{ $input }}"
+                            type="text" class="form-control @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" minlength="1" maxlength="50" value="{{ old($input) }}"
+                            placeholder="{{ trans("validation.attributes.{$input}") }}" aria-label="{{ trans("validation.attributes.{$input}") }}" aria-describedby="{{ trans("validation.attributes.{$input}") }}"
+                            autocomplete="off" autocapitalize="none">
+                        @error($input)
+                            <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
+                        @else
+                            <div class="valid-feedback rounded bg-success p-2 ms-0 mt-2 text-white">{{ trans("validation.success") }}</div>
+                        @enderror
+                    </div>
                 </div>
-            </div>
+            @endif
         </div>
 
         <div class="row">
@@ -243,66 +245,58 @@
             </div>
         </div>
 
-        <div class="row">
-            @php $input = "video" @endphp
-            <div class="form-group col-sm-6">
-                <div class="card bg-danger bg-primary w-100 mb-3" wire:loading wire:target="{{ $input }}">
-                    <div class="card-body p-5 text-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-upload text-white" viewBox="0 0 16 16">
-                            <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
-                            <path d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z"/>
-                        </svg>
-                        <h4 class="text-white mt-3">{{ trans("index.Uploading") }}</h4>
-                        <p class="text-white mb-0">{{ trans("index.Please wait until the uploading finished") }}</p>
+        @if ($category == 2)
+            <div class="row">
+                @php $input = "video" @endphp
+                <div class="form-group col-sm-6">
+                    <div class="card bg-danger bg-primary w-100 mb-3" wire:loading wire:target="{{ $input }}">
+                        <div class="card-body p-5 text-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-upload text-white" viewBox="0 0 16 16">
+                                <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                                <path d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z"/>
+                            </svg>
+                            <h4 class="text-white mt-3">{{ trans("index.Uploading") }}</h4>
+                            <p class="text-white mb-0">{{ trans("index.Please wait until the uploading finished") }}</p>
+                        </div>
                     </div>
+
+                    <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
+                    <div class="input-group has-validation">
+                        <div class="input-group-text"><span class="bi bi-camera-video"></span></div>
+                        <input wire:model="{{ $input }}" wire:keydown.enter="submit" id="{{ $input }}" name="{{ $input }}"
+                            type="file" class="form-control @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" minlength="1" maxlength="50" value="{{ old($input) }}"
+                            placeholder="{{ trans("validation.attributes.{$input}") }}" aria-label="{{ trans("validation.attributes.{$input}") }}" aria-describedby="{{ trans("validation.attributes.{$input}") }}"
+                            accept="application/mp4" autocomplete="off" autocapitalize="none" required>
+                        @error($input)
+                            <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
+                        @else
+                            <div class="valid-feedback rounded bg-success p-2 ms-0 mt-2 text-white">{{ trans("validation.success") }}</div>
+                        @enderror
+                    </div>
+                    <h6 class="mt-3 mb-0">{{ trans("index.Supported images and max size") }}</h6>
+                    <small>.mp4, 1 GB</small>
                 </div>
 
-                <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
-                <div class="input-group has-validation">
-                    <div class="input-group-text"><span class="bi bi-camera-video"></span></div>
-                    <input wire:model="{{ $input }}" wire:keydown.enter="submit" id="{{ $input }}" name="{{ $input }}"
-                        type="file" class="form-control @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" minlength="1" maxlength="50" value="{{ old($input) }}"
-                        placeholder="{{ trans("validation.attributes.{$input}") }}" aria-label="{{ trans("validation.attributes.{$input}") }}" aria-describedby="{{ trans("validation.attributes.{$input}") }}"
-                        accept="application/mp4" autocomplete="off" autocapitalize="none" required>
-                    @error($input)
-                        <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
+                @php $input = "preview_video" @endphp
+                <div class="form-group col-sm-6">
+                    <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
+                    <br>
+                    @if ($video)
+                        <video src="{{ $video->temporaryUrl() }}" width="100%" height="100%" controls controlsList="noplaybackrate nodownload">
+                            <source src="{{ $video->temporaryUrl() }}" type="video/mp4">
+                        </video>
                     @else
-                        <div class="valid-feedback rounded bg-success p-2 ms-0 mt-2 text-white">{{ trans("validation.success") }}</div>
-                    @enderror
-                </div>
-                <h6 class="mt-3 mb-0">{{ trans("index.Supported images and max size") }}</h6>
-                <small>.mp4, 1 GB</small>
-            </div>
-
-            @php $input = "preview_video" @endphp
-            <div class="form-group col-sm-6">
-                <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
-                <br>
-                @if ($video)
-                    <video src="{{ $video->temporaryUrl() }}" controls>
-                        <source src="{{ $video->temporaryUrl() }}" type="video/mp4">
-                    </video>
-                    <div class="mt-3">
-                        <a draggable="false" class="btn btn-creative btn-sm btn-danger" href="{{ $video->temporaryUrl() }}" target="_blank">
-                            <i class="bi bi-video me-1"></i>
-                            {{ trans("index.View") }}
-                        </a>
-                    </div>
-                @else
-                    @if ($menu_type != "add")
-                        @if ($gallery->checkVideo())
-                            <iframe src="{{ $gallery->assetVideo() }}" class="w-100 h-auto" frameborder="0"></iframe>
-                            <div class="mt-3">
-                                <a draggable="false" class="btn btn-creative btn-sm btn-danger" href="{{ $gallery->assetVideo() }}" target="_blank">
-                                    <i class="bi bi-video me-1"></i>
-                                    {{ trans("index.View") }}
-                                </a>
-                            </div>
+                        @if ($menu_type != "add")
+                            @if ($gallery->checkVideo())
+                                <video src="{{ $gallery->assetVideo() }}" width="100%" height="100%" controls controlsList="noplaybackrate nodownload">
+                                    <source src="{{ $gallery->assetVideo() }}" type="video/mp4">
+                                </video>
+                            @endif
                         @endif
                     @endif
-                @endif
+                </div>
             </div>
-        </div>
+        @endif
 
         @php $input = "active" @endphp
         <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }} <span class="text-danger">*</span></label>

@@ -50,49 +50,35 @@
             @endif
         </div>
     </div>
-    <div class="row my-2">
-        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <h6>{{ trans("index.Video") }}</h6>
+
+    @if ($gallery->category == 2)
+        <div class="row my-2">
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                <h6>{{ trans("index.Video") }}</h6>
+            </div>
+            <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
+                @if ($gallery->checkVideo())
+                    <video width="100%" height="100%" controls controlsList="noplaybackrate nodownload">
+                        <source src="{{ $gallery->assetVideo() }}" type="video/mp4">
+                    </video>
+                @endif
+            </div>
         </div>
-        <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
-            @if ($gallery->checkVideo())
-                <a draggable="false" href="#video" data-bs-toggle="modal">
-                    <img draggable="false" width="100"
-                        src="{{ $gallery->assetVideo() }}"
-                        alt="{{ trans("page.{$menu_name}") }} - {{ $gallery->translate_name }} - {{ env("APP_TITLE") }}"
-                        data-bs-toggle="tooltip" data-bs-placement="top" title="{{ trans("index.Click To View") }}">
-                </a>
-                <div class="modal fade" id="video" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="video" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h6 class="modal-title" id="video">{{ trans("index.Video") }} - {{ trans("page.{$menu_name}") }}</h6>
-                                <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <a draggable="false" href="{{ $gallery->assetVideo() }}" target="_blank">
-                                    <img draggable="false" class="img-fluid w-100"
-                                        src="{{ $gallery->assetVideo() }}"
-                                        alt="{{ trans("page.{$menu_name}") }} - {{ $gallery->translate_name }} - {{ env("APP_TITLE") }}"
-                                        data-bs-toggle="tooltip" data-bs-placement="top" title="{{ trans("index.Click To View") }}">
-                                </a>
-                            </div>
-                            <div class="modal-footer justify-content-between">
-                                <button class="btn btn-creative btn-sm btn-light" type="button" data-bs-dismiss="modal">
-                                    <i class="bi bi-x me-1"></i>
-                                    {{ trans("index.Close") }}
-                                </button>
-                                <a draggable="false" class="btn btn-creative btn-sm btn-primary" href="{{ $gallery->assetVideo() }}" download>
-                                    <i class="bi bi-download me-1"></i>
-                                    {{ trans("index.Download") }}
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            @endif
+    @endif
+
+    @if ($gallery->category == 3)
+        <div class="row my-2">
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                <h6>{{ trans("index.Youtube") }}</h6>
+            </div>
+            <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
+                @if ($gallery->youtube)
+                    <iframe src="https://www.youtube.com/embed/{{ $gallery->youtube_code }}" class="w-100 h-auto" frameborder="0" allowfullscreen></iframe>
+                @endif
+            </div>
         </div>
-    </div>
+    @endif
+
     <div class="row my-2">
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
             <h6>{{ trans("index.Category") }}</h6>

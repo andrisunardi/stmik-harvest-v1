@@ -42,7 +42,7 @@ class GalleryComponent extends Component
     public $checkbox_id;
 
     public $gallery;
-    public $category;
+    public $category = "";
     public $name;
     public $name_id;
     public $description;

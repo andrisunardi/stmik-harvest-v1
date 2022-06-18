@@ -168,5 +168,12 @@ class Gallery extends Model
         return null;
     }
 
+    public function getYoutubeCodeAttribute()
+    {
+        if ($this->youtube) {
+            return Str::replace("https://www.youtube.com/watch?v=", "", $this->youtube);
+        }
+    }
+
     protected $appends = ["image_url", "video_url"];
 }
