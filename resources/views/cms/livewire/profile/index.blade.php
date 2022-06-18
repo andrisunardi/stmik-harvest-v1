@@ -24,7 +24,7 @@
                             @if ($menu_type == "index")
                                 <li class="breadcrumb-item active" aria-current="page"><i class="@yield("icon") me-1"></i> @yield("name")</li>
                             @else
-                                <li class="breadcrumb-item"><a draggable="false" href="javascript:;" wire:click="index()"><i class="@yield("icon") me-1"></i> @yield("name")</a></li>
+                                <li class="breadcrumb-item"><a draggable="false" href="javascript:;" wire:click="index"><i class="@yield("icon") me-1"></i> @yield("name")</a></li>
                             @endif
                             @if ($menu_type == "edit-profile")
                                 <li class="breadcrumb-item active" aria-current="page"><i class="bi bi-pencil me-1"></i> {{ trans("index.Edit Profile") }}</li>

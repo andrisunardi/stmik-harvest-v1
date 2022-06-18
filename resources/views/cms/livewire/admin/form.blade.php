@@ -14,7 +14,7 @@
                             <option value="{{ $access->id }}">{{ $access->name }}</option>
                         @endforeach
                     </select>
-                    <a draggable="false" href="javascript:;" class="btn btn-info" wire:click="getData{{ Str::studly($input) }}()">
+                    <a draggable="false" href="javascript:;" class="btn btn-info" wire:click="getData{{ Str::studly($input) }}">
                         <i class="fas fa-sync fa-spin"></i>
                     </a>
                     @error($input)

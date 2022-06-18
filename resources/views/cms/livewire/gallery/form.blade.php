@@ -90,7 +90,7 @@
                         <option value="2">{{ trans("index.Video") }}</option>
                         <option value="3">{{ trans("index.Youtube") }}</option>
                     </select>
-                    <a draggable="false" href="javascript:;" class="btn btn-info" wire:click="getData{{ Str::studly($input) }}()">
+                    <a draggable="false" href="javascript:;" class="btn btn-info" wire:click="getData{{ Str::studly($input) }}">
                         <i class="fas fa-sync fa-spin"></i>
                     </a>
                     @error($input)

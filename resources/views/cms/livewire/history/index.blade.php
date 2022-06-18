@@ -24,7 +24,7 @@
                             @if ($menu_type == "index")
                                 <li class="breadcrumb-item active" aria-current="page"><i class="@yield("icon") me-1"></i> @yield("name")</li>
                             @else
-                                <li class="breadcrumb-item"><a draggable="false" href="javascript:;" wire:click="index()"><i class="@yield("icon") me-1"></i> @yield("name")</a></li>
+                                <li class="breadcrumb-item"><a draggable="false" href="javascript:;" wire:click="index"><i class="@yield("icon") me-1"></i> @yield("name")</a></li>
                             @endif
                             @if ($menu_type == "view")
                                 <li class="breadcrumb-item active" aria-current="page"><i class="bi bi-eye me-1"></i> {{ trans("index.View") }}</li>
@@ -73,7 +73,7 @@
                             <p>{{ $log->admin?->name }} {{ trans("index.has been") }} {{ $log->activity_text }} {{ trans("index.at menu") }} {{ $log->menu?->name }} {{ trans("index.on row") }} {{ $log->row }}</p>
                             <div class="border-bottom border-top py-4">
                                 <p>
-                                    <a draggable="false" class="btn btn-creative btn-light" wire:click="index()">
+                                    <a draggable="false" class="btn btn-creative btn-light" wire:click="index">
                                         <i class="bi bi-arrow-left me-1"></i>
                                         {{ trans("index.Back") }}
                                     </a>

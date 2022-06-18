@@ -8,21 +8,21 @@
         </div>
 
         <div class="col-6 col-sm-auto mb-3">
-            <a draggable="false" class="btn btn-creative btn-warning w-100" wire:click="trash()">
+            <a draggable="false" class="btn btn-creative btn-warning w-100" wire:click="trash">
                 <i class="bi bi-trash me-1"></i>
                 {{ trans("index.Trash") }}
             </a>
         </div>
     @else
         <div class="col-6 col-sm-auto mb-3">
-            <a draggable="false" class="btn btn-creative btn-light w-100" wire:click="index()">
+            <a draggable="false" class="btn btn-creative btn-light w-100" wire:click="index">
                 <i class="bi bi-arrow-left me-1"></i>
                 {{ trans("index.Back") }}
             </a>
         </div>
         @if ($menu_type != "index" && $menu_type != "trash")
             <div class="col-6 col-sm-auto mb-3">
-                <a draggable="false" class="btn btn-creative btn-primary w-100" wire:click="refresh()">
+                <a draggable="false" class="btn btn-creative btn-primary w-100" wire:click="refresh">
                     <i class="fas fa-sync fa-spin me-1"></i>
                     {{ trans("index.Refresh") }}
                 </a>
@@ -32,19 +32,19 @@
 
     @if ($menu_type == "index" || $menu_type == "trash")
         <div class="col-6 col-sm-auto mb-3">
-            <a draggable="false" class="btn btn-creative btn-info w-100" wire:click="resetFilter()">
+            <a draggable="false" class="btn btn-creative btn-info w-100" wire:click="resetFilter">
                 <i class="bi bi-arrow-clockwise me-1"></i>
                 {{ trans("index.Reset Filter") }}
             </a>
         </div>
         <div class="col-12 col-sm-auto mb-3">
-            <a draggable="false" class="btn btn-creative btn-success w-100" wire:click="exportToExcel()">
+            <a draggable="false" class="btn btn-creative btn-success w-100" wire:click="exportToExcel">
                 <i class="bi bi-file-excel me-1"></i>
                 {{ trans("index.Export To Excel") }}
             </a>
         </div>
         <div class="col-12 col-sm-auto mb-3">
-            <a draggable="false" class="btn btn-creative btn-danger w-100" wire:click="exportToPdf()">
+            <a draggable="false" class="btn btn-creative btn-danger w-100" wire:click="exportToPdf">
                 <i class="bi bi-file-pdf me-1"></i>
                 {{ trans("index.Export To PDF") }}
             </a>
@@ -74,7 +74,7 @@
                             <i class="bi bi-x me-1"></i>
                             {{ trans("index.Close") }}
                         </button>
-                        <button class="btn btn-creative btn-sm btn-success" type="button" data-bs-dismiss="modal" wire:click="restoreAll()">
+                        <button class="btn btn-creative btn-sm btn-success" type="button" data-bs-dismiss="modal" wire:click="restoreAll">
                             <i class="bi bi-check me-1"></i>
                             {{ trans("index.Yes") }}
                         </button>
@@ -107,7 +107,7 @@
                             <i class="bi bi-x me-1"></i>
                             {{ trans("index.Close") }}
                         </button>
-                        <button class="btn btn-creative btn-sm btn-danger" type="button" data-bs-dismiss="modal" wire:click="deletePermanentAll()">
+                        <button class="btn btn-creative btn-sm btn-danger" type="button" data-bs-dismiss="modal" wire:click="deletePermanentAll">
                             <i class="bi bi-check me-1"></i>
                             {{ trans("index.Yes") }}
                         </button>
