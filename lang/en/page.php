@@ -46,6 +46,9 @@ return [
     "Blog" => "Blog",
     "Blog Category" => "Blog Category",
 
+    "Event" => "Event",
+    "Event Category" => "Event Category",
+
     "Web" => "Web",
     "Website" => "Website",
     "Admission Calendar" => "Admission Calendar",

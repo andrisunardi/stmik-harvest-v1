@@ -19,7 +19,7 @@ class EventComponent extends Component
     use WithPagination, WithFileUploads;
 
     public $menu_name = "Event";
-    public $menu_icon = "bi bi-eventpaper";
+    public $menu_icon = "bi bi-calendar";
     public $menu_slug = "event";
     public $menu_table = "event";
     public $menu_type = "index";
@@ -48,7 +48,9 @@ class EventComponent extends Component
     public $name_id;
     public $description;
     public $description_id;
-    public $date;
+    public $location;
+    public $start;
+    public $end;
     public $tag;
     public $tag_id;
     public $image;
@@ -76,7 +78,9 @@ class EventComponent extends Component
         "name_id" => ["except" => ""],
         "description" => ["except" => ""],
         "description_id" => ["except" => ""],
-        "date" => ["except" => ""],
+        "location" => ["except" => ""],
+        "start" => ["except" => ""],
+        "end" => ["except" => ""],
         "tag" => ["except" => ""],
         "tag_id" => ["except" => ""],
     ];
@@ -108,7 +112,9 @@ class EventComponent extends Component
             "name_id",
             "description",
             "description_id",
-            "date",
+            "location",
+            "start",
+            "end",
             "tag",
             "tag_id",
             "image",
@@ -124,7 +130,9 @@ class EventComponent extends Component
             $this->name_id = $this->event->name_id;
             $this->description = $this->event->description;
             $this->description_id = $this->event->description_id;
-            $this->date = $this->event->date;
+            $this->location = $this->event->location;
+            $this->start = $this->event->start;
+            $this->end = $this->event->end;
             $this->tag = $this->event->tag;
             $this->tag_id = $this->event->tag_id;
         }
@@ -163,7 +171,8 @@ class EventComponent extends Component
 
         if ($this->menu_type == "add") {
             $this->active = true;
-            $this->date = now()->format("Y-m-d");
+            $this->start = now()->format("Y-m-d");
+            $this->end = now()->format("Y-m-d");
         }
 
         if ($this->row && ($this->menu_type != "index" || $this->menu_type != "trash")) {
@@ -243,12 +252,14 @@ class EventComponent extends Component
 
         return [
             "active"            => "required",
-            "event_category"     => "required|exists:event_category,id",
+            "event_category"    => "required|exists:event_category,id",
             "name"              => "required|max:100|unique:{$this->menu_table},name,{$id}",
             "name_id"           => "required|max:100|unique:{$this->menu_table},name_id,{$id}",
             "description"       => "nullable|max:65535",
             "description_id"    => "nullable|max:65535",
-            "date"              => "nullable|max:10|max:10|date_format:Y-m-d",
+            "location"          => "nullable|max:100",
+            "start"             => "nullable|max:10|max:10|date_format:Y-m-d",
+            "end"               => "nullable|max:10|max:10|date_format:Y-m-d",
             "tag"               => "nullable|max:65535",
             "tag_id"            => "nullable|max:65535",
             "image"             => "nullable|image|max:1048576|mimes:jpg,jpeg,png,gif,webp",
@@ -276,7 +287,9 @@ class EventComponent extends Component
         $this->event->name_id = $this->name_id;
         $this->event->description = Str::of(htmlspecialchars($this->description))->swap(["&lt;" => "<", "&gt;" => ">"]);
         $this->event->description_id = Str::of(htmlspecialchars($this->description_id))->swap(["&lt;" => "<", "&gt;" => ">"]);
-        $this->event->date = $this->date;
+        $this->event->location = $this->location;
+        $this->event->start = $this->start;
+        $this->event->end = $this->end;
         $this->event->tag = $this->tag;
         $this->event->tag_id = $this->tag_id;
 
@@ -480,8 +493,14 @@ class EventComponent extends Component
                 ->when($this->description_id, function ($query) {
                     $query->where("description_id", "LIKE", "%{$this->description_id}%");
                 })
-                ->when($this->date, function ($query) {
-                    $query->where("date", $this->date);
+                ->when($this->location, function ($query) {
+                    $query->where("location", "LIKE", "%{$this->location}%");
+                })
+                ->when($this->start, function ($query) {
+                    $query->where("start", $this->start);
+                })
+                ->when($this->end, function ($query) {
+                    $query->where("end", $this->end);
                 })
                 ->when($this->tag, function ($query) {
                     $query->where("tag", "LIKE", "%{$this->tag}%");

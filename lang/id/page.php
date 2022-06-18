@@ -46,6 +46,9 @@ return [
     "Blog" => "Blog",
     "Blog Category" => "Kategori Blog",
 
+    "Event" => "Acara",
+    "Event Category" => "Kategori Acara",
+
     "Web" => "Situs",
     "Website" => "Situs Web",
     "Admission Calendar" => "Kalender Admisi",

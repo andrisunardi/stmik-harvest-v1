@@ -285,6 +285,7 @@ class EventCategoryComponent extends Component
         $this->event_category->name_id = $this->name_id;
         $this->event_category->description = Str::of(htmlspecialchars($this->description))->swap(["&lt;" => "<", "&gt;" => ">"]);
         $this->event_category->description_id = Str::of(htmlspecialchars($this->description_id))->swap(["&lt;" => "<", "&gt;" => ">"]);
+        $this->event_category->slug = Str::slug($this->name);
         $this->event_category->save();
 
         $this->menu_type_message = $this->menu_type == "add" || $this->menu_type == "edit" ? $this->menu_type . "ed" : $this->menu_type . "d";
