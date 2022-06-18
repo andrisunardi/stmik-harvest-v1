@@ -277,9 +277,9 @@ class BannerComponent extends Component
             $this->image->storePubliclyAs($this->menu_slug, $this->banner->image, "images");
         } else {
             if ($this->menu_type == "clone") {
-                if ($image && File::exists(public_path() . "/images/{$this->menu_slug}/{$image}")) {
+                if ($image && File::exists(public_path("images/{$this->menu_slug}/{$image}"))) {
                     $this->banner->image = date("YmdHis") . "." . explode(".", $image)[1];
-                    File::copy(public_path() . "/images/{$this->menu_slug}/{$image}", public_path() . "/images/{$this->menu_slug}/{$this->banner->image}");
+                    File::copy(public_path("images/{$this->menu_slug}/{$image}"), public_path("images/{$this->menu_slug}/{$this->banner->image}"));
                 }
             }
         }
@@ -361,10 +361,7 @@ class BannerComponent extends Component
             return Session::flash("danger", trans("page.{$this->menu_name}") . " " . trans("message.not found or has been deleted"));
         }
 
-        if ($this->banner->image && File::exists(public_path() . "/images/{$this->menu_slug}/{$this->banner->image}")) {
-            File::delete(public_path() . "/images/{$this->menu_slug}/{$this->banner->image}");
-        }
-
+        $this->banner->deleteImage();
         $this->banner->forceDelete();
         $this->banner->refresh();
 

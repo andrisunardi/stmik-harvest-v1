@@ -75,7 +75,7 @@ class Admin extends Authenticatable
 
     public function checkImage()
     {
-        if ($this->image && File::exists(public_path() . "/images/" . Str::slug($this->table) . "/{$this->image}")) {
+        if ($this->image && File::exists(public_path("images/" . Str::slug($this->table) . "/{$this->image}"))) {
             return true;
         }
     }
@@ -92,7 +92,7 @@ class Admin extends Authenticatable
     public function deleteImage()
     {
         if ($this->checkImage()) {
-            File::delete(public_path() . "/images/" . Str::slug($this->table) . "/{$this->image}");
+            File::delete(public_path("images/" . Str::slug($this->table) . "/{$this->image}"));
         }
     }
 

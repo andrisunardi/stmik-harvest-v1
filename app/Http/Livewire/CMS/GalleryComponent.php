@@ -276,17 +276,17 @@ class GalleryComponent extends Component
             $this->image->storePubliclyAs($this->menu_slug, $this->gallery->image, "images");
         } else {
             if ($this->menu_type == "clone") {
-                if ($image && File::exists(public_path() . "/images/{$this->menu_slug}/{$image}")) {
+                if ($image && File::exists(public_path("images/{$this->menu_slug}/{$image}"))) {
                     $this->gallery->image = date("YmdHis") . "." . explode(".", $image)[1];
-                    File::copy(public_path() . "/images/{$this->menu_slug}/{$image}", public_path() . "/images/{$this->menu_slug}/{$this->gallery->image}");
+                    File::copy(public_path("images/{$this->menu_slug}/{$image}"), public_path("images/{$this->menu_slug}/{$this->gallery->image}"));
                 }
             }
         }
 
         if ($this->video) {
             if ($this->menu_type == "edit") {
-                if ($this->gallery->video && File::exists(public_path() . "/videos/{$this->menu_slug}/{$this->gallery->video}")) {
-                    File::delete(public_path() . "/videos/{$this->menu_slug}/{$this->gallery->video}");
+                if ($this->gallery->video && File::exists(public_path("videos/{$this->menu_slug}/{$this->gallery->video}"))) {
+                    File::delete(public_path("videos/{$this->menu_slug}/{$this->gallery->video}"));
                 }
             }
 
@@ -294,9 +294,9 @@ class GalleryComponent extends Component
             $this->video->storePubliclyAs($this->menu_slug, $this->gallery->video, "videos");
         } else {
             if ($this->menu_type == "clone") {
-                if ($video && File::exists(public_path() . "/videos/{$this->menu_slug}/{$video}")) {
+                if ($video && File::exists(public_path("videos/{$this->menu_slug}/{$video}"))) {
                     $this->gallery->video = date("YmdHis") . "." . explode(".", $video)[1];
-                    File::copy(public_path() . "/videos/{$this->menu_slug}/{$video}", public_path() . "/videos/{$this->menu_slug}/{$this->gallery->video}");
+                    File::copy(public_path("videos/{$this->menu_slug}/{$video}"), public_path("videos/{$this->menu_slug}/{$this->gallery->video}"));
                 }
             }
         }

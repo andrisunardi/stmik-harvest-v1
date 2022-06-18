@@ -19,8 +19,8 @@ class AdminFactory extends Factory
         $name = $this->faker->unique()->name();
 
         File::copy(
-            public_path() . "/images/image.png",
-            public_path() . "/images/" . Str::kebab(Str::substr($this->model, 11)) . "/" . Str::slug($name) . ".png",
+            public_path("images/image.png"),
+            public_path("images/" . Str::kebab(Str::substr($this->model, 11)) . "/" . Str::slug($name) . ".png"),
         );
 
         return [

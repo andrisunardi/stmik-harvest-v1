@@ -14,28 +14,28 @@ return [
         "public" => [
             "driver" => "local",
             "root" => storage_path("app/public"),
-            "url" => env("APP_URL")."/storage",
+            "url" => env("APP_URL") . "/storage",
             "visibility" => "public",
         ],
 
         "files" => [
             "driver" => "local",
-            "root" => public_path("/files"),
-            "url" => env("APP_URL")."/files",
+            "root" => public_path("files"),
+            "url" => env("APP_URL") . "/files",
             "visibility" => "public",
         ],
 
         "images" => [
             "driver" => "local",
-            "root" => public_path("/images"),
-            "url" => env("APP_URL")."/images",
+            "root" => public_path("images"),
+            "url" => env("APP_URL") . "/images",
             "visibility" => "public",
         ],
 
         "videos" => [
             "driver" => "local",
-            "root" => public_path("/videos"),
-            "url" => env("APP_URL")."/videos",
+            "root" => public_path("videos"),
+            "url" => env("APP_URL") . "/videos",
             "visibility" => "public",
         ],
 

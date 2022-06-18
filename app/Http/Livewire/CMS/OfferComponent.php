@@ -278,9 +278,9 @@ class OfferComponent extends Component
             $this->image->storePubliclyAs($this->menu_slug, $this->offer->image, "images");
         } else {
             if ($this->menu_type == "clone") {
-                if ($image && File::exists(public_path() . "/images/{$this->menu_slug}/{$image}")) {
+                if ($image && File::exists(public_path("images/{$this->menu_slug}/{$image}"))) {
                     $this->offer->image = date("YmdHis") . "." . explode(".", $image)[1];
-                    File::copy(public_path() . "/images/{$this->menu_slug}/{$image}", public_path() . "/images/{$this->menu_slug}/{$this->offer->image}");
+                    File::copy(public_path("images/{$this->menu_slug}/{$image}"), public_path("images/{$this->menu_slug}/{$this->offer->image}"));
                 }
             }
         }

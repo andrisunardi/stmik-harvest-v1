@@ -16,8 +16,8 @@ class GalleryFactory extends Factory
         $name = $this->faker->unique()->sentence();
 
         File::copy(
-            public_path() . "/images/image.png",
-            public_path() . "/images/" . Str::kebab(Str::substr($this->model, 11)) . "/" . Str::slug($name) . ".png",
+            public_path("images/image.png"),
+            public_path("images/" . Str::kebab(Str::substr($this->model, 11)) . "/" . Str::slug($name) . ".png"),
         );
 
         return [
@@ -51,8 +51,8 @@ class GalleryFactory extends Factory
     {
         return $this->state(function (array $attributes) {
             File::copy(
-                public_path() . "/videos/video.mp4",
-                public_path() . "/videos/" . Str::kebab(Str::substr($this->model, 11)) . "/" . Str::slug($attributes["name"]) . ".mp4",
+                public_path("videos/video.mp4"),
+                public_path("videos/" . Str::kebab(Str::substr($this->model, 11)) . "/" . Str::slug($attributes["name"]) . ".mp4"),
             );
 
             return [
