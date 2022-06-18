@@ -54,7 +54,7 @@ class EventComponent extends Component
 
         $this->data_recent_event = Event::active()->orderByDesc("start")->limit(3)->get();
 
-        $this->data_popular_tags = Event::active()->orderByDesc("start")->first();
+        $this->data_popular_tags = Event::where(fn ($query) => $query->whereNotNull("tag")->whereNotNull("tag_id"))->active()->orderByDesc("start")->first();
     }
 
     public function render()

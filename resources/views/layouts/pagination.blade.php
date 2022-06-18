@@ -12,7 +12,11 @@
                             </li>
                         @else
                             <li>
-                                <a draggable="false" href="javascript:;" dusk="previousPage{{ $paginator->getPageName() == 'page' ? '' : '.' . $paginator->getPageName() }}" wire:click="previousPage('{{ $paginator->getPageName() }}')" wire:loading.attr="disabled"><i class="icon ion-ios-arrow-left"></i></a>
+                                <a draggable="false" href="javascript:;">
+                                    <div dusk="previousPage{{ $paginator->getPageName() == 'page' ? '' : '.' . $paginator->getPageName() }}" wire:click="previousPage('{{ $paginator->getPageName() }}')" wire:loading.attr="disabled">
+                                        <i class="icon ion-ios-arrow-left"></i>
+                                    </div>
+                                </a>
                             </li>
                         @endif
 
@@ -26,7 +30,13 @@
                                     @if ($page == $paginator->currentPage())
                                         <li class="active" wire:key="paginator-{{ $paginator->getPageName() }}-{{ $this->numberOfPaginatorsRendered[$paginator->getPageName()] }}-page-{{ $page }}"><a draggable="false" href="javascript:;">{{ $page }}</a></li>
                                     @else
-                                        <li wire:key="paginator-{{ $paginator->getPageName() }}-{{ $this->numberOfPaginatorsRendered[$paginator->getPageName()] }}-page-{{ $page }}"><a draggable="false" href="javascript:;" wire:click="gotoPage({{ $page }}, '{{ $paginator->getPageName() }}')">{{ $page }}</a></li>
+                                        <li wire:key="paginator-{{ $paginator->getPageName() }}-{{ $this->numberOfPaginatorsRendered[$paginator->getPageName()] }}-page-{{ $page }}">
+                                            <a draggable="false" href="javascript:;">
+                                                <div wire:click="gotoPage({{ $page }}, '{{ $paginator->getPageName() }}')">
+                                                    {{ $page }}
+                                                </div>
+                                            </a>
+                                        </li>
                                     @endif
                                 @endforeach
                             @endif
@@ -34,7 +44,11 @@
 
                         @if ($paginator->hasMorePages())
                             <li>
-                                <a draggable="false" href="javascript:;" dusk="nextPage{{ $paginator->getPageName() == 'page' ? '' : '.' . $paginator->getPageName() }}" wire:click="nextPage('{{ $paginator->getPageName() }}')" wire:loading.attr="disabled"><i class="icon ion-ios-arrow-right"></i></a>
+                                <a draggable="false" href="javascript:;">
+                                    <div dusk="nextPage{{ $paginator->getPageName() == 'page' ? '' : '.' . $paginator->getPageName() }}" wire:click="nextPage('{{ $paginator->getPageName() }}')" wire:loading.attr="disabled">
+                                        <i class="icon ion-ios-arrow-right"></i>
+                                    </div>
+                                </a>
                             </li>
                         @else
                             <li class="disabled">
