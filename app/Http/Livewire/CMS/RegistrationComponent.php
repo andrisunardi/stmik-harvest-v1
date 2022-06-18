@@ -44,11 +44,11 @@ class RegistrationComponent extends Component
     public $name;
     public $email;
     public $phone;
-    public $gender;
+    public $gender = "";
     public $school;
     public $major;
     public $city;
-    public $type;
+    public $type = "";
 
     public $queryString = [
         "menu_type" => ["except" => "index"],
