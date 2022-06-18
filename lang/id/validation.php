@@ -264,6 +264,7 @@ return [
         "uuid" => "UUID",
         "video" => "Video",
         "view" => "Lihat",
+        "link" => "Tautan",
         "vision_id" => "Visi ID",
         "vision" => "Visi",
         "vision" => "Visi",

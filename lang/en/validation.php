@@ -265,12 +265,10 @@ return [
         "view" => "View",
         "vision_id" => "Vision ID",
         "vision" => "Vision",
-        "vision" => "Vision",
         "volume" => "Volume",
         "whatsapp" => "Whatsapp",
         "year" => "Year",
         "youtube" => "Youtube",
-        "youtube" => "Youtube",
-        "youtube" => "Youtube",
+        "link" => "Tautan",
     ],
 ];

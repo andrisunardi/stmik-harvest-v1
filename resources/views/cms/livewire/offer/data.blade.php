@@ -7,6 +7,9 @@
                 <th>{{ trans("index.ID") }}</th>
                 <th>{{ trans("index.Name") }}</th>
                 <th>{{ trans("index.Name ID") }}</th>
+                <th>{{ trans("index.Button Name") }}</th>
+                <th>{{ trans("index.Button Name ID") }}</th>
+                <th>{{ trans("index.Button Link") }}</th>
                 <th>{{ trans("index.Active") }}</th>
                 <th>{{ trans("index.Created By") }}</th>
                 <th>{{ trans("index.Updated By") }}</th>
@@ -22,91 +25,94 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($data_faq as $faq)
+            @foreach ($data_offer as $offer)
                 <tr>
-                    <td><input class="form-check-input" type="checkbox" wire:model="checkbox_id.{{ $faq->id }}"></td>
-                    <td class="text-center">{{ (($data_faq->currentPage() - 1) * $data_faq->perPage()) + $loop->iteration }}</td>
+                    <td><input class="form-check-input" type="checkbox" wire:model="checkbox_id.{{ $offer->id }}"></td>
+                    <td class="text-center">{{ (($data_offer->currentPage() - 1) * $data_offer->perPage()) + $loop->iteration }}</td>
                     <td>
-                        <button type="button" class="btn btn-link text-decoration-none" wire:click="view({{ $faq->id }})">
-                            {{ $faq->id }}
+                        <button type="button" class="btn btn-link text-decoration-none" wire:click="view({{ $offer->id }})">
+                            {{ $offer->id }}
                         </button>
                     </td>
                     <td>
-                        <a draggable="false" href="{{ route("{$sub_domain}.{$menu_slug}.index") . "?menu_type=view&row={$faq->id}" }}">
-                            {{ $faq->name }}
+                        <a draggable="false" href="{{ route("{$sub_domain}.{$menu_slug}.index") . "?menu_type=view&row={$offer->id}" }}">
+                            {{ $offer->name }}
                         </a>
                     </td>
                     <td>
-                        <a draggable="false" href="{{ route("{$sub_domain}.{$menu_slug}.index") . "?menu_type=view&row={$faq->id}" }}">
-                            {{ $faq->name_id }}
+                        <a draggable="false" href="{{ route("{$sub_domain}.{$menu_slug}.index") . "?menu_type=view&row={$offer->id}" }}">
+                            {{ $offer->name_id }}
                         </a>
                     </td>
+                    <td>{{ $offer->button_name }}</td>
+                    <td>{{ $offer->button_name_id }}</td>
+                    <td><a draggable="false" href="{{ $offer->button_link }}" target="_blank">{{ $offer->button_link }}</a></td>
                     <td>
-                        <span class="{{ "badge bg-" . Str::successdanger($faq->active) }}">
-                            {{ trans("index." . Str::active($faq->active)) }}
+                        <span class="{{ "badge bg-" . Str::successdanger($offer->active) }}">
+                            {{ trans("index." . Str::active($offer->active)) }}
                         </span>
                     </td>
                     <td>
-                        <a draggable="false" href="{{ $faq->created_by_admin?->id || $faq->created_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$faq->created_by_admin?->id}" : null }}" target="_blank">
-                            {{ $faq->created_by_admin?->name }}
+                        <a draggable="false" href="{{ $offer->created_by_admin?->id || $offer->created_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$offer->created_by_admin?->id}" : null }}" target="_blank">
+                            {{ $offer->created_by_admin?->name }}
                         </a>
                     </td>
                     <td>
-                        <a draggable="false" href="{{ $faq->updated_by_admin?->id || $faq->updated_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$faq->updated_by_admin?->id}" : null }}" target="_blank">
-                            {{ $faq->updated_by_admin?->name }}
+                        <a draggable="false" href="{{ $offer->updated_by_admin?->id || $offer->updated_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$offer->updated_by_admin?->id}" : null }}" target="_blank">
+                            {{ $offer->updated_by_admin?->name }}
                         </a>
                     </td>
                     @if ($menu_type == "trash")
                         <td>
-                            <a draggable="false" href="{{ $faq->deleted_by_admin?->id || $faq->deleted_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$faq->deleted_by_admin?->id}" : null }}" target="_blank">
-                                {{ $faq->deleted_by_admin?->name }}
+                            <a draggable="false" href="{{ $offer->deleted_by_admin?->id || $offer->deleted_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$offer->deleted_by_admin?->id}" : null }}" target="_blank">
+                                {{ $offer->deleted_by_admin?->name }}
                             </a>
                         </td>
                     @endif
-                    <td>{{ $faq->created_at?->format("H:i:s - l, d F Y") }} ({{ $faq->created_at?->diffForHumans() }})</td>
-                    <td>{{ $faq->updated_at?->format("H:i:s - l, d F Y") }} ({{ $faq->updated_at?->diffForHumans() }})</td>
+                    <td>{{ $offer->created_at?->format("H:i:s - l, d F Y") }} ({{ $offer->created_at?->diffForHumans() }})</td>
+                    <td>{{ $offer->updated_at?->format("H:i:s - l, d F Y") }} ({{ $offer->updated_at?->diffForHumans() }})</td>
                     @if ($menu_type == "trash")
-                        <td>{{ $faq->deleted_at?->format("H:i:s - l, d F Y") }} ({{ $faq->deleted_at?->diffForHumans() }})</td>
+                        <td>{{ $offer->deleted_at?->format("H:i:s - l, d F Y") }} ({{ $offer->deleted_at?->diffForHumans() }})</td>
                     @endif
                     <td>
                         @if ($menu_type == "index")
-                            @if ($faq->active)
-                                <button class="btn btn-creative btn-sm btn-danger" wire:click="nonActive({{ $faq->id }})">
+                            @if ($offer->active)
+                                <button class="btn btn-creative btn-sm btn-danger" wire:click="nonActive({{ $offer->id }})">
                                     <i class="bi bi-x-circle-fill me-1"></i>
                                     {{ trans("index.Non Active") }}
                                 </button>
                             @else
-                                <button class="btn btn-creative btn-sm btn-success" wire:click="active({{ $faq->id }})">
+                                <button class="btn btn-creative btn-sm btn-success" wire:click="active({{ $offer->id }})">
                                     <i class="bi bi-check-circle-fill me-1"></i>
                                     {{ trans("index.Active") }}
                                 </button>
                             @endif
 
-                            <button class="btn btn-creative btn-sm btn-dark" wire:click="view({{ $faq->id }})">
+                            <button class="btn btn-creative btn-sm btn-dark" wire:click="view({{ $offer->id }})">
                                 <i class="bi bi-eye me-1"></i>
                                 {{ trans("index.View") }}
                             </button>
 
-                            <button class="btn btn-creative btn-sm btn-info" wire:click="form('clone', {{ $faq->id }})">
+                            <button class="btn btn-creative btn-sm btn-info" wire:click="form('clone', {{ $offer->id }})">
                                 <i class="bi bi-clipboard me-1"></i>
                                 {{ trans("index.Clone") }}
                             </button>
 
-                            <button class="btn btn-creative btn-sm btn-success" wire:click="form('edit', {{ $faq->id }})">
+                            <button class="btn btn-creative btn-sm btn-success" wire:click="form('edit', {{ $offer->id }})">
                                 <i class="bi bi-pencil me-1"></i>
                                 {{ trans("index.Edit") }}
                             </button>
 
-                            <button class="btn btn-creative btn-sm btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#delete-{{ $faq->id }}">
+                            <button class="btn btn-creative btn-sm btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#delete-{{ $offer->id }}">
                                 <i class="bi bi-trash me-1"></i>
                                 {{ trans("index.Delete") }}
                             </button>
 
-                            <div class="modal fade" id="delete-{{ $faq->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="delete-{{ $faq->id }}" aria-hidden="true">
+                            <div class="modal fade" id="delete-{{ $offer->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="delete-{{ $offer->id }}" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h6 class="modal-title" id="delete-{{ $faq->id }}">{{ trans("index.Delete") }} - {{ trans("page.{$menu_name}") }}</h6>
+                                            <h6 class="modal-title" id="delete-{{ $offer->id }}">{{ trans("index.Delete") }} - {{ trans("page.{$menu_name}") }}</h6>
                                             <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body text-wrap">
@@ -118,7 +124,7 @@
                                                 <i class="bi bi-x me-1"></i>
                                                 {{ trans("index.Close") }}
                                             </button>
-                                            <button class="btn btn-creative btn-sm btn-danger" type="button" data-bs-dismiss="modal" wire:click="delete({{ $faq->id }})">
+                                            <button class="btn btn-creative btn-sm btn-danger" type="button" data-bs-dismiss="modal" wire:click="delete({{ $offer->id }})">
                                                 <i class="bi bi-check me-1"></i>
                                                 {{ trans("index.Yes") }}
                                             </button>
@@ -129,16 +135,16 @@
                         @endif
 
                         @if ($menu_type == "trash")
-                            <button class="btn btn-creative btn-sm btn-success" type="button" data-bs-toggle="modal" data-bs-target="#restore-{{ $faq->id }}">
+                            <button class="btn btn-creative btn-sm btn-success" type="button" data-bs-toggle="modal" data-bs-target="#restore-{{ $offer->id }}">
                                 <i class="bi bi-arrow-clockwise me-1"></i>
                                 {{ trans("index.Restore") }}
                             </button>
 
-                            <div class="modal fade" id="restore-{{ $faq->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="restore-{{ $faq->id }}" aria-hidden="true">
+                            <div class="modal fade" id="restore-{{ $offer->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="restore-{{ $offer->id }}" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h6 class="modal-title" id="restore-{{ $faq->id }}">{{ trans("index.Restore") }} - {{ trans("page.{$menu_name}") }}</h6>
+                                            <h6 class="modal-title" id="restore-{{ $offer->id }}">{{ trans("index.Restore") }} - {{ trans("page.{$menu_name}") }}</h6>
                                             <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
@@ -149,7 +155,7 @@
                                                 <i class="bi bi-x me-1"></i>
                                                 {{ trans("index.Close") }}
                                             </button>
-                                            <button class="btn btn-creative btn-sm btn-success" type="button" data-bs-dismiss="modal" wire:click="restore({{ $faq->id }})">
+                                            <button class="btn btn-creative btn-sm btn-success" type="button" data-bs-dismiss="modal" wire:click="restore({{ $offer->id }})">
                                                 <i class="bi bi-check me-1"></i>
                                                 {{ trans("index.Yes") }}
                                             </button>
@@ -158,16 +164,16 @@
                                 </div>
                             </div>
 
-                            <button class="btn btn-creative btn-sm btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#delete-permanent-{{ $faq->id }}">
+                            <button class="btn btn-creative btn-sm btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#delete-permanent-{{ $offer->id }}">
                                 <i class="bi bi-trash2 me-1"></i>
                                 {{ trans("index.Delete Permanent") }}
                             </button>
 
-                            <div class="modal fade" id="delete-permanent-{{ $faq->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="delete-permanent-{{ $faq->id }}" aria-hidden="true">
+                            <div class="modal fade" id="delete-permanent-{{ $offer->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="delete-permanent-{{ $offer->id }}" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h6 class="modal-title" id="delete-permanent-{{ $faq->id }}">{{ trans("index.Delete Permanent") }} - {{ trans("page.{$menu_name}") }}</h6>
+                                            <h6 class="modal-title" id="delete-permanent-{{ $offer->id }}">{{ trans("index.Delete Permanent") }} - {{ trans("page.{$menu_name}") }}</h6>
                                             <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body text-wrap">
@@ -180,7 +186,7 @@
                                                 <i class="bi bi-x me-1"></i>
                                                 {{ trans("index.Close") }}
                                             </button>
-                                            <button class="btn btn-creative btn-sm btn-danger" type="button" data-bs-dismiss="modal" wire:click="deletePermanent({{ $faq->id }})">
+                                            <button class="btn btn-creative btn-sm btn-danger" type="button" data-bs-dismiss="modal" wire:click="deletePermanent({{ $offer->id }})">
                                                 <i class="bi bi-check me-1"></i>
                                                 {{ trans("index.Yes") }}
                                             </button>
@@ -192,7 +198,7 @@
                     </td>
                 </tr>
             @endforeach
-            @if (!$data_faq->count())
+            @if (!$data_offer->count())
                 <tr>
                     <td class="text-center" colspan="100%">{{ trans("index.No Data Available") }}</td>
                 </tr>
@@ -201,4 +207,4 @@
     </table>
 </div>
 
-{{ $data_faq->links("{$sub_domain}.layouts.pagination") }}
+{{ $data_offer->links("{$sub_domain}.layouts.pagination") }}

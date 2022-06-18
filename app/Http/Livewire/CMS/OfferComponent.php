@@ -8,14 +8,13 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Session;
 use Livewire\WithPagination;
-use Livewire\WithFileUploads;
 
 use App\Models\Offer;
 use App\Models\Admin;
 
 class OfferComponent extends Component
 {
-    use WithPagination, WithFileUploads;
+    use WithPagination;
 
     public $menu_name = "Offer";
     public $menu_icon = "bi bi-offers";
@@ -49,7 +48,6 @@ class OfferComponent extends Component
     public $button_name;
     public $button_name_id;
     public $button_link;
-    public $image;
 
     public $queryString = [
         "menu_type" => ["except" => "index"],
@@ -105,7 +103,6 @@ class OfferComponent extends Component
             "button_name",
             "button_name_id",
             "button_link",
-            "image",
         ]);
     }
 
@@ -241,7 +238,6 @@ class OfferComponent extends Component
             "button_name"       => "nullable|max:100",
             "button_name_id"    => "nullable|max:100",
             "button_link"       => "nullable|url|max:100",
-            "image"             => "nullable|image|max:1048576|mimes:jpg,jpeg,png,gif,webp",
         ];
     }
 
@@ -250,9 +246,6 @@ class OfferComponent extends Component
         $this->validate();
 
         if ($this->menu_type == "add" || $this->menu_type == "clone") {
-            if ($this->menu_type == "clone") {
-                $image = $this->offer->image;
-            }
             $this->offer = new Offer();
             if (env("APP_ENV") != "testing") {
                 DB::statement(DB::raw("ALTER TABLE {$this->menu_table} AUTO_INCREMENT = 1"));
@@ -268,23 +261,6 @@ class OfferComponent extends Component
         $this->offer->button_name = $this->button_name;
         $this->offer->button_name_id = $this->button_name_id;
         $this->offer->button_link = $this->button_link;
-
-        if ($this->image) {
-            if ($this->menu_type == "edit") {
-                $this->offer->deleteImage();
-            }
-
-            $this->offer->image = date("YmdHis") . ".{$this->image->getClientOriginalExtension()}";
-            $this->image->storePubliclyAs($this->menu_slug, $this->offer->image, "images");
-        } else {
-            if ($this->menu_type == "clone") {
-                if ($image && File::exists(public_path("images/{$this->menu_slug}/{$image}"))) {
-                    $this->offer->image = date("YmdHis") . "." . explode(".", $image)[1];
-                    File::copy(public_path("images/{$this->menu_slug}/{$image}"), public_path("images/{$this->menu_slug}/{$this->offer->image}"));
-                }
-            }
-        }
-
         $this->offer->save();
 
         $this->menu_type_message = $this->menu_type == "add" || $this->menu_type == "edit" ? $this->menu_type . "ed" : $this->menu_type . "d";
@@ -362,7 +338,6 @@ class OfferComponent extends Component
             return Session::flash("danger", trans("page.{$this->menu_name}") . " " . trans("message.not found or has been deleted"));
         }
 
-        $this->offer->deleteImage();
         $this->offer->forceDelete();
         $this->offer->refresh();
 
@@ -385,12 +360,7 @@ class OfferComponent extends Component
 
     public function deletePermanentAll()
     {
-        $data_offer = Offer::onlyTrashed()->get();
-
-        foreach ($data_offer as $offer) {
-            $offer->deleteImage();
-            $offer->forceDelete();
-        }
+        Offer::onlyTrashed()->forceDelete();
 
         return Session::flash("success", trans("message.All") . " {$this->menu_name} " . trans("message.at Trash has been Deleted Permanent Successfully"));
     }
