@@ -490,6 +490,19 @@ class EventComponent extends Component
                     $query->where("tag_id", "LIKE", "%{$this->tag_id}%");
                 });
 
+                if ($this->created_by || $this->created_by == "0") {
+                    $data_event->where("created_by", $this->created_by);
+                }
+                if ($this->updated_by || $this->updated_by == "0") {
+                    $data_event->where("updated_by", $this->updated_by);
+                }
+                if ($this->deleted_by || $this->deleted_by == "0") {
+                    $data_event->where("deleted_by", $this->deleted_by);
+                }
+                if ($this->active || $this->active == "0") {
+                    $data_event->where("active", $this->active);
+                }
+
                 if ($this->order_by == "created_by") {
                     $data_event->join("admin", "admin.id", "{$this->menu_table}.created_by")
                         ->select("{$this->menu_table}.*", "admin.name as admin_name")

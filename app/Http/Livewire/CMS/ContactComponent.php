@@ -433,6 +433,19 @@ class ContactComponent extends Component
                     $query->where("message", "LIKE", "%{$this->message}%");
                 });
 
+                if ($this->created_by || $this->created_by == "0") {
+                    $data_contact->where("created_by", $this->created_by);
+                }
+                if ($this->updated_by || $this->updated_by == "0") {
+                    $data_contact->where("updated_by", $this->updated_by);
+                }
+                if ($this->deleted_by || $this->deleted_by == "0") {
+                    $data_contact->where("deleted_by", $this->deleted_by);
+                }
+                if ($this->active || $this->active == "0") {
+                    $data_contact->where("active", $this->active);
+                }
+
                 if ($this->order_by == "created_by") {
                     $data_contact->join("admin", "admin.id", "{$this->menu_table}.created_by")
                         ->select("{$this->menu_table}.*", "admin.name as admin_name")

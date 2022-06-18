@@ -470,6 +470,19 @@ class OfferComponent extends Component
                     $query->where("button_link", "LIKE", "%{$this->button_link}%");
                 });
 
+                if ($this->created_by || $this->created_by == "0") {
+                    $data_offer->where("created_by", $this->created_by);
+                }
+                if ($this->updated_by || $this->updated_by == "0") {
+                    $data_offer->where("updated_by", $this->updated_by);
+                }
+                if ($this->deleted_by || $this->deleted_by == "0") {
+                    $data_offer->where("deleted_by", $this->deleted_by);
+                }
+                if ($this->active || $this->active == "0") {
+                    $data_offer->where("active", $this->active);
+                }
+
                 if ($this->order_by == "created_by") {
                     $data_offer->join("admin", "admin.id", "{$this->menu_table}.created_by")
                         ->select("{$this->menu_table}.*", "admin.name as admin_name")

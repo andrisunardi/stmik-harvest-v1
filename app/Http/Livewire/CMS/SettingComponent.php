@@ -521,6 +521,19 @@ class SettingComponent extends Component
                     $query->where("history_id", "LIKE", "%{$this->history_id}%");
                 });
 
+                if ($this->created_by || $this->created_by == "0") {
+                    $data_setting->where("created_by", $this->created_by);
+                }
+                if ($this->updated_by || $this->updated_by == "0") {
+                    $data_setting->where("updated_by", $this->updated_by);
+                }
+                if ($this->deleted_by || $this->deleted_by == "0") {
+                    $data_setting->where("deleted_by", $this->deleted_by);
+                }
+                if ($this->active || $this->active == "0") {
+                    $data_setting->where("active", $this->active);
+                }
+
                 if ($this->order_by == "created_by") {
                     $data_setting->join("admin", "admin.id", "{$this->menu_table}.created_by")
                         ->select("{$this->menu_table}.*", "admin.name as admin_name")
