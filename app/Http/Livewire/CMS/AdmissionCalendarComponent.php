@@ -16,8 +16,8 @@ class AdmissionCalendarComponent extends Component
     use WithPagination;
 
     public $menu_name = "Admission Calendar";
-    public $menu_icon = "bi bi-money";
-    public $menu_slug = "admission_calendar";
+    public $menu_icon = "bi bi-calendar";
+    public $menu_slug = "admission-calendar";
     public $menu_table = "admission_calendar";
     public $menu_type = "index";
 
@@ -44,6 +44,7 @@ class AdmissionCalendarComponent extends Component
     public $name_id;
     public $description;
     public $description_id;
+    public $date;
 
     public $queryString = [
         "menu_type" => ["except" => "index"],
@@ -65,6 +66,7 @@ class AdmissionCalendarComponent extends Component
 
         "name" => ["except" => ""],
         "name_id" => ["except" => ""],
+        "date" => ["except" => ""],
     ];
 
     public function resetFilter()
@@ -93,6 +95,7 @@ class AdmissionCalendarComponent extends Component
             "name_id",
             "description",
             "description_id",
+            "date",
         ]);
     }
 
@@ -104,6 +107,7 @@ class AdmissionCalendarComponent extends Component
             $this->name_id = $this->admission_calendar->name_id;
             $this->description = $this->admission_calendar->description;
             $this->description_id = $this->admission_calendar->description_id;
+            $this->date = $this->admission_calendar->date;
         }
     }
 
@@ -133,6 +137,7 @@ class AdmissionCalendarComponent extends Component
 
         if ($this->menu_type == "add") {
             $this->active = true;
+            $this->date = now()->format("Y-m-d");
         }
 
         if ($this->row && ($this->menu_type != "index" || $this->menu_type != "trash")) {
@@ -167,6 +172,7 @@ class AdmissionCalendarComponent extends Component
         $this->resetErrorBag();
 
         $this->active = true;
+        $this->date = now()->format("Y-m-d");
 
         if ($menu_type != "add" && $id) {
             $this->admission_calendar = AdmissionCalendar::find($id);
@@ -215,6 +221,7 @@ class AdmissionCalendarComponent extends Component
             "name_id"           => "required|max:100|unique:{$this->menu_table},name_id,{$id}",
             "description"       => "nullable|max:65535",
             "description_id"    => "nullable|max:65535",
+            "date"              => "nullable|max:10|max:10|date_format:Y-m-d",
         ];
     }
 
@@ -235,6 +242,7 @@ class AdmissionCalendarComponent extends Component
         $this->admission_calendar->name_id = $this->name_id;
         $this->admission_calendar->description = Str::of(htmlspecialchars($this->description))->swap(["&lt;" => "<", "&gt;" => ">"]);
         $this->admission_calendar->description_id = Str::of(htmlspecialchars($this->description_id))->swap(["&lt;" => "<", "&gt;" => ">"]);
+        $this->admission_calendar->date = $this->date;
         $this->admission_calendar->save();
 
         $this->menu_type_message = $this->menu_type == "add" || $this->menu_type == "edit" ? $this->menu_type . "ed" : $this->menu_type . "d";
@@ -403,6 +411,9 @@ class AdmissionCalendarComponent extends Component
                 })
                 ->when($this->description_id, function ($query) {
                     $query->where("description_id", "LIKE", "%{$this->description_id}%");
+                })
+                ->when($this->date, function ($query) {
+                    $query->where("date", $this->date);
                 });
 
                 if ($this->created_by || $this->created_by == "0") {

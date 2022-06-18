@@ -78,6 +78,25 @@
             </div>
         </div>
 
+        <div class="row">
+            @php $input = "date" @endphp
+            <div class="form-group col-12">
+                <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
+                <div class="input-group has-validation">
+                    <div class="input-group-text"><span class="bi bi-calendar"></span></div>
+                    <input wire:model="{{ $input }}" wire:keydown.enter="submit" id="{{ $input }}" name="{{ $input }}"
+                        type="date" class="form-control @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" minlength="10" maxlength="10" value="{{ old($input) }}"
+                        placeholder="{{ trans("validation.attributes.{$input}") }}" aria-label="{{ trans("validation.attributes.{$input}") }}" aria-describedby="{{ trans("validation.attributes.{$input}") }}"
+                        autocomplete="off" autocapitalize="none">
+                    @error($input)
+                        <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
+                    @else
+                        <div class="valid-feedback rounded bg-success p-2 ms-0 mt-2 text-white">{{ trans("validation.success") }}</div>
+                    @enderror
+                </div>
+            </div>
+        </div>
+
         @php $input = "active" @endphp
         <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }} <span class="text-danger">*</span></label>
         <div class="row mb-3">

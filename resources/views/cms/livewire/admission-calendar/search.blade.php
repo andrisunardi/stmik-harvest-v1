@@ -23,6 +23,7 @@
                 <option value="name_id">{{ trans("index.Name ID") }}</option>
                 <option value="description">{{ trans("index.Description") }}</option>
                 <option value="description_id">{{ trans("index.Description ID") }}</option>
+                <option value="date">{{ trans("index.Date") }}</option>
                 <option value="active">{{ trans("index.Active") }}</option>
                 <option value="created_by">{{ trans("index.Created By") }}</option>
                 <option value="updated_by">{{ trans("index.Updated By") }}</option>
@@ -181,6 +182,14 @@
         <div class="form-group">
             <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
             <input wire:model="{{ $input }}" type="search" class="form-control" id="{{ $input }}" name="{{ $input }}" placeholder="{{ trans("validation.attributes.{$input}") }}">
+        </div>
+    </div>
+
+    <div class="col-6 col-sm-4 col-lg-3 col-xl-auto">
+        @php $input = "date" @endphp
+        <div class="form-group">
+            <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
+            <input wire:model="{{ $input }}" type="date" class="form-control" id="{{ $input }}" name="{{ $input }}" placeholder="{{ trans("validation.attributes.{$input}") }}">
         </div>
     </div>
 </div>

@@ -7,6 +7,7 @@
                 <th>{{ trans("index.ID") }}</th>
                 <th>{{ trans("index.Name") }}</th>
                 <th>{{ trans("index.Name ID") }}</th>
+                <th>{{ trans("index.Date") }}</th>
                 <th>{{ trans("index.Active") }}</th>
                 <th>{{ trans("index.Created By") }}</th>
                 <th>{{ trans("index.Updated By") }}</th>
@@ -40,6 +41,12 @@
                         <a draggable="false" href="{{ route("{$sub_domain}.{$menu_slug}.index") . "?menu_type=view&row={$admission_calendar->id}" }}">
                             {{ $admission_calendar->name_id }}
                         </a>
+                    </td>
+                    <td>
+                        @if ($admission_calendar->date && $admission_calendar->date != "0000-00-00")
+                            {{ Date::parse($admission_calendar->date)->format("d F Y") }}
+                            ({{ Date::parse($admission_calendar->date)->diffForHumans() }})
+                        @endif
                     </td>
                     <td>
                         <span class="{{ "badge bg-" . Str::successdanger($admission_calendar->active) }}">
