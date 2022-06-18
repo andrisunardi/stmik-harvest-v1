@@ -29,21 +29,42 @@ class ProfileComponent extends Component
         "menu_type" => ["except" => "index"],
     ];
 
-    public function refresh()
-    {
-        $this->resetErrorBag();
-    }
-
     public function resetFilter()
     {
         $this->name = Auth::user()->name;
         $this->email = Auth::user()->email;
         $this->username = Auth::user()->username;
-        $this->password = null;
-        $this->image = null;
-        $this->current_password = null;
-        $this->new_password = null;
-        $this->confirm_password = null;
+
+        $this->reset([
+            "current_password",
+            "new_password",
+            "confirm_password",
+        ]);
+    }
+
+    public function refresh()
+    {
+        $this->resetErrorBag();
+    }
+
+    public function updated()
+    {
+        if ($this->menu_type == "edit-profile") {
+            $this->validate([
+                "name"      => "required|max:50|unique:{$this->menu_table},name," . Auth::user()->id,
+                "email"     => "required|email|max:50|unique:{$this->menu_table},email," . Auth::user()->id,
+                "username"  => "required|max:50|unique:{$this->menu_table},username," . Auth::user()->id,
+                "image"     => "nullable|file|mimes:jpg,png,jpeg,gif,webp|max:2048"
+            ]);
+        }
+
+        if ($this->menu_type == "change-password") {
+            $this->validate([
+                "current_password"  => "required|max:50|current_password",
+                "new_password"      => "required|max:50",
+                "confirm_password"  => "required|max:50|same:new_password"
+            ]);
+        }
     }
 
     public function mount()
@@ -75,8 +96,8 @@ class ProfileComponent extends Component
     {
         $this->validate([
             "name"      => "required|max:50|unique:{$this->menu_table},name," . Auth::user()->id,
-            "username"  => "required|max:50|unique:{$this->menu_table},username," . Auth::user()->id,
             "email"     => "required|email|max:50|unique:{$this->menu_table},email," . Auth::user()->id,
+            "username"  => "required|max:50|unique:{$this->menu_table},username," . Auth::user()->id,
             "image"     => "nullable|file|mimes:jpg,png,jpeg,gif,webp|max:2048"
         ]);
 

@@ -17,7 +17,7 @@ class NewsletterComponent extends Component
     use WithPagination;
 
     public $menu_name = "Newsletter";
-    public $menu_icon = "bi bi-telephone";
+    public $menu_icon = "bi bi-envelope";
     public $menu_slug = "newsletter";
     public $menu_table = "newsletter";
     public $menu_type = "index";
@@ -41,11 +41,7 @@ class NewsletterComponent extends Component
     public $checkbox_id;
 
     public $newsletter;
-    public $name;
-    public $phone;
     public $email;
-    public $company;
-    public $message;
 
     public $queryString = [
         "menu_type" => ["except" => "index"],
@@ -65,16 +61,8 @@ class NewsletterComponent extends Component
         "active" => ["except" => ""],
         "row" => ["except" => ""],
 
-        "name" => ["except" => ""],
-        "phone" => ["except" => ""],
         "email" => ["except" => ""],
-        "company" => ["except" => ""],
     ];
-
-    public function refresh()
-    {
-        $this->resetErrorBag();
-    }
 
     public function resetFilter()
     {
@@ -82,122 +70,47 @@ class NewsletterComponent extends Component
         $this->per_page = 10;
         $this->order_by = "id";
         $this->sort_by = "desc";
-        $this->created_by = null;
-        $this->updated_by = null;
-        $this->start_created_at = null;
-        $this->end_created_at = null;
-        $this->start_updated_at = null;
-        $this->end_updated_at = null;
-        $this->start_deleted_at = null;
-        $this->end_deleted_at = null;
-        $this->active = null;
-        $this->row = null;
 
-        $this->newsletter = null;
-        $this->name = null;
-        $this->phone = null;
-        $this->email = null;
-        $this->company = null;
-        $this->message = null;
+        $this->reset([
+            "created_by",
+            "updated_by",
+            "start_created_at",
+            "end_created_at",
+            "start_updated_at",
+            "end_updated_at",
+            "start_deleted_at",
+            "end_deleted_at",
+            "active",
+            "row",
+        ]);
+
+        $this->reset([
+            "newsletter",
+            "email",
+        ]);
     }
 
     public function resetForm()
     {
         $this->active = $this->newsletter->active;
-        $this->name = $this->newsletter->name;
-        $this->phone = $this->newsletter->phone;
         $this->email = $this->newsletter->email;
-        $this->message = $this->newsletter->message;
     }
 
-    public function updatingPerPage()
+    public function refresh()
+    {
+        $this->resetErrorBag();
+    }
+
+    public function updating()
     {
         $this->resetPage();
     }
 
-    public function updatingOrderBy()
+    public function updated($propertyName)
     {
-        $this->resetPage();
-    }
-
-    public function updatingSortBy()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingCreatedBy()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingUpdatedBy()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingDeletedBy()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingStartCreatedAt()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingEndCreatedAt()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingStartUpdatedAt()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingEndUpdatedAt()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingStartDeletedAt()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingEndDeletedAt()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingActive()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingName()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingPhone()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingEmail()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingCompany()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingMessage()
-    {
-        $this->resetPage();
+        if ($this->menu_type != "index" && $this->menu_type != "trash") {
+            $this->validateOnly($propertyName);
+        }
     }
 
     public function mount()
@@ -292,11 +205,7 @@ class NewsletterComponent extends Component
     {
         return [
             "active"    => "required",
-            "name"      => "required|max:50",
-            "phone"     => "nullable|max:15",
             "email"     => "required|email|max:50",
-            "company"   => "nullable|max:50",
-            "message"   => "required|max:1000",
         ];
     }
 
@@ -313,11 +222,7 @@ class NewsletterComponent extends Component
 
         $this->newsletter->active = $this->active;
 
-        $this->newsletter->name = $this->name;
-        $this->newsletter->phone = $this->phone;
         $this->newsletter->email = $this->email;
-        $this->newsletter->company = $this->company;
-        $this->newsletter->message = Str::of(htmlspecialchars($this->message))->swap(["&lt;" => "<", "&gt;" => ">"]);
         $this->newsletter->save();
 
         if (env("APP_ENV") == "production") {
@@ -488,20 +393,8 @@ class NewsletterComponent extends Component
                     $query->where("active", $this->active);
                 })
 
-                ->when($this->name, function ($query) {
-                    $query->where("name", "LIKE", "%{$this->name}%");
-                })
-                ->when($this->phone, function ($query) {
-                    $query->where("phone", "LIKE", "%{$this->phone}%");
-                })
                 ->when($this->email, function ($query) {
                     $query->where("email", "LIKE", "%{$this->email}%");
-                })
-                ->when($this->company, function ($query) {
-                    $query->where("company", "LIKE", "%{$this->company}%");
-                })
-                ->when($this->message, function ($query) {
-                    $query->where("message", "LIKE", "%{$this->message}%");
                 });
 
                 if ($this->order_by == "created_by") {

@@ -71,135 +71,64 @@ class MenuComponent extends Component
         "sort" => ["except" => ""],
     ];
 
-    public function refresh()
-    {
-        $this->resetErrorBag();
-    }
-
     public function resetFilter()
     {
         $this->page = 1;
         $this->per_page = 10;
         $this->order_by = "id";
         $this->sort_by = "desc";
-        $this->created_by = null;
-        $this->updated_by = null;
-        $this->start_created_at = null;
-        $this->end_created_at = null;
-        $this->start_updated_at = null;
-        $this->end_updated_at = null;
-        $this->start_deleted_at = null;
-        $this->end_deleted_at = null;
-        $this->active = null;
-        $this->row = null;
 
-        $this->menu = null;
-        $this->menu_category = "";
-        $this->name = null;
-        $this->name_id = null;
-        $this->icon = null;
-        $this->sort = null;
-        $this->image = null;
+        $this->reset([
+            "created_by",
+            "updated_by",
+            "start_created_at",
+            "end_created_at",
+            "start_updated_at",
+            "end_updated_at",
+            "start_deleted_at",
+            "end_deleted_at",
+            "active",
+            "row",
+        ]);
+
+        $this->reset([
+            "menu",
+            "menu_category",
+            "name",
+            "name_id",
+            "icon",
+            "sort",
+            "image",
+        ]);
     }
 
     public function resetForm()
     {
-        $this->active = $this->menu->active;
-        $this->menu_category = $this->menu->menu_category?->id;
-        $this->name = $this->menu->name;
-        $this->name_id = $this->menu->name_id;
-        $this->icon = $this->menu->icon;
-        $this->sort = $this->menu->sort;
+        if ($this->menu) {
+            $this->active = $this->menu->active;
+            $this->menu_category = $this->menu->menu_category?->id;
+            $this->name = $this->menu->name;
+            $this->name_id = $this->menu->name_id;
+            $this->icon = $this->menu->icon;
+            $this->sort = $this->menu->sort;
+        }
     }
 
-    public function updatingPerPage()
+    public function refresh()
+    {
+        $this->resetErrorBag();
+    }
+
+    public function updating()
     {
         $this->resetPage();
     }
 
-    public function updatingOrderBy()
+    public function updated($propertyName)
     {
-        $this->resetPage();
-    }
-
-    public function updatingSortBy()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingCreatedBy()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingUpdatedBy()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingDeletedBy()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingStartCreatedAt()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingEndCreatedAt()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingStartUpdatedAt()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingEndUpdatedAt()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingStartDeletedAt()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingEndDeletedAt()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingActive()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingMenuCategory()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingName()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingNameId()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingIcon()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingSort()
-    {
-        $this->resetPage();
+        if ($this->menu_type != "index" && $this->menu_type != "trash") {
+            $this->validateOnly($propertyName);
+        }
     }
 
     public function mount()
@@ -499,6 +428,19 @@ class MenuComponent extends Component
                 ->when($this->sort, function ($query) {
                     $query->where("sort", "LIKE", "%{$this->sort}%");
                 });
+
+                if ($this->created_by || $this->created_by == "0") {
+                    $data_menu->where("created_by", $this->created_by);
+                }
+                if ($this->updated_by || $this->updated_by == "0") {
+                    $data_menu->where("updated_by", $this->updated_by);
+                }
+                if ($this->deleted_by || $this->deleted_by == "0") {
+                    $data_menu->where("deleted_by", $this->deleted_by);
+                }
+                if ($this->active || $this->active == "0") {
+                    $data_menu->where("active", $this->active);
+                }
 
                 if ($this->order_by == "created_by") {
                     $data_menu->join("admin", "admin.id", "{$this->menu_table}.created_by")

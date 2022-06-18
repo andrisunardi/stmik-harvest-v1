@@ -67,127 +67,61 @@ class TuitionFeeComponent extends Component
         "name_id" => ["except" => ""],
     ];
 
-    public function refresh()
-    {
-        $this->resetErrorBag();
-    }
-
     public function resetFilter()
     {
         $this->page = 1;
         $this->per_page = 10;
         $this->order_by = "id";
         $this->sort_by = "desc";
-        $this->created_by = null;
-        $this->updated_by = null;
-        $this->start_created_at = null;
-        $this->end_created_at = null;
-        $this->start_updated_at = null;
-        $this->end_updated_at = null;
-        $this->start_deleted_at = null;
-        $this->end_deleted_at = null;
-        $this->active = null;
-        $this->row = null;
 
-        $this->tuition_fee = null;
-        $this->name = null;
-        $this->name_id = null;
-        $this->description = null;
-        $this->description_id = null;
+        $this->reset([
+            "created_by",
+            "updated_by",
+            "start_created_at",
+            "end_created_at",
+            "start_updated_at",
+            "end_updated_at",
+            "start_deleted_at",
+            "end_deleted_at",
+            "active",
+            "row",
+        ]);
+
+        $this->reset([
+            "tuition_fee",
+            "name",
+            "name_id",
+            "description",
+            "description_id",
+        ]);
     }
 
     public function resetForm()
     {
-        $this->active = $this->tuition_fee->active;
-        $this->name = $this->tuition_fee->name;
-        $this->name_id = $this->tuition_fee->name_id;
-        $this->description = $this->tuition_fee->description;
-        $this->description_id = $this->tuition_fee->description_id;
+        if ($this->tuition_fee) {
+            $this->active = $this->tuition_fee->active;
+            $this->name = $this->tuition_fee->name;
+            $this->name_id = $this->tuition_fee->name_id;
+            $this->description = $this->tuition_fee->description;
+            $this->description_id = $this->tuition_fee->description_id;
+        }
     }
 
-    public function updatingPerPage()
+    public function refresh()
+    {
+        $this->resetErrorBag();
+    }
+
+    public function updating()
     {
         $this->resetPage();
     }
 
-    public function updatingOrderBy()
+    public function updated($propertyName)
     {
-        $this->resetPage();
-    }
-
-    public function updatingSortBy()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingCreatedBy()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingUpdatedBy()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingDeletedBy()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingStartCreatedAt()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingEndCreatedAt()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingStartUpdatedAt()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingEndUpdatedAt()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingStartDeletedAt()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingEndDeletedAt()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingActive()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingName()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingNameId()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingDescription()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingDescriptionId()
-    {
-        $this->resetPage();
+        if ($this->menu_type != "index" && $this->menu_type != "trash") {
+            $this->validateOnly($propertyName);
+        }
     }
 
     public function mount()

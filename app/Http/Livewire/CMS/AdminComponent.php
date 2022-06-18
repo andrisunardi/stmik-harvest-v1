@@ -74,127 +74,54 @@ class AdminComponent extends Component
         "password" => ["except" => ""],
     ];
 
-    public function refresh()
-    {
-        $this->resetErrorBag();
-    }
-
     public function resetFilter()
     {
         $this->page = 1;
         $this->per_page = 10;
         $this->order_by = "id";
         $this->sort_by = "desc";
-        $this->created_by = null;
-        $this->updated_by = null;
-        $this->start_created_at = null;
-        $this->end_created_at = null;
-        $this->start_updated_at = null;
-        $this->end_updated_at = null;
-        $this->start_deleted_at = null;
-        $this->end_deleted_at = null;
-        $this->active = null;
-        $this->row = null;
 
-        $this->admin = null;
-        $this->access = "";
-        $this->name = null;
-        $this->email = null;
-        $this->username = null;
-        $this->password = null;
-        $this->image = null;
+        $this->reset([
+            "created_by",
+            "updated_by",
+            "start_created_at",
+            "end_created_at",
+            "start_updated_at",
+            "end_updated_at",
+            "start_deleted_at",
+            "end_deleted_at",
+            "active",
+            "row",
+        ]);
+
+        $this->reset([
+            "admin",
+            "access",
+            "name",
+            "email",
+            "username",
+            "password",
+            "image",
+        ]);
     }
 
     public function resetForm()
     {
-        $this->active = $this->admin->active;
-        $this->access = $this->admin->access?->id;
-        $this->name = $this->admin->name;
-        $this->email = $this->admin->email;
-        $this->username = $this->admin->username;
+        if ($this->admin) {
+            $this->active = $this->admin->active;
+            $this->access = $this->admin->access?->id;
+            $this->name = $this->admin->name;
+            $this->email = $this->admin->email;
+            $this->username = $this->admin->username;
+        }
     }
 
-    public function updatingPerPage()
+    public function refresh()
     {
-        $this->resetPage();
+        $this->resetErrorBag();
     }
 
-    public function updatingOrderBy()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingSortBy()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingCreatedBy()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingUpdatedBy()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingDeletedBy()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingStartCreatedAt()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingEndCreatedAt()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingStartUpdatedAt()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingEndUpdatedAt()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingStartDeletedAt()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingEndDeletedAt()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingActive()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingAccess()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingName()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingEmail()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingUsername()
+    public function updating()
     {
         $this->resetPage();
     }

@@ -92,211 +92,85 @@ class SettingComponent extends Component
         "history_id" => ["except" => ""],
     ];
 
-    public function refresh()
-    {
-        $this->resetErrorBag();
-    }
-
     public function resetFilter()
     {
         $this->page = 1;
         $this->per_page = 10;
         $this->order_by = "id";
         $this->sort_by = "desc";
-        $this->created_by = null;
-        $this->updated_by = null;
-        $this->start_created_at = null;
-        $this->end_created_at = null;
-        $this->start_updated_at = null;
-        $this->end_updated_at = null;
-        $this->start_deleted_at = null;
-        $this->end_deleted_at = null;
-        $this->active = null;
-        $this->row = null;
 
-        $this->setting = null;
-        $this->sms = null;
-        $this->call = null;
-        $this->fax = null;
-        $this->whatsapp = null;
-        $this->email = null;
-        $this->address = null;
-        $this->google_maps = null;
-        $this->google_maps_iframe = null;
-        $this->about_us = null;
-        $this->about_us_id = null;
-        $this->vision = null;
-        $this->vision_id = null;
-        $this->mission = null;
-        $this->mission_id = null;
-        $this->history = null;
-        $this->history_id = null;
+        $this->reset([
+            "created_by",
+            "updated_by",
+            "start_created_at",
+            "end_created_at",
+            "start_updated_at",
+            "end_updated_at",
+            "start_deleted_at",
+            "end_deleted_at",
+            "active",
+            "row",
+        ]);
+
+        $this->reset([
+            "setting",
+            "sms",
+            "call",
+            "fax",
+            "whatsapp",
+            "email",
+            "address",
+            "google_maps",
+            "google_maps_iframe",
+            "about_us",
+            "about_us_id",
+            "vision",
+            "vision_id",
+            "mission",
+            "mission_id",
+            "history",
+            "history_id",
+        ]);
     }
 
     public function resetForm()
     {
-        $this->active = $this->setting->active;
-        $this->sms = $this->setting->sms;
-        $this->call = $this->setting->call;
-        $this->fas = $this->setting->fas;
-        $this->whatsapp = $this->setting->whatsapp;
-        $this->email = $this->setting->email;
-        $this->address = $this->setting->address;
-        $this->google_maps = $this->setting->google_maps;
-        $this->google_maps_iframe = $this->setting->google_maps_iframe;
-        $this->about_us = $this->setting->about_us;
-        $this->about_us_id = $this->setting->about_us_id;
-        $this->vision = $this->setting->vision;
-        $this->vision_id = $this->setting->vision_id;
-        $this->mission = $this->setting->mission;
-        $this->mission_id = $this->setting->mission_id;
-        $this->history = $this->setting->history;
-        $this->history_id = $this->setting->history_id;
+        if ($this->setting) {
+            $this->active = $this->setting->active;
+            $this->sms = $this->setting->sms;
+            $this->call = $this->setting->call;
+            $this->fas = $this->setting->fas;
+            $this->whatsapp = $this->setting->whatsapp;
+            $this->email = $this->setting->email;
+            $this->address = $this->setting->address;
+            $this->google_maps = $this->setting->google_maps;
+            $this->google_maps_iframe = $this->setting->google_maps_iframe;
+            $this->about_us = $this->setting->about_us;
+            $this->about_us_id = $this->setting->about_us_id;
+            $this->vision = $this->setting->vision;
+            $this->vision_id = $this->setting->vision_id;
+            $this->mission = $this->setting->mission;
+            $this->mission_id = $this->setting->mission_id;
+            $this->history = $this->setting->history;
+            $this->history_id = $this->setting->history_id;
+        }
     }
 
-    public function updatingPerPage()
+    public function refresh()
+    {
+        $this->resetErrorBag();
+    }
+
+    public function updating()
     {
         $this->resetPage();
     }
 
-    public function updatingOrderBy()
+    public function updated($propertyName)
     {
-        $this->resetPage();
-    }
-
-    public function updatingSortBy()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingCreatedBy()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingUpdatedBy()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingDeletedBy()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingStartCreatedAt()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingEndCreatedAt()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingStartUpdatedAt()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingEndUpdatedAt()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingStartDeletedAt()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingEndDeletedAt()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingActive()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingSms()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingCall()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingFax()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingWhatsapp()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingEmail()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingAddress()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingGoogleMaps()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingGoogleMapsIframe()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingAboutUs()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingAboutUsId()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingVision()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingVisionId()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingMission()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingMissionId()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingDna()
-    {
-        $this->resetPage();
-    }
-
-    public function updatingDnaId()
-    {
-        $this->resetPage();
+        if ($this->menu_type != "index" && $this->menu_type != "trash") {
+            $this->validateOnly($propertyName);
+        }
     }
 
     public function mount()
