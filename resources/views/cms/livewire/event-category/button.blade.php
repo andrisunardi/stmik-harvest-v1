@@ -1,7 +1,7 @@
 <div class="row">
     @if ($menu_type == "index")
         <div class="col-6 col-sm-auto mb-3">
-            <a draggable="false" class="btn btn-creative btn-primary w-100" wire:click="form('add', '')" wire:loading.attr="disabled">
+            <a draggable="false" class="btn btn-creative btn-primary w-100" wire:click="form('add', '')">
                 <i class="bi bi-plus-lg me-1"></i>
                 {{ trans("index.Add") }}
             </a>
@@ -32,7 +32,7 @@
 
     @if ($menu_type == "index" || $menu_type == "trash")
         <div class="col-6 col-sm-auto mb-3">
-            <a draggable="false" class="btn btn-creative btn-info w-100" wire:click="resetFilter()" wire:loading.attr="disabled">
+            <a draggable="false" class="btn btn-creative btn-info w-100" wire:click="resetFilter()">
                 <i class="bi bi-arrow-clockwise me-1"></i>
                 {{ trans("index.Reset Filter") }}
             </a>

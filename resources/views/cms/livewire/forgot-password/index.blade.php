@@ -82,7 +82,7 @@
                         </div>
                     </div>
 
-                    <button class="btn btn-primary w-100" type="button" wire:click="submit">
+                    <button type="button" class="btn btn-creative btn-primary w-100" wire:click="submit" wire:loading.attr="disabled">
                         <i class="bi bi-arrow-repeat me-1"></i>
                         {{ trans("index.Reset Password") }}
                     </button>

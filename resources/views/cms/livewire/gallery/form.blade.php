@@ -333,13 +333,13 @@
 
         <div class="row">
             <div class="col-6 col-sm-auto">
-                <button class="btn btn-primary w-100" type="button" wire:click="submit">
+                <button type="button" class="btn btn-creative btn-primary w-100" wire:click="submit" wire:loading.attr="disabled">
                     <i class="bi bi-save-fill me-1"></i>
                     {{ trans("index.Save") }}
                 </button>
             </div>
             <div class="col-6 col-sm-auto">
-                <button class="btn btn-warning w-100" type="button" wire:click="{{ $menu_type == "add" ? "resetFilter" : "resetForm" }}">
+                <button type="button" class="btn btn-creative btn-warning w-100" wire:click="{{ $menu_type == "add" ? "resetFilter" : "resetForm" }}" wire:loading.attr="disabled">
                     <i class="bi bi-arrow-repeat me-1"></i>
                     {{ trans("index.Reset") }}
                 </button>
