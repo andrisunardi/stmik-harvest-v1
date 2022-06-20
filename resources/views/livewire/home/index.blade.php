@@ -125,7 +125,7 @@
                 @foreach ($data_offer as $offer)
                     <div class="col-md-6 col-lg-3">
                         <div class="offer text-center {{ $loop->first ? null : "offer__separator" }}">
-                            <h2>{{ $offer->translate_name }}</h2>
+                            <h2 class="text-white">{{ $offer->translate_name }}</h2>
                             <p class="text-white">{!! html_entity_decode($offer->translate_description) !!}</p>
                             <div class="offer__btn">
                                 <a draggable="false" class="htc__btn btn--transparent btn--small" href="{{ $offer->button_link }}">
@@ -179,7 +179,7 @@
                             </h2>
                             <div class="findout__btn">
                                 {{-- <a draggable="false" class="htc__btn btn--yellow" href="{{ route("online-registration.index") }}">{{ trans("index.Register") }}</a> --}}
-                                <a draggable="false" class="htc__btn btn--yellow" href="pmb.stmik-kuwera.civitas.id" target="_blank">{{ trans("index.Register") }}</a>
+                                <a draggable="false" class="htc__btn btn--yellow" href="https://pmb.stmik-kuwera.civitas.id" target="_blank">{{ trans("index.Register") }}</a>
                             </div>
                         </div>
                     </div>
