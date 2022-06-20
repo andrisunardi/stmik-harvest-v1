@@ -100,7 +100,10 @@
                 <div class="col-lg-6">
                     <div class="about">
                         <div class="section__title text-left">
-                            <h2 class="title__line lh-sm">{{ trans("index.Welcome To") }} {{ trans("index.Yayasan STMIK Harvest") }}</h2>
+                            <h2 class="title__line lh-sm">
+                                {{ trans("custom.welcome_to_join") }}<br>
+                                School of Technoprenuer Nusantara (SOTN)
+                            </h2>
                             <p>{{ trans("index.College for Future Technopreneur") }}</p>
                         </div>
                         <p class="about__details">{!! html_entity_decode($setting->translate_about_us) !!}</p>
@@ -468,7 +471,7 @@
         </div>
     </section>
 
-    <section class="our__newsletter__area">
+    {{-- <section class="our__newsletter__area">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
@@ -511,7 +514,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
     <div class="map-contacts">
         <div id="googleMap">

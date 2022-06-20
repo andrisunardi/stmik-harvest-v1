@@ -252,4 +252,5 @@ return [
     "BUSINESS INFORMATION SYSTEM (BIS)" => "BUSINESS INFORMATION SYSTEM (BIS)",
     "INFORMATION SYSTEM SPECIALIST (ISS)" => "INFORMATION SYSTEM SPECIALIST (ISS)",
     "Upcoming Educational Events for your future career" => "Acara Pendidikan Mendatang untuk karir masa depan Anda",
+    "welcome_to_join" => "Selamat Bergabung dalam",
 ];
