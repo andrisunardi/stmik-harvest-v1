@@ -71,13 +71,13 @@
                                                     <h2><a draggable="false" href="{{ route("{$menu_slug}.view", ["event_slug" => $event->slug]) }}">{{ $event->translate_name }}</a></h2>
                                                     <p>{{ strip_tags(Str::limit($event->translate_description, 100)) }}</p>
                                                 </div>
-                                                <ul class="courses__meta">
+                                                {{-- <ul class="courses__meta">
                                                     <li class="crs__price">
                                                         <i class="icon ion-calendar"></i>
                                                         {{ Date::parse($event->start)->format("d M Y H:i") }} -
                                                         {{ Date::parse($event->end)->format("d M Y H:i") }}
                                                     </li>
-                                                </ul>
+                                                </ul> --}}
                                                 <ul class="courses__meta">
                                                     <li>
                                                         <i class="icon ion-map"></i>
@@ -118,13 +118,13 @@
                                                             <h2><a draggable="false" href="{{ route("{$menu_slug}.view", ["event_slug" => $event->slug]) }}">{{ $event->translate_name }}</a></h2>
                                                             <p>{{ strip_tags(Str::limit($event->translate_description, 130)) }}</p>
                                                         </div>
-                                                        <ul class="list__meta">
+                                                        {{-- <ul class="list__meta">
                                                             <li class="crs__price">
                                                                 <i class="icon ion-calendar"></i>
                                                                 {{ Date::parse($event->start)->format("d M Y H:i") }} -
                                                                 {{ Date::parse($event->end)->format("d M Y H:i") }}
                                                             </li>
-                                                        </ul>
+                                                        </ul> --}}
                                                         <ul class="list__meta">
                                                             <li>
                                                                 <i class="icon ion-map"></i>
