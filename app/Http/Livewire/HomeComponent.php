@@ -125,7 +125,10 @@ class HomeComponent extends Component
 
         $this->data_blog = Blog::active()->limit(3)->orderByDesc("id")->get();
 
-        $this->data_event = Event::where("end", "<=", now()->format("Y-m-d"))->active()->limit(6)->orderByDesc("start")->get();
+        $this->data_event = Event::where("start", ">=", now()->format("Y-m-d"))
+            ->where("end", "<=", now()->format("Y-m-d"))
+            ->active()->limit(6)->orderByDesc("start")->get();
+
         // if ($this->data_event) {
         //     $this->data_event = Event::active()->limit(6)->orderByDesc("start")->get();
         // }
