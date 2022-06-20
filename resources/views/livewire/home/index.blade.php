@@ -124,7 +124,7 @@
             <div class="row">
                 @foreach ($data_offer as $offer)
                     <div class="col-md-6 col-lg-3">
-                        <div class="offer text-center {{ $loop->first ? null : "offer__separator" }}">
+                        <div class="offer text-center text-white {{ $loop->first ? null : "offer__separator" }}">
                             <h2 class="text-white">{{ $offer->translate_name }}</h2>
                             <p class="text-white">{!! html_entity_decode($offer->translate_description) !!}</p>
                             <div class="offer__btn">
