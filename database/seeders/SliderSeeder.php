@@ -28,7 +28,7 @@ class SliderSeeder extends Seeder
         $data->description_id = "Dapatkan Diperlengkapi Untuk Mengubah Dunia";
         $data->button_name = "Study Program";
         $data->button_name_id = "Program Study";
-        $data->button_link = env("APP_URL") . "/about";
+        $data->button_link = env("APP_URL") . "/information-system";
         $data->image = Str::slug($data->name) . ".png";
         $data->save();
 
