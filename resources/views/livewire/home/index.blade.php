@@ -4,7 +4,7 @@
 @section("{$menu_slug}-active", "active")
 
 <div>
-    <div wire:ignore class="slider__container slider__fixed_height slider__position--relative">
+    {{-- <div wire:ignore class="slider__container slider__fixed_height slider__position--relative">
         <div class="slider__activation__wrap owl-carousel owl-theme">
             @foreach ($data_slider as $slider)
                 @if ($loop->iteration == 1)
@@ -72,9 +72,54 @@
                 @endif
             @endforeach
         </div>
+    </div> --}}
+
+    <div wire:ignore id="slider" class="carousel slide" data-bs-ride="false">
+        <div class="carousel-indicators">
+            @foreach ($data_slider as $slider)
+                <button type="button" data-bs-target="#slider" data-bs-slide-to="{{ $loop->index }}" class="{{ $loop->first ? "active" : null }}" aria-current="true" aria-label="Slide {{ $loop->iteration }}"></button>
+            @endforeach
+        </div>
+        <div class="carousel-inner">
+            @foreach ($data_slider as $slider)
+                <div class="carousel-item {{ $loop->first ? "active" : null }}">
+                    <a draggable="false" href="{{ $slider->button_link }}" target="_blank">
+                        <img draggable="false" src="{{ $slider->assetImage() }}" class="d-block w-100" alt="{{ trans("page.Slider") }} - {{ $slider->translate_name }} - {{ env("APP_TITLE") }}">
+                    </a>
+                    <div class="carousel-caption d-block d-sm-none" style="top: 0%">
+                        <h5 class="text-white" style="text-shadow: 1px 1px #000000;">{{ $slider->translate_name }}</h5>
+                        <p class="text-white mt-2" style="text-shadow: 1px 1px #000000;">{{ $slider->translate_description }}</p>
+                    </div>
+                    <div class="carousel-caption d-none d-sm-block d-md-none" style="top: 30%">
+                        <h2 class="text-white" style="text-shadow: 1px 1px #000000;">{{ $slider->translate_name }}</h2>
+                        <h5 class="text-white mt-2" style="text-shadow: 1px 1px #000000;">{{ $slider->translate_description }}</h5>
+                    </div>
+                    <div class="carousel-caption d-none d-md-block d-lg-none" style="top: 35%">
+                        <h2 class="text-white" style="text-shadow: 1px 1px #000000;">{{ $slider->translate_name }}</h2>
+                        <h3 class="text-white mt-2" style="text-shadow: 1px 1px #000000;">{{ $slider->translate_description }}</h3>
+                    </div>
+                    <div class="carousel-caption d-none d-lg-block d-xl-none" style="top: 40%">
+                        <h2 class="text-white" style="text-shadow: 1px 1px #000000;">{{ $slider->translate_name }}</h2>
+                        <h3 class="text-white mt-2" style="text-shadow: 1px 1px #000000;">{{ $slider->translate_description }}</h3>
+                    </div>
+                    <div class="carousel-caption d-none d-xl-block" style="top: 35%">
+                        <h1 class="text-white" style="text-shadow: 1px 1px #000000;">{{ $slider->translate_name }}</h1>
+                        <h2 class="text-white mt-2" style="text-shadow: 1px 1px #000000;">{{ $slider->translate_description }}</h2>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#slider" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">{{ trans("index.Previous") }}</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#slider" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">{{ trans("index.Next") }}</span>
+        </button>
     </div>
 
-    <section class="htc__offer__area bg--theme bg-success">
+    <section class="htc__offer__area bg--theme" style="background-color: #2D2E32">
         <div class="container">
             <div class="row">
                 @foreach ($data_offer as $offer)
@@ -178,13 +223,13 @@
                                     <h2><a draggable="false" href="{{ route("event.view", ["event_slug" => $event->slug]) }}">{{ $event->translate_name }}</a></h2>
                                     <p>{{ strip_tags(Str::limit($event->translate_description, 100)) }}</p>
                                 </div>
-                                <ul class="courses__meta">
+                                {{-- <ul class="courses__meta">
                                     <li class="crs__price">
                                         <i class="icon ion-calendar"></i>
                                         {{ Date::parse($event->start)->format("d M Y H:i") }} -
                                         {{ Date::parse($event->end)->format("d M Y H:i") }}
                                     </li>
-                                </ul>
+                                </ul> --}}
                                 <ul class="courses__meta">
                                     <li>
                                         <i class="icon ion-map"></i>
@@ -394,7 +439,7 @@
         </div>
     </section>
 
-    <section wire:ignore class="our__testimonial__area pt--80 pb--110" style="background: rgba(0, 0, 0, 0) url({{ asset("assets/images/bg/3.jpg") }}) no-repeat scroll center center / cover;">
+    <section wire:ignore class="our__testimonial__area pt--80 pb--110" style="background-color: #18563F" style-delete="background: rgba(0, 0, 0, 0) url({{ asset("assets/images/bg/3.jpg") }}) no-repeat scroll center center / cover;">
         <div class="container">
             <div class="row">
                 <div class="col-12">
