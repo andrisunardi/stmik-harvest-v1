@@ -126,7 +126,7 @@
                     <div class="col-md-6 col-lg-3">
                         <div class="offer text-center {{ $loop->first ? null : "offer__separator" }}">
                             <h2>{{ $offer->translate_name }}</h2>
-                            <p>{!! html_entity_decode($offer->translate_description) !!}</p>
+                            <p class="text-white">{!! html_entity_decode($offer->translate_description) !!}</p>
                             <div class="offer__btn">
                                 <a draggable="false" class="htc__btn btn--transparent btn--small" href="{{ $offer->button_link }}">
                                     {{ $offer->translate_button_name }}
