@@ -129,14 +129,7 @@ class HomeComponent extends Component
             ->where("end", "<=", now()->format("Y-m-d"))
             ->active()->limit(6)->orderByDesc("start")->get();
 
-        // if ($this->data_event) {
-        //     $this->data_event = Event::active()->limit(6)->orderByDesc("start")->get();
-        // }
-
-        $this->data_upcoming_event = Event::where("start", ">=", now()->format("Y-m-d"))->active()->limit(2)->orderByDesc("start")->get();
-        // if ($this->data_upcoming_event) {
-        //     $this->data_upcoming_event = Event::active()->limit(2)->orderByDesc("start")->get();
-        // }
+        $this->data_upcoming_event = Event::where("start", ">", now()->format("Y-m-d"))->active()->limit(2)->orderByDesc("start")->get();
     }
 
     public function render()
