@@ -35,4 +35,29 @@ class LogFactory extends Factory
     {
         return $this->state(fn ($attributes) => ["active" => false]);
     }
+
+    public function created()
+    {
+        return $this->state(fn ($attributes) => ["activity" => 1]);
+    }
+
+    public function updated()
+    {
+        return $this->state(fn ($attributes) => ["activity" => 2]);
+    }
+
+    public function deleted()
+    {
+        return $this->state(fn ($attributes) => ["activity" => 3]);
+    }
+
+    public function restored()
+    {
+        return $this->state(fn ($attributes) => ["activity" => 4]);
+    }
+
+    public function deletePermanent()
+    {
+        return $this->state(fn ($attributes) => ["activity" => 5]);
+    }
 }
