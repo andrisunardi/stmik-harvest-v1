@@ -86,6 +86,7 @@ class ContactUsTest extends TestCase
                 ->whereCompany($data["company"])
                 ->whereMessage($data["message"])
                 ->whereActive(true)
-            ->exists());
+                ->exists()
+        );
     }
 }
