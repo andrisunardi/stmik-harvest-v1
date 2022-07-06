@@ -14,7 +14,7 @@ class SettingSeeder extends Seeder
         $data->call = "0812 9848 7389";
         $data->fax = "0812 9848 7389";
         $data->whatsapp = "0812 9848 7389";
-        $data->email = "pmb@stmik.harvest.id";
+        $data->email = "pmb@stmikku.ac.id";
         $data->address = "Jl. Kalideres Permai No.3C, RT.1/RW.14, Kalideres, Kec. Kalideres, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta 11830";
         $data->google_maps = "https://goo.gl/maps/yHhNPra8cuxWN1Hq5";
         $data->google_maps_iframe = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1983.4362896455623!2d106.7041492!3d-6.1478105!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f80dda59c309%3A0x82be74c891f4a16b!2sJl.%20Kalideres%20Permai%20No.3C%2C%20RT.1%2FRW.14%2C%20Kalideres%2C%20Kec.%20Kalideres%2C%20Kota%20Jakarta%20Barat%2C%20Daerah%20Khusus%20Ibukota%20Jakarta%2011830!5e0!3m2!1sid!2sid!4v1655314286312!5m2!1sid!2sid";
