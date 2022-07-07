@@ -184,7 +184,8 @@
                         </div>
                     </div>
 
-                    <div class="contact__wrap">
+
+                    <div class="contact__wrap pt-5">
                         <div class="htc__contact__inner">
 
                             <h2 class="contact__title">{{ trans("index.Social Media Contact") }}</h2>

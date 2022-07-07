@@ -38,7 +38,7 @@
                             Bagi mahasiswa yang berprestasi, tersedia kesempatan magang di luar negeri seperti di Singapore, Australia, Korea Selatan dan Amerika Serikat.
                         </p> --}}
                     </div>
-                    <div class="about__thumb mt-3 mb-3 mb-lg-auto">
+                    <div class="about__thumb mt-3 mb-5 mb-lg-auto">
                         <img draggable="false" class="img-fluid w-100" src="{{ asset("images/our-values-2.webp") }}" alt="{{ trans("page.Our Values") }} - 2 - {{ env("APP_TITLE") }}">
                     </div>
                 </div>

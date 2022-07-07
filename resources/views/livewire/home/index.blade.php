@@ -154,7 +154,7 @@
                         <p class="about__details">{!! html_entity_decode($setting->translate_about_us) !!}</p>
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-6 mt-5 mt-lg-0">
                     <div class="about__thumb">
                         {{-- <iframe width="100%" height="300" src="https://www.youtube.com/embed/hmUwBHxYLDw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> --}}
 
