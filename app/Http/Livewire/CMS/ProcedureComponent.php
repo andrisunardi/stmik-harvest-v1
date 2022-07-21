@@ -16,7 +16,7 @@ class ProcedureComponent extends Component
     use WithPagination;
 
     public $menu_name = "Procedure";
-    public $menu_icon = "bi bi-legal";
+    public $menu_icon = "bi bi-card-checklist";
     public $menu_slug = "procedure";
     public $menu_table = "procedure";
     public $menu_type = "index";

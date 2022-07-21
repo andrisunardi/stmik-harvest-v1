@@ -142,7 +142,7 @@ class MenuCategorySeeder extends Seeder
             $data->menu_category_id = $menu_category->id;
             $data->name = "Offer";
             $data->name_id = "Penawaran";
-            $data->icon = "bi bi-promo";
+            $data->icon = "bi bi-gift";
             $data->sort = $sort++;
             $data->save();
 
@@ -150,7 +150,7 @@ class MenuCategorySeeder extends Seeder
             $data->menu_category_id = $menu_category->id;
             $data->name = "Procedure";
             $data->name_id = "Prosedur";
-            $data->icon = "bi bi-legal";
+            $data->icon = "bi bi-card-checklist";
             $data->sort = $sort++;
             $data->save();
 

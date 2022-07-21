@@ -17,7 +17,7 @@ class OfferComponent extends Component
     use WithPagination;
 
     public $menu_name = "Offer";
-    public $menu_icon = "bi bi-offers";
+    public $menu_icon = "bi bi-gift";
     public $menu_slug = "offer";
     public $menu_table = "offer";
     public $menu_type = "index";
