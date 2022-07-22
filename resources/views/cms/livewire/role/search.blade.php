@@ -39,8 +39,8 @@
         <div class="form-group">
             <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
             <select wire:model="{{ $input }}" class="form-select select2" id="{{ $input }}" name="{{ $input }}">
-                <option value="asc">{{ trans("index.Ascending") }}</option>
-                <option value="desc">{{ trans("index.Descending") }}</option>
+                <option value="asc" {{ "asc" == $this->sort_by ? "selected" : null }}>{{ trans("index.ascending") }}</option>
+                <option value="desc" {{ "desc" == $this->sort_by ? "selected" : null }}>{{ trans("index.descending") }}</option>
             </select>
         </div>
     </div>

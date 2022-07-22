@@ -100,9 +100,7 @@
         $("#active").on("change", function () {
             @this.set("active", $(this).val())
         })
-    </script>
 
-    <script>
         $("#blog_category").on("change", function () {
             @this.set("blog_category", $(this).val())
         })
