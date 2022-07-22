@@ -52,7 +52,7 @@
         </div>
     </div>
 
-    <div class="col-sm-4 col-lg-3 col-xl-auto">
+    <div class="col-sm-4 col-lg-3 col-xl-auto test">
         @php $input = "created_by" @endphp
         <div class="form-group">
             <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
