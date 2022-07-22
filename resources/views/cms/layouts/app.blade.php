@@ -3,7 +3,7 @@
 
     @stack("meta")
 
-    {{-- @include("vendors.jquery") --}}
+    @include("vendors.jquery")
 
     {{-- @include("vendors.autonumeric") --}}
 
@@ -103,7 +103,7 @@
     <script src="{{ asset("assets/{$sub_domain}/js/internet-status.js") }}"></script>
     <script src="{{ asset("assets/{$sub_domain}/js/tiny-slider.js") }}"></script>
     <script src="{{ asset("assets/{$sub_domain}/js/baguetteBox.min.js") }}"></script>
-    <script src="{{ asset("assets/{$sub_domain}/js/countdown.js") }}"></script>
+    {{-- <script src="{{ asset("assets/{$sub_domain}/js/countdown.js") }}"></script> --}}
     <script src="{{ asset("assets/{$sub_domain}/js/rangeslider.min.js") }}"></script>
     <script src="{{ asset("assets/{$sub_domain}/js/vanilla-dataTables.min.js") }}"></script>
     <script src="{{ asset("assets/{$sub_domain}/js/index.js") }}"></script>

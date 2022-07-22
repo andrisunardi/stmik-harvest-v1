@@ -1149,4 +1149,10 @@ return [
     "Hello, I know this number from the website" => "Halo, Saya mengetahui nomor ini dari situs web",
     "Logo" => "Logo",
     "upcoming" => ":Name Mendatang",
+
+    "all" => "Semua",
+    "ascending" => "Menaik",
+    "descending" => "Menurun",
+    "active" => "Aktif",
+    "non_active" => "Tidak Aktif",
 ];

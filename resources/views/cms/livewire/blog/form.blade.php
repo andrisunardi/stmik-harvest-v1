@@ -8,7 +8,7 @@
                 <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }} <span class="text-danger">*</span></label>
                 <div class="input-group has-validation">
                     <div class="input-group-text"><span class="bi bi-tags"></span></div>
-                    <select wire:model="{{ $input }}" class="form-select @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" id="{{ $input }}" name="{{ $input }}" required>
+                    <select wire:model="{{ $input }}" class="form-select select2 @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" id="{{ $input }}" name="{{ $input }}" required>
                         <option value="">{{ trans("index.Select") }} {{ trans("validation.attributes.{$input}") }}</option>
                         @foreach ($data_blog_category as $blog_category)
                             <option value="{{ $blog_category->id }}">{{ $blog_category->translate_name }}</option>

@@ -33,10 +33,10 @@ class GalleryComponent extends Component
     public $end_updated_at;
     public $start_deleted_at;
     public $end_deleted_at;
-    public $created_by;
-    public $updated_by;
-    public $deleted_by;
-    public $active;
+    public $created_by = "";
+    public $updated_by = "";
+    public $deleted_by = "";
+    public $active = "";
     public $row;
     public $checkbox_all;
     public $checkbox_id;

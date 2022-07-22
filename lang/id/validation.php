@@ -273,5 +273,6 @@ return [
         "whatsapp" => "Whatsapp",
         "year" => "Tahun",
         "youtube" => "Youtube",
+        "blog_category" => "Kategori Blog",
     ],
 ];

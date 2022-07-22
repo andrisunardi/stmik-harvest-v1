@@ -1540,4 +1540,10 @@ return [
     "Hello, I know this number from the website" => "Hello, I know this number from the website",
     "Logo" => "Logo",
     "upcoming" => "Upcoming :Name",
+
+    "all" => "All",
+    "ascending" => "Ascending",
+    "descending" => "Descending",
+    "active" => "Active",
+    "non_active" => "Non Active",
 ];

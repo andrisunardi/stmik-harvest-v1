@@ -25,7 +25,7 @@
                 <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }} <span class="text-danger">*</span></label>
                 <div class="input-group has-validation">
                     <div class="input-group-text"><span class="bi bi-gender-ambiguous"></span></div>
-                    <select wire:model="{{ $input }}" class="form-select @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" id="{{ $input }}" name="{{ $input }}" required>
+                    <select wire:model="{{ $input }}" class="form-select select2 @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" id="{{ $input }}" name="{{ $input }}" required>
                         <option value="">{{ trans("index.Select") }} {{ trans("validation.attributes.{$input}") }}</option>
                         <option value="1">{{ trans("index.Man") }}</option>
                         <option value="2">{{ trans("index.Woman") }}</option>
@@ -134,7 +134,7 @@
                 <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }} <span class="text-danger">*</span></label>
                 <div class="input-group has-validation">
                     <div class="input-group-text"><span class="bi bi-clock"></span></div>
-                    <select wire:model="{{ $input }}" class="form-select @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" id="{{ $input }}" name="{{ $input }}" required>
+                    <select wire:model="{{ $input }}" class="form-select select2 @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" id="{{ $input }}" name="{{ $input }}" required>
                         <option value="">{{ trans("index.Select") }} {{ trans("validation.attributes.{$input}") }}</option>
                         <option value="1">{{ trans("index.Morning - Afternoon Lecturer") }}</option>
                         <option value="2">{{ trans("index.Study & Work (Evening Lecture)") }}</option>

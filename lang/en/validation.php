@@ -271,5 +271,6 @@ return [
         "whatsapp" => "Whatsapp",
         "year" => "Year",
         "youtube" => "Youtube",
+        "blog_category" => "Blog Category",
     ],
 ];

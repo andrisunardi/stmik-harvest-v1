@@ -8,8 +8,20 @@
     <script>
         $(".select2").select2({
             theme: "bootstrap4",
-            dropdownAutoWidth : true,
-            width: "resolve", // auto
+            dropdownAutoWidth: true,
+            width: "auto", // resolve
+        });
+    </script>
+
+    <script>
+        document.addEventListener("livewire:load", () => {
+            Livewire.hook("message.processed", (message, component) => {
+                $(".select2").select2({
+                    theme: "bootstrap4",
+                    dropdownAutoWidth: true,
+                    width: "auto", // resolve
+                });
+            });
         });
     </script>
 @endpush

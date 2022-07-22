@@ -76,7 +76,7 @@
                     </td>
                     <td>
                         @if ($blog->blog_category)
-                            <a draggable="false" href="{{ route("{$sub_domain}.blog-category.index") . "?menu_type=view&row={$blog->blog_category->id}" : }}" target="_blank">
+                            <a draggable="false" href="{{ route("{$sub_domain}.blog-category.index") . "?menu_type=view&row={$blog->blog_category->id}" }}" target="_blank">
                                 {{ $blog->blog_category->translate_name }}
                             </a>
                             <a draggable="false" href="{{ route("{$menu_slug}.index") . "?category={$blog->blog_category->id}" }}" class="btn btn-link btn-sm" target="_blank">
