@@ -26,6 +26,7 @@ use App\Models\Slider;
 use App\Models\Testimony;
 use App\Models\TuitionFee;
 use App\Models\Value;
+use App\Models\User;
 use App\Observers\AccessMenuObserver;
 use App\Observers\AccessObserver;
 use App\Observers\AdminObserver;
@@ -50,6 +51,7 @@ use App\Observers\SliderObserver;
 use App\Observers\TestimonyObserver;
 use App\Observers\TuitionFeeObserver;
 use App\Observers\ValueObserver;
+use App\Observers\UserObserver;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Schema;
@@ -198,6 +200,7 @@ class AppServiceProvider extends ServiceProvider
         Testimony::observe(TestimonyObserver::class);
         TuitionFee::observe(TuitionFeeObserver::class);
         Value::observe(ValueObserver::class);
+        User::observe(UserObserver::class);
 
         Schema::defaultStringLength(191);
 

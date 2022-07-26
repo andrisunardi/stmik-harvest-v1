@@ -7,7 +7,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
-class AdminSeeder extends Seeder
+class UserSeeder extends Seeder
 {
     public function run()
     {
