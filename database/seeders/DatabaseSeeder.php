@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             AccessSeeder::class,
             AccessMenuSeeder::class,
             AdminSeeder::class,
+            UserSeeder::class,
 
             SettingSeeder::class,
             LogSeeder::class,
