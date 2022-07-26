@@ -31,6 +31,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'username',
         'password',
         'active',
     ];
@@ -63,23 +64,5 @@ class User extends Authenticatable
     public function deleted_by_admin()
     {
         return $this->belongsTo(Admin::class, 'deleted_by', 'id')->withTrashed()->withDefault(null);
-    }
-
-    public function data_repository()
-    {
-        return $this->hasMany(Repository::class)->orderByDesc('id');
-    }
-
-    public static function boot()
-    {
-        parent::boot();
-
-        static::deleted(function ($table) {
-            $table->data_repository()->delete();
-        });
-
-        static::restored(function ($table) {
-            $table->data_repository()->restore();
-        });
     }
 }
