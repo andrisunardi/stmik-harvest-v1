@@ -26,6 +26,11 @@ return [
 
     'cipher' => 'AES-256-CBC',
 
+    'maintenance' => [
+        'driver' => 'file',
+        // "store"  => "redis",
+    ],
+
     'providers' => [
 
         Illuminate\Auth\AuthServiceProvider::class,

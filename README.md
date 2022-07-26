@@ -29,5 +29,14 @@ composer require barryvdh/laravel-debugbar --dev
 composer require brianium/paratest --dev
 ```
 ```
+composer require psr/simple-cache ^2.0
+```
+```
+composer require maatwebsite/excel
+```
+```
+composer require barryvdh/laravel-dompdf
+```
+```
 php artisan vendor:publish
 ```
