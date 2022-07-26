@@ -14,11 +14,15 @@ class FaqTest extends TestCase
 {
     use DatabaseMigrations, RefreshDatabase, WithFaker;
 
-    public $menu_name = "Faq";
-    public $menu_icon = "fas fa-question";
-    public $menu_slug = "faq";
-    public $menu_table = "faq";
-    public $menu_type = "index";
+    public $menu_name = 'Faq';
+
+    public $menu_icon = 'fas fa-question';
+
+    public $menu_slug = 'faq';
+
+    public $menu_table = 'faq';
+
+    public $menu_type = 'index';
 
     public function test_index()
     {
@@ -31,11 +35,11 @@ class FaqTest extends TestCase
         Livewire::test(FaqComponent::class)
             ->assertSee($faq->translate_name)
             ->assertSee($faq->translate_description)
-            ->assertDontSee("custom.")
-            ->assertDontSee("index.")
-            ->assertDontSee("message.")
-            ->assertDontSee("page.")
-            ->assertDontSee("validation.")
+            ->assertDontSee('custom.')
+            ->assertDontSee('index.')
+            ->assertDontSee('message.')
+            ->assertDontSee('page.')
+            ->assertDontSee('validation.')
             ->assertStatus(200);
 
         $this->assertTrue($faq->exists());

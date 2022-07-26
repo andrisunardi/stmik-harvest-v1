@@ -10,25 +10,25 @@ use Illuminate\Support\Facades\Route;
 
 class RouteServiceProvider extends ServiceProvider
 {
-    public const HOME = "/home";
+    public const HOME = '/home';
 
     public function boot()
     {
         $this->configureRateLimiting();
 
         $this->routes(function () {
-            Route::prefix(env("APP_ENV") == "production" ? "" : "api")
-                ->name("api")
-                ->as("api.")
-                ->middleware("api")
+            Route::prefix(env('APP_ENV') == 'production' ? '' : 'api')
+                ->name('api')
+                ->as('api.')
+                ->middleware('api')
                 ->namespace("App\Http\Controllers\API")
                 // ->domain(env("APP_ENV") == "production" ? "www.api." . env("APP_DOMAIN") : null)
-                ->group(base_path("routes/api.php"));
+                ->group(base_path('routes/api.php'));
 
-            Route::middleware("web")
+            Route::middleware('web')
                 ->namespace("App\Http\Livewire")
                 // ->domain(env("APP_ENV") == "production" ? "www." . env("APP_DOMAIN") : null)
-                ->group(base_path("routes/web.php"));
+                ->group(base_path('routes/web.php'));
 
             // Route::prefix(env("APP_ENV") == "production" ? "" : "cms")
             //     ->domain(env("APP_ENV") == "production" ? "www.cms." . env("APP_DOMAIN") : null)
@@ -42,7 +42,7 @@ class RouteServiceProvider extends ServiceProvider
 
     protected function configureRateLimiting()
     {
-        RateLimiter::for("api", function (Request $request) {
+        RateLimiter::for('api', function (Request $request) {
             return Limit::perMinute(60)->by($request->user()?->id ?: $request->ip());
         });
     }

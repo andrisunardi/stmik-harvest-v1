@@ -2,28 +2,27 @@
 
 namespace App\Observers;
 
-use App\Models\Testimony;
-use App\Models\Menu;
 use App\Models\Log;
-
+use App\Models\Menu;
+use App\Models\Testimony;
 use Illuminate\Support\Facades\Auth;
 
 class TestimonyObserver
 {
-    protected $name = "Testimony";
+    protected $name = 'Testimony';
 
     public function creating(Testimony $testimony)
     {
-        $testimony->created_by = Auth::guard("admin")->hasUser(Auth::user()) ? Auth::user()->id : 0;
-        $testimony->updated_by = Auth::guard("admin")->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $testimony->created_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $testimony->updated_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
     }
 
     public function created(Testimony $testimony)
     {
-        $menu = Menu::where("name", $this->name)->first();
+        $menu = Menu::where('name', $this->name)->first();
 
         $log = new Log();
-        $log->admin_id = Auth::guard("admin")->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $log->admin_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
         $log->menu_id = $menu->id;
         $log->row = $testimony->id;
         $log->activity = 1;
@@ -32,15 +31,15 @@ class TestimonyObserver
 
     public function updating(Testimony $testimony)
     {
-        $testimony->updated_by = Auth::guard("admin")->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $testimony->updated_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
     }
 
     public function updated(Testimony $testimony)
     {
-        $menu = Menu::where("name", $this->name)->first();
+        $menu = Menu::where('name', $this->name)->first();
 
         $log = new Log();
-        $log->admin_id = Auth::guard("admin")->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $log->admin_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
         $log->menu_id = $menu->id;
         $log->row = $testimony->id;
         $log->activity = 2;
@@ -49,16 +48,16 @@ class TestimonyObserver
 
     public function deleting(Testimony $testimony)
     {
-        $testimony->deleted_by = Auth::guard("admin")->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $testimony->deleted_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
         $testimony->save();
     }
 
     public function deleted(Testimony $testimony)
     {
-        $menu = Menu::where("name", $this->name)->first();
+        $menu = Menu::where('name', $this->name)->first();
 
         $log = new Log();
-        $log->admin_id = Auth::guard("admin")->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $log->admin_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
         $log->menu_id = $menu->id;
         $log->row = $testimony->id;
         $log->activity = 3;
@@ -72,13 +71,13 @@ class TestimonyObserver
 
     public function restored(Testimony $testimony)
     {
-        $menu = Menu::where("name", $this->name)->first();
+        $menu = Menu::where('name', $this->name)->first();
 
         $testimony->deleted_by = null;
         $testimony->save();
 
         $log = new Log();
-        $log->admin_id = Auth::guard("admin")->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $log->admin_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
         $log->menu_id = $menu->id;
         $log->row = $testimony->id;
         $log->activity = 4;
@@ -87,10 +86,10 @@ class TestimonyObserver
 
     public function forceDeleted(Testimony $testimony)
     {
-        $menu = Menu::where("name", $this->name)->first();
+        $menu = Menu::where('name', $this->name)->first();
 
         $log = new Log();
-        $log->admin_id = Auth::guard("admin")->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $log->admin_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
         $log->menu_id = $menu->id;
         $log->row = $testimony->id;
         $log->activity = 5;

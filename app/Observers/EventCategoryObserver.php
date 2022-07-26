@@ -3,27 +3,26 @@
 namespace App\Observers;
 
 use App\Models\EventCategory;
-use App\Models\Menu;
 use App\Models\Log;
-
+use App\Models\Menu;
 use Illuminate\Support\Facades\Auth;
 
 class EventCategoryObserver
 {
-    protected $name = "Event Category";
+    protected $name = 'Event Category';
 
     public function creating(EventCategory $event_category)
     {
-        $event_category->created_by = Auth::guard("admin")->hasUser(Auth::user()) ? Auth::user()->id : 0;
-        $event_category->updated_by = Auth::guard("admin")->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $event_category->created_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $event_category->updated_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
     }
 
     public function created(EventCategory $event_category)
     {
-        $menu = Menu::where("name", $this->name)->first();
+        $menu = Menu::where('name', $this->name)->first();
 
         $log = new Log();
-        $log->admin_id = Auth::guard("admin")->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $log->admin_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
         $log->menu_id = $menu->id;
         $log->row = $event_category->id;
         $log->activity = 1;
@@ -32,15 +31,15 @@ class EventCategoryObserver
 
     public function updating(EventCategory $event_category)
     {
-        $event_category->updated_by = Auth::guard("admin")->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $event_category->updated_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
     }
 
     public function updated(EventCategory $event_category)
     {
-        $menu = Menu::where("name", $this->name)->first();
+        $menu = Menu::where('name', $this->name)->first();
 
         $log = new Log();
-        $log->admin_id = Auth::guard("admin")->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $log->admin_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
         $log->menu_id = $menu->id;
         $log->row = $event_category->id;
         $log->activity = 2;
@@ -49,16 +48,16 @@ class EventCategoryObserver
 
     public function deleting(EventCategory $event_category)
     {
-        $event_category->deleted_by = Auth::guard("admin")->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $event_category->deleted_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
         $event_category->save();
     }
 
     public function deleted(EventCategory $event_category)
     {
-        $menu = Menu::where("name", $this->name)->first();
+        $menu = Menu::where('name', $this->name)->first();
 
         $log = new Log();
-        $log->admin_id = Auth::guard("admin")->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $log->admin_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
         $log->menu_id = $menu->id;
         $log->row = $event_category->id;
         $log->activity = 3;
@@ -72,13 +71,13 @@ class EventCategoryObserver
 
     public function restored(EventCategory $event_category)
     {
-        $menu = Menu::where("name", $this->name)->first();
+        $menu = Menu::where('name', $this->name)->first();
 
         $event_category->deleted_by = null;
         $event_category->save();
 
         $log = new Log();
-        $log->admin_id = Auth::guard("admin")->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $log->admin_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
         $log->menu_id = $menu->id;
         $log->row = $event_category->id;
         $log->activity = 4;
@@ -87,10 +86,10 @@ class EventCategoryObserver
 
     public function forceDeleted(EventCategory $event_category)
     {
-        $menu = Menu::where("name", $this->name)->first();
+        $menu = Menu::where('name', $this->name)->first();
 
         $log = new Log();
-        $log->admin_id = Auth::guard("admin")->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $log->admin_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
         $log->menu_id = $menu->id;
         $log->row = $event_category->id;
         $log->activity = 5;

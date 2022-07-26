@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use DateTimeInterface;
-
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -14,63 +13,63 @@ class Access extends Model
 
     // protected $connection = "mysql";
 
-    protected $table = "access";
+    protected $table = 'access';
 
-    protected $primaryKey = "id";
+    protected $primaryKey = 'id';
 
     public $incrementing = true;
 
     public $timestamps = true;
 
-    protected $guarded = ["access"];
+    protected $guarded = ['access'];
 
-    protected $dates = ["deleted_at"];
+    protected $dates = ['deleted_at'];
 
     // protected $dateFormat = "U";
 
     protected $fillable = [
-        "name",
-        "active",
+        'name',
+        'active',
     ];
 
     public function serializeDate(DateTimeInterface $date)
     {
-        return $date->format("Y-m-d H:i:s");
+        return $date->format('Y-m-d H:i:s');
     }
 
     public function scopeActive($query)
     {
-        return $query->where("active", true);
+        return $query->where('active', true);
     }
 
     public function scopeNonActive($query)
     {
-        return $query->where("active", false);
+        return $query->where('active', false);
     }
 
     public function created_by_admin()
     {
-        return $this->belongsTo(Admin::class, "created_by", "id")->withTrashed()->withDefault(null);
+        return $this->belongsTo(Admin::class, 'created_by', 'id')->withTrashed()->withDefault(null);
     }
 
     public function updated_by_admin()
     {
-        return $this->belongsTo(Admin::class, "updated_by", "id")->withTrashed()->withDefault(null);
+        return $this->belongsTo(Admin::class, 'updated_by', 'id')->withTrashed()->withDefault(null);
     }
 
     public function deleted_by_admin()
     {
-        return $this->belongsTo(Admin::class, "deleted_by", "id")->withTrashed()->withDefault(null);
+        return $this->belongsTo(Admin::class, 'deleted_by', 'id')->withTrashed()->withDefault(null);
     }
 
     public function data_access_menu()
     {
-        return $this->hasMany(AccessMenu::class)->orderBy("id");
+        return $this->hasMany(AccessMenu::class)->orderBy('id');
     }
 
     public function data_admin()
     {
-        return $this->hasMany(Admin::class)->orderBy("name");
+        return $this->hasMany(Admin::class)->orderBy('name');
     }
 
     public static function boot()

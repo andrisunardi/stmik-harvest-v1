@@ -3,27 +3,26 @@
 namespace App\Observers;
 
 use App\Models\Blog;
-use App\Models\Menu;
 use App\Models\Log;
-
+use App\Models\Menu;
 use Illuminate\Support\Facades\Auth;
 
 class BlogObserver
 {
-    protected $name = "Blog";
+    protected $name = 'Blog';
 
     public function creating(Blog $blog)
     {
-        $blog->created_by = Auth::guard("admin")->hasUser(Auth::user()) ? Auth::user()->id : 0;
-        $blog->updated_by = Auth::guard("admin")->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $blog->created_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $blog->updated_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
     }
 
     public function created(Blog $blog)
     {
-        $menu = Menu::where("name", $this->name)->first();
+        $menu = Menu::where('name', $this->name)->first();
 
         $log = new Log();
-        $log->admin_id = Auth::guard("admin")->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $log->admin_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
         $log->menu_id = $menu->id;
         $log->row = $blog->id;
         $log->activity = 1;
@@ -32,15 +31,15 @@ class BlogObserver
 
     public function updating(Blog $blog)
     {
-        $blog->updated_by = Auth::guard("admin")->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $blog->updated_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
     }
 
     public function updated(Blog $blog)
     {
-        $menu = Menu::where("name", $this->name)->first();
+        $menu = Menu::where('name', $this->name)->first();
 
         $log = new Log();
-        $log->admin_id = Auth::guard("admin")->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $log->admin_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
         $log->menu_id = $menu->id;
         $log->row = $blog->id;
         $log->activity = 2;
@@ -49,16 +48,16 @@ class BlogObserver
 
     public function deleting(Blog $blog)
     {
-        $blog->deleted_by = Auth::guard("admin")->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $blog->deleted_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
         $blog->save();
     }
 
     public function deleted(Blog $blog)
     {
-        $menu = Menu::where("name", $this->name)->first();
+        $menu = Menu::where('name', $this->name)->first();
 
         $log = new Log();
-        $log->admin_id = Auth::guard("admin")->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $log->admin_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
         $log->menu_id = $menu->id;
         $log->row = $blog->id;
         $log->activity = 3;
@@ -72,13 +71,13 @@ class BlogObserver
 
     public function restored(Blog $blog)
     {
-        $menu = Menu::where("name", $this->name)->first();
+        $menu = Menu::where('name', $this->name)->first();
 
         $blog->deleted_by = null;
         $blog->save();
 
         $log = new Log();
-        $log->admin_id = Auth::guard("admin")->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $log->admin_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
         $log->menu_id = $menu->id;
         $log->row = $blog->id;
         $log->activity = 4;
@@ -87,10 +86,10 @@ class BlogObserver
 
     public function forceDeleted(Blog $blog)
     {
-        $menu = Menu::where("name", $this->name)->first();
+        $menu = Menu::where('name', $this->name)->first();
 
         $log = new Log();
-        $log->admin_id = Auth::guard("admin")->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $log->admin_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
         $log->menu_id = $menu->id;
         $log->row = $blog->id;
         $log->activity = 5;

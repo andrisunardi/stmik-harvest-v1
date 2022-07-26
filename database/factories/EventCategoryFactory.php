@@ -15,22 +15,22 @@ class EventCategoryFactory extends Factory
         $name = $this->faker->unique()->sentence();
 
         return [
-            "name" => $name,
-            "name_id" => $this->faker->unique()->sentence(),
-            "description" => $this->faker->paragraph(),
-            "description_id" => $this->faker->paragraph(),
-            "slug" => Str::slug($name),
-            "active" => $this->faker->boolean(),
+            'name' => $name,
+            'name_id' => $this->faker->unique()->sentence(),
+            'description' => $this->faker->paragraph(),
+            'description_id' => $this->faker->paragraph(),
+            'slug' => Str::slug($name),
+            'active' => $this->faker->boolean(),
         ];
     }
 
     public function active()
     {
-        return $this->state(fn ($attributes) => ["active" => true]);
+        return $this->state(fn ($attributes) => ['active' => true]);
     }
 
     public function nonActive()
     {
-        return $this->state(fn ($attributes) => ["active" => false]);
+        return $this->state(fn ($attributes) => ['active' => false]);
     }
 }

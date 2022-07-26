@@ -13,11 +13,15 @@ class OurProfileTest extends TestCase
 {
     use DatabaseMigrations, RefreshDatabase, WithFaker;
 
-    public $menu_name = "Our Profile";
-    public $menu_icon = "fas fa-building";
-    public $menu_slug = "our-profile";
-    public $menu_table = "our_profile";
-    public $menu_type = "index";
+    public $menu_name = 'Our Profile';
+
+    public $menu_icon = 'fas fa-building';
+
+    public $menu_slug = 'our-profile';
+
+    public $menu_table = 'our_profile';
+
+    public $menu_type = 'index';
 
     public function test_index()
     {
@@ -26,11 +30,11 @@ class OurProfileTest extends TestCase
         $response->assertSeeLivewire(OurProfileComponent::class);
 
         Livewire::test(OurProfileComponent::class)
-            ->assertDontSee("custom.")
-            ->assertDontSee("index.")
-            ->assertDontSee("message.")
-            ->assertDontSee("page.")
-            ->assertDontSee("validation.")
+            ->assertDontSee('custom.')
+            ->assertDontSee('index.')
+            ->assertDontSee('message.')
+            ->assertDontSee('page.')
+            ->assertDontSee('validation.')
             ->assertStatus(200);
     }
 }

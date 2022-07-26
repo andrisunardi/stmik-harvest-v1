@@ -16,27 +16,27 @@ class BannerFactory extends Factory
         $name = $this->faker->unique()->name();
 
         File::copy(
-            public_path("images/image.png"),
-            public_path("images/" . Str::kebab(Str::substr($this->model, 11)) . "/" . Str::slug($name) . ".png"),
+            public_path('images/image.png'),
+            public_path('images/'.Str::kebab(Str::substr($this->model, 11)).'/'.Str::slug($name).'.png'),
         );
 
         return [
-            "name" => $name,
-            "name_id" => $this->faker->name(),
-            "description" => $this->faker->paragraph(),
-            "description_id" => $this->faker->paragraph(),
-            "image" => Str::slug($name) . ".png",
-            "active" => $this->faker->boolean(),
+            'name' => $name,
+            'name_id' => $this->faker->name(),
+            'description' => $this->faker->paragraph(),
+            'description_id' => $this->faker->paragraph(),
+            'image' => Str::slug($name).'.png',
+            'active' => $this->faker->boolean(),
         ];
     }
 
     public function active()
     {
-        return $this->state(fn ($attributes) => ["active" => true]);
+        return $this->state(fn ($attributes) => ['active' => true]);
     }
 
     public function nonActive()
     {
-        return $this->state(fn ($attributes) => ["active" => false]);
+        return $this->state(fn ($attributes) => ['active' => false]);
     }
 }

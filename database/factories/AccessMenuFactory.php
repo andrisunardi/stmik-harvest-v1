@@ -18,53 +18,53 @@ class AccessMenuFactory extends Factory
         Menu::first() ?? Menu::factory()->create();
 
         return [
-            "access_id" => Access::get()->random()->id,
-            "menu_id" => Menu::get()->random()->id,
-            "view" => $this->faker->boolean(),
-            "add" => $this->faker->boolean(),
-            "edit" => $this->faker->boolean(),
-            "delete" => $this->faker->boolean(),
-            "active" => $this->faker->boolean(),
+            'access_id' => Access::get()->random()->id,
+            'menu_id' => Menu::get()->random()->id,
+            'view' => $this->faker->boolean(),
+            'add' => $this->faker->boolean(),
+            'edit' => $this->faker->boolean(),
+            'delete' => $this->faker->boolean(),
+            'active' => $this->faker->boolean(),
         ];
     }
 
     public function active()
     {
-        return $this->state(fn ($attributes) => ["active" => true]);
+        return $this->state(fn ($attributes) => ['active' => true]);
     }
 
     public function nonActive()
     {
-        return $this->state(fn ($attributes) => ["active" => false]);
+        return $this->state(fn ($attributes) => ['active' => false]);
     }
 
     public function addTrue()
     {
-        return $this->state(fn ($attributes) => ["add" => true]);
+        return $this->state(fn ($attributes) => ['add' => true]);
     }
 
     public function addFalse()
     {
-        return $this->state(fn ($attributes) => ["add" => false]);
+        return $this->state(fn ($attributes) => ['add' => false]);
     }
 
     public function editTrue()
     {
-        return $this->state(fn ($attributes) => ["edit" => true]);
+        return $this->state(fn ($attributes) => ['edit' => true]);
     }
 
     public function editFalse()
     {
-        return $this->state(fn ($attributes) => ["edit" => false]);
+        return $this->state(fn ($attributes) => ['edit' => false]);
     }
 
     public function deleteTrue()
     {
-        return $this->state(fn ($attributes) => ["delete" => true]);
+        return $this->state(fn ($attributes) => ['delete' => true]);
     }
 
     public function deleteFalse()
     {
-        return $this->state(fn ($attributes) => ["delete" => false]);
+        return $this->state(fn ($attributes) => ['delete' => false]);
     }
 }

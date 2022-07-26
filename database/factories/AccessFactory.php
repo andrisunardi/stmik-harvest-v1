@@ -12,17 +12,18 @@ class AccessFactory extends Factory
     public function definition()
     {
         return [
-            "name" => $this->faker->unique()->jobTitle(),
-            "active" => $this->faker->boolean(),
+            'name' => $this->faker->unique()->jobTitle(),
+            'active' => $this->faker->boolean(),
         ];
     }
+
     public function active()
     {
-        return $this->state(fn ($attributes) => ["active" => true]);
+        return $this->state(fn ($attributes) => ['active' => true]);
     }
 
     public function nonActive()
     {
-        return $this->state(fn ($attributes) => ["active" => false]);
+        return $this->state(fn ($attributes) => ['active' => false]);
     }
 }

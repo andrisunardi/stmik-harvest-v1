@@ -3,27 +3,26 @@
 namespace App\Observers;
 
 use App\Models\Access;
-use App\Models\Menu;
 use App\Models\Log;
-
+use App\Models\Menu;
 use Illuminate\Support\Facades\Auth;
 
 class AccessObserver
 {
-    protected $name = "Access";
+    protected $name = 'Access';
 
     public function creating(Access $access)
     {
-        $access->created_by = Auth::guard("admin")->hasUser(Auth::user()) ? Auth::user()->id : 0;
-        $access->updated_by = Auth::guard("admin")->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $access->created_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $access->updated_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
     }
 
     public function created(Access $access)
     {
-        $menu = Menu::where("name", $this->name)->first();
+        $menu = Menu::where('name', $this->name)->first();
 
         $log = new Log();
-        $log->admin_id = Auth::guard("admin")->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $log->admin_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
         $log->menu_id = $menu->id;
         $log->row = $access->id;
         $log->activity = 1;
@@ -32,15 +31,15 @@ class AccessObserver
 
     public function updating(Access $access)
     {
-        $access->updated_by = Auth::guard("admin")->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $access->updated_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
     }
 
     public function updated(Access $access)
     {
-        $menu = Menu::where("name", $this->name)->first();
+        $menu = Menu::where('name', $this->name)->first();
 
         $log = new Log();
-        $log->admin_id = Auth::guard("admin")->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $log->admin_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
         $log->menu_id = $menu->id;
         $log->row = $access->id;
         $log->activity = 2;
@@ -49,16 +48,16 @@ class AccessObserver
 
     public function deleting(Access $access)
     {
-        $access->deleted_by = Auth::guard("admin")->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $access->deleted_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
         $access->save();
     }
 
     public function deleted(Access $access)
     {
-        $menu = Menu::where("name", $this->name)->first();
+        $menu = Menu::where('name', $this->name)->first();
 
         $log = new Log();
-        $log->admin_id = Auth::guard("admin")->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $log->admin_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
         $log->menu_id = $menu->id;
         $log->row = $access->id;
         $log->activity = 3;
@@ -72,13 +71,13 @@ class AccessObserver
 
     public function restored(Access $access)
     {
-        $menu = Menu::where("name", $this->name)->first();
+        $menu = Menu::where('name', $this->name)->first();
 
         $access->deleted_by = null;
         $access->save();
 
         $log = new Log();
-        $log->admin_id = Auth::guard("admin")->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $log->admin_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
         $log->menu_id = $menu->id;
         $log->row = $access->id;
         $log->activity = 4;
@@ -87,10 +86,10 @@ class AccessObserver
 
     public function forceDeleted(Access $access)
     {
-        $menu = Menu::where("name", $this->name)->first();
+        $menu = Menu::where('name', $this->name)->first();
 
         $log = new Log();
-        $log->admin_id = Auth::guard("admin")->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $log->admin_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
         $log->menu_id = $menu->id;
         $log->row = $access->id;
         $log->activity = 5;

@@ -3,27 +3,26 @@
 namespace App\Observers;
 
 use App\Models\Banner;
-use App\Models\Menu;
 use App\Models\Log;
-
+use App\Models\Menu;
 use Illuminate\Support\Facades\Auth;
 
 class BannerObserver
 {
-    protected $name = "Banner";
+    protected $name = 'Banner';
 
     public function creating(Banner $banner)
     {
-        $banner->created_by = Auth::guard("admin")->hasUser(Auth::user()) ? Auth::user()->id : 0;
-        $banner->updated_by = Auth::guard("admin")->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $banner->created_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $banner->updated_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
     }
 
     public function created(Banner $banner)
     {
-        $menu = Menu::where("name", $this->name)->first();
+        $menu = Menu::where('name', $this->name)->first();
 
         $log = new Log();
-        $log->admin_id = Auth::guard("admin")->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $log->admin_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
         $log->menu_id = $menu->id;
         $log->row = $banner->id;
         $log->activity = 1;
@@ -32,15 +31,15 @@ class BannerObserver
 
     public function updating(Banner $banner)
     {
-        $banner->updated_by = Auth::guard("admin")->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $banner->updated_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
     }
 
     public function updated(Banner $banner)
     {
-        $menu = Menu::where("name", $this->name)->first();
+        $menu = Menu::where('name', $this->name)->first();
 
         $log = new Log();
-        $log->admin_id = Auth::guard("admin")->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $log->admin_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
         $log->menu_id = $menu->id;
         $log->row = $banner->id;
         $log->activity = 2;
@@ -49,16 +48,16 @@ class BannerObserver
 
     public function deleting(Banner $banner)
     {
-        $banner->deleted_by = Auth::guard("admin")->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $banner->deleted_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
         $banner->save();
     }
 
     public function deleted(Banner $banner)
     {
-        $menu = Menu::where("name", $this->name)->first();
+        $menu = Menu::where('name', $this->name)->first();
 
         $log = new Log();
-        $log->admin_id = Auth::guard("admin")->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $log->admin_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
         $log->menu_id = $menu->id;
         $log->row = $banner->id;
         $log->activity = 3;
@@ -72,13 +71,13 @@ class BannerObserver
 
     public function restored(Banner $banner)
     {
-        $menu = Menu::where("name", $this->name)->first();
+        $menu = Menu::where('name', $this->name)->first();
 
         $banner->deleted_by = null;
         $banner->save();
 
         $log = new Log();
-        $log->admin_id = Auth::guard("admin")->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $log->admin_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
         $log->menu_id = $menu->id;
         $log->row = $banner->id;
         $log->activity = 4;
@@ -87,10 +86,10 @@ class BannerObserver
 
     public function forceDeleted(Banner $banner)
     {
-        $menu = Menu::where("name", $this->name)->first();
+        $menu = Menu::where('name', $this->name)->first();
 
         $log = new Log();
-        $log->admin_id = Auth::guard("admin")->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $log->admin_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
         $log->menu_id = $menu->id;
         $log->row = $banner->id;
         $log->activity = 5;

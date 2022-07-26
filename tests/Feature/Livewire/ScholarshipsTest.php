@@ -13,11 +13,15 @@ class ScholarshipsTest extends TestCase
 {
     use DatabaseMigrations, RefreshDatabase, WithFaker;
 
-    public $menu_name = "Scholarships";
-    public $menu_icon = "fas fa-question";
-    public $menu_slug = "scholarships";
-    public $menu_table = "scholarship";
-    public $menu_type = "index";
+    public $menu_name = 'Scholarships';
+
+    public $menu_icon = 'fas fa-question';
+
+    public $menu_slug = 'scholarships';
+
+    public $menu_table = 'scholarship';
+
+    public $menu_type = 'index';
 
     public function test_index()
     {
@@ -26,11 +30,11 @@ class ScholarshipsTest extends TestCase
         $response->assertSeeLivewire(ScholarshipsComponent::class);
 
         Livewire::test(ScholarshipsComponent::class)
-            ->assertDontSee("custom.")
-            ->assertDontSee("index.")
-            ->assertDontSee("message.")
-            ->assertDontSee("page.")
-            ->assertDontSee("validation.")
+            ->assertDontSee('custom.')
+            ->assertDontSee('index.')
+            ->assertDontSee('message.')
+            ->assertDontSee('page.')
+            ->assertDontSee('validation.')
             ->assertStatus(200);
     }
 }

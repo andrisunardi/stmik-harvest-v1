@@ -2,9 +2,8 @@
 
 namespace App\Http\Middleware;
 
-use Closure;
-
 use App\Providers\RouteServiceProvider;
+use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -19,11 +18,11 @@ class RedirectIfAuthenticated
             if (Auth::guard($guard)->check()) {
                 return redirect(RouteServiceProvider::HOME);
 
-                if (Route::is("cms.*")) {
-                    return redirect()->route("cms.index")->withInfo("You already login");
+                if (Route::is('cms.*')) {
+                    return redirect()->route('cms.index')->withInfo('You already login');
                 }
 
-                return redirect()->route("index")->withInfo("You already login");
+                return redirect()->route('index')->withInfo('You already login');
             }
         }
 

@@ -16,11 +16,15 @@ class AboutTest extends TestCase
 {
     use DatabaseMigrations, RefreshDatabase, WithFaker;
 
-    public $menu_name = "About";
-    public $menu_icon = "fas fa-building";
-    public $menu_slug = "about";
-    public $menu_table = "about";
-    public $menu_type = "index";
+    public $menu_name = 'About';
+
+    public $menu_icon = 'fas fa-building';
+
+    public $menu_slug = 'about';
+
+    public $menu_table = 'about';
+
+    public $menu_type = 'index';
 
     public function test_index()
     {
@@ -39,17 +43,17 @@ class AboutTest extends TestCase
             ->assertSee($network->translate_description)
             ->assertSee($network->link)
             ->assertSee($network->image)
-            ->assertDontSee("custom.")
-            ->assertDontSee("index.")
-            ->assertDontSee("message.")
-            ->assertDontSee("page.")
-            ->assertDontSee("validation.")
+            ->assertDontSee('custom.')
+            ->assertDontSee('index.')
+            ->assertDontSee('message.')
+            ->assertDontSee('page.')
+            ->assertDontSee('validation.')
             ->assertStatus(200);
 
         $this->assertTrue($value->exists());
         $this->assertTrue($network->exists());
 
-        Storage::disk("images")->assertExists("network/{$network->image}");
+        Storage::disk('images')->assertExists("network/{$network->image}");
 
         $network->deleteImage();
     }

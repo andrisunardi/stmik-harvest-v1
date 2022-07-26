@@ -6,12 +6,11 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
-
 class ImportDatabase extends Command
 {
-    protected $signature = "import:database";
+    protected $signature = 'import:database';
 
-    protected $description = "Import Database";
+    protected $description = 'Import Database';
 
     public function __construct()
     {
@@ -21,12 +20,12 @@ class ImportDatabase extends Command
     public function handle()
     {
         try {
-            DB::unprepared(file_get_contents("database/sql/database.sql"));
-            $this->info("Import Database is Completed");
+            DB::unprepared(file_get_contents('database/sql/database.sql'));
+            $this->info('Import Database is Completed');
         } catch (\Exception $e) {
             var_dump($e->getMessage());
         }
 
-        Log::info("Import Database is Completed");
+        Log::info('Import Database is Completed');
     }
 }

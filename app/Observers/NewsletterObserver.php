@@ -2,28 +2,27 @@
 
 namespace App\Observers;
 
-use App\Models\Newsletter;
-use App\Models\Menu;
 use App\Models\Log;
-
+use App\Models\Menu;
+use App\Models\Newsletter;
 use Illuminate\Support\Facades\Auth;
 
 class NewsletterObserver
 {
-    protected $name = "Newsletter";
+    protected $name = 'Newsletter';
 
     public function creating(Newsletter $newsletter)
     {
-        $newsletter->created_by = Auth::guard("admin")->hasUser(Auth::user()) ? Auth::user()->id : 0;
-        $newsletter->updated_by = Auth::guard("admin")->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $newsletter->created_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $newsletter->updated_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
     }
 
     public function created(Newsletter $newsletter)
     {
-        $menu = Menu::where("name", $this->name)->first();
+        $menu = Menu::where('name', $this->name)->first();
 
         $log = new Log();
-        $log->admin_id = Auth::guard("admin")->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $log->admin_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
         $log->menu_id = $menu->id;
         $log->row = $newsletter->id;
         $log->activity = 1;
@@ -32,15 +31,15 @@ class NewsletterObserver
 
     public function updating(Newsletter $newsletter)
     {
-        $newsletter->updated_by = Auth::guard("admin")->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $newsletter->updated_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
     }
 
     public function updated(Newsletter $newsletter)
     {
-        $menu = Menu::where("name", $this->name)->first();
+        $menu = Menu::where('name', $this->name)->first();
 
         $log = new Log();
-        $log->admin_id = Auth::guard("admin")->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $log->admin_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
         $log->menu_id = $menu->id;
         $log->row = $newsletter->id;
         $log->activity = 2;
@@ -49,16 +48,16 @@ class NewsletterObserver
 
     public function deleting(Newsletter $newsletter)
     {
-        $newsletter->deleted_by = Auth::guard("admin")->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $newsletter->deleted_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
         $newsletter->save();
     }
 
     public function deleted(Newsletter $newsletter)
     {
-        $menu = Menu::where("name", $this->name)->first();
+        $menu = Menu::where('name', $this->name)->first();
 
         $log = new Log();
-        $log->admin_id = Auth::guard("admin")->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $log->admin_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
         $log->menu_id = $menu->id;
         $log->row = $newsletter->id;
         $log->activity = 3;
@@ -72,13 +71,13 @@ class NewsletterObserver
 
     public function restored(Newsletter $newsletter)
     {
-        $menu = Menu::where("name", $this->name)->first();
+        $menu = Menu::where('name', $this->name)->first();
 
         $newsletter->deleted_by = null;
         $newsletter->save();
 
         $log = new Log();
-        $log->admin_id = Auth::guard("admin")->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $log->admin_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
         $log->menu_id = $menu->id;
         $log->row = $newsletter->id;
         $log->activity = 4;
@@ -87,10 +86,10 @@ class NewsletterObserver
 
     public function forceDeleted(Newsletter $newsletter)
     {
-        $menu = Menu::where("name", $this->name)->first();
+        $menu = Menu::where('name', $this->name)->first();
 
         $log = new Log();
-        $log->admin_id = Auth::guard("admin")->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $log->admin_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
         $log->menu_id = $menu->id;
         $log->row = $newsletter->id;
         $log->activity = 5;

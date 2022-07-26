@@ -19,28 +19,28 @@ class AdminFactory extends Factory
         $name = $this->faker->unique()->name();
 
         File::copy(
-            public_path("images/image.png"),
-            public_path("images/" . Str::kebab(Str::substr($this->model, 11)) . "/" . Str::slug($name) . ".png"),
+            public_path('images/image.png'),
+            public_path('images/'.Str::kebab(Str::substr($this->model, 11)).'/'.Str::slug($name).'.png'),
         );
 
         return [
-            "access_id" => Access::get()->random()->id,
-            "name" => $name,
-            "email" => $this->faker->unique()->email(),
-            "username" => $this->faker->unique()->username(),
-            "password" => $this->faker->password(),
-            "image" => Str::slug($name) . ".png",
-            "active" => $this->faker->boolean(),
+            'access_id' => Access::get()->random()->id,
+            'name' => $name,
+            'email' => $this->faker->unique()->email(),
+            'username' => $this->faker->unique()->username(),
+            'password' => $this->faker->password(),
+            'image' => Str::slug($name).'.png',
+            'active' => $this->faker->boolean(),
         ];
     }
 
     public function active()
     {
-        return $this->state(fn ($attributes) => ["active" => true]);
+        return $this->state(fn ($attributes) => ['active' => true]);
     }
 
     public function nonActive()
     {
-        return $this->state(fn ($attributes) => ["active" => false]);
+        return $this->state(fn ($attributes) => ['active' => false]);
     }
 }

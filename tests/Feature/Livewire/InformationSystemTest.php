@@ -13,11 +13,15 @@ class InformationSystemTest extends TestCase
 {
     use DatabaseMigrations, RefreshDatabase, WithFaker;
 
-    public $menu_name = "Information System";
-    public $menu_icon = "fas fa-question";
-    public $menu_slug = "information-system";
-    public $menu_table = "information_system";
-    public $menu_type = "index";
+    public $menu_name = 'Information System';
+
+    public $menu_icon = 'fas fa-question';
+
+    public $menu_slug = 'information-system';
+
+    public $menu_table = 'information_system';
+
+    public $menu_type = 'index';
 
     public function test_index()
     {
@@ -26,11 +30,11 @@ class InformationSystemTest extends TestCase
         $response->assertSeeLivewire(InformationSystemComponent::class);
 
         Livewire::test(InformationSystemComponent::class)
-            ->assertDontSee("custom.")
-            ->assertDontSee("index.")
-            ->assertDontSee("message.")
-            ->assertDontSee("page.")
-            ->assertDontSee("validation.")
+            ->assertDontSee('custom.')
+            ->assertDontSee('index.')
+            ->assertDontSee('message.')
+            ->assertDontSee('page.')
+            ->assertDontSee('validation.')
             ->assertStatus(200);
     }
 }

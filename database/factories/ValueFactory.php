@@ -12,22 +12,22 @@ class ValueFactory extends Factory
     public function definition()
     {
         return [
-            "name" => $this->faker->unique()->sentence(),
-            "name_id" => $this->faker->unique()->sentence(),
-            "description" => $this->faker->paragraph(),
-            "description_id" => $this->faker->paragraph(),
-            "icon" => $this->faker->word(),
-            "active" => $this->faker->boolean(),
+            'name' => $this->faker->unique()->sentence(),
+            'name_id' => $this->faker->unique()->sentence(),
+            'description' => $this->faker->paragraph(),
+            'description_id' => $this->faker->paragraph(),
+            'icon' => $this->faker->word(),
+            'active' => $this->faker->boolean(),
         ];
     }
 
     public function active()
     {
-        return $this->state(fn ($attributes) => ["active" => true]);
+        return $this->state(fn ($attributes) => ['active' => true]);
     }
 
     public function nonActive()
     {
-        return $this->state(fn ($attributes) => ["active" => false]);
+        return $this->state(fn ($attributes) => ['active' => false]);
     }
 }

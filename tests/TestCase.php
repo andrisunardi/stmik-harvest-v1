@@ -20,7 +20,7 @@ abstract class TestCase extends BaseTestCase
         $this->password = $this->faker->password();
         $password = Hash::make($this->password);
 
-        $this->admin = Admin::factory()->active()->create(["password" => $password]);
+        $this->admin = Admin::factory()->active()->create(['password' => $password]);
         $this->admin->deleteImage();
     }
 }

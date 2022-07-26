@@ -7,29 +7,29 @@ use Illuminate\Support\Facades\Facade;
 
 return [
 
-    "name" => env("APP_NAME", "Laravel"),
+    'name' => env('APP_NAME', 'Laravel'),
 
-    "env" => env("APP_ENV", "production"),
+    'env' => env('APP_ENV', 'production'),
 
-    "debug" => (bool) env("APP_DEBUG", false),
+    'debug' => (bool) env('APP_DEBUG', false),
 
-    "url" => env("APP_URL", "http://localhost"),
+    'url' => env('APP_URL', 'http://localhost'),
 
-    "asset_url" => env("ASSET_URL"),
+    'asset_url' => env('ASSET_URL'),
 
-    "timezone" => env("APP_TIMEZONE", "UTC"),
+    'timezone' => env('APP_TIMEZONE', 'UTC'),
 
-    "locale" => env("APP_LOCALE", "en"),
+    'locale' => env('APP_LOCALE', 'en'),
 
-    "fallback_locale" => env("APP_FALLBACK_LOCALE", "en"),
+    'fallback_locale' => env('APP_FALLBACK_LOCALE', 'en'),
 
-    "faker_locale" => env("APP_FAKER_LOCALE", "en_US"),
+    'faker_locale' => env('APP_FAKER_LOCALE', 'en_US'),
 
-    "key" => env("APP_KEY"),
+    'key' => env('APP_KEY'),
 
-    "cipher" => "AES-256-CBC",
+    'cipher' => 'AES-256-CBC',
 
-    "providers" => [
+    'providers' => [
 
         Illuminate\Auth\AuthServiceProvider::class,
         Illuminate\Broadcasting\BroadcastServiceProvider::class,
@@ -64,9 +64,9 @@ return [
         Spatie\Permission\PermissionServiceProvider::class,
     ],
 
-    "aliases" => Facade::defaultAliases()->merge([
+    'aliases' => Facade::defaultAliases()->merge([
         // ...
     ])->toArray(),
 
-    "Alert" => RealRashid\SweetAlert\Facades\Alert::class,
+    'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
 ];

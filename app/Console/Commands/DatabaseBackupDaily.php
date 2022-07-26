@@ -8,9 +8,9 @@ use Illuminate\Support\Facades\Mail;
 
 class DatabaseBackupDaily extends Command
 {
-    protected $signature = "database:backup:daily";
+    protected $signature = 'database:backup:daily';
 
-    protected $description = "Database Backup Daily";
+    protected $description = 'Database Backup Daily';
 
     public function __construct()
     {
@@ -19,24 +19,24 @@ class DatabaseBackupDaily extends Command
 
     public function handle()
     {
-        exec("mysqldump -u " . env("DB_USERNAME") . " -p'" . env("DB_PASSWORD") . "' " . env("DB_DATABASE") . "  > " . storage_path() . "/app/database/" . date("Y-m-d") . ".sql");
+        exec('mysqldump -u '.env('DB_USERNAME')." -p'".env('DB_PASSWORD')."' ".env('DB_DATABASE').'  > '.storage_path().'/app/database/'.date('Y-m-d').'.sql');
 
-        if (env("APP_ENV") == "production") {
-            Mail::send("email.database", [
-                "created_at" => now(),
+        if (env('APP_ENV') == 'production') {
+            Mail::send('email.database', [
+                'created_at' => now(),
             ], function ($message) {
                 $message
-                    ->to("database@" . env("APP_DOMAIN"))
-                    ->cc("database@" . env("APP_DOMAIN"))
-                    ->bcc("database@" . env("APP_DOMAIN"))
-                    ->subject("Database Backup Daily - " . date("F d, Y"))
-                    ->attach(storage_path() . "/app/database/" . date("Y-m-d") . ".sql", [
-                        "as" => "database-" . date("Y-m-d") . ".sql",
-                        "mime" => "application/gzip",
+                    ->to('database@'.env('APP_DOMAIN'))
+                    ->cc('database@'.env('APP_DOMAIN'))
+                    ->bcc('database@'.env('APP_DOMAIN'))
+                    ->subject('Database Backup Daily - '.date('F d, Y'))
+                    ->attach(storage_path().'/app/database/'.date('Y-m-d').'.sql', [
+                        'as' => 'database-'.date('Y-m-d').'.sql',
+                        'mime' => 'application/gzip',
                     ]);
             });
         }
 
-        Log::info("Database Backup Daily is Completed");
+        Log::info('Database Backup Daily is Completed');
     }
 }

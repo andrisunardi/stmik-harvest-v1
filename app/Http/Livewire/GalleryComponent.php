@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire;
 
-use App\Http\Livewire\Component;
 use App\Models\Banner;
 use App\Models\Gallery;
 use Illuminate\Support\Str;
@@ -12,24 +11,28 @@ class GalleryComponent extends Component
 {
     use WithPagination;
 
-    public $menu_name = "Gallery";
-    public $menu_icon = "fas fa-image-video";
-    public $menu_slug = "gallery";
-    public $menu_table = "gallery";
+    public $menu_name = 'Gallery';
+
+    public $menu_icon = 'fas fa-image-video';
+
+    public $menu_slug = 'gallery';
+
+    public $menu_table = 'gallery';
 
     public $page = 1;
+
     public $tag;
 
     public $queryString = [
-        "page" => ["except" => 1],
-        "tag" => ["except" => ""],
+        'page' => ['except' => 1],
+        'tag' => ['except' => ''],
     ];
 
     public function mount()
     {
         $this->banner = Banner::find(13);
 
-        $this->data_gallery_category = Gallery::groupBy("tag")->active()->orderBy("name")->get();
+        $this->data_gallery_category = Gallery::groupBy('tag')->active()->orderBy('name')->get();
     }
 
     public function tag($tag = null)
@@ -39,8 +42,8 @@ class GalleryComponent extends Component
 
     public function render()
     {
-        $data_gallery = Gallery::when($this->tag, fn ($query) => $query->where("tag", Str::headline($this->tag))->orWhere("tag_id", Str::headline($this->tag)))->active()->orderBy("id")->paginate(12);
+        $data_gallery = Gallery::when($this->tag, fn ($query) => $query->where('tag', Str::headline($this->tag))->orWhere('tag_id', Str::headline($this->tag)))->active()->orderBy('id')->paginate(12);
 
-        return view("livewire.{$this->menu_slug}.index", ["data_gallery" => $data_gallery])->extends("layouts.app", ["banner" => $this->banner])->section("content");
+        return view("livewire.{$this->menu_slug}.index", ['data_gallery' => $data_gallery])->extends('layouts.app', ['banner' => $this->banner])->section('content');
     }
 }

@@ -9,6 +9,6 @@ class Component extends LivewireComponent
 {
     public function message(string $message)
     {
-        Session::flash("message", $message);
+        Session::flash('message', $message);
     }
 }

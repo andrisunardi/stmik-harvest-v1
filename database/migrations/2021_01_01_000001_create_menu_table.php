@@ -8,17 +8,17 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create("menu", function (Blueprint $table) {
+        Schema::create('menu', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("menu_category_id")->nullable()->unsigned();
-            $table->string("name", 50)->nullable()->unique();
-            $table->string("name_id", 50)->nullable()->unique();
-            $table->string("icon", 50)->nullable();
-            $table->integer("sort")->nullable()->unsigned();
-            $table->boolean("active")->nullable()->unsigned()->comment("1 = Yes, 0 = No")->default("1");
-            $table->foreignId("created_by")->nullable()->unsigned();
-            $table->foreignId("updated_by")->nullable()->unsigned();
-            $table->foreignId("deleted_by")->nullable()->unsigned();
+            $table->foreignId('menu_category_id')->nullable()->unsigned();
+            $table->string('name', 50)->nullable()->unique();
+            $table->string('name_id', 50)->nullable()->unique();
+            $table->string('icon', 50)->nullable();
+            $table->integer('sort')->nullable()->unsigned();
+            $table->boolean('active')->nullable()->unsigned()->comment('1 = Yes, 0 = No')->default('1');
+            $table->foreignId('created_by')->nullable()->unsigned();
+            $table->foreignId('updated_by')->nullable()->unsigned();
+            $table->foreignId('deleted_by')->nullable()->unsigned();
             $table->timestamps();
             $table->softDeletes();
         });
@@ -26,6 +26,6 @@ return new class extends Migration
 
     public function down()
     {
-        Schema::dropIfExists("menu");
+        Schema::dropIfExists('menu');
     }
 };

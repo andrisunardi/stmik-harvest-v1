@@ -8,19 +8,19 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create("offer", function (Blueprint $table) {
+        Schema::create('offer', function (Blueprint $table) {
             $table->id();
-            $table->string("name", 100)->nullable()->unique();
-            $table->string("name_id", 100)->nullable()->unique();
-            $table->text("description")->nullable();
-            $table->text("description_id")->nullable();
-            $table->string("button_name", 100)->nullable();
-            $table->string("button_name_id", 100)->nullable();
-            $table->string("button_link", 100)->nullable();
-            $table->boolean("active")->nullable()->unsigned()->comment("1 = Yes, 0 = No")->default("1");
-            $table->foreignId("created_by")->nullable()->unsigned();
-            $table->foreignId("updated_by")->nullable()->unsigned();
-            $table->foreignId("deleted_by")->nullable()->unsigned();
+            $table->string('name', 100)->nullable()->unique();
+            $table->string('name_id', 100)->nullable()->unique();
+            $table->text('description')->nullable();
+            $table->text('description_id')->nullable();
+            $table->string('button_name', 100)->nullable();
+            $table->string('button_name_id', 100)->nullable();
+            $table->string('button_link', 100)->nullable();
+            $table->boolean('active')->nullable()->unsigned()->comment('1 = Yes, 0 = No')->default('1');
+            $table->foreignId('created_by')->nullable()->unsigned();
+            $table->foreignId('updated_by')->nullable()->unsigned();
+            $table->foreignId('deleted_by')->nullable()->unsigned();
             $table->timestamps();
             $table->softDeletes();
         });
@@ -28,6 +28,6 @@ return new class extends Migration
 
     public function down()
     {
-        Schema::dropIfExists("offer");
+        Schema::dropIfExists('offer');
     }
 };

@@ -10,11 +10,11 @@ class AccessSeeder extends Seeder
     public function run()
     {
         $data = new Access();
-        $data->name = "Super Admin";
+        $data->name = 'Super Admin';
         $data->save();
 
         $data = new Access();
-        $data->name = "Admin";
+        $data->name = 'Admin';
         $data->save();
     }
 }

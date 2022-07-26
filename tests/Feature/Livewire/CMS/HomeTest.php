@@ -3,10 +3,10 @@
 namespace Tests\Feature\Livewire\CMS;
 
 use App\Http\Livewire\CMS\HomeComponent;
-use Livewire\Livewire;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Livewire\Livewire;
 use Tests\TestCase;
 
 class HomeTest extends TestCase

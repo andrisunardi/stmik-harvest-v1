@@ -2,14 +2,6 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\Facades\Artisan;
-use Illuminate\Support\Facades\Request;
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\URL;
-use Illuminate\Support\Facades\View;
-use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Str;
-
 use App\Models\Access;
 use App\Models\AccessMenu;
 use App\Models\Admin;
@@ -34,7 +26,6 @@ use App\Models\Slider;
 use App\Models\Testimony;
 use App\Models\TuitionFee;
 use App\Models\Value;
-
 use App\Observers\AccessMenuObserver;
 use App\Observers\AccessObserver;
 use App\Observers\AdminObserver;
@@ -59,114 +50,124 @@ use App\Observers\SliderObserver;
 use App\Observers\TestimonyObserver;
 use App\Observers\TuitionFeeObserver;
 use App\Observers\ValueObserver;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\View;
+use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Str;
 
 class AppServiceProvider extends ServiceProvider
 {
     public function register()
     {
-        Str::macro("phone", function($value) {
-            if (Str::substr($value, 0, 3) == "021") {
-                return Str::slug(Str::substrReplace($value, "62", 0, 1), "");
+        Str::macro('phone', function ($value) {
+            if (Str::substr($value, 0, 3) == '021') {
+                return Str::slug(Str::substrReplace($value, '62', 0, 1), '');
             }
-            if (Str::substr($value, 0, 5) == "(021)") {
-                return Str::slug(Str::substrReplace($value, "62", 0, 2), "");
+            if (Str::substr($value, 0, 5) == '(021)') {
+                return Str::slug(Str::substrReplace($value, '62', 0, 2), '');
             }
-            if (Str::substr($value, 0, 1) == "0") {
-                return Str::slug(Str::substrReplace($value, "62", 0, 1), "");
+            if (Str::substr($value, 0, 1) == '0') {
+                return Str::slug(Str::substrReplace($value, '62', 0, 1), '');
             }
 
             return $value;
         });
 
-        Str::macro("oddEven", function ($value) {
-            return $value % 2 == 0 ? "Even" : "Odd";
+        Str::macro('oddEven', function ($value) {
+            return $value % 2 == 0 ? 'Even' : 'Odd';
         });
 
-        Str::macro("thousand", function ($value) {
-            return number_format($value, 0, ",", ".");
+        Str::macro('thousand', function ($value) {
+            return number_format($value, 0, ',', '.');
         });
 
-        Str::macro("rupiah", function ($value) {
-            return "Rp. " . number_format($value, 0, ",", ".");
+        Str::macro('rupiah', function ($value) {
+            return 'Rp. '.number_format($value, 0, ',', '.');
         });
 
-        Str::macro("idr", function ($value) {
-            return "IDR. " . number_format($value, 0, ",", ".");
+        Str::macro('idr', function ($value) {
+            return 'IDR. '.number_format($value, 0, ',', '.');
         });
 
-        Str::macro("dollar", function ($value) {
-            return "$ " . number_format($value, 0, ",", ".");
+        Str::macro('dollar', function ($value) {
+            return '$ '.number_format($value, 0, ',', '.');
         });
 
-        Str::macro("yesno", function($value) {
-            return $value ? "Yes" : "No";
+        Str::macro('yesno', function ($value) {
+            return $value ? 'Yes' : 'No';
         });
 
-        Str::macro("active", function($value) {
-            return $value ? "Active" : "Non Active";
+        Str::macro('active', function ($value) {
+            return $value ? 'Active' : 'Non Active';
         });
 
-        Str::macro("successdanger", function($value) {
-            return $value == 1 ? "success" : "danger";
+        Str::macro('successdanger', function ($value) {
+            return $value == 1 ? 'success' : 'danger';
         });
 
-        Str::macro("formatsymbol", function ($value, $symbol) {
-            return Str::replace(array("~", "`", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "+", "=", "{", "[", "}", "]", "|", "\\", ":", ";", '"', "'", "<", ",", ">", ".", "?", "/", " "), $symbol, $value);
+        Str::macro('formatsymbol', function ($value, $symbol) {
+            return Str::replace(['~', '`', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '+', '=', '{', '[', '}', ']', '|', '\\', ':', ';', '"', "'", '<', ',', '>', '.', '?', '/', ' '], $symbol, $value);
         });
 
-        Str::macro("color", function($value) {
+        Str::macro('color', function ($value) {
             if ($value % 1 == 0) {
-                $color = "primary";
+                $color = 'primary';
             }
             if ($value % 2 == 0) {
-                $color = "secondary";
+                $color = 'secondary';
             }
             if ($value % 3 == 0) {
-                $color = "info";
+                $color = 'info';
             }
             if ($value % 4 == 0) {
-                $color = "success";
+                $color = 'success';
             }
             if ($value % 5 == 0) {
-                $color = "warning";
+                $color = 'warning';
             }
             if ($value % 6 == 0) {
-                $color = "danger";
-            // } else if ($value % 7 == 0) {
+                $color = 'danger';
+                // } else if ($value % 7 == 0) {
             //     $color = "light";
             // } else if ($value % 8 == 0) {
             //     $color = "dark";
             }
+
             return $color;
         });
 
-        Str::macro("logcolor", function($value) {
+        Str::macro('logcolor', function ($value) {
             if ($value == 1) {
-                $color = "primary";
+                $color = 'primary';
             }
             if ($value == 2) {
-                $color = "success";
+                $color = 'success';
             }
             if ($value == 3) {
-                $color = "warning";
+                $color = 'warning';
             }
             if ($value == 4) {
-                $color = "info";
+                $color = 'info';
             }
             if ($value == 5) {
-                $color = "danger";
+                $color = 'danger';
             }
+
             return $color;
         });
 
-        Str::macro("formatBytes", function($value, $precision = 2) {
-            static $units = array("B", "kB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB");
+        Str::macro('formatBytes', function ($value, $precision = 2) {
+            static $units = ['B', 'kB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
             $step = 1024;
             $i = 0;
             while (($value / $step) > 0.9) {
                 $value = $value / $step;
                 $i++;
             }
+
             return round($value, $precision).$units[$i];
         });
     }
@@ -200,26 +201,26 @@ class AppServiceProvider extends ServiceProvider
 
         Schema::defaultStringLength(191);
 
-        if (env("APP_ENV") == "production") {
-            URL::forceScheme("https");
+        if (env('APP_ENV') == 'production') {
+            URL::forceScheme('https');
         }
 
-        if (env("APP_ENV") == "testing") {
-            Artisan::call("migrate:fresh --seed");
+        if (env('APP_ENV') == 'testing') {
+            Artisan::call('migrate:fresh --seed');
         }
 
         // $this->sub_domain = env("APP_ENV") == "production" ? explode(".", Request::url())[1] : Request::segment(1);
         $this->sub_domain = Request::segment(1);
-        View::share("sub_domain", $this->sub_domain);
+        View::share('sub_domain', $this->sub_domain);
 
-        if (Schema::hasTable("banner")) {
-            $this->banner = Banner::active()->orderBy("id")->first();
-            View::share("banner", $this->banner);
+        if (Schema::hasTable('banner')) {
+            $this->banner = Banner::active()->orderBy('id')->first();
+            View::share('banner', $this->banner);
         }
 
-        if (Schema::hasTable("setting")) {
-            $this->setting = Setting::active()->orderByDesc("id")->first();
-            View::share("setting", $this->setting);
+        if (Schema::hasTable('setting')) {
+            $this->setting = Setting::active()->orderByDesc('id')->first();
+            View::share('setting', $this->setting);
         }
     }
 }

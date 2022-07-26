@@ -3,18 +3,18 @@
 return [
 
     // "view" => "breadcrumbs::bootstrap5",
-    "view" => "vendors/breadcrumbs",
+    'view' => 'vendors/breadcrumbs',
 
-    "files" => base_path("routes/breadcrumbs.php"),
+    'files' => base_path('routes/breadcrumbs.php'),
 
-    "unnamed-route-exception" => true,
+    'unnamed-route-exception' => true,
 
-    "missing-route-bound-breadcrumb-exception" => true,
+    'missing-route-bound-breadcrumb-exception' => true,
 
-    "invalid-named-breadcrumb-exception" => true,
+    'invalid-named-breadcrumb-exception' => true,
 
-    "manager-class" => Diglactic\Breadcrumbs\Manager::class,
+    'manager-class' => Diglactic\Breadcrumbs\Manager::class,
 
-    "generator-class" => Diglactic\Breadcrumbs\Generator::class,
+    'generator-class' => Diglactic\Breadcrumbs\Generator::class,
 
 ];

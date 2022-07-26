@@ -15,11 +15,15 @@ class GalleryTest extends TestCase
 {
     use DatabaseMigrations, RefreshDatabase, WithFaker;
 
-    public $menu_name = "Gallery";
-    public $menu_icon = "fas fa-images";
-    public $menu_slug = "gallery";
-    public $menu_table = "gallery";
-    public $menu_type = "index";
+    public $menu_name = 'Gallery';
+
+    public $menu_icon = 'fas fa-images';
+
+    public $menu_slug = 'gallery';
+
+    public $menu_table = 'gallery';
+
+    public $menu_type = 'index';
 
     public function test_index()
     {
@@ -42,20 +46,20 @@ class GalleryTest extends TestCase
             ->assertSee($gallery_youtube->category_text)
             ->assertSee($gallery_youtube->image)
             ->assertSee($gallery_youtube->youtube)
-            ->assertDontSee("custom.")
-            ->assertDontSee("index.")
-            ->assertDontSee("message.")
-            ->assertDontSee("page.")
-            ->assertDontSee("validation.")
+            ->assertDontSee('custom.')
+            ->assertDontSee('index.')
+            ->assertDontSee('message.')
+            ->assertDontSee('page.')
+            ->assertDontSee('validation.')
             ->assertStatus(200);
 
         $this->assertTrue($gallery_image->exists());
         $this->assertTrue($gallery_video->exists());
         $this->assertTrue($gallery_youtube->exists());
 
-        Storage::disk("images")->assertExists("{$this->menu_slug}/{$gallery_image->image}");
-        Storage::disk("images")->assertExists("{$this->menu_slug}/{$gallery_video->image}");
-        Storage::disk("images")->assertExists("{$this->menu_slug}/{$gallery_youtube->image}");
+        Storage::disk('images')->assertExists("{$this->menu_slug}/{$gallery_image->image}");
+        Storage::disk('images')->assertExists("{$this->menu_slug}/{$gallery_video->image}");
+        Storage::disk('images')->assertExists("{$this->menu_slug}/{$gallery_youtube->image}");
 
         $gallery_image->deleteImage();
         $gallery_video->deleteImage();

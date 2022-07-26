@@ -14,11 +14,15 @@ class AdmissionCalendarTest extends TestCase
 {
     use DatabaseMigrations, RefreshDatabase, WithFaker;
 
-    public $menu_name = "Admission Calendar";
-    public $menu_icon = "fas fa-calendar";
-    public $menu_slug = "admission-calendar";
-    public $menu_table = "admission_calendar";
-    public $menu_type = "index";
+    public $menu_name = 'Admission Calendar';
+
+    public $menu_icon = 'fas fa-calendar';
+
+    public $menu_slug = 'admission-calendar';
+
+    public $menu_table = 'admission_calendar';
+
+    public $menu_type = 'index';
 
     public function test_index()
     {
@@ -31,11 +35,11 @@ class AdmissionCalendarTest extends TestCase
         Livewire::test(AdmissionCalendarComponent::class)
             ->assertSee($admission_calendar->translate_name)
             ->assertSee($admission_calendar->translate_description)
-            ->assertDontSee("custom.")
-            ->assertDontSee("index.")
-            ->assertDontSee("message.")
-            ->assertDontSee("page.")
-            ->assertDontSee("validation.")
+            ->assertDontSee('custom.')
+            ->assertDontSee('index.')
+            ->assertDontSee('message.')
+            ->assertDontSee('page.')
+            ->assertDontSee('validation.')
             ->assertStatus(200);
 
         $this->assertTrue($admission_calendar->exists());

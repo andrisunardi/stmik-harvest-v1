@@ -17,8 +17,8 @@ class DatabaseBackupDaily extends Mailable
 
     public function build()
     {
-        return $this->view("email.database")->with([
-            "created_at" => now()
+        return $this->view('email.database')->with([
+            'created_at' => now(),
         ]);
     }
 }

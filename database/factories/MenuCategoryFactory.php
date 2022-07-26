@@ -12,21 +12,21 @@ class MenuCategoryFactory extends Factory
     public function definition()
     {
         return [
-            "name" => $this->faker->unique()->sentence(),
-            "name_id" => $this->faker->unique()->sentence(),
-            "icon" => "bi bi-" . $this->faker->word(),
-            "sort" => $this->faker->randomNumber(1, 99999999999),
-            "active" => $this->faker->boolean(),
+            'name' => $this->faker->unique()->sentence(),
+            'name_id' => $this->faker->unique()->sentence(),
+            'icon' => 'bi bi-'.$this->faker->word(),
+            'sort' => $this->faker->randomNumber(1, 99999999999),
+            'active' => $this->faker->boolean(),
         ];
     }
 
     public function active()
     {
-        return $this->state(fn ($attributes) => ["active" => true]);
+        return $this->state(fn ($attributes) => ['active' => true]);
     }
 
     public function nonActive()
     {
-        return $this->state(fn ($attributes) => ["active" => false]);
+        return $this->state(fn ($attributes) => ['active' => false]);
     }
 }

@@ -2,8 +2,8 @@
 
 namespace Tests\Feature\API;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class HomeTest extends TestCase
@@ -12,7 +12,7 @@ class HomeTest extends TestCase
 
     public function test_index()
     {
-        $response = $this->get(route("api.index"));
+        $response = $this->get(route('api.index'));
         $response->assertStatus(200);
     }
 }
