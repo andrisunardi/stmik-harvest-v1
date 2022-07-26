@@ -17,11 +17,12 @@ class RouteServiceProvider extends ServiceProvider
         $this->configureRateLimiting();
 
         $this->routes(function () {
-            Route::prefix(env('APP_ENV') == 'production' ? '' : 'api')
+            Route::middleware('api')
+                ->namespace("App\Http\Controllers\API")
                 ->name('api')
                 ->as('api.')
-                ->middleware('api')
-                ->namespace("App\Http\Controllers\API")
+                ->prefix("api")
+                // ->prefix(env('APP_ENV') == 'production' ? '' : 'api')
                 // ->domain(env("APP_ENV") == "production" ? "www.api." . env("APP_DOMAIN") : null)
                 ->group(base_path('routes/api.php'));
 
@@ -30,13 +31,14 @@ class RouteServiceProvider extends ServiceProvider
                 // ->domain(env("APP_ENV") == "production" ? "www." . env("APP_DOMAIN") : null)
                 ->group(base_path('routes/web.php'));
 
-            // Route::prefix(env("APP_ENV") == "production" ? "" : "cms")
-            //     ->domain(env("APP_ENV") == "production" ? "www.cms." . env("APP_DOMAIN") : null)
-            //     ->name("cms")
-            //     ->as("cms.")
-            //     ->middleware("web")
-            //     ->namespace("App\Http\Livewire\CMS")
-            //     ->group(base_path("routes/cms.php"));
+            Route::middleware("web")
+                ->namespace("App\Http\Livewire\CMS")
+                ->name("cms")
+                ->as("cms.")
+                ->prefix("cms")
+                // ->prefix(env("APP_ENV") == "production" ? "" : "cms")
+                // ->domain(env("APP_ENV") == "production" ? "www.cms." . env("APP_DOMAIN") : null)
+                ->group(base_path("routes/cms.php"));
         });
     }
 

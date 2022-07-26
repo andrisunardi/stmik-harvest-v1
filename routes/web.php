@@ -14,11 +14,6 @@ Route::any('locale/{locale}', function ($locale) {
     return redirect()->back()->withInfo(trans('index.Language has been changed'));
 });
 
-Route::name('cms.')->as('cms.')->namespace('CMS')->prefix('cms')
-    // ->prefix(env("APP_ENV") == "production" ? "" : "cms")
-    // ->domain(env("APP_ENV") == "production" ? "www.cms." . env("APP_DOMAIN") : "")
-    ->group(base_path('routes/cms.php'));
-
 $page = 'Home';
 Route::group(['prefix' => null, 'as' => null], function () use ($page) {
     Route::any('', Str::studly($page).'Component')->name('index');
