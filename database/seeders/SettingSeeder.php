@@ -10,10 +10,10 @@ class SettingSeeder extends Seeder
     public function run()
     {
         $data = new Setting();
-        $data->sms = '0812 9848 7389';
-        $data->call = '0812 9848 7389';
-        $data->fax = '0812 9848 7389';
-        $data->whatsapp = '0812 9848 7389';
+        $data->sms = '0812 9633 4496';
+        $data->call = '0812 9633 4496';
+        $data->fax = '0812 9633 4496';
+        $data->whatsapp = '0812 9633 4496';
         $data->email = 'pmb@stmikku.ac.id';
         $data->address = 'Jl. Kalideres Permai No.3C, RT.1/RW.14, Kalideres, Kec. Kalideres, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta 11830';
         $data->google_maps = 'https://goo.gl/maps/yHhNPra8cuxWN1Hq5';
