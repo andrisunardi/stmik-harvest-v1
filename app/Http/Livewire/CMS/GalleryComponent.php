@@ -313,9 +313,7 @@ class GalleryComponent extends Component
 
         if ($this->video) {
             if ($this->menu_type == 'edit') {
-                if ($this->gallery->video && File::exists(public_path("videos/{$this->menu_slug}/{$this->gallery->video}"))) {
-                    File::delete(public_path("videos/{$this->menu_slug}/{$this->gallery->video}"));
-                }
+                $this->gallery->deleteVideo();
             }
 
             $this->gallery->video = date('YmdHis').".{$this->video->getClientOriginalExtension()}";
