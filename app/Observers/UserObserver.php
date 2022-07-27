@@ -2,9 +2,9 @@
 
 namespace App\Observers;
 
-use App\Models\User;
 use App\Models\Log;
 use App\Models\Menu;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 class UserObserver
