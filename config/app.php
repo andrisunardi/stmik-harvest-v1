@@ -31,11 +31,6 @@ return [
         // "store"  => "redis",
     ],
 
-    'maintenance' => [
-        'driver' => 'file',
-        // "store"  => "redis",
-    ],
-
     'providers' => [
 
         Illuminate\Auth\AuthServiceProvider::class,
