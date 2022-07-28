@@ -26,6 +26,7 @@ use App\Models\Setting;
 use App\Models\Slider;
 use App\Models\Testimony;
 use App\Models\TuitionFee;
+use App\Models\User;
 use App\Models\Value;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -89,6 +90,9 @@ class Component extends LivewireComponent
                 View::share('access_menu_delete', $this->access_menu_delete);
             }
         }
+
+        $this->total_user = User::cursor()->count();
+        View::share('total_user', $this->total_user);
 
         $this->total_registration = Registration::cursor()->count();
         View::share('total_registration', $this->total_registration);

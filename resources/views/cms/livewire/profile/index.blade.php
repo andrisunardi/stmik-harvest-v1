@@ -158,10 +158,10 @@
 
                         <div class="row my-2">
                             <div class="col-12 col-sm-auto">
-                                <button class="btn btn-danger w-100" type="button" wire:click="logout">
+                                <a draggable="false" class="btn btn-danger w-100" href="{{ route("{$sub_domain}.logout.index") }}">
                                     <i class="bi bi-box-arrow-right me-1"></i>
                                     {{ trans("index.Logout") }}
-                                </button>
+                                </a>
                             </div>
                         </div>
                     @endif

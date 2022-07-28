@@ -13,21 +13,14 @@ class LogoutComponent extends Component
 
     public $menu_slug = 'logout';
 
-    public $menu_table = 'logout';
+    public $menu_table = 'admin';
 
-    public $listeners = ['logout'];
-
-    public function logout()
+    public function mount()
     {
         Auth::logout();
         Session::flush();
         Session::flash('success', trans('message.You have been successfully logged out'));
 
-        return redirect()->intended("{$this->sub_domain}/");
-    }
-
-    public function render()
-    {
-        return view("{$this->sub_domain}.livewire.{$this->menu_slug}.index");
+        return redirect()->route("{$this->sub_domain}.login.index");
     }
 }

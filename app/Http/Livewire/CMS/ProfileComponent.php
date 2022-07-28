@@ -158,11 +158,6 @@ class ProfileComponent extends Component
         return Session::flash('success', trans('message.Your Password has been Changed Successfully'));
     }
 
-    public function logout()
-    {
-        $this->emit('logout');
-    }
-
     public function render()
     {
         return view("{$this->sub_domain}.livewire.{$this->menu_slug}.index")

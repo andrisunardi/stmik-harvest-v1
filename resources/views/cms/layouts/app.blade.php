@@ -321,18 +321,12 @@
                                 {{ trans("page.Profile") }}
                             </a>
                         </li>
-
-                        @livewire("c-m-s.logout-component")
-
-                        {{-- <li>
-                            <div class="night-mode-nav">
-                                <i class="bi bi-moon"></i>
-                                {{ trans("index.Night Mode") }}
-                                <div class="form-check form-switch">
-                                    <input class="form-check-input form-check-success" id="darkSwitch" type="checkbox">
-                                </div>
-                            </div>
-                        </li> --}}
+                        <li>
+                            <a draggable="false" href="{{ route("{$sub_domain}.logout.index") }}">
+                                <i class="bi bi-box-arrow-right"></i>
+                                {{ trans("page.Logout") }}
+                            </a>
+                        </li>
                     </ul>
 
                     <div class="social-info-wrap">
