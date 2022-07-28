@@ -23,7 +23,7 @@ class NetworkFactory extends Factory
         return [
             'name' => $name,
             'description' => $this->faker->paragraph(),
-            'link' => $this->faker->url(),
+            'link' => $this->faker->unique()->url(),
             'image' => Str::slug($name).'.png',
             'active' => $this->faker->boolean(),
         ];

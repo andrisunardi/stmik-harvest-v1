@@ -267,7 +267,7 @@ class RegistrationComponent extends Component
             'active' => 'required',
             'name' => "required|max:50|unique:{$this->menu_table},name,{$id}",
             'email' => "required|max:50|email|unique:{$this->menu_table},email,{$id}",
-            'phone' => "required|max:15|unique:{$this->menu_table},phone,{$id}",
+            'phone' => "required|max:20|unique:{$this->menu_table},phone,{$id}",
             'gender' => 'required|numeric|'.Rule::in([1, 2]),
             'school' => 'required|max:50',
             'major' => 'required|max:50',

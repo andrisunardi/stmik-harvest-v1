@@ -74,7 +74,7 @@
                                             <div class="input-group has-validation">
                                                 <div class="input-group-text"><span class="fas fa-envelope"></span></div>
                                                 <input wire:model="{{ $input }}" wire:keydown.enter="submit" id="{{ $input }}" name="{{ $input }}"
-                                                    type="text" class="form-control @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" minlength="1" maxlength="15" value="{{ old($input) }}"
+                                                    type="text" class="form-control @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" minlength="1" maxlength="20" value="{{ old($input) }}"
                                                     placeholder="{{ trans("index.Phone Number") }}" aria-label="{{ trans("index.Phone Number") }}" aria-describedby="{{ trans("index.Phone Number") }}"
                                                     autocomplete="off" autocapitalize="none" required>
                                                 @error($input)
@@ -110,7 +110,7 @@
                                             <div class="input-group has-validation">
                                                 <div class="input-group-text"><span class="fas fa-envelope"></span></div>
                                                 <input wire:model="{{ $input }}" wire:keydown.enter="submit" id="{{ $input }}" name="{{ $input }}"
-                                                    type="text" class="form-control @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" minlength="1" maxlength="15" value="{{ old($input) }}"
+                                                    type="text" class="form-control @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" minlength="1" maxlength="20" value="{{ old($input) }}"
                                                     placeholder="{{ trans("index.Major In SMA / SMK") }}" aria-label="{{ trans("index.Major In SMA / SMK") }}" aria-describedby="{{ trans("index.Major In SMA / SMK") }}"
                                                     autocomplete="off" autocapitalize="none" required>
                                                 @error($input)

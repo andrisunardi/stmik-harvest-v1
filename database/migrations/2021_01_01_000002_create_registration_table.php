@@ -12,7 +12,7 @@ return new class extends Migration
             $table->id();
             $table->string('name', 50)->nullable()->unique();
             $table->string('email', 50)->nullable()->unique();
-            $table->string('phone', 15)->nullable()->unique();
+            $table->string('phone', 20)->nullable()->unique();
             $table->boolean('gender')->nullable()->unsigned()->comment('1 = Man, 2 = Woman');
             $table->string('school', 50)->nullable();
             $table->string('major', 50)->nullable();

@@ -27,7 +27,7 @@ class SliderFactory extends Factory
             'description_id' => $this->faker->paragraph(),
             'button_name' => $this->faker->sentence(),
             'button_name_id' => $this->faker->sentence(),
-            'button_link' => $this->faker->url(),
+            'button_link' => $this->faker->unique()->url(),
             'image' => Str::slug($name).'.png',
             'active' => $this->faker->boolean(),
         ];

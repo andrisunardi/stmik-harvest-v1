@@ -41,7 +41,7 @@ class ContactUsComponent extends Component
     {
         return [
             'name' => 'required|max:50',
-            'phone' => 'nullable|max:15',
+            'phone' => 'nullable|max:20',
             'email' => 'required|email|max:50',
             'company' => 'nullable|max:50',
             'message' => 'required|max:1000',

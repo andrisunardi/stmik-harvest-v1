@@ -303,10 +303,10 @@ class SettingComponent extends Component
 
         return [
             'active' => 'required',
-            'sms' => 'nullable|max:15',
-            'call' => 'nullable|max:15',
-            'fax' => 'nullable|max:15',
-            'whatsapp' => 'nullable|max:15',
+            'sms' => 'nullable|max:20',
+            'call' => 'nullable|max:20',
+            'fax' => 'nullable|max:20',
+            'whatsapp' => 'nullable|max:20',
             'email' => 'nullable|email|max:50',
             'address' => 'nullable|max:200',
             'google_maps' => 'nullable|url|max:100',

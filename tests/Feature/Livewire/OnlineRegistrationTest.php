@@ -67,7 +67,7 @@ class OnlineRegistrationTest extends TestCase
         $data = [
             'name' => $this->faker->unique()->name(),
             'email' => $this->faker->unique()->email(),
-            'phone' => 0 .$this->faker->unique()->numberBetween(80000000000, 89999999999),
+            'phone' => $this->faker->unique()->phoneNumber(),
             'gender' => $this->faker->numberBetween(1, 2),
             'school' => $this->faker->word(),
             'major' => $this->faker->word(),

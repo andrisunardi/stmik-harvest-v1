@@ -65,7 +65,7 @@ class HomeComponent extends Component
         $data = $this->validate([
             'name' => 'required|max:50|unique:registration,name',
             'email' => 'required|max:50|email|unique:registration,email',
-            'phone' => 'required|max:15|unique:registration,phone',
+            'phone' => 'required|max:20|unique:registration,phone',
             'gender' => 'required|numeric|'.Rule::in([1, 2]),
             'school' => 'required|max:50',
             'major' => 'required|max:50',

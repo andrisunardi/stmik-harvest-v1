@@ -13,7 +13,7 @@ class BannerFactory extends Factory
 
     public function definition()
     {
-        $name = $this->faker->unique()->name();
+        $name = $this->faker->unique()->sentence();
 
         File::copy(
             public_path('images/image.png'),
@@ -22,7 +22,7 @@ class BannerFactory extends Factory
 
         return [
             'name' => $name,
-            'name_id' => $this->faker->name(),
+            'name_id' => $this->faker->unique()->sentence(),
             'description' => $this->faker->paragraph(),
             'description_id' => $this->faker->paragraph(),
             'image' => Str::slug($name).'.png',

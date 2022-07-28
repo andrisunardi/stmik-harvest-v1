@@ -29,7 +29,7 @@ class BlogFactory extends Factory
             'name_id' => $this->faker->unique()->sentence(),
             'description' => $this->faker->paragraph(),
             'description_id' => $this->faker->paragraph(),
-            'date' => $this->faker->date(),
+            'date' => $this->faker->unique()->date(),
             'image' => Str::slug($name).'.png',
             'slug' => Str::slug($name),
             'active' => $this->faker->boolean(),

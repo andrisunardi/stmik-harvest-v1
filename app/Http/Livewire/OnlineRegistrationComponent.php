@@ -55,7 +55,7 @@ class OnlineRegistrationComponent extends Component
         return [
             'name' => "required|max:50|unique:{$this->menu_table},name",
             'email' => "required|max:50|email|unique:{$this->menu_table},email",
-            'phone' => "required|max:15|unique:{$this->menu_table},phone",
+            'phone' => "required|max:20|unique:{$this->menu_table},phone",
             'gender' => 'required|numeric|'.Rule::in([1, 2]),
             'school' => 'required|max:50',
             'major' => 'required|max:50',

@@ -12,10 +12,10 @@ class SettingFactory extends Factory
     public function definition()
     {
         return [
-            'sms' => 0 .$this->faker->numberBetween(80000000000, 89999999999),
-            'call' => 0 .$this->faker->numberBetween(80000000000, 89999999999),
-            'fax' => 0 .$this->faker->numberBetween(80000000000, 89999999999),
-            'whatsapp' => 0 .$this->faker->numberBetween(80000000000, 89999999999),
+            'sms' => $this->faker->unique()->phoneNumber(),
+            'call' => $this->faker->unique()->phoneNumber(),
+            'fax' => $this->faker->unique()->phoneNumber(),
+            'whatsapp' => $this->faker->unique()->phoneNumber(),
             'email' => $this->faker->unique()->email(),
             'address' => $this->faker->unique()->address(),
             'google_maps' => $this->faker->url(),

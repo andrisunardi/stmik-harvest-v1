@@ -13,7 +13,7 @@ class ContactFactory extends Factory
     {
         return [
             'name' => $this->faker->unique()->name(),
-            'phone' => 0 .$this->faker->unique()->numberBetween(80000000000, 89999999999),
+            'phone' => $this->faker->unique()->phoneNumber(),
             'email' => $this->faker->unique()->email(),
             'company' => $this->faker->unique()->company(),
             'message' => $this->faker->paragraph(),

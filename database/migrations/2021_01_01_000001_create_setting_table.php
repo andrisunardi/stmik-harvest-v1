@@ -10,10 +10,10 @@ return new class extends Migration
     {
         Schema::create('setting', function (Blueprint $table) {
             $table->id();
-            $table->string('sms', 15)->nullable();
-            $table->string('call', 15)->nullable();
-            $table->string('fax', 15)->nullable();
-            $table->string('whatsapp', 15)->nullable();
+            $table->string('sms', 20)->nullable();
+            $table->string('call', 20)->nullable();
+            $table->string('fax', 20)->nullable();
+            $table->string('whatsapp', 20)->nullable();
             $table->string('email', 50)->nullable();
             $table->string('address', 200)->nullable();
             $table->string('google_maps', 100)->nullable();
