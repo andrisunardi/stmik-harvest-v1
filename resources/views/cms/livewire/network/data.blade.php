@@ -78,7 +78,7 @@
                     <td><a draggable="false" href="{{ $network->link }}" target="_blank">{{ $network->link }}</a></td>
                     <td>
                         <span class="{{ "badge bg-" . Str::successdanger($network->active) }}">
-                            {{ trans("index." . Str::active($network->active)) }}
+                            {{ trans("index." . Str::active($network->active), '_')) }}
                         </span>
                     </td>
                     <td>

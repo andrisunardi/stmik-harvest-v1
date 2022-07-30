@@ -50,7 +50,7 @@
                     </td>
                     <td>
                         <span class="{{ "badge bg-" . Str::successdanger($admission_calendar->active) }}">
-                            {{ trans("index." . Str::active($admission_calendar->active)) }}
+                            {{ trans("index." . Str::active($admission_calendar->active), '_')) }}
                         </span>
                     </td>
                     <td>

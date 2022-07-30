@@ -51,27 +51,27 @@ class Log extends Model
 
     public function created_by_admin()
     {
-        return $this->belongsTo(Admin::class, 'created_by', 'id')->withTrashed()->withDefault(null);
+        return $this->belongsTo(Admin::class, 'created_by', 'id');
     }
 
     public function updated_by_admin()
     {
-        return $this->belongsTo(Admin::class, 'updated_by', 'id')->withTrashed()->withDefault(null);
+        return $this->belongsTo(Admin::class, 'updated_by', 'id');
     }
 
     public function deleted_by_admin()
     {
-        return $this->belongsTo(Admin::class, 'deleted_by', 'id')->withTrashed()->withDefault(null);
+        return $this->belongsTo(Admin::class, 'deleted_by', 'id');
     }
 
     public function admin()
     {
-        return $this->belongsTo(Admin::class)->withTrashed()->withDefault(null);
+        return $this->belongsTo(Admin::class);
     }
 
     public function menu()
     {
-        return $this->belongsTo(Menu::class)->withTrashed()->withDefault(null);
+        return $this->belongsTo(Menu::class);
     }
 
     public function getActivityTextAttribute()

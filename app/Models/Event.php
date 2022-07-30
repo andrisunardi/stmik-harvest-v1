@@ -63,17 +63,17 @@ class Event extends Model
 
     public function created_by_admin()
     {
-        return $this->belongsTo(Admin::class, 'created_by', 'id')->withTrashed()->withDefault(null);
+        return $this->belongsTo(Admin::class, 'created_by', 'id');
     }
 
     public function updated_by_admin()
     {
-        return $this->belongsTo(Admin::class, 'updated_by', 'id')->withTrashed()->withDefault(null);
+        return $this->belongsTo(Admin::class, 'updated_by', 'id');
     }
 
     public function deleted_by_admin()
     {
-        return $this->belongsTo(Admin::class, 'deleted_by', 'id')->withTrashed()->withDefault(null);
+        return $this->belongsTo(Admin::class, 'deleted_by', 'id');
     }
 
     public function getTranslateNameAttribute()
@@ -147,6 +147,6 @@ class Event extends Model
 
     public function event_category()
     {
-        return $this->belongsTo(EventCategory::class)->withTrashed()->withDefault(null);
+        return $this->belongsTo(EventCategory::class);
     }
 }

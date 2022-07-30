@@ -49,27 +49,27 @@ class Access extends Model
 
     public function created_by_admin()
     {
-        return $this->belongsTo(Admin::class, 'created_by', 'id')->withTrashed()->withDefault(null);
+        return $this->belongsTo(Admin::class, 'created_by', 'id');
     }
 
     public function updated_by_admin()
     {
-        return $this->belongsTo(Admin::class, 'updated_by', 'id')->withTrashed()->withDefault(null);
+        return $this->belongsTo(Admin::class, 'updated_by', 'id');
     }
 
     public function deleted_by_admin()
     {
-        return $this->belongsTo(Admin::class, 'deleted_by', 'id')->withTrashed()->withDefault(null);
+        return $this->belongsTo(Admin::class, 'deleted_by', 'id');
     }
 
     public function data_access_menu()
     {
-        return $this->hasMany(AccessMenu::class)->orderBy('id');
+        return $this->hasMany(AccessMenu::class)->active()->orderBy('id');
     }
 
     public function data_admin()
     {
-        return $this->hasMany(Admin::class)->orderBy('name');
+        return $this->hasMany(Admin::class)->active()->orderBy('name');
     }
 
     public static function boot()

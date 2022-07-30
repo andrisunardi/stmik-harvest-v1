@@ -29,7 +29,7 @@
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             <span class="{{ "badge bg-" . Str::successdanger($user->active) }}">
-                {{ trans("index." . Str::active($user->active)) }}
+                {{ trans("index." . Str::active($user->active), '_')) }}
             </span>
         </div>
     </div>
@@ -232,7 +232,7 @@
                                 <td><a draggable="false" href="{{ $repository->scholar }}" target="_blank">{{ $repository->scholar }}</a></td>
                                 <td>
                                     <span class="{{ "badge bg-" . Str::successdanger($repository->active) }}">
-                                        {{ trans("index." . Str::active($repository->active)) }}
+                                        {{ trans("index." . Str::active($repository->active), '_')) }}
                                     </span>
                                 </td>
                                 <td>

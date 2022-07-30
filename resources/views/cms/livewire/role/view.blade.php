@@ -21,7 +21,7 @@
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             <span class="{{ "badge bg-" . Str::successdanger($role->active) }}">
-                {{ trans("index." . Str::active($role->active)) }}
+                {{ trans("index." . Str::active($role->active), '_')) }}
             </span>
         </div>
     </div>

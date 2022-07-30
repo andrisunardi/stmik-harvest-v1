@@ -40,7 +40,7 @@
                     <td><a draggable="false" href="mailto:{{ $user->email }}">{{ $user->email }}</a></td>
                     <td>
                         <span class="{{ "badge bg-" . Str::successdanger($user->active) }}">
-                            {{ trans("index." . Str::active($user->active)) }}
+                            {{ trans("index." . Str::active($user->active), '_')) }}
                         </span>
                     </td>
                     <td class="text-center">

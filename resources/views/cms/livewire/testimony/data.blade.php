@@ -78,7 +78,7 @@
                     <td>{{ $testimony->graduate }}</td>
                     <td>
                         <span class="{{ "badge bg-" . Str::successdanger($testimony->active) }}">
-                            {{ trans("index." . Str::active($testimony->active)) }}
+                            {{ trans("index." . Str::active($testimony->active), '_')) }}
                         </span>
                     </td>
                     <td>

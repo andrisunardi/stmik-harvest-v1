@@ -55,17 +55,17 @@ class Menu extends Model
 
     public function created_by_admin()
     {
-        return $this->belongsTo(Admin::class, 'created_by', 'id')->withTrashed()->withDefault(null);
+        return $this->belongsTo(Admin::class, 'created_by', 'id');
     }
 
     public function updated_by_admin()
     {
-        return $this->belongsTo(Admin::class, 'updated_by', 'id')->withTrashed()->withDefault(null);
+        return $this->belongsTo(Admin::class, 'updated_by', 'id');
     }
 
     public function deleted_by_admin()
     {
-        return $this->belongsTo(Admin::class, 'deleted_by', 'id')->withTrashed()->withDefault(null);
+        return $this->belongsTo(Admin::class, 'deleted_by', 'id');
     }
 
     public function getTranslateNameAttribute()
@@ -80,7 +80,7 @@ class Menu extends Model
 
     public function menu_category()
     {
-        return $this->belongsTo(MenuCategory::class)->withTrashed()->withDefault(null);
+        return $this->belongsTo(MenuCategory::class);
     }
 
     public function scopeWithoutMenuCategory($query)
@@ -90,7 +90,7 @@ class Menu extends Model
 
     public function data_log()
     {
-        return $this->hasMany(Log::class)->orderBy('id');
+        return $this->hasMany(Log::class)->active()->orderBy('id');
     }
 
     // public function namespace($id)

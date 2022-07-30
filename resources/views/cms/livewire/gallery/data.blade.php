@@ -94,7 +94,7 @@
                     </td>
                     <td>
                         <span class="{{ "badge bg-" . Str::successdanger($gallery->active) }}">
-                            {{ trans("index." . Str::active($gallery->active)) }}
+                            {{ trans("index." . Str::active($gallery->active), '_')) }}
                         </span>
                     </td>
                     <td>

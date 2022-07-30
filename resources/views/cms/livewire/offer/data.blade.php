@@ -49,7 +49,7 @@
                     <td><a draggable="false" href="{{ $offer->button_link }}" target="_blank">{{ $offer->button_link }}</a></td>
                     <td>
                         <span class="{{ "badge bg-" . Str::successdanger($offer->active) }}">
-                            {{ trans("index." . Str::active($offer->active)) }}
+                            {{ trans("index." . Str::active($offer->active), '_')) }}
                         </span>
                     </td>
                     <td>

@@ -43,7 +43,7 @@
                     </td>
                     <td>
                         <span class="{{ "badge bg-" . Str::successdanger($tuition_fee->active) }}">
-                            {{ trans("index." . Str::active($tuition_fee->active)) }}
+                            {{ trans("index." . Str::active($tuition_fee->active), '_')) }}
                         </span>
                     </td>
                     <td>

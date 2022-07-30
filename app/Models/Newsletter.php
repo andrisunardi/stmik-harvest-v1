@@ -49,16 +49,16 @@ class Newsletter extends Model
 
     public function created_by_admin()
     {
-        return $this->belongsTo(Admin::class, 'created_by', 'id')->withTrashed()->withDefault(null);
+        return $this->belongsTo(Admin::class, 'created_by', 'id');
     }
 
     public function updated_by_admin()
     {
-        return $this->belongsTo(Admin::class, 'updated_by', 'id')->withTrashed()->withDefault(null);
+        return $this->belongsTo(Admin::class, 'updated_by', 'id');
     }
 
     public function deleted_by_admin()
     {
-        return $this->belongsTo(Admin::class, 'deleted_by', 'id')->withTrashed()->withDefault(null);
+        return $this->belongsTo(Admin::class, 'deleted_by', 'id');
     }
 }

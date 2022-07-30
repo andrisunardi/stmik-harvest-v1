@@ -118,7 +118,7 @@
                     </td>
                     <td>
                         <span class="{{ "badge bg-" . Str::successdanger($blog->active) }}">
-                            {{ trans("index." . Str::active($blog->active)) }}
+                            {{ trans("index." . Str::active($blog->active), '_')) }}
                         </span>
                     </td>
                     <td>
