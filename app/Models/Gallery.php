@@ -103,6 +103,11 @@ class Gallery extends Model
         return Session::get('locale') == 'en' ? $this->tag : $this->tag_id;
     }
 
+    public function altImage()
+    {
+        return trans('index.image').' - '.trans('index.'.Str::slug($this->table, '_')).' - '.env('APP_TITLE');
+    }
+
     public function checkImage()
     {
         if ($this->image && File::exists(public_path('images/'.Str::slug($this->table)."/{$this->image}"))) {

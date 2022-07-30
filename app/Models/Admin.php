@@ -71,6 +71,11 @@ class Admin extends Authenticatable
         return $this->belongsTo(Admin::class, 'deleted_by', 'id')->withTrashed()->withDefault(null);
     }
 
+    public function altImage()
+    {
+        return trans('index.image').' - '.trans('index.'.Str::slug($this->table, '_')).' - '.env('APP_TITLE');
+    }
+
     public function checkImage()
     {
         if ($this->image && File::exists(public_path('images/'.Str::slug($this->table)."/{$this->image}"))) {

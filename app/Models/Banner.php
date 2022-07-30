@@ -80,6 +80,11 @@ class Banner extends Model
         return Session::get('locale') == 'en' ? $this->description : $this->description_id;
     }
 
+    public function altImage()
+    {
+        return trans('index.image').' - '.trans('index.'.Str::slug($this->table, '_')).' - '.env('APP_TITLE');
+    }
+
     public function checkImage()
     {
         if ($this->image && File::exists(public_path('images/'.Str::slug($this->table)."/{$this->image}"))) {
