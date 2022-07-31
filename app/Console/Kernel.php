@@ -13,6 +13,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('livewire-tmp:clear')->daily();
         $schedule->command('logs:clear')->monthly();
         $schedule->command('database:clear')->monthly();
+        $schedule->command('telescope:prune')->monthly();
     }
 
     protected function commands()
