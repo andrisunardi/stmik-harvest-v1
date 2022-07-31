@@ -39,7 +39,7 @@
                             <a draggable="false" href="#image-{{ $admin->id }}" data-bs-toggle="modal">
                                 <img draggable="false" width="100"
                                     src="{{ $admin->assetImage() }}"
-                                    alt="{{ trans("page.{$menu_name}") }} - {{ $admin->name }} - {{ env("APP_TITLE") }}"
+                                    alt="{{ $admin->altImage() }}"
                                     data-bs-toggle="tooltip" data-bs-placement="top" title="{{ trans("index.Click To View") }}">
                             </a>
                             <div class="modal fade" id="image-{{ $admin->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="image-{{ $admin->id }}" aria-hidden="true">
@@ -53,7 +53,7 @@
                                             <a draggable="false" href="{{ $admin->assetImage() }}" target="_blank">
                                                 <img draggable="false" class="img-fluid w-100"
                                                     src="{{ $admin->assetImage() }}"
-                                                    alt="{{ trans("page.{$menu_name}") }} - {{ $admin->name }} - {{ env("APP_TITLE") }}"
+                                                    alt="{{ $admin->altImage() }}"
                                                     data-bs-toggle="tooltip" data-bs-placement="top" title="{{ trans("index.Click To View") }}">
                                             </a>
                                         </div>

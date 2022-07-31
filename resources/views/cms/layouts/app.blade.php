@@ -269,7 +269,7 @@
                         <div class="user-profile">
                             <img draggable="false"
                                 src="{{ Auth::user()->assetImage() }}"
-                                alt="{{ trans("index.Admin") }} - {{ Auth::user()->name }} - {{ env("APP_TITLE") }}">
+                                alt="{{ Auth::user()->altImage() }}">
                         </div>
                         <div class="user-info">
                             <h6 class="user-name mb-0">{{ Auth::user()->name }}</h6>

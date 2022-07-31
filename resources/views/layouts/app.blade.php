@@ -188,7 +188,7 @@
                     <div class="col-lg-2">
                         <div class="logo">
                             <a draggable="false" href="{{ route("index") }}">
-                                <img draggable="false" src="{{ asset("images/logo.png") }}" class="img-fluid w-100" alt="{{ trans("index.Logo") }} - {{ env("APP_TITLE") }}">
+                                <img draggable="false" src="{{ asset("images/logo.png") }}" class="img-fluid w-100" alt="{{ trans("index.logo") }} - {{ env("APP_TITLE") }}">
                             </a>
                         </div>
                     </div>
@@ -270,7 +270,7 @@
             <div class="fluid-container mobile-menu-container">
                 <div class="mobile-logo">
                     <a draggable="false" href="{{ route("index") }}">
-                        <img draggable="false" src="{{ asset("images/logo.png") }}" class="img-fluid w-100" alt="{{ trans("index.Logo") }} - {{ env("APP_TITLE") }}">
+                        <img draggable="false" src="{{ asset("images/logo.png") }}" class="img-fluid w-100" alt="{{ trans("index.logo") }} - {{ env("APP_TITLE") }}">
                     </a>
                 </div>
                 <div class="mobile-menu clearfix">
@@ -342,7 +342,7 @@
                         <div class="htc__footer__inner">
                             <div class="footer__logo text-center">
                                 <a draggable="false" href="{{ route("index") }}">
-                                    <img draggable="false" class="img-fluid" width="300" src="{{ asset("images/logo-footer.png") }}" alt="{{ trans("index.Logo") }} - {{ env("APP_TITLE") }}">
+                                    <img draggable="false" class="img-fluid" width="300" src="{{ asset("images/logo-footer.png") }}" alt="{{ trans("index.logo") }} - {{ env("APP_TITLE") }}">
                                 </a>
                             </div>
                             <ul class="htc__footer__address">

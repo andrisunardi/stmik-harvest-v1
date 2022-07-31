@@ -16,7 +16,7 @@
             <aside>
                 <figure>
                     <a draggable="false" href="{{ route("index") }}">
-                        <img draggable="false" src="{{ asset("images/logo.png") }}" width="150" alt="{{ trans("index.Logo") }}">
+                        <img draggable="false" src="{{ asset("images/logo.png") }}" width="150" alt="{{ trans("index.logo") }}">
                     </a>
                 </figure> --}}
                 <div class="row justify-content-center">

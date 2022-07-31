@@ -44,7 +44,7 @@
                     <div class="user-profile me-3">
                         <img draggable="false"
                             src="{{ Auth::user()->assetImage() }}"
-                            alt="{{ trans("index.Admin") }} - {{ Auth::user()->name }} - {{ env("APP_TITLE") }}">
+                            alt="{{ Auth::user()->altImage() }}">
                         <i class="bi bi-pencil"></i>
                         <form action="#">
                             <input class="form-control" type="file" />

@@ -241,7 +241,7 @@
                     <a draggable="false" href="#image" data-bs-toggle="modal">
                         <img draggable="false" class="img-fluid img-thumbnail rounded w-100 h-auto"
                             src="{{ $image->temporaryUrl() }}"
-                            alt="{{ trans("page.{$menu_name}") }} - {{ trans("index.Temporary Url") }} - {{ env("APP_TITLE") }}"
+                            alt="{{ trans("index.temporary_url") }}"
                             data-bs-toggle="tooltip" data-bs-placement="top" title="{{ trans("index.Click To View") }}">
                     </a>
                     <div class="modal fade" id="image" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="image" aria-hidden="true">
@@ -255,7 +255,7 @@
                                     <a draggable="false" href="{{ $image->temporaryUrl() }}" target="_blank">
                                         <img draggable="false" class="img-fluid w-100"
                                             src="{{ $image->temporaryUrl() }}"
-                                            alt="{{ trans("page.{$menu_name}") }} - {{ trans("index.Temporary Url") }} - {{ env("APP_TITLE") }}"
+                                            alt="{{ trans("index.temporary_url") }}"
                                             data-bs-toggle="tooltip" data-bs-placement="top" title="{{ trans("index.Click To View") }}">
                                     </a>
                                 </div>
