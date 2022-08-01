@@ -168,8 +168,6 @@
         </div>
     </div>
 
-    blog category {{ $blog_category }}
-
     <div class="col-sm-4 col-lg-3 col-xl-auto">
         @php $input = "name" @endphp
         <div class="form-group">
