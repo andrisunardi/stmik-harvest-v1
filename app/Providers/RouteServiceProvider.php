@@ -27,11 +27,6 @@ class RouteServiceProvider extends ServiceProvider
                 ->group(base_path('routes/api.php'));
 
             Route::middleware('web')
-                ->namespace("App\Http\Livewire")
-                // ->domain(env("APP_ENV") == "production" ? "www." . env("APP_DOMAIN") : null)
-                ->group(base_path('routes/web.php'));
-
-            Route::middleware('web')
                 ->namespace("App\Http\Livewire\CMS")
                 ->name('cms')
                 ->as('cms.')
@@ -39,6 +34,11 @@ class RouteServiceProvider extends ServiceProvider
                 // ->prefix(env("APP_ENV") == "production" ? "" : "cms")
                 // ->domain(env("APP_ENV") == "production" ? "www.cms." . env("APP_DOMAIN") : null)
                 ->group(base_path('routes/cms.php'));
+
+            Route::middleware('web')
+                ->namespace("App\Http\Livewire")
+                // ->domain(env("APP_ENV") == "production" ? "www." . env("APP_DOMAIN") : null)
+                ->group(base_path('routes/web.php'));
         });
     }
 
