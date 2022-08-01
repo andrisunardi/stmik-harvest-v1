@@ -1,4 +1,4 @@
-@section("name", $event_category ? $event_category->translate_name : trans("page.{$menu_name}"))
+@section("name", $event_category ? $event_category->translate_name : trans("index." . Str::slug($menu_name, "_")))
 @section("icon", $menu_icon)
 
 @section("{$menu_slug}-active", "active")
@@ -53,7 +53,7 @@
                                         <div class="courses">
                                             <div class="courses__thumb">
                                                 <a draggable="false" href="{{ route("{$menu_slug}.view", ["event_slug" => $event->slug]) }}">
-                                                    <img draggable="false" class="img-fluid w-100" src="{{ $event->assetImage() }}" alt="{{ trans("page.{$menu_name}") }} - {{ $event->translate_name }} - {{ env("APP_TITLE") }}">
+                                                    <img draggable="false" class="img-fluid w-100" src="{{ $event->assetImage() }}" alt="{{ trans("index." . Str::slug($menu_name, "_")) }} - {{ $event->translate_name }} - {{ env("APP_TITLE") }}">
                                                 </a>
                                                 <div class="courses__hover__info">
                                                     <div class="courses__hover__action">
@@ -100,7 +100,7 @@
                                                 <div class="col-lg-5">
                                                     <div class="single__list">
                                                         <a draggable="false" href="{{ route("{$menu_slug}.view", ["event_slug" => $event->slug]) }}">
-                                                            <img draggable="false" class="img-fluid w-100" src="{{ $event->assetImage() }}" alt="{{ trans("page.{$menu_name}") }} - {{ $event->translate_name }} - {{ env("APP_TITLE") }}">
+                                                            <img draggable="false" class="img-fluid w-100" src="{{ $event->assetImage() }}" alt="{{ trans("index." . Str::slug($menu_name, "_")) }} - {{ $event->translate_name }} - {{ env("APP_TITLE") }}">
                                                         </a>
                                                     </div>
                                                 </div>

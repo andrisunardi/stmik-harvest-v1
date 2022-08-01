@@ -1,4 +1,4 @@
-@section("name", trans("page.{$menu_name}"))
+@section("name", trans("index." . Str::slug($menu_name, "_")))
 @section("icon", $menu_icon)
 
 @section("{$menu_slug}-active", "active")

@@ -217,11 +217,11 @@
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h6 class="modal-title" id="restore-{{ $blog_category->id }}">{{ trans("index.Restore") }} - {{ trans("page.{$menu_name}") }}</h6>
+                                <h6 class="modal-title" id="restore-{{ $blog_category->id }}">{{ trans("index.Restore") }} - {{ trans("index." . Str::slug($menu_name, "_")) }}</h6>
                                 <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <p class="mb-0">{{ trans("message.Are you sure you want to restore") }} {{ trans("page.{$menu_name}") }}</p>
+                                <p class="mb-0">{{ trans("message.Are you sure you want to restore") }} {{ trans("index." . Str::slug($menu_name, "_")) }}</p>
                             </div>
                             <div class="modal-footer justify-content-between">
                                 <button class="btn btn-creative btn-sm btn-light" type="button" data-bs-dismiss="modal">
@@ -247,11 +247,11 @@
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h6 class="modal-title" id="delete-permanent-{{ $blog_category->id }}">{{ trans("index.Delete Permanent") }} - {{ trans("page.{$menu_name}") }}</h6>
+                                <h6 class="modal-title" id="delete-permanent-{{ $blog_category->id }}">{{ trans("index.Delete Permanent") }} - {{ trans("index." . Str::slug($menu_name, "_")) }}</h6>
                                 <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <p>{{ trans("message.Are you sure you want to delete permanent") }} {{ trans("page.{$menu_name}") }}</p>
+                                <p>{{ trans("message.Are you sure you want to delete permanent") }} {{ trans("index." . Str::slug($menu_name, "_")) }}</p>
                                 <p>{{ trans("message.You cant undo this action or restore this data anymore") }}</p>
                                 <p class="mb-0">{{ trans("message.All relation data and files will be deleted forever from server") }}</p>
                             </div>
@@ -299,11 +299,11 @@
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h6 class="modal-title" id="delete-{{ $blog_category->id }}">{{ trans("index.Delete") }} - {{ trans("page.{$menu_name}") }}</h6>
+                                <h6 class="modal-title" id="delete-{{ $blog_category->id }}">{{ trans("index.Delete") }} - {{ trans("index." . Str::slug($menu_name, "_")) }}</h6>
                                 <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <p>{{ trans("message.Are you sure you want to delete") }} {{ trans("page.{$menu_name}") }}</p>
+                                <p>{{ trans("message.Are you sure you want to delete") }} {{ trans("index." . Str::slug($menu_name, "_")) }}</p>
                                 <p class="mb-0">{{ trans("message.You can still restore from Trash") }}</p>
                             </div>
                             <div class="modal-footer justify-content-between">

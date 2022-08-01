@@ -116,7 +116,7 @@
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h6 class="modal-title" id="image">{{ trans("index.Image") }} - {{ trans("page.{$menu_name}") }}</h6>
+                                    <h6 class="modal-title" id="image">{{ trans("index.Image") }} - {{ trans("index." . Str::slug($menu_name, "_")) }}</h6>
                                     <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
@@ -146,21 +146,21 @@
                             <a draggable="false" href="#image" data-bs-toggle="modal">
                                 <img draggable="false" class="img-fluid img-thumbnail rounded w-100 h-auto"
                                     src="{{ $testimony->assetImage() }}"
-                                    alt="{{ trans("page.{$menu_name}") }} - {{ $testimony->name }} - {{ env("APP_TITLE") }}"
+                                    alt="{{ trans("index." . Str::slug($menu_name, "_")) }} - {{ $testimony->name }} - {{ env("APP_TITLE") }}"
                                     data-bs-toggle="tooltip" data-bs-placement="top" title="{{ trans("index.Click To View") }}">
                             </a>
                             <div class="modal fade" id="image" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="image" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h6 class="modal-title" id="image">{{ trans("index.Image") }} - {{ trans("page.{$menu_name}") }}</h6>
+                                            <h6 class="modal-title" id="image">{{ trans("index.Image") }} - {{ trans("index." . Str::slug($menu_name, "_")) }}</h6>
                                             <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
                                             <a draggable="false" href="{{ $testimony->assetImage() }}" target="_blank">
                                                 <img draggable="false" class="img-fluid w-100"
                                                     src="{{ $testimony->assetImage() }}"
-                                                    alt="{{ trans("page.{$menu_name}") }} - {{ $testimony->name }} - {{ env("APP_TITLE") }}"
+                                                    alt="{{ trans("index." . Str::slug($menu_name, "_")) }} - {{ $testimony->name }} - {{ env("APP_TITLE") }}"
                                                     data-bs-toggle="tooltip" data-bs-placement="top" title="{{ trans("index.Click To View") }}">
                                             </a>
                                         </div>

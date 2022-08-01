@@ -16,21 +16,21 @@
                 <a draggable="false" href="#image" data-bs-toggle="modal">
                     <img draggable="false" width="100"
                         src="{{ $gallery->assetImage() }}"
-                        alt="{{ trans("page.{$menu_name}") }} - {{ $gallery->translate_name }} - {{ env("APP_TITLE") }}"
+                        alt="{{ trans("index." . Str::slug($menu_name, "_")) }} - {{ $gallery->translate_name }} - {{ env("APP_TITLE") }}"
                         data-bs-toggle="tooltip" data-bs-placement="top" title="{{ trans("index.Click To View") }}">
                 </a>
                 <div class="modal fade" id="image" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="image" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h6 class="modal-title" id="image">{{ trans("index.Image") }} - {{ trans("page.{$menu_name}") }}</h6>
+                                <h6 class="modal-title" id="image">{{ trans("index.Image") }} - {{ trans("index." . Str::slug($menu_name, "_")) }}</h6>
                                 <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
                                 <a draggable="false" href="{{ $gallery->assetImage() }}" target="_blank">
                                     <img draggable="false" class="img-fluid w-100"
                                         src="{{ $gallery->assetImage() }}"
-                                        alt="{{ trans("page.{$menu_name}") }} - {{ $gallery->translate_name }} - {{ env("APP_TITLE") }}"
+                                        alt="{{ trans("index." . Str::slug($menu_name, "_")) }} - {{ $gallery->translate_name }} - {{ env("APP_TITLE") }}"
                                         data-bs-toggle="tooltip" data-bs-placement="top" title="{{ trans("index.Click To View") }}">
                                 </a>
                             </div>
@@ -211,11 +211,11 @@
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h6 class="modal-title" id="restore-{{ $gallery->id }}">{{ trans("index.Restore") }} - {{ trans("page.{$menu_name}") }}</h6>
+                                <h6 class="modal-title" id="restore-{{ $gallery->id }}">{{ trans("index.Restore") }} - {{ trans("index." . Str::slug($menu_name, "_")) }}</h6>
                                 <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <p class="mb-0">{{ trans("message.Are you sure you want to restore") }} {{ trans("page.{$menu_name}") }}</p>
+                                <p class="mb-0">{{ trans("message.Are you sure you want to restore") }} {{ trans("index." . Str::slug($menu_name, "_")) }}</p>
                             </div>
                             <div class="modal-footer justify-content-between">
                                 <button class="btn btn-creative btn-sm btn-light" type="button" data-bs-dismiss="modal">
@@ -241,11 +241,11 @@
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h6 class="modal-title" id="delete-permanent-{{ $gallery->id }}">{{ trans("index.Delete Permanent") }} - {{ trans("page.{$menu_name}") }}</h6>
+                                <h6 class="modal-title" id="delete-permanent-{{ $gallery->id }}">{{ trans("index.Delete Permanent") }} - {{ trans("index." . Str::slug($menu_name, "_")) }}</h6>
                                 <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <p>{{ trans("message.Are you sure you want to delete permanent") }} {{ trans("page.{$menu_name}") }}</p>
+                                <p>{{ trans("message.Are you sure you want to delete permanent") }} {{ trans("index." . Str::slug($menu_name, "_")) }}</p>
                                 <p>{{ trans("message.You cant undo this action or restore this data anymore") }}</p>
                                 <p class="mb-0">{{ trans("message.All relation data and files will be deleted forever from server") }}</p>
                             </div>
@@ -293,11 +293,11 @@
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h6 class="modal-title" id="delete-{{ $gallery->id }}">{{ trans("index.Delete") }} - {{ trans("page.{$menu_name}") }}</h6>
+                                <h6 class="modal-title" id="delete-{{ $gallery->id }}">{{ trans("index.Delete") }} - {{ trans("index." . Str::slug($menu_name, "_")) }}</h6>
                                 <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <p>{{ trans("message.Are you sure you want to delete") }} {{ trans("page.{$menu_name}") }}</p>
+                                <p>{{ trans("message.Are you sure you want to delete") }} {{ trans("index." . Str::slug($menu_name, "_")) }}</p>
                                 <p class="mb-0">{{ trans("message.You can still restore from Trash") }}</p>
                             </div>
                             <div class="modal-footer justify-content-between">

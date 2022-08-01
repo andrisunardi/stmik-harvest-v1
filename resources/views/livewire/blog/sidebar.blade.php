@@ -16,7 +16,7 @@
                     <div class="single__courses">
                         <div class="recent__post__thumb">
                             <a draggable="false" href="{{ route("{$menu_slug}.view", ["blog_slug" => $recent_blog->slug]) }}">
-                                <img draggable="false" class="img-fluid w-100" src="{{ $recent_blog->assetImage() }}" alt="{{ trans("page.{$menu_name}") }} - {{ $recent_blog->translate_name }} - {{ env("APP_TITLE") }}">
+                                <img draggable="false" class="img-fluid w-100" src="{{ $recent_blog->assetImage() }}" alt="{{ trans("index." . Str::slug($menu_name, "_")) }} - {{ $recent_blog->translate_name }} - {{ env("APP_TITLE") }}">
                             </a>
                         </div>
                         <div class="recent__post__details">

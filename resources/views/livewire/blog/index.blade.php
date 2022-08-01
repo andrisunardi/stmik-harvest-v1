@@ -1,4 +1,4 @@
-@section("name", $blog_category ? $blog_category->translate_name : trans("page.{$menu_name}"))
+@section("name", $blog_category ? $blog_category->translate_name : trans("index." . Str::slug($menu_name, "_")))
 @section("icon", $menu_icon)
 
 @section("{$menu_slug}-active", "active")
@@ -22,7 +22,7 @@
                         <div class="blog">
                             <div class="blog__thumb">
                                 <a draggable="false" href="{{ route("{$menu_slug}.view", ["blog_slug" => $blog->slug]) }}">
-                                    <img draggable="false" class="img-fluid w-100" src="{{ $blog->assetImage() }}" alt="{{ trans("page.{$menu_name}") }} - {{ $blog->translate_name }} - {{ env("APP_TITLE") }}">
+                                    <img draggable="false" class="img-fluid w-100" src="{{ $blog->assetImage() }}" alt="{{ trans("index." . Str::slug($menu_name, "_")) }} - {{ $blog->translate_name }} - {{ env("APP_TITLE") }}">
                                 </a>
                                 <div class="blog__date">
                                     <span>{{ Date::parse($blog->date)->format("d F Y") }}</span>

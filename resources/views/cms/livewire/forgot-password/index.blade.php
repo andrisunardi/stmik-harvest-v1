@@ -1,4 +1,4 @@
-@section("name", trans("page.{$menu_name}"))
+@section("name", trans("index." . Str::slug($menu_name, "_")))
 @section("icon", $menu_icon)
 
 @push("meta")
@@ -91,7 +91,7 @@
 
             <div class="login-meta-data text-center">
                 <a draggable="false" class="stretched-link forgot-password d-block mt-3 mb-1" href="{{ route("{$sub_domain}.login.index") }}">
-                    {{ trans("index.Back To Login Page") }}
+                    {{ trans("index.back_to_login_page") }}
                 </a>
             </div>
 

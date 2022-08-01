@@ -1,4 +1,4 @@
-@section("name", trans("page.{$menu_name}"))
+@section("name", trans("index." . Str::slug($menu_name, "_")))
 @section("icon", $menu_icon)
 
 @section("{$menu_slug}-active", "active")
@@ -11,7 +11,7 @@
                     <div class="login__area__wrap">
                         <div class="login__inner">
                             <div class="res__title">
-                                <h2>{{ trans("page.{$menu_name}") }}</h2>
+                                <h2>{{ trans("index." . Str::slug($menu_name, "_")) }}</h2>
                                 <div class="res__right">
                                     <h4>{{ trans("index.Please see our procedure first") }}</h4>
                                     <div class="sign__btn">

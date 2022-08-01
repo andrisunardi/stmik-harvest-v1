@@ -4,10 +4,10 @@
         <div class="form-group">
             <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
             <select wire:model="{{ $input }}" class="form-select select2" id="{{ $input }}" name="{{ $input }}">
-                <option value="10" {{ 10 == $this->per_page ? "selected" : null }}>10</option>
-                <option value="25" {{ 25 == $this->per_page ? "selected" : null }}>25</option>
-                <option value="50" {{ 50 == $this->per_page ? "selected" : null }}>50</option>
-                <option value="100" {{ 100 == $this->per_page ? "selected" : null }}>100</option>
+                <option value="10" {{ 10 == $per_page ? "selected" : null }}>10</option>
+                <option value="25" {{ 25 == $per_page ? "selected" : null }}>25</option>
+                <option value="50" {{ 50 == $per_page ? "selected" : null }}>50</option>
+                <option value="100" {{ 100 == $per_page ? "selected" : null }}>100</option>
             </select>
         </div>
     </div>
@@ -42,8 +42,8 @@
         <div class="form-group">
             <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
             <select wire:model="{{ $input }}" class="form-select select2" id="{{ $input }}" name="{{ $input }}">
-                <option value="asc" {{ "asc" == $this->sort_by ? "selected" : null }}>{{ trans("index.ascending") }}</option>
-                <option value="desc" {{ "desc" == $this->sort_by ? "selected" : null }}>{{ trans("index.descending") }}</option>
+                <option value="asc" {{ "asc" == $sort_by ? "selected" : null }}>{{ trans("index.ascending") }}</option>
+                <option value="desc" {{ "desc" == $sort_by ? "selected" : null }}>{{ trans("index.descending") }}</option>
             </select>
         </div>
     </div>
