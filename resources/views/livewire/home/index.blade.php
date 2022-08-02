@@ -309,7 +309,7 @@
                                         class="form-control mt-3 @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif"
                                         placeholder="{{ trans("validation.attributes.{$input}") }}" aria-label="{{ trans("validation.attributes.{$input}") }}" aria-describedby="{{ trans("validation.attributes.{$input}") }}"
                                         autocomplete="off" autocapitalize="none" required>
-                                        <option value="">{{ trans("index.Select") }} {{ trans("validation.attributes.{$input}") }}</option>
+                                        <option value="">{{ trans("index.select") }} {{ trans("validation.attributes.{$input}") }}</option>
                                         <option value="1">{{ trans("index.Man") }}</option>
                                         <option value="2">{{ trans("index.Woman") }}</option>
                                     </select>

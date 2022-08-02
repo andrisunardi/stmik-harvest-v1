@@ -152,13 +152,13 @@
     </div>
 
     <div class="col-sm-4 col-lg-3 col-xl-auto">
-        @php $input = "access" @endphp
+        @php $input = "access_id" @endphp
         <div class="form-group">
             <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
             <select wire:model="{{ $input }}" class="form-select select2" id="{{ $input }}" name="{{ $input }}">
                 <option value="">{{ trans("index.All") }}</option>
                 @foreach ($data_access as $access)
-                    <option value="{{ $access->id }}">{{ $access->name }}</option>
+                    <option value="{{ $access->id }}" {{ $access->id == $access_id ? "selected" : null }}>{{ $access->name }}</option>
                 @endforeach
             </select>
         </div>

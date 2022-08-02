@@ -9,7 +9,7 @@
                 <div class="input-group has-validation">
                     <div class="input-group-text"><span class="bi bi-tags"></span></div>
                     <select wire:model="{{ $input }}" class="form-select select2 @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" id="{{ $input }}" name="{{ $input }}" required>
-                        <option value="">{{ trans("index.Select") }} {{ trans("validation.attributes.{$input}") }}</option>
+                        <option value="">{{ trans("index.select") }} {{ trans("validation.attributes.{$input}") }}</option>
                         @foreach ($data_event_category as $event_category)
                             <option value="{{ $event_category->id }}">{{ $event_category->translate_name }}</option>
                         @endforeach

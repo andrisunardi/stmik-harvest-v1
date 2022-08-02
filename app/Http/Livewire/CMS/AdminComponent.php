@@ -45,11 +45,11 @@ class AdminComponent extends Component
 
     public $end_deleted_at;
 
-    public $created_by = '';
+    public $created_by_id = '';
 
-    public $updated_by = '';
+    public $updated_by_id = '';
 
-    public $deleted_by = '';
+    public $deleted_by_id = '';
 
     public $active = '';
 
@@ -61,7 +61,7 @@ class AdminComponent extends Component
 
     public $admin;
 
-    public $access = '';
+    public $access_id = '';
 
     public $name;
 
@@ -91,7 +91,7 @@ class AdminComponent extends Component
         'active' => ['except' => ''],
         'row' => ['except' => ''],
 
-        'access' => ['except' => ''],
+        'access_id' => ['except' => ''],
         'name' => ['except' => ''],
         'email' => ['except' => ''],
         'username' => ['except' => ''],

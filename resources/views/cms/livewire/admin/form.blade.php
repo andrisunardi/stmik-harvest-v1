@@ -3,15 +3,15 @@
         @csrf
 
         <div class="row">
-            @php $input = "access" @endphp
+            @php $input = "access_id" @endphp
             <div class="form-group col-12">
                 <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }} <span class="text-danger">*</span></label>
                 <div class="input-group has-validation">
                     <div class="input-group-text"><span class="bi bi-key-fill"></span></div>
                     <select wire:model="{{ $input }}" class="form-select select2 @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" id="{{ $input }}" name="{{ $input }}" required>
-                        <option value="">{{ trans("index.Select") }} {{ trans("validation.attributes.{$input}") }}</option>
+                        <option value="">{{ trans("index.select") }} {{ trans("validation.attributes.{$input}") }}</option>
                         @foreach ($data_access as $access)
-                            <option value="{{ $access->id }}">{{ $access->name }}</option>
+                            <option value="{{ $access->id }}" {{ $access->id == $access_id ? "selected" : null }}>{{ $access->name }}</option>
                         @endforeach
                     </select>
                     <a draggable="false" href="javascript:;" class="btn btn-info" wire:click="getData{{ Str::studly($input) }}">

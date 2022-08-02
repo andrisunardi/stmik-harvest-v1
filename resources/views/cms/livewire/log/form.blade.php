@@ -9,7 +9,7 @@
                 <div class="input-group has-validation">
                     <div class="input-group-text"><span class="bi bi-people"></span></div>
                     <select wire:model="{{ $input }}" class="form-select select2 @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" id="{{ $input }}" name="{{ $input }}" required>
-                        <option value="">{{ trans("index.Select") }} {{ trans("validation.attributes.{$input}") }}</option>
+                        <option value="">{{ trans("index.select") }} {{ trans("validation.attributes.{$input}") }}</option>
                         @foreach ($data_admin as $admin)
                             <option value="{{ $admin->id }}">{{ $admin->name }}</option>
                         @endforeach
@@ -31,7 +31,7 @@
                 <div class="input-group has-validation">
                     <div class="input-group-text"><span class="bi bi-list"></span></div>
                     <select wire:model="{{ $input }}" class="form-select select2 @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" id="{{ $input }}" name="{{ $input }}" required>
-                        <option value="">{{ trans("index.Select") }} {{ trans("validation.attributes.{$input}") }}</option>
+                        <option value="">{{ trans("index.select") }} {{ trans("validation.attributes.{$input}") }}</option>
                         @foreach ($data_menu as $menu)
                             <option value="{{ $menu->id }}">{{ $menu->translate_name }}</option>
                         @endforeach
@@ -72,7 +72,7 @@
                 <div class="input-group has-validation">
                     <div class="input-group-text"><span class="bi bi-list"></span></div>
                     <select wire:model="{{ $input }}" class="form-select select2 @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" id="{{ $input }}" name="{{ $input }}" required>
-                        <option value="">{{ trans("index.Select") }} {{ trans("validation.attributes.{$input}") }}</option>
+                        <option value="">{{ trans("index.select") }} {{ trans("validation.attributes.{$input}") }}</option>
                         <option value="1">{{ trans("index.Created") }}</option>
                         <option value="2">{{ trans("index.Updated") }}</option>
                         <option value="3">{{ trans("index.Deleted") }}</option>
