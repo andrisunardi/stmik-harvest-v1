@@ -13,8 +13,8 @@ class ProcedureObserver
 
     public function creating(Procedure $procedure)
     {
-        $procedure->created_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
-        $procedure->updated_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $procedure->created_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $procedure->updated_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
     }
 
     public function created(Procedure $procedure)
@@ -31,7 +31,7 @@ class ProcedureObserver
 
     public function updating(Procedure $procedure)
     {
-        $procedure->updated_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $procedure->updated_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
     }
 
     public function updated(Procedure $procedure)
@@ -48,7 +48,7 @@ class ProcedureObserver
 
     public function deleting(Procedure $procedure)
     {
-        $procedure->deleted_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $procedure->deleted_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
         $procedure->save();
     }
 
@@ -66,14 +66,14 @@ class ProcedureObserver
 
     public function restoring(Procedure $procedure)
     {
-        $procedure->deleted_by = null;
+        $procedure->deleted_by_id = null;
     }
 
     public function restored(Procedure $procedure)
     {
         $menu = Menu::where('name', $this->name)->first();
 
-        $procedure->deleted_by = null;
+        $procedure->deleted_by_id = null;
         $procedure->save();
 
         $log = new Log();

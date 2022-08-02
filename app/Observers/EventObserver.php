@@ -13,8 +13,8 @@ class EventObserver
 
     public function creating(Event $event)
     {
-        $event->created_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
-        $event->updated_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $event->created_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $event->updated_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
     }
 
     public function created(Event $event)
@@ -31,7 +31,7 @@ class EventObserver
 
     public function updating(Event $event)
     {
-        $event->updated_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $event->updated_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
     }
 
     public function updated(Event $event)
@@ -48,7 +48,7 @@ class EventObserver
 
     public function deleting(Event $event)
     {
-        $event->deleted_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $event->deleted_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
         $event->save();
     }
 
@@ -66,14 +66,14 @@ class EventObserver
 
     public function restoring(Event $event)
     {
-        $event->deleted_by = null;
+        $event->deleted_by_id = null;
     }
 
     public function restored(Event $event)
     {
         $menu = Menu::where('name', $this->name)->first();
 
-        $event->deleted_by = null;
+        $event->deleted_by_id = null;
         $event->save();
 
         $log = new Log();

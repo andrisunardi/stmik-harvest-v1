@@ -13,8 +13,8 @@ class BannerObserver
 
     public function creating(Banner $banner)
     {
-        $banner->created_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
-        $banner->updated_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $banner->created_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $banner->updated_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
     }
 
     public function created(Banner $banner)
@@ -31,7 +31,7 @@ class BannerObserver
 
     public function updating(Banner $banner)
     {
-        $banner->updated_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $banner->updated_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
     }
 
     public function updated(Banner $banner)
@@ -48,7 +48,7 @@ class BannerObserver
 
     public function deleting(Banner $banner)
     {
-        $banner->deleted_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $banner->deleted_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
         $banner->save();
     }
 
@@ -66,14 +66,14 @@ class BannerObserver
 
     public function restoring(Banner $banner)
     {
-        $banner->deleted_by = null;
+        $banner->deleted_by_id = null;
     }
 
     public function restored(Banner $banner)
     {
         $menu = Menu::where('name', $this->name)->first();
 
-        $banner->deleted_by = null;
+        $banner->deleted_by_id = null;
         $banner->save();
 
         $log = new Log();

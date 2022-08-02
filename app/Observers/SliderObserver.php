@@ -13,8 +13,8 @@ class SliderObserver
 
     public function creating(Slider $slider)
     {
-        $slider->created_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
-        $slider->updated_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $slider->created_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $slider->updated_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
     }
 
     public function created(Slider $slider)
@@ -31,7 +31,7 @@ class SliderObserver
 
     public function updating(Slider $slider)
     {
-        $slider->updated_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $slider->updated_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
     }
 
     public function updated(Slider $slider)
@@ -48,7 +48,7 @@ class SliderObserver
 
     public function deleting(Slider $slider)
     {
-        $slider->deleted_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $slider->deleted_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
         $slider->save();
     }
 
@@ -66,14 +66,14 @@ class SliderObserver
 
     public function restoring(Slider $slider)
     {
-        $slider->deleted_by = null;
+        $slider->deleted_by_id = null;
     }
 
     public function restored(Slider $slider)
     {
         $menu = Menu::where('name', $this->name)->first();
 
-        $slider->deleted_by = null;
+        $slider->deleted_by_id = null;
         $slider->save();
 
         $log = new Log();

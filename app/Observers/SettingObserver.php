@@ -13,8 +13,8 @@ class SettingObserver
 
     public function creating(Setting $setting)
     {
-        $setting->created_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
-        $setting->updated_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $setting->created_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $setting->updated_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
     }
 
     public function created(Setting $setting)
@@ -31,7 +31,7 @@ class SettingObserver
 
     public function updating(Setting $setting)
     {
-        $setting->updated_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $setting->updated_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
     }
 
     public function updated(Setting $setting)
@@ -48,7 +48,7 @@ class SettingObserver
 
     public function deleting(Setting $setting)
     {
-        $setting->deleted_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $setting->deleted_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
         $setting->save();
     }
 
@@ -66,14 +66,14 @@ class SettingObserver
 
     public function restoring(Setting $setting)
     {
-        $setting->deleted_by = null;
+        $setting->deleted_by_id = null;
     }
 
     public function restored(Setting $setting)
     {
         $menu = Menu::where('name', $this->name)->first();
 
-        $setting->deleted_by = null;
+        $setting->deleted_by_id = null;
         $setting->save();
 
         $log = new Log();

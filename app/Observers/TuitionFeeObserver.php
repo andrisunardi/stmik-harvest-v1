@@ -13,8 +13,8 @@ class TuitionFeeObserver
 
     public function creating(TuitionFee $tuition_fee)
     {
-        $tuition_fee->created_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
-        $tuition_fee->updated_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $tuition_fee->created_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $tuition_fee->updated_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
     }
 
     public function created(TuitionFee $tuition_fee)
@@ -31,7 +31,7 @@ class TuitionFeeObserver
 
     public function updating(TuitionFee $tuition_fee)
     {
-        $tuition_fee->updated_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $tuition_fee->updated_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
     }
 
     public function updated(TuitionFee $tuition_fee)
@@ -48,7 +48,7 @@ class TuitionFeeObserver
 
     public function deleting(TuitionFee $tuition_fee)
     {
-        $tuition_fee->deleted_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $tuition_fee->deleted_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
         $tuition_fee->save();
     }
 
@@ -66,14 +66,14 @@ class TuitionFeeObserver
 
     public function restoring(TuitionFee $tuition_fee)
     {
-        $tuition_fee->deleted_by = null;
+        $tuition_fee->deleted_by_id = null;
     }
 
     public function restored(TuitionFee $tuition_fee)
     {
         $menu = Menu::where('name', $this->name)->first();
 
-        $tuition_fee->deleted_by = null;
+        $tuition_fee->deleted_by_id = null;
         $tuition_fee->save();
 
         $log = new Log();

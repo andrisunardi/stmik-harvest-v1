@@ -13,8 +13,8 @@ class AdmissionCalendarObserver
 
     public function creating(AdmissionCalendar $admission_calendar)
     {
-        $admission_calendar->created_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
-        $admission_calendar->updated_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $admission_calendar->created_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $admission_calendar->updated_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
     }
 
     public function created(AdmissionCalendar $admission_calendar)
@@ -31,7 +31,7 @@ class AdmissionCalendarObserver
 
     public function updating(AdmissionCalendar $admission_calendar)
     {
-        $admission_calendar->updated_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $admission_calendar->updated_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
     }
 
     public function updated(AdmissionCalendar $admission_calendar)
@@ -48,7 +48,7 @@ class AdmissionCalendarObserver
 
     public function deleting(AdmissionCalendar $admission_calendar)
     {
-        $admission_calendar->deleted_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $admission_calendar->deleted_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
         $admission_calendar->save();
     }
 
@@ -66,14 +66,14 @@ class AdmissionCalendarObserver
 
     public function restoring(AdmissionCalendar $admission_calendar)
     {
-        $admission_calendar->deleted_by = null;
+        $admission_calendar->deleted_by_id = null;
     }
 
     public function restored(AdmissionCalendar $admission_calendar)
     {
         $menu = Menu::where('name', $this->name)->first();
 
-        $admission_calendar->deleted_by = null;
+        $admission_calendar->deleted_by_id = null;
         $admission_calendar->save();
 
         $log = new Log();

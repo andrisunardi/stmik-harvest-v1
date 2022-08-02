@@ -13,8 +13,8 @@ class FaqObserver
 
     public function creating(Faq $faq)
     {
-        $faq->created_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
-        $faq->updated_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $faq->created_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $faq->updated_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
     }
 
     public function created(Faq $faq)
@@ -31,7 +31,7 @@ class FaqObserver
 
     public function updating(Faq $faq)
     {
-        $faq->updated_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $faq->updated_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
     }
 
     public function updated(Faq $faq)
@@ -48,7 +48,7 @@ class FaqObserver
 
     public function deleting(Faq $faq)
     {
-        $faq->deleted_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $faq->deleted_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
         $faq->save();
     }
 
@@ -66,14 +66,14 @@ class FaqObserver
 
     public function restoring(Faq $faq)
     {
-        $faq->deleted_by = null;
+        $faq->deleted_by_id = null;
     }
 
     public function restored(Faq $faq)
     {
         $menu = Menu::where('name', $this->name)->first();
 
-        $faq->deleted_by = null;
+        $faq->deleted_by_id = null;
         $faq->save();
 
         $log = new Log();

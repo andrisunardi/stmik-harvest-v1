@@ -13,8 +13,8 @@ class AccessObserver
 
     public function creating(Access $access)
     {
-        $access->created_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
-        $access->updated_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $access->created_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $access->updated_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
     }
 
     public function created(Access $access)
@@ -31,7 +31,7 @@ class AccessObserver
 
     public function updating(Access $access)
     {
-        $access->updated_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $access->updated_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
     }
 
     public function updated(Access $access)
@@ -48,7 +48,7 @@ class AccessObserver
 
     public function deleting(Access $access)
     {
-        $access->deleted_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $access->deleted_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
         $access->save();
     }
 
@@ -66,14 +66,14 @@ class AccessObserver
 
     public function restoring(Access $access)
     {
-        $access->deleted_by = null;
+        $access->deleted_by_id = null;
     }
 
     public function restored(Access $access)
     {
         $menu = Menu::where('name', $this->name)->first();
 
-        $access->deleted_by = null;
+        $access->deleted_by_id = null;
         $access->save();
 
         $log = new Log();

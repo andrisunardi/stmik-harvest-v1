@@ -13,8 +13,8 @@ class NewsletterObserver
 
     public function creating(Newsletter $newsletter)
     {
-        $newsletter->created_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
-        $newsletter->updated_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $newsletter->created_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $newsletter->updated_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
     }
 
     public function created(Newsletter $newsletter)
@@ -31,7 +31,7 @@ class NewsletterObserver
 
     public function updating(Newsletter $newsletter)
     {
-        $newsletter->updated_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $newsletter->updated_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
     }
 
     public function updated(Newsletter $newsletter)
@@ -48,7 +48,7 @@ class NewsletterObserver
 
     public function deleting(Newsletter $newsletter)
     {
-        $newsletter->deleted_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $newsletter->deleted_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
         $newsletter->save();
     }
 
@@ -66,14 +66,14 @@ class NewsletterObserver
 
     public function restoring(Newsletter $newsletter)
     {
-        $newsletter->deleted_by = null;
+        $newsletter->deleted_by_id = null;
     }
 
     public function restored(Newsletter $newsletter)
     {
         $menu = Menu::where('name', $this->name)->first();
 
-        $newsletter->deleted_by = null;
+        $newsletter->deleted_by_id = null;
         $newsletter->save();
 
         $log = new Log();

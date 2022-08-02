@@ -13,8 +13,8 @@ class ValueObserver
 
     public function creating(Value $value)
     {
-        $value->created_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
-        $value->updated_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $value->created_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $value->updated_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
     }
 
     public function created(Value $value)
@@ -31,7 +31,7 @@ class ValueObserver
 
     public function updating(Value $value)
     {
-        $value->updated_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $value->updated_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
     }
 
     public function updated(Value $value)
@@ -48,7 +48,7 @@ class ValueObserver
 
     public function deleting(Value $value)
     {
-        $value->deleted_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $value->deleted_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
         $value->save();
     }
 
@@ -66,14 +66,14 @@ class ValueObserver
 
     public function restoring(Value $value)
     {
-        $value->deleted_by = null;
+        $value->deleted_by_id = null;
     }
 
     public function restored(Value $value)
     {
         $menu = Menu::where('name', $this->name)->first();
 
-        $value->deleted_by = null;
+        $value->deleted_by_id = null;
         $value->save();
 
         $log = new Log();

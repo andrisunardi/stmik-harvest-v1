@@ -12,8 +12,8 @@ class MenuObserver
 
     public function creating(Menu $menu)
     {
-        $menu->created_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
-        $menu->updated_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $menu->created_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $menu->updated_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
     }
 
     public function created(Menu $menu)
@@ -30,7 +30,7 @@ class MenuObserver
 
     public function updating(Menu $menu)
     {
-        $menu->updated_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $menu->updated_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
     }
 
     public function updated(Menu $menu)
@@ -47,7 +47,7 @@ class MenuObserver
 
     public function deleting(Menu $menu)
     {
-        $menu->deleted_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $menu->deleted_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
         $menu->save();
     }
 
@@ -65,14 +65,14 @@ class MenuObserver
 
     public function restoring(Menu $menu)
     {
-        $menu->deleted_by = null;
+        $menu->deleted_by_id = null;
     }
 
     public function restored(Menu $menu)
     {
         $menu = Menu::where('name', $this->name)->first();
 
-        $menu->deleted_by = null;
+        $menu->deleted_by_id = null;
         $menu->save();
 
         $log = new Log();

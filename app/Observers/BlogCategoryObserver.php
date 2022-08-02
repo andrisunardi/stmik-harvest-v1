@@ -13,8 +13,8 @@ class BlogCategoryObserver
 
     public function creating(BlogCategory $blog_category)
     {
-        $blog_category->created_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
-        $blog_category->updated_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $blog_category->created_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $blog_category->updated_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
     }
 
     public function created(BlogCategory $blog_category)
@@ -31,7 +31,7 @@ class BlogCategoryObserver
 
     public function updating(BlogCategory $blog_category)
     {
-        $blog_category->updated_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $blog_category->updated_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
     }
 
     public function updated(BlogCategory $blog_category)
@@ -48,7 +48,7 @@ class BlogCategoryObserver
 
     public function deleting(BlogCategory $blog_category)
     {
-        $blog_category->deleted_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $blog_category->deleted_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
         $blog_category->save();
     }
 
@@ -66,14 +66,14 @@ class BlogCategoryObserver
 
     public function restoring(BlogCategory $blog_category)
     {
-        $blog_category->deleted_by = null;
+        $blog_category->deleted_by_id = null;
     }
 
     public function restored(BlogCategory $blog_category)
     {
         $menu = Menu::where('name', $this->name)->first();
 
-        $blog_category->deleted_by = null;
+        $blog_category->deleted_by_id = null;
         $blog_category->save();
 
         $log = new Log();

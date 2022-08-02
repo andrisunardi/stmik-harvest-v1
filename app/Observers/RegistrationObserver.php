@@ -13,8 +13,8 @@ class RegistrationObserver
 
     public function creating(Registration $registration)
     {
-        $registration->created_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
-        $registration->updated_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $registration->created_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $registration->updated_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
     }
 
     public function created(Registration $registration)
@@ -31,7 +31,7 @@ class RegistrationObserver
 
     public function updating(Registration $registration)
     {
-        $registration->updated_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $registration->updated_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
     }
 
     public function updated(Registration $registration)
@@ -48,7 +48,7 @@ class RegistrationObserver
 
     public function deleting(Registration $registration)
     {
-        $registration->deleted_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $registration->deleted_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
         $registration->save();
     }
 
@@ -66,14 +66,14 @@ class RegistrationObserver
 
     public function restoring(Registration $registration)
     {
-        $registration->deleted_by = null;
+        $registration->deleted_by_id = null;
     }
 
     public function restored(Registration $registration)
     {
         $menu = Menu::where('name', $this->name)->first();
 
-        $registration->deleted_by = null;
+        $registration->deleted_by_id = null;
         $registration->save();
 
         $log = new Log();

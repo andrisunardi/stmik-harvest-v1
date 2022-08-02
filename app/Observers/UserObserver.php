@@ -13,8 +13,8 @@ class UserObserver
 
     public function creating(User $user)
     {
-        $user->created_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
-        $user->updated_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $user->created_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $user->updated_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
     }
 
     public function created(User $user)
@@ -31,7 +31,7 @@ class UserObserver
 
     public function updating(User $user)
     {
-        $user->updated_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $user->updated_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
     }
 
     public function updated(User $user)
@@ -48,7 +48,7 @@ class UserObserver
 
     public function deleting(User $user)
     {
-        $user->deleted_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $user->deleted_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
         $user->save();
     }
 
@@ -66,14 +66,14 @@ class UserObserver
 
     public function restoring(User $user)
     {
-        $user->deleted_by = null;
+        $user->deleted_by_id = null;
     }
 
     public function restored(User $user)
     {
         $menu = Menu::where('name', $this->name)->first();
 
-        $user->deleted_by = null;
+        $user->deleted_by_id = null;
         $user->save();
 
         $log = new Log();

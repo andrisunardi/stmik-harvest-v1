@@ -13,8 +13,8 @@ class BlogObserver
 
     public function creating(Blog $blog)
     {
-        $blog->created_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
-        $blog->updated_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $blog->created_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $blog->updated_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
     }
 
     public function created(Blog $blog)
@@ -31,7 +31,7 @@ class BlogObserver
 
     public function updating(Blog $blog)
     {
-        $blog->updated_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $blog->updated_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
     }
 
     public function updated(Blog $blog)
@@ -48,7 +48,7 @@ class BlogObserver
 
     public function deleting(Blog $blog)
     {
-        $blog->deleted_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $blog->deleted_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
         $blog->save();
     }
 
@@ -66,14 +66,14 @@ class BlogObserver
 
     public function restoring(Blog $blog)
     {
-        $blog->deleted_by = null;
+        $blog->deleted_by_id = null;
     }
 
     public function restored(Blog $blog)
     {
         $menu = Menu::where('name', $this->name)->first();
 
-        $blog->deleted_by = null;
+        $blog->deleted_by_id = null;
         $blog->save();
 
         $log = new Log();

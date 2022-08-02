@@ -13,8 +13,8 @@ class GalleryObserver
 
     public function creating(Gallery $gallery)
     {
-        $gallery->created_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
-        $gallery->updated_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $gallery->created_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $gallery->updated_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
     }
 
     public function created(Gallery $gallery)
@@ -31,7 +31,7 @@ class GalleryObserver
 
     public function updating(Gallery $gallery)
     {
-        $gallery->updated_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $gallery->updated_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
     }
 
     public function updated(Gallery $gallery)
@@ -48,7 +48,7 @@ class GalleryObserver
 
     public function deleting(Gallery $gallery)
     {
-        $gallery->deleted_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $gallery->deleted_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
         $gallery->save();
     }
 
@@ -66,14 +66,14 @@ class GalleryObserver
 
     public function restoring(Gallery $gallery)
     {
-        $gallery->deleted_by = null;
+        $gallery->deleted_by_id = null;
     }
 
     public function restored(Gallery $gallery)
     {
         $menu = Menu::where('name', $this->name)->first();
 
-        $gallery->deleted_by = null;
+        $gallery->deleted_by_id = null;
         $gallery->save();
 
         $log = new Log();

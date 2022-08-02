@@ -13,8 +13,8 @@ class AdminObserver
 
     public function creating(Admin $admin)
     {
-        $admin->created_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
-        $admin->updated_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $admin->created_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $admin->updated_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
     }
 
     public function created(Admin $admin)
@@ -31,7 +31,7 @@ class AdminObserver
 
     public function updating(Admin $admin)
     {
-        $admin->updated_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $admin->updated_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
     }
 
     public function updated(Admin $admin)
@@ -48,7 +48,7 @@ class AdminObserver
 
     public function deleting(Admin $admin)
     {
-        $admin->deleted_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $admin->deleted_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
         $admin->save();
     }
 
@@ -66,14 +66,14 @@ class AdminObserver
 
     public function restoring(Admin $admin)
     {
-        $admin->deleted_by = null;
+        $admin->deleted_by_id = null;
     }
 
     public function restored(Admin $admin)
     {
         $menu = Menu::where('name', $this->name)->first();
 
-        $admin->deleted_by = null;
+        $admin->deleted_by_id = null;
         $admin->save();
 
         $log = new Log();

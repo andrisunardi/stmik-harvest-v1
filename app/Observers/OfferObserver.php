@@ -13,8 +13,8 @@ class OfferObserver
 
     public function creating(Offer $offer)
     {
-        $offer->created_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
-        $offer->updated_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $offer->created_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $offer->updated_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
     }
 
     public function created(Offer $offer)
@@ -31,7 +31,7 @@ class OfferObserver
 
     public function updating(Offer $offer)
     {
-        $offer->updated_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $offer->updated_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
     }
 
     public function updated(Offer $offer)
@@ -48,7 +48,7 @@ class OfferObserver
 
     public function deleting(Offer $offer)
     {
-        $offer->deleted_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $offer->deleted_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
         $offer->save();
     }
 
@@ -66,14 +66,14 @@ class OfferObserver
 
     public function restoring(Offer $offer)
     {
-        $offer->deleted_by = null;
+        $offer->deleted_by_id = null;
     }
 
     public function restored(Offer $offer)
     {
         $menu = Menu::where('name', $this->name)->first();
 
-        $offer->deleted_by = null;
+        $offer->deleted_by_id = null;
         $offer->save();
 
         $log = new Log();

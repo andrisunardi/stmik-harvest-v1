@@ -13,8 +13,8 @@ class ContactObserver
 
     public function creating(Contact $contact)
     {
-        $contact->created_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
-        $contact->updated_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $contact->created_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $contact->updated_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
     }
 
     public function created(Contact $contact)
@@ -31,7 +31,7 @@ class ContactObserver
 
     public function updating(Contact $contact)
     {
-        $contact->updated_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $contact->updated_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
     }
 
     public function updated(Contact $contact)
@@ -48,7 +48,7 @@ class ContactObserver
 
     public function deleting(Contact $contact)
     {
-        $contact->deleted_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $contact->deleted_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
         $contact->save();
     }
 
@@ -66,14 +66,14 @@ class ContactObserver
 
     public function restoring(Contact $contact)
     {
-        $contact->deleted_by = null;
+        $contact->deleted_by_id = null;
     }
 
     public function restored(Contact $contact)
     {
         $menu = Menu::where('name', $this->name)->first();
 
-        $contact->deleted_by = null;
+        $contact->deleted_by_id = null;
         $contact->save();
 
         $log = new Log();

@@ -86,7 +86,7 @@
         <div class="col-12 col-sm-auto mb-3">
             <button class="btn btn-creative btn-sm btn-danger w-100" type="button" data-bs-toggle="modal" data-bs-target="#delete-permanent-all">
                 <i class="bi bi-trash2 me-1"></i>
-                {{ trans("index.Delete Permanent All") }}
+                {{ trans("index.delete_permanent_all") }}
             </a>
         </div>
 
@@ -94,7 +94,7 @@
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h6 class="modal-title" id="delete-permanent-all">{{ trans("index.Delete Permanent All") }}</h6>
+                        <h6 class="modal-title" id="delete-permanent-all">{{ trans("index.delete_permanent_all") }}</h6>
                         <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">

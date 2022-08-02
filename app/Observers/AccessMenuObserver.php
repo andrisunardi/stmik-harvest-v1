@@ -13,8 +13,8 @@ class AccessMenuObserver
 
     public function creating(AccessMenu $access_menu)
     {
-        $access_menu->created_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
-        $access_menu->updated_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $access_menu->created_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $access_menu->updated_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
     }
 
     public function created(AccessMenu $access_menu)
@@ -31,7 +31,7 @@ class AccessMenuObserver
 
     public function updating(AccessMenu $access_menu)
     {
-        $access_menu->updated_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $access_menu->updated_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
     }
 
     public function updated(AccessMenu $access_menu)
@@ -48,7 +48,7 @@ class AccessMenuObserver
 
     public function deleting(AccessMenu $access_menu)
     {
-        $access_menu->deleted_by = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $access_menu->deleted_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
         $access_menu->save();
     }
 
@@ -66,14 +66,14 @@ class AccessMenuObserver
 
     public function restoring(AccessMenu $access_menu)
     {
-        $access_menu->deleted_by = null;
+        $access_menu->deleted_by_id = null;
     }
 
     public function restored(AccessMenu $access_menu)
     {
         $menu = Menu::where('name', $this->name)->first();
 
-        $access_menu->deleted_by = null;
+        $access_menu->deleted_by_id = null;
         $access_menu->save();
 
         $log = new Log();
