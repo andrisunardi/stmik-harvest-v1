@@ -61,7 +61,7 @@
                     <td>{!! html_entity_decode($setting->history_id) !!}</td>
                     <td>
                         <span class="{{ "badge bg-" . Str::successdanger($setting->active) }}">
-                            {{ trans("index." . Str::active($setting->active), '_')) }}
+                            {{ trans("index." . Str::slug(Str::active($setting->active), '_')) }}
                         </span>
                     </td>
                     <td>

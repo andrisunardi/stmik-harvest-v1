@@ -59,7 +59,7 @@
                     <td class="text-center">{{ $menu->sort }}</td>
                     <td>
                         <span class="{{ "badge bg-" . Str::successdanger($menu->active) }}">
-                            {{ trans("index." . Str::active($menu->active), '_')) }}
+                            {{ trans("index." . Str::slug(Str::active($menu->active), '_')) }}
                         </span>
                     </td>
                     <td>

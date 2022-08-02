@@ -82,7 +82,7 @@
                     </td>
                     <td>
                         <span class="{{ "badge bg-" . Str::successdanger($banner->active) }}">
-                            {{ trans("index." . Str::active($banner->active), '_')) }}
+                            {{ trans("index." . Str::slug(Str::active($banner->active), '_')) }}
                         </span>
                     </td>
                     <td>

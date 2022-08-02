@@ -140,7 +140,7 @@
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             <span class="{{ "badge bg-" . Str::successdanger($blog->active) }}">
-                {{ trans("index." . Str::active($blog->active), '_')) }}
+                {{ trans("index." . Str::slug(Str::active($blog->active), '_')) }}
             </span>
         </div>
     </div>

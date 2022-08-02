@@ -88,7 +88,7 @@
                     <td><a draggable="false" href="{{ $slider->button_link }}" target="_blank">{{ $slider->button_link }}</a></td>
                     <td>
                         <span class="{{ "badge bg-" . Str::successdanger($slider->active) }}">
-                            {{ trans("index." . Str::active($slider->active), '_')) }}
+                            {{ trans("index." . Str::slug(Str::active($slider->active), '_')) }}
                         </span>
                     </td>
                     <td>

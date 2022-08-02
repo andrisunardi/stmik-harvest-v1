@@ -33,7 +33,7 @@
                     <td><a draggable="false" href="mailto:{{ $newsletter->email }}">{{ $newsletter->email }}</a></td>
                     <td>
                         <span class="{{ "badge bg-" . Str::successdanger($newsletter->active) }}">
-                            {{ trans("index." . Str::active($newsletter->active), '_')) }}
+                            {{ trans("index." . Str::slug(Str::active($newsletter->active), '_')) }}
                         </span>
                     </td>
                     <td>

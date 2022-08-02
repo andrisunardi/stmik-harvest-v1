@@ -45,7 +45,7 @@
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             <span class="{{ "badge bg-" . Str::successdanger($menu_category->active) }}">
-                {{ trans("index." . Str::active($menu_category->active), '_')) }}
+                {{ trans("index." . Str::slug(Str::active($menu_category->active), '_')) }}
             </span>
         </div>
     </div>

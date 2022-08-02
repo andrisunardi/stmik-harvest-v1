@@ -45,7 +45,7 @@
                     <td><i class="{{ $value->icon }}"></i> ({{ $value->icon }})</td>
                     <td>
                         <span class="{{ "badge bg-" . Str::successdanger($value->active) }}">
-                            {{ trans("index." . Str::active($value->active), '_')) }}
+                            {{ trans("index." . Str::slug(Str::active($value->active), '_')) }}
                         </span>
                     </td>
                     <td>

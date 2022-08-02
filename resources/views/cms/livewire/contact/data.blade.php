@@ -45,7 +45,7 @@
                     <td>{{ $contact->message }}</td>
                     <td>
                         <span class="{{ "badge bg-" . Str::successdanger($contact->active) }}">
-                            {{ trans("index." . Str::active($contact->active), '_')) }}
+                            {{ trans("index." . Str::slug(Str::active($contact->active), '_')) }}
                         </span>
                     </td>
                     <td>

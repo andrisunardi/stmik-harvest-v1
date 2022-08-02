@@ -17,7 +17,7 @@
         <div class="form-group">
             <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
             <select wire:model="{{ $input }}" class="form-select select2" id="{{ $input }}" name="{{ $input }}">
-                <option value="id">{{ trans("index.ID") }}</option>
+                <option value="id" {{ "id" == $order_by ? "selected" : null }}>{{ trans("validation.attributes.id") }}</option>
                 <option value="name">{{ trans("index.Name") }}</option>
                 <option value="phone">{{ trans("index.Phone") }}</option>
                 <option value="email">{{ trans("index.Email") }}</option>
@@ -50,40 +50,40 @@
     </div>
 
     <div class="col-sm-4 col-lg-3 col-xl-auto">
-        @php $input = "created_by" @endphp
+        @php $input = "created_by_id" @endphp
         <div class="form-group">
             <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
             <select wire:model="{{ $input }}" class="form-select select2" id="{{ $input }}" name="{{ $input }}">
                 <option value="">{{ trans("index.All") }}</option>
                 @foreach ($data_created_by as $created_by)
-                    <option value="{{ $created_by->id }}">{{ $created_by->name }}</option>
+                    <option value="{{ $created_by->id }}" {{ $created_by->id == $created_by_id ? "selected" : null }}>{{ $created_by->name }}</option>
                 @endforeach
             </select>
         </div>
     </div>
 
     <div class="col-sm-4 col-lg-3 col-xl-auto">
-        @php $input = "updated_by" @endphp
+        @php $input = "updated_by_id" @endphp
         <div class="form-group">
             <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
             <select wire:model="{{ $input }}" class="form-select select2" id="{{ $input }}" name="{{ $input }}">
                 <option value="">{{ trans("index.All") }}</option>
                 @foreach ($data_updated_by as $updated_by)
-                    <option value="{{ $updated_by->id }}">{{ $updated_by->name }}</option>
+                    <option value="{{ $updated_by->id }}" {{ $updated_by->id == $updated_by_id ? "selected" : null }}>{{ $updated_by->name }}</option>
                 @endforeach
             </select>
         </div>
     </div>
 
     @if ($menu_type == "trash")
-        @php $input = "deleted_by" @endphp
+        @php $input = "deleted_by_id" @endphp
         <div class="col-sm-4 col-lg-3 col-xl-auto">
             <div class="form-group">
                 <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
                 <select wire:model="{{ $input }}" class="form-select select2" id="{{ $input }}" name="{{ $input }}">
                     <option value="">{{ trans("index.All") }}</option>
                     @foreach ($data_deleted_by as $deleted_by)
-                        <option value="{{ $deleted_by->id }}">{{ $deleted_by->name }}</option>
+                        <option value="{{ $deleted_by->id }}" {{ $deleted_by->id == $deleted_by_id ? "selected" : null }}>{{ $deleted_by->name }}</option>
                     @endforeach
                 </select>
             </div>

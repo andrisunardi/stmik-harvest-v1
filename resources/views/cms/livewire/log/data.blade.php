@@ -55,7 +55,7 @@
                     </td>
                     <td>
                         <span class="{{ "badge bg-" . Str::successdanger($log->active) }}">
-                            {{ trans("index." . Str::active($log->active), '_')) }}
+                            {{ trans("index." . Str::slug(Str::active($log->active), '_')) }}
                         </span>
                     </td>
                     <td>

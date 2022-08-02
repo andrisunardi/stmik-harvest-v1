@@ -53,7 +53,7 @@
     </div>
 
     <div class="col-sm-4 col-lg-3 col-xl-auto">
-        @php $input = "created_by" @endphp
+        @php $input = "created_by_id" @endphp
         <div class="form-group">
             <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
             <select wire:model="{{ $input }}" class="form-select select2" id="{{ $input }}" name="{{ $input }}">
@@ -66,7 +66,7 @@
     </div>
 
     <div class="col-sm-4 col-lg-3 col-xl-auto">
-        @php $input = "updated_by" @endphp
+        @php $input = "updated_by_id" @endphp
         <div class="form-group">
             <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
             <select wire:model="{{ $input }}" class="form-select select2" id="{{ $input }}" name="{{ $input }}">
@@ -79,7 +79,7 @@
     </div>
 
     @if ($menu_type == "trash")
-        @php $input = "deleted_by" @endphp
+        @php $input = "deleted_by_id" @endphp
         <div class="col-sm-4 col-lg-3 col-xl-auto">
             <div class="form-group">
                 <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>

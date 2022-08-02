@@ -84,7 +84,7 @@
                                 <p>
                                     {{ trans("index.Active") }} :
                                     <span class="{{ "badge bg-" . Str::successdanger($log->active) }}">
-                                        {{ trans("index." . Str::active($log->active), '_')) }}
+                                        {{ trans("index." . Str::slug(Str::active($log->active), '_')) }}
                                     </span>
                                 </p>
                                 <p>{{ trans("index.Created By") }} : {{ $log->created_by_admin?->name }}</p>

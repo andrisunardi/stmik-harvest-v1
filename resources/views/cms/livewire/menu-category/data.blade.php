@@ -47,7 +47,7 @@
                     <td class="text-center">{{ $menu_category->sort }}</td>
                     <td>
                         <span class="{{ "badge bg-" . Str::successdanger($menu_category->active) }}">
-                            {{ trans("index." . Str::active($menu_category->active), '_')) }}
+                            {{ trans("index." . Str::slug(Str::active($menu_category->active), '_')) }}
                         </span>
                     </td>
                     <td>
