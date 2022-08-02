@@ -19,9 +19,9 @@ return new class extends Migration
             $table->string('button_link', 100)->nullable();
             $table->string('image', 120)->nullable();
             $table->boolean('active')->nullable()->unsigned()->comment('1 = Yes, 0 = No')->default('1');
-            $table->foreignId('created_by')->nullable()->unsigned();
-            $table->foreignId('updated_by')->nullable()->unsigned();
-            $table->foreignId('deleted_by')->nullable()->unsigned();
+            $table->foreignId('created_by_id')->nullable()->unsigned();
+            $table->foreignId('updated_by_id')->nullable()->unsigned();
+            $table->foreignId('deleted_by_id')->nullable()->unsigned();
             $table->timestamps();
             $table->softDeletes();
         });
