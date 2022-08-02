@@ -160,7 +160,7 @@ class LogComponent extends Component
             $this->menu_type != 'view' &&
             $this->menu_type != 'trash'
         ) {
-            Session::flash('danger', trans('index.Menu Type').' '.trans('message.not found or has been deleted'));
+            Session::flash('danger', trans('index.Menu Type').' '.trans('index.not found or has been deleted'));
 
             return redirect()->route("{$this->sub_domain}.{$this->menu_slug}.index");
         }
@@ -177,7 +177,7 @@ class LogComponent extends Component
             }
 
             if (! $this->log) {
-                Session::flash('danger', trans("page.{$this->menu_name}").' '.trans('message.not found or has been deleted'));
+                Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
 
                 return redirect()->route("{$this->sub_domain}.{$this->menu_slug}.index");
             }
@@ -207,7 +207,7 @@ class LogComponent extends Component
             $this->log = Log::find($id);
 
             if (! $this->log) {
-                return Session::flash('danger', trans("page.{$this->menu_name}").' '.trans('message.not found or has been deleted'));
+                return Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
             }
 
             $this->resetForm();
@@ -228,7 +228,7 @@ class LogComponent extends Component
         $this->log = Log::withTrashed()->find($id);
 
         if (! $this->log) {
-            return Session::flash('danger', trans("page.{$this->menu_name}").' '.trans('message.not found or has been deleted'));
+            return Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
         }
     }
 
@@ -271,7 +271,7 @@ class LogComponent extends Component
         $this->log->save();
 
         $this->menu_type_message = $this->menu_type == 'add' || $this->menu_type == 'edit' ? $this->menu_type.'ed' : $this->menu_type.'d';
-        Session::flash('success', trans("page.{$this->menu_name}").' '.trans("message.has been {$this->menu_type_message} successfully"));
+        Session::flash('success', trans("index.{$this->menu_name}").' '.trans("index.has been {$this->menu_type_message} successfully"));
 
         $this->resetFilter();
         $this->resetErrorBag();
@@ -284,14 +284,14 @@ class LogComponent extends Component
         $this->log = Log::find($id);
 
         if (! $this->log) {
-            return Session::flash('danger', trans("page.{$this->menu_name}").' '.trans('message.not found or has been deleted'));
+            return Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
         }
 
         $this->log->active = true;
         $this->log->save();
         $this->log->refresh();
 
-        return Session::flash('success', trans("page.{$this->menu_name}").' '.trans('message.has been set active successfully'));
+        return Session::flash('success', trans("index.{$this->menu_name}").' '.trans('index.has been set active successfully'));
     }
 
     public function nonActive($id)
@@ -299,14 +299,14 @@ class LogComponent extends Component
         $this->log = Log::find($id);
 
         if (! $this->log) {
-            return Session::flash('danger', trans("page.{$this->menu_name}").' '.trans('message.not found or has been deleted'));
+            return Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
         }
 
         $this->log->active = false;
         $this->log->save();
         $this->log->refresh();
 
-        return Session::flash('success', trans("page.{$this->menu_name}").' '.trans('message.has been set non active successfully'));
+        return Session::flash('success', trans("index.{$this->menu_name}").' '.trans('index.has been set non active successfully'));
     }
 
     public function delete($id)
@@ -314,13 +314,13 @@ class LogComponent extends Component
         $this->log = Log::find($id);
 
         if (! $this->log) {
-            return Session::flash('danger', trans("page.{$this->menu_name}").' '.trans('message.not found or has been deleted'));
+            return Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
         }
 
         $this->log->delete();
         $this->log->refresh();
 
-        return Session::flash('success', trans("page.{$this->menu_name}").' '.trans('message.has been deleted successfully'));
+        return Session::flash('success', trans("index.{$this->menu_name}").' '.trans('index.has been deleted successfully'));
     }
 
     public function restore($id)
@@ -328,13 +328,13 @@ class LogComponent extends Component
         $this->log = Log::onlyTrashed()->find($id);
 
         if (! $this->log) {
-            return Session::flash('danger', trans("page.{$this->menu_name}").' '.trans('message.not found or has been deleted'));
+            return Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
         }
 
         $this->log->restore();
         $this->log->refresh();
 
-        return Session::flash('success', trans("page.{$this->menu_name}").' '.trans('message.has been deleted successfully'));
+        return Session::flash('success', trans("index.{$this->menu_name}").' '.trans('index.has been deleted successfully'));
     }
 
     public function deletePermanent($id)
@@ -342,7 +342,7 @@ class LogComponent extends Component
         $this->log = Log::onlyTrashed()->find($id);
 
         if (! $this->log) {
-            return Session::flash('danger', trans("page.{$this->menu_name}").' '.trans('message.not found or has been deleted'));
+            return Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
         }
 
         $this->log->forceDelete();
@@ -355,21 +355,21 @@ class LogComponent extends Component
             $this->menu_type = 'index';
         }
 
-        return Session::flash('success', trans("page.{$this->menu_name}").' '.trans('message.has been deleted permanent successfully'));
+        return Session::flash('success', trans("index.{$this->menu_name}").' '.trans('index.has been deleted permanent successfully'));
     }
 
     public function restoreAll()
     {
         Log::onlyTrashed()->restore();
 
-        return Session::flash('success', trans("page.{$this->menu_name}").' '.trans('message.has been restored successfully'));
+        return Session::flash('success', trans("index.{$this->menu_name}").' '.trans('index.has been restored successfully'));
     }
 
     public function deletePermanentAll()
     {
         Log::onlyTrashed()->forceDelete();
 
-        return Session::flash('success', trans('message.All')." {$this->menu_name} ".trans('message.at Trash has been Deleted Permanent Successfully'));
+        return Session::flash('success', trans('index.All')." {$this->menu_name} ".trans('index.at Trash has been Deleted Permanent Successfully'));
     }
 
     public function getDataCreatedBy()

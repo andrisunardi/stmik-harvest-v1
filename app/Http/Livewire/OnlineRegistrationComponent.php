@@ -90,7 +90,7 @@ class OnlineRegistrationComponent extends Component
         $this->resetInputFields();
         $this->resetErrorBag();
 
-        Session::flash('success', trans('message.Thank you for online registration'));
+        Session::flash('success', trans('index.Thank you for online registration'));
     }
 
     public function mount()

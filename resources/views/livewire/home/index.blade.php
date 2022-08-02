@@ -84,7 +84,7 @@
             @foreach ($data_slider as $slider)
                 <div class="carousel-item {{ $loop->first ? "active" : null }}">
                     <a draggable="false" href="{{ $slider->button_link }}" target="_blank">
-                        <img draggable="false" src="{{ $slider->assetImage() }}" class="d-block w-100" alt="{{ trans("page.Slider") }} - {{ $slider->translate_name }} - {{ env("APP_TITLE") }}">
+                        <img draggable="false" src="{{ $slider->assetImage() }}" class="d-block w-100" alt="{{ trans("index.Slider") }} - {{ $slider->translate_name }} - {{ env("APP_TITLE") }}">
                     </a>
                     <div class="carousel-caption d-block d-sm-none" style="top: 0%">
                         <h5 class="text-white" style="text-shadow: 1px 1px #000000;">{{ $slider->translate_name }}</h5>
@@ -205,7 +205,7 @@
                         <div class="courses">
                             <div class="courses__thumb">
                                 <a draggable="false" href="{{ route("event.view", ["event_slug" => $event->slug]) }}">
-                                    <img draggable="false" class="img-fluid w-100" src="{{ $event->assetImage() }}" alt="{{ trans("page.Event") }} - {{ $event->translate_name }} - {{ env("APP_TITLE") }}">
+                                    <img draggable="false" class="img-fluid w-100" src="{{ $event->assetImage() }}" alt="{{ trans("index.Event") }} - {{ $event->translate_name }} - {{ env("APP_TITLE") }}">
                                 </a>
                                 <div class="courses__hover__info">
                                     <div class="courses__hover__action">
@@ -403,7 +403,7 @@
                             <div class="upcoming__inner">
                                 <div class="upcoming__thumb">
                                     <a draggable="false" href="{{ route("event.view", ["event_slug" => $upcoming_event->slug]) }}">
-                                        <img draggable="false" class="img-fluid w-100" src="{{ $upcoming_event->assetImage() }}" alt="{{ trans("page.Event") }} - {{ $upcoming_event->translate_name }} - {{ env("APP_TITLE") }}">
+                                        <img draggable="false" class="img-fluid w-100" src="{{ $upcoming_event->assetImage() }}" alt="{{ trans("index.Event") }} - {{ $upcoming_event->translate_name }} - {{ env("APP_TITLE") }}">
                                     </a>
                                 </div>
                                 <div class="upcoming__hover__info">
@@ -496,7 +496,7 @@
                         <div class="blog">
                             <div class="blog__thumb">
                                 <a draggable="false" href="{{ route("blog.view", ["blog_slug" => $blog->slug]) }}">
-                                    <img draggable="false" class="img-fluid w-100" src="{{ $blog->assetImage() }}" alt="{{ trans("page.Blog") }} - {{ $blog->translate_name }} - {{ env("APP_TITLE") }}">
+                                    <img draggable="false" class="img-fluid w-100" src="{{ $blog->assetImage() }}" alt="{{ trans("index.Blog") }} - {{ $blog->translate_name }} - {{ env("APP_TITLE") }}">
                                 </a>
                                 <div class="blog__date">
                                     <span>{{ Date::parse($blog->date)->format("d F Y") }}</span>

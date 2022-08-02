@@ -5,7 +5,7 @@
             <i class="fas fa-fw fa-exclamation-circle"></i>
         </div>
         <div class="alert-message">
-            {{ trans("message.Please check all form input validation") }}
+            {{ trans("index.Please check all form input validation") }}
         </div>
     </div>
 @endif

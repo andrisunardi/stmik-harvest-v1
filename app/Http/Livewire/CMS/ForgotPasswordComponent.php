@@ -27,7 +27,7 @@ class ForgotPasswordComponent extends Component
     public function mount()
     {
         if (Auth::guard($this->menu_table)->check()) {
-            Session::flash('success', trans('message.You already login'));
+            Session::flash('success', trans('index.You already login'));
 
             return redirect()->route("{$this->sub_domain}.index");
         }
@@ -49,7 +49,7 @@ class ForgotPasswordComponent extends Component
         $admin = Admin::where('username', $this->username)->where('email', $this->email)->first();
 
         if (! $admin) {
-            return redirect()->back()->withInput()->withDanger(trans('message.Username or Email is invalid'));
+            return redirect()->back()->withInput()->withDanger(trans('index.Username or Email is invalid'));
         }
 
         $password = Str::random(5);

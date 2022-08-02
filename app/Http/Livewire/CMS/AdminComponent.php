@@ -154,7 +154,7 @@ class AdminComponent extends Component
     public function mount()
     {
         if (! auth()->user()->hasRole('Super Admin')) {
-            Session::flash('danger', trans('message.You dont have authorization to access this page'));
+            Session::flash('danger', trans('index.You dont have authorization to access this page'));
 
             return redirect()->route("{$this->sub_domain}.index");
         }
@@ -167,7 +167,7 @@ class AdminComponent extends Component
             $this->menu_type != 'view' &&
             $this->menu_type != 'trash'
         ) {
-            Session::flash('danger', trans('index.Menu Type').' '.trans('message.not found or has been deleted'));
+            Session::flash('danger', trans('index.Menu Type').' '.trans('index.not found or has been deleted'));
 
             return redirect()->route("{$this->sub_domain}.{$this->menu_slug}.index");
         }
@@ -184,7 +184,7 @@ class AdminComponent extends Component
             }
 
             if (! $this->admin) {
-                Session::flash('danger', trans("page.{$this->menu_name}").' '.trans('message.not found or has been deleted'));
+                Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
 
                 return redirect()->route("{$this->sub_domain}.{$this->menu_slug}.index");
             }
@@ -214,7 +214,7 @@ class AdminComponent extends Component
             $this->admin = Admin::find($id);
 
             if (! $this->admin) {
-                return Session::flash('danger', trans("page.{$this->menu_name}").' '.trans('message.not found or has been deleted'));
+                return Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
             }
 
             $this->resetForm();
@@ -235,7 +235,7 @@ class AdminComponent extends Component
         $this->admin = Admin::withTrashed()->find($id);
 
         if (! $this->admin) {
-            return Session::flash('danger', trans("page.{$this->menu_name}").' '.trans('message.not found or has been deleted'));
+            return Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
         }
     }
 
@@ -307,7 +307,7 @@ class AdminComponent extends Component
         $this->admin->save();
 
         $this->menu_type_message = $this->menu_type == 'add' || $this->menu_type == 'edit' ? $this->menu_type.'ed' : $this->menu_type.'d';
-        Session::flash('success', trans("page.{$this->menu_name}").' '.trans("message.has been {$this->menu_type_message} successfully"));
+        Session::flash('success', trans("index.{$this->menu_name}").' '.trans("index.has been {$this->menu_type_message} successfully"));
 
         $this->resetFilter();
         $this->resetErrorBag();
@@ -320,14 +320,14 @@ class AdminComponent extends Component
         $this->admin = Admin::find($id);
 
         if (! $this->admin) {
-            return Session::flash('danger', trans("page.{$this->menu_name}").' '.trans('message.not found or has been deleted'));
+            return Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
         }
 
         $this->admin->active = true;
         $this->admin->save();
         $this->admin->refresh();
 
-        return Session::flash('success', trans("page.{$this->menu_name}").' '.trans('message.has been set active successfully'));
+        return Session::flash('success', trans("index.{$this->menu_name}").' '.trans('index.has been set active successfully'));
     }
 
     public function nonActive($id)
@@ -335,14 +335,14 @@ class AdminComponent extends Component
         $this->admin = Admin::find($id);
 
         if (! $this->admin) {
-            return Session::flash('danger', trans("page.{$this->menu_name}").' '.trans('message.not found or has been deleted'));
+            return Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
         }
 
         $this->admin->active = false;
         $this->admin->save();
         $this->admin->refresh();
 
-        return Session::flash('success', trans("page.{$this->menu_name}").' '.trans('message.has been set non active successfully'));
+        return Session::flash('success', trans("index.{$this->menu_name}").' '.trans('index.has been set non active successfully'));
     }
 
     public function delete($id)
@@ -350,13 +350,13 @@ class AdminComponent extends Component
         $this->admin = Admin::find($id);
 
         if (! $this->admin) {
-            return Session::flash('danger', trans("page.{$this->menu_name}").' '.trans('message.not found or has been deleted'));
+            return Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
         }
 
         $this->admin->delete();
         $this->admin->refresh();
 
-        return Session::flash('success', trans("page.{$this->menu_name}").' '.trans('message.has been deleted successfully'));
+        return Session::flash('success', trans("index.{$this->menu_name}").' '.trans('index.has been deleted successfully'));
     }
 
     public function restore($id)
@@ -364,13 +364,13 @@ class AdminComponent extends Component
         $this->admin = Admin::onlyTrashed()->find($id);
 
         if (! $this->admin) {
-            return Session::flash('danger', trans("page.{$this->menu_name}").' '.trans('message.not found or has been deleted'));
+            return Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
         }
 
         $this->admin->restore();
         $this->admin->refresh();
 
-        return Session::flash('success', trans("page.{$this->menu_name}").' '.trans('message.has been deleted successfully'));
+        return Session::flash('success', trans("index.{$this->menu_name}").' '.trans('index.has been deleted successfully'));
     }
 
     public function deletePermanent($id)
@@ -378,7 +378,7 @@ class AdminComponent extends Component
         $this->admin = Admin::onlyTrashed()->find($id);
 
         if (! $this->admin) {
-            return Session::flash('danger', trans("page.{$this->menu_name}").' '.trans('message.not found or has been deleted'));
+            return Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
         }
 
         $this->admin->deleteImage();
@@ -392,14 +392,14 @@ class AdminComponent extends Component
             $this->menu_type = 'index';
         }
 
-        return Session::flash('success', trans("page.{$this->menu_name}").' '.trans('message.has been deleted permanent successfully'));
+        return Session::flash('success', trans("index.{$this->menu_name}").' '.trans('index.has been deleted permanent successfully'));
     }
 
     public function restoreAll()
     {
         Admin::onlyTrashed()->restore();
 
-        return Session::flash('success', trans("page.{$this->menu_name}").' '.trans('message.has been restored successfully'));
+        return Session::flash('success', trans("index.{$this->menu_name}").' '.trans('index.has been restored successfully'));
     }
 
     public function deletePermanentAll()
@@ -411,7 +411,7 @@ class AdminComponent extends Component
             $admin->forceDelete();
         }
 
-        return Session::flash('success', trans('message.All')." {$this->menu_name} ".trans('message.at Trash has been Deleted Permanent Successfully'));
+        return Session::flash('success', trans('index.All')." {$this->menu_name} ".trans('index.at Trash has been Deleted Permanent Successfully'));
     }
 
     public function getDataCreatedBy()

@@ -18,7 +18,7 @@
                         <p class="about__details">{{ trans("index.Harvest Education Assistance (BPH) is given to prospective students who manage to get satisfactory scores in the Harvest STMIK Entrance Examination. For prospective students who have academic achievements in class, they can get the opportunity to deduct the base fee through the achievement path. Scholarships are awarded ranging from 25% to 100%.") }}</p>
                     </div>
                     <div class="about__thumb mt-3">
-                        <img draggable="false" class="img-fluid w-100" src="{{ asset("images/scholarship/scholarship.webp") }}" alt="{{ trans("page.Scholarship") }} - 2 - {{ env("APP_TITLE") }}">
+                        <img draggable="false" class="img-fluid w-100" src="{{ asset("images/scholarship/scholarship.webp") }}" alt="{{ trans("index.Scholarship") }} - 2 - {{ env("APP_TITLE") }}">
                     </div>
                 </div>
             </div>

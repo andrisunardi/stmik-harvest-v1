@@ -9,7 +9,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section__title text-center">
-                        <h2 class="title__line">{{ trans("page.Our Network") }}</h2>
+                        <h2 class="title__line">{{ trans("index.Our Network") }}</h2>
                         <p>
                             {{ trans("index.STMIK HARVEST cooperates with several universities abroad.") }}<br>
                             {{ trans("index.Some of the cooperation agendas include lecturer and curriculum development programs, as well as student exchange programs.") }}
@@ -29,7 +29,7 @@
                                         <div class="shop">
                                             <div class="shop__thumb">
                                                 <a draggable="false" href="{{ $network->link }}" target="_blank">
-                                                    <img draggable="false" src="{{ $network->assetImage() }}" class="img-fluid img-thumbnail rounded w-100" alt="{{ trans("page.Our Network") }} - {{ $network->name }} - {{ env("APP_TITLE") }}">
+                                                    <img draggable="false" src="{{ $network->assetImage() }}" class="img-fluid img-thumbnail rounded w-100" alt="{{ trans("index.Our Network") }} - {{ $network->name }} - {{ env("APP_TITLE") }}">
                                                 </a>
                                             </div>
                                             <div class="shop__details">

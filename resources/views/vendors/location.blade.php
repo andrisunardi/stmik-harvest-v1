@@ -2,7 +2,7 @@
     <script>
         $(document).ready(function(){
             $("#country").change(function(){
-                $("#province").append('<option value="" selected="selected">{{ trans("message.Now Loading Data, Please Wait") }}</option>');
+                $("#province").append('<option value="" selected="selected">{{ trans("index.Now Loading Data, Please Wait") }}</option>');
                 $("#province").attr("disabled", "disabled");
                 var id = $("#country").val();
 
@@ -47,7 +47,7 @@
             });
 
             $("#province").change(function(){
-                $("#city").append('<option value="" selected="selected">{{ trans("message.Now Loading Data, Please Wait") }}</option>');
+                $("#city").append('<option value="" selected="selected">{{ trans("index.Now Loading Data, Please Wait") }}</option>');
                 $("#city").attr("disabled", "disabled");
                 var id = $("#province").val();
 
@@ -88,7 +88,7 @@
             });
 
             $("#city").change(function(){
-                $("#district").append('<option value="" selected="selected">{{ trans("message.Now Loading Data, Please Wait") }}</option>');
+                $("#district").append('<option value="" selected="selected">{{ trans("index.Now Loading Data, Please Wait") }}</option>');
                 $("#district").attr("disabled", "disabled");
                 var id = $("#city").val();
 
@@ -125,7 +125,7 @@
             });
 
             $("#district").change(function(){
-                $("#village").append('<option value="" selected="selected">{{ trans("message.Now Loading Data, Please Wait") }}</option>');
+                $("#village").append('<option value="" selected="selected">{{ trans("index.Now Loading Data, Please Wait") }}</option>');
                 $("#village").attr("disabled", "disabled");
                 var id = $("#district").val();
 

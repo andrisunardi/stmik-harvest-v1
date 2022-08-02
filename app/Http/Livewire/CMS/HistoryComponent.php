@@ -35,7 +35,7 @@ class HistoryComponent extends Component
     public function mount()
     {
         if ($this->menu_type != 'index' && $this->menu_type != 'view') {
-            Session::flash('danger', trans('index.Menu Type').' '.trans('message.not found or has been deleted'));
+            Session::flash('danger', trans('index.Menu Type').' '.trans('index.not found or has been deleted'));
 
             return redirect()->route("{$this->sub_domain}.{$this->menu_slug}.index");
         }
@@ -48,7 +48,7 @@ class HistoryComponent extends Component
             $this->log = Log::find($this->row);
 
             if (! $this->log) {
-                Session::flash('danger', trans("page.{$this->menu_name}").' '.trans('message.not found or has been deleted'));
+                Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
 
                 return redirect()->route("{$this->sub_domain}.{$this->menu_slug}.index");
             }
@@ -69,7 +69,7 @@ class HistoryComponent extends Component
         $this->log = Log::find($id);
 
         if (! $this->log) {
-            return Session::flash('danger', trans("page.{$this->menu_name}").' '.trans('message.not found or has been deleted'));
+            return Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
         }
     }
 

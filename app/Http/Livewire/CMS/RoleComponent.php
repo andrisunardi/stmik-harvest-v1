@@ -143,7 +143,7 @@ class RoleComponent extends Component
             $this->menu_type != 'view' &&
             $this->menu_type != 'trash'
         ) {
-            Session::flash('danger', trans('index.Menu Type').' '.trans('message.not found or has been deleted'));
+            Session::flash('danger', trans('index.Menu Type').' '.trans('index.not found or has been deleted'));
 
             return redirect()->route("{$this->sub_domain}.{$this->menu_slug}.index");
         }
@@ -160,7 +160,7 @@ class RoleComponent extends Component
             }
 
             if (! $this->role) {
-                Session::flash('danger', trans("page.{$this->menu_name}").' '.trans('message.not found or has been deleted'));
+                Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
 
                 return redirect()->route("{$this->sub_domain}.{$this->menu_slug}.index");
             }
@@ -199,7 +199,7 @@ class RoleComponent extends Component
         $this->role = Role::find($id);
 
         if (! $this->role) {
-            return Session::flash('danger', trans("page.{$this->menu_name}").' '.trans('message.not found or has been deleted'));
+            return Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
         }
 
         $this->active = $this->role->active;
@@ -218,7 +218,7 @@ class RoleComponent extends Component
         $this->role = Role::find($id);
 
         if (! $this->role) {
-            return Session::flash('danger', trans("page.{$this->menu_name}").' '.trans('message.not found or has been deleted'));
+            return Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
         }
 
         $this->active = $this->role->active;
@@ -237,7 +237,7 @@ class RoleComponent extends Component
         $this->role = Role::withTrashed()->find($id);
 
         if (! $this->role) {
-            return Session::flash('danger', trans("page.{$this->menu_name}").' '.trans('message.not found or has been deleted'));
+            return Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
         }
     }
 
@@ -276,7 +276,7 @@ class RoleComponent extends Component
         $this->role->save();
 
         $this->menu_type_message = $this->menu_type == 'add' || $this->menu_type == 'edit' ? $this->menu_type.'ed' : $this->menu_type.'d';
-        Session::flash('success', trans("page.{$this->menu_name}").' '.trans("message.has been {$this->menu_type_message} successfully"));
+        Session::flash('success', trans("index.{$this->menu_name}").' '.trans("index.has been {$this->menu_type_message} successfully"));
 
         $this->resetFilter();
         $this->resetErrorBag();
@@ -289,14 +289,14 @@ class RoleComponent extends Component
         $this->role = Role::find($id);
 
         if (! $this->role) {
-            return Session::flash('danger', trans("page.{$this->menu_name}").' '.trans('message.not found or has been deleted'));
+            return Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
         }
 
         $this->role->active = true;
         $this->role->save();
         $this->role->refresh();
 
-        return Session::flash('success', trans("page.{$this->menu_name}").' '.trans('message.has been set active successfully'));
+        return Session::flash('success', trans("index.{$this->menu_name}").' '.trans('index.has been set active successfully'));
     }
 
     public function nonActive($id)
@@ -304,14 +304,14 @@ class RoleComponent extends Component
         $this->role = Role::find($id);
 
         if (! $this->role) {
-            return Session::flash('danger', trans("page.{$this->menu_name}").' '.trans('message.not found or has been deleted'));
+            return Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
         }
 
         $this->role->active = false;
         $this->role->save();
         $this->role->refresh();
 
-        return Session::flash('success', trans("page.{$this->menu_name}").' '.trans('message.has been set non active successfully'));
+        return Session::flash('success', trans("index.{$this->menu_name}").' '.trans('index.has been set non active successfully'));
     }
 
     public function delete($id)
@@ -319,13 +319,13 @@ class RoleComponent extends Component
         $this->role = Role::find($id);
 
         if (! $this->role) {
-            return Session::flash('danger', trans("page.{$this->menu_name}").' '.trans('message.not found or has been deleted'));
+            return Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
         }
 
         $this->role->delete();
         $this->role->refresh();
 
-        return Session::flash('success', trans("page.{$this->menu_name}").' '.trans('message.has been deleted successfully'));
+        return Session::flash('success', trans("index.{$this->menu_name}").' '.trans('index.has been deleted successfully'));
     }
 
     public function restore($id)
@@ -333,13 +333,13 @@ class RoleComponent extends Component
         $this->role = Role::onlyTrashed()->find($id);
 
         if (! $this->role) {
-            return Session::flash('danger', trans("page.{$this->menu_name}").' '.trans('message.not found or has been deleted'));
+            return Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
         }
 
         $this->role->restore();
         $this->role->refresh();
 
-        return Session::flash('success', trans("page.{$this->menu_name}").' '.trans('message.has been deleted successfully'));
+        return Session::flash('success', trans("index.{$this->menu_name}").' '.trans('index.has been deleted successfully'));
     }
 
     public function deletePermanent($id)
@@ -347,7 +347,7 @@ class RoleComponent extends Component
         $this->role = Role::onlyTrashed()->find($id);
 
         if (! $this->role) {
-            return Session::flash('danger', trans("page.{$this->menu_name}").' '.trans('message.not found or has been deleted'));
+            return Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
         }
 
         $this->role->forceDelete();
@@ -360,21 +360,21 @@ class RoleComponent extends Component
             $this->menu_type = 'index';
         }
 
-        return Session::flash('success', trans("page.{$this->menu_name}").' '.trans('message.has been deleted permanent successfully'));
+        return Session::flash('success', trans("index.{$this->menu_name}").' '.trans('index.has been deleted permanent successfully'));
     }
 
     public function restoreAll()
     {
         Role::onlyTrashed()->restore();
 
-        return Session::flash('success', trans("page.{$this->menu_name}").' '.trans('message.has been restored successfully'));
+        return Session::flash('success', trans("index.{$this->menu_name}").' '.trans('index.has been restored successfully'));
     }
 
     public function deletePermanentAll()
     {
         Role::onlyTrashed()->forceDelete();
 
-        return Session::flash('success', trans('message.All')." {$this->menu_name} ".trans('message.at Trash has been Deleted Permanent Successfully'));
+        return Session::flash('success', trans('index.All')." {$this->menu_name} ".trans('index.at Trash has been Deleted Permanent Successfully'));
     }
 
     public function getDataCreatedBy()

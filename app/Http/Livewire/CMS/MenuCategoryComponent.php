@@ -159,7 +159,7 @@ class MenuCategoryComponent extends Component
             $this->menu_type != 'view' &&
             $this->menu_type != 'trash'
         ) {
-            Session::flash('danger', trans('index.Menu Type').' '.trans('message.not found or has been deleted'));
+            Session::flash('danger', trans('index.Menu Type').' '.trans('index.not found or has been deleted'));
 
             return redirect()->route("{$this->sub_domain}.{$this->menu_slug}.index");
         }
@@ -176,7 +176,7 @@ class MenuCategoryComponent extends Component
             }
 
             if (! $this->menu_category) {
-                Session::flash('danger', trans("page.{$this->menu_name}").' '.trans('message.not found or has been deleted'));
+                Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
 
                 return redirect()->route("{$this->sub_domain}.{$this->menu_slug}.index");
             }
@@ -206,7 +206,7 @@ class MenuCategoryComponent extends Component
             $this->menu_category = MenuCategory::find($id);
 
             if (! $this->menu_category) {
-                return Session::flash('danger', trans("page.{$this->menu_name}").' '.trans('message.not found or has been deleted'));
+                return Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
             }
 
             $this->resetForm();
@@ -227,7 +227,7 @@ class MenuCategoryComponent extends Component
         $this->menu_category = MenuCategory::withTrashed()->find($id);
 
         if (! $this->menu_category) {
-            return Session::flash('danger', trans("page.{$this->menu_name}").' '.trans('message.not found or has been deleted'));
+            return Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
         }
     }
 
@@ -272,7 +272,7 @@ class MenuCategoryComponent extends Component
         $this->menu_category->save();
 
         $this->menu_type_message = $this->menu_type == 'add' || $this->menu_type == 'edit' ? $this->menu_type.'ed' : $this->menu_type.'d';
-        Session::flash('success', trans("page.{$this->menu_name}").' '.trans("message.has been {$this->menu_type_message} successfully"));
+        Session::flash('success', trans("index.{$this->menu_name}").' '.trans("index.has been {$this->menu_type_message} successfully"));
 
         $this->resetFilter();
         $this->resetErrorBag();
@@ -285,14 +285,14 @@ class MenuCategoryComponent extends Component
         $this->menu_category = MenuCategory::find($id);
 
         if (! $this->menu_category) {
-            return Session::flash('danger', trans("page.{$this->menu_name}").' '.trans('message.not found or has been deleted'));
+            return Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
         }
 
         $this->menu_category->active = true;
         $this->menu_category->save();
         $this->menu_category->refresh();
 
-        return Session::flash('success', trans("page.{$this->menu_name}").' '.trans('message.has been set active successfully'));
+        return Session::flash('success', trans("index.{$this->menu_name}").' '.trans('index.has been set active successfully'));
     }
 
     public function nonActive($id)
@@ -300,14 +300,14 @@ class MenuCategoryComponent extends Component
         $this->menu_category = MenuCategory::find($id);
 
         if (! $this->menu_category) {
-            return Session::flash('danger', trans("page.{$this->menu_name}").' '.trans('message.not found or has been deleted'));
+            return Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
         }
 
         $this->menu_category->active = false;
         $this->menu_category->save();
         $this->menu_category->refresh();
 
-        return Session::flash('success', trans("page.{$this->menu_name}").' '.trans('message.has been set non active successfully'));
+        return Session::flash('success', trans("index.{$this->menu_name}").' '.trans('index.has been set non active successfully'));
     }
 
     public function delete($id)
@@ -315,13 +315,13 @@ class MenuCategoryComponent extends Component
         $this->menu_category = MenuCategory::find($id);
 
         if (! $this->menu_category) {
-            return Session::flash('danger', trans("page.{$this->menu_name}").' '.trans('message.not found or has been deleted'));
+            return Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
         }
 
         $this->menu_category->delete();
         $this->menu_category->refresh();
 
-        return Session::flash('success', trans("page.{$this->menu_name}").' '.trans('message.has been deleted successfully'));
+        return Session::flash('success', trans("index.{$this->menu_name}").' '.trans('index.has been deleted successfully'));
     }
 
     public function restore($id)
@@ -329,13 +329,13 @@ class MenuCategoryComponent extends Component
         $this->menu_category = MenuCategory::onlyTrashed()->find($id);
 
         if (! $this->menu_category) {
-            return Session::flash('danger', trans("page.{$this->menu_name}").' '.trans('message.not found or has been deleted'));
+            return Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
         }
 
         $this->menu_category->restore();
         $this->menu_category->refresh();
 
-        return Session::flash('success', trans("page.{$this->menu_name}").' '.trans('message.has been deleted successfully'));
+        return Session::flash('success', trans("index.{$this->menu_name}").' '.trans('index.has been deleted successfully'));
     }
 
     public function deletePermanent($id)
@@ -343,7 +343,7 @@ class MenuCategoryComponent extends Component
         $this->menu_category = MenuCategory::onlyTrashed()->find($id);
 
         if (! $this->menu_category) {
-            return Session::flash('danger', trans("page.{$this->menu_name}").' '.trans('message.not found or has been deleted'));
+            return Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
         }
 
         $this->menu_category->forceDelete();
@@ -356,21 +356,21 @@ class MenuCategoryComponent extends Component
             $this->menu_type = 'index';
         }
 
-        return Session::flash('success', trans("page.{$this->menu_name}").' '.trans('message.has been deleted permanent successfully'));
+        return Session::flash('success', trans("index.{$this->menu_name}").' '.trans('index.has been deleted permanent successfully'));
     }
 
     public function restoreAll()
     {
         MenuCategory::onlyTrashed()->restore();
 
-        return Session::flash('success', trans("page.{$this->menu_name}").' '.trans('message.has been restored successfully'));
+        return Session::flash('success', trans("index.{$this->menu_name}").' '.trans('index.has been restored successfully'));
     }
 
     public function deletePermanentAll()
     {
         MenuCategory::onlyTrashed()->forceDelete();
 
-        return Session::flash('success', trans('message.All')." {$this->menu_name} ".trans('message.at Trash has been Deleted Permanent Successfully'));
+        return Session::flash('success', trans('index.All')." {$this->menu_name} ".trans('index.at Trash has been Deleted Permanent Successfully'));
     }
 
     public function getDataCreatedBy()

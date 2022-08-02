@@ -19,7 +19,7 @@ class LogoutComponent extends Component
     {
         Auth::logout();
         Session::flush();
-        Session::flash('success', trans('message.You have been successfully logged out'));
+        Session::flash('success', trans('index.You have been successfully logged out'));
 
         return redirect()->route("{$this->sub_domain}.login.index");
     }

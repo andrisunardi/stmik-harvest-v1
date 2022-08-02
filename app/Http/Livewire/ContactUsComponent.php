@@ -74,7 +74,7 @@ class ContactUsComponent extends Component
         $this->resetInputFields();
         $this->resetErrorBag();
 
-        Session::flash('success', trans('message.Thank you for contacting us. We will answer as soon as possible'));
+        Session::flash('success', trans('index.Thank you for contacting us. We will answer as soon as possible'));
     }
 
     public function mount()

@@ -95,7 +95,7 @@ class HomeComponent extends Component
         $this->resetInputFields();
         $this->resetErrorBag();
 
-        Session::flash('success', trans('message.Thank you for online registration'));
+        Session::flash('success', trans('index.Thank you for online registration'));
     }
 
     public function newsletter()
@@ -121,7 +121,7 @@ class HomeComponent extends Component
             });
         }
 
-        Session::flash('success', trans('message.Thank you for subscribe our newsletter'));
+        Session::flash('success', trans('index.Thank you for subscribe our newsletter'));
     }
 
     public function mount()

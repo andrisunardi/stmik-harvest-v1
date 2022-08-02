@@ -24,7 +24,7 @@ class LoginComponent extends Component
     public function mount()
     {
         if (Auth::guard($this->menu_table)->check()) {
-            Session::flash('success', trans('message.You already login'));
+            Session::flash('success', trans('index.You already login'));
 
             return redirect()->route("{$this->sub_domain}.index");
         }
@@ -43,12 +43,12 @@ class LoginComponent extends Component
         $this->validate();
 
         if (Auth::guard($this->menu_table)->attempt(['username' => $this->username, 'password' => $this->password], $this->remember)) {
-            Session::flash('success', trans('message.Login has been successfully'));
+            Session::flash('success', trans('index.Login has been successfully'));
 
             return redirect()->intended("{$this->sub_domain}/");
         }
 
-        return redirect()->back()->withInput()->withDanger(trans('message.Username or Password is invalid'));
+        return redirect()->back()->withInput()->withDanger(trans('index.Username or Password is invalid'));
     }
 
     public function render()

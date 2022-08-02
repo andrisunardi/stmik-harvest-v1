@@ -15,7 +15,7 @@
                                 <div class="res__right">
                                     <h4>{{ trans("index.Please see our procedure first") }}</h4>
                                     <div class="sign__btn">
-                                        <a draggable="false" class="htc__sign__btn" href="{{ route("procedure.index") }}">{{ trans("page.Procedure") }}</a>
+                                        <a draggable="false" class="htc__sign__btn" href="{{ route("procedure.index") }}">{{ trans("index.Procedure") }}</a>
                                     </div>
                                 </div>
                             </div>
@@ -196,12 +196,12 @@
                                 <ul class="htc__social__btn">
                                     <li>
                                         <a draggable="false" href="{{ route("tuition-fees.index") }}">
-                                            <i class="fas fa-money-check-dollar"></i><span>{{ trans("page.Tuition Fees") }}</span>
+                                            <i class="fas fa-money-check-dollar"></i><span>{{ trans("index.Tuition Fees") }}</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a draggable="false" href="{{ route("scholarships.index") }}">
-                                            <i class="fas fa-hand-holding-dollar"></i><span>{{ trans("page.Scholarships") }}</span>
+                                            <i class="fas fa-hand-holding-dollar"></i><span>{{ trans("index.Scholarships") }}</span>
                                         </a>
                                     </li>
                                 </ul>

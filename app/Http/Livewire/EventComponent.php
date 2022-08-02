@@ -49,7 +49,7 @@ class EventComponent extends Component
         $this->event_category = EventCategory::where('slug', $this->category)->first();
 
         if ($this->category && ! $this->event_category) {
-            Session::flash('danger', trans('index.category').' '.trans('message.not found or has been deleted'));
+            Session::flash('danger', trans('index.category').' '.trans('index.not found or has been deleted'));
 
             return redirect()->route("{$this->menu_slug}.index");
         }
@@ -71,7 +71,7 @@ class EventComponent extends Component
             )->active()->orderByDesc('id');
 
         if ($this->search) {
-            Session::flash('success', trans('message.Found')." <b>'{$data_event->count()}'</b> ".trans('message.results for')." <b>'{$this->search}'</b>");
+            Session::flash('success', trans('index.Found')." <b>'{$data_event->count()}'</b> ".trans('index.results for')." <b>'{$this->search}'</b>");
         }
 
         $data_event = $data_event->paginate(10);

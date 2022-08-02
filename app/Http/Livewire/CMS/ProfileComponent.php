@@ -121,7 +121,7 @@ class ProfileComponent extends Component
         $this->resetFilter();
         $this->resetErrorBag();
 
-        return Session::flash('success', trans('message.Your Profile has been Edited Successfully'));
+        return Session::flash('success', trans('index.Your Profile has been Edited Successfully'));
     }
 
     public function changePassword()
@@ -141,11 +141,11 @@ class ProfileComponent extends Component
         ]);
 
         if ($this->new_password != $this->confirm_password) {
-            return Session::flash('danger', trans('message.New Password and Confirm Password does not match'));
+            return Session::flash('danger', trans('index.New Password and Confirm Password does not match'));
         }
 
         if (! Hash::check($this->current_password, Auth::user()->password)) {
-            return Session::flash('danger', trans('message.Your Current Password is incorrect'));
+            return Session::flash('danger', trans('index.Your Current Password is incorrect'));
         }
 
         Auth::user()->password = Hash::make($this->new_password);
@@ -155,7 +155,7 @@ class ProfileComponent extends Component
         $this->resetFilter();
         $this->resetErrorBag();
 
-        return Session::flash('success', trans('message.Your Password has been Changed Successfully'));
+        return Session::flash('success', trans('index.Your Password has been Changed Successfully'));
     }
 
     public function render()

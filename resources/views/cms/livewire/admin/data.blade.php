@@ -159,8 +159,8 @@
                                             <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body text-wrap">
-                                            <p>{{ trans("message.Are you sure you want to delete") }} {{ trans("index." . Str::slug($menu_name, "_")) }}</p>
-                                            <p class="mb-0">{{ trans("message.You can still restore from Trash") }}</p>
+                                            <p>{{ trans("index.Are you sure you want to delete") }} {{ trans("index." . Str::slug($menu_name, "_")) }}</p>
+                                            <p class="mb-0">{{ trans("index.You can still restore from Trash") }}</p>
                                         </div>
                                         <div class="modal-footer justify-content-between">
                                             <button class="btn btn-creative btn-sm btn-light" type="button" data-bs-dismiss="modal">
@@ -191,7 +191,7 @@
                                             <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            <p class="mb-0">{{ trans("message.Are you sure you want to restore") }} {{ trans("index." . Str::slug($menu_name, "_")) }}</p>
+                                            <p class="mb-0">{{ trans("index.Are you sure you want to restore") }} {{ trans("index." . Str::slug($menu_name, "_")) }}</p>
                                         </div>
                                         <div class="modal-footer justify-content-between">
                                             <button class="btn btn-creative btn-sm btn-light" type="button" data-bs-dismiss="modal">
@@ -220,9 +220,9 @@
                                             <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body text-wrap">
-                                            <p>{{ trans("message.Are you sure you want to delete permanent") }} {{ trans("index." . Str::slug($menu_name, "_")) }}</p>
-                                            <p>{{ trans("message.You cant undo this action or restore this data anymore") }}</p>
-                                            <p class="mb-0">{{ trans("message.All relation data and files will be deleted forever from server") }}</p>
+                                            <p>{{ trans("index.Are you sure you want to delete permanent") }} {{ trans("index." . Str::slug($menu_name, "_")) }}</p>
+                                            <p>{{ trans("index.You cant undo this action or restore this data anymore") }}</p>
+                                            <p class="mb-0">{{ trans("index.All relation data and files will be deleted forever from server") }}</p>
                                         </div>
                                         <div class="modal-footer">
                                             <button class="btn btn-creative btn-sm btn-light" type="button" data-bs-dismiss="modal">

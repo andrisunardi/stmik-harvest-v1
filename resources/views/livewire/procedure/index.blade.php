@@ -7,7 +7,7 @@
     <section class="our__about__area bg__white pb--80 pt--100">
         <div class="container">
             <div class="section__title text-center">
-                <h2 class="title__line">{{ trans("page.Procedure") }}</h2>
+                <h2 class="title__line">{{ trans("index.Procedure") }}</h2>
                 <p>{{ trans("index.The following is the new student registration procedure") }}</p>
             </div>
             <div class="accordion mt-5" id="accordion-procedure">
