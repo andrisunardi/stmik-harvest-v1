@@ -121,8 +121,8 @@
             <h6>{{ trans("index.Created By") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
-            <a draggable="false" href="{{ $slider->created_by_admin?->id || $slider->created_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$slider->created_by_admin?->id}" : null }}" target="_blank">
-                {{ $slider->created_by_admin?->name }}
+            <a draggable="false" href="{{ $slider->created_by?->id || $slider->created_by?->id == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$slider->created_by?->id}" : null }}" target="_blank">
+                {{ $slider->created_by?->name }}
             </a>
         </div>
     </div>
@@ -131,8 +131,8 @@
             <h6>{{ trans("index.Updated By") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
-            <a draggable="false" href="{{ $slider->updated_by_admin?->id || $slider->updated_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$slider->updated_by_admin?->id}" : null }}" target="_blank">
-                {{ $slider->updated_by_admin?->name }}
+            <a draggable="false" href="{{ $slider->updated_by?->id || $slider->updated_by?->id == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$slider->updated_by?->id}" : null }}" target="_blank">
+                {{ $slider->updated_by?->name }}
             </a>
         </div>
     </div>
@@ -142,8 +142,8 @@
                 <h6>{{ trans("index.Deleted By") }}</h6>
             </div>
             <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
-                <a draggable="false" href="{{ $slider->deleted_by_admin?->id || $slider->deleted_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$slider->deleted_by_admin?->id}" : null }}" target="_blank">
-                    {{ $slider->deleted_by_admin?->name }}
+                <a draggable="false" href="{{ $slider->deleted_by?->id || $slider->deleted_by?->id == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$slider->deleted_by?->id}" : null }}" target="_blank">
+                    {{ $slider->deleted_by?->name }}
                 </a>
             </div>
         </div>

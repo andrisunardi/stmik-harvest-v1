@@ -90,8 +90,8 @@
             <h6>{{ trans("index.Created By") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
-            <a draggable="false" href="{{ $registration->created_by_admin?->id || $registration->created_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$registration->created_by_admin?->id}" : null }}" target="_blank">
-                {{ $registration->created_by_admin?->name }}
+            <a draggable="false" href="{{ $registration->created_by?->id || $registration->created_by?->id == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$registration->created_by?->id}" : null }}" target="_blank">
+                {{ $registration->created_by?->name }}
             </a>
         </div>
     </div>
@@ -100,8 +100,8 @@
             <h6>{{ trans("index.Updated By") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
-            <a draggable="false" href="{{ $registration->updated_by_admin?->id || $registration->updated_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$registration->updated_by_admin?->id}" : null }}" target="_blank">
-                {{ $registration->updated_by_admin?->name }}
+            <a draggable="false" href="{{ $registration->updated_by?->id || $registration->updated_by?->id == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$registration->updated_by?->id}" : null }}" target="_blank">
+                {{ $registration->updated_by?->name }}
             </a>
         </div>
     </div>
@@ -111,8 +111,8 @@
                 <h6>{{ trans("index.Deleted By") }}</h6>
             </div>
             <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
-                <a draggable="false" href="{{ $registration->deleted_by_admin?->id || $registration->deleted_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$registration->deleted_by_admin?->id}" : null }}" target="_blank">
-                    {{ $registration->deleted_by_admin?->name }}
+                <a draggable="false" href="{{ $registration->deleted_by?->id || $registration->deleted_by?->id == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$registration->deleted_by?->id}" : null }}" target="_blank">
+                    {{ $registration->deleted_by?->name }}
                     </a>
             </div>
         </div>

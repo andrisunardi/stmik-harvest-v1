@@ -30,8 +30,8 @@
             <h6>{{ trans("index.Created By") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
-            <a draggable="false" href="{{ $role->created_by_admin?->id || $role->created_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$role->created_by_admin?->id}" : null }}" target="_blank">
-                {{ $role->created_by_admin?->name }}
+            <a draggable="false" href="{{ $role->created_by?->id || $role->created_by?->id == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$role->created_by?->id}" : null }}" target="_blank">
+                {{ $role->created_by?->name }}
             </a>
         </div>
     </div>
@@ -40,8 +40,8 @@
             <h6>{{ trans("index.Updated By") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
-            <a draggable="false" href="{{ $role->updated_by_admin?->id || $role->updated_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$role->updated_by_admin?->id}" : null }}" target="_blank">
-                {{ $role->updated_by_admin?->name }}
+            <a draggable="false" href="{{ $role->updated_by?->id || $role->updated_by?->id == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$role->updated_by?->id}" : null }}" target="_blank">
+                {{ $role->updated_by?->name }}
             </a>
         </div>
     </div>
@@ -51,8 +51,8 @@
                 <h6>{{ trans("index.Deleted By") }}</h6>
             </div>
             <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
-                <a draggable="false" href="{{ $role->deleted_by_admin?->id || $role->deleted_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$role->deleted_by_admin?->id}" : null }}" target="_blank">
-                    {{ $role->deleted_by_admin?->name }}
+                <a draggable="false" href="{{ $role->deleted_by?->id || $role->deleted_by?->id == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$role->deleted_by?->id}" : null }}" target="_blank">
+                    {{ $role->deleted_by?->name }}
                 </a>
             </div>
         </div>

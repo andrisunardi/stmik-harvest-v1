@@ -30,8 +30,8 @@
             <h6>{{ trans("index.Created By") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
-            <a draggable="false" href="{{ $access->created_by_admin?->id || $access->created_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$access->created_by_admin?->id}" : null }}" target="_blank">
-                {{ $access->created_by_admin?->name }}
+            <a draggable="false" href="{{ $access->created_by?->id || $access->created_by?->id == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$access->created_by?->id}" : null }}" target="_blank">
+                {{ $access->created_by?->name }}
             </a>
         </div>
     </div>
@@ -40,8 +40,8 @@
             <h6>{{ trans("index.Updated By") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
-            <a draggable="false" href="{{ $access->updated_by_admin?->id || $access->updated_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$access->updated_by_admin?->id}" : null }}" target="_blank">
-                {{ $access->updated_by_admin?->name }}
+            <a draggable="false" href="{{ $access->updated_by?->id || $access->updated_by?->id == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$access->updated_by?->id}" : null }}" target="_blank">
+                {{ $access->updated_by?->name }}
             </a>
         </div>
     </div>
@@ -51,8 +51,8 @@
                 <h6>{{ trans("index.Deleted By") }}</h6>
             </div>
             <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
-                <a draggable="false" href="{{ $access->deleted_by_admin?->id || $access->deleted_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$access->deleted_by_admin?->id}" : null }}" target="_blank">
-                    {{ $access->deleted_by_admin?->name }}
+                <a draggable="false" href="{{ $access->deleted_by?->id || $access->deleted_by?->id == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$access->deleted_by?->id}" : null }}" target="_blank">
+                    {{ $access->deleted_by?->name }}
                 </a>
             </div>
         </div>

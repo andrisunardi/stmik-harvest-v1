@@ -47,19 +47,19 @@
                         </span>
                     </td>
                     <td>
-                        <a draggable="false" href="{{ $procedure->created_by_admin?->id || $procedure->created_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$procedure->created_by_admin?->id}" : null }}" target="_blank">
-                            {{ $procedure->created_by_admin?->name }}
+                        <a draggable="false" href="{{ $procedure->created_by?->id || $procedure->created_by?->id == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$procedure->created_by?->id}" : null }}" target="_blank">
+                            {{ $procedure->created_by?->name }}
                         </a>
                     </td>
                     <td>
-                        <a draggable="false" href="{{ $procedure->updated_by_admin?->id || $procedure->updated_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$procedure->updated_by_admin?->id}" : null }}" target="_blank">
-                            {{ $procedure->updated_by_admin?->name }}
+                        <a draggable="false" href="{{ $procedure->updated_by?->id || $procedure->updated_by?->id == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$procedure->updated_by?->id}" : null }}" target="_blank">
+                            {{ $procedure->updated_by?->name }}
                         </a>
                     </td>
                     @if ($menu_type == "trash")
                         <td>
-                            <a draggable="false" href="{{ $procedure->deleted_by_admin?->id || $procedure->deleted_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$procedure->deleted_by_admin?->id}" : null }}" target="_blank">
-                                {{ $procedure->deleted_by_admin?->name }}
+                            <a draggable="false" href="{{ $procedure->deleted_by?->id || $procedure->deleted_by?->id == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$procedure->deleted_by?->id}" : null }}" target="_blank">
+                                {{ $procedure->deleted_by?->name }}
                             </a>
                         </td>
                     @endif

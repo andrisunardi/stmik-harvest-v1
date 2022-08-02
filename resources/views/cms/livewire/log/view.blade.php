@@ -62,8 +62,8 @@
             <h6>{{ trans("index.Created By") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
-            <a draggable="false" href="{{ $log->created_by_admin?->id || $log->created_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$log->created_by_admin?->id}" : null }}" target="_blank">
-                {{ $log->created_by_admin?->name }}
+            <a draggable="false" href="{{ $log->created_by?->id || $log->created_by?->id == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$log->created_by?->id}" : null }}" target="_blank">
+                {{ $log->created_by?->name }}
             </a>
         </div>
     </div>
@@ -72,8 +72,8 @@
             <h6>{{ trans("index.Updated By") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
-            <a draggable="false" href="{{ $log->updated_by_admin?->id || $log->updated_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$log->updated_by_admin?->id}" : null }}" target="_blank">
-                {{ $log->updated_by_admin?->name }}
+            <a draggable="false" href="{{ $log->updated_by?->id || $log->updated_by?->id == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$log->updated_by?->id}" : null }}" target="_blank">
+                {{ $log->updated_by?->name }}
             </a>
         </div>
     </div>
@@ -83,8 +83,8 @@
                 <h6>{{ trans("index.Deleted By") }}</h6>
             </div>
             <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
-                <a draggable="false" href="{{ $log->deleted_by_admin?->id || $log->deleted_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$log->deleted_by_admin?->id}" : null }}" target="_blank">
-                    {{ $log->deleted_by_admin?->name }}
+                <a draggable="false" href="{{ $log->deleted_by?->id || $log->deleted_by?->id == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$log->deleted_by?->id}" : null }}" target="_blank">
+                    {{ $log->deleted_by?->name }}
                 </a>
             </div>
         </div>

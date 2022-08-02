@@ -73,9 +73,9 @@ class TuitionFeeComponent extends Component
         'per_page' => ['except' => 10],
         'order_by' => ['except' => 'id'],
         'sort_by' => ['except' => 'desc'],
-        'created_by' => ['except' => ''],
-        'updated_by' => ['except' => ''],
-        'deleted_by' => ['except' => ''],
+        'created_by_id' => ['except' => ''],
+        'updated_by_id' => ['except' => ''],
+        'deleted_by_id' => ['except' => ''],
         'start_created_at' => ['except' => ''],
         'end_created_at' => ['except' => ''],
         'start_updated_at' => ['except' => ''],
@@ -97,8 +97,9 @@ class TuitionFeeComponent extends Component
         $this->sort_by = 'desc';
 
         $this->reset([
-            'created_by',
-            'updated_by',
+            'created_by_id',
+            'updated_by_id',
+            'deleted_by_id',
             'start_created_at',
             'end_created_at',
             'start_updated_at',
@@ -372,21 +373,21 @@ class TuitionFeeComponent extends Component
 
     public function getDataCreatedBy()
     {
-        $created_by = TuitionFee::groupBy('created_by')->active()->pluck('created_by');
+        $created_by = TuitionFee::groupBy('created_by_id')->active()->pluck('created_by_id');
 
         return Admin::whereIn('id', $created_by)->active()->orderBy('name')->get();
     }
 
     public function getDataUpdatedBy()
     {
-        $updated_by = TuitionFee::groupBy('updated_by')->active()->pluck('updated_by');
+        $updated_by = TuitionFee::groupBy('updated_by_id')->active()->pluck('updated_by_id');
 
         return Admin::whereIn('id', $updated_by)->active()->orderBy('name')->get();
     }
 
     public function getDataDeletedBy()
     {
-        $deleted_by = TuitionFee::groupBy('deleted_by')->active()->pluck('deleted_by');
+        $deleted_by = TuitionFee::groupBy('deleted_by_id')->active()->pluck('deleted_by_id');
 
         return Admin::whereIn('id', $deleted_by)->active()->orderBy('name')->get();
     }
@@ -395,14 +396,14 @@ class TuitionFeeComponent extends Component
     {
         if ($this->menu_type == 'index' || $this->menu_type == 'trash') {
             $data_tuition_fee = TuitionFee::query()
-                ->when($this->created_by, function ($query) {
-                    $query->where('created_by', $this->created_by);
+                ->when($this->created_by_id, function ($query) {
+                    $query->where('created_by_id', $this->created_by_id);
                 })
-                ->when($this->updated_by, function ($query) {
-                    $query->where('updated_by', $this->updated_by);
+                ->when($this->updated_by_id, function ($query) {
+                    $query->where('updated_by_id', $this->updated_by_id);
                 })
-                ->when($this->deleted_by, function ($query) {
-                    $query->where('deleted_by', $this->deleted_by);
+                ->when($this->deleted_by_id, function ($query) {
+                    $query->where('deleted_by_id', $this->deleted_by_id);
                 })
                 ->when($this->start_created_at, function ($query) {
                     $query->whereDate('created_at', '>=', $this->start_created_at);
@@ -439,28 +440,28 @@ class TuitionFeeComponent extends Component
                     $query->where('description_id', 'LIKE', "%{$this->description_id}%");
                 });
 
-            if ($this->created_by || $this->created_by == '0') {
-                $data_tuition_fee->where('created_by', $this->created_by);
+            if ($this->created_by_id || $this->created_by_id == '0') {
+                $data_tuition_fee->where('created_by_id', $this->created_by_id);
             }
-            if ($this->updated_by || $this->updated_by == '0') {
-                $data_tuition_fee->where('updated_by', $this->updated_by);
+            if ($this->updated_by_id || $this->updated_by_id == '0') {
+                $data_tuition_fee->where('updated_by_id', $this->updated_by_id);
             }
-            if ($this->deleted_by || $this->deleted_by == '0') {
-                $data_tuition_fee->where('deleted_by', $this->deleted_by);
+            if ($this->deleted_by_id || $this->deleted_by_id == '0') {
+                $data_tuition_fee->where('deleted_by_id', $this->deleted_by_id);
             }
             if ($this->active || $this->active == '0') {
                 $data_tuition_fee->where('active', $this->active);
             }
 
-            if ($this->order_by == 'created_by') {
+            if ($this->order_by == 'created_by_id') {
                 $data_tuition_fee->join('admin', 'admin.id', "{$this->menu_table}.created_by")
                         ->select("{$this->menu_table}.*", 'admin.name as admin_name')
                         ->orderByRaw("admin_name {$this->sort_by}");
-            } elseif ($this->order_by == 'updated_by') {
+            } elseif ($this->order_by == 'updated_by_id') {
                 $data_tuition_fee->join('admin', 'admin.id', "{$this->menu_table}.updated_by")
                         ->select("{$this->menu_table}.*", 'admin.name as admin_name')
                         ->orderByRaw("admin_name {$this->sort_by}");
-            } elseif ($this->order_by == 'deleted_by') {
+            } elseif ($this->order_by == 'deleted_by_id') {
                 $data_tuition_fee->join('admin', 'admin.id', "{$this->menu_table}.deleted_by")
                         ->select("{$this->menu_table}.*", 'admin.name as admin_name')
                         ->orderByRaw("admin_name {$this->sort_by}");

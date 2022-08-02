@@ -92,23 +92,23 @@
                         </span>
                     </td>
                     <td>
-                        @if ($admin->created_by_admin->id || $admin->created_by == 0)
-                            <a draggable="false" href="{{ route("{$sub_domain}.{$menu_slug}.index") . "?menu_type=view&row={$admin->created_by_admin?->id}" }}" target="_blank">
-                                {{ $admin->created_by_admin?->name }}
+                        @if ($admin->created_by_admin->id || $admin->created_by?->id == 0)
+                            <a draggable="false" href="{{ route("{$sub_domain}.{$menu_slug}.index") . "?menu_type=view&row={$admin->created_by?->id}" }}" target="_blank">
+                                {{ $admin->created_by?->name }}
                             </a>
                         @endif
                     </td>
                     <td>
-                        @if ($admin->created_by_admin->id || $admin->created_by == 0)
-                            <a draggable="false" href="{{ $admin->updated_by_admin?->id || $admin->updated_by == 0 ? route("{$sub_domain}.{$menu_slug}.index") . "?menu_type=view&row={$admin->updated_by_admin?->id}" : null }}" target="_blank">
-                                {{ $admin->updated_by_admin?->name }}
+                        @if ($admin->created_by_admin->id || $admin->created_by?->id == 0)
+                            <a draggable="false" href="{{ $admin->updated_by?->id || $admin->updated_by?->id == 0 ? route("{$sub_domain}.{$menu_slug}.index") . "?menu_type=view&row={$admin->updated_by?->id}" : null }}" target="_blank">
+                                {{ $admin->updated_by?->name }}
                             </a>
                         @endif
                     </td>
                     @if ($menu_type == "trash")
                         <td>
-                            <a draggable="false" href="{{ $admin->deleted_by_admin?->id || $admin->deleted_by == 0 ? route("{$sub_domain}.{$menu_slug}.index") . "?menu_type=view&row={$admin->deleted_by_admin?->id}" : null }}" target="_blank">
-                                {{ $admin->deleted_by_admin?->name }}
+                            <a draggable="false" href="{{ $admin->deleted_by?->id || $admin->deleted_by?->id == 0 ? route("{$sub_domain}.{$menu_slug}.index") . "?menu_type=view&row={$admin->deleted_by?->id}" : null }}" target="_blank">
+                                {{ $admin->deleted_by?->name }}
                             </a>
                         </td>
                     @endif

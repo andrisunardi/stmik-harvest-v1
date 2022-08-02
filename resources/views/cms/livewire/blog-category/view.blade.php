@@ -62,8 +62,8 @@
             <h6>{{ trans("index.Created By") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
-            <a draggable="false" href="{{ $blog_category->created_by_admin?->id || $blog_category->created_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$blog_category->created_by_admin?->id}" : null }}" target="_blank">
-                {{ $blog_category->created_by_admin?->name }}
+            <a draggable="false" href="{{ $blog_category->created_by?->id || $blog_category->created_by?->id == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$blog_category->created_by?->id}" : null }}" target="_blank">
+                {{ $blog_category->created_by?->name }}
             </a>
         </div>
     </div>
@@ -72,8 +72,8 @@
             <h6>{{ trans("index.Updated By") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
-            <a draggable="false" href="{{ $blog_category->updated_by_admin?->id || $blog_category->updated_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$blog_category->updated_by_admin?->id}" : null }}" target="_blank">
-                {{ $blog_category->updated_by_admin?->name }}
+            <a draggable="false" href="{{ $blog_category->updated_by?->id || $blog_category->updated_by?->id == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$blog_category->updated_by?->id}" : null }}" target="_blank">
+                {{ $blog_category->updated_by?->name }}
             </a>
         </div>
     </div>
@@ -83,8 +83,8 @@
                 <h6>{{ trans("index.Deleted By") }}</h6>
             </div>
             <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
-                <a draggable="false" href="{{ $blog_category->deleted_by_admin?->id || $blog_category->deleted_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$blog_category->deleted_by_admin?->id}" : null }}" target="_blank">
-                    {{ $blog_category->deleted_by_admin?->name }}
+                <a draggable="false" href="{{ $blog_category->deleted_by?->id || $blog_category->deleted_by?->id == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$blog_category->deleted_by?->id}" : null }}" target="_blank">
+                    {{ $blog_category->deleted_by?->name }}
                     </a>
             </div>
         </div>
@@ -181,13 +181,13 @@
                                     </span>
                                 </td>
                                 <td>
-                                    <a draggable="false" href="{{ $blog->created_by_admin?->id || $blog->created_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$blog->created_by_admin?->id}" : null }}" target="_blank">
-                                        {{ $blog->created_by_admin?->name }}
+                                    <a draggable="false" href="{{ $blog->created_by?->id || $blog->created_by?->id == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$blog->created_by?->id}" : null }}" target="_blank">
+                                        {{ $blog->created_by?->name }}
                                     </a>
                                 </td>
                                 <td>
-                                    <a draggable="false" href="{{ $blog->updated_by_admin?->id || $blog->updated_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$blog->updated_by_admin?->id}" : null }}" target="_blank">
-                                        {{ $blog->updated_by_admin?->name }}
+                                    <a draggable="false" href="{{ $blog->updated_by?->id || $blog->updated_by?->id == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$blog->updated_by?->id}" : null }}" target="_blank">
+                                        {{ $blog->updated_by?->name }}
                                     </a>
                                 </td>
                                 <td>{{ $blog->created_at?->format("H:i:s - l, d F Y") }} ({{ $blog->created_at?->diffForHumans() }})</td>

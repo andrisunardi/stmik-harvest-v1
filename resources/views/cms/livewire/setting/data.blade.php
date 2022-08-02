@@ -65,19 +65,19 @@
                         </span>
                     </td>
                     <td>
-                        <a draggable="false" href="{{ $setting->created_by_admin?->id || $setting->created_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$setting->created_by_admin?->id}" : null }}" target="_blank">
-                            {{ $setting->created_by_admin?->name }}
+                        <a draggable="false" href="{{ $setting->created_by?->id || $setting->created_by?->id == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$setting->created_by?->id}" : null }}" target="_blank">
+                            {{ $setting->created_by?->name }}
                         </a>
                     </td>
                     <td>
-                        <a draggable="false" href="{{ $setting->updated_by_admin?->id || $setting->updated_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$setting->updated_by_admin?->id}" : null }}" target="_blank">
-                            {{ $setting->updated_by_admin?->name }}
+                        <a draggable="false" href="{{ $setting->updated_by?->id || $setting->updated_by?->id == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$setting->updated_by?->id}" : null }}" target="_blank">
+                            {{ $setting->updated_by?->name }}
                         </a>
                     </td>
                     @if ($menu_type == "trash")
                         <td>
-                            <a draggable="false" href="{{ $setting->deleted_by_admin?->id || $setting->deleted_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$setting->deleted_by_admin?->id}" : null }}" target="_blank">
-                                {{ $setting->deleted_by_admin?->name }}
+                            <a draggable="false" href="{{ $setting->deleted_by?->id || $setting->deleted_by?->id == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$setting->deleted_by?->id}" : null }}" target="_blank">
+                                {{ $setting->deleted_by?->name }}
                             </a>
                         </td>
                     @endif

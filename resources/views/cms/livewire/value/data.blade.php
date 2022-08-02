@@ -49,19 +49,19 @@
                         </span>
                     </td>
                     <td>
-                        <a draggable="false" href="{{ $value->created_by_admin?->id || $value->created_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$value->created_by_admin?->id}" : null }}" target="_blank">
-                            {{ $value->created_by_admin?->name }}
+                        <a draggable="false" href="{{ $value->created_by?->id || $value->created_by?->id == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$value->created_by?->id}" : null }}" target="_blank">
+                            {{ $value->created_by?->name }}
                         </a>
                     </td>
                     <td>
-                        <a draggable="false" href="{{ $value->updated_by_admin?->id || $value->updated_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$value->updated_by_admin?->id}" : null }}" target="_blank">
-                            {{ $value->updated_by_admin?->name }}
+                        <a draggable="false" href="{{ $value->updated_by?->id || $value->updated_by?->id == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$value->updated_by?->id}" : null }}" target="_blank">
+                            {{ $value->updated_by?->name }}
                         </a>
                     </td>
                     @if ($menu_type == "trash")
                         <td>
-                            <a draggable="false" href="{{ $value->deleted_by_admin?->id || $value->deleted_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$value->deleted_by_admin?->id}" : null }}" target="_blank">
-                                {{ $value->deleted_by_admin?->name }}
+                            <a draggable="false" href="{{ $value->deleted_by?->id || $value->deleted_by?->id == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$value->deleted_by?->id}" : null }}" target="_blank">
+                                {{ $value->deleted_by?->name }}
                             </a>
                         </td>
                     @endif

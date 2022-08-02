@@ -53,19 +53,19 @@
                         </span>
                     </td>
                     <td>
-                        <a draggable="false" href="{{ $blog_category->created_by_admin?->id || $blog_category->created_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$blog_category->created_by_admin?->id}" : null }}" target="_blank">
-                            {{ $blog_category->created_by_admin?->name }}
+                        <a draggable="false" href="{{ $blog_category->created_by?->id || $blog_category->created_by?->id == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$blog_category->created_by?->id}" : null }}" target="_blank">
+                            {{ $blog_category->created_by?->name }}
                         </a>
                     </td>
                     <td>
-                        <a draggable="false" href="{{ $blog_category->updated_by_admin?->id || $blog_category->updated_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$blog_category->updated_by_admin?->id}" : null }}" target="_blank">
-                            {{ $blog_category->updated_by_admin?->name }}
+                        <a draggable="false" href="{{ $blog_category->updated_by?->id || $blog_category->updated_by?->id == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$blog_category->updated_by?->id}" : null }}" target="_blank">
+                            {{ $blog_category->updated_by?->name }}
                         </a>
                     </td>
                     @if ($menu_type == "trash")
                         <td>
-                            <a draggable="false" href="{{ $blog_category->deleted_by_admin?->id || $blog_category->deleted_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$blog_category->deleted_by_admin?->id}" : null }}" target="_blank">
-                                {{ $blog_category->deleted_by_admin?->name }}
+                            <a draggable="false" href="{{ $blog_category->deleted_by?->id || $blog_category->deleted_by?->id == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$blog_category->deleted_by?->id}" : null }}" target="_blank">
+                                {{ $blog_category->deleted_by?->name }}
                             </a>
                         </td>
                     @endif

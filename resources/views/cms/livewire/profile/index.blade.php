@@ -125,7 +125,7 @@
                                 <h6>{{ trans("index.Created By") }}</h6>
                             </div>
                             <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
-                                {{ Auth::user()->created_by_admin?->name }}
+                                {{ Auth::user()->created_by?->name }}
                             </div>
                         </div>
 
@@ -134,7 +134,7 @@
                                 <h6>{{ trans("index.Updated By") }}</h6>
                             </div>
                             <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
-                                {{ Auth::user()->updated_by_admin?->name }}
+                                {{ Auth::user()->updated_by?->name }}
                             </div>
                         </div>
 

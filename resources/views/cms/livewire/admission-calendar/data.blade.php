@@ -54,19 +54,19 @@
                         </span>
                     </td>
                     <td>
-                        <a draggable="false" href="{{ $admission_calendar->created_by_admin?->id || $admission_calendar->created_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$admission_calendar->created_by_admin?->id}" : null }}" target="_blank">
-                            {{ $admission_calendar->created_by_admin?->name }}
+                        <a draggable="false" href="{{ $admission_calendar->created_by?->id || $admission_calendar->created_by?->id == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$admission_calendar->created_by?->id}" : null }}" target="_blank">
+                            {{ $admission_calendar->created_by?->name }}
                         </a>
                     </td>
                     <td>
-                        <a draggable="false" href="{{ $admission_calendar->updated_by_admin?->id || $admission_calendar->updated_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$admission_calendar->updated_by_admin?->id}" : null }}" target="_blank">
-                            {{ $admission_calendar->updated_by_admin?->name }}
+                        <a draggable="false" href="{{ $admission_calendar->updated_by?->id || $admission_calendar->updated_by?->id == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$admission_calendar->updated_by?->id}" : null }}" target="_blank">
+                            {{ $admission_calendar->updated_by?->name }}
                         </a>
                     </td>
                     @if ($menu_type == "trash")
                         <td>
-                            <a draggable="false" href="{{ $admission_calendar->deleted_by_admin?->id || $admission_calendar->deleted_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$admission_calendar->deleted_by_admin?->id}" : null }}" target="_blank">
-                                {{ $admission_calendar->deleted_by_admin?->name }}
+                            <a draggable="false" href="{{ $admission_calendar->deleted_by?->id || $admission_calendar->deleted_by?->id == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$admission_calendar->deleted_by?->id}" : null }}" target="_blank">
+                                {{ $admission_calendar->deleted_by?->name }}
                             </a>
                         </td>
                     @endif

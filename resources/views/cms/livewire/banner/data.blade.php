@@ -86,19 +86,19 @@
                         </span>
                     </td>
                     <td>
-                        <a draggable="false" href="{{ $banner->created_by_admin?->id || $banner->created_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$banner->created_by_admin?->id}" : null }}" target="_blank">
-                            {{ $banner->created_by_admin?->name }}
+                        <a draggable="false" href="{{ $banner->created_by?->id || $banner->created_by?->id == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$banner->created_by?->id}" : null }}" target="_blank">
+                            {{ $banner->created_by?->name }}
                         </a>
                     </td>
                     <td>
-                        <a draggable="false" href="{{ $banner->updated_by_admin?->id || $banner->updated_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$banner->updated_by_admin?->id}" : null }}" target="_blank">
-                            {{ $banner->updated_by_admin?->name }}
+                        <a draggable="false" href="{{ $banner->updated_by?->id || $banner->updated_by?->id == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$banner->updated_by?->id}" : null }}" target="_blank">
+                            {{ $banner->updated_by?->name }}
                         </a>
                     </td>
                     @if ($menu_type == "trash")
                         <td>
-                            <a draggable="false" href="{{ $banner->deleted_by_admin?->id || $banner->deleted_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$banner->deleted_by_admin?->id}" : null }}" target="_blank">
-                                {{ $banner->deleted_by_admin?->name }}
+                            <a draggable="false" href="{{ $banner->deleted_by?->id || $banner->deleted_by?->id == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$banner->deleted_by?->id}" : null }}" target="_blank">
+                                {{ $banner->deleted_by?->name }}
                             </a>
                         </td>
                     @endif

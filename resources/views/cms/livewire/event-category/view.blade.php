@@ -62,8 +62,8 @@
             <h6>{{ trans("index.Created By") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
-            <a draggable="false" href="{{ $event_category->created_by_admin?->id || $event_category->created_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$event_category->created_by_admin?->id}" : null }}" target="_blank">
-                {{ $event_category->created_by_admin?->name }}
+            <a draggable="false" href="{{ $event_category->created_by?->id || $event_category->created_by?->id == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$event_category->created_by?->id}" : null }}" target="_blank">
+                {{ $event_category->created_by?->name }}
             </a>
         </div>
     </div>
@@ -72,8 +72,8 @@
             <h6>{{ trans("index.Updated By") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
-            <a draggable="false" href="{{ $event_category->updated_by_admin?->id || $event_category->updated_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$event_category->updated_by_admin?->id}" : null }}" target="_blank">
-                {{ $event_category->updated_by_admin?->name }}
+            <a draggable="false" href="{{ $event_category->updated_by?->id || $event_category->updated_by?->id == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$event_category->updated_by?->id}" : null }}" target="_blank">
+                {{ $event_category->updated_by?->name }}
             </a>
         </div>
     </div>
@@ -83,8 +83,8 @@
                 <h6>{{ trans("index.Deleted By") }}</h6>
             </div>
             <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
-                <a draggable="false" href="{{ $event_category->deleted_by_admin?->id || $event_category->deleted_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$event_category->deleted_by_admin?->id}" : null }}" target="_blank">
-                    {{ $event_category->deleted_by_admin?->name }}
+                <a draggable="false" href="{{ $event_category->deleted_by?->id || $event_category->deleted_by?->id == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$event_category->deleted_by?->id}" : null }}" target="_blank">
+                    {{ $event_category->deleted_by?->name }}
                     </a>
             </div>
         </div>
@@ -181,13 +181,13 @@
                                     </span>
                                 </td>
                                 <td>
-                                    <a draggable="false" href="{{ $event->created_by_admin?->id || $event->created_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$event->created_by_admin?->id}" : null }}" target="_blank">
-                                        {{ $event->created_by_admin?->name }}
+                                    <a draggable="false" href="{{ $event->created_by?->id || $event->created_by?->id == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$event->created_by?->id}" : null }}" target="_blank">
+                                        {{ $event->created_by?->name }}
                                     </a>
                                 </td>
                                 <td>
-                                    <a draggable="false" href="{{ $event->updated_by_admin?->id || $event->updated_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$event->updated_by_admin?->id}" : null }}" target="_blank">
-                                        {{ $event->updated_by_admin?->name }}
+                                    <a draggable="false" href="{{ $event->updated_by?->id || $event->updated_by?->id == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$event->updated_by?->id}" : null }}" target="_blank">
+                                        {{ $event->updated_by?->name }}
                                     </a>
                                 </td>
                                 <td>{{ $event->created_at?->format("H:i:s - l, d F Y") }} ({{ $event->created_at?->diffForHumans() }})</td>

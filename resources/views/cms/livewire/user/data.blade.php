@@ -49,19 +49,19 @@
                         </button>
                     </td>
                     <td>
-                        <a draggable="false" href="{{ $user->created_by_admin->id || $user->created_by == 0 ? route("{$sub_domain}.{$menu_slug}.index") . "?menu_type=view&row={$user->created_by_admin?->id}" : null }}" target="_blank">
-                            {{ $user->created_by_admin?->name }}
+                        <a draggable="false" href="{{ $user->created_by_admin->id || $user->created_by?->id == 0 ? route("{$sub_domain}.{$menu_slug}.index") . "?menu_type=view&row={$user->created_by?->id}" : null }}" target="_blank">
+                            {{ $user->created_by?->name }}
                         </a>
                     </td>
                     <td>
-                        <a draggable="false" href="{{ $user->updated_by_admin?->id || $user->updated_by == 0 ? route("{$sub_domain}.{$menu_slug}.index") . "?menu_type=view&row={$user->updated_by_admin?->id}" : null }}" target="_blank">
-                            {{ $user->updated_by_admin?->name }}
+                        <a draggable="false" href="{{ $user->updated_by?->id || $user->updated_by?->id == 0 ? route("{$sub_domain}.{$menu_slug}.index") . "?menu_type=view&row={$user->updated_by?->id}" : null }}" target="_blank">
+                            {{ $user->updated_by?->name }}
                         </a>
                     </td>
                     @if ($menu_type == "trash")
                         <td>
-                            <a draggable="false" href="{{ $user->deleted_by_admin?->id || $user->deleted_by == 0 ? route("{$sub_domain}.{$menu_slug}.index") . "?menu_type=view&row={$user->deleted_by_admin?->id}" : null }}" target="_blank">
-                                {{ $user->deleted_by_admin?->name }}
+                            <a draggable="false" href="{{ $user->deleted_by?->id || $user->deleted_by?->id == 0 ? route("{$sub_domain}.{$menu_slug}.index") . "?menu_type=view&row={$user->deleted_by?->id}" : null }}" target="_blank">
+                                {{ $user->deleted_by?->name }}
                             </a>
                         </td>
                     @endif

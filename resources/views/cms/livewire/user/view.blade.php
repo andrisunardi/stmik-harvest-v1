@@ -46,8 +46,8 @@
             <h6>{{ trans("index.Created By") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
-            <a draggable="false" href="{{ $user->created_by_admin->id || $user->created_by == 0 ? route("{$sub_domain}.{$menu_slug}.index") . "?menu_type=view&row={$user->created_by_admin?->id}" : null }}" target="_blank">
-                {{ $user->created_by_admin?->name }}
+            <a draggable="false" href="{{ $user->created_by_admin->id || $user->created_by?->id == 0 ? route("{$sub_domain}.{$menu_slug}.index") . "?menu_type=view&row={$user->created_by?->id}" : null }}" target="_blank">
+                {{ $user->created_by?->name }}
             </a>
         </div>
     </div>
@@ -56,8 +56,8 @@
             <h6>{{ trans("index.Updated By") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
-            <a draggable="false" href="{{ $user->updated_by_admin->id || $user->updated_by == 0 ? route("{$sub_domain}.{$menu_slug}.index") . "?menu_type=view&row={$user->updated_by_admin?->id}" : null }}" target="_blank">
-                {{ $user->updated_by_admin?->name }}
+            <a draggable="false" href="{{ $user->updated_by_admin->id || $user->updated_by?->id == 0 ? route("{$sub_domain}.{$menu_slug}.index") . "?menu_type=view&row={$user->updated_by?->id}" : null }}" target="_blank">
+                {{ $user->updated_by?->name }}
             </a>
         </div>
     </div>
@@ -67,8 +67,8 @@
                 <h6>{{ trans("index.Deleted By") }}</h6>
             </div>
             <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
-                <a draggable="false" href="{{ $user->deleted_by_admin?->id || $user->created_by == 0 ? route("{$sub_domain}.{$menu_slug}.index") . "?menu_type=view&row={$user->deleted_by_admin?->id}" : null }}" target="_blank">
-                    {{ $user->deleted_by_admin?->name }}
+                <a draggable="false" href="{{ $user->deleted_by?->id || $user->created_by?->id == 0 ? route("{$sub_domain}.{$menu_slug}.index") . "?menu_type=view&row={$user->deleted_by?->id}" : null }}" target="_blank">
+                    {{ $user->deleted_by?->name }}
                 </a>
             </div>
         </div>
@@ -236,13 +236,13 @@
                                     </span>
                                 </td>
                                 <td>
-                                    <a draggable="false" href="{{ $repository->created_by_admin?->id || $repository->created_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$repository->created_by_admin?->id}" : null }}" target="_blank">
-                                        {{ $repository->created_by_admin?->name }}
+                                    <a draggable="false" href="{{ $repository->created_by?->id || $repository->created_by?->id == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$repository->created_by?->id}" : null }}" target="_blank">
+                                        {{ $repository->created_by?->name }}
                                     </a>
                                 </td>
                                 <td>
-                                    <a draggable="false" href="{{ $repository->updated_by_admin?->id || $repository->updated_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$repository->updated_by_admin?->id}" : null }}" target="_blank">
-                                        {{ $repository->updated_by_admin?->name }}
+                                    <a draggable="false" href="{{ $repository->updated_by?->id || $repository->updated_by?->id == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$repository->updated_by?->id}" : null }}" target="_blank">
+                                        {{ $repository->updated_by?->name }}
                                     </a>
                                 </td>
                                 <td>{{ $repository->created_at?->format("H:i:s - l, d F Y") }} ({{ $repository->created_at?->diffForHumans() }})</td>

@@ -49,19 +49,19 @@ class Log extends Model
         return $query->where('active', false);
     }
 
-    public function created_by_admin()
+    public function created_by()
     {
-        return $this->belongsTo(Admin::class, 'created_by', 'id');
+        return $this->belongsTo(Admin::class, 'created_by_id', 'id');
     }
 
-    public function updated_by_admin()
+    public function updated_by()
     {
-        return $this->belongsTo(Admin::class, 'updated_by', 'id');
+        return $this->belongsTo(Admin::class, 'updated_by_id', 'id');
     }
 
-    public function deleted_by_admin()
+    public function deleted_by()
     {
-        return $this->belongsTo(Admin::class, 'deleted_by', 'id');
+        return $this->belongsTo(Admin::class, 'deleted_by_id', 'id');
     }
 
     public function admin()

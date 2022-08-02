@@ -30,8 +30,8 @@
             <h6>{{ trans("index.Created By") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
-            <a draggable="false" href="{{ $newsletter->created_by_admin?->id || $newsletter->created_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$newsletter->created_by_admin?->id}" : null }}" target="_blank">
-                {{ $newsletter->created_by_admin?->name }}
+            <a draggable="false" href="{{ $newsletter->created_by?->id || $newsletter->created_by?->id == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$newsletter->created_by?->id}" : null }}" target="_blank">
+                {{ $newsletter->created_by?->name }}
             </a>
         </div>
     </div>
@@ -40,8 +40,8 @@
             <h6>{{ trans("index.Updated By") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
-            <a draggable="false" href="{{ $newsletter->updated_by_admin?->id || $newsletter->updated_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$newsletter->updated_by_admin?->id}" : null }}" target="_blank">
-                {{ $newsletter->updated_by_admin?->name }}
+            <a draggable="false" href="{{ $newsletter->updated_by?->id || $newsletter->updated_by?->id == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$newsletter->updated_by?->id}" : null }}" target="_blank">
+                {{ $newsletter->updated_by?->name }}
             </a>
         </div>
     </div>
@@ -51,8 +51,8 @@
                 <h6>{{ trans("index.Deleted By") }}</h6>
             </div>
             <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
-                <a draggable="false" href="{{ $newsletter->deleted_by_admin?->id || $newsletter->deleted_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$newsletter->deleted_by_admin?->id}" : null }}" target="_blank">
-                    {{ $newsletter->deleted_by_admin?->name }}
+                <a draggable="false" href="{{ $newsletter->deleted_by?->id || $newsletter->deleted_by?->id == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$newsletter->deleted_by?->id}" : null }}" target="_blank">
+                    {{ $newsletter->deleted_by?->name }}
                 </a>
             </div>
         </div>

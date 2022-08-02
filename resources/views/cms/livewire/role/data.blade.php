@@ -41,19 +41,19 @@
                         </span>
                     </td>
                     <td>
-                        <a draggable="false" href="{{ $role->created_by_admin?->id || $role->created_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$role->created_by_admin?->id}" : null }}" target="_blank">
-                            {{ $role->created_by_admin?->name }}
+                        <a draggable="false" href="{{ $role->created_by?->id || $role->created_by?->id == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$role->created_by?->id}" : null }}" target="_blank">
+                            {{ $role->created_by?->name }}
                         </a>
                     </td>
                     <td>
-                        <a draggable="false" href="{{ $role->updated_by_admin?->id || $role->updated_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$role->updated_by_admin?->id}" : null }}" target="_blank">
-                            {{ $role->updated_by_admin?->name }}
+                        <a draggable="false" href="{{ $role->updated_by?->id || $role->updated_by?->id == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$role->updated_by?->id}" : null }}" target="_blank">
+                            {{ $role->updated_by?->name }}
                         </a>
                     </td>
                     @if ($menu_type == "trash")
                         <td>
-                            <a draggable="false" href="{{ $role->deleted_by_admin?->id || $role->deleted_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$role->deleted_by_admin?->id}" : null }}" target="_blank">
-                                {{ $role->deleted_by_admin?->name }}
+                            <a draggable="false" href="{{ $role->deleted_by?->id || $role->deleted_by?->id == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$role->deleted_by?->id}" : null }}" target="_blank">
+                                {{ $role->deleted_by?->name }}
                             </a>
                         </td>
                     @endif

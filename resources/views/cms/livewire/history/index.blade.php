@@ -87,10 +87,10 @@
                                         {{ trans("index." . Str::slug(Str::active($log->active), '_')) }}
                                     </span>
                                 </p>
-                                <p>{{ trans("index.Created By") }} : {{ $log->created_by_admin?->name }}</p>
-                                <p>{{ trans("index.Updated By") }} : {{ $log->updated_by_admin?->name }}</p>
+                                <p>{{ trans("index.Created By") }} : {{ $log->created_by?->name }}</p>
+                                <p>{{ trans("index.Updated By") }} : {{ $log->updated_by?->name }}</p>
                                 @if ($log->trashed())
-                                    <p>{{ trans("index.Deleted By") }} : {{ $log->deleted_by_admin?->name }}</p>
+                                    <p>{{ trans("index.Deleted By") }} : {{ $log->deleted_by?->name }}</p>
                                 @endif
                                 @IF ($log->action != 5)
                                     <a draggable="false" class="btn btn-primary btn-creative btn-sm"

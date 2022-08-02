@@ -122,19 +122,19 @@
                         </span>
                     </td>
                     <td>
-                        <a draggable="false" href="{{ $blog->created_by_admin?->id || $blog->created_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$blog->created_by_admin?->id}" : null }}" target="_blank">
-                            {{ $blog->created_by_admin?->name }}
+                        <a draggable="false" href="{{ $blog->created_by?->id || $blog->created_by?->id == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$blog->created_by?->id}" : null }}" target="_blank">
+                            {{ $blog->created_by?->name }}
                         </a>
                     </td>
                     <td>
-                        <a draggable="false" href="{{ $blog->updated_by_admin?->id || $blog->updated_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$blog->updated_by_admin?->id}" : null }}" target="_blank">
-                            {{ $blog->updated_by_admin?->name }}
+                        <a draggable="false" href="{{ $blog->updated_by?->id || $blog->updated_by?->id == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$blog->updated_by?->id}" : null }}" target="_blank">
+                            {{ $blog->updated_by?->name }}
                         </a>
                     </td>
                     @if ($menu_type == "trash")
                         <td>
-                            <a draggable="false" href="{{ $blog->deleted_by_admin?->id || $blog->deleted_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$blog->deleted_by_admin?->id}" : null }}" target="_blank">
-                                {{ $blog->deleted_by_admin?->name }}
+                            <a draggable="false" href="{{ $blog->deleted_by?->id || $blog->deleted_by?->id == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$blog->deleted_by?->id}" : null }}" target="_blank">
+                                {{ $blog->deleted_by?->name }}
                             </a>
                         </td>
                     @endif

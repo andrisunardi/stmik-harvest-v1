@@ -97,8 +97,8 @@
             <h6>{{ trans("index.Created By") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
-            <a draggable="false" href="{{ $admin->created_by_admin->id || $admin->created_by == 0 ? route("{$sub_domain}.{$menu_slug}.index") . "?menu_type=view&row={$admin->created_by_admin?->id}" : null }}" target="_blank">
-                {{ $admin->created_by_admin?->name }}
+            <a draggable="false" href="{{ $admin->created_by_admin->id || $admin->created_by?->id == 0 ? route("{$sub_domain}.{$menu_slug}.index") . "?menu_type=view&row={$admin->created_by?->id}" : null }}" target="_blank">
+                {{ $admin->created_by?->name }}
             </a>
         </div>
     </div>
@@ -107,8 +107,8 @@
             <h6>{{ trans("index.Updated By") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
-            <a draggable="false" href="{{ $admin->updated_by_admin->id || $admin->updated_by == 0 ? route("{$sub_domain}.{$menu_slug}.index") . "?menu_type=view&row={$admin->updated_by_admin?->id}" : null }}" target="_blank">
-                {{ $admin->updated_by_admin?->name }}
+            <a draggable="false" href="{{ $admin->updated_by_admin->id || $admin->updated_by?->id == 0 ? route("{$sub_domain}.{$menu_slug}.index") . "?menu_type=view&row={$admin->updated_by?->id}" : null }}" target="_blank">
+                {{ $admin->updated_by?->name }}
             </a>
         </div>
     </div>
@@ -118,8 +118,8 @@
                 <h6>{{ trans("index.Deleted By") }}</h6>
             </div>
             <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
-                <a draggable="false" href="{{ $admin->deleted_by_admin?->id || $admin->created_by == 0 ? route("{$sub_domain}.{$menu_slug}.index") . "?menu_type=view&row={$admin->deleted_by_admin?->id}" : null }}" target="_blank">
-                    {{ $admin->deleted_by_admin?->name }}
+                <a draggable="false" href="{{ $admin->deleted_by?->id || $admin->created_by?->id == 0 ? route("{$sub_domain}.{$menu_slug}.index") . "?menu_type=view&row={$admin->deleted_by?->id}" : null }}" target="_blank">
+                    {{ $admin->deleted_by?->name }}
                 </a>
             </div>
         </div>

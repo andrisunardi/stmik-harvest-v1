@@ -168,8 +168,8 @@
             <h6>{{ trans("index.Created By") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
-            <a draggable="false" href="{{ $event->created_by_admin?->id || $event->created_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$event->created_by_admin?->id}" : null }}" target="_blank">
-                {{ $event->created_by_admin?->name }}
+            <a draggable="false" href="{{ $event->created_by?->id || $event->created_by?->id == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$event->created_by?->id}" : null }}" target="_blank">
+                {{ $event->created_by?->name }}
             </a>
         </div>
     </div>
@@ -178,8 +178,8 @@
             <h6>{{ trans("index.Updated By") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
-            <a draggable="false" href="{{ $event->updated_by_admin?->id || $event->updated_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$event->updated_by_admin?->id}" : null }}" target="_blank">
-                {{ $event->updated_by_admin?->name }}
+            <a draggable="false" href="{{ $event->updated_by?->id || $event->updated_by?->id == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$event->updated_by?->id}" : null }}" target="_blank">
+                {{ $event->updated_by?->name }}
             </a>
         </div>
     </div>
@@ -189,8 +189,8 @@
                 <h6>{{ trans("index.Deleted By") }}</h6>
             </div>
             <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
-                <a draggable="false" href="{{ $event->deleted_by_admin?->id || $event->deleted_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$event->deleted_by_admin?->id}" : null }}" target="_blank">
-                    {{ $event->deleted_by_admin?->name }}
+                <a draggable="false" href="{{ $event->deleted_by?->id || $event->deleted_by?->id == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$event->deleted_by?->id}" : null }}" target="_blank">
+                    {{ $event->deleted_by?->name }}
                     </a>
             </div>
         </div>

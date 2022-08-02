@@ -53,19 +53,19 @@
                         </span>
                     </td>
                     <td>
-                        <a draggable="false" href="{{ $offer->created_by_admin?->id || $offer->created_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$offer->created_by_admin?->id}" : null }}" target="_blank">
-                            {{ $offer->created_by_admin?->name }}
+                        <a draggable="false" href="{{ $offer->created_by?->id || $offer->created_by?->id == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$offer->created_by?->id}" : null }}" target="_blank">
+                            {{ $offer->created_by?->name }}
                         </a>
                     </td>
                     <td>
-                        <a draggable="false" href="{{ $offer->updated_by_admin?->id || $offer->updated_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$offer->updated_by_admin?->id}" : null }}" target="_blank">
-                            {{ $offer->updated_by_admin?->name }}
+                        <a draggable="false" href="{{ $offer->updated_by?->id || $offer->updated_by?->id == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$offer->updated_by?->id}" : null }}" target="_blank">
+                            {{ $offer->updated_by?->name }}
                         </a>
                     </td>
                     @if ($menu_type == "trash")
                         <td>
-                            <a draggable="false" href="{{ $offer->deleted_by_admin?->id || $offer->deleted_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$offer->deleted_by_admin?->id}" : null }}" target="_blank">
-                                {{ $offer->deleted_by_admin?->name }}
+                            <a draggable="false" href="{{ $offer->deleted_by?->id || $offer->deleted_by?->id == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$offer->deleted_by?->id}" : null }}" target="_blank">
+                                {{ $offer->deleted_by?->name }}
                             </a>
                         </td>
                     @endif

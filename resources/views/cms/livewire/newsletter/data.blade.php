@@ -37,19 +37,19 @@
                         </span>
                     </td>
                     <td>
-                        <a draggable="false" href="{{ $newsletter->created_by_admin?->id || $newsletter->created_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$newsletter->created_by_admin?->id}" : null }}" target="_blank">
-                            {{ $newsletter->created_by_admin?->name }}
+                        <a draggable="false" href="{{ $newsletter->created_by?->id || $newsletter->created_by?->id == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$newsletter->created_by?->id}" : null }}" target="_blank">
+                            {{ $newsletter->created_by?->name }}
                         </a>
                     </td>
                     <td>
-                        <a draggable="false" href="{{ $newsletter->updated_by_admin?->id || $newsletter->updated_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$newsletter->updated_by_admin?->id}" : null }}" target="_blank">
-                            {{ $newsletter->updated_by_admin?->name }}
+                        <a draggable="false" href="{{ $newsletter->updated_by?->id || $newsletter->updated_by?->id == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$newsletter->updated_by?->id}" : null }}" target="_blank">
+                            {{ $newsletter->updated_by?->name }}
                         </a>
                     </td>
                     @if ($menu_type == "trash")
                         <td>
-                            <a draggable="false" href="{{ $newsletter->deleted_by_admin?->id || $newsletter->deleted_by == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$newsletter->deleted_by_admin?->id}" : null }}" target="_blank">
-                                {{ $newsletter->deleted_by_admin?->name }}
+                            <a draggable="false" href="{{ $newsletter->deleted_by?->id || $newsletter->deleted_by?->id == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$newsletter->deleted_by?->id}" : null }}" target="_blank">
+                                {{ $newsletter->deleted_by?->name }}
                             </a>
                         </td>
                     @endif
