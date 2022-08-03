@@ -27,7 +27,7 @@
                 <option value="tag" {{ "tag" == $order_by ? "selected" : null }}>{{ trans("validation.attributes.tag") }}</option>
                 <option value="tag_id" {{ "tag_id" == $order_by ? "selected" : null }}>{{ trans("validation.attributes.tag_id") }}</option>
                 <option value="active" {{ "active" == $order_by ? "selected" : null }}>{{ trans("validation.attributes.active") }}</option>
-                <option value="created_by" {{ "created_by" == $order_by ? "selected" : null }}>{{ trans("validation.attributes.created_by") }}</option>
+                <option value="created_by_id" {{ "created_by_id" == $order_by ? "selected" : null }}>{{ trans("validation.attributes.created_by_id") }}</option>
                 <option value="updated_by" {{ "updated_by" == $order_by ? "selected" : null }}>{{ trans("validation.attributes.updated_by") }}</option>
                 @if ($menu_type == "trash")
                     <option value="deleted_by" {{ "deleted_by" == $order_by ? "selected" : null }}>{{ trans("validation.attributes.deleted_by") }}</option>

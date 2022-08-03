@@ -18,21 +18,21 @@
             <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
             <select wire:model="{{ $input }}" class="form-select select2" id="{{ $input }}" name="{{ $input }}">
                 <option value="id" {{ "id" == $order_by ? "selected" : null }}>{{ trans("validation.attributes.id") }}</option>
-                <option value="name">{{ trans("index.Name") }}</option>
+                <option value="name" {{ "name" == $order_by ? "selected" : null }}>{{ trans("validation.attributes.name") }}</option>
                 <option value="name_id">{{ trans("index.Name ID") }}</option>
                 <option value="description">{{ trans("index.Description") }}</option>
                 <option value="description_id">{{ trans("index.Description ID") }}</option>
                 <option value="icon">{{ trans("index.Icon") }}</option>
-                <option value="active">{{ trans("index.Active") }}</option>
-                <option value="created_by">{{ trans("index.Created By") }}</option>
-                <option value="updated_by">{{ trans("index.Updated By") }}</option>
+                <option value="active" {{ "active" == $order_by ? "selected" : null }}>{{ trans("validation.attributes.active") }}</option>
+                <option value="created_by_id" {{ "created_by_id" == $order_by ? "selected" : null }}>{{ trans("validation.attributes.created_by_id") }}</option>
+                <option value="updated_by_id" {{ "updated_by_id" == $order_by ? "selected" : null }}>{{ trans("validation.attributes.updated_by_id") }}</option>
                 @if ($menu_type == "trash")
-                    <option value="deleted_by">{{ trans("index.Deleted By") }}</option>
+                    <option value="deleted_by_id" {{ "deleted_by_id" == $order_by ? "selected" : null }}>{{ trans("validation.attributes.deleted_by_id") }}</option>
                 @endif
-                <option value="created_at">{{ trans("index.Created At") }}</option>
-                <option value="updated_at">{{ trans("index.Updated At") }}</option>
+                <option value="created_at" {{ "created_at" == $order_by ? "selected" : null }}>{{ trans("validation.attributes.created_at") }}</option>
+                <option value="updated_at" {{ "updated_at" == $order_by ? "selected" : null }}>{{ trans("validation.attributes.updated_at") }}</option>
                 @if ($menu_type == "trash")
-                    <option value="deleted_at">{{ trans("index.Deleted At") }}</option>
+                    <option value="deleted_at" {{ "deleted_at" == $order_by ? "selected" : null }}>{{ trans("validation.attributes.deleted_at") }}</option>
                 @endif
             </select>
         </div>
