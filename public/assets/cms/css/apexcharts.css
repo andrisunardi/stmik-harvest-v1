@@ -4,7 +4,6 @@
   /* cannot give overflow: hidden as it will crop tooltips which overflow outside chart area */
 }
 
-
 /* scrollbar is not visible by default for legend, hence forcing the visibility */
 .apexcharts-canvas ::-webkit-scrollbar {
   -webkit-appearance: none;
@@ -17,7 +16,6 @@
   box-shadow: 0 0 1px rgba(255, 255, 255, .5);
   -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
 }
-
 
 .apexcharts-inner {
   position: relative;
@@ -73,7 +71,6 @@
   font-family: inherit;
 }
 
-
 .apexcharts-tooltip-title {
   padding: 6px;
   font-size: 15px;
@@ -112,13 +109,13 @@
   font-weight: 600;
 }
 
-.apexcharts-tooltip-text-goals-label, 
+.apexcharts-tooltip-text-goals-label,
 .apexcharts-tooltip-text-goals-value {
   padding: 6px 0 5px;
 }
 
-.apexcharts-tooltip-goals-group, 
-.apexcharts-tooltip-text-goals-label, 
+.apexcharts-tooltip-goals-group,
+.apexcharts-tooltip-text-goals-label,
 .apexcharts-tooltip-text-goals-value {
   display: flex;
 }
@@ -629,7 +626,6 @@
   pointer-events: none;
 }
 
-
 /* markers */
 
 .apexcharts-marker {
@@ -644,7 +640,6 @@
     opacity: 1;
   }
 }
-
 
 /* Resize generated styles */
 

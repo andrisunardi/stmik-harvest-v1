@@ -57,7 +57,7 @@
         <div class="form-group">
             <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
             <select wire:model="{{ $input }}" class="form-select select2" id="{{ $input }}" name="{{ $input }}">
-                <option value="">{{ trans("index.All") }}</option>
+                <option value="">{{ trans("index.all") }}</option>
                 @foreach ($data_created_by as $created_by)
                     {{-- <option value="{{ $created_by->id }}" {{ $created_by->id == $created_by ? "selected" : null }}>{{ $created_by->name }}</option> --}}
                 @endforeach
@@ -70,7 +70,7 @@
         <div class="form-group">
             <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
             <select wire:model="{{ $input }}" class="form-select select2" id="{{ $input }}" name="{{ $input }}">
-                <option value="">{{ trans("index.All") }}</option>
+                <option value="">{{ trans("index.all") }}</option>
                 @foreach ($data_updated_by as $updated_by)
                     {{-- <option value="{{ $updated_by->id }}" {{ $updated_by->id == $updated_by ? "selected" : null }}>{{ $updated_by->name }}</option> --}}
                 @endforeach
@@ -84,7 +84,7 @@
             <div class="form-group">
                 <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
                 <select wire:model="{{ $input }}" class="form-select select2" id="{{ $input }}" name="{{ $input }}">
-                    <option value="">{{ trans("index.All") }}</option>
+                    <option value="">{{ trans("index.all") }}</option>
                     @foreach ($data_deleted_by as $deleted_by)
                         {{-- <option value="{{ $deleted_by->id }}" {{ $deleted_by->id == $deleted_by ? "selected" : null }}>{{ $deleted_by->name }}</option> --}}
                     @endforeach
@@ -160,7 +160,7 @@
         <div class="form-group">
             <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
             <select wire:model="{{ $input }}" class="form-select select2" id="{{ $input }}" name="{{ $input }}">
-                <option value="">{{ trans("index.All") }}</option>
+                <option value="">{{ trans("index.all") }}</option>
                 @foreach ($data_blog_category as $blog_categoryz)
                     <option value="{{ $blog_categoryz->id }}" {{ $blog_categoryz->id == $blog_category ? "selected" : null }}>{{ $blog_categoryz->translate_name }}</option>
                 @endforeach

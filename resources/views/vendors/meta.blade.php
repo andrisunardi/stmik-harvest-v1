@@ -226,7 +226,6 @@
 <link rel="dns-prefetch" href="//fonts.googleapis.com" />
 <link rel="dns-prefetch" href="//fonts.gstatic.com" />
 <link rel="dns-prefetch" href="//pixel.wp.com" />
-<link rel="dns-prefetch" href="//pixel.wp.com" />
 <link rel="dns-prefetch" href="//s.w.org" />
 <link rel="dns-prefetch" href="//stats.wp.com" />
 <link rel="dns-prefetch" href="//ssl.google-analytics.com" />

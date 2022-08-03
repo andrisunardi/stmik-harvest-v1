@@ -191,15 +191,11 @@
                         </tr>
                         <tr>
                             <td></td>
-                            <td></td>
-                            <td></td>
                             <td>{{ trans("Matrix and Linear Transformation") }}</td>
                             <td>2</td>
                             <td></td>
                             <td>{{ trans("Introduction to Computer Networking") }}</td>
                             <td>2</td>
-                            <td></td>
-                            <td></td>
                             <td></td>
                         </tr>
                         <tr>
@@ -251,8 +247,6 @@
                             <td>{{ trans("Intership") }}</td>
                             <td>4</td>
                             <td></td>
-                            <td></td>
-                            <td></td>
                         </tr>
                         <tr>
                             <td>{{ trans("Distributed System & Cloud Computing") }}</td>
@@ -263,8 +257,6 @@
                             <td></td>
                             <td>{{ trans("Information System Security") }}</td>
                             <td>3</td>
-                            <td></td>
-                            <td></td>
                             <td></td>
                         </tr>
                         <tr>
@@ -277,20 +269,11 @@
                             <td>{{ trans("Human Computer Interaction") }}</td>
                             <td>2</td>
                             <td></td>
-                            <td></td>
-                            <td></td>
                         </tr>
                         <tr>
                             <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
                             <td>{{ trans("Enterpreneurship 2") }}</td>
                             <td>2</td>
-                            <td></td>
-                            <td></td>
                             <td></td>
                         </tr>
                     </tbody>
@@ -308,11 +291,6 @@
                             <td>{{ trans("IT Strategic Planning") }}</td>
                             <td>3</td>
                             <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
                         </tr>
                         <tr>
                             <td>{{ trans("Business Communication") }}</td>
@@ -321,11 +299,6 @@
                             <td>{{ trans("Elective") }}</td>
                             <td>3</td>
                             <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
                         </tr>
                         <tr>
                             <td>{{ trans("Asset Management & IT Audit") }}</td>
@@ -333,11 +306,6 @@
                             <td></td>
                             <td>{{ trans("Elective") }}</td>
                             <td>3</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
                             <td></td>
                         </tr>
                         <tr>
@@ -368,11 +336,6 @@
                             <td>{{ trans("Enterprise Architecture") }}</td>
                             <td>3</td>
                             <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
                         </tr>
                         <tr>
                             <td>{{ trans("Software Testing") }}</td>
@@ -381,11 +344,6 @@
                             <td>{{ trans("Elective") }}</td>
                             <td>3</td>
                             <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
                         </tr>
                         <tr>
                             <td>{{ trans("Software Engineering") }}</td>
@@ -393,11 +351,6 @@
                             <td></td>
                             <td>{{ trans("Elective") }}</td>
                             <td>3</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
                             <td></td>
                         </tr>
                         <tr>

@@ -12,7 +12,6 @@
 
     font-family: 'Raleway', sans-serif;
 
-
 */
 
 /*----------------------------------------
@@ -70,8 +69,6 @@
 .header--three .main__menu li.drop::before {
   color: #fff;
 }
-
-
 
 /*-----------------------------------------
   Sticky  For  Header
@@ -208,10 +205,6 @@
   margin-left: 0px;
 }
 
-
-
-
-
 /*----------------------------
   Sub Menu
 ---------------------------*/
@@ -338,13 +331,6 @@
     transform: translateY(-50%);
     width: 1px;
 }
-
-
-
-
-
-
-
 
 /*-----------------------------------
   Toggle Menu
@@ -607,7 +593,6 @@ em.color.main-font {
   color: #18563F;
 }
 
-
 nav.mainmenu__nav {
     display: -webkit-flex;
     display: -moz-flex;
@@ -619,13 +604,9 @@ nav.mainmenu__nav {
     align-items: center;
 }
 
-
 nav.mainmenu__nav .cart__search {
     margin-left: 40px;
 }
-
-
-
 
 /*---------------------------------------
   03. Header Style Two And Three
@@ -658,7 +639,6 @@ nav.mainmenu__nav .cart__search {
   color: #fff;
 }
 
-
 /*-----------------------------
   Header Style 2
 -------------------------------*/
@@ -679,7 +659,6 @@ nav.mainmenu__nav .cart__search {
 .header--two .cart__search__list li a:hover i {
   color: #2db6a3;
 }
-
 
 /*-----------------------------
   Header Style 3
@@ -733,7 +712,6 @@ nav.mainmenu__nav .cart__search {
   padding-top: 112px;
 }
 
-
 /*-----------------------------
   Header Style 4
 -------------------------------*/
@@ -769,7 +747,6 @@ nav.mainmenu__nav .cart__search {
   background: #9f1e49;
 }
 
-
 .header--four .main__menu > li:hover > a,
 .header--four .cart__search__list li a:hover i,
 .header--four .header__address li a:hover,
@@ -787,8 +764,3 @@ nav.mainmenu__nav .cart__search {
 .header--four .htc__header__top div[class*="col-"] {
   padding-left: 0;
 }
-
-
-
-
-

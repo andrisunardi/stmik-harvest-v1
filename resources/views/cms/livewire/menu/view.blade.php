@@ -144,7 +144,7 @@
                             <div class="modal-footer justify-content-between">
                                 <button class="btn btn-creative btn-sm btn-light" type="button" data-bs-dismiss="modal">
                                     <i class="bi bi-x me-1"></i>
-                                    {{ trans("index.Close") }}
+                                    {{ trans("index.close") }}
                                 </button>
                                 <button class="btn btn-creative btn-sm btn-success" type="button" data-bs-dismiss="modal" wire:click="restore({{ $menu->id }})">
                                     <i class="bi bi-check me-1"></i>
@@ -176,7 +176,7 @@
                             <div class="modal-footer">
                                 <button class="btn btn-creative btn-sm btn-light" type="button" data-bs-dismiss="modal">
                                     <i class="bi bi-x me-1"></i>
-                                    {{ trans("index.Close") }}
+                                    {{ trans("index.close") }}
                                 </button>
                                 <button class="btn btn-creative btn-sm btn-danger" type="button" data-bs-dismiss="modal" wire:click="deletePermanent({{ $menu->id }})">
                                     <i class="bi bi-check me-1"></i>
@@ -227,7 +227,7 @@
                             <div class="modal-footer justify-content-between">
                                 <button class="btn btn-creative btn-sm btn-light" type="button" data-bs-dismiss="modal">
                                     <i class="bi bi-x me-1"></i>
-                                    {{ trans("index.Close") }}
+                                    {{ trans("index.close") }}
                                 </button>
                                 <button class="btn btn-creative btn-sm btn-danger" type="button" data-bs-dismiss="modal" wire:click="delete({{ $menu->id }})">
                                     <i class="bi bi-check me-1"></i>

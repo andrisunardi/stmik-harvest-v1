@@ -229,7 +229,6 @@
        * @returns {number} Rotated number
        */
 
-
       function bitRotateLeft(num, cnt) {
         return num << cnt | num >>> 32 - cnt;
       }
@@ -244,7 +243,6 @@
        * @param {number} t t
        * @returns {number} Result
        */
-
 
       function md5cmn(q, a, b, x, s, t) {
         return safeAdd(bitRotateLeft(safeAdd(safeAdd(a, q), safeAdd(x, t)), s), b);
@@ -262,7 +260,6 @@
        * @returns {number} Result
        */
 
-
       function md5ff(a, b, c, d, x, s, t) {
         return md5cmn(b & c | ~b & d, a, b, x, s, t);
       }
@@ -278,7 +275,6 @@
        * @param {number} t t
        * @returns {number} Result
        */
-
 
       function md5gg(a, b, c, d, x, s, t) {
         return md5cmn(b & d | c & ~d, a, b, x, s, t);
@@ -296,7 +292,6 @@
        * @returns {number} Result
        */
 
-
       function md5hh(a, b, c, d, x, s, t) {
         return md5cmn(b ^ c ^ d, a, b, x, s, t);
       }
@@ -313,7 +308,6 @@
        * @returns {number} Result
        */
 
-
       function md5ii(a, b, c, d, x, s, t) {
         return md5cmn(c ^ (b | ~d), a, b, x, s, t);
       }
@@ -324,7 +318,6 @@
        * @param {number} len Bit length
        * @returns {Array<number>} MD5 Array
        */
-
 
       function binlMD5(x, len) {
         /* append padding */
@@ -424,7 +417,6 @@
        * @returns {string} MD5 string
        */
 
-
       function binl2rstr(input) {
         var i;
         var output = '';
@@ -443,7 +435,6 @@
        * @param {string} input Raw input string
        * @returns {Array<number>} Array of little-endian words
        */
-
 
       function rstr2binl(input) {
         var i;
@@ -469,7 +460,6 @@
        * @returns {string} Raw MD5 string
        */
 
-
       function rstrMD5(s) {
         return binl2rstr(binlMD5(rstr2binl(s), s.length * 8));
       }
@@ -480,7 +470,6 @@
        * @param {string} data Raw input string
        * @returns {string} Raw MD5 string
        */
-
 
       function rstrHMACMD5(key, data) {
         var i;
@@ -509,7 +498,6 @@
        * @returns {string} Hex encoded string
        */
 
-
       function rstr2hex(input) {
         var hexTab = '0123456789abcdef';
         var output = '';
@@ -530,7 +518,6 @@
        * @returns {string} UTF8 string
        */
 
-
       function str2rstrUTF8(input) {
         return unescape(encodeURIComponent(input));
       }
@@ -541,7 +528,6 @@
        * @returns {string} Raw MD5 string
        */
 
-
       function rawMD5(s) {
         return rstrMD5(str2rstrUTF8(s));
       }
@@ -551,7 +537,6 @@
        * @param {string} s Input string
        * @returns {string} Hex encoded string
        */
-
 
       function hexMD5(s) {
         return rstr2hex(rawMD5(s));
@@ -564,7 +549,6 @@
        * @returns {string} Raw MD5 string
        */
 
-
       function rawHMACMD5(k, d) {
         return rstrHMACMD5(str2rstrUTF8(k), str2rstrUTF8(d));
       }
@@ -575,7 +559,6 @@
        * @param {string} d Input string
        * @returns {string} Raw MD5 string
        */
-
 
       function hexHMACMD5(k, d) {
         return rstr2hex(rawHMACMD5(k, d));
@@ -590,7 +573,6 @@
        * @param {boolean} [raw] Raw output switch
        * @returns {string} MD5 output
        */
-
 
       function md5(string, key, raw) {
         if (!key) {
@@ -695,7 +677,6 @@
       } // If the browser has loaded the FA5 CSS, let's not test that <style> element.
       // Its enough that we'll be testing for traces of the corresponding JS being loaded, and testing
       // this <style> would only produce a false negative anyway.
-
 
       if (WINDOW.FontAwesomeConfig && t.innerText.match(new RegExp("svg:not\\(:root\\)\\.".concat(WINDOW.FontAwesomeConfig.replacementClass)))) {
         return false;

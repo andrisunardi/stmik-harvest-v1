@@ -123,12 +123,12 @@
 
                                         @php $input = "city" @endphp
                                         <div class="form-group col-sm-6">
-                                            <label class="form-label" for="{{ $input }}">{{ trans("index.Home Town") }} <span class="text-danger">*</span></label>
+                                            <label class="form-label" for="{{ $input }}">{{ trans("index.home Town") }} <span class="text-danger">*</span></label>
                                             <div class="input-group has-validation">
                                                 <div class="input-group-text"><span class="fas fa-user"></span></div>
                                                 <input wire:model="{{ $input }}" wire:keydown.enter="submit" id="{{ $input }}" name="{{ $input }}"
                                                     type="text" class="form-control @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" minlength="1" maxlength="50" value="{{ old($input) }}"
-                                                    placeholder="{{ trans("index.Home Town") }}" aria-label="{{ trans("index.Home Town") }}" aria-describedby="{{ trans("index.Home Town") }}"
+                                                    placeholder="{{ trans("index.home Town") }}" aria-label="{{ trans("index.home Town") }}" aria-describedby="{{ trans("index.home Town") }}"
                                                     autocomplete="off" autocapitalize="none" required>
                                                 @error($input)
                                                     <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>

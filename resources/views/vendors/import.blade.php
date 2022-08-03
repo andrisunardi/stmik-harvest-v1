@@ -5,7 +5,7 @@
                 @csrf
                 <div class="modal-header">
                     <h4 class="modal-title text-wrap">{{ trans("index.Import Data Master") }} @yield("name")</h4>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ trans("index.Close") }}"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ trans("index.close") }}"></button>
                 </div>
                 <div class="modal-body">
                     @php $input_name = "file"; $input_label = Str::replace("_", " ", Str::title($input_name)); $input_type = "file"; $input_icon = "fas fa-file-excel"; $input_min = ""; $input_max = ""; $input_minlength = "1"; $input_maxlength = "20"; $input_multiple = "false"; $input_autofocus = "false"; $input_required = "true";

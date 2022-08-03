@@ -426,7 +426,7 @@ Dropify.prototype.isImage = function()
 */
 Dropify.prototype.isFileExtensionAllowed = function () {
 
-	if (this.settings.allowedFileExtensions.indexOf('*') != "-1" || 
+	if (this.settings.allowedFileExtensions.indexOf('*') != "-1" ||
         this.settings.allowedFileExtensions.indexOf(this.getFileType()) != "-1") {
 		return true;
 	}
@@ -651,7 +651,6 @@ $.fn[pluginName] = function(options) {
 
     return this;
 };
-
 
 return Dropify;
 }));

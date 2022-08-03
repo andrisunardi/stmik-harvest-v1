@@ -27,16 +27,13 @@
   14. Upcoming Event Activation
   15.  Plus Minus Button
 
-
   
 /*--------------------------------
 [ End table content ]
 -----------------------------------*/
 
-
 (function($) {
     'use strict';
-
 
 /*-------------------------------------------
   01. jQuery MeanMenu
@@ -81,8 +78,6 @@ $('.mobile-menu nav').meanmenu({
           });
       });
 
-
-
 /*-------------------------------------------
   04. Sticky Header
 --------------------------------------------- */ 
@@ -95,7 +90,6 @@ $('.mobile-menu nav').meanmenu({
      }
     });
 
-
 /*--------------------------
   05. ScrollUp
 ---------------------------- */
@@ -105,7 +99,6 @@ $.scrollUp({
     scrollSpeed: 900,
     animation: 'fade'
 });
-
 
 /*------------------------------------    
   06. Start  Site Info
@@ -141,10 +134,6 @@ $.scrollUp({
       $('.toggle-menu').find("i").removeClass('zmdi-close').addClass('zmdi-menu');
   });
 
-
-
-
-
 /*------------------------------------    
   07. Search Bar
 --------------------------------------*/ 
@@ -159,9 +148,6 @@ $.scrollUp({
     return false;
   });
 
-
-
-
 /*-----------------------------
   08. CounterUp
 -----------------------------*/
@@ -173,9 +159,6 @@ $.scrollUp({
     });
   });
 
-
-
-
 /*---------------------------
   09. Countdown
 -----------------------------*/
@@ -186,9 +169,6 @@ $('[data-countdown]').each(function() {
             $this.html(event.strftime('<span class="medilearn-count days"><span class="count-inner"><span class="time-count">%-D</span> <p>Days</p></span></span> : <span class="medilearn-count hour"><span class="count-inner"><span class="time-count">%-H</span> <p>Hours</p></span></span> : <span class="medilearn-count minutes"><span class="count-inner"><span class="time-count">%M</span> <p>Minutes</p></span></span> : <span class="medilearn-count second"><span class="count-inner"><span class="time-count">%S</span> <p>Seconds</p></span></span>'));
         });
     });
-
-
-
 
 /*--------------------------------
   10. Testimonial Slick Carousel
@@ -259,7 +239,6 @@ $('[data-countdown]').each(function() {
         ]
     });
 
-
 /*-----------------------------------------------
   12. Home Slider
 -------------------------------------------------*/
@@ -301,11 +280,9 @@ $('[data-countdown]').each(function() {
     });
   }
 
-
 /*-----------------------------------------------
   13. Popular Courses Wrap
 -------------------------------------------------*/
-
 
   $(".popular__courses__wrap").owlCarousel({
       loop:true,
@@ -342,11 +319,9 @@ $('[data-countdown]').each(function() {
       }
     });
 
-
 /*-----------------------------------------------
   14. Upcoming Event Activation
 -------------------------------------------------*/
-
 
   $(".upcoming__owl__activation").owlCarousel({
       loop:true,
@@ -382,14 +357,9 @@ $('[data-countdown]').each(function() {
       }
     });
 
-
-
-
-
 /*-------------------------------
   15.  Plus Minus Button 
 --------------------------------*/
-
 
     $(".cart-plus-minus").append('<div class="dec qtybutton">-</i></div><div class="inc qtybutton">+</div>');
 
@@ -410,7 +380,3 @@ $('[data-countdown]').each(function() {
     });
     
 })(jQuery);
-
-
-
-

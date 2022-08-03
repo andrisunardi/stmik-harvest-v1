@@ -14,12 +14,10 @@ width: 100% !important;
 .footer {
 width: 100% !important;
 }
-}
 
 @media only screen and (max-width: 500px) {
 .button {
 width: 100% !important;
-}
 }
 </style>
 </head>

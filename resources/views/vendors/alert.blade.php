@@ -1,6 +1,6 @@
 @if ($errors->any())
     <div class="alert alert-danger alert-outline-coloured alert-dismissible" role="alert">
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="{{ trans("index.Close") }}"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="{{ trans("index.close") }}"></button>
         <div class="alert-icon">
             <i class="fas fa-fw fa-exclamation-circle"></i>
         </div>
@@ -12,7 +12,7 @@
 
 @if(session()->has("primary"))
     <div class="alert alert-primary alert-outline-coloured alert-dismissible" role="alert">
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="{{ trans("index.Close") }}"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="{{ trans("index.close") }}"></button>
         <div class="alert-icon">
             <i class="fas fa-fw fa-bell"></i>
         </div>
@@ -24,7 +24,7 @@
 
 @if(session()->has("secondary"))
     <div class="alert alert-secondary alert-outline-coloured alert-dismissible" role="alert">
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="{{ trans("index.Close") }}"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="{{ trans("index.close") }}"></button>
         <div class="alert-icon">
             <i class="fas fa-fw fa-bell"></i>
         </div>
@@ -36,7 +36,7 @@
 
 @if(session()->has("success"))
     <div class="alert alert-success alert-outline-coloured alert-dismissible" role="alert">
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="{{ trans("index.Close") }}"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="{{ trans("index.close") }}"></button>
         <div class="alert-icon">
             <i class="fas fa-fw fa-check"></i>
         </div>
@@ -48,7 +48,7 @@
 
 @if(session()->has("danger"))
     <div class="alert alert-danger alert-outline-coloured alert-dismissible" role="alert">
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="{{ trans("index.Close") }}"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="{{ trans("index.close") }}"></button>
         <div class="alert-icon">
             <i class="fas fa-fw fa-exclamation-circle"></i>
         </div>
@@ -60,7 +60,7 @@
 
 @if(session()->has("warning"))
     <div class="alert alert-warning alert-outline-coloured alert-dismissible" role="alert">
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="{{ trans("index.Close") }}"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="{{ trans("index.close") }}"></button>
         <div class="alert-icon">
             <i class="fas fa-fw fa-exclamation"></i>
         </div>
@@ -72,7 +72,7 @@
 
 @if(session()->has("info"))
     <div class="alert alert-info alert-outline-coloured alert-dismissible" role="alert">
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="{{ trans("index.Close") }}"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="{{ trans("index.close") }}"></button>
         <div class="alert-icon">
             <i class="fas fa-fw fa-info"></i>
         </div>
@@ -84,7 +84,7 @@
 
 @if(session()->has("light"))
     <div class="alert alert-light alert-outline-coloured alert-dismissible" role="alert">
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="{{ trans("index.Close") }}"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="{{ trans("index.close") }}"></button>
         <div class="alert-icon">
             <i class="fas fa-fw fa-bell"></i>
         </div>
@@ -96,7 +96,7 @@
 
 @if(session()->has("dark"))
     <div class="alert alert-dark alert-outline-coloured alert-dismissible" role="alert">
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="{{ trans("index.Close") }}"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="{{ trans("index.close") }}"></button>
         <div class="alert-icon">
             <i class="fas fa-fw fa-bell"></i>
         </div>

@@ -165,7 +165,7 @@
         <div class="card-body">
             <div class="container">
                 <div class="setting-heading d-flex align-items-center justify-content-between mb-3">
-                    <p class="mb-0">{{ trans("index.Settings") }}</p>
+                    <p class="mb-0">{{ trans("index.settings") }}</p>
                     <div class="btn-close" id="settingCardClose"></div>
                 </div>
                 <div class="single-setting-panel">
@@ -280,7 +280,7 @@
                         <li>
                             <a draggable="false" href="{{ route("{$sub_domain}.index") }}">
                                 <i class="bi bi-house-door"></i>
-                                {{ trans("index.Home") }}
+                                {{ trans("index.home") }}
                             </a>
                         </li>
                         @foreach ($data_all_menu as $all_menu)
@@ -318,7 +318,7 @@
                         <li>
                             <a draggable="false" href="{{ route("{$sub_domain}.profile.index") }}">
                                 <i class="bi bi-person-circle"></i>
-                                {{ trans("index.Profile") }}
+                                {{ trans("index.profile") }}
                             </a>
                         </li>
                         <li>
@@ -389,7 +389,7 @@
                                 <svg class="bi bi-house-door" width="24" height="24" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"/>
                                 </svg>
-                                <span>{{ trans("index.Home") }}</span>
+                                <span>{{ trans("index.home") }}</span>
                             </a>
                         </li>
 
@@ -408,7 +408,7 @@
                                     <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
                                     <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
                                 </svg>
-                                <span>{{ trans("index.Profile") }}</span>
+                                <span>{{ trans("index.profile") }}</span>
                             </a>
                         </li>
                     </ul>

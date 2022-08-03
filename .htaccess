@@ -63,7 +63,6 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_URI} !^/public/
 RewriteRule ^(assets|audios|cms|css|files|fonts|images|js|musics|plugins|sounds|vendor|vendors|videos)/(.*)$ public/$1/$2 [L,NC]
 
-
 # START ACCESS FORBIDDEN
 RedirectMatch 403 /\..*$
 
@@ -77,7 +76,6 @@ RedirectMatch 403 /\..*$
     Deny from all
 </FilesMatch>
 # END ACCESS FORBIDDEN
-
 
 # # START REDIRECT ALL ERRORS
 # ErrorDocument 401 https://www.%{HTTP_HOST}

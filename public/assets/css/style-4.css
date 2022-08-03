@@ -7,9 +7,8 @@
   Author URI: https://themeforest.net/user/hastech/portfolio
   Version: 1.0
 
-
 -----------------------------------------------------------------------------------
-  
+
   CSS INDEX
   ===================
 
@@ -17,9 +16,7 @@
   02. Scroll To Top
   03. Button Style
 
-
 -----------------------------------------------------------------------------------*/
-
 
 /*----------------------------------------*/
 /*  1. Google fonts
@@ -33,7 +30,6 @@
 
 */
 
-
 /*---------------------------------------
   02. Scroll To Top
 ----------------------------------------*/
@@ -43,8 +39,6 @@
  #scrollUp {
   background: #9f1e49 none repeat scroll 0 0;
 }
- 
-
 
 
 /*---------------------
@@ -85,7 +79,6 @@ a{
   End Scroll To Top
 ----------------------------------------*/
 
-
 /*------------------------------
   03. Button Style
 --------------------------------*/
@@ -118,9 +111,8 @@ a{
   border: 1px solid #9f1e49;
 }
 
-
 /*---------------------------------
-  13. Background theme Overlay 
+  13. Background theme Overlay
 ---------------------------------*/
 
 [data--theme__overlay] {
@@ -143,9 +135,6 @@ a{
 [data--theme__overlay="6"]:before {
     opacity: 0.6;
 }
-
-
-
 
 .slider__activation__wrap.owl-theme .owl-nav [class*="owl-"]:hover {
   background: #9f1e49 none repeat scroll 0 0;

@@ -24,9 +24,6 @@
                                 <ul class="rating">
                                     {{-- <li><i class="icon ion-android-star"></i></li>
                                     <li><i class="icon ion-android-star"></i></li>
-                                    <li><i class="icon ion-android-star"></i></li>
-                                    <li><i class="icon ion-android-star"></i></li>
-                                    <li><i class="icon ion-android-star"></i></li>
                                     <li class="crs__review">Reviews (2)</li> --}}
                                     <li>
                                         @if ($event->event_category)
@@ -114,10 +111,6 @@
                                                 <div class="review__info">
                                                     <h4><a draggable="false" href="#">Nipa Bali</a></h4>
                                                     <ul class="ht__rating">
-                                                        <li><i class="icon ion-ios-star"></i></li>
-                                                        <li><i class="icon ion-ios-star"></i></li>
-                                                        <li><i class="icon ion-ios-star"></i></li>
-                                                        <li><i class="icon ion-ios-star"></i></li>
                                                         <li><i class="icon ion-ios-star"></i></li>
                                                     </ul>
                                                     <div class="rating__send">

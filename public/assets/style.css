@@ -7,7 +7,6 @@
   Author URI: https://themeforest.net/user/hastech/portfolio
   Version: 1.0
 
-
 -----------------------------------------------------------------------------------
 
   CSS INDEX
@@ -48,10 +47,7 @@
   33. Our Login Area
   34. Our Register Area
 
-
-
 -----------------------------------------------------------------------------------*/
-
 
 /*----------------------------------------*/
 /*  1. Google fonts
@@ -64,7 +60,6 @@
     font-family: 'Raleway', sans-serif;
 
 */
-
 
 /*---------------------------------------
   02. Scroll To Top
@@ -144,14 +139,12 @@
   background: #80BD00 none repeat scroll 0 0;
 }
 
-
 /*---------------------------------------
   End Scroll To Top
 ----------------------------------------*/
 /*---------------------------------------
   03. Our About Area
 ----------------------------------------*/
-
 
 .about__details {
     font-size: 15px;
@@ -402,7 +395,6 @@
   justify-content: center;
 }
 
-
 .our__countdown__area {
   padding: 135px 0;
 }
@@ -491,7 +483,6 @@
 /*-------------------------------------
   07. Our Upcoming Event
 ----------------------------------------*/
-
 
 .upcoming__inner {
     position: relative;
@@ -939,11 +930,9 @@
   background: #9f1e49 none repeat scroll 0 0;
 }
 
-
 /*--------------------------------------------
   10. Our Newsletter Area
 --------------------------------------------*/
-
 
 .our__newsletter__area {
   align-items: center;
@@ -1047,7 +1036,6 @@
   background: #9f1e49 none repeat scroll 0 0;
   border: 1px solid #9f1e49;
 }
-
 
 /*--------------------------------------------
   11. Our Bradcaump Area
@@ -1193,7 +1181,6 @@
 /*--------------------------------------------
   13. Our Pagination Area
 --------------------------------------------*/
-
 
 .htc-pagination li a {
   border: 1px solid #e3e3e3;
@@ -1409,7 +1396,6 @@
   17. Our Choose Area
 ----------------------------------------*/
 
-
 .choose__style--2 .choose__inner.text--right .choose,
 .choose__style--4 .choose__inner.text--right .choose {
   display: flex;
@@ -1509,7 +1495,6 @@
   18. Our Stories Area
 ----------------------------------------*/
 
-
 .htc__stories__inner h2 {
     color: #fff;
     font-size: 36px;
@@ -1608,7 +1593,6 @@
 /*---------------------------------------
   20. Our Profile Area
 ----------------------------------------*/
-
 
 /*----------Teacher Area-----------*/
 
@@ -1758,8 +1742,6 @@
   margin-bottom: 0;
 }
 
-
-
 /*-----------------------------
   21. Progress Bar
 -------------------------------*/
@@ -1819,7 +1801,6 @@
 }
 /*--------progress__bar--2-----------*/
 
-
 .htc__skill__container.progress__bar--2 {
   margin-top: 0;
 }
@@ -1845,7 +1826,6 @@
 /*-----------------------------
   22. Section Title
 -------------------------------*/
-
 
 .section__title h2.title__line {
     font-weight: 600;
@@ -1907,7 +1887,6 @@
   text-transform: capitalize;
   margin-bottom: 30px;
 }
-
 
 /*---------------
 End Section Title
@@ -2076,7 +2055,6 @@ End Section Title
   25. Our Courses Grid
 -------------------------------*/
 
-
 .courses__grid__inner {
     align-items: center;
     background: #f5f5f5 none repeat scroll 0 0;
@@ -2153,7 +2131,6 @@ End Section Title
   26. Our Courses List
 -------------------------------*/
 
-
 .list__view__info {
     display: flex;
 }
@@ -2229,7 +2206,6 @@ End Section Title
   padding-bottom: 30px;
 }
 
-
 .list__view__page .courses__hover__action {
   padding-left: 6px;
 }
@@ -2250,7 +2226,6 @@ End Section Title
 /*-----------------------------
   27. Our Courses Details
 -------------------------------*/
-
 
 .courses__details__top h2 {
     font-size: 30px;
@@ -2343,7 +2318,6 @@ End Section Title
 
 /*Start Tab*/
 
-
 .courses__view {
     display: flex;
 }
@@ -2390,7 +2364,6 @@ End Section Title
   background: #fff;
 }
 /*Start Tab Content*/
-
 
 .single__crs__details h2 {
     font-family: Raleway;
@@ -2591,12 +2564,6 @@ End Section Title
   color: #fff;
 }
 
-
-
-
-
-
-
 /*-----------------------------
   28. Our Shop Grid View
 -------------------------------*/
@@ -2655,16 +2622,13 @@ End Section Title
   border-top: 1px solid transparent;
 }
 
-
 /*-----------------------------
   29. Our Shop List View
 -------------------------------*/
 
-
 .single__list__content{
   margin-top: 50px;
 }
-
 
 .list__details__inner h2 {
     font-size: 24px;
@@ -2771,7 +2735,6 @@ End Section Title
   padding: 0 0 30px 30px;
 }
 
-
 /*PLUS */
 .cart-plus-minus {
   position: relative;
@@ -2783,7 +2746,6 @@ End Section Title
   text-align: center;
   width: 170px;
 }
-
 
 .cart-plus-minus .dec.qtybutton {
   border-right: 1px solid #e5e5e5;
@@ -2835,7 +2797,6 @@ End Section Title
     font-weight: 700;
     padding-right: 40px;
 }
-
 
 .shop__dtl__social__link .social__icon {
     display: flex;
@@ -3267,7 +3228,6 @@ a.shipping-calculator-button:hover{
   33. Our Login Area
 ----------------------------------------*/
 
-
 .login__area__wrap {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     margin: auto;
@@ -3371,7 +3331,6 @@ section.htc__login__container {
   34. Our Register Area
 ----------------------------------------*/
 
-
 .res__title {
     display: flex;
     justify-content: space-between;
@@ -3410,4 +3369,3 @@ section.htc__login__container {
     background: #80BD00 none repeat scroll 0 0;
     color: #fff;
 }
-

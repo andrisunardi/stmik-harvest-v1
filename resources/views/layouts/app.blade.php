@@ -198,7 +198,7 @@
                             <ul class="main__menu">
                                 <li>
                                     <a draggable="false" href="{{ route("index") }}">
-                                        <span class="d-block d-lg-none d-xl-block">{{ trans("index.Home") }}</span>
+                                        <span class="d-block d-lg-none d-xl-block">{{ trans("index.home") }}</span>
                                         <span class="d-none d-lg-block d-xl-none"><i class="fas fa-home"></i></span>
                                     </a>
                                 </li>
@@ -276,7 +276,7 @@
                 <div class="mobile-menu clearfix">
                     <nav id="mobile_dropdown">
                         <ul>
-                            <li><a draggable="false" href="{{ route("index") }}">{{ trans("index.Home") }}</a></li>
+                            <li><a draggable="false" href="{{ route("index") }}">{{ trans("index.home") }}</a></li>
                             <li><a draggable="false" href="{{ route("about.index") }}">{{ trans("index.About Us") }}</a>
                                 <ul>
                                     <li><a draggable="false" href="{{ route("our-profile.index") }}">{{ trans("index.Our Profile") }}</a></li>
@@ -395,7 +395,7 @@
                                     <i class="icon ion-android-calendar me-1"></i>
                                     {{ trans("index.Monday") }} - {{ trans("index.Friday") }} : 08.00 - 17.00 WIB<br>
                                     <i class="icon ion-android-calendar me-1"></i>
-                                    {{ trans("index.Saturday") }} - {{ trans("index.Sunday") }} - {{ trans("index.Holiday") }} : {{ trans("index.Closed") }}
+                                    {{ trans("index.Saturday") }} - {{ trans("index.Sunday") }} - {{ trans("index.Holiday") }} : {{ trans("index.closed") }}
                                 </p>
                             </div>
                         </div>
@@ -406,7 +406,7 @@
                             <div class="footer__widget">
                                 <h2 class="footer__title">{{ trans("index.Quick Links") }}</h2>
                                 <ul class="htc__ft__list">
-                                    <li><a draggable="false" href="{{ route("index") }}">{{ trans("index.Home") }}</a></li>
+                                    <li><a draggable="false" href="{{ route("index") }}">{{ trans("index.home") }}</a></li>
                                     <li><a draggable="false" href="{{ route("about.index") }}">{{ trans("index.About") }} STMIK Harvest</a></li>
                                     <li><a draggable="false" href="{{ route("our-profile.index") }}">{{ trans("index.Our Profile") }}</a></li>
                                     <li><a draggable="false" href="{{ route("our-values.index") }}">{{ trans("index.Our Values") }}</a></li>
@@ -513,7 +513,7 @@
                                 </p>
                             </div>
                             <ul class="footer__menu">
-                                {{-- <li><a draggable="false" href="{{ route("index") }}">{{ trans("index.Home") }}</a></li>
+                                {{-- <li><a draggable="false" href="{{ route("index") }}">{{ trans("index.home") }}</a></li>
                                 <li><a draggable="false" href="{{ route("index") }}">{{ trans("index.Registration") }}</a></li>
                                 <li><a draggable="false" href="{{ route("index") }}">{{ trans("index.Courses") }}</a></li>
                                 <li><a draggable="false" href="{{ route("index") }}">{{ trans("index.Our Gallery") }}</a></li>

@@ -48,12 +48,6 @@ Slider images
   background: #56a4b1;
 }
 
-
-
-
-
-
-
 /**----------------------------------
 ! 8. Background variation
 -------------------------------------------**/
@@ -80,13 +74,11 @@ Slider images
   height: 100%;
 }
 
-
 @media ( max-width: 991px ) {
   .slider__fixed_height {
     height: auto;
   }
 }
-
 
 .slider__position--relative {
     position: relative;
@@ -102,7 +94,6 @@ Slider images
 /*-------------------------------------------
   Slider Owl Activation
 --------------------------------------------*/
-
 
 .slide {
   height: 100%;
@@ -137,7 +128,6 @@ Slider images
   right: 20px;
 }
 
-
 .slider__activation__wrap.owl-theme .owl-nav [class*="owl-"] {
   background: rgba(0,0,0,0.10);
   border-radius: 100%;
@@ -153,8 +143,6 @@ Slider images
 .slider__activation__wrap.owl-theme .owl-nav [class*="owl-"]:hover {
   background: #80BD00 none repeat scroll 0 0;
 }
-
-
 
 /*------------------------------------------
       Slider Inner
@@ -178,12 +166,6 @@ Slider images
   margin-top: 31px;
 }
 
-
-
-
-
-
-
 /*--------------------Text Align ----------------*/
 
 .text__align--left .slider__inner {
@@ -201,9 +183,6 @@ Slider images
 .text__align--center .slider__display--center {
   justify-content: center;
 }
-
-
-
 
 .slider__display--center {
   align-items: center;
@@ -246,8 +225,6 @@ Slider images
     top: 25px;
 }
 
-
-
 /*---------------------------------
     Button Style
 -----------------------------------*/
@@ -278,18 +255,9 @@ Slider images
   padding: 0 38px;
 }
 
-
 .btn--yellow {
   background: #e9ae37 none repeat scroll 0 0;
 }
-
-
-
-
-
-
-
-
 
 /*-------------------------
   Btn Hover
@@ -333,8 +301,6 @@ Slider images
   line-height: 44px;
   padding: 0 24px;
 }
-
-
 
 /*-------------------------
   Slider Style 2
@@ -383,16 +349,6 @@ Slider images
   padding-top: 109px;
 }
 
-
-
-
-
-
-
-
-
-
-
 /*--------------------
   Slider Style 3
 ----------------------*/
@@ -411,9 +367,6 @@ Slider images
 .slider--3 .slider__btn {
   margin-top: 25px;
 }
-
-
-
 
 /*--------------------------
   Slider Style 4
@@ -441,13 +394,7 @@ Slider images
   margin-top: 31px;
 }
 
-
-
 .slider--2 .slider__display--center,
 .slider--3 .slider__display--center {
   height: 100%;
 }
-
-
-
-

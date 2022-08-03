@@ -6,7 +6,6 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
-
 <url>
   <loc>https://www.stmikku.ac.id/</loc>
   <lastmod>2022-06-19T16:04:06+00:00</lastmod>
@@ -202,6 +201,5 @@
   <lastmod>2022-06-19T16:04:06+00:00</lastmod>
   <priority>0.51</priority>
 </url>
-
 
 </urlset>

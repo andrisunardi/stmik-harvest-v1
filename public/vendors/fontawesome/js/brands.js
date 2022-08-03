@@ -182,7 +182,6 @@
      * this as well.
      */
 
-
     if (prefix === 'fas') {
       defineIcons('fa', icons);
     }

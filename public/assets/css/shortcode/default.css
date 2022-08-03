@@ -7,12 +7,9 @@
   Version: 1.0
 -----------------------------------------------------------------------------------*/
 
-
-
 /*======================================
 
 [  Table of contents  ]
-
 
   01. Reset
   02. Helper Classes
@@ -258,9 +255,6 @@ body {
     color: #ffffff;
 }
 
-
-
-
 /*-------------------------------
   06. Bg-Color
 -------------------------------------*/
@@ -330,7 +324,6 @@ body {
   background: #ac907a;
 }
 
-
 .bg--pinterest {
   background: #cb2027;
 }
@@ -340,7 +333,6 @@ body {
 .bg--behance {
   background: #053eff;
 }
-
 
 /*-----------------------------
   09. Text Color
@@ -399,7 +391,6 @@ body {
   background: rgba(0, 0, 0, 0) url("../../images/bg/8.jpg") no-repeat scroll center center / cover ;
 }
 
-
 /*----------------------------
   11. Background overlay
 ---------------------------------*/
@@ -455,7 +446,6 @@ body {
 [data__overlay="10"]:before {
     opacity: 1;
 }
-
 
 /*---------------------------------
   12. Background Black Overlay
@@ -514,8 +504,6 @@ body {
   color: #fff;
 }
 
-
-
 /*---------------------------------
   13. Background theme Overlay
 ---------------------------------*/
@@ -540,9 +528,6 @@ body {
 [data--theme__overlay="6"]:before {
     opacity: 0.6;
 }
-
-
-
 
 /*-------------------------
   13. Input
@@ -672,7 +657,6 @@ textarea:focus {
 .pb--140 { padding-bottom: 140px }
 .pb--150 { padding-bottom: 150px }
 
-
 /*------------------------------
   19. Page section padding
 -------------------------------*/
@@ -714,7 +698,6 @@ textarea:focus {
 .mtb--130 { margin: 130px 0 }
 .mtb--140 { margin: 140px 0 }
 .mtb--150 { margin: 150px 0; }
-
 
 /*-----------------------------
   21. Custom cloumn
@@ -825,8 +808,3 @@ input:-moz-placeholder { / Firefox 18- /
   color: #444 !important;
   opacity: 1;
 }
-
-
-
-
-

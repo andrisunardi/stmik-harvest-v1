@@ -130,7 +130,7 @@
                                 <div class="modal-footer justify-content-between">
                                     <button class="btn btn-creative btn-sm btn-light" type="button" data-bs-dismiss="modal">
                                         <i class="bi bi-x me-1"></i>
-                                        {{ trans("index.Close") }}
+                                        {{ trans("index.close") }}
                                     </button>
                                     <a draggable="false" class="btn btn-creative btn-sm btn-primary" href="{{ $image->temporaryUrl() }}" download>
                                         <i class="bi bi-download me-1"></i>
@@ -167,7 +167,7 @@
                                         <div class="modal-footer justify-content-between">
                                             <button class="btn btn-creative btn-sm btn-light" type="button" data-bs-dismiss="modal">
                                                 <i class="bi bi-x me-1"></i>
-                                                {{ trans("index.Close") }}
+                                                {{ trans("index.close") }}
                                             </button>
                                             <a draggable="false" class="btn btn-creative btn-sm btn-primary" href="{{ $network->assetImage() }}" download>
                                                 <i class="bi bi-download me-1"></i>

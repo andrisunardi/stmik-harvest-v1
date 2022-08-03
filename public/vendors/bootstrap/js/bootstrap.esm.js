@@ -28,7 +28,6 @@ const toType = obj => {
  * --------------------------------------------------------------------------
  */
 
-
 const getUID = prefix => {
   do {
     prefix += Math.floor(Math.random() * MAX_UID);
@@ -49,7 +48,6 @@ const getSelector = element => {
     if (!hrefAttr || !hrefAttr.includes('#') && !hrefAttr.startsWith('.')) {
       return null;
     } // Just in case some CMS puts out a full URL with the anchor appended
-
 
     if (hrefAttr.includes('#') && !hrefAttr.startsWith('#')) {
       hrefAttr = `#${hrefAttr.split('#')[1]}`;
@@ -81,7 +79,6 @@ const getTransitionDurationFromElement = element => {
     return 0;
   } // Get transition-duration of the element
 
-
   let {
     transitionDuration,
     transitionDelay
@@ -92,7 +89,6 @@ const getTransitionDurationFromElement = element => {
   if (!floatTransitionDuration && !floatTransitionDelay) {
     return 0;
   } // If multiple durations are defined, take the first
-
 
   transitionDuration = transitionDuration.split(',')[0];
   transitionDelay = transitionDelay.split(',')[0];
@@ -169,7 +165,6 @@ const findShadowRoot = element => {
     return null;
   } // Can find the shadow root otherwise it'll return the document
 
-
   if (typeof element.getRootNode === 'function') {
     const root = element.getRootNode();
     return root instanceof ShadowRoot ? root : null;
@@ -178,7 +173,6 @@ const findShadowRoot = element => {
   if (element instanceof ShadowRoot) {
     return element;
   } // when we don't find a shadow root
-
 
   if (!element.parentNode) {
     return null;
@@ -196,7 +190,6 @@ const noop = () => {};
  *
  * @see https://www.charistheo.io/blog/2021/02/restart-a-css-animation-with-javascript/#restarting-a-css-animation
  */
-
 
 const reflow = element => {
   // eslint-disable-next-line no-unused-expressions
@@ -298,7 +291,6 @@ const executeAfterTransition = (callback, transitionElement, waitForTransition =
  * @return {Element|elem} The proper element
  */
 
-
 const getNextActiveElement = (list, activeElement, shouldGetNext, isCycleAllowed) => {
   let index = list.indexOf(activeElement); // if the element does not exist in the list return an element depending on the direction and if cycle is allowed
 
@@ -389,7 +381,6 @@ function bootstrapDelegationHandler(element, selector, fn) {
       }
     } // To please ESLint
 
-
     return null;
   };
 }
@@ -431,7 +422,6 @@ function addHandler(element, originalTypeEvent, handler, delegationFn, oneOff) {
     delegationFn = null;
   } // in case of mouseenter or mouseleave wrap the handler within a function that checks for its DOM position
   // this prevents the handler from being dispatched the same way as mouseover or mouseout does
-
 
   if (customEventsRegex.test(originalTypeEvent)) {
     const wrapFn = fn => {
@@ -575,7 +565,6 @@ const EventHandler = {
       });
     } // merge custom information in our event
 
-
     if (typeof args !== 'undefined') {
       Object.keys(args).forEach(key => {
         Object.defineProperty(evt, key, {
@@ -697,7 +686,6 @@ class BaseComponent {
   }
   /** Static */
 
-
   static getInstance(element) {
     return Data.get(getElement(element), this.DATA_KEY);
   }
@@ -781,7 +769,6 @@ class Alert extends BaseComponent {
     return NAME$d;
   } // Public
 
-
   close() {
     const closeEvent = EventHandler.trigger(this._element, EVENT_CLOSE);
 
@@ -796,14 +783,12 @@ class Alert extends BaseComponent {
     this._queueCallback(() => this._destroyElement(), this._element, isAnimated);
   } // Private
 
-
   _destroyElement() {
     this._element.remove();
 
     EventHandler.trigger(this._element, EVENT_CLOSED);
     this.dispose();
   } // Static
-
 
   static jQueryInterface(config) {
     return this.each(function () {
@@ -827,7 +812,6 @@ class Alert extends BaseComponent {
  * Data Api implementation
  * ------------------------------------------------------------------------
  */
-
 
 enableDismissTrigger(Alert, 'close');
 /**
@@ -870,12 +854,10 @@ class Button extends BaseComponent {
     return NAME$c;
   } // Public
 
-
   toggle() {
     // Toggle class and sync the `aria-pressed` attribute with the return value of the `.toggle()` method
     this._element.setAttribute('aria-pressed', this._element.classList.toggle(CLASS_NAME_ACTIVE$3));
   } // Static
-
 
   static jQueryInterface(config) {
     return this.each(function () {
@@ -893,7 +875,6 @@ class Button extends BaseComponent {
  * Data Api implementation
  * ------------------------------------------------------------------------
  */
-
 
 EventHandler.on(document, EVENT_CLICK_DATA_API$6, SELECTOR_DATA_TOGGLE$5, event => {
   event.preventDefault();
@@ -1156,7 +1137,6 @@ class Carousel extends BaseComponent {
     this._addEventListeners();
   } // Getters
 
-
   static get Default() {
     return Default$a;
   }
@@ -1164,7 +1144,6 @@ class Carousel extends BaseComponent {
   static get NAME() {
     return NAME$b;
   } // Public
-
 
   next() {
     this._slide(ORDER_NEXT);
@@ -1237,7 +1216,6 @@ class Carousel extends BaseComponent {
 
     this._slide(order, this._items[index]);
   } // Private
-
 
   _getConfig(config) {
     config = { ...Default$a,
@@ -1518,7 +1496,6 @@ class Carousel extends BaseComponent {
     return order === ORDER_PREV ? DIRECTION_RIGHT : DIRECTION_LEFT;
   } // Static
 
-
   static carouselInterface(element, config) {
     const data = Carousel.getOrCreateInstance(element, config);
     let {
@@ -1584,7 +1561,6 @@ class Carousel extends BaseComponent {
  * Data Api implementation
  * ------------------------------------------------------------------------
  */
-
 
 EventHandler.on(document, EVENT_CLICK_DATA_API$5, SELECTOR_DATA_SLIDE, Carousel.dataApiClickHandler);
 EventHandler.on(window, EVENT_LOAD_DATA_API$2, () => {
@@ -1679,7 +1655,6 @@ class Collapse extends BaseComponent {
     }
   } // Getters
 
-
   static get Default() {
     return Default$9;
   }
@@ -1687,7 +1662,6 @@ class Collapse extends BaseComponent {
   static get NAME() {
     return NAME$a;
   } // Public
-
 
   toggle() {
     if (this._isShown()) {
@@ -1822,7 +1796,6 @@ class Collapse extends BaseComponent {
     return element.classList.contains(CLASS_NAME_SHOW$7);
   } // Private
 
-
   _getConfig(config) {
     config = { ...Default$9,
       ...Manipulator.getDataAttributes(this._element),
@@ -1870,7 +1843,6 @@ class Collapse extends BaseComponent {
     });
   } // Static
 
-
   static jQueryInterface(config) {
     return this.each(function () {
       const _config = {};
@@ -1897,7 +1869,6 @@ class Collapse extends BaseComponent {
  * Data Api implementation
  * ------------------------------------------------------------------------
  */
-
 
 EventHandler.on(document, EVENT_CLICK_DATA_API$4, SELECTOR_DATA_TOGGLE$4, function (event) {
   // preventDefault only for <a> elements (which change the URL) not inside the collapsible element
@@ -1999,7 +1970,6 @@ class Dropdown extends BaseComponent {
     this._inNavbar = this._detectNavbar();
   } // Getters
 
-
   static get Default() {
     return Default$8;
   }
@@ -2011,7 +1981,6 @@ class Dropdown extends BaseComponent {
   static get NAME() {
     return NAME$9;
   } // Public
-
 
   toggle() {
     return this._isShown() ? this.hide() : this.show();
@@ -2041,7 +2010,6 @@ class Dropdown extends BaseComponent {
     // empty mouseover listeners to the body's immediate children;
     // only needed because of broken event delegation on iOS
     // https://www.quirksmode.org/blog/archives/2014/02/mouse_event_bub.html
-
 
     if ('ontouchstart' in document.documentElement && !parent.closest(SELECTOR_NAVBAR_NAV)) {
       [].concat(...document.body.children).forEach(elem => EventHandler.on(elem, 'mouseover', noop));
@@ -2086,7 +2054,6 @@ class Dropdown extends BaseComponent {
     }
   } // Private
 
-
   _completeHide(relatedTarget) {
     const hideEvent = EventHandler.trigger(this._element, EVENT_HIDE$4, relatedTarget);
 
@@ -2094,7 +2061,6 @@ class Dropdown extends BaseComponent {
       return;
     } // If this is a touch-enabled device we remove the extra
     // empty mouseover listeners we added for iOS support
-
 
     if ('ontouchstart' in document.documentElement) {
       [].concat(...document.body.children).forEach(elem => EventHandler.off(elem, 'mouseover', noop));
@@ -2173,7 +2139,6 @@ class Dropdown extends BaseComponent {
       return PLACEMENT_LEFT;
     } // We need to trim the value because custom properties can also include spaces
 
-
     const isEnd = getComputedStyle(this._menu).getPropertyValue('--bs-position').trim() === 'end';
 
     if (parentDropdown.classList.contains(CLASS_NAME_DROPUP)) {
@@ -2242,10 +2207,8 @@ class Dropdown extends BaseComponent {
     } // if target isn't included in items (e.g. when expanding the dropdown)
     // allow cycling to get the last item in case key equals ARROW_UP_KEY
 
-
     getNextActiveElement(items, target, key === ARROW_DOWN_KEY, !items.includes(target)).focus();
   } // Static
-
 
   static jQueryInterface(config) {
     return this.each(function () {
@@ -2292,7 +2255,6 @@ class Dropdown extends BaseComponent {
         if (composedPath.includes(context._element) || context._config.autoClose === 'inside' && !isMenuTarget || context._config.autoClose === 'outside' && isMenuTarget) {
           continue;
         } // Tab navigation through the dropdown menu or events from contained inputs shouldn't close the menu
-
 
         if (context._menu.contains(event.target) && (event.type === 'keyup' && event.key === TAB_KEY$1 || /input|select|option|textarea|form/i.test(event.target.tagName))) {
           continue;
@@ -2366,7 +2328,6 @@ class Dropdown extends BaseComponent {
  * ------------------------------------------------------------------------
  */
 
-
 EventHandler.on(document, EVENT_KEYDOWN_DATA_API, SELECTOR_DATA_TOGGLE$3, Dropdown.dataApiKeydownHandler);
 EventHandler.on(document, EVENT_KEYDOWN_DATA_API, SELECTOR_MENU, Dropdown.dataApiKeydownHandler);
 EventHandler.on(document, EVENT_CLICK_DATA_API$3, Dropdown.clearMenus);
@@ -2409,9 +2370,7 @@ class ScrollBarHelper {
 
     this._disableOverFlow(); // give padding to element to balance the hidden scrollbar width
 
-
     this._setElementAttributes(this._element, 'paddingRight', calculatedValue => calculatedValue + width); // trick: We adjust positive paddingRight and negative marginRight to sticky-top elements to keep showing fullwidth
-
 
     this._setElementAttributes(SELECTOR_FIXED_CONTENT, 'paddingRight', calculatedValue => calculatedValue + width);
 
@@ -2555,7 +2514,6 @@ class Backdrop {
     });
   } // Private
 
-
   _getElement() {
     if (!this._element) {
       const backdrop = document.createElement('div');
@@ -2673,7 +2631,6 @@ class FocusTrap {
     EventHandler.off(document, EVENT_KEY$7);
   } // Private
 
-
   _handleFocusin(event) {
     const {
       target
@@ -2780,7 +2737,6 @@ class Modal extends BaseComponent {
     this._scrollBar = new ScrollBarHelper();
   } // Getters
 
-
   static get Default() {
     return Default$5;
   }
@@ -2788,7 +2744,6 @@ class Modal extends BaseComponent {
   static get NAME() {
     return NAME$6;
   } // Public
-
 
   toggle(relatedTarget) {
     return this._isShown ? this.hide() : this.show(relatedTarget);
@@ -2880,7 +2835,6 @@ class Modal extends BaseComponent {
   handleUpdate() {
     this._adjustDialog();
   } // Private
-
 
   _initializeBackDrop() {
     return new Backdrop({
@@ -3058,7 +3012,6 @@ class Modal extends BaseComponent {
   // the following methods are used to handle overflowing modals
   // ----------------------------------------------------------------------
 
-
   _adjustDialog() {
     const isModalOverflowing = this._element.scrollHeight > document.documentElement.clientHeight;
 
@@ -3079,7 +3032,6 @@ class Modal extends BaseComponent {
     this._element.style.paddingLeft = '';
     this._element.style.paddingRight = '';
   } // Static
-
 
   static jQueryInterface(config, relatedTarget) {
     return this.each(function () {
@@ -3103,7 +3055,6 @@ class Modal extends BaseComponent {
  * Data Api implementation
  * ------------------------------------------------------------------------
  */
-
 
 EventHandler.on(document, EVENT_CLICK_DATA_API$2, SELECTOR_DATA_TOGGLE$2, function (event) {
   const target = getElementFromSelector(this);
@@ -3199,7 +3150,6 @@ class Offcanvas extends BaseComponent {
     this._addEventListeners();
   } // Getters
 
-
   static get NAME() {
     return NAME$5;
   }
@@ -3207,7 +3157,6 @@ class Offcanvas extends BaseComponent {
   static get Default() {
     return Default$4;
   } // Public
-
 
   toggle(relatedTarget) {
     return this._isShown ? this.hide() : this.show(relatedTarget);
@@ -3304,7 +3253,6 @@ class Offcanvas extends BaseComponent {
     super.dispose();
   } // Private
 
-
   _getConfig(config) {
     config = { ...Default$4,
       ...Manipulator.getDataAttributes(this._element),
@@ -3338,7 +3286,6 @@ class Offcanvas extends BaseComponent {
     });
   } // Static
 
-
   static jQueryInterface(config) {
     return this.each(function () {
       const data = Offcanvas.getOrCreateInstance(this, config);
@@ -3361,7 +3308,6 @@ class Offcanvas extends BaseComponent {
  * Data Api implementation
  * ------------------------------------------------------------------------
  */
-
 
 EventHandler.on(document, EVENT_CLICK_DATA_API$1, SELECTOR_DATA_TOGGLE$1, function (event) {
   const target = getElementFromSelector(this);
@@ -3624,7 +3570,6 @@ class Tooltip extends BaseComponent {
     this._setListeners();
   } // Getters
 
-
   static get Default() {
     return Default$3;
   }
@@ -3640,7 +3585,6 @@ class Tooltip extends BaseComponent {
   static get DefaultType() {
     return DefaultType$3;
   } // Public
-
 
   enable() {
     this._isEnabled = true;
@@ -3711,7 +3655,6 @@ class Tooltip extends BaseComponent {
     } // A trick to recreate a tooltip in case a new title is given by using the NOT documented `data-bs-original-title`
     // This will be removed later in favor of a `setContent` method
 
-
     if (this.constructor.NAME === 'tooltip' && this.tip && this.getTitle() !== this.tip.querySelector(SELECTOR_TOOLTIP_INNER).innerHTML) {
       this._disposePopper();
 
@@ -3761,7 +3704,6 @@ class Tooltip extends BaseComponent {
     // empty mouseover listeners to the body's immediate children;
     // only needed because of broken event delegation on iOS
     // https://www.quirksmode.org/blog/archives/2014/02/mouse_event_bub.html
-
 
     if ('ontouchstart' in document.documentElement) {
       [].concat(...document.body.children).forEach(element => {
@@ -3838,7 +3780,6 @@ class Tooltip extends BaseComponent {
     }
   } // Protected
 
-
   isWithContent() {
     return Boolean(this.getTitle());
   }
@@ -3868,7 +3809,6 @@ class Tooltip extends BaseComponent {
       templateElement.remove();
       return;
     } // we use append for html objects to maintain js events
-
 
     this.setElementContent(templateElement, content);
   }
@@ -3921,7 +3861,6 @@ class Tooltip extends BaseComponent {
 
     return attachment;
   } // Private
-
 
   _initializeOnDelegatedTarget(event, context) {
     return context || this.constructor.getOrCreateInstance(event.delegateTarget, this._getDelegateConfig());
@@ -4154,7 +4093,6 @@ class Tooltip extends BaseComponent {
     // const keysWithDifferentValues = Object.entries(this._config).filter(entry => this.constructor.Default[entry[0]] !== this._config[entry[0]])
     // `Object.fromEntries(keysWithDifferentValues)`
 
-
     return config;
   }
 
@@ -4196,7 +4134,6 @@ class Tooltip extends BaseComponent {
     }
   } // Static
 
-
   static jQueryInterface(config) {
     return this.each(function () {
       const data = Tooltip.getOrCreateInstance(this, config);
@@ -4218,7 +4155,6 @@ class Tooltip extends BaseComponent {
  * ------------------------------------------------------------------------
  * add .Tooltip to jQuery only if jQuery is present
  */
-
 
 defineJQueryPlugin(Tooltip);
 
@@ -4286,7 +4222,6 @@ class Popover extends Tooltip {
     return DefaultType$2;
   } // Overrides
 
-
   isWithContent() {
     return this.getTitle() || this._getContent();
   }
@@ -4297,7 +4232,6 @@ class Popover extends Tooltip {
     this._sanitizeAndSetContent(tip, this._getContent(), SELECTOR_CONTENT);
   } // Private
 
-
   _getContent() {
     return this._resolvePossibleFunction(this._config.content);
   }
@@ -4305,7 +4239,6 @@ class Popover extends Tooltip {
   _getBasicClassPrefix() {
     return CLASS_PREFIX;
   } // Static
-
 
   static jQueryInterface(config) {
     return this.each(function () {
@@ -4328,7 +4261,6 @@ class Popover extends Tooltip {
  * ------------------------------------------------------------------------
  * add .Popover to jQuery only if jQuery is present
  */
-
 
 defineJQueryPlugin(Popover);
 
@@ -4394,7 +4326,6 @@ class ScrollSpy extends BaseComponent {
     this._process();
   } // Getters
 
-
   static get Default() {
     return Default$1;
   }
@@ -4402,7 +4333,6 @@ class ScrollSpy extends BaseComponent {
   static get NAME() {
     return NAME$2;
   } // Public
-
 
   refresh() {
     const autoMethod = this._scrollElement === this._scrollElement.window ? METHOD_OFFSET : METHOD_POSITION;
@@ -4436,7 +4366,6 @@ class ScrollSpy extends BaseComponent {
     EventHandler.off(this._scrollElement, EVENT_KEY$2);
     super.dispose();
   } // Private
-
 
   _getConfig(config) {
     config = { ...Default$1,
@@ -4530,7 +4459,6 @@ class ScrollSpy extends BaseComponent {
     SelectorEngine.find(SELECTOR_LINK_ITEMS, this._config.target).filter(node => node.classList.contains(CLASS_NAME_ACTIVE$1)).forEach(node => node.classList.remove(CLASS_NAME_ACTIVE$1));
   } // Static
 
-
   static jQueryInterface(config) {
     return this.each(function () {
       const data = ScrollSpy.getOrCreateInstance(this, config);
@@ -4553,7 +4481,6 @@ class ScrollSpy extends BaseComponent {
  * Data Api implementation
  * ------------------------------------------------------------------------
  */
-
 
 EventHandler.on(window, EVENT_LOAD_DATA_API, () => {
   SelectorEngine.find(SELECTOR_DATA_SPY).forEach(spy => new ScrollSpy(spy));
@@ -4611,7 +4538,6 @@ class Tab extends BaseComponent {
     return NAME$1;
   } // Public
 
-
   show() {
     if (this._element.parentNode && this._element.parentNode.nodeType === Node.ELEMENT_NODE && this._element.classList.contains(CLASS_NAME_ACTIVE)) {
       return;
@@ -4656,7 +4582,6 @@ class Tab extends BaseComponent {
       complete();
     }
   } // Private
-
 
   _activate(element, container, callback) {
     const activeElements = container && (container.nodeName === 'UL' || container.nodeName === 'OL') ? SelectorEngine.find(SELECTOR_ACTIVE_UL, container) : SelectorEngine.children(container, SELECTOR_ACTIVE);
@@ -4721,7 +4646,6 @@ class Tab extends BaseComponent {
     }
   } // Static
 
-
   static jQueryInterface(config) {
     return this.each(function () {
       const data = Tab.getOrCreateInstance(this);
@@ -4742,7 +4666,6 @@ class Tab extends BaseComponent {
  * Data Api implementation
  * ------------------------------------------------------------------------
  */
-
 
 EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, function (event) {
   if (['A', 'AREA'].includes(this.tagName)) {
@@ -4820,7 +4743,6 @@ class Toast extends BaseComponent {
     this._setListeners();
   } // Getters
 
-
   static get DefaultType() {
     return DefaultType;
   }
@@ -4832,7 +4754,6 @@ class Toast extends BaseComponent {
   static get NAME() {
     return NAME;
   } // Public
-
 
   show() {
     const showEvent = EventHandler.trigger(this._element, EVENT_SHOW);
@@ -4857,7 +4778,6 @@ class Toast extends BaseComponent {
 
     this._element.classList.remove(CLASS_NAME_HIDE); // @deprecated
 
-
     reflow(this._element);
 
     this._element.classList.add(CLASS_NAME_SHOW);
@@ -4881,7 +4801,6 @@ class Toast extends BaseComponent {
     const complete = () => {
       this._element.classList.add(CLASS_NAME_HIDE); // @deprecated
 
-
       this._element.classList.remove(CLASS_NAME_SHOWING);
 
       this._element.classList.remove(CLASS_NAME_SHOW);
@@ -4903,7 +4822,6 @@ class Toast extends BaseComponent {
 
     super.dispose();
   } // Private
-
 
   _getConfig(config) {
     config = { ...Default,
@@ -4967,7 +4885,6 @@ class Toast extends BaseComponent {
     clearTimeout(this._timeout);
     this._timeout = null;
   } // Static
-
 
   static jQueryInterface(config) {
     return this.each(function () {

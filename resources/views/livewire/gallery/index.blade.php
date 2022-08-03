@@ -9,7 +9,7 @@
             <div class="row">
                 <div class="col-12 text-center">
                     <ul id="ml-filters" class="ml-port-filter-nav">
-                        <li data-filter="*" class="{{ $tag ? null : "is-checked" }}" wire:click="tag">{{ trans("index.All") }}</li>
+                        <li data-filter="*" class="{{ $tag ? null : "is-checked" }}" wire:click="tag">{{ trans("index.all") }}</li>
                         @foreach ($data_gallery_category as $gallery_category)
                             <li data-filter=".{{ Str::slug($gallery_category->translate_tag) }}" class="{{ $tag == Str::slug($gallery_category->translate_tag) ? "is-checked" : null }}" wire:click="tag('{{ Str::slug($gallery_category->translate_tag) }}')">{{ $gallery_category->translate_tag }}</li>
                         @endforeach

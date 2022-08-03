@@ -37,7 +37,7 @@
                             <div class="modal-footer justify-content-between">
                                 <button class="btn btn-creative btn-sm btn-light" type="button" data-bs-dismiss="modal">
                                     <i class="bi bi-x me-1"></i>
-                                    {{ trans("index.Close") }}
+                                    {{ trans("index.close") }}
                                 </button>
                                 <a draggable="false" class="btn btn-creative btn-sm btn-primary" href="{{ $blog->assetImage() }}" download>
                                     <i class="bi bi-download me-1"></i>
@@ -223,7 +223,7 @@
                             <div class="modal-footer justify-content-between">
                                 <button class="btn btn-creative btn-sm btn-light" type="button" data-bs-dismiss="modal">
                                     <i class="bi bi-x me-1"></i>
-                                    {{ trans("index.Close") }}
+                                    {{ trans("index.close") }}
                                 </button>
                                 <button class="btn btn-creative btn-sm btn-success" type="button" data-bs-dismiss="modal" wire:click="restore({{ $blog->id }})">
                                     <i class="bi bi-check me-1"></i>
@@ -255,7 +255,7 @@
                             <div class="modal-footer">
                                 <button class="btn btn-creative btn-sm btn-light" type="button" data-bs-dismiss="modal">
                                     <i class="bi bi-x me-1"></i>
-                                    {{ trans("index.Close") }}
+                                    {{ trans("index.close") }}
                                 </button>
                                 <button class="btn btn-creative btn-sm btn-danger" type="button" data-bs-dismiss="modal" wire:click="deletePermanent({{ $blog->id }})">
                                     <i class="bi bi-check me-1"></i>
@@ -306,7 +306,7 @@
                             <div class="modal-footer justify-content-between">
                                 <button class="btn btn-creative btn-sm btn-light" type="button" data-bs-dismiss="modal">
                                     <i class="bi bi-x me-1"></i>
-                                    {{ trans("index.Close") }}
+                                    {{ trans("index.close") }}
                                 </button>
                                 <button class="btn btn-creative btn-sm btn-danger" type="button" data-bs-dismiss="modal" wire:click="delete({{ $blog->id }})">
                                     <i class="bi bi-check me-1"></i>
