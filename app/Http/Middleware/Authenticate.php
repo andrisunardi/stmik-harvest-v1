@@ -14,7 +14,7 @@ class Authenticate extends Middleware
                 return route('cms.login.index');
             }
 
-            return route('login');
+            return route('login.index');
         }
     }
 }
