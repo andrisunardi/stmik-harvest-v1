@@ -4,7 +4,7 @@
             <tr class="bg-primary text-white text-center">
                 <th><input class="form-check-input" type="checkbox" wire:model="checkbox_all"></th>
                 <th>{{ trans("index.#") }}</th>
-                <th>{{ trans("index.ID") }}</th>
+                <th>{{ trans("index.id") }}</th>
                 <th>{{ trans("index.SMS") }}</th>
                 <th>{{ trans("index.Call") }}</th>
                 <th>{{ trans("index.Fax") }}</th>
@@ -20,18 +20,18 @@
                 <th>{{ trans("index.Mission ID") }}</th>
                 <th>{{ trans("index.History") }}</th>
                 <th>{{ trans("index.History ID") }}</th>
-                <th>{{ trans("index.Active") }}</th>
-                <th>{{ trans("index.Created By") }}</th>
-                <th>{{ trans("index.Updated By") }}</th>
+                <th>{{ trans("index.active") }}</th>
+                <th>{{ trans("index.created_by") }}</th>
+                <th>{{ trans("index.updated_by") }}</th>
                 @if ($menu_type == "trash")
-                    <th>{{ trans("index.Deleted By") }}</th>
+                    <th>{{ trans("index.deleted_by") }}</th>
                 @endif
-                <th>{{ trans("index.Created At") }}</th>
-                <th>{{ trans("index.Updated At") }}</th>
+                <th>{{ trans("index.created_at") }}</th>
+                <th>{{ trans("index.updated_at") }}</th>
                 @if ($menu_type == "trash")
-                    <th>{{ trans("index.Deleted At") }}</th>
+                    <th>{{ trans("index.deleted_at") }}</th>
                 @endif
-                <th>{{ trans("index.Action") }}</th>
+                <th>{{ trans("index.action") }}</th>
             </tr>
         </thead>
         <tbody>
@@ -91,41 +91,41 @@
                             @if ($setting->active)
                                 <button class="btn btn-creative btn-sm btn-danger" wire:click="nonActive({{ $setting->id }})">
                                     <i class="bi bi-x-circle-fill me-1"></i>
-                                    {{ trans("index.Non Active") }}
+                                    {{ trans("index.non_active") }}
                                 </button>
                             @else
                                 <button class="btn btn-creative btn-sm btn-success" wire:click="active({{ $setting->id }})">
                                     <i class="bi bi-check-circle-fill me-1"></i>
-                                    {{ trans("index.Active") }}
+                                    {{ trans("index.active") }}
                                 </button>
                             @endif
 
                             <button class="btn btn-creative btn-sm btn-dark" wire:click="view({{ $setting->id }})">
                                 <i class="bi bi-eye me-1"></i>
-                                {{ trans("index.View") }}
+                                {{ trans("index.view") }}
                             </button>
 
                             <button class="btn btn-creative btn-sm btn-info" wire:click="form('clone', {{ $setting->id }})">
                                 <i class="bi bi-clipboard me-1"></i>
-                                {{ trans("index.Clone") }}
+                                {{ trans("index.clone") }}
                             </button>
 
                             <button class="btn btn-creative btn-sm btn-success" wire:click="form('edit', {{ $setting->id }})">
                                 <i class="bi bi-pencil me-1"></i>
-                                {{ trans("index.Edit") }}
+                                {{ trans("index.edit") }}
                             </button>
 
                             <button class="btn btn-creative btn-sm btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#delete-{{ $setting->id }}">
                                 <i class="bi bi-trash me-1"></i>
-                                {{ trans("index.Delete") }}
+                                {{ trans("index.delete") }}
                             </button>
 
                             <div class="modal fade" id="delete-{{ $setting->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="delete-{{ $setting->id }}" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h6 class="modal-title" id="delete-{{ $setting->id }}">{{ trans("index.Delete") }} - {{ trans("index." . Str::slug($menu_name, "_")) }}</h6>
-                                            <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            <h6 class="modal-title" id="delete-{{ $setting->id }}">{{ trans("index.delete") }} - {{ trans("index." . Str::slug($menu_name, "_")) }}</h6>
+                                            <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="{{ trans("index.close") }}"></button>
                                         </div>
                                         <div class="modal-body text-wrap">
                                             <p>{{ trans("index.Are you sure you want to delete") }} {{ trans("index." . Str::slug($menu_name, "_")) }}</p>
@@ -138,7 +138,7 @@
                                             </button>
                                             <button class="btn btn-creative btn-sm btn-danger" type="button" data-bs-dismiss="modal" wire:click="delete({{ $setting->id }})">
                                                 <i class="bi bi-check me-1"></i>
-                                                {{ trans("index.Yes") }}
+                                                {{ trans("index.yes") }}
                                             </button>
                                         </div>
                                     </div>
@@ -149,15 +149,15 @@
                         @if ($menu_type == "trash")
                             <button class="btn btn-creative btn-sm btn-success" type="button" data-bs-toggle="modal" data-bs-target="#restore-{{ $setting->id }}">
                                 <i class="bi bi-arrow-clockwise me-1"></i>
-                                {{ trans("index.Restore") }}
+                                {{ trans("index.restore") }}
                             </button>
 
                             <div class="modal fade" id="restore-{{ $setting->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="restore-{{ $setting->id }}" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h6 class="modal-title" id="restore-{{ $setting->id }}">{{ trans("index.Restore") }} - {{ trans("index." . Str::slug($menu_name, "_")) }}</h6>
-                                            <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            <h6 class="modal-title" id="restore-{{ $setting->id }}">{{ trans("index.restore") }} - {{ trans("index." . Str::slug($menu_name, "_")) }}</h6>
+                                            <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="{{ trans("index.close") }}"></button>
                                         </div>
                                         <div class="modal-body">
                                             <p class="mb-0">{{ trans("index.Are you sure you want to restore") }} {{ trans("index." . Str::slug($menu_name, "_")) }}</p>
@@ -169,7 +169,7 @@
                                             </button>
                                             <button class="btn btn-creative btn-sm btn-success" type="button" data-bs-dismiss="modal" wire:click="restore({{ $setting->id }})">
                                                 <i class="bi bi-check me-1"></i>
-                                                {{ trans("index.Yes") }}
+                                                {{ trans("index.yes") }}
                                             </button>
                                         </div>
                                     </div>
@@ -178,15 +178,15 @@
 
                             <button class="btn btn-creative btn-sm btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#delete-permanent-{{ $setting->id }}">
                                 <i class="bi bi-trash2 me-1"></i>
-                                {{ trans("index.Delete Permanent") }}
+                                {{ trans("index.delete_permanent") }}
                             </button>
 
                             <div class="modal fade" id="delete-permanent-{{ $setting->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="delete-permanent-{{ $setting->id }}" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h6 class="modal-title" id="delete-permanent-{{ $setting->id }}">{{ trans("index.Delete Permanent") }} - {{ trans("index." . Str::slug($menu_name, "_")) }}</h6>
-                                            <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            <h6 class="modal-title" id="delete-permanent-{{ $setting->id }}">{{ trans("index.delete_permanent") }} - {{ trans("index." . Str::slug($menu_name, "_")) }}</h6>
+                                            <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="{{ trans("index.close") }}"></button>
                                         </div>
                                         <div class="modal-body text-wrap">
                                             <p>{{ trans("index.Are you sure you want to delete permanent") }} {{ trans("index." . Str::slug($menu_name, "_")) }}</p>
@@ -200,7 +200,7 @@
                                             </button>
                                             <button class="btn btn-creative btn-sm btn-danger" type="button" data-bs-dismiss="modal" wire:click="deletePermanent({{ $setting->id }})">
                                                 <i class="bi bi-check me-1"></i>
-                                                {{ trans("index.Yes") }}
+                                                {{ trans("index.yes") }}
                                             </button>
                                         </div>
                                     </div>
@@ -212,7 +212,7 @@
             @endforeach
             @if (!$data_setting->count())
                 <tr>
-                    <td class="text-center" colspan="100%">{{ trans("index.No Data Available") }}</td>
+                    <td class="text-center" colspan="100%">{{ trans("index.no_data_available") }}</td>
                 </tr>
             @endif
         </tbody>

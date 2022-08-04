@@ -17,7 +17,7 @@
             <div class="col-12 col-sm-auto">
                 <a draggable="false" class="btn btn-creative btn-light w-100" wire:click="index">
                     <i class="bi bi-arrow-left me-1"></i>
-                    {{ trans("index.Back") }}
+                    {{ trans("index.back") }}
                 </a>
             </div>
         @endif

@@ -10,19 +10,19 @@
                         <li class="breadcrumb-item"><a draggable="false" href="javascript:;" wire:click="index"><i class="@yield("icon") me-1"></i> @yield("name")</a></li>
                     @endif
                     @if ($menu_type == "add")
-                        <li class="breadcrumb-item active" aria-current="page"><i class="bi bi-plus-lg me-1"></i> {{ trans("index.Add") }}</li>
+                        <li class="breadcrumb-item active" aria-current="page"><i class="bi bi-plus-lg me-1"></i> {{ trans("index.add") }}</li>
                     @endif
                     @if ($menu_type == "clone")
-                        <li class="breadcrumb-item active" aria-current="page"><i class="bi bi-clipboard me-1"></i> {{ trans("index.Clone") }}</li>
+                        <li class="breadcrumb-item active" aria-current="page"><i class="bi bi-clipboard me-1"></i> {{ trans("index.clone") }}</li>
                     @endif
                     @if ($menu_type == "edit")
-                        <li class="breadcrumb-item active" aria-current="page"><i class="bi bi-pencil me-1"></i> {{ trans("index.Edit") }}</li>
+                        <li class="breadcrumb-item active" aria-current="page"><i class="bi bi-pencil me-1"></i> {{ trans("index.edit") }}</li>
                     @endif
                     @if ($menu_type == "view")
-                        <li class="breadcrumb-item active" aria-current="page"><i class="bi bi-eye me-1"></i> {{ trans("index.View") }}</li>
+                        <li class="breadcrumb-item active" aria-current="page"><i class="bi bi-eye me-1"></i> {{ trans("index.view") }}</li>
                     @endif
                     @if ($menu_type == "trash")
-                        <li class="breadcrumb-item active" aria-current="page"><i class="bi bi-trash me-1"></i> {{ trans("index.Trash") }}</li>
+                        <li class="breadcrumb-item active" aria-current="page"><i class="bi bi-trash me-1"></i> {{ trans("index.trash") }}</li>
                     @endif
                 </ol>
             </nav>

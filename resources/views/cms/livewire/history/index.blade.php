@@ -27,7 +27,7 @@
                                 <li class="breadcrumb-item"><a draggable="false" href="javascript:;" wire:click="index"><i class="@yield("icon") me-1"></i> @yield("name")</a></li>
                             @endif
                             @if ($menu_type == "view")
-                                <li class="breadcrumb-item active" aria-current="page"><i class="bi bi-eye me-1"></i> {{ trans("index.View") }}</li>
+                                <li class="breadcrumb-item active" aria-current="page"><i class="bi bi-eye me-1"></i> {{ trans("index.view") }}</li>
                             @endif
                         </ol>
                     </nav>
@@ -75,22 +75,22 @@
                                 <p>
                                     <a draggable="false" class="btn btn-creative btn-light" wire:click="index">
                                         <i class="bi bi-arrow-left me-1"></i>
-                                        {{ trans("index.Back") }}
+                                        {{ trans("index.back") }}
                                     </a>
                                 </p>
                                 <p>{{ trans("index.Admin") }} : {{ $log->admin?->name }}</p>
                                 <p>{{ trans("index.Menu") }} : {{ $log->menu?->name }}</p>
                                 <p>{{ trans("index.Activity") }} : {{ $log->activity_text }}</p>
                                 <p>
-                                    {{ trans("index.Active") }} :
+                                    {{ trans("index.active") }} :
                                     <span class="{{ "badge bg-" . Str::successdanger($log->active) }}">
                                         {{ trans("index." . Str::slug(Str::active($log->active), '_')) }}
                                     </span>
                                 </p>
-                                <p>{{ trans("index.Created By") }} : {{ $log->created_by?->name }}</p>
-                                <p>{{ trans("index.Updated By") }} : {{ $log->updated_by?->name }}</p>
+                                <p>{{ trans("index.created_by") }} : {{ $log->created_by?->name }}</p>
+                                <p>{{ trans("index.updated_by") }} : {{ $log->updated_by?->name }}</p>
                                 @if ($log->trashed())
-                                    <p>{{ trans("index.Deleted By") }} : {{ $log->deleted_by?->name }}</p>
+                                    <p>{{ trans("index.deleted_by") }} : {{ $log->deleted_by?->name }}</p>
                                 @endif
                                 @IF ($log->action != 5)
                                     <a draggable="false" class="btn btn-primary btn-creative btn-sm"
@@ -102,18 +102,18 @@
                             </div>
                             <p class="mb-0 fz-12 mt-4">
                                 <i class="bi bi-clock mx-1"></i>
-                                {{ trans("index.Created At") }}
+                                {{ trans("index.created_at") }}
                                 {{ $log->created_at?->format("H:i:s - l, d F Y") }} <br class="d-md-none"> ({{ $log->created_at?->diffForHumans() }})
                             </p>
                             <p class="mb-0 fz-12 mt-4">
                                 <i class="bi bi-clock mx-1"></i>
-                                {{ trans("index.Updated At") }}
+                                {{ trans("index.updated_at") }}
                                 {{ $log->updated_at?->format("H:i:s - l, d F Y") }} <br class="d-md-none"> ({{ $log->updated_at?->diffForHumans() }})
                             </p>
                             @if ($log->trashed())
                                 <p class="mb-0 fz-12 mt-4">
                                     <i class="bi bi-clock mx-1"></i>
-                                    {{ trans("index.Deleted At") }}
+                                    {{ trans("index.deleted_at") }}
                                     {{ $log->deleted_at?->format("H:i:s - l, d F Y") }} <br class="d-md-none"> ({{ $log->deleted_at?->diffForHumans() }})
                                 </p>
                             @endif

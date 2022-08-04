@@ -506,7 +506,7 @@
                         <div class="copyright__inner">
                             <div class="copyright">
                                 <p>
-                                    &copy; {{ trans("index.Copyright") }} @if(env("APP_YEAR") && env("APP_YEAR") != date("Y")) {{ env("APP_YEAR") . " - " }} @endif {{ date("Y") }} &reg;&nbsp;
+                                    &copy; {{ trans("index.copyright") }} @if(env("APP_YEAR") && env("APP_YEAR") != date("Y")) {{ env("APP_YEAR") . " - " }} @endif {{ date("Y") }} &reg;&nbsp;
                                     <a draggable="false" href="{{ URL::to("/") }}" target="_blank">
                                         <strong>{{ env("APP_NAME") }}</strong>
                                     </a> &trade;
@@ -523,9 +523,9 @@
                                 <li><a draggable="false" href="https://www.instagram.com/{{ env("SOCIAL_MEDIA_INSTAGRAM") }}"><i class="icon ion-social-instagram"></i></a></li>
                                 <li><a draggable="false" href="https://www.youtube.com/{{ env("SOCIAL_MEDIA_YOUTUBE") }}"><i class="icon ion-social-youtube"></i></a></li> --}}
                                 <li>
-                                    <span class="text-white">{{ trans("index.Created and Designed by") }}</span>
+                                    <span class="text-white">{{ trans("index.created_and_designed_by") }}</span>
                                     <a draggable="false" href="https://www.diw.co.id" target="_blank">
-                                        <img draggable="false" src="{{ asset("images/icon-diw.co.id.png") }}" alt="Icon DIW.co.id" title="{{ trans("index.Created and Designed by") }} DIW.co.id">
+                                        <img draggable="false" src="{{ asset("images/icon-diw.co.id.png") }}" alt="Icon DIW.co.id" title="{{ trans("index.created_and_designed_by") }} DIW.co.id">
                                     </a>
                                 </li>
                             </ul>

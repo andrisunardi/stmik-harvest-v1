@@ -27,7 +27,7 @@
                     alt="{{ trans("index.{$menu_name}") }} - {{ env("APP_TITLE") }}">
             </div>
             <div class="register-form mt-4">
-                <h3 class="text-center">{{ trans("index.Welcome to") }} {{ trans("index.CMS") }}<br>{{ env("APP_NAME") }}</h3>
+                <h3 class="text-center">{{ trans("index.welcome_to") }} {{ trans("index.cms") }}<br>{{ env("APP_NAME") }}</h3>
                 <h6 class="mb-4 text-center">{{ trans("index.Sign in to your account to continue") }}</h6>
 
                 @include("{$sub_domain}.layouts.alert")
@@ -77,20 +77,20 @@
                     <div class="mb-3">
                         <div class="form-check form-switch">
                             <input wire:model="{{ $input }}" type="checkbox" class="form-check-input form-check-primary" id="{{ $input }}" name="{{ $input }}" value="1" {{ old($input) ? "checked" : null }}>
-                            <label class="form-check-label" for="{{ $input }}">{{ trans("index.Remember Me") }}</label>
+                            <label class="form-check-label" for="{{ $input }}">{{ trans("index.remember_me") }}</label>
                         </div>
                     </div>
 
                     <button type="button" class="btn btn-creative btn-primary w-100" wire:click="submit" wire:loading.attr="disabled">
                         <i class="bi bi-box-arrow-in-right me-1"></i>
-                        {{ trans("index.Sign In") }}
+                        {{ trans("index.sign_in") }}
                     </button>
                 </form>
             </div>
 
             <div class="login-meta-data text-center">
                 <a draggable="false" class="stretched-link forgot-password d-block mt-3 mb-1" href="{{ route("{$sub_domain}.forgot-password.index") }}">
-                    {{ trans("index.Forgot Password") }} ?
+                    {{ trans("index.forgot_password") }} ?
                 </a>
             </div>
 
@@ -105,15 +105,15 @@
 
             <div class="copyright-info">
                 <p>
-                    &copy; {{ trans("index.Copyright") }} @if(env("APP_YEAR") && env("APP_YEAR") != date("Y")) {{ env("APP_YEAR") . " - " }} @endif {{ date("Y") }} &reg;&nbsp;
+                    &copy; {{ trans("index.copyright") }} @if(env("APP_YEAR") && env("APP_YEAR") != date("Y")) {{ env("APP_YEAR") . " - " }} @endif {{ date("Y") }} &reg;&nbsp;
                     <br>
                     <a draggable="false" href="{{ URL::to("/") }}" target="_blank"><strong>{{ env("APP_NAME") }}</strong></a> &trade;
-                    {{ trans("index.All Rights Reserved") }}.
+                    {{ trans("index.all_rights_reserved") }}.
                 </p>
                 <p class="mt-2">
-                    {{ trans("index.Created and Designed by") }}
+                    {{ trans("index.created_and_designed_by") }}
                     <a draggable="false" href="https://www.diw.co.id" target="_blank">
-                        <img draggable="false" src="{{ asset("images/icon-diw.co.id.png") }}" alt="Icon DIW.co.id" title="{{ trans("index.Created and Designed by") }} DIW.co.id">
+                        <img draggable="false" src="{{ asset("images/icon-diw.co.id.png") }}" alt="Icon DIW.co.id" title="{{ trans("index.created_and_designed_by") }} DIW.co.id">
                     </a>
                 </p>
             </div>

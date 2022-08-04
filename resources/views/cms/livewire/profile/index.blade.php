@@ -84,7 +84,7 @@
 
                         <div class="row my-2">
                             <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-                                <h6>{{ trans("index.Name") }}</h6>
+                                <h6>{{ trans("index.name") }}</h6>
                             </div>
                             <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
                                 {{ Auth::user()->name }}
@@ -111,7 +111,7 @@
 
                         <div class="row my-2">
                             <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-                                <h6>{{ trans("index.Active") }}</h6>
+                                <h6>{{ trans("index.active") }}</h6>
                             </div>
                             <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
                                 <span class="{{ "badge bg-" . Str::successdanger(Auth::user()->active) }}">
@@ -122,7 +122,7 @@
 
                         <div class="row my-2">
                             <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-                                <h6>{{ trans("index.Created By") }}</h6>
+                                <h6>{{ trans("index.created_by") }}</h6>
                             </div>
                             <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
                                 {{ Auth::user()->created_by?->name }}
@@ -131,7 +131,7 @@
 
                         <div class="row my-2">
                             <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-                                <h6>{{ trans("index.Updated By") }}</h6>
+                                <h6>{{ trans("index.updated_by") }}</h6>
                             </div>
                             <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
                                 {{ Auth::user()->updated_by?->name }}
@@ -140,7 +140,7 @@
 
                         <div class="row my-2">
                             <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-                                <h6>{{ trans("index.Created At") }}</h6>
+                                <h6>{{ trans("index.created_at") }}</h6>
                             </div>
                             <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
                                 {{ Auth::user()->created_at?->format("H:i:s - l, d F Y") }} <br class="d-md-none"> ({{ Auth::user()->created_at?->diffForHumans() }})
@@ -149,7 +149,7 @@
 
                         <div class="row my-2">
                             <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-                                <h6>{{ trans("index.Updated At") }}</h6>
+                                <h6>{{ trans("index.updated_at") }}</h6>
                             </div>
                             <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
                                 {{ Auth::user()->created_at?->format("H:i:s - l, d F Y") }} <br class="d-md-none"> ({{ Auth::user()->created_at?->diffForHumans() }})

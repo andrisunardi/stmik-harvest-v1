@@ -14,7 +14,7 @@
                             <ul class="blog__meta">
                                 <li>
                                     <i class="icon ion-android-calendar"></i>
-                                    {{ trans("index.Created At") }} :
+                                    {{ trans("index.created_at") }} :
                                     {{ Date::parse($blog->date)->format("d F Y") }}
                                 </li>
                                 <li class="meta__separator">

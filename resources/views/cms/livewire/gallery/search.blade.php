@@ -20,7 +20,7 @@
                 <option value="id" {{ "id" == $order_by ? "selected" : null }}>{{ trans("validation.attributes.id") }}</option>
                 <option value="category">{{ trans("index.Category") }}</option>
                 <option value="name" {{ "name" == $order_by ? "selected" : null }}>{{ trans("validation.attributes.name") }}</option>
-                <option value="name_id">{{ trans("index.Name ID") }}</option>
+                <option value="name_id">{{ trans("index.name_id") }}</option>
                 <option value="description">{{ trans("index.Description") }}</option>
                 <option value="description_id">{{ trans("index.Description ID") }}</option>
                 <option value="youtube">{{ trans("index.Youtube") }}</option>
@@ -147,8 +147,8 @@
             <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
             <select wire:model="{{ $input }}" class="form-select select2" id="{{ $input }}" name="{{ $input }}">
                 <option value="">{{ trans("index.all") }}</option>
-                <option value="1">{{ trans("index.Active") }}</option>
-                <option value="0">{{ trans("index.Non Active") }}</option>
+                <option value="1">{{ trans("index.active") }}</option>
+                <option value="0">{{ trans("index.non_active") }}</option>
             </select>
         </div>
     </div>

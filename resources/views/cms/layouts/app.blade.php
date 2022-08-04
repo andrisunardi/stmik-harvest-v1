@@ -340,15 +340,15 @@
 
                     <div class="copyright-info">
                         <p>
-                            &copy; {{ trans("index.Copyright") }} @if(env("APP_YEAR") && env("APP_YEAR") != date("Y")) {{ env("APP_YEAR") . " - " }} @endif {{ date("Y") }} &reg;&nbsp;
+                            &copy; {{ trans("index.copyright") }} @if(env("APP_YEAR") && env("APP_YEAR") != date("Y")) {{ env("APP_YEAR") . " - " }} @endif {{ date("Y") }} &reg;&nbsp;
                             <br>
                             <a draggable="false" href="{{ URL::to("/") }}" target="_blank"><strong>{{ env("APP_NAME") }}</strong></a> &trade;
-                            {{ trans("index.All Rights Reserved") }}.
+                            {{ trans("index.all_rights_reserved") }}.
                         </p>
                         <p class="mt-2">
-                            {{ trans("index.Created and Designed by") }}
+                            {{ trans("index.created_and_designed_by") }}
                             <a draggable="false" href="https://www.diw.co.id" target="_blank">
-                                <img draggable="false" src="{{ asset("images/icon-diw.co.id.png") }}" alt="Icon DIW.co.id" title="{{ trans("index.Created and Designed by") }} DIW.co.id">
+                                <img draggable="false" src="{{ asset("images/icon-diw.co.id.png") }}" alt="Icon DIW.co.id" title="{{ trans("index.created_and_designed_by") }} DIW.co.id">
                             </a>
                         </p>
                     </div>

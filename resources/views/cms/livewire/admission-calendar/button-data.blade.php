@@ -8,7 +8,7 @@
     <div class="col-6 col-sm-auto">
         <a draggable="false" class="btn btn-creative btn-primary w-100" wire:click="refresh">
             <i class="fas fa-sync fa-spin me-1"></i>
-            {{ trans("index.Refresh") }}
+            {{ trans("index.refresh") }}
         </a>
     </div>
 </div>
