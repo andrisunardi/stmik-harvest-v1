@@ -28,7 +28,7 @@
                     {{ $menu_type == "trash" ? "bg-warning" : null }}
                     {{ $menu_type == "view" ? "bg-dark" : null }}
                 ">
-                    {{ $menu_type == "index" ? trans("index.Data") :
+                    {{ $menu_type == "index" ? trans("index.data") :
                         trans("index." . Str::title($menu_type)) }}
                     @yield("name")
                 </div>

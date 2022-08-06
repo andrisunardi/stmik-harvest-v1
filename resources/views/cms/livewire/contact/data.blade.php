@@ -7,7 +7,7 @@
                 <th>{{ trans("index.id") }}</th>
                 <th>{{ trans("index.name") }}</th>
                 <th>{{ trans("index.Phone") }}</th>
-                <th>{{ trans("index.Email") }}</th>
+                <th>{{ trans("index.email") }}</th>
                 <th>{{ trans("index.Company") }}</th>
                 <th>{{ trans("index.Message") }}</th>
                 <th>{{ trans("index.active") }}</th>

@@ -24,7 +24,7 @@
                 </div>
                 <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fas fa-times fa-fw mr-1"></i> {{ trans("index.Cancel") }}</button>
-                    <button type="submit" class="btn btn-{{ env("APP_COLOR_CLASS") }}"><i class="fas fa-save fa-fw me-1"></i> {{ trans("index.Save") }}</button>
+                    <button type="submit" class="btn btn-{{ env("APP_COLOR_CLASS") }}"><i class="fas fa-save fa-fw me-1"></i> {{ trans("index.save") }}</button>
                 </div>
             </form>
         </div>

@@ -27,10 +27,10 @@
                                 <li class="breadcrumb-item"><a draggable="false" href="javascript:;" wire:click="index"><i class="@yield("icon") me-1"></i> @yield("name")</a></li>
                             @endif
                             @if ($menu_type == "edit-profile")
-                                <li class="breadcrumb-item active" aria-current="page"><i class="bi bi-pencil me-1"></i> {{ trans("index.Edit Profile") }}</li>
+                                <li class="breadcrumb-item active" aria-current="page"><i class="bi bi-pencil me-1"></i> {{ trans("index.edit_profile") }}</li>
                             @endif
                             @if ($menu_type == "change-password")
-                                <li class="breadcrumb-item active" aria-current="page"><i class="bi bi-lock me-1"></i> {{ trans("index.Change Password") }}</li>
+                                <li class="breadcrumb-item active" aria-current="page"><i class="bi bi-lock me-1"></i> {{ trans("index.change_password") }}</li>
                             @endif
                         </ol>
                     </nav>
@@ -75,7 +75,7 @@
                     @if ($menu_type == "index")
                         <div class="row my-2">
                             <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-                                <h6>{{ trans("index.Access") }}</h6>
+                                <h6>{{ trans("index.access") }}</h6>
                             </div>
                             <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
                                 {{ Auth::user()->access->name }}
@@ -93,7 +93,7 @@
 
                         <div class="row my-2">
                             <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-                                <h6>{{ trans("index.Email") }}</h6>
+                                <h6>{{ trans("index.email") }}</h6>
                             </div>
                             <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
                                 {{ Auth::user()->email }}
@@ -102,7 +102,7 @@
 
                         <div class="row my-2">
                             <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-                                <h6>{{ trans("index.Username") }}</h6>
+                                <h6>{{ trans("index.username") }}</h6>
                             </div>
                             <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
                                 {{ Auth::user()->username }}
@@ -160,7 +160,7 @@
                             <div class="col-12 col-sm-auto">
                                 <a draggable="false" class="btn btn-danger w-100" href="{{ route("{$sub_domain}.logout.index") }}">
                                     <i class="bi bi-box-arrow-right me-1"></i>
-                                    {{ trans("index.Logout") }}
+                                    {{ trans("index.logout") }}
                                 </a>
                             </div>
                         </div>

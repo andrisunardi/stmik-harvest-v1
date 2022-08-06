@@ -33,7 +33,7 @@
     </div>
     <div class="row my-2">
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <h6>{{ trans("index.Email") }}</h6>
+            <h6>{{ trans("index.email") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             <a draggable="false" href="mailto:{{ $setting->email }}">{{ $setting->email }}</a>
@@ -113,7 +113,7 @@
     </div>
     <div class="row my-2">
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <h6>{{ trans("index.History") }}</h6>
+            <h6>{{ trans("index.history") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             {!! html_entity_decode($setting->history) !!}

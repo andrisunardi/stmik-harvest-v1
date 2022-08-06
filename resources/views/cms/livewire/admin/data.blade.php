@@ -6,10 +6,10 @@
                 <th>{{ trans("index.#") }}</th>
                 <th>{{ trans("index.id") }}</th>
                 <th>{{ trans("index.Image") }}</th>
-                <th>{{ trans("index.Access") }}</th>
+                <th>{{ trans("index.access") }}</th>
                 <th>{{ trans("index.name") }}</th>
-                <th>{{ trans("index.Email") }}</th>
-                <th>{{ trans("index.Username") }}</th>
+                <th>{{ trans("index.email") }}</th>
+                <th>{{ trans("index.username") }}</th>
                 <th>{{ trans("index.active") }}</th>
                 <th>{{ trans("index.created_by") }}</th>
                 <th>{{ trans("index.updated_by") }}</th>

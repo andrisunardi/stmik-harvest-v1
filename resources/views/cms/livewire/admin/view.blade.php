@@ -52,7 +52,7 @@
     </div>
     <div class="row my-2">
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <h6>{{ trans("index.Access") }}</h6>
+            <h6>{{ trans("index.access") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             {{ $admin->access?->name }}
@@ -68,7 +68,7 @@
     </div>
     <div class="row my-2">
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <h6>{{ trans("index.Email") }}</h6>
+            <h6>{{ trans("index.email") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             <a draggable="false" href="mailto:{{ $admin->email }}">{{ $admin->email }}</a>
@@ -76,7 +76,7 @@
     </div>
     <div class="row my-2">
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <h6>{{ trans("index.Username") }}</h6>
+            <h6>{{ trans("index.username") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             {{ $admin->username }}

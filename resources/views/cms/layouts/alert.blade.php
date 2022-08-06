@@ -1,7 +1,7 @@
 @if ($errors->any())
     <div class="alert custom-alert-2 alert-danger alert-dismissible fade show" role="alert">
         <i class="bi bi-x-circle"></i>
-        {{ trans("index.Please check all form input validation") }}
+        {{ trans("index.please_check_all_form_input_validation") }}
         <button class="btn btn-close position-relative p-1 ms-auto" type="button" data-bs-dismiss="alert" aria-label="{{ trans("index.close") }}"></button>
     </div>
 @endif

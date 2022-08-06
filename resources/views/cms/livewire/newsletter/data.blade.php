@@ -5,7 +5,7 @@
                 <th><input class="form-check-input" type="checkbox" wire:model="checkbox_all"></th>
                 <th>{{ trans("index.#") }}</th>
                 <th>{{ trans("index.id") }}</th>
-                <th>{{ trans("index.Email") }}</th>
+                <th>{{ trans("index.email") }}</th>
                 <th>{{ trans("index.active") }}</th>
                 <th>{{ trans("index.created_by") }}</th>
                 <th>{{ trans("index.updated_by") }}</th>

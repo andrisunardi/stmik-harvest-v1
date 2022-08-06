@@ -34,7 +34,7 @@
         <div class="col-6 col-sm-auto mb-3">
             <a draggable="false" class="btn btn-creative btn-info w-100" wire:click="resetFilter">
                 <i class="bi bi-arrow-clockwise me-1"></i>
-                {{ trans("index.Reset Filter") }}
+                {{ trans("index.reset_filter") }}
             </a>
         </div>
         <div class="col-12 col-sm-auto mb-3">

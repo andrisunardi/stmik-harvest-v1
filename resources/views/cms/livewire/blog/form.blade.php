@@ -294,7 +294,7 @@
                 </div>
             </div>
             <div class="col-sm-6 mt-3 mt-sm-0">
-                <div class="single-plan-check {{ is_null($input)&& $menu_type != "add" ? "active" : null }} shadow-sm active-effect">
+                <div class="single-plan-check {{ is_null($input) && $menu_type != "add" ? "active" : null }} shadow-sm active-effect">
                     <div class="form-check mb-0">
                         <input wire:model="{{ $input }}" class="form-check-input" type="radio" name="{{ $input }}" id="non-active" value="0" required>
                         <label class="form-check-label" for="non-active">{{ trans("index.non_active") }}</label>
@@ -310,13 +310,13 @@
             <div class="col-6 col-sm-auto">
                 <button type="button" class="btn btn-creative btn-primary w-100" wire:click="submit" wire:loading.attr="disabled">
                     <i class="bi bi-save-fill me-1"></i>
-                    {{ trans("index.Save") }}
+                    {{ trans("index.save") }}
                 </button>
             </div>
             <div class="col-6 col-sm-auto">
                 <button type="button" class="btn btn-creative btn-warning w-100" wire:click="{{ $menu_type == "add" ? "resetFilter" : "resetForm" }}" wire:loading.attr="disabled">
                     <i class="bi bi-arrow-repeat me-1"></i>
-                    {{ trans("index.Reset") }}
+                    {{ trans("index.reset") }}
                 </button>
             </div>
         </div>

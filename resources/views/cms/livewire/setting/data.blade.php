@@ -8,7 +8,7 @@
                 <th>{{ trans("index.SMS") }}</th>
                 <th>{{ trans("index.Call") }}</th>
                 <th>{{ trans("index.Fax") }}</th>
-                <th>{{ trans("index.Email") }}</th>
+                <th>{{ trans("index.email") }}</th>
                 <th>{{ trans("index.Address") }}</th>
                 <th>{{ trans("index.Google Maps") }}</th>
                 <th>{{ trans("index.Google Maps Iframe") }}</th>
@@ -18,7 +18,7 @@
                 <th>{{ trans("index.Vision ID") }}</th>
                 <th>{{ trans("index.Mission") }}</th>
                 <th>{{ trans("index.Mission ID") }}</th>
-                <th>{{ trans("index.History") }}</th>
+                <th>{{ trans("index.history") }}</th>
                 <th>{{ trans("index.History ID") }}</th>
                 <th>{{ trans("index.active") }}</th>
                 <th>{{ trans("index.created_by") }}</th>

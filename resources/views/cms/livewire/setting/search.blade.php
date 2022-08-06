@@ -21,7 +21,7 @@
                 <option value="sms">{{ trans("index.SMS") }}</option>
                 <option value="call">{{ trans("index.Call") }}</option>
                 <option value="fax">{{ trans("index.Fax") }}</option>
-                <option value="email">{{ trans("index.Email") }}</option>
+                <option value="email">{{ trans("index.email") }}</option>
                 <option value="address">{{ trans("index.Address") }}</option>
                 <option value="google_maps">{{ trans("index.Google Maps") }}</option>
                 <option value="google_maps_iframe">{{ trans("index.Google Maps Iframe") }}</option>
@@ -31,7 +31,7 @@
                 <option value="vision_id">{{ trans("index.Vision ID") }}</option>
                 <option value="mission">{{ trans("index.Mission") }}</option>
                 <option value="mission_id">{{ trans("index.Mission ID") }}</option>
-                <option value="history">{{ trans("index.History") }}</option>
+                <option value="history">{{ trans("index.history") }}</option>
                 <option value="history_id">{{ trans("index.History ID") }}</option>
                 <option value="active" {{ "active" == $order_by ? "selected" : null }}>{{ trans("validation.attributes.active") }}</option>
                 <option value="created_by_id" {{ "created_by_id" == $order_by ? "selected" : null }}>{{ trans("validation.attributes.created_by_id") }}</option>

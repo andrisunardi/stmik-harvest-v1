@@ -26,12 +26,12 @@
                                     <li role="presentation" class="list-view"><a draggable="false" class="active" href="#list-view" role="tab" data-bs-toggle="tab"><i class="icon ion-navicon-round"></i></a></li>
                                 </ul>
                                 <span class="show__result">
-                                    {{ trans("index.Showing") }}
+                                    {{ trans("index.showing") }}
                                     {{ ($data_event->perPage() * $data_event->currentPage()) - $data_event->perPage() + 1 }}
                                     {{ trans("index.to") }}
                                     {{ $data_event->hasMorePages() ? $data_event->perPage() * $data_event->currentPage() : $data_event->total() }}
                                     {{ trans("index.of") }}
-                                    {{ $data_event->total() }} {{ trans("index.Results") }}
+                                    {{ $data_event->total() }} {{ trans("index.results") }}
                                 </span>
                             </div>
                             <div class="courses__searsh__box">

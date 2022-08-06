@@ -6,7 +6,7 @@
                 <th>{{ trans("index.#") }}</th>
                 <th>{{ trans("index.id") }}</th>
                 <th>{{ trans("index.name") }}</th>
-                <th>{{ trans("index.Email") }}</th>
+                <th>{{ trans("index.email") }}</th>
                 <th>{{ trans("index.active") }}</th>
                 <th>{{ trans("index.Total") }} {{ trans("index.Repository") }}</th>
                 <th>{{ trans("index.created_by") }}</th>

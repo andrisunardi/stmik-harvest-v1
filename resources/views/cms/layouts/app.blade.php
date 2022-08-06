@@ -171,25 +171,25 @@
                 <div class="single-setting-panel">
                     <div class="form-check form-switch mb-2">
                         <input class="form-check-input" type="checkbox" id="availabilityStatus" checked />
-                        <label class="form-check-label" for="availabilityStatus">{{ trans("index.Availability Status") }}</label>
+                        <label class="form-check-label" for="availabilityStatus">{{ trans("index.availability_status") }}</label>
                     </div>
                 </div>
                 <div class="single-setting-panel">
                     <div class="form-check form-switch mb-2">
                         <input class="form-check-input" type="checkbox" id="sendMeNotifications" checked />
-                        <label class="form-check-label" for="sendMeNotifications">{{ trans("index.Send Me Notifications") }}</label>
+                        <label class="form-check-label" for="sendMeNotifications">{{ trans("index.send_me_notifications") }}</label>
                     </div>
                 </div>
                 <div class="single-setting-panel">
                     <div class="form-check form-switch mb-2">
                         <input class="form-check-input" type="checkbox" id="darkSwitch" />
-                        <label class="form-check-label" for="darkSwitch">{{ trans("index.Dark Mode") }}</label>
+                        <label class="form-check-label" for="darkSwitch">{{ trans("index.dark_mode") }}</label>
                     </div>
                 </div>
                 <div class="single-setting-panel">
                     <div class="form-check form-switch">
                         <input class="form-check-input" type="checkbox" id="rtlSwitch" />
-                        <label class="form-check-label" for="rtlSwitch">{{ trans("index.RTL Mode") }}</label>
+                        <label class="form-check-label" for="rtlSwitch">{{ trans("index.rtl_mode") }}</label>
                     </div>
                 </div>
             </div>
@@ -324,7 +324,7 @@
                         <li>
                             <a draggable="false" href="{{ route("{$sub_domain}.logout.index") }}">
                                 <i class="bi bi-box-arrow-right"></i>
-                                {{ trans("index.Logout") }}
+                                {{ trans("index.logout") }}
                             </a>
                         </li>
                     </ul>
@@ -369,7 +369,7 @@
                                 <svg class="bi bi-collection" width="24" height="24" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" d="M14.5 13.5h-13A.5.5 0 0 1 1 13V6a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5zm-13 1A1.5 1.5 0 0 1 0 13V6a1.5 1.5 0 0 1 1.5-1.5h13A1.5 1.5 0 0 1 16 6v7a1.5 1.5 0 0 1-1.5 1.5h-13zM2 3a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 0-1h-11A.5.5 0 0 0 2 3zm2-2a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 0-1h-7A.5.5 0 0 0 4 1z"></path>
                                 </svg>
-                                <span>{{ trans("index.All Menu") }}</span>
+                                <span>{{ trans("index.all_menu") }}</span>
                             </a>
                         </li>
 
@@ -380,7 +380,7 @@
                                     <path d="M8 1a7 7 0 1 0 4.95 11.95l.707.707A8.001 8.001 0 1 1 8 0v1z"/>
                                     <path d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z"/>
                                 </svg>
-                                <span>{{ trans("index.History") }}</span>
+                                <span>{{ trans("index.history") }}</span>
                             </a>
                         </li>
 
@@ -398,7 +398,7 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-tools" viewBox="0 0 16 16">
                                     <path d="M1 0 0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.356 3.356a1 1 0 0 0 1.414 0l1.586-1.586a1 1 0 0 0 0-1.414l-3.356-3.356a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3c0-.269-.035-.53-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814L1 0zm9.646 10.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708zM3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026L3 11z"/>
                                   </svg>
-                                <span>{{ trans("index.Config") }}</span>
+                                <span>{{ trans("index.config") }}</span>
                             </a>
                         </li>
 

@@ -4,13 +4,13 @@
             <div class="col-auto">
                 <a draggable="false" class="btn btn-creative btn-info w-100" wire:click="editProfile">
                     <i class="bi bi-pencil me-1"></i>
-                    {{ trans("index.Edit Profile") }}
+                    {{ trans("index.edit_profile") }}
                 </a>
             </div>
             <div class="col-auto">
                 <a draggable="false" class="btn btn-creative btn-success w-100" wire:click="changePassword">
                     <i class="bi bi-lock me-1"></i>
-                    {{ trans("index.Change Password") }}
+                    {{ trans("index.change_password") }}
                 </a>
             </div>
         @else

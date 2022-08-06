@@ -51,14 +51,14 @@
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="language" id="English"
                                         wire:click="changeLanguage('en')" {{ Session::get("locale") == "en" ? "checked" : null }}>
-                                    <label class="form-check-label" for="English">{{ trans("index.English") }}</label>
+                                    <label class="form-check-label" for="English">{{ trans("index.english") }}</label>
                                 </div>
                             </li>
                             <li>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="language" id="indonesia"
                                         wire:click="changeLanguage('id')" {{ Session::get("locale") == "id" ? "checked" : null }}>
-                                    <label class="form-check-label" for="indonesia">{{ trans("index.Indonesia") }}</label>
+                                    <label class="form-check-label" for="indonesia">{{ trans("index.indonesia") }}</label>
                                 </div>
                             </li>
                         </ul>
