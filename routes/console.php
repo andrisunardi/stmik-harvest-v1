@@ -25,3 +25,9 @@ Artisan::command('database:clear', function () {
     $this->comment('Database have been cleared!');
     Log::info('Database have been cleared!');
 })->purpose('Clear database files');
+
+Artisan::command('envoy:clear', function () {
+    array_map('unlink', array_filter((array) glob(base_path('Envoy*'))));
+    $this->comment('Envoy have been cleared!');
+    Log::info('Envoy have been cleared!');
+})->purpose('Clear envoy files');
