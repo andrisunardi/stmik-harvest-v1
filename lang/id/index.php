@@ -6,28 +6,6 @@ $result = json_decode($content);
 return collect($result->data);
 
 return [
-    // 'Phone' => 'Telepon',
-    // 'Whatsapp' => 'Whatsapp',
-    // 'Email' => 'Email',
-    // 'Address' => 'Alamat',
-    // 'Quick Links' => 'Tautan Langsung',
-    // 'Contact Information' => 'Informasi Kontak',
-    // 'Photo' => 'Foto',
-    // 'Child' => 'Anak',
-    // 'Value' => 'Nilai',
-    // 'Milestone' => 'Tonggak Pencapaian',
-    // 'Our Partner' => 'Mitra Kami',
-    // 'Location' => 'Lokasi',
-    // 'Gender' => 'Jenis Kelamin',
-    // 'Age' => 'Usia',
-    // 'Months Are Born' => 'Bulan Lahir',
-    // 'Boy' => 'Laki-laki',
-    // 'Boys' => 'Laki-laki',
-    // 'Girl' => 'Perempuan',
-    // 'Girls' => 'Perempuan',
-    // 'Download Ebook' => 'Unduh Ebook',
-    // 'Download Now' => 'Unduh Sekarang',
-    // 'Support Me' => 'Dukung Saya',
     // 'Community' => 'Komunitas',
     // 'View On Google Map' => 'Lihat Di Google Map',
 
