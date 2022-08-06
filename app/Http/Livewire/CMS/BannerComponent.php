@@ -174,7 +174,7 @@ class BannerComponent extends Component
             }
 
             if (! $this->banner) {
-                Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
+                Session::flash('danger', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.not found or has been deleted'));
 
                 return redirect()->route("{$this->sub_domain}.{$this->menu_slug}.index");
             }
@@ -213,7 +213,7 @@ class BannerComponent extends Component
         $this->banner = Banner::find($id);
 
         if (! $this->banner) {
-            return Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
+            return Session::flash('danger', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.not found or has been deleted'));
         }
 
         $this->resetForm();
@@ -230,7 +230,7 @@ class BannerComponent extends Component
         $this->banner = Banner::find($id);
 
         if (! $this->banner) {
-            return Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
+            return Session::flash('danger', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.not found or has been deleted'));
         }
 
         $this->resetForm();
@@ -247,7 +247,7 @@ class BannerComponent extends Component
         $this->banner = Banner::withTrashed()->find($id);
 
         if (! $this->banner) {
-            return Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
+            return Session::flash('danger', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.not found or has been deleted'));
         }
     }
 
@@ -313,7 +313,7 @@ class BannerComponent extends Component
         $this->banner->save();
 
         $this->menu_type_message = $this->menu_type == 'add' || $this->menu_type == 'edit' ? $this->menu_type.'ed' : $this->menu_type.'d';
-        Session::flash('success', trans("index.{$this->menu_name}").' '.trans("index.has been {$this->menu_type_message} successfully"));
+        Session::flash('success', trans("index." . Str::slug($this->menu_name, "_")).' '.trans("index.has been {$this->menu_type_message} successfully"));
 
         $this->resetFilter();
         $this->resetErrorBag();
@@ -326,14 +326,14 @@ class BannerComponent extends Component
         $this->banner = Banner::find($id);
 
         if (! $this->banner) {
-            return Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
+            return Session::flash('danger', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.not found or has been deleted'));
         }
 
         $this->banner->active = true;
         $this->banner->save();
         $this->banner->refresh();
 
-        return Session::flash('success', trans("index.{$this->menu_name}").' '.trans('index.has been set active successfully'));
+        return Session::flash('success', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.has been set active successfully'));
     }
 
     public function nonActive($id)
@@ -341,14 +341,14 @@ class BannerComponent extends Component
         $this->banner = Banner::find($id);
 
         if (! $this->banner) {
-            return Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
+            return Session::flash('danger', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.not found or has been deleted'));
         }
 
         $this->banner->active = false;
         $this->banner->save();
         $this->banner->refresh();
 
-        return Session::flash('success', trans("index.{$this->menu_name}").' '.trans('index.has been set non active successfully'));
+        return Session::flash('success', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.has been set non active successfully'));
     }
 
     public function delete($id)
@@ -356,13 +356,13 @@ class BannerComponent extends Component
         $this->banner = Banner::find($id);
 
         if (! $this->banner) {
-            return Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
+            return Session::flash('danger', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.not found or has been deleted'));
         }
 
         $this->banner->delete();
         $this->banner->refresh();
 
-        return Session::flash('success', trans("index.{$this->menu_name}").' '.trans('index.has been deleted successfully'));
+        return Session::flash('success', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.has been deleted successfully'));
     }
 
     public function restore($id)
@@ -370,13 +370,13 @@ class BannerComponent extends Component
         $this->banner = Banner::onlyTrashed()->find($id);
 
         if (! $this->banner) {
-            return Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
+            return Session::flash('danger', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.not found or has been deleted'));
         }
 
         $this->banner->restore();
         $this->banner->refresh();
 
-        return Session::flash('success', trans("index.{$this->menu_name}").' '.trans('index.has been deleted successfully'));
+        return Session::flash('success', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.has been deleted successfully'));
     }
 
     public function deletePermanent($id)
@@ -384,7 +384,7 @@ class BannerComponent extends Component
         $this->banner = Banner::onlyTrashed()->find($id);
 
         if (! $this->banner) {
-            return Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
+            return Session::flash('danger', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.not found or has been deleted'));
         }
 
         $this->banner->deleteImage();
@@ -398,14 +398,14 @@ class BannerComponent extends Component
             $this->menu_type = 'index';
         }
 
-        return Session::flash('success', trans("index.{$this->menu_name}").' '.trans('index.has been deleted permanent successfully'));
+        return Session::flash('success', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.has been deleted permanent successfully'));
     }
 
     public function restoreAll()
     {
         Banner::onlyTrashed()->restore();
 
-        return Session::flash('success', trans("index.{$this->menu_name}").' '.trans('index.has been restored successfully'));
+        return Session::flash('success', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.has been restored successfully'));
     }
 
     public function deletePermanentAll()

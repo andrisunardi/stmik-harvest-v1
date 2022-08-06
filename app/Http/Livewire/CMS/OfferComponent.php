@@ -189,7 +189,7 @@ class OfferComponent extends Component
             }
 
             if (! $this->offer) {
-                Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
+                Session::flash('danger', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.not found or has been deleted'));
 
                 return redirect()->route("{$this->sub_domain}.{$this->menu_slug}.index");
             }
@@ -219,7 +219,7 @@ class OfferComponent extends Component
             $this->offer = Offer::find($id);
 
             if (! $this->offer) {
-                return Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
+                return Session::flash('danger', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.not found or has been deleted'));
             }
 
             $this->resetForm();
@@ -240,7 +240,7 @@ class OfferComponent extends Component
         $this->offer = Offer::withTrashed()->find($id);
 
         if (! $this->offer) {
-            return Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
+            return Session::flash('danger', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.not found or has been deleted'));
         }
     }
 
@@ -291,7 +291,7 @@ class OfferComponent extends Component
         $this->offer->save();
 
         $this->menu_type_message = $this->menu_type == 'add' || $this->menu_type == 'edit' ? $this->menu_type.'ed' : $this->menu_type.'d';
-        Session::flash('success', trans("index.{$this->menu_name}").' '.trans("index.has been {$this->menu_type_message} successfully"));
+        Session::flash('success', trans("index." . Str::slug($this->menu_name, "_")).' '.trans("index.has been {$this->menu_type_message} successfully"));
 
         $this->resetFilter();
         $this->resetErrorBag();
@@ -304,14 +304,14 @@ class OfferComponent extends Component
         $this->offer = Offer::find($id);
 
         if (! $this->offer) {
-            return Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
+            return Session::flash('danger', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.not found or has been deleted'));
         }
 
         $this->offer->active = true;
         $this->offer->save();
         $this->offer->refresh();
 
-        return Session::flash('success', trans("index.{$this->menu_name}").' '.trans('index.has been set active successfully'));
+        return Session::flash('success', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.has been set active successfully'));
     }
 
     public function nonActive($id)
@@ -319,14 +319,14 @@ class OfferComponent extends Component
         $this->offer = Offer::find($id);
 
         if (! $this->offer) {
-            return Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
+            return Session::flash('danger', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.not found or has been deleted'));
         }
 
         $this->offer->active = false;
         $this->offer->save();
         $this->offer->refresh();
 
-        return Session::flash('success', trans("index.{$this->menu_name}").' '.trans('index.has been set non active successfully'));
+        return Session::flash('success', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.has been set non active successfully'));
     }
 
     public function delete($id)
@@ -334,13 +334,13 @@ class OfferComponent extends Component
         $this->offer = Offer::find($id);
 
         if (! $this->offer) {
-            return Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
+            return Session::flash('danger', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.not found or has been deleted'));
         }
 
         $this->offer->delete();
         $this->offer->refresh();
 
-        return Session::flash('success', trans("index.{$this->menu_name}").' '.trans('index.has been deleted successfully'));
+        return Session::flash('success', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.has been deleted successfully'));
     }
 
     public function restore($id)
@@ -348,13 +348,13 @@ class OfferComponent extends Component
         $this->offer = Offer::onlyTrashed()->find($id);
 
         if (! $this->offer) {
-            return Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
+            return Session::flash('danger', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.not found or has been deleted'));
         }
 
         $this->offer->restore();
         $this->offer->refresh();
 
-        return Session::flash('success', trans("index.{$this->menu_name}").' '.trans('index.has been deleted successfully'));
+        return Session::flash('success', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.has been deleted successfully'));
     }
 
     public function deletePermanent($id)
@@ -362,7 +362,7 @@ class OfferComponent extends Component
         $this->offer = Offer::onlyTrashed()->find($id);
 
         if (! $this->offer) {
-            return Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
+            return Session::flash('danger', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.not found or has been deleted'));
         }
 
         $this->offer->forceDelete();
@@ -375,14 +375,14 @@ class OfferComponent extends Component
             $this->menu_type = 'index';
         }
 
-        return Session::flash('success', trans("index.{$this->menu_name}").' '.trans('index.has been deleted permanent successfully'));
+        return Session::flash('success', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.has been deleted permanent successfully'));
     }
 
     public function restoreAll()
     {
         Offer::onlyTrashed()->restore();
 
-        return Session::flash('success', trans("index.{$this->menu_name}").' '.trans('index.has been restored successfully'));
+        return Session::flash('success', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.has been restored successfully'));
     }
 
     public function deletePermanentAll()

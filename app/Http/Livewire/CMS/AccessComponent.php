@@ -6,6 +6,7 @@ use App\Models\Access;
 use App\Models\Admin;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Str;
 use Livewire\WithPagination;
 
 class AccessComponent extends Component
@@ -159,7 +160,7 @@ class AccessComponent extends Component
             }
 
             if (! $this->access) {
-                Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
+                Session::flash('danger', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.not found or has been deleted'));
 
                 return redirect()->route("{$this->sub_domain}.{$this->menu_slug}.index");
             }
@@ -189,7 +190,7 @@ class AccessComponent extends Component
             $this->access = Access::find($id);
 
             if (! $this->access) {
-                return Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
+                return Session::flash('danger', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.not found or has been deleted'));
             }
 
             $this->resetForm();
@@ -210,7 +211,7 @@ class AccessComponent extends Component
         $this->access = Access::withTrashed()->find($id);
 
         if (! $this->access) {
-            return Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
+            return Session::flash('danger', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.not found or has been deleted'));
         }
     }
 
@@ -248,7 +249,7 @@ class AccessComponent extends Component
         $this->access->save();
 
         $this->menu_type_message = $this->menu_type == 'add' || $this->menu_type == 'edit' ? $this->menu_type.'ed' : $this->menu_type.'d';
-        Session::flash('success', trans("index.{$this->menu_name}").' '.trans("index.has been {$this->menu_type_message} successfully"));
+        Session::flash('success', trans("index." . Str::slug($this->menu_name, "_")).' '.trans("index.has been {$this->menu_type_message} successfully"));
 
         $this->resetFilter();
         $this->resetErrorBag();
@@ -261,14 +262,14 @@ class AccessComponent extends Component
         $this->access = Access::find($id);
 
         if (! $this->access) {
-            return Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
+            return Session::flash('danger', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.not found or has been deleted'));
         }
 
         $this->access->active = true;
         $this->access->save();
         $this->access->refresh();
 
-        return Session::flash('success', trans("index.{$this->menu_name}").' '.trans('index.has been set active successfully'));
+        return Session::flash('success', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.has been set active successfully'));
     }
 
     public function nonActive($id)
@@ -276,14 +277,14 @@ class AccessComponent extends Component
         $this->access = Access::find($id);
 
         if (! $this->access) {
-            return Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
+            return Session::flash('danger', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.not found or has been deleted'));
         }
 
         $this->access->active = false;
         $this->access->save();
         $this->access->refresh();
 
-        return Session::flash('success', trans("index.{$this->menu_name}").' '.trans('index.has been set non active successfully'));
+        return Session::flash('success', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.has been set non active successfully'));
     }
 
     public function delete($id)
@@ -291,13 +292,13 @@ class AccessComponent extends Component
         $this->access = Access::find($id);
 
         if (! $this->access) {
-            return Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
+            return Session::flash('danger', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.not found or has been deleted'));
         }
 
         $this->access->delete();
         $this->access->refresh();
 
-        return Session::flash('success', trans("index.{$this->menu_name}").' '.trans('index.has been deleted successfully'));
+        return Session::flash('success', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.has been deleted successfully'));
     }
 
     public function restore($id)
@@ -305,13 +306,13 @@ class AccessComponent extends Component
         $this->access = Access::onlyTrashed()->find($id);
 
         if (! $this->access) {
-            return Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
+            return Session::flash('danger', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.not found or has been deleted'));
         }
 
         $this->access->restore();
         $this->access->refresh();
 
-        return Session::flash('success', trans("index.{$this->menu_name}").' '.trans('index.has been deleted successfully'));
+        return Session::flash('success', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.has been deleted successfully'));
     }
 
     public function deletePermanent($id)
@@ -319,7 +320,7 @@ class AccessComponent extends Component
         $this->access = Access::onlyTrashed()->find($id);
 
         if (! $this->access) {
-            return Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
+            return Session::flash('danger', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.not found or has been deleted'));
         }
 
         $this->access->forceDelete();
@@ -332,14 +333,14 @@ class AccessComponent extends Component
             $this->menu_type = 'index';
         }
 
-        return Session::flash('success', trans("index.{$this->menu_name}").' '.trans('index.has been deleted permanent successfully'));
+        return Session::flash('success', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.has been deleted permanent successfully'));
     }
 
     public function restoreAll()
     {
         Access::onlyTrashed()->restore();
 
-        return Session::flash('success', trans("index.{$this->menu_name}").' '.trans('index.has been restored successfully'));
+        return Session::flash('success', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.has been restored successfully'));
     }
 
     public function deletePermanentAll()

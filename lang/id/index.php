@@ -6,7 +6,6 @@ $result = json_decode($content);
 return collect($result->data);
 
 return [
-    // 'Get To Know Us' => 'Kenali Kami',
     // 'Phone' => 'Telepon',
     // 'Whatsapp' => 'Whatsapp',
     // 'Email' => 'Email',

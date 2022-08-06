@@ -36,7 +36,7 @@ class BlogViewComponent extends Component
         $this->blog = Blog::where('slug', $blog_slug)->active()->first();
 
         if (! $this->blog) {
-            Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
+            Session::flash('danger', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.not found or has been deleted'));
 
             return redirect()->route("{$this->menu_slug}.index");
         }

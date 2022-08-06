@@ -174,7 +174,7 @@ class TuitionFeeComponent extends Component
             }
 
             if (! $this->tuition_fee) {
-                Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
+                Session::flash('danger', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.not found or has been deleted'));
 
                 return redirect()->route("{$this->sub_domain}.{$this->menu_slug}.index");
             }
@@ -204,7 +204,7 @@ class TuitionFeeComponent extends Component
             $this->tuition_fee = TuitionFee::find($id);
 
             if (! $this->tuition_fee) {
-                return Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
+                return Session::flash('danger', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.not found or has been deleted'));
             }
 
             $this->resetForm();
@@ -225,7 +225,7 @@ class TuitionFeeComponent extends Component
         $this->tuition_fee = TuitionFee::withTrashed()->find($id);
 
         if (! $this->tuition_fee) {
-            return Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
+            return Session::flash('danger', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.not found or has been deleted'));
         }
     }
 
@@ -270,7 +270,7 @@ class TuitionFeeComponent extends Component
         $this->tuition_fee->save();
 
         $this->menu_type_message = $this->menu_type == 'add' || $this->menu_type == 'edit' ? $this->menu_type.'ed' : $this->menu_type.'d';
-        Session::flash('success', trans("index.{$this->menu_name}").' '.trans("index.has been {$this->menu_type_message} successfully"));
+        Session::flash('success', trans("index." . Str::slug($this->menu_name, "_")).' '.trans("index.has been {$this->menu_type_message} successfully"));
 
         $this->resetFilter();
         $this->resetErrorBag();
@@ -283,14 +283,14 @@ class TuitionFeeComponent extends Component
         $this->tuition_fee = TuitionFee::find($id);
 
         if (! $this->tuition_fee) {
-            return Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
+            return Session::flash('danger', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.not found or has been deleted'));
         }
 
         $this->tuition_fee->active = true;
         $this->tuition_fee->save();
         $this->tuition_fee->refresh();
 
-        return Session::flash('success', trans("index.{$this->menu_name}").' '.trans('index.has been set active successfully'));
+        return Session::flash('success', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.has been set active successfully'));
     }
 
     public function nonActive($id)
@@ -298,14 +298,14 @@ class TuitionFeeComponent extends Component
         $this->tuition_fee = TuitionFee::find($id);
 
         if (! $this->tuition_fee) {
-            return Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
+            return Session::flash('danger', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.not found or has been deleted'));
         }
 
         $this->tuition_fee->active = false;
         $this->tuition_fee->save();
         $this->tuition_fee->refresh();
 
-        return Session::flash('success', trans("index.{$this->menu_name}").' '.trans('index.has been set non active successfully'));
+        return Session::flash('success', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.has been set non active successfully'));
     }
 
     public function delete($id)
@@ -313,13 +313,13 @@ class TuitionFeeComponent extends Component
         $this->tuition_fee = TuitionFee::find($id);
 
         if (! $this->tuition_fee) {
-            return Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
+            return Session::flash('danger', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.not found or has been deleted'));
         }
 
         $this->tuition_fee->delete();
         $this->tuition_fee->refresh();
 
-        return Session::flash('success', trans("index.{$this->menu_name}").' '.trans('index.has been deleted successfully'));
+        return Session::flash('success', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.has been deleted successfully'));
     }
 
     public function restore($id)
@@ -327,13 +327,13 @@ class TuitionFeeComponent extends Component
         $this->tuition_fee = TuitionFee::onlyTrashed()->find($id);
 
         if (! $this->tuition_fee) {
-            return Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
+            return Session::flash('danger', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.not found or has been deleted'));
         }
 
         $this->tuition_fee->restore();
         $this->tuition_fee->refresh();
 
-        return Session::flash('success', trans("index.{$this->menu_name}").' '.trans('index.has been deleted successfully'));
+        return Session::flash('success', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.has been deleted successfully'));
     }
 
     public function deletePermanent($id)
@@ -341,7 +341,7 @@ class TuitionFeeComponent extends Component
         $this->tuition_fee = TuitionFee::onlyTrashed()->find($id);
 
         if (! $this->tuition_fee) {
-            return Session::flash('danger', trans("index.{$this->menu_name}").' '.trans('index.not found or has been deleted'));
+            return Session::flash('danger', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.not found or has been deleted'));
         }
 
         $this->tuition_fee->forceDelete();
@@ -354,14 +354,14 @@ class TuitionFeeComponent extends Component
             $this->menu_type = 'index';
         }
 
-        return Session::flash('success', trans("index.{$this->menu_name}").' '.trans('index.has been deleted permanent successfully'));
+        return Session::flash('success', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.has been deleted permanent successfully'));
     }
 
     public function restoreAll()
     {
         TuitionFee::onlyTrashed()->restore();
 
-        return Session::flash('success', trans("index.{$this->menu_name}").' '.trans('index.has been restored successfully'));
+        return Session::flash('success', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.has been restored successfully'));
     }
 
     public function deletePermanentAll()
