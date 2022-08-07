@@ -49,7 +49,7 @@ class EventComponent extends Component
         $this->event_category = EventCategory::where('slug', $this->category)->first();
 
         if ($this->category && ! $this->event_category) {
-            Session::flash('danger', trans('index.category').' '.trans('index.not found or has been deleted'));
+            Session::flash('danger', trans('index.category').' '.trans('index.not_found_or_has_been_deleted'));
 
             return redirect()->route("{$this->menu_slug}.index");
         }

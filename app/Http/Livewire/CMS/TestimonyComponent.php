@@ -158,7 +158,7 @@ class TestimonyComponent extends Component
             $this->menu_type != 'view' &&
             $this->menu_type != 'trash'
         ) {
-            Session::flash('danger', trans('index.Menu Type').' '.trans('index.not found or has been deleted'));
+            Session::flash('danger', trans('index.Menu Type').' '.trans('index.not_found_or_has_been_deleted'));
 
             return redirect()->route("{$this->sub_domain}.{$this->menu_slug}.index");
         }
@@ -175,7 +175,7 @@ class TestimonyComponent extends Component
             }
 
             if (! $this->testimony) {
-                Session::flash('danger', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.not found or has been deleted'));
+                Session::flash('danger', trans('index.'.Str::slug($this->menu_name, '_')).' '.trans('index.not_found_or_has_been_deleted'));
 
                 return redirect()->route("{$this->sub_domain}.{$this->menu_slug}.index");
             }
@@ -205,7 +205,7 @@ class TestimonyComponent extends Component
             $this->testimony = Testimony::find($id);
 
             if (! $this->testimony) {
-                return Session::flash('danger', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.not found or has been deleted'));
+                return Session::flash('danger', trans('index.'.Str::slug($this->menu_name, '_')).' '.trans('index.not_found_or_has_been_deleted'));
             }
 
             $this->resetForm();
@@ -226,7 +226,7 @@ class TestimonyComponent extends Component
         $this->testimony = Testimony::withTrashed()->find($id);
 
         if (! $this->testimony) {
-            return Session::flash('danger', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.not found or has been deleted'));
+            return Session::flash('danger', trans('index.'.Str::slug($this->menu_name, '_')).' '.trans('index.not_found_or_has_been_deleted'));
         }
     }
 
@@ -290,7 +290,7 @@ class TestimonyComponent extends Component
         $this->testimony->save();
 
         $this->menu_type_message = $this->menu_type == 'add' || $this->menu_type == 'edit' ? $this->menu_type.'ed' : $this->menu_type.'d';
-        Session::flash('success', trans("index." . Str::slug($this->menu_name, "_")).' '.trans("index.has been {$this->menu_type_message} successfully"));
+        Session::flash('success', trans('index.'.Str::slug($this->menu_name, '_')).' '.trans("index.has been {$this->menu_type_message} successfully"));
 
         $this->resetFilter();
         $this->resetErrorBag();
@@ -303,14 +303,14 @@ class TestimonyComponent extends Component
         $this->testimony = Testimony::find($id);
 
         if (! $this->testimony) {
-            return Session::flash('danger', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.not found or has been deleted'));
+            return Session::flash('danger', trans('index.'.Str::slug($this->menu_name, '_')).' '.trans('index.not_found_or_has_been_deleted'));
         }
 
         $this->testimony->active = true;
         $this->testimony->save();
         $this->testimony->refresh();
 
-        return Session::flash('success', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.has been set active successfully'));
+        return Session::flash('success', trans('index.'.Str::slug($this->menu_name, '_')).' '.trans('index.has been set active successfully'));
     }
 
     public function nonActive($id)
@@ -318,14 +318,14 @@ class TestimonyComponent extends Component
         $this->testimony = Testimony::find($id);
 
         if (! $this->testimony) {
-            return Session::flash('danger', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.not found or has been deleted'));
+            return Session::flash('danger', trans('index.'.Str::slug($this->menu_name, '_')).' '.trans('index.not_found_or_has_been_deleted'));
         }
 
         $this->testimony->active = false;
         $this->testimony->save();
         $this->testimony->refresh();
 
-        return Session::flash('success', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.has been set non active successfully'));
+        return Session::flash('success', trans('index.'.Str::slug($this->menu_name, '_')).' '.trans('index.has been set non active successfully'));
     }
 
     public function delete($id)
@@ -333,13 +333,13 @@ class TestimonyComponent extends Component
         $this->testimony = Testimony::find($id);
 
         if (! $this->testimony) {
-            return Session::flash('danger', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.not found or has been deleted'));
+            return Session::flash('danger', trans('index.'.Str::slug($this->menu_name, '_')).' '.trans('index.not_found_or_has_been_deleted'));
         }
 
         $this->testimony->delete();
         $this->testimony->refresh();
 
-        return Session::flash('success', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.has been deleted successfully'));
+        return Session::flash('success', trans('index.'.Str::slug($this->menu_name, '_')).' '.trans('index.has been deleted successfully'));
     }
 
     public function restore($id)
@@ -347,13 +347,13 @@ class TestimonyComponent extends Component
         $this->testimony = Testimony::onlyTrashed()->find($id);
 
         if (! $this->testimony) {
-            return Session::flash('danger', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.not found or has been deleted'));
+            return Session::flash('danger', trans('index.'.Str::slug($this->menu_name, '_')).' '.trans('index.not_found_or_has_been_deleted'));
         }
 
         $this->testimony->restore();
         $this->testimony->refresh();
 
-        return Session::flash('success', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.has been deleted successfully'));
+        return Session::flash('success', trans('index.'.Str::slug($this->menu_name, '_')).' '.trans('index.has been deleted successfully'));
     }
 
     public function deletePermanent($id)
@@ -361,7 +361,7 @@ class TestimonyComponent extends Component
         $this->testimony = Testimony::onlyTrashed()->find($id);
 
         if (! $this->testimony) {
-            return Session::flash('danger', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.not found or has been deleted'));
+            return Session::flash('danger', trans('index.'.Str::slug($this->menu_name, '_')).' '.trans('index.not_found_or_has_been_deleted'));
         }
 
         $this->testimony->deleteImage();
@@ -375,14 +375,14 @@ class TestimonyComponent extends Component
             $this->menu_type = 'index';
         }
 
-        return Session::flash('success', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.has been deleted permanent successfully'));
+        return Session::flash('success', trans('index.'.Str::slug($this->menu_name, '_')).' '.trans('index.has been deleted permanent successfully'));
     }
 
     public function restoreAll()
     {
         Testimony::onlyTrashed()->restore();
 
-        return Session::flash('success', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.has been restored successfully'));
+        return Session::flash('success', trans('index.'.Str::slug($this->menu_name, '_')).' '.trans('index.has been restored successfully'));
     }
 
     public function deletePermanentAll()

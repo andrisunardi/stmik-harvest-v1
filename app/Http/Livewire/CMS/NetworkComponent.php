@@ -158,7 +158,7 @@ class NetworkComponent extends Component
             $this->menu_type != 'view' &&
             $this->menu_type != 'trash'
         ) {
-            Session::flash('danger', trans('index.Menu Type').' '.trans('index.not found or has been deleted'));
+            Session::flash('danger', trans('index.Menu Type').' '.trans('index.not_found_or_has_been_deleted'));
 
             return redirect()->route("{$this->sub_domain}.{$this->menu_slug}.index");
         }
@@ -175,7 +175,7 @@ class NetworkComponent extends Component
             }
 
             if (! $this->network) {
-                Session::flash('danger', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.not found or has been deleted'));
+                Session::flash('danger', trans('index.'.Str::slug($this->menu_name, '_')).' '.trans('index.not_found_or_has_been_deleted'));
 
                 return redirect()->route("{$this->sub_domain}.{$this->menu_slug}.index");
             }
@@ -205,7 +205,7 @@ class NetworkComponent extends Component
             $this->network = Network::find($id);
 
             if (! $this->network) {
-                return Session::flash('danger', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.not found or has been deleted'));
+                return Session::flash('danger', trans('index.'.Str::slug($this->menu_name, '_')).' '.trans('index.not_found_or_has_been_deleted'));
             }
 
             $this->resetForm();
@@ -226,7 +226,7 @@ class NetworkComponent extends Component
         $this->network = Network::withTrashed()->find($id);
 
         if (! $this->network) {
-            return Session::flash('danger', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.not found or has been deleted'));
+            return Session::flash('danger', trans('index.'.Str::slug($this->menu_name, '_')).' '.trans('index.not_found_or_has_been_deleted'));
         }
     }
 
@@ -290,7 +290,7 @@ class NetworkComponent extends Component
         $this->network->save();
 
         $this->menu_type_message = $this->menu_type == 'add' || $this->menu_type == 'edit' ? $this->menu_type.'ed' : $this->menu_type.'d';
-        Session::flash('success', trans("index." . Str::slug($this->menu_name, "_")).' '.trans("index.has been {$this->menu_type_message} successfully"));
+        Session::flash('success', trans('index.'.Str::slug($this->menu_name, '_')).' '.trans("index.has been {$this->menu_type_message} successfully"));
 
         $this->resetFilter();
         $this->resetErrorBag();
@@ -303,14 +303,14 @@ class NetworkComponent extends Component
         $this->network = Network::find($id);
 
         if (! $this->network) {
-            return Session::flash('danger', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.not found or has been deleted'));
+            return Session::flash('danger', trans('index.'.Str::slug($this->menu_name, '_')).' '.trans('index.not_found_or_has_been_deleted'));
         }
 
         $this->network->active = true;
         $this->network->save();
         $this->network->refresh();
 
-        return Session::flash('success', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.has been set active successfully'));
+        return Session::flash('success', trans('index.'.Str::slug($this->menu_name, '_')).' '.trans('index.has been set active successfully'));
     }
 
     public function nonActive($id)
@@ -318,14 +318,14 @@ class NetworkComponent extends Component
         $this->network = Network::find($id);
 
         if (! $this->network) {
-            return Session::flash('danger', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.not found or has been deleted'));
+            return Session::flash('danger', trans('index.'.Str::slug($this->menu_name, '_')).' '.trans('index.not_found_or_has_been_deleted'));
         }
 
         $this->network->active = false;
         $this->network->save();
         $this->network->refresh();
 
-        return Session::flash('success', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.has been set non active successfully'));
+        return Session::flash('success', trans('index.'.Str::slug($this->menu_name, '_')).' '.trans('index.has been set non active successfully'));
     }
 
     public function delete($id)
@@ -333,13 +333,13 @@ class NetworkComponent extends Component
         $this->network = Network::find($id);
 
         if (! $this->network) {
-            return Session::flash('danger', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.not found or has been deleted'));
+            return Session::flash('danger', trans('index.'.Str::slug($this->menu_name, '_')).' '.trans('index.not_found_or_has_been_deleted'));
         }
 
         $this->network->delete();
         $this->network->refresh();
 
-        return Session::flash('success', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.has been deleted successfully'));
+        return Session::flash('success', trans('index.'.Str::slug($this->menu_name, '_')).' '.trans('index.has been deleted successfully'));
     }
 
     public function restore($id)
@@ -347,13 +347,13 @@ class NetworkComponent extends Component
         $this->network = Network::onlyTrashed()->find($id);
 
         if (! $this->network) {
-            return Session::flash('danger', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.not found or has been deleted'));
+            return Session::flash('danger', trans('index.'.Str::slug($this->menu_name, '_')).' '.trans('index.not_found_or_has_been_deleted'));
         }
 
         $this->network->restore();
         $this->network->refresh();
 
-        return Session::flash('success', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.has been deleted successfully'));
+        return Session::flash('success', trans('index.'.Str::slug($this->menu_name, '_')).' '.trans('index.has been deleted successfully'));
     }
 
     public function deletePermanent($id)
@@ -361,7 +361,7 @@ class NetworkComponent extends Component
         $this->network = Network::onlyTrashed()->find($id);
 
         if (! $this->network) {
-            return Session::flash('danger', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.not found or has been deleted'));
+            return Session::flash('danger', trans('index.'.Str::slug($this->menu_name, '_')).' '.trans('index.not_found_or_has_been_deleted'));
         }
 
         $this->network->deleteImage();
@@ -375,14 +375,14 @@ class NetworkComponent extends Component
             $this->menu_type = 'index';
         }
 
-        return Session::flash('success', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.has been deleted permanent successfully'));
+        return Session::flash('success', trans('index.'.Str::slug($this->menu_name, '_')).' '.trans('index.has been deleted permanent successfully'));
     }
 
     public function restoreAll()
     {
         Network::onlyTrashed()->restore();
 
-        return Session::flash('success', trans("index." . Str::slug($this->menu_name, "_")).' '.trans('index.has been restored successfully'));
+        return Session::flash('success', trans('index.'.Str::slug($this->menu_name, '_')).' '.trans('index.has been restored successfully'));
     }
 
     public function deletePermanentAll()

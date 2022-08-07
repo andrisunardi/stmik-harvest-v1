@@ -3,7 +3,7 @@
 use GuzzleHttp\Client;
 
 $client = new Client();
-$url = 'https://www.language.diw.co.id/api/en?custom=true&portfolio=' . env("PORTFOLIO_ID");
+$url = 'https://www.language.diw.co.id/api/en?custom=true&portfolio='.env('PORTFOLIO_ID');
 
 $params = [
     'custom' => true,

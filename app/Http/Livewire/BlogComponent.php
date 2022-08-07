@@ -49,7 +49,7 @@ class BlogComponent extends Component
         $this->blog_category = BlogCategory::where('slug', $this->category)->first();
 
         if ($this->category && ! $this->blog_category) {
-            Session::flash('danger', trans('page.Blog Category').' '.trans('index.not found or has been deleted'));
+            Session::flash('danger', trans('page.Blog Category').' '.trans('index.not_found_or_has_been_deleted'));
 
             return redirect()->route("{$this->menu_slug}.index");
         }
