@@ -49,8 +49,6 @@ class BlogTest extends TestCase
             ->assertSee($blog->slug)
             ->assertDontSee('custom.')
             ->assertDontSee('index.')
-            ->assertDontSee('message.')
-            ->assertDontSee('page.')
             ->assertDontSee('validation.')
             ->assertStatus(200);
 
@@ -92,8 +90,6 @@ class BlogTest extends TestCase
             ->assertDontSee($blogs[0]->slug)
             ->assertDontSee('custom.')
             ->assertDontSee('index.')
-            ->assertDontSee('message.')
-            ->assertDontSee('page.')
             ->assertDontSee('validation.')
             ->assertStatus(200);
 
@@ -133,8 +129,6 @@ class BlogTest extends TestCase
             ->assertSee($blogs[2]->slug)
             ->assertDontSee('custom.')
             ->assertDontSee('index.')
-            ->assertDontSee('message.')
-            ->assertDontSee('page.')
             ->assertDontSee('validation.')
             ->assertStatus(200);
 

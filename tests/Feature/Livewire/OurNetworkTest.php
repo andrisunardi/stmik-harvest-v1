@@ -40,8 +40,6 @@ class OurNetworkTest extends TestCase
             ->assertSee($network->image)
             ->assertDontSee('custom.')
             ->assertDontSee('index.')
-            ->assertDontSee('message.')
-            ->assertDontSee('page.')
             ->assertDontSee('validation.')
             ->assertStatus(200);
 

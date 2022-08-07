@@ -32,8 +32,6 @@ class ScholarshipsTest extends TestCase
         Livewire::test(ScholarshipsComponent::class)
             ->assertDontSee('custom.')
             ->assertDontSee('index.')
-            ->assertDontSee('message.')
-            ->assertDontSee('page.')
             ->assertDontSee('validation.')
             ->assertStatus(200);
     }

@@ -83,8 +83,6 @@ class HomeTest extends TestCase
             ->assertSee($blog->slug)
             ->assertDontSee('custom.')
             ->assertDontSee('index.')
-            ->assertDontSee('message.')
-            ->assertDontSee('page.')
             ->assertDontSee('validation.')
             ->assertStatus(200);
 
@@ -143,8 +141,6 @@ class HomeTest extends TestCase
     //         ])
     //         ->assertDontSee('custom.')
     //         ->assertDontSee('index.')
-    //         ->assertDontSee('message.')
-    //         ->assertDontSee('page.')
     //         ->assertDontSee('validation.')
     //         ->assertStatus(200);
 
@@ -181,8 +177,6 @@ class HomeTest extends TestCase
     //         ->assertHasNoErrors()
     //         ->assertDontSee('custom.')
     //         ->assertDontSee('index.')
-    //         ->assertDontSee('message.')
-    //         ->assertDontSee('page.')
     //         ->assertDontSee('validation.')
     //         ->assertStatus(200);
 
@@ -215,8 +209,6 @@ class HomeTest extends TestCase
     //         ])
     //         ->assertDontSee('custom.')
     //         ->assertDontSee('index.')
-    //         ->assertDontSee('message.')
-    //         ->assertDontSee('page.')
     //         ->assertDontSee('validation.')
     //         ->assertStatus(200);
 
@@ -232,8 +224,6 @@ class HomeTest extends TestCase
     //         ->assertHasNoErrors()
     //         ->assertDontSee('custom.')
     //         ->assertDontSee('index.')
-    //         ->assertDontSee('message.')
-    //         ->assertDontSee('page.')
     //         ->assertDontSee('validation.')
     //         ->assertStatus(200);
 

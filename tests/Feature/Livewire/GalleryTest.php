@@ -48,8 +48,6 @@ class GalleryTest extends TestCase
             ->assertSee($gallery_youtube->youtube)
             ->assertDontSee('custom.')
             ->assertDontSee('index.')
-            ->assertDontSee('message.')
-            ->assertDontSee('page.')
             ->assertDontSee('validation.')
             ->assertStatus(200);
 

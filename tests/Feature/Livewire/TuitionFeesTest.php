@@ -37,8 +37,6 @@ class TuitionFeesTest extends TestCase
             ->assertSee($tuition_fee->translate_description)
             ->assertDontSee('custom.')
             ->assertDontSee('index.')
-            ->assertDontSee('message.')
-            ->assertDontSee('page.')
             ->assertDontSee('validation.')
             ->assertStatus(200);
 

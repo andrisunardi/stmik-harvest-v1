@@ -59,8 +59,6 @@ class OnlineRegistrationTest extends TestCase
             ])
             ->assertDontSee('custom.')
             ->assertDontSee('index.')
-            ->assertDontSee('message.')
-            ->assertDontSee('page.')
             ->assertDontSee('validation.')
             ->assertStatus(200);
 
@@ -97,8 +95,6 @@ class OnlineRegistrationTest extends TestCase
             ->assertHasNoErrors()
             ->assertDontSee('custom.')
             ->assertDontSee('index.')
-            ->assertDontSee('message.')
-            ->assertDontSee('page.')
             ->assertDontSee('validation.')
             ->assertStatus(200);
 

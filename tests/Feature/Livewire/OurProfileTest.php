@@ -32,8 +32,6 @@ class OurProfileTest extends TestCase
         Livewire::test(OurProfileComponent::class)
             ->assertDontSee('custom.')
             ->assertDontSee('index.')
-            ->assertDontSee('message.')
-            ->assertDontSee('page.')
             ->assertDontSee('validation.')
             ->assertStatus(200);
     }

@@ -430,9 +430,9 @@
                                     {{-- <li><a draggable="false" href="{{ route("online-registration.index") }}">{{ trans("index.online_registration") }}</a></li> --}}
                                     <li><a draggable="false" href="https://pmb.stmik-kuwera.civitas.id/p/pmb.php" target="_blank">{{ trans("index.online_registration") }}</a></li>
                                     <li><a draggable="false" href="{{ route("admission-calendar.index") }}">{{ trans("index.admission_calendar") }}</a></li>
-                                    <li><a draggable="false" href="{{ route("procedure.index") }}">{{ trans("index.Procedure") }}</a></li>
-                                    <li><a draggable="false" href="{{ route("tuition-fees.index") }}">{{ trans("index.Tuition Fees") }}</a></li>
-                                    <li><a draggable="false" href="{{ route("scholarships.index") }}">{{ trans("index.Scholarships") }}</a></li>
+                                    <li><a draggable="false" href="{{ route("procedure.index") }}">{{ trans("index.procedure") }}</a></li>
+                                    <li><a draggable="false" href="{{ route("tuition-fees.index") }}">{{ trans("index.tuition_fees") }}</a></li>
+                                    <li><a draggable="false" href="{{ route("scholarships.index") }}">{{ trans("index.scholarships") }}</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -441,7 +441,7 @@
                     <div class="col-md-6 col-lg-4 col-xl-3 mb-7">
                         <div class="footer">
                             <div class="footer__widget">
-                                <h2 class="footer__title">{{ trans("index.Contact Information") }}</h2>
+                                <h2 class="footer__title">{{ trans("index.contact_information") }}</h2>
                                 <ul class="htc__ft__list">
                                     <li>
                                         <a draggable="false" href="https://api.whatsapp.com/send?phone={{ Str::phone(env("CONTACT_WHATSAPP")) }}&text={{ trans("index.Hello, I know this number from the website") }} {{ env("APP_DOMAIN") }}" target="_blank">

@@ -54,8 +54,6 @@ class EventTest extends TestCase
             ->assertSee($event->slug)
             ->assertDontSee('custom.')
             ->assertDontSee('index.')
-            ->assertDontSee('message.')
-            ->assertDontSee('page.')
             ->assertDontSee('validation.')
             ->assertStatus(200);
 
@@ -108,8 +106,6 @@ class EventTest extends TestCase
             ->assertDontSee($event_other->slug)
             ->assertDontSee('custom.')
             ->assertDontSee('index.')
-            ->assertDontSee('message.')
-            ->assertDontSee('page.')
             ->assertDontSee('validation.')
             ->assertStatus(200);
 
@@ -155,8 +151,6 @@ class EventTest extends TestCase
             ->assertDontSee($events[0]->slug)
             ->assertDontSee('custom.')
             ->assertDontSee('index.')
-            ->assertDontSee('message.')
-            ->assertDontSee('page.')
             ->assertDontSee('validation.')
             ->assertStatus(200);
 
@@ -204,8 +198,6 @@ class EventTest extends TestCase
             ->assertSee($events[2]->slug)
             ->assertDontSee('custom.')
             ->assertDontSee('index.')
-            ->assertDontSee('message.')
-            ->assertDontSee('page.')
             ->assertDontSee('validation.')
             ->assertStatus(200);
 
