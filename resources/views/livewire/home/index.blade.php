@@ -265,7 +265,7 @@
 
                 <div class="col-lg-4 col-xl-5">
                     <div class="create__free__account__form">
-                        <h2><i class="icon ion-android-document"></i> {{ trans("index.Online Registration") }}</h2>
+                        <h2><i class="icon ion-android-document"></i> {{ trans("index.online_registration") }}</h2>
                         <div class="account__form__box">
                             @if (now()->format("Y-m-d") <= $admission_calendar->date)
                                 <form wire:submit.prevent="submit" enctype="multipart/form-data" class="was-validated-delete" method="post" role="form" action="{{ route("index") }}" id="contact-form" autocomplete="off">

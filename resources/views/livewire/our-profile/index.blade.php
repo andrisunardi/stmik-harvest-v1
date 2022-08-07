@@ -55,7 +55,7 @@
                         STMIK KUWERA didirikan pada 17 Desember 1987. Pada tahun 2014, STMIK Kuwera melakukan relokasi dan sedang melakukan peberubahan nama menjadi STMIK HARVEST.
                     </p> --}}
                     <div class="about__thumb mt-5">
-                        <img draggable="false" class="img-fluid rounded w-100" src="{{ asset("images/about-us.webp") }}" alt="{{ trans("index.About Us") }} - {{ env("APP_TITLE") }}">
+                        <img draggable="false" class="img-fluid rounded w-100" src="{{ asset("images/about-us.webp") }}" alt="{{ trans("index.about_us") }} - {{ env("APP_TITLE") }}">
                     </div>
                 </div>
             </div>

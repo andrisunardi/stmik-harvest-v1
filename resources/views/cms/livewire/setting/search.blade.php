@@ -25,8 +25,8 @@
                 <option value="address">{{ trans("index.Address") }}</option>
                 <option value="google_maps">{{ trans("index.Google Maps") }}</option>
                 <option value="google_maps_iframe">{{ trans("index.Google Maps Iframe") }}</option>
-                <option value="about_us">{{ trans("index.About Us") }}</option>
-                <option value="about_us_id">{{ trans("index.About Us") }}</option>
+                <option value="about_us">{{ trans("index.about_us") }}</option>
+                <option value="about_us_id">{{ trans("index.about_us") }}</option>
                 <option value="vision">{{ trans("index.Vision") }}</option>
                 <option value="vision_id">{{ trans("index.Vision ID") }}</option>
                 <option value="mission">{{ trans("index.Mission") }}</option>

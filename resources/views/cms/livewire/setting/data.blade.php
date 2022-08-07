@@ -12,7 +12,7 @@
                 <th>{{ trans("index.Address") }}</th>
                 <th>{{ trans("index.Google Maps") }}</th>
                 <th>{{ trans("index.Google Maps Iframe") }}</th>
-                <th>{{ trans("index.About Us") }}</th>
+                <th>{{ trans("index.about_us") }}</th>
                 <th>{{ trans("index.About Us ID") }}</th>
                 <th>{{ trans("index.Vision") }}</th>
                 <th>{{ trans("index.Vision ID") }}</th>

@@ -202,38 +202,38 @@
                                         <span class="d-none d-lg-block d-xl-none"><i class="fas fa-home"></i></span>
                                     </a>
                                 </li>
-                                <li class="drop"><a draggable="false" href="{{ route("about.index") }}">{{ trans("index.About Us") }}</a>
+                                <li class="drop"><a draggable="false" href="{{ route("about.index") }}">{{ trans("index.about_us") }}</a>
                                     <ul class="dropdown">
-                                        <li><a draggable="false" href="{{ route("about.index") }}">{{ trans("index.About") }} STMIK Harvest</a></li>
-                                        <li><a draggable="false" href="{{ route("our-profile.index") }}">{{ trans("index.Our Profile") }}</a></li>
-                                        <li><a draggable="false" href="{{ route("our-values.index") }}">{{ trans("index.Our Values") }}</a></li>
-                                        <li><a draggable="false" href="{{ route("our-network.index") }}">{{ trans("index.Our Network") }}</a></li>
-                                        <li><a draggable="false" href="{{ route("faq.index") }}">{{ trans("index.Faq") }}</a></li>
+                                        <li><a draggable="false" href="{{ route("about.index") }}">{{ trans("index.about") }} STMIK Harvest</a></li>
+                                        <li><a draggable="false" href="{{ route("our-profile.index") }}">{{ trans("index.our_profile") }}</a></li>
+                                        <li><a draggable="false" href="{{ route("our-values.index") }}">{{ trans("index.our_values") }}</a></li>
+                                        <li><a draggable="false" href="{{ route("our-network.index") }}">{{ trans("index.our_network") }}</a></li>
+                                        <li><a draggable="false" href="{{ route("faq.index") }}">{{ trans("index.faq") }}</a></li>
                                     </ul>
                                 </li>
-                                <li class="drop"><a draggable="false" href="javascript:;">{{ trans("index.Admission") }}</a>
+                                <li class="drop"><a draggable="false" href="javascript:;">{{ trans("index.admission") }}</a>
                                     <ul class="dropdown">
-                                        {{-- <li><a draggable="false" href="{{ route("online-registration.index") }}">{{ trans("index.Online Registration") }}</a></li> --}}
-                                        <li><a draggable="false" href="https://pmb.stmik-kuwera.civitas.id/p/pmb.php" target="_blank">{{ trans("index.Online Registration") }}</a></li>
-                                        <li><a draggable="false" href="{{ route("admission-calendar.index") }}">{{ trans("index.Admission Calendar") }}</a></li>
-                                        <li><a draggable="false" href="{{ route("procedure.index") }}">{{ trans("index.Procedure") }}</a></li>
-                                        <li><a draggable="false" href="{{ route("tuition-fees.index") }}">{{ trans("index.Tuition Fees") }}</a></li>
-                                        <li><a draggable="false" href="{{ route("scholarships.index") }}">{{ trans("index.Scholarships") }}</a></li>
+                                        {{-- <li><a draggable="false" href="{{ route("online-registration.index") }}">{{ trans("index.online_registration") }}</a></li> --}}
+                                        <li><a draggable="false" href="https://pmb.stmik-kuwera.civitas.id/p/pmb.php" target="_blank">{{ trans("index.online_registration") }}</a></li>
+                                        <li><a draggable="false" href="{{ route("admission-calendar.index") }}">{{ trans("index.admission_calendar") }}</a></li>
+                                        <li><a draggable="false" href="{{ route("procedure.index") }}">{{ trans("index.procedure") }}</a></li>
+                                        <li><a draggable="false" href="{{ route("tuition-fees.index") }}">{{ trans("index.tuition_fees") }}</a></li>
+                                        <li><a draggable="false" href="{{ route("scholarships.index") }}">{{ trans("index.scholarships") }}</a></li>
                                     </ul>
                                 </li>
-                                <li class="drop"><a draggable="false" href="javascript:;">{{ trans("index.Programme") }}</a>
+                                <li class="drop"><a draggable="false" href="javascript:;">{{ trans("index.programme") }}</a>
                                     <ul class="dropdown">
-                                        <li><a draggable="false" href="{{ route("information-system.index") }}">{{ trans("index.Undergraduate") }} - {{ trans("index.Information System") }}</a></li>
+                                        <li><a draggable="false" href="{{ route("information-system.index") }}">{{ trans("index.undergraduate") }} - {{ trans("index.information_system") }}</a></li>
                                     </ul>
                                 </li>
-                                <li class="drop"><a draggable="false" href="javascript:;">{{ trans("index.Campus Activities") }}</a>
+                                <li class="drop"><a draggable="false" href="javascript:;">{{ trans("index.campus_activities") }}</a>
                                     <ul class="dropdown">
-                                        <li><a draggable="false" href="{{ route("gallery.index") }}">{{ trans("index.Gallery") }}</a></li>
-                                        <li><a draggable="false" href="{{ route("event.index") }}">{{ trans("index.Event") }}</a></li>
-                                        <li><a draggable="false" href="{{ route("blog.index") }}">{{ trans("index.Blog") }}</a></li>
+                                        <li><a draggable="false" href="{{ route("gallery.index") }}">{{ trans("index.gallery") }}</a></li>
+                                        <li><a draggable="false" href="{{ route("event.index") }}">{{ trans("index.event") }}</a></li>
+                                        <li><a draggable="false" href="{{ route("blog.index") }}">{{ trans("index.blog") }}</a></li>
                                     </ul>
                                 </li>
-                                <li><a draggable="false" href="{{ route("contact-us.index") }}">{{ trans("index.Contact Us") }}</a></li>
+                                <li><a draggable="false" href="{{ route("contact-us.index") }}">{{ trans("index.contact_us") }}</a></li>
                             </ul>
                             <div class="cart__search">
                                 <ul class="cart__search__list">
@@ -253,7 +253,7 @@
                         <div class="col-12">
                             <div class="search__inner">
                                 <form method="get" role="form" action="{{ route("blog.index") }}" autocomplete="off">
-                                    <input type="text" id="search" name="search" value="{{ $search ?? null }}" placeholder="{{ trans("index.search", ["name" => trans("index.here")]) }}..." required>
+                                    <input type="text" id="search" name="search" value="{{ $search ?? null }}" placeholder="{{ trans("index.search_here") }}..." required>
                                     <button type="submit"></button>
                                 </form>
                                 <div class="search__close__btn">
@@ -277,38 +277,38 @@
                     <nav id="mobile_dropdown">
                         <ul>
                             <li><a draggable="false" href="{{ route("index") }}">{{ trans("index.home") }}</a></li>
-                            <li><a draggable="false" href="{{ route("about.index") }}">{{ trans("index.About Us") }}</a>
+                            <li><a draggable="false" href="{{ route("about.index") }}">{{ trans("index.about_us") }}</a>
                                 <ul>
-                                    <li><a draggable="false" href="{{ route("our-profile.index") }}">{{ trans("index.Our Profile") }}</a></li>
-                                    <li><a draggable="false" href="{{ route("our-values.index") }}">{{ trans("index.Our Values") }}</a></li>
-                                    <li><a draggable="false" href="{{ route("our-network.index") }}">{{ trans("index.Our Network") }}</a></li>
-                                    <li><a draggable="false" href="{{ route("faq.index") }}">{{ trans("index.Faq") }}</a></li>
+                                    <li><a draggable="false" href="{{ route("our-profile.index") }}">{{ trans("index.our_profile") }}</a></li>
+                                    <li><a draggable="false" href="{{ route("our-values.index") }}">{{ trans("index.our_values") }}</a></li>
+                                    <li><a draggable="false" href="{{ route("our-network.index") }}">{{ trans("index.our_network") }}</a></li>
+                                    <li><a draggable="false" href="{{ route("faq.index") }}">{{ trans("index.faq") }}</a></li>
                                 </ul>
                             </li>
-                            <li><a draggable="false" href="javascript:;">{{ trans("index.Admission") }}</a>
+                            <li><a draggable="false" href="javascript:;">{{ trans("index.admission") }}</a>
                                 <ul>
-                                    {{-- <li><a draggable="false" href="{{ route("online-registration.index") }}">{{ trans("index.Online Registration") }}</a></li> --}}
-                                    <li><a draggable="false" href="https://pmb.stmik-kuwera.civitas.id/p/pmb.php" target="_blank">{{ trans("index.Online Registration") }}</a></li>
-                                    <li><a draggable="false" href="{{ route("admission-calendar.index") }}">{{ trans("index.Admission Calendar") }}</a></li>
+                                    {{-- <li><a draggable="false" href="{{ route("online-registration.index") }}">{{ trans("index.online_registration") }}</a></li> --}}
+                                    <li><a draggable="false" href="https://pmb.stmik-kuwera.civitas.id/p/pmb.php" target="_blank">{{ trans("index.online_registration") }}</a></li>
+                                    <li><a draggable="false" href="{{ route("admission-calendar.index") }}">{{ trans("index.admission_calendar") }}</a></li>
                                     <li><a draggable="false" href="{{ route("procedure.index") }}">{{ trans("index.Procedure") }}</a></li>
-                                    <li><a draggable="false" href="{{ route("tuition-fees.index") }}">{{ trans("index.Tuition Fees") }}</a></li>
-                                    <li><a draggable="false" href="{{ route("scholarships.index") }}">{{ trans("index.Scholarships") }}</a></li>
+                                    <li><a draggable="false" href="{{ route("tuition-fees.index") }}">{{ trans("index.tuition_fees") }}</a></li>
+                                    <li><a draggable="false" href="{{ route("scholarships.index") }}">{{ trans("index.scholarships") }}</a></li>
                                 </ul>
                             </li>
-                            <li><a draggable="false" href="javascript:;">{{ trans("index.Programme") }}</a>
+                            <li><a draggable="false" href="javascript:;">{{ trans("index.programme") }}</a>
                                 <ul>
-                                    <li><a draggable="false" href="{{ route("information-system.index") }}">{{ trans("index.Undergraduate") }} - {{ trans("index.Information System") }}</a></li>
+                                    <li><a draggable="false" href="{{ route("information-system.index") }}">{{ trans("index.undergraduate") }} - {{ trans("index.information_system") }}</a></li>
                                 </ul>
                             </li>
-                            <li><a draggable="false" href="javascript:;">{{ trans("index.Campus Activities") }}</a>
+                            <li><a draggable="false" href="javascript:;">{{ trans("index.campus_activities") }}</a>
                                 <ul>
-                                    <li><a draggable="false" href="{{ route("gallery.index") }}">{{ trans("index.Gallery") }}</a></li>
-                                    <li><a draggable="false" href="{{ route("event.index") }}">{{ trans("index.Event") }}</a></li>
-                                    <li><a draggable="false" href="{{ route("blog.index") }}">{{ trans("index.Blog") }}</a></li>
+                                    <li><a draggable="false" href="{{ route("gallery.index") }}">{{ trans("index.gallery") }}</a></li>
+                                    <li><a draggable="false" href="{{ route("event.index") }}">{{ trans("index.event") }}</a></li>
+                                    <li><a draggable="false" href="{{ route("blog.index") }}">{{ trans("index.blog") }}</a></li>
                                 </ul>
                             </li>
-                            <li><a draggable="false" href="{{ route("contact-us.index") }}">{{ trans("index.Contact Us") }}</a></li>
-                            <li><a draggable="false" href="javascript:;">{{ trans("index.Change Language") }}</a>
+                            <li><a draggable="false" href="{{ route("contact-us.index") }}">{{ trans("index.contact_us") }}</a></li>
+                            <li><a draggable="false" href="javascript:;">{{ trans("index.change_language") }}</a>
                                 <ul>
                                     <li>
                                         <a draggable="false" href="{{ url("locale/id") }}" class="{{ Session::get("locale") == "en" ? null : "fw-bold" }}">
@@ -388,14 +388,14 @@
                     <div class="col-md-6 col-lg-3 mb-7">
                         <div class="footer">
                             <div class="footer__widget">
-                                <h2 class="footer__title">{{ trans("index.About Us") }}</h2>
+                                <h2 class="footer__title">{{ trans("index.about_us") }}</h2>
                                 <p class="footer__details">{{ env("APP_DESCRIPTION") }}</p>
                                 <p class="footer__details">
-                                    <strong class="text-uppercase">{{ trans("index.Working Hours") }}</strong><br>
+                                    <strong class="text-uppercase">{{ trans("index.working_hours") }}</strong><br>
                                     <i class="icon ion-android-calendar me-1"></i>
-                                    {{ trans("index.Monday") }} - {{ trans("index.Friday") }} : 08.00 - 17.00 WIB<br>
+                                    {{ trans("index.monday") }} - {{ trans("index.friday") }} : 08.00 - 17.00 WIB<br>
                                     <i class="icon ion-android-calendar me-1"></i>
-                                    {{ trans("index.Saturday") }} - {{ trans("index.Sunday") }} - {{ trans("index.Holiday") }} : {{ trans("index.closed") }}
+                                    {{ trans("index.saturday") }} - {{ trans("index.sunday") }} - {{ trans("index.holiday") }} : {{ trans("index.closed") }}
                                 </p>
                             </div>
                         </div>
@@ -404,19 +404,19 @@
                     <div class="col-md-6 col-lg-3 col-xl-2 offset-xl-1 mb-7">
                         <div class="footer">
                             <div class="footer__widget">
-                                <h2 class="footer__title">{{ trans("index.Quick Links") }}</h2>
+                                <h2 class="footer__title">{{ trans("index.quick_links") }}</h2>
                                 <ul class="htc__ft__list">
                                     <li><a draggable="false" href="{{ route("index") }}">{{ trans("index.home") }}</a></li>
-                                    <li><a draggable="false" href="{{ route("about.index") }}">{{ trans("index.About") }} STMIK Harvest</a></li>
-                                    <li><a draggable="false" href="{{ route("our-profile.index") }}">{{ trans("index.Our Profile") }}</a></li>
-                                    <li><a draggable="false" href="{{ route("our-values.index") }}">{{ trans("index.Our Values") }}</a></li>
-                                    <li><a draggable="false" href="{{ route("our-network.index") }}">{{ trans("index.Our Network") }}</a></li>
-                                    <li><a draggable="false" href="{{ route("faq.index") }}">{{ trans("index.Faq") }}</a></li>
-                                    <li><a draggable="false" href="{{ route("information-system.index") }}">{{ trans("index.Information System") }}</a></li>
-                                    <li><a draggable="false" href="{{ route("gallery.index") }}">{{ trans("index.Gallery") }}</a></li>
-                                    <li><a draggable="false" href="{{ route("event.index") }}">{{ trans("index.Event") }}</a></li>
-                                    <li><a draggable="false" href="{{ route("blog.index") }}">{{ trans("index.Blog") }}</a></li>
-                                    <li><a draggable="false" href="{{ route("contact-us.index") }}">{{ trans("index.Contact Us") }}</a></li>
+                                    <li><a draggable="false" href="{{ route("about.index") }}">{{ trans("index.about") }} STMIK Harvest</a></li>
+                                    <li><a draggable="false" href="{{ route("our-profile.index") }}">{{ trans("index.our_profile") }}</a></li>
+                                    <li><a draggable="false" href="{{ route("our-values.index") }}">{{ trans("index.our_values") }}</a></li>
+                                    <li><a draggable="false" href="{{ route("our-network.index") }}">{{ trans("index.our_network") }}</a></li>
+                                    <li><a draggable="false" href="{{ route("faq.index") }}">{{ trans("index.faq") }}</a></li>
+                                    <li><a draggable="false" href="{{ route("information-system.index") }}">{{ trans("index.information_system") }}</a></li>
+                                    <li><a draggable="false" href="{{ route("gallery.index") }}">{{ trans("index.gallery") }}</a></li>
+                                    <li><a draggable="false" href="{{ route("event.index") }}">{{ trans("index.event") }}</a></li>
+                                    <li><a draggable="false" href="{{ route("blog.index") }}">{{ trans("index.blog") }}</a></li>
+                                    <li><a draggable="false" href="{{ route("contact-us.index") }}">{{ trans("index.contact_us") }}</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -425,11 +425,11 @@
                     <div class="col-md-6 col-lg-2 offset-xl-1 mb-7">
                         <div class="footer">
                             <div class="footer__widget">
-                                <h2 class="footer__title">{{ trans("index.Admission") }}</h2>
+                                <h2 class="footer__title">{{ trans("index.admission") }}</h2>
                                 <ul class="htc__ft__list">
-                                    {{-- <li><a draggable="false" href="{{ route("online-registration.index") }}">{{ trans("index.Online Registration") }}</a></li> --}}
-                                    <li><a draggable="false" href="https://pmb.stmik-kuwera.civitas.id/p/pmb.php" target="_blank">{{ trans("index.Online Registration") }}</a></li>
-                                    <li><a draggable="false" href="{{ route("admission-calendar.index") }}">{{ trans("index.Admission Calendar") }}</a></li>
+                                    {{-- <li><a draggable="false" href="{{ route("online-registration.index") }}">{{ trans("index.online_registration") }}</a></li> --}}
+                                    <li><a draggable="false" href="https://pmb.stmik-kuwera.civitas.id/p/pmb.php" target="_blank">{{ trans("index.online_registration") }}</a></li>
+                                    <li><a draggable="false" href="{{ route("admission-calendar.index") }}">{{ trans("index.admission_calendar") }}</a></li>
                                     <li><a draggable="false" href="{{ route("procedure.index") }}">{{ trans("index.Procedure") }}</a></li>
                                     <li><a draggable="false" href="{{ route("tuition-fees.index") }}">{{ trans("index.Tuition Fees") }}</a></li>
                                     <li><a draggable="false" href="{{ route("scholarships.index") }}">{{ trans("index.Scholarships") }}</a></li>

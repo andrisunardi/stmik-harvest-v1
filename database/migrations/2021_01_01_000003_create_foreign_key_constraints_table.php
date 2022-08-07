@@ -112,6 +112,18 @@ return new class extends Migration
             $table->foreign('deleted_by_id')->references('id')->on('admin')->constrained()->nullable()->onUpdate('cascade')->onDelete('cascade');
         });
 
+        Schema::table('newsletter', function (Blueprint $table) {
+            $table->foreign('created_by_id')->references('id')->on('admin')->constrained()->nullable()->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('updated_by_id')->references('id')->on('admin')->constrained()->nullable()->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('deleted_by_id')->references('id')->on('admin')->constrained()->nullable()->onUpdate('cascade')->onDelete('cascade');
+        });
+
+        Schema::table('offer', function (Blueprint $table) {
+            $table->foreign('created_by_id')->references('id')->on('admin')->constrained()->nullable()->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('updated_by_id')->references('id')->on('admin')->constrained()->nullable()->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('deleted_by_id')->references('id')->on('admin')->constrained()->nullable()->onUpdate('cascade')->onDelete('cascade');
+        });
+
         Schema::table('procedure', function (Blueprint $table) {
             $table->foreign('created_by_id')->references('id')->on('admin')->constrained()->nullable()->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('updated_by_id')->references('id')->on('admin')->constrained()->nullable()->onUpdate('cascade')->onDelete('cascade');
@@ -257,6 +269,18 @@ return new class extends Migration
             });
 
             Schema::table('network', function (Blueprint $table) {
+                $table->dropConstrainedForeignId('created_by_id');
+                $table->dropConstrainedForeignId('updated_by_id');
+                $table->dropConstrainedForeignId('deleted_by_id');
+            });
+
+            Schema::table('newsletter', function (Blueprint $table) {
+                $table->dropConstrainedForeignId('created_by_id');
+                $table->dropConstrainedForeignId('updated_by_id');
+                $table->dropConstrainedForeignId('deleted_by_id');
+            });
+
+            Schema::table('offer', function (Blueprint $table) {
                 $table->dropConstrainedForeignId('created_by_id');
                 $table->dropConstrainedForeignId('updated_by_id');
                 $table->dropConstrainedForeignId('deleted_by_id');

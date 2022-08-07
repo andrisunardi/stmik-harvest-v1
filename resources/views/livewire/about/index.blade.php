@@ -37,7 +37,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="about__thumb">
-                        <img draggable="false" class="img-fluid rounded w-100" src="{{ asset("images/about-us.webp") }}" alt="{{ trans("index.About Us") }} - {{ env("APP_TITLE") }}">
+                        <img draggable="false" class="img-fluid rounded w-100" src="{{ asset("images/about-us.webp") }}" alt="{{ trans("index.about_us") }} - {{ env("APP_TITLE") }}">
                     </div>
                     <div class="about__thumb mt-5">
                         <img draggable="false" class="img-fluid rounded w-100" src="{{ asset("images/our-values-1.webp") }}" alt="{{ trans("index.Our Values") }} - 1 - {{ env("APP_TITLE") }}">
