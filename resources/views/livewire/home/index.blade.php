@@ -84,7 +84,7 @@
             @foreach ($data_slider as $slider)
                 <div class="carousel-item {{ $loop->first ? "active" : null }}">
                     <a draggable="false" href="{{ $slider->button_link }}" target="_blank">
-                        <img draggable="false" src="{{ $slider->assetImage() }}" class="d-block w-100" alt="{{ trans("index.Slider") }} - {{ $slider->translate_name }} - {{ env("APP_TITLE") }}">
+                        <img draggable="false" src="{{ $slider->assetImage() }}" class="d-block w-100" alt="{{ $slider->altImage() }}">
                     </a>
                     <div class="carousel-caption d-block d-sm-none" style="top: 0%">
                         <h5 class="text-white" style="text-shadow: 1px 1px #000000;">{{ $slider->translate_name }}</h5>
@@ -175,7 +175,7 @@
                         <div class="findout__inner">
                             <h2>
                                 <span>{{ trans("index.ready_to_join") }} ?</span>
-                                {{ trans("index.it_easy_now_to_you_for_being_our_part_just_click_the_button_below_and_fill_out_the_form_with_your_data") }}
+                                {{ trans("custom.it_easy_now_to_you_for_being_our_part_just_click_the_button_below_and_fill_out_the_form_with_your_data") }}
                             </h2>
                             <div class="findout__btn">
                                 {{-- <a draggable="false" class="htc__btn btn--yellow" href="{{ route("online-registration.index") }}">{{ trans("index.register") }}</a> --}}

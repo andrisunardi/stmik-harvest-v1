@@ -142,10 +142,10 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section__title text-center">
-                        <h2 class="title__line">{{ trans("index.Our Network") }}</h2>
+                        <h2 class="title__line">{{ trans("index.our_network") }}</h2>
                         <p>
-                            {{ trans("index.STMIK HARVEST cooperates with several universities abroad.") }}<br>
-                            {{ trans("index.Some of the cooperation agendas include lecturer and curriculum development programs, as well as student exchange programs.") }}
+                            {{ trans("custom.cooperates with several universities abroad") }}<br>
+                            {{ trans("index.Some of the cooperation agendas include lecturer and curriculum development programs, as well as student exchange programs") }}
                             {{-- STMIK HARVEST bekerjasama dengan beberapa perguruan tinggi di luar negeri.<br>
                             Beberapa agenda kerjasama antara lain program pengembangan dosen dan kurikulum, serta program pertukaran mahasiswa. --}}
                         </p>

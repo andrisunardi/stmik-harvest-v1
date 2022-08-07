@@ -28,7 +28,7 @@
             </div>
             <div class="register-form mt-4">
                 <h3 class="text-center">{{ trans("index.welcome_to") }} {{ trans("index.cms") }}<br>{{ env("APP_NAME") }}</h3>
-                <h6 class="mb-4 text-center">{{ trans("index.Sign in to your account to continue") }}</h6>
+                <h6 class="mb-4 text-center">{{ trans("index.sign_in_to_your_account_to_continue") }}</h6>
 
                 @include("{$sub_domain}.layouts.alert")
 

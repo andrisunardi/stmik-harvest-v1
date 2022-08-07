@@ -28,7 +28,7 @@
             </div>
             <div class="register-form mt-4">
                 <h3 class="text-center">@yield("name")</h3>
-                <h6 class="mb-4 text-center">{{ trans("index.Reset Password To Get Random Password") }}</h6>
+                <h6 class="mb-4 text-center">{{ trans("index.reset_password_to_get_random_password") }}</h6>
 
                 @include("{$sub_domain}.layouts.alert")
 
@@ -84,7 +84,7 @@
 
                     <button type="button" class="btn btn-creative btn-primary w-100" wire:click="submit" wire:loading.attr="disabled">
                         <i class="bi bi-arrow-repeat me-1"></i>
-                        {{ trans("index.Reset Password") }}
+                        {{ trans("index.reset_password") }}
                     </button>
                 </form>
             </div>
