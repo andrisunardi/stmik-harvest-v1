@@ -43,13 +43,13 @@
                             <div class="alert unread custom-alert-3 alert-primary" role="alert">
                                 <img draggable="false" class="img-circle me-2" width="35" height="35"
                                     src="{{ $log->admin?->assetImage() }}"
-                                    alt="{{ trans("index.Admin") }} - {{ $log->admin?->name }} - {{ env("APP_TITLE") }}">
+                                    alt="{{ trans("index.admin") }} - {{ $log->admin?->name }} - {{ env("APP_TITLE") }}">
                                 <div class="alert-text w-75">
                                     <h6 class="text-truncate">
                                         {{ $log->admin?->name }} {{ trans("index.has been") }} {{ $log->activity_text }} {{ trans("index.at menu") }} {{ $log->menu?->name }} {{ trans("index.on row") }} {{ $log->row }}
                                     </h6>
                                     <span class="text-truncate">
-                                        {{ trans("index.Date Time") }}
+                                        {{ trans("index.datetime") }}
                                         {{ $log->updated_at?->format("H:i:s - l, d F Y") }} ({{ $log->updated_at?->diffForHumans() }})
                                     </span>
                                 </div>
@@ -78,9 +78,9 @@
                                         {{ trans("index.back") }}
                                     </a>
                                 </p>
-                                <p>{{ trans("index.Admin") }} : {{ $log->admin?->name }}</p>
-                                <p>{{ trans("index.Menu") }} : {{ $log->menu?->name }}</p>
-                                <p>{{ trans("index.Activity") }} : {{ $log->activity_text }}</p>
+                                <p>{{ trans("index.admin") }} : {{ $log->admin?->name }}</p>
+                                <p>{{ trans("index.menu") }} : {{ $log->menu?->name }}</p>
+                                <p>{{ trans("index.activity") }} : {{ $log->activity_text }}</p>
                                 <p>
                                     {{ trans("index.active") }} :
                                     <span class="{{ "badge bg-" . Str::successdanger($log->active) }}">
@@ -96,7 +96,7 @@
                                     <a draggable="false" class="btn btn-primary btn-creative btn-sm"
                                         href="{{ $log->menu->id ? route("{$sub_domain}." . Str::slug($log->menu?->name) . ".index") . "?menu_type=view&row={$log->row}" : null }}">
                                         <i class="bi bi-eye me-1"></i>
-                                        {{ trans("index.View Data") }}
+                                        {{ trans("index.view_data") }}
                                     </a>
                                 @endif
                             </div>

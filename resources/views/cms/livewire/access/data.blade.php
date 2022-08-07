@@ -7,7 +7,7 @@
                 <th>{{ trans("index.id") }}</th>
                 <th>{{ trans("index.name") }}</th>
                 <th>{{ trans("index.active") }}</th>
-                <th>{{ trans("index.Total") }} {{ trans("index.Access Menu") }}</th>
+                <th>{{ trans("index.total") }} {{ trans("index.Access Menu") }}</th>
                 <th>{{ trans("index.created_by") }}</th>
                 <th>{{ trans("index.updated_by") }}</th>
                 @if ($menu_type == "trash")

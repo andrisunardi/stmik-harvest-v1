@@ -5,10 +5,10 @@
                 <th><input class="form-check-input" type="checkbox" wire:model="checkbox_all"></th>
                 <th>{{ trans("index.#") }}</th>
                 <th>{{ trans("index.id") }}</th>
-                <th>{{ trans("index.Admin") }}</th>
-                <th>{{ trans("index.Menu") }}</th>
+                <th>{{ trans("index.admin") }}</th>
+                <th>{{ trans("index.menu") }}</th>
                 <th>{{ trans("index.Row") }}</th>
-                <th>{{ trans("index.Activity") }}</th>
+                <th>{{ trans("index.activity") }}</th>
                 <th>{{ trans("index.active") }}</th>
                 <th>{{ trans("index.created_by") }}</th>
                 <th>{{ trans("index.updated_by") }}</th>

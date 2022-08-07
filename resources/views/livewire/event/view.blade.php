@@ -65,7 +65,7 @@
                                 </li>
                                 <li role="presentation" class="date-time">
                                     <a draggable="false" href="#date-time" role="tab" data-bs-toggle="tab">
-                                        <i class="icon ion-ios-calendar"></i> {{ trans("index.Date Time") }}
+                                        <i class="icon ion-ios-calendar"></i> {{ trans("index.datetime") }}
                                     </a>
                                 </li>
                                 <li role="presentation" class="location">

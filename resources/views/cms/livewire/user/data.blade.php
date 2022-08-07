@@ -8,7 +8,7 @@
                 <th>{{ trans("index.name") }}</th>
                 <th>{{ trans("index.email") }}</th>
                 <th>{{ trans("index.active") }}</th>
-                <th>{{ trans("index.Total") }} {{ trans("index.Repository") }}</th>
+                <th>{{ trans("index.total") }} {{ trans("index.Repository") }}</th>
                 <th>{{ trans("index.created_by") }}</th>
                 <th>{{ trans("index.updated_by") }}</th>
                 @if ($menu_type == "trash")

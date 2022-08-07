@@ -9,8 +9,8 @@
             <div class="row about__wrapper">
                 <div class="about">
                     <div class="section__title text-left">
-                        <h2 class="title__line">{{ trans("index.Welcome To") }} {{ trans("index.Yayasan STMIK Harvest") }}</h2>
-                        <p>{{ trans("index.College for Future Technopreneur") }}</p>
+                        <h2 class="title__line">{{ trans("index.welcome_to") }} {{ env("APP_NAME") }}</h2>
+                        <p>College for Future Technopreneur</p>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -19,20 +19,20 @@
                             {!! html_entity_decode($setting->translate_about_us) !!}
                         </p>
                         <p class="about__details">
-                            <h3 class="text-uppercase mb-2">{{ trans("index.Our Vision") }}</h3>
+                            <h3 class="text-uppercase mb-2">{{ trans("index.our_vision") }}</h3>
                             {!! html_entity_decode($setting->translate_vision) !!}
                         </p>
                         <p class="about__details">
-                            <h3 class="text-uppercase mb-2">{{ trans("index.Our Mission") }}</h3>
+                            <h3 class="text-uppercase mb-2">{{ trans("index.our_mission") }}</h3>
                             {!! html_entity_decode($setting->translate_mission) !!}
                         </p>
                         <p class="about__details">
-                            <h3 class="text-uppercase mb-2">{{ trans("index.Our History") }}</h3>
+                            <h3 class="text-uppercase mb-2">{{ trans("index.our_history") }}</h3>
                             {!! html_entity_decode($setting->translate_history) !!}
                         </p>
                     </div>
                     <div class="about__thumb mt-3 mb-3 mb-lg-auto">
-                        <img draggable="false" class="img-fluid rounded w-100" src="{{ asset("images/our-values-2.webp") }}" alt="{{ trans("index.Our Values") }} - 2 - {{ env("APP_TITLE") }}">
+                        <img draggable="false" class="img-fluid rounded w-100" src="{{ asset("images/our-values-2.webp") }}" alt="{{ trans("index.our_values") }} - 2 - {{ env("APP_TITLE") }}">
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -40,7 +40,7 @@
                         <img draggable="false" class="img-fluid rounded w-100" src="{{ asset("images/about-us.webp") }}" alt="{{ trans("index.about_us") }} - {{ env("APP_TITLE") }}">
                     </div>
                     <div class="about__thumb mt-5">
-                        <img draggable="false" class="img-fluid rounded w-100" src="{{ asset("images/our-values-1.webp") }}" alt="{{ trans("index.Our Values") }} - 1 - {{ env("APP_TITLE") }}">
+                        <img draggable="false" class="img-fluid rounded w-100" src="{{ asset("images/our-values-1.webp") }}" alt="{{ trans("index.our_values") }} - 1 - {{ env("APP_TITLE") }}">
                     </div>
                 </div>
             </div>
@@ -54,12 +54,12 @@
                     <div class="findout__wrap my-5 my-sm-auto">
                         <div class="findout__inner">
                             <h2>
-                                <span>{{ trans("index.Ready to Join ?") }}</span>
-                                {{ trans("index.It easy now to you for being our part, just click the button below and fill out the form with your data.") }}
+                                <span>{{ trans("index.ready_to_join ?") }} ?</span>
+                                {{ trans("custom.it_easy_now_to_you_for_being_our_part_just_click_the_button_below_and_fill_out_the_form_with_your_data") }}
                             </h2>
                             <div class="findout__btn">
                                 {{-- <a draggable="false" class="htc__btn btn--yellow" href="{{ route("online-registration.index") }}">{{ trans("index.Register") }}</a> --}}
-                                <a draggable="false" class="htc__btn btn--yellow" href="https://pmb.stmik-kuwera.civitas.id" target="_blank">{{ trans("index.Register") }}</a>
+                                <a draggable="false" class="htc__btn btn--yellow" href="https://pmb.stmik-kuwera.civitas.id" target="_blank">{{ trans("index.register") }}</a>
                             </div>
                         </div>
                     </div>

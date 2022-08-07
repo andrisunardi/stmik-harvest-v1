@@ -9,7 +9,7 @@
     </div>
     <div class="row my-2">
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <h6>{{ trans("index.Admin") }}</h6>
+            <h6>{{ trans("index.admin") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             <a draggable="false" href="{{ $log->admin?->id || $log->admin?->id == 0 ? route("{$sub_domain}.admin.index") . "?menu_type=view&row={$log->admin?->id}" : null }}" target="_blank">
@@ -19,7 +19,7 @@
     </div>
     <div class="row my-2">
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <h6>{{ trans("index.Menu") }}</h6>
+            <h6>{{ trans("index.menu") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             <a draggable="false" href="{{ $log->menu?->id ? route("{$sub_domain}." . Str::slug($log->menu?->name) .".index") : null }}">
@@ -39,7 +39,7 @@
     </div>
     <div class="row my-2">
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <h6>{{ trans("index.Activity") }}</h6>
+            <h6>{{ trans("index.activity") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             <span class="{{ "badge bg-" . Str::logcolor($log->activity) }}">

@@ -47,7 +47,7 @@
                                         <i class="{{ $menu->icon }} mb-2 text-white"></i>
                                         <h4 class="mb-0"><span class="counter text-white">{{ Str::thousand($$total) }}</span></h4>
                                         <span class="solid-line bg-white"></span>
-                                        <p class="mb-0 text-white">{{ trans("index.Total") }} {{ $menu->translate_name }}</p>
+                                        <p class="mb-0 text-white">{{ trans("index.total") }} {{ $menu->translate_name }}</p>
                                     </div>
                                 </div>
                             </div>

@@ -12,7 +12,7 @@
                 greeting_message: "{{ trans("index.welcome_to") }} {{ env("APP_TITLE") }}",
                 disable_branding: "yes",
                 company_logo_url: "{{ env("APP_URL") }}/images/favicon.png",
-                call_to_action: "{{ trans("index.Contact Us If You Have Any Questions") }}",
+                call_to_action: "{{ trans("index.contact_us_if_you_have_any_questions") }}",
                 button_color: "#80BD00",
                 position: "left",
                 order: "whatsapp,instagram"
