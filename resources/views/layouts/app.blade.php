@@ -114,7 +114,7 @@
                         <div class="header__top__left">
                             <ul class="header__address">
                                 <li>
-                                    <a draggable="false" href="https://api.whatsapp.com/send?phone={{ Str::phone(env("CONTACT_WHATSAPP")) }}&text={{ trans("index.Hello, I know this number from the website") }} {{ env("APP_DOMAIN") }}" target="_blank">
+                                    <a draggable="false" href="https://api.whatsapp.com/send?phone={{ Str::phone(env("CONTACT_WHATSAPP")) }}&text={{ trans("index.hello_i_know_this_number_from_the_website") }} {{ env("APP_DOMAIN") }}" target="_blank">
                                         <i class="icon ion-social-whatsapp"></i>
                                         {{ env("CONTACT_WHATSAPP") }}
                                     </a>
@@ -444,51 +444,51 @@
                                 <h2 class="footer__title">{{ trans("index.contact_information") }}</h2>
                                 <ul class="htc__ft__list">
                                     <li>
-                                        <a draggable="false" href="https://api.whatsapp.com/send?phone={{ Str::phone(env("CONTACT_WHATSAPP")) }}&text={{ trans("index.Hello, I know this number from the website") }} {{ env("APP_DOMAIN") }}" target="_blank">
+                                        <a draggable="false" href="https://api.whatsapp.com/send?phone={{ Str::phone(env("CONTACT_WHATSAPP")) }}&text={{ trans("index.hello_i_know_this_number_from_the_website") }} {{ env("APP_DOMAIN") }}" target="_blank">
                                             <i class="fab fa-whatsapp fa-fw me-1"></i>
-                                            <strong>{{ trans("validation.attributes.whatsapp") }} :</strong>
+                                            <strong>{{ trans("index.whatsapp") }} :</strong>
                                             {{ env("CONTACT_WHATSAPP") }}
                                         </a>
                                     </li>
                                     <li>
                                         <a draggable="false" href="https://line.me/ti/p/~{{ env("CONTACT_LINE") }}" target="_blank">
                                             <i class="fab fa-line fa-fw me-1"></i>
-                                            <strong>{{ trans("validation.attributes.line") }} :</strong>
+                                            <strong>{{ trans("index.line") }} :</strong>
                                             {{ env("CONTACT_LINE") }}
                                         </a>
                                     </li>
                                     {{-- <li>
                                         <a draggable="false" href="http://www.pin.bbm.com/{{ env("CONTACT_BBM") }}" target="_blank">
                                             <i class="fab fa-blackberry fa-fw me-1"></i>
-                                            <strong>{{ trans("validation.attributes.bbm") }} :</strong>
+                                            <strong>{{ trans("index.bbm") }} :</strong>
                                             {{ env("CONTACT_BBM") }}
                                         </a>
                                     </li> --}}
                                     <li>
                                         <a draggable="false" href="tel:+{{ Str::phone(env("CONTACT_PHONE")) }}">
                                             <i class="fas fa-phone-alt fa-fw me-1"></i>
-                                            <strong>{{ trans("validation.attributes.phone") }} :</strong>
+                                            <strong>{{ trans("index.phone") }} :</strong>
                                             {{ env("CONTACT_PHONE") }}
                                         </a>
                                     </li>
                                     <li>
                                         <a draggable="false" href="sms:+{{ Str::phone(env("CONTACT_PHONE")) }}">
                                             <i class="fas fa-sms fa-fw me-1"></i>
-                                            <strong>{{ trans("validation.attributes.sms") }} :</strong>
+                                            <strong>{{ trans("index.sms") }} :</strong>
                                             {{ env("CONTACT_PHONE") }}
                                         </a>
                                     </li>
                                     <li>
                                         <a draggable="false" href="mailto:{{ env("CONTACT_EMAIL") }}">
                                             <i class="fas fa-envelope fa-fw me-1"></i>
-                                            <strong>{{ trans("validation.attributes.email") }} :</strong>
+                                            <strong>{{ trans("index.email") }} :</strong>
                                             <span class="text-lowercase">{{ env("CONTACT_EMAIL") }}</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a draggable="false" href="{{ env("CONTACT_GOOGLE_MAPS") }}" target="_blank" class="lh-base">
                                             <i class="fas fa-map-marked-alt fa-fw me-1"></i>
-                                            <strong>{{ trans("validation.attributes.address") }} :</strong>
+                                            <strong>{{ trans("index.address") }} :</strong>
                                             <strong>STMIK Harvest</strong><br>
                                             <div class="ms-5">{{ env("CONTACT_ADDRESS") }}</div>
                                         </a>
@@ -514,10 +514,10 @@
                             </div>
                             <ul class="footer__menu">
                                 {{-- <li><a draggable="false" href="{{ route("index") }}">{{ trans("index.home") }}</a></li>
-                                <li><a draggable="false" href="{{ route("index") }}">{{ trans("index.Registration") }}</a></li>
-                                <li><a draggable="false" href="{{ route("index") }}">{{ trans("index.Courses") }}</a></li>
-                                <li><a draggable="false" href="{{ route("index") }}">{{ trans("index.Our Gallery") }}</a></li>
-                                <li><a draggable="false" href="{{ route("index") }}">{{ trans("index.Event") }}</a></li>
+                                <li><a draggable="false" href="{{ route("index") }}">{{ trans("index.registration") }}</a></li>
+                                <li><a draggable="false" href="{{ route("index") }}">{{ trans("index.Ccurses") }}</a></li>
+                                <li><a draggable="false" href="{{ route("index") }}">{{ trans("index.our_gallery") }}</a></li>
+                                <li><a draggable="false" href="{{ route("index") }}">{{ trans("index.event") }}</a></li>
                                 <li><a draggable="false" href="https://www.facebook.com/{{ env("SOCIAL_MEDIA_FACEBOOK") }}"><i class="icon ion-social-facebook"></i></a></li>
                                 <li><a draggable="false" href="https://www.twitter.com/{{ env("SOCIAL_MEDIA_TWITTER") }}"><i class="icon ion-social-twitter"></i></a></li>
                                 <li><a draggable="false" href="https://www.instagram.com/{{ env("SOCIAL_MEDIA_INSTAGRAM") }}"><i class="icon ion-social-instagram"></i></a></li>
@@ -548,7 +548,7 @@
                             <p>@yield("message")</p>
                         </div>
                         <p class="about__details">@yield("description")</p>
-                        <a draggable="false" class="htc__btn btn--theme mt-5" href="{{ route("index") }}">{{ trans("index.Back To Home") }}</a>
+                        <a draggable="false" class="htc__btn btn--theme mt-5" href="{{ route("index") }}">{{ trans("index.back_to_home") }}</a>
                     </div>
                 </div>
             </div>

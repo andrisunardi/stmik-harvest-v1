@@ -18,7 +18,7 @@
                                     <i class="fab fa-whatsapp fa-fw me-2"></i>
                                     <span>{{ trans("validation.attributes.whatsapp") }}</span>
                                 </div>
-                                <p><a draggable="false" href="https://api.whatsapp.com/send?phone={{ Str::phone(env("CONTACT_WHATSAPP")) }}&text={{ trans("index.Hello, I know this number from the website") }} {{ env("APP_DOMAIN") }}" target="_blank">{{ env("CONTACT_WHATSAPP") }}</a></p>
+                                <p><a draggable="false" href="https://api.whatsapp.com/send?phone={{ Str::phone(env("CONTACT_WHATSAPP")) }}&text={{ trans("index.hello_i_know_this_number_from_the_website") }} {{ env("APP_DOMAIN") }}" target="_blank">{{ env("CONTACT_WHATSAPP") }}</a></p>
                             </div>
 
                             <div class="contact__address">
