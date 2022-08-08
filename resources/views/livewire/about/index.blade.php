@@ -162,7 +162,7 @@
                                         <div class="shop">
                                             <div class="shop__thumb">
                                                 <a draggable="false" href="{{ $network->link }}" target="_blank">
-                                                    <img draggable="false" src="{{ $network->assetImage() }}" class="img-fluid img-thumbnail rounded w-100" alt="{{ trans("index.Our Network") }} - {{ $network->name }} - {{ env("APP_TITLE") }}">
+                                                    <img draggable="false" src="{{ $network->assetImage() }}" class="img-fluid img-thumbnail rounded w-100" alt="{{ $network->altImage() }}">
                                                 </a>
                                             </div>
                                             <div class="shop__details">
