@@ -11,7 +11,7 @@
                     <div class="section__title text-left">
                         <h2 class="title__line">
                             {{ trans("index.our_values") }}
-                            School of Technoprenuer Nusantara (SOTN)
+                            {{ env("APP_NAME") }}
                         </h2>
                         <p>College for Future Technopreneur</p>
                     </div>
