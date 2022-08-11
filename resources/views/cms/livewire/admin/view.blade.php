@@ -9,7 +9,7 @@
     </div>
     <div class="row my-2">
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <h6>{{ trans("index.Image") }}</h6>
+            <h6>{{ trans("index.image") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             @if ($admin->checkImage())
@@ -23,7 +23,7 @@
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h6 class="modal-title" id="image">{{ trans("index.Image") }} - {{ trans("index." . Str::slug($menu_name, "_")) }}</h6>
+                                <h6 class="modal-title" id="image">{{ trans("index.image") }} - {{ trans("index." . Str::slug($menu_name, "_")) }}</h6>
                                 <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="{{ trans("index.close") }}"></button>
                             </div>
                             <div class="modal-body">

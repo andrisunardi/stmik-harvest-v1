@@ -159,8 +159,8 @@
             <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
             <select wire:model="{{ $input }}" class="form-select select2" id="{{ $input }}" name="{{ $input }}">
                 <option value="">{{ trans("index.all") }}</option>
-                <option value="1">{{ trans("index.Image") }}</option>
-                <option value="2">{{ trans("index.Video") }}</option>
+                <option value="1">{{ trans("index.image") }}</option>
+                <option value="2">{{ trans("index.video") }}</option>
                 <option value="3">{{ trans("index.Youtube") }}</option>
             </select>
         </div>

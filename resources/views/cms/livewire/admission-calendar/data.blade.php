@@ -7,7 +7,7 @@
                 <th>{{ trans("index.id") }}</th>
                 <th>{{ trans("index.name") }}</th>
                 <th>{{ trans("index.name_id") }}</th>
-                <th>{{ trans("index.Date") }}</th>
+                <th>{{ trans("index.date") }}</th>
                 <th>{{ trans("index.active") }}</th>
                 <th>{{ trans("index.created_by") }}</th>
                 <th>{{ trans("index.updated_by") }}</th>

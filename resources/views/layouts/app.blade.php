@@ -290,7 +290,7 @@
                                     {{-- <li><a draggable="false" href="{{ route("online-registration.index") }}">{{ trans("index.online_registration") }}</a></li> --}}
                                     <li><a draggable="false" href="https://pmb.stmik-kuwera.civitas.id/p/pmb.php" target="_blank">{{ trans("index.online_registration") }}</a></li>
                                     <li><a draggable="false" href="{{ route("admission-calendar.index") }}">{{ trans("index.admission_calendar") }}</a></li>
-                                    <li><a draggable="false" href="{{ route("procedure.index") }}">{{ trans("index.Procedure") }}</a></li>
+                                    <li><a draggable="false" href="{{ route("procedure.index") }}">{{ trans("index.procedure") }}</a></li>
                                     <li><a draggable="false" href="{{ route("tuition-fees.index") }}">{{ trans("index.tuition_fees") }}</a></li>
                                     <li><a draggable="false" href="{{ route("scholarships.index") }}">{{ trans("index.scholarships") }}</a></li>
                                 </ul>

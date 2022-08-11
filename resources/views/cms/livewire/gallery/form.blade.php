@@ -86,8 +86,8 @@
                     <div class="input-group-text"><span class="bi bi-tags"></span></div>
                     <select wire:model="{{ $input }}" class="form-select select2 @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" id="{{ $input }}" name="{{ $input }}" required>
                         <option value="">{{ trans("index.select") }} {{ trans("validation.attributes.{$input}") }}</option>
-                        <option value="1">{{ trans("index.Image") }}</option>
-                        <option value="2">{{ trans("index.Video") }}</option>
+                        <option value="1">{{ trans("index.image") }}</option>
+                        <option value="2">{{ trans("index.video") }}</option>
                         <option value="3">{{ trans("index.Youtube") }}</option>
                     </select>
                     <a draggable="false" href="javascript:;" class="btn btn-info" wire:click="getData{{ Str::studly($input) }}">
@@ -178,7 +178,7 @@
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h6 class="modal-title" id="image">{{ trans("index.Image") }} - {{ trans("index." . Str::slug($menu_name, "_")) }}</h6>
+                                    <h6 class="modal-title" id="image">{{ trans("index.image") }} - {{ trans("index." . Str::slug($menu_name, "_")) }}</h6>
                                     <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="{{ trans("index.close") }}"></button>
                                 </div>
                                 <div class="modal-body">
@@ -215,7 +215,7 @@
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h6 class="modal-title" id="image">{{ trans("index.Image") }} - {{ trans("index." . Str::slug($menu_name, "_")) }}</h6>
+                                            <h6 class="modal-title" id="image">{{ trans("index.image") }} - {{ trans("index." . Str::slug($menu_name, "_")) }}</h6>
                                             <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="{{ trans("index.close") }}"></button>
                                         </div>
                                         <div class="modal-body">

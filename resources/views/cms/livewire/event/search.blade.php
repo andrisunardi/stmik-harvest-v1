@@ -26,8 +26,8 @@
                 <option value="location">{{ trans("index.Location") }}</option>
                 <option value="start">{{ trans("index.Start") }}</option>
                 <option value="end">{{ trans("index.End") }}</option>
-                <option value="tag">{{ trans("index.Tag") }}</option>
-                <option value="tag_id">{{ trans("index.Tag ID") }}</option>
+                <option value="tag">{{ trans("index.tag") }}</option>
+                <option value="tag_id">{{ trans("index.tag_id") }}</option>
                 <option value="active" {{ "active" == $order_by ? "selected" : null }}>{{ trans("validation.attributes.active") }}</option>
                 <option value="created_by_id" {{ "created_by_id" == $order_by ? "selected" : null }}>{{ trans("validation.attributes.created_by_id") }}</option>
                 <option value="updated_by_id" {{ "updated_by_id" == $order_by ? "selected" : null }}>{{ trans("validation.attributes.updated_by_id") }}</option>

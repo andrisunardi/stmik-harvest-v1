@@ -41,7 +41,7 @@
     </div>
     <div class="row my-2">
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <h6>{{ trans("index.Date") }}</h6>
+            <h6>{{ trans("index.date") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             @if ($admission_calendar->date && $admission_calendar->date != "0000-00-00")
