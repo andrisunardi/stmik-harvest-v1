@@ -9,7 +9,10 @@
             <div class="row about__wrapper">
                 <div class="about">
                     <div class="section__title text-left">
-                        <h2 class="title__line">{{ trans("index.Our Values") }} Yayasan STMIK Harvest</h2>
+                        <h2 class="title__line">
+                            {{ trans("index.our_values") }}
+                            School of Technoprenuer Nusantara (SOTN)
+                        </h2>
                         <p>College for Future Technopreneur</p>
                     </div>
                 </div>
@@ -39,12 +42,12 @@
                         </p> --}}
                     </div>
                     <div class="about__thumb mt-3 mb-5 mb-lg-auto">
-                        <img draggable="false" class="img-fluid w-100" src="{{ asset("images/our-values-2.webp") }}" alt="{{ trans("index.Our Values") }} - 2 - {{ env("APP_TITLE") }}">
+                        <img draggable="false" class="img-fluid w-100" src="{{ asset("images/our-values-2.webp") }}" alt="{{ trans("index.our_values") }} - 2 - {{ env("APP_TITLE") }}">
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="about__thumb">
-                        <img draggable="false" class="img-fluid rounded-3 w-100" src="{{ asset("images/our-values-1.webp") }}" alt="{{ trans("index.Our Values") }} - 1 - {{ env("APP_TITLE") }}">
+                        <img draggable="false" class="img-fluid rounded-3 w-100" src="{{ asset("images/our-values-1.webp") }}" alt="{{ trans("index.our_values") }} - 1 - {{ env("APP_TITLE") }}">
                     </div>
                 </div>
             </div>

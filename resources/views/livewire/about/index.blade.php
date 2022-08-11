@@ -9,7 +9,10 @@
             <div class="row about__wrapper">
                 <div class="about">
                     <div class="section__title text-left">
-                        <h2 class="title__line">{{ trans("index.welcome_to") }} {{ env("APP_NAME") }}</h2>
+                        <h2 class="title__line">
+                            {{ trans("index.welcome_to") }}
+                            School of Technoprenuer Nusantara (SOTN)
+                        </h2>
                         <p>College for Future Technopreneur</p>
                     </div>
                 </div>
@@ -144,7 +147,7 @@
                     <div class="section__title text-center">
                         <h2 class="title__line">{{ trans("index.our_network") }}</h2>
                         <p>
-                            {{ trans("custom.cooperates with several universities abroad") }}<br>
+                            {{ env("APP_NAME") }} {{ trans("index.cooperates_with_several_universities_abroad") }}<br>
                             {{ trans("index.some_of_the_cooperation_agendas_include_lecturer_and_curriculum_development_programs_as_well_as_student_exchange_programs") }}
                             {{-- STMIK HARVEST bekerjasama dengan beberapa perguruan tinggi di luar negeri.<br>
                             Beberapa agenda kerjasama antara lain program pengembangan dosen dan kurikulum, serta program pertukaran mahasiswa. --}}
