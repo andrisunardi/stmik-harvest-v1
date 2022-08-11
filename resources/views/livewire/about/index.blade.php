@@ -145,7 +145,7 @@
                         <h2 class="title__line">{{ trans("index.our_network") }}</h2>
                         <p>
                             {{ trans("custom.cooperates with several universities abroad") }}<br>
-                            {{ trans("index.Some of the cooperation agendas include lecturer and curriculum development programs, as well as student exchange programs") }}
+                            {{ trans("index.some_of_the_cooperation_agendas_include_lecturer_and_curriculum_development_programs_as_well_as_student_exchange_programs") }}
                             {{-- STMIK HARVEST bekerjasama dengan beberapa perguruan tinggi di luar negeri.<br>
                             Beberapa agenda kerjasama antara lain program pengembangan dosen dan kurikulum, serta program pertukaran mahasiswa. --}}
                         </p>
