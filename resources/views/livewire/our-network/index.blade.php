@@ -13,8 +13,6 @@
                         <p>
                             {{ env("APP_NAME") }} {{ trans("index.cooperates_with_several_universities_abroad") }}<br>
                             {{ trans("index.some_of_the_cooperation_agendas_include_lecturer_and_curriculum_development_programs_as_well_as_student_exchange_programs") }}
-                            {{-- STMIK HARVEST bekerjasama dengan beberapa perguruan tinggi di luar negeri.<br>
-                            Beberapa agenda kerjasama antara lain program pengembangan dosen dan kurikulum, serta program pertukaran mahasiswa. --}}
                         </p>
                     </div>
                 </div>
@@ -29,7 +27,7 @@
                                         <div class="shop">
                                             <div class="shop__thumb">
                                                 <a draggable="false" href="{{ $network->link }}" target="_blank">
-                                                    <img draggable="false" src="{{ $network->assetImage() }}" class="img-fluid img-thumbnail rounded w-100" alt="{{ trans("index.Our Network") }} - {{ $network->name }} - {{ env("APP_TITLE") }}">
+                                                    <img draggable="false" src="{{ $network->assetImage() }}" class="img-fluid img-thumbnail rounded w-100" alt="{{ $network->altImage() }}">
                                                 </a>
                                             </div>
                                             <div class="shop__details">

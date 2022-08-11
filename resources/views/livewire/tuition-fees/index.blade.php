@@ -7,8 +7,11 @@
     <section class="our__about__area bg__white pb--80 pt--100">
         <div class="container">
             <div class="section__title text-center">
-                <h2 class="title__line">{{ trans("index.Tuition Fee") }}</h2>
-                <p>{{ trans("index.The following is the cost of education at STMIK Harvest") }}</p>
+                <h2 class="title__line">{{ trans("index.tuition_fee") }}</h2>
+                <p>
+                    {{ trans("index.the_following_is_the_cost_of_education_at") }}
+                    {{ env("APP_NAME") }}
+                </p>
             </div>
             <div class="accordion mt-5" id="accordion-tuition-fee">
                 @foreach ($data_tuition_fee as $tuition_fee)
@@ -32,12 +35,12 @@
                     <div class="findout__wrap my-5 my-sm-auto">
                         <div class="findout__inner">
                             <h2>
-                                <span>{{ trans("index.Ready to Join ?") }}</span>
-                                {{ trans("index.Become our student with an easy steps, click the button below") }}
+                                <span class="text-nowrap me-md-2">{{ trans("index.ready_to_join") }} ?</span>
+                                {{ trans("custom.it_easy_now_to_you_for_being_our_part_just_click_the_button_below_and_fill_out_the_form_with_your_data") }}
                             </h2>
                             <div class="findout__btn">
                                 {{-- <a draggable="false" class="htc__btn btn--yellow" href="{{ route("online-registration.index") }}">{{ trans("index.Register") }}</a> --}}
-                                <a draggable="false" class="htc__btn btn--yellow" href="https://pmb.stmik-kuwera.civitas.id" target="_blank">{{ trans("index.Register") }}</a>
+                                <a draggable="false" class="htc__btn btn--yellow" href="https://pmb.stmik-kuwera.civitas.id" target="_blank">{{ trans("index.register") }}</a>
                             </div>
                         </div>
                     </div>

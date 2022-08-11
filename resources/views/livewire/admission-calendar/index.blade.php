@@ -7,8 +7,8 @@
     <section class="our__about__area bg__white pb--80 pt--100">
         <div class="container">
             <div class="section__title text-center">
-                <h2 class="title__line">{{ trans("index.List of Scheduled Waves Registration Is Open") }}</h2>
-                <p>{{ trans("index.Don't miss the registration, here's an important schedule you can take note of") }}</p>
+                <h2 class="title__line">{{ trans("index.list_of_scheduled_waves_registration_is_open") }}</h2>
+                <p>{{ trans("index.dont_miss_the_registration_heres_an_important_schedule_you_can_take_note_of") }}</p>
             </div>
             <div class="accordion mt-5" id="accordion-admission-calendar">
                 @foreach ($data_admission_calendar as $admission_calendar)
@@ -32,12 +32,12 @@
                     <div class="findout__wrap my-5 my-sm-auto">
                         <div class="findout__inner">
                             <h2>
-                                <span>{{ trans("index.Ready to Join ?") }}</span>
-                                {{ trans("index.It easy now to you for being our part, just click the button below and fill out the form with your data.") }}
+                                <span class="text-nowrap me-md-2">{{ trans("index.ready_to_join") }} ?</span>
+                                {{ trans("custom.it_easy_now_to_you_for_being_our_part_just_click_the_button_below_and_fill_out_the_form_with_your_data") }}
                             </h2>
                             <div class="findout__btn">
                                 {{-- <a draggable="false" class="htc__btn btn--yellow" href="{{ route("online-registration.index") }}">{{ trans("index.Register") }}</a> --}}
-                                <a draggable="false" class="htc__btn btn--yellow" href="https://pmb.stmik-kuwera.civitas.id" target="_blank">{{ trans("index.Register") }}</a>
+                                <a draggable="false" class="htc__btn btn--yellow" href="https://pmb.stmik-kuwera.civitas.id" target="_blank">{{ trans("index.register") }}</a>
                             </div>
                         </div>
                     </div>

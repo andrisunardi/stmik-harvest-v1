@@ -7,8 +7,8 @@
     <section class="our__about__area bg__white pb--80 pt--100">
         <div class="container">
             <div class="section__title text-center">
-                <h2 class="title__line">{{ trans("index.List of Frequently Asked Questions") }}</h2>
-                <p>{{ trans("index.If there is no question or answer you are looking for, please contact us") }}</p>
+                <h2 class="title__line">{{ trans("index.list_of_frequently_asked_questions") }}</h2>
+                <p>{{ trans("index.if_there_is_no_question_or_answer_you_are_looking_for_please_contact_us") }}</p>
             </div>
             <div class="accordion mt-5" id="accordion-faq">
                 @foreach ($data_faq as $faq)
@@ -32,12 +32,12 @@
                     <div class="findout__wrap my-5 my-sm-auto">
                         <div class="findout__inner">
                             <h2>
-                                <span>{{ trans("index.Ready to Join ?") }}</span>
-                                {{ trans("index.It easy now to you for being our part, just click the button below and fill out the form with your data.") }}
+                                <span class="text-nowrap me-md-2">{{ trans("index.ready_to_join") }} ?</span>
+                                {{ trans("custom.it_easy_now_to_you_for_being_our_part_just_click_the_button_below_and_fill_out_the_form_with_your_data") }}
                             </h2>
                             <div class="findout__btn">
                                 {{-- <a draggable="false" class="htc__btn btn--yellow" href="{{ route("online-registration.index") }}">{{ trans("index.Register") }}</a> --}}
-                                <a draggable="false" class="htc__btn btn--yellow" href="https://pmb.stmik-kuwera.civitas.id" target="_blank">{{ trans("index.Register") }}</a>
+                                <a draggable="false" class="htc__btn btn--yellow" href="https://pmb.stmik-kuwera.civitas.id" target="_blank">{{ trans("index.register") }}</a>
                             </div>
                         </div>
                     </div>
