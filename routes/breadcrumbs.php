@@ -7,71 +7,71 @@ use Diglactic\Breadcrumbs\Generator as BreadcrumbTrail;
 
 Breadcrumbs::for('errors.404', function (BreadcrumbTrail $trail) {
     $trail->parent('index');
-    $trail->push(trans('page.Error'));
+    $trail->push(trans('index.Error'));
 });
 
 Breadcrumbs::for('index', function (BreadcrumbTrail $trail) {
-    $trail->push(trans('page.Home'), route('index'));
+    $trail->push(trans('index.home'), route('index'));
 });
 
 Breadcrumbs::for('about.index', function (BreadcrumbTrail $trail) {
     $trail->parent('index');
-    $trail->push(trans('page.About'), route('about.index'));
+    $trail->push(trans('index.about'), route('about.index'));
 });
 
 Breadcrumbs::for('our-profile.index', function (BreadcrumbTrail $trail) {
     $trail->parent('index');
-    $trail->push(trans('page.Our Profile'), route('our-profile.index'));
+    $trail->push(trans('index.our_profile'), route('our-profile.index'));
 });
 
 Breadcrumbs::for('our-values.index', function (BreadcrumbTrail $trail) {
     $trail->parent('index');
-    $trail->push(trans('page.Our Values'), route('our-values.index'));
+    $trail->push(trans('index.our_values'), route('our-values.index'));
 });
 
 Breadcrumbs::for('our-network.index', function (BreadcrumbTrail $trail) {
     $trail->parent('index');
-    $trail->push(trans('page.Our Network'), route('our-network.index'));
+    $trail->push(trans('index.our_network'), route('our-network.index'));
 });
 
 Breadcrumbs::for('gallery.index', function (BreadcrumbTrail $trail) {
     $trail->parent('index');
-    $trail->push(trans('page.Gallery'), route('gallery.index'));
+    $trail->push(trans('index.gallery'), route('gallery.index'));
 });
 
 Breadcrumbs::for('online-registration.index', function (BreadcrumbTrail $trail) {
     $trail->parent('index');
-    $trail->push(trans('page.Online Registration'), route('online-registration.index'));
+    $trail->push(trans('index.online_registration'), route('online-registration.index'));
 });
 
 Breadcrumbs::for('admission-calendar.index', function (BreadcrumbTrail $trail) {
     $trail->parent('index');
-    $trail->push(trans('page.Admission Calendar'), route('admission-calendar.index'));
+    $trail->push(trans('index.admission_calendar'), route('admission-calendar.index'));
 });
 
 Breadcrumbs::for('procedure.index', function (BreadcrumbTrail $trail) {
     $trail->parent('index');
-    $trail->push(trans('page.Procedure'), route('procedure.index'));
+    $trail->push(trans('index.procedure'), route('procedure.index'));
 });
 
 Breadcrumbs::for('tuition-fees.index', function (BreadcrumbTrail $trail) {
     $trail->parent('index');
-    $trail->push(trans('page.Tuition Fees'), route('tuition-fees.index'));
+    $trail->push(trans('index.tuition_fees'), route('tuition-fees.index'));
 });
 
 Breadcrumbs::for('scholarships.index', function (BreadcrumbTrail $trail) {
     $trail->parent('index');
-    $trail->push(trans('page.Scholarships'), route('scholarships.index'));
+    $trail->push(trans('index.scholarships'), route('scholarships.index'));
 });
 
 Breadcrumbs::for('information-system.index', function (BreadcrumbTrail $trail) {
     $trail->parent('index');
-    $trail->push(trans('page.Information System'), route('information-system.index'));
+    $trail->push(trans('index.information_system'), route('information-system.index'));
 });
 
 Breadcrumbs::for('event.index', function (BreadcrumbTrail $trail) {
     $trail->parent('index');
-    $trail->push(trans('page.Event'), route('event.index'));
+    $trail->push(trans('index.event'), route('event.index'));
 });
 
 Breadcrumbs::for('event.view', function (BreadcrumbTrail $trail, $event_slug) {
@@ -82,12 +82,12 @@ Breadcrumbs::for('event.view', function (BreadcrumbTrail $trail, $event_slug) {
 
 Breadcrumbs::for('faq.index', function (BreadcrumbTrail $trail) {
     $trail->parent('index');
-    $trail->push(trans('page.Faq'), route('faq.index'));
+    $trail->push(trans('index.faq'), route('faq.index'));
 });
 
 Breadcrumbs::for('blog.index', function (BreadcrumbTrail $trail) {
     $trail->parent('index');
-    $trail->push(trans('page.Blog'), route('blog.index'));
+    $trail->push(trans('index.blog'), route('blog.index'));
 });
 
 Breadcrumbs::for('blog.view', function (BreadcrumbTrail $trail, $blog_slug) {
@@ -98,5 +98,5 @@ Breadcrumbs::for('blog.view', function (BreadcrumbTrail $trail, $blog_slug) {
 
 Breadcrumbs::for('contact-us.index', function (BreadcrumbTrail $trail) {
     $trail->parent('index');
-    $trail->push(trans('page.Contact Us'), route('contact-us.index'));
+    $trail->push(trans('index.contact_us'), route('contact-us.index'));
 });
