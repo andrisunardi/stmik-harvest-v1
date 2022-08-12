@@ -7,7 +7,7 @@ use Illuminate\Support\Str;
 Route::any('locale/{locale}', function ($locale) {
     Session::put('locale', $locale);
 
-    return redirect()->back()->withInfo(trans('index.Language has been changed'));
+    return redirect()->back()->withInfo(trans('index.language_has_been_changed'));
 });
 
 $page = 'Home';

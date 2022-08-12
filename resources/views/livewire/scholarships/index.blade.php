@@ -36,14 +36,14 @@
             <div class="row about__wrapper">
                 <div class="about">
                     <div class="section__title text-left">
-                        <h2 class="title__line">{{ trans("index.Reduction of Base Fee (UB)") }}</h2>
-                        <p>{{ trans("index.Selection Path (KUP)") }}</p>
+                        <h2 class="title__line">{{ trans("index.reduction_of_base_fee_ub") }}</h2>
+                        <p>{{ trans("index.selection_path_kup") }}</p>
                     </div>
                 </div>
                 <div class="col-12">
                     <div class="about">
                         <p class="about__details">
-                            1. {{ trans("index.STMIK Harvest Entry Screening Process.") }}<br>
+                            1. {{ trans("index.entry_screening_process") }} {{ env("APP_NAME") }}<br>
                             2. {{ trans("index.Class Achievement Path: Deductions are awarded based on rank in class during Class X - XII.") }}<br>
                             <br>
                             {{ trans("index.The amount of relief is in the form of deductions from the base fee, based on the table below:") }}

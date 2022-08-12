@@ -32,7 +32,7 @@
                                 <h2><a draggable="false" href="{{ route("blog.view", ["blog_slug" => $blog->slug]) }}">{{ $blog->translate_name }}</a></h2>
                                 <p>{{ strip_tags(Str::limit($blog->translate_description, 300)) }}</p>
                                 <div class="blog__btn">
-                                    <a draggable="false" class="read__more__btn" href="{{ route("blog.view", ["blog_slug" => $blog->slug]) }}">{{ trans("index.Read More") }}</a>
+                                    <a draggable="false" class="read__more__btn" href="{{ route("blog.view", ["blog_slug" => $blog->slug]) }}">{{ trans("index.read_more") }}</a>
                                 </div>
                             </div>
                         </div>

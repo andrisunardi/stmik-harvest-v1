@@ -71,7 +71,7 @@ class BlogComponent extends Component
             )->active()->orderByDesc('id');
 
         if ($this->search) {
-            Session::flash('success', trans('index.Found')." <b>'{$data_blog->count()}'</b> ".trans('index.results for')." <b>'{$this->search}'</b>");
+            Session::flash('success', trans('index.found')." <b>'{$data_blog->count()}'</b> ".trans('index.results_for')." <b>'{$this->search}'</b>");
         }
 
         $data_blog = $data_blog->paginate(10);
