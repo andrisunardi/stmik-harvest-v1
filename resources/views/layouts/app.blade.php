@@ -166,12 +166,12 @@
                             </ul>
                             <ul class="login__register d-none d-md-flex">
                                 <li>
-                                    <a draggable="false" href="{{ Session::get("locale") == "en" ? url("locale/id") : "javascript:;" }}" class="{{ Session::get("locale") == "en" ? null : "fw-bold" }}">
+                                    <a draggable="false" href="{{ App::isLocale("en") ? url("locale/id") : "javascript:;" }}" class="{{ App::isLocale("en") ? null : "fw-bold" }}">
                                         {{ trans("index.indonesia") }}
                                     </a>
                                 </li>
                                 <li>
-                                    <a draggable="false" href="{{ Session::get("locale") == "en" ? "javascript:;" : url("locale/en") }}" class="{{ Session::get("locale") == "en" ? "fw-bold" : null }}">
+                                    <a draggable="false" href="{{ App::isLocale("en") ? "javascript:;" : url("locale/en") }}" class="{{ App::isLocale("en") ? "fw-bold" : null }}">
                                         {{ trans("index.english") }}
                                     </a>
                                 </li>
@@ -311,13 +311,13 @@
                             <li><a draggable="false" href="javascript:;">{{ trans("index.change_language") }}</a>
                                 <ul>
                                     <li>
-                                        <a draggable="false" href="{{ url("locale/id") }}" class="{{ Session::get("locale") == "en" ? null : "fw-bold" }}">
+                                        <a draggable="false" href="{{ url("locale/id") }}" class="{{ App::isLocale("en") ? null : "fw-bold" }}">
                                             <img draggable="false" width="25" class="me-1" src="{{ asset("images/flag/id.png") }}">
                                             {{ trans("index.indonesia") }}
                                         </a>
                                     </li>
                                     <li>
-                                        <a draggable="false" href="{{ url("locale/en") }}" class="{{ Session::get("locale") == "en" ? "fw-bold" : null }}">
+                                        <a draggable="false" href="{{ url("locale/en") }}" class="{{ App::isLocale("en") ? "fw-bold" : null }}">
                                             <img draggable="false" width="25" class="me-1" src="{{ asset("images/flag/en.png") }}">
                                             {{ trans("index.english") }}
                                         </a>
