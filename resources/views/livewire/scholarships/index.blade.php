@@ -44,24 +44,24 @@
                     <div class="about">
                         <p class="about__details">
                             1. {{ trans("index.entry_screening_process") }} {{ env("APP_NAME") }}<br>
-                            2. {{ trans("index.Class Achievement Path: Deductions are awarded based on rank in class during Class X - XII.") }}<br>
+                            2. {{ trans("index.class_achievement_path_deductions_are_awarded_based_on_rank_in_class_during_class_x_xii") }}<br>
                             <br>
-                            {{ trans("index.The amount of relief is in the form of deductions from the base fee, based on the table below:") }}
+                            {{ trans("index.the_amount_of_relief_is_in_the_form_of_deductions_from_the_base_fee,_based_on_the_table_below") }}
                         </p>
                         <div class="table-responsive mt-3">
                             <table class="table table-striped table-hover table-bordered text-nowrap table-responsive align-middle text-center">
                                 <thead>
                                     <tr class="bg-success text-white text-center">
-                                        <th>{{ trans("index.Incoming Filter Results") }} <br> / {{ trans("index.Class Achievement") }}</th>
-                                        <th>{{ trans("index.Piece Size") }}<br> {{ trans("index.Entry Tuition Fee") }}</th>
-                                        <th>{{ trans("index.Entry Tuition Fee") }}<br> {{ trans("index.Paid") }}</th>
+                                        <th>{{ trans("index.incoming_filter_results") }} <br> / {{ trans("index.class_achievement") }}</th>
+                                        <th>{{ trans("index.piece_size") }}<br> {{ trans("index.entry_tuition_fee") }}</th>
+                                        <th>{{ trans("index.entry_tuition_fee") }}<br> {{ trans("index.paid") }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td>I</td>
                                         <td>100%</td>
-                                        <td>{{ trans("index.FREE") }}</td>
+                                        <td class="text-uppercase">{{ trans("index.free") }}</td>
                                     </tr>
                                     <tr>
                                         <td>II</td>
@@ -122,30 +122,30 @@
             <div class="row about__wrapper">
                 <div class="about">
                     <div class="section__title text-left">
-                        <h2 class="title__line">{{ trans("index.Tuition Reduction (TR)") }}</h2>
-                        <p>{{ trans("index.Selection Path (KUK)") }}</p>
+                        <h2 class="title__line">{{ trans("index.tuition_reduction_tr") }}</h2>
+                        <p>{{ trans("index.selection_path_kuk") }}</p>
                     </div>
                 </div>
                 <div class="col-12">
                     <div class="about">
                         <p class="about__details">
-                            {{ trans("index.KUK assistance has one path, namely following the STMIK Harvest Entry Screening Process.") }}<br>
-                            {{ trans("index.Deductions are given based on the table below:") }}
+                            {{ trans("index.kuk_assistance_has_one_path_namely_following_the_entry_screening_process") }}<br>
+                            {{ trans("index.deductions_are_given_based_on_the_table_below") }}
                         </p>
                         <div class="table-responsive mt-3">
                             <table class="table table-striped table-hover table-bordered text-nowrap table-responsive align-middle text-center">
                                 <thead>
                                     <tr class="bg-success text-white text-center">
-                                        <th class="align-middle">{{ trans("index.Incoming Filter Results") }}</th>
-                                        <th>{{ trans("index.Piece Size") }}<br> {{ trans("index.Tuition Fee") }}</th>
-                                        <th>{{ trans("index.Tuition Fee") }}<br> {{ trans("index.Paid") }}</th>
+                                        <th class="align-middle">{{ trans("index.incoming_filter_results") }}</th>
+                                        <th>{{ trans("index.piece_size") }}<br> {{ trans("index.tuition_fee") }}</th>
+                                        <th>{{ trans("index.tuition_fee") }}<br> {{ trans("index.paid") }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td>A</td>
                                         <td>100%</td>
-                                        <td>{{ trans("index.free") }}</td>
+                                        <td class="text-uppercase">{{ trans("index.free") }}</td>
                                     </tr>
                                     <tr>
                                         <td>B</td>
@@ -166,10 +166,11 @@
                             </table>
                         </div>
                         <p class="about__details">
-                            {{ trans("index.The amount of relief in the form of tuition deductions, for 2 full semesters which includes:") }}<br>
-                            * {{ trans("index.Basic BPP Semester") }}<br>
-                            * {{ trans("index.Credits (Package)") }}<br>
-                            {{ trans("index.Semester 3 onwards the scholarship will continue if the student succeeds in fulfilling the conditions set by STMIK Harvest.") }}
+                            {{ trans("index.the_amount_of_relief_in_the_form_of_tuition_deductions_for_2_full_semesters_which_includes") }}<br>
+                            * {{ trans("index.basic_bpp_semester") }}<br>
+                            * {{ trans("index.credits_package") }}<br>
+                            {{ trans("index.semester_3_onwards_the_scholarship_will_continue_if_the_student_succeeds_in_fulfilling_the_conditions_set_by") }}
+                            {{ env("APP_NAME") }}
                         </p>
                     </div>
                 </div>
@@ -184,7 +185,11 @@
                     <div class="about">
                         <p class="about__details">
                             <strong class="text-uppercase">{{ trans("index.note") }}:</strong><br>
-                            {{ trans("index.If the prospective student gets a 100% scholarship for tuition and fees, then the prospective student is asked to give a sign of joining STMIK Harvest in the amount of Rp. 1,500,000,- as a commitment fee.") }}
+                            @if (App::isLocale('en'))
+                                If the prospective student gets a 100% scholarship for tuition and fees, then the prospective student is asked to give a sign of joining STMIK Harvest in the amount of Rp. 1,500,000,- as a commitment fee.
+                            @else
+                                Jika calon mahasiswa mendapatkan beasiswa 100% untuk biaya kuliah dan biaya, maka calon mahasiswa tersebut diminta untuk memberikan tanda bergabung dengan STMIK Harvest sebesar Rp. 1.500.000,- sebagai biaya komitmen.
+                            @endif
                         </p>
                     </div>
                 </div>
