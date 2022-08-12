@@ -6,7 +6,7 @@ use DateTimeInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Str;
 
@@ -82,22 +82,22 @@ class Setting extends Model
 
     public function getTranslateAboutUsAttribute()
     {
-        return Session::get('locale') == 'en' ? $this->about_us : $this->about_us_id;
+        return App::isLocale('en') ? $this->about_us : $this->about_us_id;
     }
 
     public function getTranslateVisionAttribute()
     {
-        return Session::get('locale') == 'en' ? $this->vision : $this->vision_id;
+        return App::isLocale('en') ? $this->vision : $this->vision_id;
     }
 
     public function getTranslateMissionAttribute()
     {
-        return Session::get('locale') == 'en' ? $this->mission : $this->mission_id;
+        return App::isLocale('en') ? $this->mission : $this->mission_id;
     }
 
     public function getTranslateHistoryAttribute()
     {
-        return Session::get('locale') == 'en' ? $this->history : $this->history_id;
+        return App::isLocale('en') ? $this->history : $this->history_id;
     }
 
     public function getImageUrlAttribute()

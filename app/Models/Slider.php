@@ -6,8 +6,8 @@ use DateTimeInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Str;
 
@@ -75,17 +75,17 @@ class Slider extends Model
 
     public function getTranslateNameAttribute()
     {
-        return Session::get('locale') == 'en' ? $this->name : $this->name_id;
+        return App::isLocale('en') ? $this->name : $this->name_id;
     }
 
     public function getTranslateDescriptionAttribute()
     {
-        return Session::get('locale') == 'en' ? $this->description : $this->description_id;
+        return App::isLocale('en') ? $this->description : $this->description_id;
     }
 
     public function getTranslateButtonNameAttribute()
     {
-        return Session::get('locale') == 'en' ? $this->button_name : $this->button_name_id;
+        return App::isLocale('en') ? $this->button_name : $this->button_name_id;
     }
 
     public function altImage()

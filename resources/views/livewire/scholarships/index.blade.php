@@ -15,7 +15,13 @@
                 </div>
                 <div class="col-12">
                     <div class="about">
-                        <p class="about__details">{{ trans("index.harvest_education_assistance_bph_is_given_to_prospective_students_who_manage_to_get_satisfactory_scores_in_the_harvest_stmik_entrance_examination_for_prospective_students_who_have_academic_achievements_in_class_they_can_get_the_opportunity_to_deduct_the_base_fee_through_the_achievement_path_scholarships_are_awarded_ranging_from_25_to_100") }}</p>
+                        <p class="about__details">
+                            @if (App::isLocale('en'))
+                                Harvest Education Assistance (BPH) is given to prospective students who manage to get satisfactory scores in the Harvest STMIK Entrance Examination. For prospective students who have academic achievements in class, they can get the opportunity to deduct the base fee through the achievement path. Scholarships are awarded ranging from 25% to 100%.
+                            @else
+                                Bantuan Pendidikan Panen (BPH) diberikan kepada calon mahasiswa yang berhasil mendapatkan nilai memuaskan dalam Ujian Masuk STMIK Panen. Bagi calon mahasiswa yang memiliki prestasi akademik di kelas, mereka bisa mendapatkan kesempatan untuk memotong biaya dasar melalui jalur prestasi. Beasiswa diberikan mulai dari 25% hingga 100%.
+                            @endif
+                        </p>
                     </div>
                     <div class="about__thumb mt-3">
                         <img draggable="false" class="img-fluid w-100" src="{{ asset("images/scholarship/scholarship.webp") }}" alt="{{ trans("index.Scholarship") }} - 2 - {{ env("APP_TITLE") }}">

@@ -1,18 +1,9 @@
 <?php
 
 use App\Models\Menu;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
-
-Route::any('locale/{locale}', function ($locale) {
-    Session::put('locale', $locale);
-    App::setLocale($locale);
-
-    return redirect()->back()->withInfo(trans('index.Language has been changed'));
-});
 
 $page = 'Login';
 Route::group(['prefix' => Str::slug($page), 'as' => Str::slug($page).'.'], function () use ($page) {

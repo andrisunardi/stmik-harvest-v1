@@ -6,7 +6,7 @@ use DateTimeInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Str;
 
 class Menu extends Model
@@ -70,12 +70,12 @@ class Menu extends Model
 
     public function getTranslateNameAttribute()
     {
-        return Session::get('locale') == 'en' ? $this->name : $this->name_id;
+        return App::isLocale('en') ? $this->name : $this->name_id;
     }
 
     public function getTranslateDescriptionAttribute()
     {
-        return Session::get('locale') == 'en' ? $this->description : $this->description_id;
+        return App::isLocale('en') ? $this->description : $this->description_id;
     }
 
     public function menu_category()

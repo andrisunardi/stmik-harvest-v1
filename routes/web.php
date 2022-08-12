@@ -1,14 +1,10 @@
 <?php
 
-use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 
 Route::any('locale/{locale}', function ($locale) {
-    App::setLocale($locale);
-    Config::set('app.locale', $locale);
     Session::put('locale', $locale);
 
     return redirect()->back()->withInfo(trans('index.Language has been changed'));
