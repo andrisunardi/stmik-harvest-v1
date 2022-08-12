@@ -9,13 +9,13 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="contact__wrap">
-                        <h2 class="title__style--2">{{ trans("index.Contact Information") }}</h2>
+                        <h2 class="title__style--2">{{ trans("index.contact_information") }}</h2>
                         <p>{{ env("APP_DESCRIPTION") }}</p>
                         <div class="htc__contact__inner">
 
                             <div class="contact__address">
                                 <div class="cont__icon">
-                                    <i class="fab fa-whatsapp fa-fw me-2"></i>
+                                    <i class="fab fa-whatsapp fa-fw me-1"></i>
                                     <span>{{ trans("validation.attributes.whatsapp") }}</span>
                                 </div>
                                 <p><a draggable="false" href="https://api.whatsapp.com/send?phone={{ Str::phone(env("CONTACT_WHATSAPP")) }}&text={{ trans("index.hello_i_know_this_number_from_the_website") }} {{ env("APP_DOMAIN") }}" target="_blank">{{ env("CONTACT_WHATSAPP") }}</a></p>
@@ -23,7 +23,7 @@
 
                             <div class="contact__address">
                                 <div class="cont__icon">
-                                    <i class="fab fa-line fa-fw me-2"></i>
+                                    <i class="fab fa-line fa-fw me-1"></i>
                                     <span>{{ trans("validation.attributes.line") }}</span>
                                 </div>
                                 <p><a draggable="false" href="https://line.me/ti/p/~{{ env("CONTACT_LINE") }}" target="_blank">{{ env("CONTACT_WHATSAPP") }}</a></p>
@@ -31,7 +31,7 @@
 
                             {{-- <div class="contact__address">
                                 <div class="cont__icon">
-                                    <i class="fab fa-blackberry fa-fw me-2"></i>
+                                    <i class="fab fa-blackberry fa-fw me-1"></i>
                                     <span>{{ trans("validation.attributes.bbm") }}</span>
                                 </div>
                                 <p><a draggable="false" href="http://www.pin.bbm.com/{{ env("CONTACT_BBM") }}" target="_blank">{{ env("CONTACT_WHATSAPP") }}</a></p>
@@ -39,7 +39,7 @@
 
                             <div class="contact__address">
                                 <div class="cont__icon">
-                                    <i class="fas fa-phone-alt fa-fw me-2"></i>
+                                    <i class="fas fa-phone-alt fa-fw me-1"></i>
                                     <span>{{ trans("validation.attributes.phone") }}</span>
                                 </div>
                                 <p><a draggable="false" href="tel:+{{ Str::phone(env("CONTACT_PHONE")) }}">{{ env("CONTACT_PHONE") }}</a></p>
@@ -47,7 +47,7 @@
 
                             <div class="contact__address">
                                 <div class="cont__icon">
-                                    <i class="fas fa-sms fa-fw me-2"></i>
+                                    <i class="fas fa-sms fa-fw me-1"></i>
                                     <span>{{ trans("validation.attributes.sms") }}</span>
                                 </div>
                                 <p><a draggable="false" href="sms:+{{ Str::phone(env("CONTACT_PHONE")) }}">{{ env("CONTACT_PHONE") }}</a></p>
@@ -55,7 +55,7 @@
 
                             <div class="contact__address">
                                 <div class="cont__icon">
-                                    <i class="fas fa-envelope fa-fw me-2"></i>
+                                    <i class="fas fa-envelope fa-fw me-1"></i>
                                     <span>{{ trans("validation.attributes.email") }}</span>
                                 </div>
                                 <p><a draggable="false" href="mailto:{{ env("CONTACT_EMAIL") }}">{{ env("CONTACT_EMAIL") }}</a></p>
@@ -63,7 +63,7 @@
 
                             <div class="contact__address">
                                 <div class="cont__icon">
-                                    <i class="fas fa-map-marked-alt fa-fw me-2"></i>
+                                    <i class="fas fa-map-marked-alt fa-fw me-1"></i>
                                     <span>{{ trans("validation.attributes.address") }}</span>
                                 </div>
                                 <p><a draggable="false" href="{{ env("CONTACT_GOOGLE_MAPS") }}" target="_blank"> <strong>STMIK Harvest</strong><br>{{ env("CONTACT_ADDRESS") }} </a></p>
@@ -74,7 +74,7 @@
 
                 <div class="col-lg-6 sm-mt-40 xs-mt-40">
                     <div class="htc__contact__form__wrap">
-                        <h2 class="contact__title mb-4">{{ trans("index.Send A Message") }}</h2>
+                        <h2 class="contact__title mb-4">{{ trans("index.send_a_message") }}</h2>
 
                         @include("layouts.alert")
 
@@ -174,7 +174,7 @@
                                 </div>
 
                                 <div class="contact-btn">
-                                    <button class="htc__btn btn--theme" type="button" wire:click="submit">{{ trans("index.Submit") }}</button>
+                                    <button class="htc__btn btn--theme" type="button" wire:click="submit">{{ trans("index.submit") }}</button>
                                 </div>
                             </form>
                         </div>
@@ -187,8 +187,8 @@
                     <div class="contact__wrap pt-5">
                         <div class="htc__contact__inner">
 
-                            <h2 class="contact__title">{{ trans("index.Social Media Contact") }}</h2>
-                            <p>{{ trans("index.Follow and Subscribe Our Social Media to get our latest news") }}</p>
+                            <h2 class="contact__title">{{ trans("index.social_media_contact") }}</h2>
+                            <p>{{ trans("index.follow_and_subscribe_our_social_media_to_get_our_latest_news") }}</p>
 
                             <div class="contact__address">
                                 <div class="cont__icon">
