@@ -46,7 +46,7 @@
                                     alt="{{ trans("index.admin") }} - {{ $log->admin?->name }} - {{ env("APP_TITLE") }}">
                                 <div class="alert-text w-75">
                                     <h6 class="text-truncate">
-                                        {{ $log->admin?->name }} {{ trans("index.has been") }} {{ $log->activity_text }} {{ trans("index.at menu") }} {{ $log->menu?->name }} {{ trans("index.on row") }} {{ $log->row }}
+                                        {{ $log->admin?->name }} {{ trans("index.has_been") }} {{ $log->activity_text }} {{ trans("index.at_menu") }} {{ $log->menu?->name }} {{ trans("index.on_row") }} {{ $log->row }}
                                     </h6>
                                     <span class="text-truncate">
                                         {{ trans("index.datetime") }}
@@ -70,7 +70,7 @@
                 @if ($menu_type == "view")
                     <div class="card">
                         <div class="card-body direction-rtl">
-                            <p>{{ $log->admin?->name }} {{ trans("index.has been") }} {{ $log->activity_text }} {{ trans("index.at menu") }} {{ $log->menu?->name }} {{ trans("index.on row") }} {{ $log->row }}</p>
+                            <p>{{ $log->admin?->name }} {{ trans("index.has_been") }} {{ $log->activity_text }} {{ trans("index.at_menu") }} {{ $log->menu?->name }} {{ trans("index.on_row") }} {{ $log->row }}</p>
                             <div class="border-bottom border-top py-4">
                                 <p>
                                     <a draggable="false" class="btn btn-creative btn-light" wire:click="index">
