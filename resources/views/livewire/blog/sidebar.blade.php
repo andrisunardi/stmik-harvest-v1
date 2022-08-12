@@ -1,7 +1,7 @@
 <div class="col-lg-3 sm-mt-40 xs-mt-40">
     <div class="htc__blog__right__sidebar">
         <div class="htc__blog__courses">
-            <h2 class="title__style--2">{{ trans("index.All Category") }}</h2>
+            <h2 class="title__style--2">{{ trans("index.all_category") }}</h2>
             <ul class="blog__courses">
                 @foreach ($data_blog_category as $blog_category)
                     <li><a draggable="false" href="{{ route("{$menu_slug}.index") . "?category={$blog_category->slug}" }}">{{ $blog_category->translate_name }}</a></li>
@@ -10,7 +10,7 @@
         </div>
 
         <div class="blog__recent__courses">
-            <h2 class="title__style--2">{{ trans("index.Recent Blog") }}</h2>
+            <h2 class="title__style--2">{{ trans("index.recent_blog") }}</h2>
             <div class="recent__courses__inner">
                 @foreach ($data_recent_blog as $recent_blog)
                     <div class="single__courses">

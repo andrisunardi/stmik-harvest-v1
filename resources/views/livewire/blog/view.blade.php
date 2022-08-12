@@ -24,7 +24,7 @@
                                 </li>
                                 <li class="meta__separator">
                                     <i class="icon ion-pricetag"></i>
-                                    {{ trans("index.Category") }} :
+                                    {{ trans("index.category") }} :
                                     @if ($blog->blog_category)
                                         <a draggable="false" href="{{ route("{$menu_slug}.index") . "?category={$blog->blog_category->slug}" }}">
                                             {{ $blog->blog_category->translate_name }}
@@ -35,7 +35,7 @@
                         </div>
                         <div class="blog__details__thumb">
                             <a draggable="false" href="{{ $blog->assetImage() }}" target="_blank">
-                                <img draggable="false" class="img-fluid w-100" src="{{ $blog->assetImage() }}" alt="{{ trans("index." . Str::slug($menu_name, "_")) }} - {{ $blog->translate_name }} - {{ env("APP_TITLE") }}">
+                                <img draggable="false" class="img-fluid w-100" src="{{ $blog->assetImage() }}" alt="{{ $blog->altImage() }}">
                             </a>
                         </div>
                         <div class="htc__blog__details">
@@ -51,7 +51,7 @@
                                             <div class="blog">
                                                 <div class="blog__thumb">
                                                     <a draggable="false" href="{{ route("{$menu_slug}.view", ["blog_slug" => $blog->slug]) }}">
-                                                        <img draggable="false" class="img-fluid w-100" src="{{ $other_blog->assetImage() }}" alt="{{ trans("index." . Str::slug($menu_name, "_")) }} - {{ $other_blog->translate_name }} - {{ env("APP_TITLE") }}">
+                                                        <img draggable="false" class="img-fluid w-100" src="{{ $other_blog->assetImage() }}" alt="{{ $other_blog->altImage() }}">
                                                     </a>
                                                     <div class="blog__date">
                                                         <span>{{ Date::parse($other_blog->date)->format("d F Y") }}</span>
@@ -61,7 +61,7 @@
                                                     <h2><a draggable="false" href="{{ route("{$menu_slug}.view", ["blog_slug" => $other_blog->slug]) }}">{{ $other_blog->translate_name }}</a></h2>
                                                     <p>{{ strip_tags(Str::limit($other_blog->translate_description, 100)) }}</p>
                                                     <div class="blog__btn">
-                                                        <a draggable="false" class="read__more__btn" href="{{ route("{$menu_slug}.view", ["blog_slug" => $other_blog->slug]) }}">{{ trans("index.Read More") }}</a>
+                                                        <a draggable="false" class="read__more__btn" href="{{ route("{$menu_slug}.view", ["blog_slug" => $other_blog->slug]) }}">{{ trans("index.read_more") }}</a>
                                                     </div>
                                                 </div>
                                             </div>

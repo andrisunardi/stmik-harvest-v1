@@ -25,7 +25,7 @@
                                 <div class="pro-item col-md-6 col-lg-4 {{ Str::slug($gallery->translate_tag) }}">
                                     <div class="ml-portfolio">
                                         <div class="ml-port-thumb">
-                                            <img draggable="false" class="img-fluid w-100" src="{{ $gallery->assetImage() }}" alt="{{ trans("index.Gallery") }} - {{ $gallery->translate_name }} - {{ env("APP_TITLE") }}">
+                                            <img draggable="false" class="img-fluid w-100" src="{{ $gallery->assetImage() }}" alt="{{ $gallery->altImage() }}">
                                         </div>
                                         <div class="ml-hover-information">
                                             <div class="ml-hover-action">
@@ -42,7 +42,7 @@
                                         </div>
                                     </div>
                                     <h3 class="mt-3 mb-1">{{ $gallery->translate_name }}</h3>
-                                    <small>{{ trans("index.$gallery->category_text") }}</small>
+                                    <small>{{ trans("index." . Str::slug($gallery->category_text, "_")) }}</small>
                                     <p>{!! html_entity_decode($gallery->translate_description) !!}</p>
                                 </div>
                             @endforeach

@@ -14,7 +14,7 @@
                             <div class="courses__top--left">
                                 <div class="courses__teacher">
                                     <div class="crs__teacher__images">
-                                        <img draggable="false" src="{{ asset("images/logo-square.png") }}" class="rounded-circle" style="width:50px" alt="Administrator - {{ $event->translate_name }} - {{ env("APP_TITLE") }}">
+                                        <img draggable="false" src="{{ asset("images/logo-square.png") }}" class="rounded-circle" style="width:50px" alt="Administrator - {{ env("APP_TITLE") }}">
                                     </div>
                                     <h4>Administrator</h4>
                                     <span>/</span>
@@ -39,7 +39,7 @@
                                 <span class="cres__price">{{ trans("index.event") }}</span>
                                 <div class="crs__btn">
                                     <a class="htc__btn btn--theme" href="{{ route("contact-us.index") }}">
-                                        {{ trans("index.contact", ["name" => trans("index.us")]) }}
+                                        {{ trans("index.contact_us") }}
                                     </a>
                                 </div>
                             </div>
@@ -53,7 +53,7 @@
                     <div class="htc__courses__leftsidebar">
                         <div class="courses__details__thumb">
                             <a draggable="false" href="{{ $event->assetImage() }}" target="_blank">
-                                <img draggable="false" class="img-fluid w-100" src="{{ $event->assetImage() }}" alt="{{ trans("index." . Str::slug($menu_name, "_")) }} - {{ $event->translate_name }} - {{ env("APP_TITLE") }}">
+                                <img draggable="false" class="img-fluid w-100" src="{{ $event->assetImage() }}" alt="{{ $event->altImage() }}}">
                             </a>
                         </div>
                         <div class="htc__crs__tab__wrap">
@@ -70,7 +70,7 @@
                                 </li>
                                 <li role="presentation" class="location">
                                     <a draggable="false" href="#location" role="tab" data-bs-toggle="tab">
-                                        <i class="icon ion-android-map"></i> {{ trans("index.Location") }}
+                                        <i class="icon ion-android-map"></i> {{ trans("index.location") }}
                                     </a>
                                 </li>
                             </ul>
@@ -78,7 +78,7 @@
                             <div class="courses__tab__content">
                                 <div id="description" role="tabpanel" class="single__crs__content tab-pane fade show active clearfix">
                                     <div class="single__crs__details">
-                                        <h2>{{ trans("index.description", ["name" => trans("index.event")]) }}</h2>
+                                        <h2>{{ trans("index.description_event") }}</h2>
                                         <p>{!! html_entity_decode($event->translate_description) !!}</p>
                                     </div>
                                 </div>
@@ -131,7 +131,7 @@
                         </div>
 
                         <div class="courses__content__wrap mt--40 list__view__page">
-                            <h2 class="title__style--3">{{ trans("index.related", ["name" => trans("index.event")]) }}</h2>
+                            <h2 class="title__style--3">{{ trans("index.related_event") }}</h2>
                             <div class="row">
                                 @foreach ($data_other_event as $other_event)
                                     <div class="col-md-6">
@@ -182,7 +182,7 @@
                 <div class="col-lg-4 sm-mt-40 xs-mt-40">
                     <div class="htc__courses__rightsidebar">
                         <div class="htc__blog__courses">
-                            <h2 class="title__style--2">{{ trans("index.All Category") }}</h2>
+                            <h2 class="title__style--2">{{ trans("index.all_category") }}</h2>
                             <ul class="blog__courses">
                                 @foreach ($data_event_category as $event_category)
                                     <li><a draggable="false" href="{{ route("{$menu_slug}.index") . "?category={$event_category->slug}" }}">{{ $event_category->translate_name }}</a></li>
@@ -191,7 +191,7 @@
                         </div>
 
                         <div class="cres__features">
-                            <h2 class="title__style--2">{{ trans("index.information", ["name" => trans("index.event")]) }}</h2>
+                            <h2 class="title__style--2">{{ trans("index.information_event") }}</h2>
                             <div class="crs__features__list">
                                 <ul class="feature__duration text-nowrap">
                                     <li><i class="icon ion-ios-pricetag"></i> {{ trans("index.category") }} :</li>
@@ -215,7 +215,7 @@
                         </div>
 
                         <div class="blog__tag mt--50">
-                            <h2 class="title__style--2">{{ trans("index.Tags") }}</h2>
+                            <h2 class="title__style--2">{{ trans("index.tags") }}</h2>
                             <ul class="tag__list">
                                 @if ($data_popular_tags?->data_tags())
                                     @foreach ($data_popular_tags->data_tags() as $popular_tags)
@@ -226,7 +226,7 @@
                         </div>
 
                         <div class="blog__recent__courses">
-                            <h2 class="title__style--2">{{ trans("index.recent", ["name" => trans("index.event")]) }}</h2>
+                            <h2 class="title__style--2">{{ trans("index.recent_event") }}</h2>
                             <div class="recent__courses__inner">
                                 @foreach ($data_recent_event as $recent_event)
                                     <div class="single__courses">
@@ -251,7 +251,7 @@
 
                             <div class="ctrs__dtl__btn mt--30">
                                 <a draggable="false" class="htc__btn btn--transparent" href="{{ route("{$menu_slug}.index") }}">
-                                    {{ trans("index.back_to", ["name" => trans("index.event")]) }}
+                                    {{ trans("index.back_to_event") }}
                                 </a>
                             </div>
                         </div>

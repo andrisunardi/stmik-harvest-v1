@@ -35,7 +35,7 @@
                                 </span>
                             </div>
                             <div class="courses__searsh__box">
-                                <input wire:model="search" type="search" placeholder="{{ trans("index.search", ["name" => trans("index.event")]) }}">
+                                <input wire:model="search" type="search" placeholder="{{ trans("index.search_event") }}">
                                 <a draggable="false" href="javascript:;"><i class="icon ion-ios-search-strong"></i></a>
                             </div>
                         </div>
@@ -53,12 +53,12 @@
                                         <div class="courses">
                                             <div class="courses__thumb">
                                                 <a draggable="false" href="{{ route("{$menu_slug}.view", ["event_slug" => $event->slug]) }}">
-                                                    <img draggable="false" class="img-fluid w-100" src="{{ $event->assetImage() }}" alt="{{ trans("index." . Str::slug($menu_name, "_")) }} - {{ $event->translate_name }} - {{ env("APP_TITLE") }}">
+                                                    <img draggable="false" class="img-fluid w-100" src="{{ $event->assetImage() }}" alt="{{ $event->altImage() }}">
                                                 </a>
                                                 <div class="courses__hover__info">
                                                     <div class="courses__hover__action">
                                                         <div class="courses__hover__thumb">
-                                                            <img draggable="false" src="{{ asset("images/logo-square.png") }}" class="rounded-circle" style="width:50px" alt="Administrator - {{ $event->translate_name }} - {{ env("APP_TITLE") }}">
+                                                            <img draggable="false" src="{{ asset("images/logo-square.png") }}" class="rounded-circle" style="width:50px" alt="Administrator - {{ $event->altImage() }}">
                                                         </div>
                                                         <h4>Administrator</h4>
                                                         <span class="crs__separator">/</span>
@@ -100,7 +100,7 @@
                                                 <div class="col-lg-5">
                                                     <div class="single__list">
                                                         <a draggable="false" href="{{ route("{$menu_slug}.view", ["event_slug" => $event->slug]) }}">
-                                                            <img draggable="false" class="img-fluid w-100" src="{{ $event->assetImage() }}" alt="{{ trans("index." . Str::slug($menu_name, "_")) }} - {{ $event->translate_name }} - {{ env("APP_TITLE") }}">
+                                                            <img draggable="false" class="img-fluid w-100" src="{{ $event->assetImage() }}" alt="{{ $event->altImage() }}">
                                                         </a>
                                                     </div>
                                                 </div>
@@ -108,7 +108,7 @@
                                                     <div class="list__view__inner">
                                                         <div class="list__view__info">
                                                             <div class="list__sm__image">
-                                                                <img draggable="false" src="{{ asset("images/logo-square.png") }}" class="rounded-circle" style="width:50px" alt="Administrator - {{ $event->translate_name }} - {{ env("APP_TITLE") }}">
+                                                                <img draggable="false" src="{{ asset("images/logo-square.png") }}" class="rounded-circle" style="width:50px" alt="Administrator - {{ env("APP_TITLE") }}">
                                                             </div>
                                                             <h4>Administrator</h4>
                                                             <span class="crs__separator">/</span>
@@ -132,7 +132,7 @@
                                                             </li>
                                                         </ul>
                                                         <div class="list__btn">
-                                                            <a draggable="false" class="htc__btn btn--theme" href="{{ route("{$menu_slug}.view", ["event_slug" => $event->slug]) }}">{{ trans("index.Read More") }}</a>
+                                                            <a draggable="false" class="htc__btn btn--theme" href="{{ route("{$menu_slug}.view", ["event_slug" => $event->slug]) }}">{{ trans("index.read_more") }}</a>
                                                         </div>
                                                     </div>
                                                 </div>

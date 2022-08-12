@@ -1,7 +1,7 @@
 <div class="col-lg-3">
     <div class="htc__blog__right__sidebar mt--50">
         <div class="htc__blog__courses">
-            <h2 class="title__style--2">{{ trans("index.All Category") }}</h2>
+            <h2 class="title__style--2">{{ trans("index.all_category") }}</h2>
             <ul class="blog__courses">
                 @foreach ($data_event_category as $event_category)
                     <li><a draggable="false" href="{{ route("{$menu_slug}.index") . "?category={$event_category->slug}" }}">{{ $event_category->translate_name }}</a></li>
@@ -10,13 +10,13 @@
         </div>
 
         <div class="blog__recent__courses">
-            <h2 class="title__style--2">{{ trans("index.recent", ["name" => trans("index.event")]) }}</h2>
+            <h2 class="title__style--2">{{ trans("index.recent_event") }}</h2>
             <div class="recent__courses__inner">
                 @foreach ($data_recent_event as $recent_event)
                     <div class="single__courses">
                         <div class="recent__post__thumb">
                             <a draggable="false" href="{{ route("{$menu_slug}.view", ["event_slug" => $recent_event->slug]) }}">
-                                <img draggable="false" class="img-fluid w-100" src="{{ $recent_event->assetImage() }}" alt="{{ trans("index." . Str::slug($menu_name, "_")) }} - {{ $recent_event->translate_name }} - {{ env("APP_TITLE") }}">
+                                <img draggable="false" class="img-fluid w-100" src="{{ $recent_event->assetImage() }}" alt="{{ $recent_event->altImage() }}">
                             </a>
                         </div>
                         <div class="recent__post__details">
@@ -35,7 +35,7 @@
         </div>
 
         <div class="blog__tag mt--50">
-            <h2 class="title__style--2">{{ trans("index.Tags") }}</h2>
+            <h2 class="title__style--2">{{ trans("index.tags") }}</h2>
             <ul class="tag__list">
                 @if ($data_popular_tags?->data_tags())
                     @foreach ($data_popular_tags->data_tags() as $popular_tags)
