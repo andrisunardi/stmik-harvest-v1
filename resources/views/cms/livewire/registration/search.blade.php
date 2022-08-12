@@ -17,25 +17,25 @@
         <div class="form-group">
             <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
             <select wire:model="{{ $input }}" class="form-select select2" id="{{ $input }}" name="{{ $input }}">
-                <option value="id" {{ "id" == $order_by ? "selected" : null }}>{{ trans("validation.attributes.id") }}</option>
-                <option value="name" {{ "name" == $order_by ? "selected" : null }}>{{ trans("validation.attributes.name") }}</option>
-                <option value="email">{{ trans("index.email") }}</option>
-                <option value="phone">{{ trans("index.Phone") }}</option>
-                <option value="gender">{{ trans("index.Gender") }}</option>
-                <option value="school">{{ trans("index.School") }}</option>
-                <option value="major">{{ trans("index.Major") }}</option>
-                <option value="city">{{ trans("index.City") }}</option>
-                <option value="type">{{ trans("index.Type") }}</option>
-                <option value="active" {{ "active" == $order_by ? "selected" : null }}>{{ trans("validation.attributes.active") }}</option>
-                <option value="created_by_id" {{ "created_by_id" == $order_by ? "selected" : null }}>{{ trans("validation.attributes.created_by_id") }}</option>
-                <option value="updated_by_id" {{ "updated_by_id" == $order_by ? "selected" : null }}>{{ trans("validation.attributes.updated_by_id") }}</option>
+                <option value="id" {{ "id" == $order_by ? "selected" : null }}>{{ trans("index.id") }}</option>
+                <option value="name" {{ "name" == $order_by ? "selected" : null }}>{{ trans("index.name") }}</option>
+                <option value="email" {{ "email" == $order_by ? "selected" : null }}>{{ trans("index.email") }}</option>
+                <option value="phone" {{ "phone" == $order_by ? "selected" : null }}>{{ trans("index.phone") }}</option>
+                <option value="gender" {{ "gender" == $order_by ? "selected" : null }}>{{ trans("index.gender") }}</option>
+                <option value="school" {{ "school" == $order_by ? "selected" : null }}>{{ trans("index.school") }}</option>
+                <option value="major" {{ "major" == $order_by ? "selected" : null }}>{{ trans("index.major") }}</option>
+                <option value="city" {{ "city" == $order_by ? "selected" : null }}>{{ trans("index.city") }}</option>
+                <option value="type" {{ "type" == $order_by ? "selected" : null }}>{{ trans("index.type") }}</option>
+                <option value="active" {{ "active" == $order_by ? "selected" : null }}>{{ trans("index.active") }}</option>
+                <option value="created_by_id" {{ "created_by_id" == $order_by ? "selected" : null }}>{{ trans("index.created_by_id") }}</option>
+                <option value="updated_by_id" {{ "updated_by_id" == $order_by ? "selected" : null }}>{{ trans("index.updated_by_id") }}</option>
                 @if ($menu_type == "trash")
-                    <option value="deleted_by_id" {{ "deleted_by_id" == $order_by ? "selected" : null }}>{{ trans("validation.attributes.deleted_by_id") }}</option>
+                    <option value="deleted_by_id" {{ "deleted_by_id" == $order_by ? "selected" : null }}>{{ trans("index.deleted_by_id") }}</option>
                 @endif
-                <option value="created_at" {{ "created_at" == $order_by ? "selected" : null }}>{{ trans("validation.attributes.created_at") }}</option>
-                <option value="updated_at" {{ "updated_at" == $order_by ? "selected" : null }}>{{ trans("validation.attributes.updated_at") }}</option>
+                <option value="created_at" {{ "created_at" == $order_by ? "selected" : null }}>{{ trans("index.created_at") }}</option>
+                <option value="updated_at" {{ "updated_at" == $order_by ? "selected" : null }}>{{ trans("index.updated_at") }}</option>
                 @if ($menu_type == "trash")
-                    <option value="deleted_at" {{ "deleted_at" == $order_by ? "selected" : null }}>{{ trans("validation.attributes.deleted_at") }}</option>
+                    <option value="deleted_at" {{ "deleted_at" == $order_by ? "selected" : null }}>{{ trans("index.deleted_at") }}</option>
                 @endif
             </select>
         </div>
@@ -185,8 +185,8 @@
             <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
             <select wire:model="{{ $input }}" class="form-select select2" id="{{ $input }}" name="{{ $input }}">
                 <option value="">{{ trans("index.all") }}</option>
-                <option value="1">{{ trans("index.Man") }}</option>
-                <option value="2">{{ trans("index.Woman") }}</option>
+                <option value="1">{{ trans("index.man") }}</option>
+                <option value="2">{{ trans("index.woman") }}</option>
             </select>
         </div>
     </div>
@@ -221,8 +221,8 @@
             <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
             <select wire:model="{{ $input }}" class="form-select select2" id="{{ $input }}" name="{{ $input }}">
                 <option value="">{{ trans("index.all") }}</option>
-                <option value="1">{{ trans("index.Morning - Afternoon Lecturer") }}</option>
-                <option value="2">{{ trans("index.Study & Work (Evening Lecture)") }}</option>
+                <option value="1">{{ trans("index.morning_afternoon_lecturer") }}</option>
+                <option value="2">{{ trans("index.study_and_work_evening_lecture") }}</option>
             </select>
         </div>
     </div>

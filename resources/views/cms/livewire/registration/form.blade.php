@@ -1,6 +1,5 @@
 <div>
-    <form wire:submit.prevent="submit" enctype="multipart/form-data" class="was-validated-delete" method="post" role="form" action="{{ route("{$sub_domain}.{$menu_slug}.index") }}">
-        @csrf
+    <form wire:submit.prevent="submit" role="form">
 
         <div class="row">
             @php $input = "name" @endphp
@@ -27,8 +26,8 @@
                     <div class="input-group-text"><span class="bi bi-gender-ambiguous"></span></div>
                     <select wire:model="{{ $input }}" class="form-select select2 @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" id="{{ $input }}" name="{{ $input }}" required>
                         <option value="">{{ trans("index.select") }} {{ trans("validation.attributes.{$input}") }}</option>
-                        <option value="1">{{ trans("index.Man") }}</option>
-                        <option value="2">{{ trans("index.Woman") }}</option>
+                        <option value="1">{{ trans("index.man") }}</option>
+                        <option value="2">{{ trans("index.woman") }}</option>
                     </select>
                     @error($input)
                         <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
@@ -136,8 +135,8 @@
                     <div class="input-group-text"><span class="bi bi-clock"></span></div>
                     <select wire:model="{{ $input }}" class="form-select select2 @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" id="{{ $input }}" name="{{ $input }}" required>
                         <option value="">{{ trans("index.select") }} {{ trans("validation.attributes.{$input}") }}</option>
-                        <option value="1">{{ trans("index.Morning - Afternoon Lecturer") }}</option>
-                        <option value="2">{{ trans("index.Study & Work (Evening Lecture)") }}</option>
+                        <option value="1">{{ trans("index.morning_afternoon_lecturer") }}</option>
+                        <option value="2">{{ trans("index.study_and_work_evening_lecture") }}</option>
                     </select>
                     @error($input)
                         <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>

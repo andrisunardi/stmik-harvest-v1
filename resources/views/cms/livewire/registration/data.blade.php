@@ -7,12 +7,12 @@
                 <th>{{ trans("index.id") }}</th>
                 <th>{{ trans("index.name") }}</th>
                 <th>{{ trans("index.email") }}</th>
-                <th>{{ trans("index.Phone") }}</th>
-                <th>{{ trans("index.Gender") }}</th>
-                <th>{{ trans("index.School") }}</th>
-                <th>{{ trans("index.Major") }}</th>
-                <th>{{ trans("index.City") }}</th>
-                <th>{{ trans("index.Type") }}</th>
+                <th>{{ trans("index.phone") }}</th>
+                <th>{{ trans("index.gender") }}</th>
+                <th>{{ trans("index.school") }}</th>
+                <th>{{ trans("index.major") }}</th>
+                <th>{{ trans("index.city") }}</th>
+                <th>{{ trans("index.type") }}</th>
                 <th>{{ trans("index.active") }}</th>
                 <th>{{ trans("index.created_by") }}</th>
                 <th>{{ trans("index.updated_by") }}</th>
@@ -46,7 +46,7 @@
                     <td><a draggable="false" href="tel:+{{ Str::phone($registration->phone) }}">{{ $registration->phone }}</a></td>
                     <td>
                         <span class="{{ "badge bg-" . Str::color($registration->gender) }}">
-                            {{ trans("index.{$registration->gender_text}") }}
+                            {{ trans("index." . Str::slug($registration->gender_text, '_')) }}
                         </span>
                     </td>
                     <td>{{ $registration->school }}</td>
@@ -54,7 +54,7 @@
                     <td>{{ $registration->city }}</td>
                     <td>
                         <span class="{{ "badge bg-" . Str::color($registration->type) }}">
-                            {{ trans("index.{$registration->type_text}") }}
+                            {{ trans("index." . Str::slug($registration->type_text, '_')) }}
                         </span>
                     </td>
                     <td>

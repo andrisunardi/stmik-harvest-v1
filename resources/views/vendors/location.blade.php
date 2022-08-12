@@ -26,7 +26,7 @@
                             $("#province").append($("<option>", {value:value.id, text:value.name}));
                         });
                         $("#city").empty();
-                        $("#city").append('<option value="">{{ trans("index.Select") }} {{ trans("index.City") }}</option>');
+                        $("#city").append('<option value="">{{ trans("index.Select") }} {{ trans("index.city") }}</option>');
                         $("#district").empty();
                         $("#district").append('<option value="">{{ trans("index.Select") }} {{ trans("index.District") }}</option>');
                         $("#village").empty();
@@ -37,7 +37,7 @@
                         $("#province").empty();
                         $("#province").append('<option value="">{{ trans("index.Select") }} {{ trans("index.Province") }}</option>');
                         $("#city").empty();
-                        $("#city").append('<option value="">{{ trans("index.Select") }} {{ trans("index.City") }}</option>');
+                        $("#city").append('<option value="">{{ trans("index.Select") }} {{ trans("index.city") }}</option>');
                         $("#district").empty();
                         $("#district").append('<option value="">{{ trans("index.Select") }} {{ trans("index.District") }}</option>');
                         $("#village").empty();
@@ -66,7 +66,7 @@
                     {
                         $("#city").empty();
                         $("#city").removeAttr("disabled");
-                        $("#city").append('<option value="">{{ trans("index.Select") }} {{ trans("index.City") }}</option>');
+                        $("#city").append('<option value="">{{ trans("index.Select") }} {{ trans("index.city") }}</option>');
                         $.each(result, function(key, value) {
                             $("#city").append($("<option>", {value:value.id, text:value.name}));
                         });
@@ -78,7 +78,7 @@
 
                     error: function(){
                         $("#city").empty();
-                        $("#city").append('<option value="">{{ trans("index.Select") }} {{ trans("index.City") }}</option>');
+                        $("#city").append('<option value="">{{ trans("index.Select") }} {{ trans("index.city") }}</option>');
                         $("#district").empty();
                         $("#district").append('<option value="">{{ trans("index.Select") }} {{ trans("index.District") }}</option>');
                         $("#village").empty();

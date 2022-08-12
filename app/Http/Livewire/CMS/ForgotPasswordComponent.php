@@ -27,7 +27,7 @@ class ForgotPasswordComponent extends Component
     public function mount()
     {
         if (Auth::guard($this->menu_table)->check()) {
-            Session::flash('success', trans('index.You already login'));
+            Session::flash('success', trans('index.you_already_login'));
 
             return redirect()->route("{$this->sub_domain}.index");
         }

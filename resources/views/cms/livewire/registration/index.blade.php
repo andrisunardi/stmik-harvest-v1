@@ -68,3 +68,43 @@
         </div>
     </div>
 </div>
+
+@push("script")
+    <script>
+        $("#per_page").on("change", function () {
+            @this.set("per_page", $(this).val())
+        })
+
+        $("#order_by").on("change", function () {
+            @this.set("order_by", $(this).val())
+        })
+
+        $("#sort_by").on("change", function () {
+            @this.set("sort_by", $(this).val())
+        })
+
+        $("#created_by").on("change", function () {
+            @this.set("created_by", $(this).val())
+        })
+
+        $("#updated_by").on("change", function () {
+            @this.set("updated_by", $(this).val())
+        })
+
+        $("#deleted_by").on("change", function () {
+            @this.set("deleted_by", $(this).val())
+        })
+
+        $("#gender").on("change", function () {
+            @this.set("gender", $(this).val())
+        })
+
+        $("#type").on("change", function () {
+            @this.set("type", $(this).val())
+        })
+
+        $("#active").on("change", function () {
+            @this.set("active", $(this).val())
+        })
+    </script>
+@endpush

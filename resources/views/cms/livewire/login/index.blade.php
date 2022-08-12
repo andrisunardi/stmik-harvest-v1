@@ -32,8 +32,7 @@
 
                 @include("{$sub_domain}.layouts.alert")
 
-                <form wire:submit.prevent="submit" enctype="multipart/form-data" class="was-validated-delete" method="post" role="form" action="{{ route("{$sub_domain}.{$menu_slug}.index") }}">
-                    @csrf
+                <form wire:submit.prevent="submit" role="form">
 
                     @php $input = "username" @endphp
                     <div class="form-group">
