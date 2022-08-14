@@ -7,7 +7,7 @@
                 <th>{{ trans("index.id") }}</th>
                 <th>{{ trans("index.name") }}</th>
                 <th>{{ trans("index.active") }}</th>
-                <th>{{ trans("index.total") }} {{ trans("index.Access Menu") }}</th>
+                <th>{{ trans("index.total") }} {{ trans("index.access_menu") }}</th>
                 <th>{{ trans("index.created_by") }}</th>
                 <th>{{ trans("index.updated_by") }}</th>
                 @if ($menu_type == "trash")
@@ -70,17 +70,10 @@
                     @endif
                     <td>
                         @if ($menu_type == "index")
-                            @if ($access->active)
-                                <button class="btn btn-creative btn-sm btn-danger" wire:click="nonActive({{ $access->id }})">
-                                    <i class="bi bi-x-circle-fill me-1"></i>
-                                    {{ trans("index.non_active") }}
-                                </button>
-                            @else
-                                <button class="btn btn-creative btn-sm btn-success" wire:click="active({{ $access->id }})">
-                                    <i class="bi bi-check-circle-fill me-1"></i>
-                                    {{ trans("index.active") }}
-                                </button>
-                            @endif
+                            <button class="btn btn-creative btn-sm btn-{{ $access->active ? "danger" : "success" }}" wire:click="active({{ $access->id }})">
+                                <i class="bi bi-{{ $access->active ? "x" : "check" }}-circle-fill me-1"></i>
+                                {{ $access->active ? trans("index.non_active") : trans("index.active") }}
+                            </button>
 
                             <button class="btn btn-creative btn-sm btn-dark" wire:click="view({{ $access->id }})">
                                 <i class="bi bi-eye me-1"></i>

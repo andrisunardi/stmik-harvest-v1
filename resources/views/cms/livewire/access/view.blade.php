@@ -73,6 +73,7 @@
             {{ $access->updated_at->format("H:i:s - l, d F Y") }} <br class="d-md-none"> ({{ $access->updated_at->diffForHumans() }})
         </div>
     </div>
+
     @if ($access->trashed())
         <div class="row my-2">
             <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
@@ -83,6 +84,7 @@
             </div>
         </div>
     @endif
+
     <div class="row my-2">
         @if ($access->trashed())
             <div class="col-12 col-sm-auto mt-3 mt-sm-0">
@@ -95,7 +97,7 @@
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h6 class="modal-title" id="restore-{{ $access->id }}">{{ trans("index.restore") }} - {{ trans("index." . Str::slug($menu_name, "_")) }}</h6>
+                                <h6 class="modal-title">{{ trans("index.restore") }} - {{ trans("index." . Str::slug($menu_name, "_")) }}</h6>
                                 <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="{{ trans("index.close") }}"></button>
                             </div>
                             <div class="modal-body">
@@ -115,6 +117,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="col-12 col-sm-auto mt-3 mt-sm-0">
                 <button class="btn btn-creative btn-sm btn-danger w-100" type="button" data-bs-toggle="modal" data-bs-target="#delete-permanent-{{ $access->id }}">
                     <i class="bi bi-trash2 me-1"></i>
@@ -125,7 +128,7 @@
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h6 class="modal-title" id="delete-permanent-{{ $access->id }}">{{ trans("index.delete_permanent") }} - {{ trans("index." . Str::slug($menu_name, "_")) }}</h6>
+                                <h6 class="modal-title">{{ trans("index.delete_permanent") }} - {{ trans("index." . Str::slug($menu_name, "_")) }}</h6>
                                 <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="{{ trans("index.close") }}"></button>
                             </div>
                             <div class="modal-body">
@@ -155,7 +158,7 @@
                 </button>
             </div>
             <div class="col-6 col-sm-auto">
-                <button class="btn btn-creative btn-sm btn-danger w-100" wire:click="nonActive({{ $access->id }})">
+                <button class="btn btn-creative btn-sm btn-danger w-100" wire:click="active({{ $access->id }})">
                     <i class="bi bi-x-circle-fill me-1"></i>
                     {{ trans("index.non_active") }}
                 </button>

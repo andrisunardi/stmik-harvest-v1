@@ -1,6 +1,5 @@
 <div>
-    <form wire:submit.prevent="submit" enctype="multipart/form-data" class="was-validated-delete" method="post" role="form" action="{{ route("{$sub_domain}.{$menu_slug}.index") }}">
-        @csrf
+    <form wire:submit.prevent="submit" role="form">
 
         <div class="row">
             @php $input = "name" @endphp
@@ -8,10 +7,7 @@
                 <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }} <span class="text-danger">*</span></label>
                 <div class="input-group has-validation">
                     <div class="input-group-text"><span class="bi bi-fonts"></span></div>
-                    <input wire:model="{{ $input }}" wire:keydown.enter="submit" id="{{ $input }}" name="{{ $input }}"
-                        type="text" class="form-control @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" minlength="1" maxlength="50" value="{{ old($input) }}"
-                        placeholder="{{ trans("validation.attributes.{$input}") }}" aria-label="{{ trans("validation.attributes.{$input}") }}" aria-describedby="{{ trans("validation.attributes.{$input}") }}"
-                        autocomplete="off" autocapitalize="none" required>
+                    <input wire:model="{{ $input }}" wire:keydown.enter="submit" id="{{ $input }}" type="text" class="form-control @if($errors->any()) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" minlength="1" maxlength="50" placeholder="{{ trans("validation.attributes.{$input}") }}" autocomplete="off" autocapitalize="none" required>
                     @error($input)
                         <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
                     @else
@@ -27,7 +23,7 @@
             <div class="col-sm-6">
                 <div class="single-plan-check {{ $active || $menu_type == "add" ? "active" : null }} shadow-sm active-effect">
                     <div class="form-check mb-0">
-                        <input wire:model="{{ $input }}" class="form-check-input" type="radio" name="{{ $input }}" id="active" value="1" required>
+                        <input wire:model="{{ $input }}" class="form-check-input" type="radio" id="active" value="1" required>
                         <label class="form-check-label" for="active">{{ trans("index.active") }}</label>
                     </div>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-check-circle-fill text-success" viewBox="0 0 16 16">
@@ -38,7 +34,7 @@
             <div class="col-sm-6 mt-3 mt-sm-0">
                 <div class="single-plan-check {{ is_null($input) && $menu_type != "add" ? "active" : null }} shadow-sm active-effect">
                     <div class="form-check mb-0">
-                        <input wire:model="{{ $input }}" class="form-check-input" type="radio" name="{{ $input }}" id="non-active" value="0" required>
+                        <input wire:model="{{ $input }}" class="form-check-input" type="radio" id="non-active" value="0" required>
                         <label class="form-check-label" for="non-active">{{ trans("index.non_active") }}</label>
                     </div>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-x-circle-fill text-danger" viewBox="0 0 16 16">

@@ -245,7 +245,6 @@ class AccessComponent extends Component
         $this->access->name = $this->name;
         $this->access->active = $this->active;
         $this->access->save();
-        Aksesoris::updateOrCreate(["id" => $this->aksesoris?->id], $this->validate());
 
         $this->menu_type_message = $this->menu_type == 'add' || $this->menu_type == 'edit' ? $this->menu_type.'ed' : $this->menu_type.'d';
         Session::flash('success', trans('index.'.Str::slug($this->menu_name, '_')).' '.trans("index.has been {$this->menu_type_message} successfully"));
@@ -282,7 +281,7 @@ class AccessComponent extends Component
         $this->access->delete();
         $this->access->refresh();
 
-        return Session::flash('success', trans('index.'.Str::slug($this->menu_name, '_')).' '.trans('index.has been deleted successfully'));
+        return Session::flash('success', trans('index.has_been', ['name' => trans('index.'.Str::slug($this->menu_name, '_')), 'result' => trans('index.deleted'), 'action' => trans('index.successfully')]));
     }
 
     public function restore($id)
