@@ -67,7 +67,7 @@
                         <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="{{ trans("index.close") }}"></button>
                     </div>
                     <div class="modal-body">
-                        <p class="mb-0">{{ trans("index.Are you sure you want to restore all") }}</p>
+                        <p class="mb-0">{{ trans("index.are_you_sure_you_want_to_restore_all") }}</p>
                     </div>
                     <div class="modal-footer justify-content-between">
                         <button class="btn btn-creative btn-sm btn-light" type="button" data-bs-dismiss="modal">
@@ -99,7 +99,7 @@
                     </div>
                     <div class="modal-body">
                         <p>{{ trans("index.are_you_sure_you_want_to_delete_permanent all") }}</p>
-                        <p>{{ trans("index.You cant undo this action or restore this data anymore") }}</p>
+                        <p>{{ trans("index.you_cant_undo_this_action_or_restore_this_data_anymore") }}</p>
                         <p class="mb-0">{{ trans("index.all_relation_data_and_files_will_be_deleted_forever_from_server") }}</p>
                     </div>
                     <div class="modal-footer justify-content-between">

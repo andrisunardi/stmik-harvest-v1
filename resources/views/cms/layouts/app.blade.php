@@ -423,7 +423,7 @@
         <div class="custom-container">
             <div class="card">
                 <div class="card-body px-5 text-center">
-                    <img draggable="false" class="mb-4" src="{{ asset("assets/{$sub_domain}/img/bg-img/39.png") }}" alt="{{ trans("index.Error") }} - {{ env("APP_TITLE") }}">
+                    <img draggable="false" class="mb-4" src="{{ asset("assets/{$sub_domain}/img/bg-img/39.png") }}" alt="{{ trans("index.error") }} - {{ env("APP_TITLE") }}">
                     <h4>@yield("code")<br>@yield("message")</h4>
                     <p class="mb-4">@yield("description")</p>
                     <a draggable="false" class="btn btn-creative btn-primary" href="{{ route("{$sub_domain}.index") }}">Back to Home</a>

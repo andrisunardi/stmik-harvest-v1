@@ -157,7 +157,7 @@ class BannerComponent extends Component
             $this->menu_type != 'view' &&
             $this->menu_type != 'trash'
         ) {
-            Session::flash('danger', trans('index.Menu Type').' '.trans('index.not_found_or_has_been_deleted'));
+            Session::flash('danger', trans('index.menu_type').' '.trans('index.not_found_or_has_been_deleted'));
 
             return redirect()->route("{$this->sub_domain}.{$this->menu_slug}.index");
         }

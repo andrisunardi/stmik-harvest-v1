@@ -176,7 +176,7 @@
                                         </div>
                                         <div class="modal-body text-wrap">
                                             <p>{{ trans("index.are_you_sure_you_want_to_delete_permanent") }} {{ trans("index." . Str::slug($menu_name, "_")) }}</p>
-                                            <p>{{ trans("index.You cant undo this action or restore this data anymore") }}</p>
+                                            <p>{{ trans("index.you_cant_undo_this_action_or_restore_this_data_anymore") }}</p>
                                             <p class="mb-0">{{ trans("index.all_relation_data_and_files_will_be_deleted_forever_from_server") }}</p>
                                         </div>
                                         <div class="modal-footer">

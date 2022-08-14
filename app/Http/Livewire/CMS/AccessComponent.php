@@ -49,17 +49,15 @@ class AccessComponent extends Component
 
     public $deleted_by_id = '';
 
-    public $active = '';
-
     public $row;
 
     public $checkbox_all;
 
     public $checkbox_id;
 
-    // public $access;
-
     public $name;
+
+    public $active = '';
 
     public $queryString = [
         'menu_type' => ['except' => 'index'],
@@ -76,10 +74,10 @@ class AccessComponent extends Component
         'end_updated_at' => ['except' => ''],
         'start_deleted_at' => ['except' => ''],
         'end_deleted_at' => ['except' => ''],
-        'active' => ['except' => ''],
         'row' => ['except' => ''],
 
         'name' => ['except' => ''],
+        'active' => ['except' => ''],
     ];
 
     public function resetFilter()
@@ -99,20 +97,20 @@ class AccessComponent extends Component
             'end_updated_at',
             'start_deleted_at',
             'end_deleted_at',
-            'active',
             'row',
         ]);
 
         $this->reset([
             'name',
+            'active',
         ]);
     }
 
     public function resetForm()
     {
         if ($this->access) {
-            $this->active = $this->access->active;
             $this->name = $this->access->name;
+            $this->active = $this->access->active;
         }
     }
 
@@ -143,7 +141,7 @@ class AccessComponent extends Component
             $this->menu_type != 'view' &&
             $this->menu_type != 'trash'
         ) {
-            Session::flash('danger', trans('index.Menu Type').' '.trans('index.not_found_or_has_been_deleted'));
+            Session::flash('danger', trans('index.menu_type').' '.trans('index.not_found_or_has_been_deleted'));
 
             return redirect()->route("{$this->sub_domain}.{$this->menu_slug}.index");
         }
@@ -228,8 +226,8 @@ class AccessComponent extends Component
         $id = $this->menu_type == 'edit' ? $this->access->id : null;
 
         return [
-            'active' => 'required',
             'name' => "required|max:50|unique:{$this->menu_table},name,{$id}",
+            'active' => 'required',
         ];
     }
 
@@ -244,9 +242,10 @@ class AccessComponent extends Component
             }
         }
 
-        $this->access->active = $this->active;
         $this->access->name = $this->name;
+        $this->access->active = $this->active;
         $this->access->save();
+        Aksesoris::updateOrCreate(["id" => $this->aksesoris?->id], $this->validate());
 
         $this->menu_type_message = $this->menu_type == 'add' || $this->menu_type == 'edit' ? $this->menu_type.'ed' : $this->menu_type.'d';
         Session::flash('success', trans('index.'.Str::slug($this->menu_name, '_')).' '.trans("index.has been {$this->menu_type_message} successfully"));
@@ -265,26 +264,11 @@ class AccessComponent extends Component
             return Session::flash('danger', trans('index.'.Str::slug($this->menu_name, '_')).' '.trans('index.not_found_or_has_been_deleted'));
         }
 
-        $this->access->active = true;
+        $this->access->active = !$this->access->active;
         $this->access->save();
         $this->access->refresh();
 
         return Session::flash('success', trans('index.'.Str::slug($this->menu_name, '_')).' '.trans('index.has been set active successfully'));
-    }
-
-    public function nonActive($id)
-    {
-        $this->access = Access::find($id);
-
-        if (! $this->access) {
-            return Session::flash('danger', trans('index.'.Str::slug($this->menu_name, '_')).' '.trans('index.not_found_or_has_been_deleted'));
-        }
-
-        $this->access->active = false;
-        $this->access->save();
-        $this->access->refresh();
-
-        return Session::flash('success', trans('index.'.Str::slug($this->menu_name, '_')).' '.trans('index.has been set non active successfully'));
     }
 
     public function delete($id)
@@ -375,40 +359,18 @@ class AccessComponent extends Component
     {
         if ($this->menu_type == 'index' || $this->menu_type == 'trash') {
             $data_access = Access::query()
-                ->when($this->created_by_id, function ($query) {
-                    $query->where('created_by_id', $this->created_by_id);
-                })
-                ->when($this->updated_by_id, function ($query) {
-                    $query->where('updated_by_id', $this->updated_by_id);
-                })
-                ->when($this->deleted_by_id, function ($query) {
-                    $query->where('deleted_by_id', $this->deleted_by_id);
-                })
-                ->when($this->start_created_at, function ($query) {
-                    $query->whereDate('created_at', '>=', $this->start_created_at);
-                })
-                ->when($this->end_created_at, function ($query) {
-                    $query->whereDate('created_at', '<=', $this->end_created_at);
-                })
-                ->when($this->start_updated_at, function ($query) {
-                    $query->whereDate('updated_at', '>=', $this->start_updated_at);
-                })
-                ->when($this->end_updated_at, function ($query) {
-                    $query->whereDate('updated_at', '<=', $this->end_updated_at);
-                })
-                ->when($this->start_deleted_at, function ($query) {
-                    $query->whereDate('deleted_at', '>=', $this->start_deleted_at);
-                })
-                ->when($this->end_deleted_at, function ($query) {
-                    $query->whereDate('deleted_at', '<=', $this->end_deleted_at);
-                })
-                ->when($this->active, function ($query) {
-                    $query->where('active', $this->active == 2 ? 0 : $this->active);
-                })
+                ->when($this->name, fn ($query) => $query->where('name', 'LIKE', "%{$this->name}%"))
+                ->when($this->active, fn ($query) => $query->where('active', $this->active))
 
-                ->when($this->name, function ($query) {
-                    $query->where('name', 'LIKE', "%{$this->name}%");
-                });
+                ->when($this->created_by_id, fn ($query) => $query->where('created_by_id', $this->created_by_id))
+                ->when($this->updated_by_id, fn ($query) => $query->where('updated_by_id', $this->updated_by_id))
+                ->when($this->deleted_by_id, fn ($query) => $query->where('deleted_by_id', $this->deleted_by_id))
+                ->when($this->start_created_at, fn ($query) => $query->whereDate('created_at', '>=', $this->start_created_at))
+                ->when($this->end_created_at, fn ($query) => $query->whereDate('created_at', '<=', $this->end_created_at))
+                ->when($this->start_updated_at, fn ($query) => $query->whereDate('updated_at', '>=', $this->start_updated_at))
+                ->when($this->end_updated_at, fn ($query) => $query->whereDate('updated_at', '<=', $this->end_updated_at))
+                ->when($this->start_deleted_at, fn ($query) => $query->whereDate('deleted_at', '>=', $this->start_deleted_at))
+                ->when($this->end_deleted_at, fn ($query) => $query->whereDate('deleted_at', '<=', $this->end_deleted_at));
 
             if ($this->created_by_id || $this->created_by_id == '0') {
                 $data_access->where('created_by_id', $this->created_by_id);
@@ -425,16 +387,16 @@ class AccessComponent extends Component
 
             if ($this->order_by == 'created_by_id') {
                 $data_access->join('admin', 'admin.id', "{$this->menu_table}.created_by")
-                        ->select("{$this->menu_table}.*", 'admin.name as admin_name')
-                        ->orderByRaw("admin_name {$this->sort_by}");
+                    ->select("{$this->menu_table}.*", 'admin.name as admin_name')
+                    ->orderByRaw("admin_name {$this->sort_by}");
             } elseif ($this->order_by == 'updated_by_id') {
                 $data_access->join('admin', 'admin.id', "{$this->menu_table}.updated_by")
-                        ->select("{$this->menu_table}.*", 'admin.name as admin_name')
-                        ->orderByRaw("admin_name {$this->sort_by}");
+                    ->select("{$this->menu_table}.*", 'admin.name as admin_name')
+                    ->orderByRaw("admin_name {$this->sort_by}");
             } elseif ($this->order_by == 'deleted_by_id') {
                 $data_access->join('admin', 'admin.id', "{$this->menu_table}.deleted_by")
-                        ->select("{$this->menu_table}.*", 'admin.name as admin_name')
-                        ->orderByRaw("admin_name {$this->sort_by}");
+                    ->select("{$this->menu_table}.*", 'admin.name as admin_name')
+                    ->orderByRaw("admin_name {$this->sort_by}");
             } else {
                 $data_access->orderBy($this->order_by ?? 'id', $this->sort_by ?? 'desc');
             }
