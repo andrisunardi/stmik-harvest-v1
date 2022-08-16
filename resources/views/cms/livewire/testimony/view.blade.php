@@ -17,7 +17,7 @@
                     <img draggable="false" width="100"
                         src="{{ $testimony->assetImage() }}"
                         alt="{{ trans("index." . Str::slug($menu_name, "_")) }} - {{ $testimony->translate_name }} - {{ env("APP_TITLE") }}"
-                        data-bs-toggle="tooltip" data-bs-placement="top" title="{{ trans("index.Click To View") }}">
+                        data-bs-toggle="tooltip" data-bs-placement="top" title="{{ trans("index.click_to_view") }}">
                 </a>
                 <div class="modal fade" id="image" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="image" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
@@ -31,7 +31,7 @@
                                     <img draggable="false" class="img-fluid w-100"
                                         src="{{ $testimony->assetImage() }}"
                                         alt="{{ trans("index." . Str::slug($menu_name, "_")) }} - {{ $testimony->translate_name }} - {{ env("APP_TITLE") }}"
-                                        data-bs-toggle="tooltip" data-bs-placement="top" title="{{ trans("index.Click To View") }}">
+                                        data-bs-toggle="tooltip" data-bs-placement="top" title="{{ trans("index.click_to_view") }}">
                                 </a>
                             </div>
                             <div class="modal-footer justify-content-between">
@@ -41,7 +41,7 @@
                                 </button>
                                 <a draggable="false" class="btn btn-creative btn-sm btn-primary" href="{{ $testimony->assetImage() }}" download>
                                     <i class="bi bi-download me-1"></i>
-                                    {{ trans("index.Download") }}
+                                    {{ trans("index.download") }}
                                 </a>
                             </div>
                         </div>
@@ -60,7 +60,7 @@
     </div>
     <div class="row my-2">
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <h6>{{ trans("index.Description") }}</h6>
+            <h6>{{ trans("index.description") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             {!! html_entity_decode($testimony->description) !!}

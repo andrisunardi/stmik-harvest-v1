@@ -21,9 +21,9 @@
                 <option value="category">{{ trans("index.category") }}</option>
                 <option value="name" {{ "name" == $order_by ? "selected" : null }}>{{ trans("validation.attributes.name") }}</option>
                 <option value="name_id">{{ trans("index.name_id") }}</option>
-                <option value="description">{{ trans("index.Description") }}</option>
-                <option value="description_id">{{ trans("index.Description ID") }}</option>
-                <option value="youtube">{{ trans("index.Youtube") }}</option>
+                <option value="description">{{ trans("index.description") }}</option>
+                <option value="description_id">{{ trans("index.description_id") }}</option>
+                <option value="youtube">{{ trans("index.youtube") }}</option>
                 <option value="active" {{ "active" == $order_by ? "selected" : null }}>{{ trans("validation.attributes.active") }}</option>
                 <option value="created_by_id" {{ "created_by_id" == $order_by ? "selected" : null }}>{{ trans("validation.attributes.created_by_id") }}</option>
                 <option value="updated_by_id" {{ "updated_by_id" == $order_by ? "selected" : null }}>{{ trans("validation.attributes.updated_by_id") }}</option>
@@ -161,7 +161,7 @@
                 <option value="">{{ trans("index.all") }}</option>
                 <option value="1">{{ trans("index.image") }}</option>
                 <option value="2">{{ trans("index.video") }}</option>
-                <option value="3">{{ trans("index.Youtube") }}</option>
+                <option value="3">{{ trans("index.youtube") }}</option>
             </select>
         </div>
     </div>

@@ -88,7 +88,7 @@
                         <option value="">{{ trans("index.select") }} {{ trans("validation.attributes.{$input}") }}</option>
                         <option value="1">{{ trans("index.image") }}</option>
                         <option value="2">{{ trans("index.video") }}</option>
-                        <option value="3">{{ trans("index.Youtube") }}</option>
+                        <option value="3">{{ trans("index.youtube") }}</option>
                     </select>
                     <a draggable="false" href="javascript:;" class="btn btn-info" wire:click="getData{{ Str::studly($input) }}">
                         <i class="fas fa-sync fa-spin"></i>
@@ -130,7 +130,7 @@
                             <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
                             <path d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z"/>
                         </svg>
-                        <h4 class="text-white mt-3">{{ trans("index.Uploading") }}</h4>
+                        <h4 class="text-white mt-3">{{ trans("index.uploading") }}</h4>
                         <p class="text-white mb-0">{{ trans("index.Please wait until the uploading finished") }}</p>
                     </div>
                 </div>
@@ -142,7 +142,7 @@
                         <path d="M9.5 3V0L14 4.5h-3A1.5 1.5 0 0 1 9.5 3z"></path>
                         <path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V7.707l1.146 1.147a.5.5 0 0 0 .708-.708l-2-2a.5.5 0 0 0-.708 0l-2 2a.5.5 0 1 0 .708.708L7.5 7.707V11.5a.5.5 0 0 0 .5.5z"></path>
                     </svg>
-                    <h5 class="mt-2 mb-4">{{ trans("index.Upload your images") }}</h5>
+                    <h5 class="mt-2 mb-4">{{ trans("index.upload_your_images") }}</h5>
                     <div class="form-file">
                         <input wire:model="{{ $input }}" wire:keydown.enter="submit" id="customFile" name="{{ $input }}"
                             type="file" class="form-control d-none @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" minlength="1" maxlength="50" value="{{ old($input) }}"
@@ -150,7 +150,7 @@
                             accept="image/*;capture=camera image/jpg,image/jpeg,image/png,image/gif,image/"
                             autocomplete="off" autocapitalize="none" required>
                         <label class="form-file-label justify-content-center" for="customFile">
-                            <span class="form-file-button btn btn-primary shadow w-100">{{ trans("index.Upload Image") }}</span>
+                            <span class="form-file-button btn btn-primary shadow w-100">{{ trans("index.upload_image") }}</span>
                         </label>
                         @error($input)
                             <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
@@ -158,21 +158,21 @@
                             <div class="valid-feedback rounded bg-success p-2 ms-0 mt-2 text-white">{{ trans("validation.success") }}</div>
                         @enderror
                     </div>
-                    <h6 class="mt-4 mb-0">{{ trans("index.Supported images and max size") }}</h6>
+                    <h6 class="mt-4 mb-0">{{ trans("index.supported_images_and_max_size") }}</h6>
                     <small>.jpg .jpeg .png .gif .webp, 1 GB</small>
                 </div>
             </div>
 
             @php $input = "preview_image" @endphp
             <div class="form-group col-sm-6">
-                <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
+                <label class="form-label" for="{{ $input }}">{{ trans("index.{$input}") }}</label>
                 <br>
                 @if ($image)
                     <a draggable="false" href="#image" data-bs-toggle="modal">
                         <img draggable="false" class="img-fluid img-thumbnail rounded w-100 h-auto"
                             src="{{ $image->temporaryUrl() }}"
                             alt="{{ trans("index.temporary_url") }}"
-                            data-bs-toggle="tooltip" data-bs-placement="top" title="{{ trans("index.Click To View") }}">
+                            data-bs-toggle="tooltip" data-bs-placement="top" title="{{ trans("index.click_to_view") }}">
                     </a>
                     <div class="modal fade" id="image" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="image" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
@@ -186,7 +186,7 @@
                                         <img draggable="false" class="img-fluid w-100"
                                             src="{{ $image->temporaryUrl() }}"
                                             alt="{{ trans("index.temporary_url") }}"
-                                            data-bs-toggle="tooltip" data-bs-placement="top" title="{{ trans("index.Click To View") }}">
+                                            data-bs-toggle="tooltip" data-bs-placement="top" title="{{ trans("index.click_to_view") }}">
                                     </a>
                                 </div>
                                 <div class="modal-footer justify-content-between">
@@ -196,7 +196,7 @@
                                     </button>
                                     <a draggable="false" class="btn btn-creative btn-sm btn-primary" href="{{ $image->temporaryUrl() }}" download>
                                         <i class="bi bi-download me-1"></i>
-                                        {{ trans("index.Download") }}
+                                        {{ trans("index.download") }}
                                     </a>
                                 </div>
                             </div>
@@ -209,7 +209,7 @@
                                 <img draggable="false" class="img-fluid img-thumbnail rounded w-100 h-auto"
                                     src="{{ $gallery->assetImage() }}"
                                     alt="{{ trans("index." . Str::slug($menu_name, "_")) }} - {{ $gallery->translate_name }} - {{ env("APP_TITLE") }}"
-                                    data-bs-toggle="tooltip" data-bs-placement="top" title="{{ trans("index.Click To View") }}">
+                                    data-bs-toggle="tooltip" data-bs-placement="top" title="{{ trans("index.click_to_view") }}">
                             </a>
                             <div class="modal fade" id="image" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="image" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered">
@@ -223,7 +223,7 @@
                                                 <img draggable="false" class="img-fluid w-100"
                                                     src="{{ $gallery->assetImage() }}"
                                                     alt="{{ trans("index." . Str::slug($menu_name, "_")) }} - {{ $gallery->translate_name }} - {{ env("APP_TITLE") }}"
-                                                    data-bs-toggle="tooltip" data-bs-placement="top" title="{{ trans("index.Click To View") }}">
+                                                    data-bs-toggle="tooltip" data-bs-placement="top" title="{{ trans("index.click_to_view") }}">
                                             </a>
                                         </div>
                                         <div class="modal-footer justify-content-between">
@@ -233,7 +233,7 @@
                                             </button>
                                             <a draggable="false" class="btn btn-creative btn-sm btn-primary" href="{{ $gallery->assetImage() }}" download>
                                                 <i class="bi bi-download me-1"></i>
-                                                {{ trans("index.Download") }}
+                                                {{ trans("index.download") }}
                                             </a>
                                         </div>
                                     </div>
@@ -255,7 +255,7 @@
                                 <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
                                 <path d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z"/>
                             </svg>
-                            <h4 class="text-white mt-3">{{ trans("index.Uploading") }}</h4>
+                            <h4 class="text-white mt-3">{{ trans("index.uploading") }}</h4>
                             <p class="text-white mb-0">{{ trans("index.Please wait until the uploading finished") }}</p>
                         </div>
                     </div>
@@ -273,13 +273,13 @@
                             <div class="valid-feedback rounded bg-success p-2 ms-0 mt-2 text-white">{{ trans("validation.success") }}</div>
                         @enderror
                     </div>
-                    <h6 class="mt-3 mb-0">{{ trans("index.Supported images and max size") }}</h6>
+                    <h6 class="mt-3 mb-0">{{ trans("index.supported_images_and_max_size") }}</h6>
                     <small>.mp4, 1 GB</small>
                 </div>
 
                 @php $input = "preview_video" @endphp
                 <div class="form-group col-sm-6">
-                    <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
+                    <label class="form-label" for="{{ $input }}">{{ trans("index.{$input}") }}</label>
                     <br>
                     @if ($video)
                         <video src="{{ $video->temporaryUrl() }}" width="100%" height="100%" controls controlsList="noplaybackrate nodownload">

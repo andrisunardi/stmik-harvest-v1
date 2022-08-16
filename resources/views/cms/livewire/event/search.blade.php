@@ -21,11 +21,11 @@
                 <option value="event_category_id">{{ trans("index.Event Category") }}</option>
                 <option value="name" {{ "name" == $order_by ? "selected" : null }}>{{ trans("validation.attributes.name") }}</option>
                 <option value="name_id">{{ trans("index.name_id") }}</option>
-                <option value="description">{{ trans("index.Description") }}</option>
-                <option value="description_id">{{ trans("index.Description ID") }}</option>
+                <option value="description">{{ trans("index.description") }}</option>
+                <option value="description_id">{{ trans("index.description_id") }}</option>
                 <option value="location">{{ trans("index.location") }}</option>
-                <option value="start">{{ trans("index.Start") }}</option>
-                <option value="end">{{ trans("index.End") }}</option>
+                <option value="start">{{ trans("index.start") }}</option>
+                <option value="end">{{ trans("index.end") }}</option>
                 <option value="tag">{{ trans("index.tag") }}</option>
                 <option value="tag_id">{{ trans("index.tag_id") }}</option>
                 <option value="active" {{ "active" == $order_by ? "selected" : null }}>{{ trans("validation.attributes.active") }}</option>

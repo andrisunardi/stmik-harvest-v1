@@ -40,7 +40,7 @@
                                 <img draggable="false" width="100"
                                     src="{{ $gallery->assetImage() }}"
                                     alt="{{ trans("index." . Str::slug($menu_name, "_")) }} - {{ $gallery->translate_name }} - {{ env("APP_TITLE") }}"
-                                    data-bs-toggle="tooltip" data-bs-placement="top" title="{{ trans("index.Click To View") }}">
+                                    data-bs-toggle="tooltip" data-bs-placement="top" title="{{ trans("index.click_to_view") }}">
                             </a>
                             <div class="modal fade" id="image-{{ $gallery->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="image-{{ $gallery->id }}" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered">
@@ -54,7 +54,7 @@
                                                 <img draggable="false" class="img-fluid w-100"
                                                     src="{{ $gallery->assetImage() }}"
                                                     alt="{{ trans("index." . Str::slug($menu_name, "_")) }} - {{ $gallery->translate_name }} - {{ env("APP_TITLE") }}"
-                                                    data-bs-toggle="tooltip" data-bs-placement="top" title="{{ trans("index.Click To View") }}">
+                                                    data-bs-toggle="tooltip" data-bs-placement="top" title="{{ trans("index.click_to_view") }}">
                                             </a>
                                         </div>
                                         <div class="modal-footer justify-content-between">
@@ -64,7 +64,7 @@
                                             </button>
                                             <a draggable="false" class="btn btn-creative btn-sm btn-primary" href="{{ $gallery->assetImage() }}" download>
                                                 <i class="bi bi-download me-1"></i>
-                                                {{ trans("index.Download") }}
+                                                {{ trans("index.download") }}
                                             </a>
                                         </div>
                                     </div>
@@ -74,7 +74,7 @@
                     </td>
                     <td>
                         <span class="{{ "badge bg-" . Str::color($gallery->category) }}">
-                            {{ trans("index.{$gallery->category_text}") }}
+                            {{ trans("index." . Str::slug($gallery->category_text, '_')) }}
                         </span>
                     </td>
                     <td>

@@ -193,47 +193,26 @@ class BannerComponent extends Component
         $this->menu_type = 'index';
     }
 
-    public function add()
+    public function form($menu_type, $id)
     {
         $this->resetFilter();
         $this->resetErrorBag();
 
-        $this->menu_type = 'add';
         $this->active = true;
-    }
+        $this->date = now()->format('Y-m-d');
 
-    public function clone($id)
-    {
-        $this->resetFilter();
-        $this->resetErrorBag();
+        if ($menu_type != 'add' && $id) {
+            $this->banner = Banner::find($id);
 
-        $this->menu_type = 'clone';
-        $this->row = $id;
+            if (! $this->banner) {
+                return Session::flash('danger', trans('index.'.Str::slug($this->menu_name, '_')).' '.trans('index.not_found_or_has_been_deleted'));
+            }
 
-        $this->banner = Banner::find($id);
-
-        if (! $this->banner) {
-            return Session::flash('danger', trans('index.'.Str::slug($this->menu_name, '_')).' '.trans('index.not_found_or_has_been_deleted'));
+            $this->resetForm();
         }
 
-        $this->resetForm();
-    }
-
-    public function edit($id)
-    {
-        $this->resetFilter();
-        $this->resetErrorBag();
-
-        $this->menu_type = 'edit';
+        $this->menu_type = $menu_type;
         $this->row = $id;
-
-        $this->banner = Banner::find($id);
-
-        if (! $this->banner) {
-            return Session::flash('danger', trans('index.'.Str::slug($this->menu_name, '_')).' '.trans('index.not_found_or_has_been_deleted'));
-        }
-
-        $this->resetForm();
     }
 
     public function view($id)
