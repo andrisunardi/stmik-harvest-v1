@@ -23,7 +23,7 @@
                 <option value="name_id">{{ trans("index.name_id") }}</option>
                 <option value="description">{{ trans("index.Description") }}</option>
                 <option value="description_id">{{ trans("index.Description ID") }}</option>
-                <option value="location">{{ trans("index.Location") }}</option>
+                <option value="location">{{ trans("index.location") }}</option>
                 <option value="start">{{ trans("index.Start") }}</option>
                 <option value="end">{{ trans("index.End") }}</option>
                 <option value="tag">{{ trans("index.tag") }}</option>

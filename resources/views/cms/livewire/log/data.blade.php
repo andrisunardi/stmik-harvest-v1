@@ -7,7 +7,7 @@
                 <th>{{ trans("index.id") }}</th>
                 <th>{{ trans("index.admin") }}</th>
                 <th>{{ trans("index.menu") }}</th>
-                <th>{{ trans("index.Row") }}</th>
+                <th>{{ trans("index.row") }}</th>
                 <th>{{ trans("index.activity") }}</th>
                 <th>{{ trans("index.active") }}</th>
                 <th>{{ trans("index.created_by") }}</th>

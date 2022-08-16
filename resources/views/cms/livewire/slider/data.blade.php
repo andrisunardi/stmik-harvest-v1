@@ -8,9 +8,9 @@
                 <th>{{ trans("index.image") }}</th>
                 <th>{{ trans("index.name") }}</th>
                 <th>{{ trans("index.name_id") }}</th>
-                <th>{{ trans("index.Button Name") }}</th>
-                <th>{{ trans("index.Button Name ID") }}</th>
-                <th>{{ trans("index.Button Link") }}</th>
+                <th>{{ trans("index.button_name") }}</th>
+                <th>{{ trans("index.button_name_id") }}</th>
+                <th>{{ trans("index.button_link") }}</th>
                 <th>{{ trans("index.active") }}</th>
                 <th>{{ trans("index.created_by") }}</th>
                 <th>{{ trans("index.updated_by") }}</th>

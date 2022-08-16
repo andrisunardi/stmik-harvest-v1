@@ -22,9 +22,9 @@
                 <option value="name_id">{{ trans("index.name_id") }}</option>
                 <option value="description">{{ trans("index.Description") }}</option>
                 <option value="description_id">{{ trans("index.Description ID") }}</option>
-                <option value="button_name">{{ trans("index.Button Name") }}</option>
-                <option value="button_name_id">{{ trans("index.Button Name ID") }}</option>
-                <option value="button_link">{{ trans("index.Button Link") }}</option>
+                <option value="button_name">{{ trans("index.button_name") }}</option>
+                <option value="button_name_id">{{ trans("index.button_name_id") }}</option>
+                <option value="button_link">{{ trans("index.button_link") }}</option>
                 <option value="active" {{ "active" == $order_by ? "selected" : null }}>{{ trans("validation.attributes.active") }}</option>
                 <option value="created_by_id" {{ "created_by_id" == $order_by ? "selected" : null }}>{{ trans("validation.attributes.created_by_id") }}</option>
                 <option value="updated_by_id" {{ "updated_by_id" == $order_by ? "selected" : null }}>{{ trans("validation.attributes.updated_by_id") }}</option>

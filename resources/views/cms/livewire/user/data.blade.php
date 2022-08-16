@@ -8,7 +8,6 @@
                 <th>{{ trans("index.name") }}</th>
                 <th>{{ trans("index.email") }}</th>
                 <th>{{ trans("index.active") }}</th>
-                <th>{{ trans("index.total") }} {{ trans("index.Repository") }}</th>
                 <th>{{ trans("index.created_by") }}</th>
                 <th>{{ trans("index.updated_by") }}</th>
                 @if ($menu_type == "trash")
@@ -42,11 +41,6 @@
                         <span class="{{ "badge bg-" . Str::successdanger($user->active) }}">
                             {{ trans("index." . Str::slug(Str::active($user->active), '_')) }}
                         </span>
-                    </td>
-                    <td class="text-center">
-                        <button type="button" class="btn btn-link text-decoration-none" wire:click="view({{ $user->id }})">
-                            {{ $user->data_repository->count() }}
-                        </button>
                     </td>
                     <td>
                         <a draggable="false" href="{{ $user->created_by_admin->id || $user->created_by?->id == 0 ? route("{$sub_domain}.{$menu_slug}.index") . "?menu_type=view&row={$user->created_by?->id}" : null }}" target="_blank">

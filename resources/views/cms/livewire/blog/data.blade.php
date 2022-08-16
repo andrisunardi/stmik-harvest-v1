@@ -6,7 +6,7 @@
                 <th>{{ trans("index.#") }}</th>
                 <th>{{ trans("index.id") }}</th>
                 <th>{{ trans("index.image") }}</th>
-                <th>{{ trans("index.news_category") }}</th>
+                <th>{{ trans("index.blog_category") }}</th>
                 <th>{{ trans("index.name") }}</th>
                 <th>{{ trans("index.name_id") }}</th>
                 <th>{{ trans("index.date") }}</th>

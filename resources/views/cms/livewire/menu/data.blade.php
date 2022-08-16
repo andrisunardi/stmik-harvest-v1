@@ -5,11 +5,11 @@
                 <th><input class="form-check-input" type="checkbox" wire:model="checkbox_all"></th>
                 <th>{{ trans("index.#") }}</th>
                 <th>{{ trans("index.id") }}</th>
-                <th>{{ trans("index.Menu Category") }}</th>
+                <th>{{ trans("index.menu_category") }}</th>
                 <th>{{ trans("index.name") }}</th>
                 <th>{{ trans("index.name_id") }}</th>
-                <th>{{ trans("index.Icon") }}</th>
-                <th>{{ trans("index.Sort") }}</th>
+                <th>{{ trans("index.icon") }}</th>
+                <th>{{ trans("index.sort") }}</th>
                 <th>{{ trans("index.active") }}</th>
                 <th>{{ trans("index.created_by") }}</th>
                 <th>{{ trans("index.updated_by") }}</th>

@@ -95,6 +95,10 @@
             @this.set("deleted_by", $(this).val())
         })
 
+        $("#access_id").on("change", function () {
+            @this.set("access_id", $(this).val())
+        })
+
         $("#active").on("change", function () {
             @this.set("active", $(this).val())
         })

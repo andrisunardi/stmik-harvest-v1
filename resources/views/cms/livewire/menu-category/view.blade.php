@@ -25,7 +25,7 @@
     </div>
     <div class="row my-2">
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <h6>{{ trans("index.Icon") }}</h6>
+            <h6>{{ trans("index.icon") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             <i class="{{ $menu_category->icon }}"></i> ({{ $menu_category->icon }})
@@ -33,7 +33,7 @@
     </div>
     <div class="row my-2">
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <h6>{{ trans("index.Sort") }}</h6>
+            <h6>{{ trans("index.sort") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             {{ $menu_category->sort }}

@@ -95,12 +95,12 @@
             @this.set("deleted_by", $(this).val())
         })
 
-        $("#active").on("change", function () {
-            @this.set("active", $(this).val())
-        })
-
         $("#blog_category").on("change", function () {
             @this.set("blog_category", $(this).val())
+        })
+
+        $("#active").on("change", function () {
+            @this.set("active", $(this).val())
         })
     </script>
 @endpush

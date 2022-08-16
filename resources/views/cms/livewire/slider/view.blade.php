@@ -84,7 +84,7 @@
     </div>
     <div class="row my-2">
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <h6>{{ trans("index.Button Name") }}</h6>
+            <h6>{{ trans("index.button_name") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             {{ $slider->button_name }}
@@ -92,7 +92,7 @@
     </div>
     <div class="row my-2">
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <h6>{{ trans("index.Button Name ID") }}</h6>
+            <h6>{{ trans("index.button_name_id") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             {{ $slider->button_name_id }}
@@ -100,7 +100,7 @@
     </div>
     <div class="row my-2">
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <h6>{{ trans("index.Button Link") }}</h6>
+            <h6>{{ trans("index.button_link") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             <a draggable="false" href="{{ $slider->button_link }}" target="_blank">{{ $slider->button_link }}</a>

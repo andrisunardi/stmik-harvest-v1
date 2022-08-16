@@ -5,21 +5,21 @@
                 <th><input class="form-check-input" type="checkbox" wire:model="checkbox_all"></th>
                 <th>{{ trans("index.#") }}</th>
                 <th>{{ trans("index.id") }}</th>
-                <th>{{ trans("index.SMS") }}</th>
-                <th>{{ trans("index.Call") }}</th>
-                <th>{{ trans("index.Fax") }}</th>
+                <th>{{ trans("index.sms") }}</th>
+                <th>{{ trans("index.call") }}</th>
+                <th>{{ trans("index.fax") }}</th>
                 <th>{{ trans("index.email") }}</th>
-                <th>{{ trans("index.Address") }}</th>
-                <th>{{ trans("index.Google Maps") }}</th>
-                <th>{{ trans("index.Google Maps Iframe") }}</th>
+                <th>{{ trans("index.address") }}</th>
+                <th>{{ trans("index.google_maps") }}</th>
+                <th>{{ trans("index.google_maps_iframe") }}</th>
                 <th>{{ trans("index.about_us") }}</th>
-                <th>{{ trans("index.About Us ID") }}</th>
-                <th>{{ trans("index.Vision") }}</th>
-                <th>{{ trans("index.Vision ID") }}</th>
-                <th>{{ trans("index.Mission") }}</th>
-                <th>{{ trans("index.Mission ID") }}</th>
+                <th>{{ trans("index.about_us_id") }}</th>
+                <th>{{ trans("index.vision") }}</th>
+                <th>{{ trans("index.vision_id") }}</th>
+                <th>{{ trans("index.mission") }}</th>
+                <th>{{ trans("index.mission_id") }}</th>
                 <th>{{ trans("index.history") }}</th>
-                <th>{{ trans("index.History ID") }}</th>
+                <th>{{ trans("index.history_id") }}</th>
                 <th>{{ trans("index.active") }}</th>
                 <th>{{ trans("index.created_by") }}</th>
                 <th>{{ trans("index.updated_by") }}</th>

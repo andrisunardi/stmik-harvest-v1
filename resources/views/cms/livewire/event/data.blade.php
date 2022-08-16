@@ -6,12 +6,12 @@
                 <th>{{ trans("index.#") }}</th>
                 <th>{{ trans("index.id") }}</th>
                 <th>{{ trans("index.image") }}</th>
-                <th>{{ trans("index.Event Category") }}</th>
+                <th>{{ trans("index.event_category") }}</th>
                 <th>{{ trans("index.name") }}</th>
                 <th>{{ trans("index.name_id") }}</th>
-                <th>{{ trans("index.Location") }}</th>
-                <th>{{ trans("index.Start Date") }}</th>
-                <th>{{ trans("index.End Date") }}</th>
+                <th>{{ trans("index.location") }}</th>
+                <th>{{ trans("index.start_date") }}</th>
+                <th>{{ trans("index.end_date") }}</th>
                 <th>{{ trans("index.tag") }}</th>
                 <th>{{ trans("index.tag_id") }}</th>
                 <th>{{ trans("index.active") }}</th>
