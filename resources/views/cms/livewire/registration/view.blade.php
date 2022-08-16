@@ -37,7 +37,7 @@
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             <span class="{{ "badge bg-" . Str::color($registration->gender) }}">
-                {{ trans("index.{$registration->gender_text}") }}
+                {{ trans("index." . Str::slug($registration->gender_text, '_')) }}
             </span>
         </div>
     </div>
@@ -71,7 +71,7 @@
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             <span class="{{ "badge bg-" . Str::color($registration->type) }}">
-                {{ trans("index.{$registration->type_text}") }}
+                {{ trans("index." . Str::slug($registration->type_text, '_')) }}
             </span>
         </div>
     </div>
