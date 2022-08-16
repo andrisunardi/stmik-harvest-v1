@@ -21,8 +21,8 @@
                 <option value="name" {{ "name" == $order_by ? "selected" : null }}>{{ trans("validation.attributes.name") }}</option>
                 <option value="phone">{{ trans("index.phone") }}</option>
                 <option value="email">{{ trans("index.email") }}</option>
-                <option value="company">{{ trans("index.Company") }}</option>
-                <option value="message">{{ trans("index.Message") }}</option>
+                <option value="company">{{ trans("index.company") }}</option>
+                <option value="message">{{ trans("index.message") }}</option>
                 <option value="active" {{ "active" == $order_by ? "selected" : null }}>{{ trans("validation.attributes.active") }}</option>
                 <option value="created_by_id" {{ "created_by_id" == $order_by ? "selected" : null }}>{{ trans("validation.attributes.created_by_id") }}</option>
                 <option value="updated_by_id" {{ "updated_by_id" == $order_by ? "selected" : null }}>{{ trans("validation.attributes.updated_by_id") }}</option>

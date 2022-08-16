@@ -8,8 +8,8 @@
                 <th>{{ trans("index.name") }}</th>
                 <th>{{ trans("index.phone") }}</th>
                 <th>{{ trans("index.email") }}</th>
-                <th>{{ trans("index.Company") }}</th>
-                <th>{{ trans("index.Message") }}</th>
+                <th>{{ trans("index.company") }}</th>
+                <th>{{ trans("index.message") }}</th>
                 <th>{{ trans("index.active") }}</th>
                 <th>{{ trans("index.created_by") }}</th>
                 <th>{{ trans("index.updated_by") }}</th>

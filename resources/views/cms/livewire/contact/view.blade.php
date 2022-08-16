@@ -33,7 +33,7 @@
     </div>
     <div class="row my-2">
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <h6>{{ trans("index.Company") }}</h6>
+            <h6>{{ trans("index.company") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             {{ $contact->company }}
@@ -41,7 +41,7 @@
     </div>
     <div class="row my-2">
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <h6>{{ trans("index.Message") }}</h6>
+            <h6>{{ trans("index.message") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             {!! html_entity_decode($contact->message) !!}
