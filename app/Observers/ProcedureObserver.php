@@ -67,14 +67,12 @@ class ProcedureObserver
     public function restoring(Procedure $procedure)
     {
         $procedure->deleted_by_id = null;
+        $procedure->save();
     }
 
     public function restored(Procedure $procedure)
     {
         $menu = Menu::where('name', $this->name)->first();
-
-        $procedure->deleted_by_id = null;
-        $procedure->save();
 
         $log = new Log();
         $log->admin_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;

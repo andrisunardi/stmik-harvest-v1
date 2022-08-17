@@ -67,14 +67,12 @@ class AccessMenuObserver
     public function restoring(AccessMenu $access_menu)
     {
         $access_menu->deleted_by_id = null;
+        $access_menu->save();
     }
 
     public function restored(AccessMenu $access_menu)
     {
         $menu = Menu::where('name', $this->name)->first();
-
-        $access_menu->deleted_by_id = null;
-        $access_menu->save();
 
         $log = new Log();
         $log->admin_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;

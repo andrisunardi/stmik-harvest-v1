@@ -67,14 +67,12 @@ class AdmissionCalendarObserver
     public function restoring(AdmissionCalendar $admission_calendar)
     {
         $admission_calendar->deleted_by_id = null;
+        $admission_calendar->save();
     }
 
     public function restored(AdmissionCalendar $admission_calendar)
     {
         $menu = Menu::where('name', $this->name)->first();
-
-        $admission_calendar->deleted_by_id = null;
-        $admission_calendar->save();
 
         $log = new Log();
         $log->admin_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;

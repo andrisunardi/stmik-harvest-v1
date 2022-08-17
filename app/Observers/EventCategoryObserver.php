@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class EventCategoryObserver
 {
-    protected $name = 'Event Category';
+    protected $name = 'EventCategory';
 
     public function creating(EventCategory $event_category)
     {
@@ -67,14 +67,12 @@ class EventCategoryObserver
     public function restoring(EventCategory $event_category)
     {
         $event_category->deleted_by_id = null;
+        $event_category->save();
     }
 
     public function restored(EventCategory $event_category)
     {
         $menu = Menu::where('name', $this->name)->first();
-
-        $event_category->deleted_by_id = null;
-        $event_category->save();
 
         $log = new Log();
         $log->admin_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;

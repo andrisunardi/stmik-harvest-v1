@@ -67,14 +67,12 @@ class OfferObserver
     public function restoring(Offer $offer)
     {
         $offer->deleted_by_id = null;
+        $offer->save();
     }
 
     public function restored(Offer $offer)
     {
         $menu = Menu::where('name', $this->name)->first();
-
-        $offer->deleted_by_id = null;
-        $offer->save();
 
         $log = new Log();
         $log->admin_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;

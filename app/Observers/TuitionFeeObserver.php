@@ -67,14 +67,12 @@ class TuitionFeeObserver
     public function restoring(TuitionFee $tuition_fee)
     {
         $tuition_fee->deleted_by_id = null;
+        $tuition_fee->save();
     }
 
     public function restored(TuitionFee $tuition_fee)
     {
         $menu = Menu::where('name', $this->name)->first();
-
-        $tuition_fee->deleted_by_id = null;
-        $tuition_fee->save();
 
         $log = new Log();
         $log->admin_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;

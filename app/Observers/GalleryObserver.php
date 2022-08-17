@@ -67,14 +67,12 @@ class GalleryObserver
     public function restoring(Gallery $gallery)
     {
         $gallery->deleted_by_id = null;
+        $gallery->save();
     }
 
     public function restored(Gallery $gallery)
     {
         $menu = Menu::where('name', $this->name)->first();
-
-        $gallery->deleted_by_id = null;
-        $gallery->save();
 
         $log = new Log();
         $log->admin_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;

@@ -67,14 +67,12 @@ class EventObserver
     public function restoring(Event $event)
     {
         $event->deleted_by_id = null;
+        $event->save();
     }
 
     public function restored(Event $event)
     {
         $menu = Menu::where('name', $this->name)->first();
-
-        $event->deleted_by_id = null;
-        $event->save();
 
         $log = new Log();
         $log->admin_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;

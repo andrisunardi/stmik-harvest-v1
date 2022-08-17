@@ -67,14 +67,12 @@ class NewsletterObserver
     public function restoring(Newsletter $newsletter)
     {
         $newsletter->deleted_by_id = null;
+        $newsletter->save();
     }
 
     public function restored(Newsletter $newsletter)
     {
         $menu = Menu::where('name', $this->name)->first();
-
-        $newsletter->deleted_by_id = null;
-        $newsletter->save();
 
         $log = new Log();
         $log->admin_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;

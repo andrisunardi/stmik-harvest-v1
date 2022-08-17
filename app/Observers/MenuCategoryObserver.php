@@ -24,7 +24,7 @@ class MenuCategoryObserver
         $log = new Log();
         $log->admin_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
         $log->menu_id = $menu->id ?? null;
-        $log->row = $menu->id ?? null;
+        $log->row = $menu_category->id ?? null;
         $log->activity = 1;
         $log->save();
     }
@@ -41,7 +41,7 @@ class MenuCategoryObserver
         $log = new Log();
         $log->admin_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
         $log->menu_id = $menu->id ?? null;
-        $log->row = $menu->id ?? null;
+        $log->row = $menu_category->id ?? null;
         $log->activity = 2;
         $log->save();
     }
@@ -67,14 +67,12 @@ class MenuCategoryObserver
     public function restoring(MenuCategory $menu_category)
     {
         $menu_category->deleted_by_id = null;
+        $menu_category->save();
     }
 
     public function restored(MenuCategory $menu_category)
     {
         $menu = Menu::where('name', $this->name)->first();
-
-        $menu_category->deleted_by_id = null;
-        $menu_category->save();
 
         $log = new Log();
         $log->admin_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
@@ -91,7 +89,7 @@ class MenuCategoryObserver
         $log = new Log();
         $log->admin_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
         $log->menu_id = $menu->id ?? null;
-        $log->row = $menu->id ?? null;
+        $log->row = $menu_category->id ?? null;
         $log->activity = 5;
         $log->save();
     }

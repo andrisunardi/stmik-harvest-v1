@@ -67,14 +67,12 @@ class TestimonyObserver
     public function restoring(Testimony $testimony)
     {
         $testimony->deleted_by_id = null;
+        $testimony->save();
     }
 
     public function restored(Testimony $testimony)
     {
         $menu = Menu::where('name', $this->name)->first();
-
-        $testimony->deleted_by_id = null;
-        $testimony->save();
 
         $log = new Log();
         $log->admin_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;

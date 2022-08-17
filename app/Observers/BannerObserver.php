@@ -67,14 +67,12 @@ class BannerObserver
     public function restoring(Banner $banner)
     {
         $banner->deleted_by_id = null;
+        $banner->save();
     }
 
     public function restored(Banner $banner)
     {
         $menu = Menu::where('name', $this->name)->first();
-
-        $banner->deleted_by_id = null;
-        $banner->save();
 
         $log = new Log();
         $log->admin_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;

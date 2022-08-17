@@ -67,14 +67,12 @@ class SettingObserver
     public function restoring(Setting $setting)
     {
         $setting->deleted_by_id = null;
+        $setting->save();
     }
 
     public function restored(Setting $setting)
     {
         $menu = Menu::where('name', $this->name)->first();
-
-        $setting->deleted_by_id = null;
-        $setting->save();
 
         $log = new Log();
         $log->admin_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;

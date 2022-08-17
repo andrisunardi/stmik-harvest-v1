@@ -67,14 +67,12 @@ class AdminObserver
     public function restoring(Admin $admin)
     {
         $admin->deleted_by_id = null;
+        $admin->save();
     }
 
     public function restored(Admin $admin)
     {
         $menu = Menu::where('name', $this->name)->first();
-
-        $admin->deleted_by_id = null;
-        $admin->save();
 
         $log = new Log();
         $log->admin_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;

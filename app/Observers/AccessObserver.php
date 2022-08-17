@@ -67,14 +67,12 @@ class AccessObserver
     public function restoring(Access $access)
     {
         $access->deleted_by_id = null;
+        $access->save();
     }
 
     public function restored(Access $access)
     {
         $menu = Menu::where('name', $this->name)->first();
-
-        $access->deleted_by_id = null;
-        $access->save();
 
         $log = new Log();
         $log->admin_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;

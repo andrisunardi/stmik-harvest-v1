@@ -66,14 +66,12 @@ class MenuObserver
     public function restoring(Menu $menu)
     {
         $menu->deleted_by_id = null;
+        $menu->save();
     }
 
     public function restored(Menu $menu)
     {
         $menu = Menu::where('name', $this->name)->first();
-
-        $menu->deleted_by_id = null;
-        $menu->save();
 
         $log = new Log();
         $log->admin_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;

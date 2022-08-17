@@ -67,14 +67,12 @@ class ValueObserver
     public function restoring(Value $value)
     {
         $value->deleted_by_id = null;
+        $value->save();
     }
 
     public function restored(Value $value)
     {
         $menu = Menu::where('name', $this->name)->first();
-
-        $value->deleted_by_id = null;
-        $value->save();
 
         $log = new Log();
         $log->admin_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;

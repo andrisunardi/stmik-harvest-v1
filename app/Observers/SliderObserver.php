@@ -67,14 +67,12 @@ class SliderObserver
     public function restoring(Slider $slider)
     {
         $slider->deleted_by_id = null;
+        $slider->save();
     }
 
     public function restored(Slider $slider)
     {
         $menu = Menu::where('name', $this->name)->first();
-
-        $slider->deleted_by_id = null;
-        $slider->save();
 
         $log = new Log();
         $log->admin_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;

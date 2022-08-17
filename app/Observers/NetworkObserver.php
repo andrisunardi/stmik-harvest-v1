@@ -67,14 +67,12 @@ class NetworkObserver
     public function restoring(Network $network)
     {
         $network->deleted_by_id = null;
+        $network->save();
     }
 
     public function restored(Network $network)
     {
         $menu = Menu::where('name', $this->name)->first();
-
-        $network->deleted_by_id = null;
-        $network->save();
 
         $log = new Log();
         $log->admin_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;

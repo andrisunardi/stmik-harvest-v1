@@ -67,14 +67,12 @@ class UserObserver
     public function restoring(User $user)
     {
         $user->deleted_by_id = null;
+        $user->save();
     }
 
     public function restored(User $user)
     {
         $menu = Menu::where('name', $this->name)->first();
-
-        $user->deleted_by_id = null;
-        $user->save();
 
         $log = new Log();
         $log->admin_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;

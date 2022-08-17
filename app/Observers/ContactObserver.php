@@ -67,14 +67,12 @@ class ContactObserver
     public function restoring(Contact $contact)
     {
         $contact->deleted_by_id = null;
+        $contact->save();
     }
 
     public function restored(Contact $contact)
     {
         $menu = Menu::where('name', $this->name)->first();
-
-        $contact->deleted_by_id = null;
-        $contact->save();
 
         $log = new Log();
         $log->admin_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;

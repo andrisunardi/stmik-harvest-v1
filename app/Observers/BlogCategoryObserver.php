@@ -67,14 +67,12 @@ class BlogCategoryObserver
     public function restoring(BlogCategory $blog_category)
     {
         $blog_category->deleted_by_id = null;
+        $blog_category->save();
     }
 
     public function restored(BlogCategory $blog_category)
     {
         $menu = Menu::where('name', $this->name)->first();
-
-        $blog_category->deleted_by_id = null;
-        $blog_category->save();
 
         $log = new Log();
         $log->admin_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;

@@ -67,14 +67,12 @@ class BlogObserver
     public function restoring(Blog $blog)
     {
         $blog->deleted_by_id = null;
+        $blog->save();
     }
 
     public function restored(Blog $blog)
     {
         $menu = Menu::where('name', $this->name)->first();
-
-        $blog->deleted_by_id = null;
-        $blog->save();
 
         $log = new Log();
         $log->admin_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;

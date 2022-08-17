@@ -67,14 +67,12 @@ class RegistrationObserver
     public function restoring(Registration $registration)
     {
         $registration->deleted_by_id = null;
+        $registration->save();
     }
 
     public function restored(Registration $registration)
     {
         $menu = Menu::where('name', $this->name)->first();
-
-        $registration->deleted_by_id = null;
-        $registration->save();
 
         $log = new Log();
         $log->admin_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;

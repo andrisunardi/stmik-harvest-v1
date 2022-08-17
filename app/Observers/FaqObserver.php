@@ -67,14 +67,12 @@ class FaqObserver
     public function restoring(Faq $faq)
     {
         $faq->deleted_by_id = null;
+        $faq->save();
     }
 
     public function restored(Faq $faq)
     {
         $menu = Menu::where('name', $this->name)->first();
-
-        $faq->deleted_by_id = null;
-        $faq->save();
 
         $log = new Log();
         $log->admin_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
