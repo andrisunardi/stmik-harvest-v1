@@ -263,7 +263,7 @@ class AccessComponent extends Component
             return Session::flash('danger', trans('index.'.Str::slug($this->menu_name, '_')).' '.trans('index.not_found_or_has_been_deleted'));
         }
 
-        $this->access->active = !$this->access->active;
+        $this->access->active = ! $this->access->active;
         $this->access->save();
         $this->access->refresh();
 
