@@ -9,10 +9,10 @@
 @task('deploy', ['on' => ['web']])
     echo "Start Deploy"
 
-    echo "DEPLOY SERVER : " {{ env('DEPLOY_SERVER') }}
-    echo "DEPLOY DIRECTORY : " {{ env('DEPLOY_DIRECTORY') }}
-    echo "DEPLOY BRANCH : " {{ env('DEPLOY_BRANCH') }}
-    echo "DEPLOY RENDER MAINTENANCE : " {{ env('DEPLOY_RENDER_MAINTENANCE') }}
+    echo "DEPLOY SERVER :" {{ env('DEPLOY_SERVER') }}
+    echo "DEPLOY DIRECTORY :" {{ env('DEPLOY_DIRECTORY') }}
+    echo "DEPLOY BRANCH :" {{ env('DEPLOY_BRANCH') }}
+    echo "DEPLOY RENDER MAINTENANCE :" {{ env('DEPLOY_RENDER_MAINTENANCE') }}
 
     echo "cd directory" {{ $directory ?? env("DEPLOY_DIRECTORY") }}
     cd {{ $directory ?? env("DEPLOY_DIRECTORY") }}
