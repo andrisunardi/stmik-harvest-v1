@@ -29,7 +29,7 @@
     </div>
     <div class="row my-2">
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <h6>{{ trans("index.Row") }}</h6>
+            <h6>{{ trans("index.row") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             <a draggable="false" href="{{ route("{$sub_domain}." . Str::slug($log->menu?->name) .".index") . "?menu_type=view&row={$log->row}" }}">
@@ -43,7 +43,7 @@
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             <span class="{{ "badge bg-" . Str::logcolor($log->activity) }}">
-                {{ trans("index.$log->activity_text") }}
+                {{ trans("index." . Str::slug($log->activity_text, '_')) }}
             </span>
         </div>
     </div>

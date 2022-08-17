@@ -118,7 +118,6 @@ class MenuCategoryComponent extends Component
             'name_id',
             'icon',
             'sort',
-            'image',
         ]);
     }
 

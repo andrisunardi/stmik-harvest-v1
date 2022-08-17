@@ -43,7 +43,7 @@
                         </span>
                     </td>
                     <td>
-                        <a draggable="false" href="{{ $user->created_by_admin->id || $user->created_by?->id == 0 ? route("{$sub_domain}.{$menu_slug}.index") . "?menu_type=view&row={$user->created_by?->id}" : null }}" target="_blank">
+                        <a draggable="false" href="{{ $user->created_by->id || $user->created_by?->id == 0 ? route("{$sub_domain}.{$menu_slug}.index") . "?menu_type=view&row={$user->created_by?->id}" : null }}" target="_blank">
                             {{ $user->created_by?->name }}
                         </a>
                     </td>

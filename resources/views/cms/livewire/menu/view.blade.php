@@ -9,7 +9,7 @@
     </div>
     <div class="row my-2">
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <h6>{{ trans("index.Menu Category") }}</h6>
+            <h6>{{ trans("index.menu_category") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
             <a draggable="false" href="{{ $menu->menu_category?->id ? route("{$sub_domain}.menu-category.index") . "?menu_type=view&row={$menu->menu_category?->id}" : null }}" target="_blank">

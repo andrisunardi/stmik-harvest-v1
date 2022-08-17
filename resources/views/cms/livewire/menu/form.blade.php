@@ -3,7 +3,7 @@
         @csrf
 
         <div class="row">
-            @php $input = "menu_category" @endphp
+            @php $input = "menu_category_id" @endphp
             <div class="form-group col-12">
                 <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }} <span class="text-danger">*</span></label>
                 <div class="input-group has-validation">

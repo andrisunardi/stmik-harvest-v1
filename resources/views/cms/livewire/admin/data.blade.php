@@ -92,14 +92,14 @@
                         </span>
                     </td>
                     <td>
-                        @if ($admin->created_by_admin->id || $admin->created_by?->id == 0)
+                        @if ($admin->created_by->id || $admin->created_by?->id == 0)
                             <a draggable="false" href="{{ route("{$sub_domain}.{$menu_slug}.index") . "?menu_type=view&row={$admin->created_by?->id}" }}" target="_blank">
                                 {{ $admin->created_by?->name }}
                             </a>
                         @endif
                     </td>
                     <td>
-                        @if ($admin->created_by_admin->id || $admin->created_by?->id == 0)
+                        @if ($admin->created_by->id || $admin->created_by?->id == 0)
                             <a draggable="false" href="{{ $admin->updated_by?->id || $admin->updated_by?->id == 0 ? route("{$sub_domain}.{$menu_slug}.index") . "?menu_type=view&row={$admin->updated_by?->id}" : null }}" target="_blank">
                                 {{ $admin->updated_by?->name }}
                             </a>

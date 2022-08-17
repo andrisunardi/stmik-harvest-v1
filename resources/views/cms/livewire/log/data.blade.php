@@ -50,7 +50,7 @@
                     </td>
                     <td>
                         <span class="{{ "badge bg-" . Str::logcolor($log->activity) }}">
-                            {{ trans("index.$log->activity_text") }}
+                            {{ trans("index." . Str::slug($log->activity_text, '_')) }}
                         </span>
                     </td>
                     <td>

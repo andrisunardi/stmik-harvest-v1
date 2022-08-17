@@ -18,7 +18,7 @@
             <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
             <select wire:model="{{ $input }}" class="form-select select2" id="{{ $input }}" name="{{ $input }}">
                 <option value="id" {{ "id" == $order_by ? "selected" : null }}>{{ trans("validation.attributes.id") }}</option>
-                <option value="menu_category_id">{{ trans("index.Menu Category") }}</option>
+                <option value="menu_category_id">{{ trans("index.menu_category") }}</option>
                 <option value="name" {{ "name" == $order_by ? "selected" : null }}>{{ trans("validation.attributes.name") }}</option>
                 <option value="name_id">{{ trans("index.name_id") }}</option>
                 <option value="icon">{{ trans("index.icon") }}</option>
@@ -153,7 +153,7 @@
     </div>
 
     <div class="col-sm-4 col-lg-3 col-xl-auto">
-        @php $input = "menu_category" @endphp
+        @php $input = "menu_category_id" @endphp
         <div class="form-group">
             <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
             <select wire:model="{{ $input }}" class="form-select select2" id="{{ $input }}" name="{{ $input }}">

@@ -123,7 +123,6 @@ class MenuComponent extends Component
             'name_id',
             'icon',
             'sort',
-            'image',
         ]);
     }
 

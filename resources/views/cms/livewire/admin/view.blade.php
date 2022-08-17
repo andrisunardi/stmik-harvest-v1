@@ -97,7 +97,7 @@
             <h6>{{ trans("index.created_by") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10">
-            <a draggable="false" href="{{ $admin->created_by_admin->id || $admin->created_by?->id == 0 ? route("{$sub_domain}.{$menu_slug}.index") . "?menu_type=view&row={$admin->created_by?->id}" : null }}" target="_blank">
+            <a draggable="false" href="{{ $admin->created_by->id || $admin->created_by?->id == 0 ? route("{$sub_domain}.{$menu_slug}.index") . "?menu_type=view&row={$admin->created_by?->id}" : null }}" target="_blank">
                 {{ $admin->created_by?->name }}
             </a>
         </div>

@@ -3,7 +3,7 @@
         @csrf
 
         <div class="row">
-            @php $input = "admin" @endphp
+            @php $input = "admin_id" @endphp
             <div class="form-group col-sm-6">
                 <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }} <span class="text-danger">*</span></label>
                 <div class="input-group has-validation">
@@ -25,7 +25,7 @@
                 </div>
             </div>
 
-            @php $input = "menu" @endphp
+            @php $input = "menu_id" @endphp
             <div class="form-group col-sm-6">
                 <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }} <span class="text-danger">*</span></label>
                 <div class="input-group has-validation">
@@ -73,11 +73,11 @@
                     <div class="input-group-text"><span class="bi bi-list"></span></div>
                     <select wire:model="{{ $input }}" class="form-select select2 @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" id="{{ $input }}" name="{{ $input }}" required>
                         <option value="">{{ trans("index.select") }} {{ trans("validation.attributes.{$input}") }}</option>
-                        <option value="1">{{ trans("index.Created") }}</option>
-                        <option value="2">{{ trans("index.Updated") }}</option>
-                        <option value="3">{{ trans("index.Deleted") }}</option>
-                        <option value="4">{{ trans("index.Restored") }}</option>
-                        <option value="5">{{ trans("index.Deleted Permanent") }}</option>
+                        <option value="1">{{ trans("index.created") }}</option>
+                        <option value="2">{{ trans("index.updated") }}</option>
+                        <option value="3">{{ trans("index.deleted") }}</option>
+                        <option value="4">{{ trans("index.restored") }}</option>
+                        <option value="5">{{ trans("index.deleted_permanent") }}</option>
                     </select>
                     @error($input)
                         <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>

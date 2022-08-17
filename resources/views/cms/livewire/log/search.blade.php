@@ -20,7 +20,7 @@
                 <option value="id" {{ "id" == $order_by ? "selected" : null }}>{{ trans("validation.attributes.id") }}</option>
                 <option value="admin_id">{{ trans("index.admin") }}</option>
                 <option value="menu_id">{{ trans("index.menu") }}</option>
-                <option value="row">{{ trans("index.Row") }}</option>
+                <option value="row">{{ trans("index.row") }}</option>
                 <option value="activity">{{ trans("index.activity") }}</option>
                 <option value="active" {{ "active" == $order_by ? "selected" : null }}>{{ trans("validation.attributes.active") }}</option>
                 <option value="created_by_id" {{ "created_by_id" == $order_by ? "selected" : null }}>{{ trans("validation.attributes.created_by_id") }}</option>
@@ -152,7 +152,7 @@
     </div>
 
     <div class="col-sm-4 col-lg-3 col-xl-auto">
-        @php $input = "admin" @endphp
+        @php $input = "admin_id" @endphp
         <div class="form-group">
             <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
             <select wire:model="{{ $input }}" class="form-select select2" id="{{ $input }}" name="{{ $input }}">
@@ -165,7 +165,7 @@
     </div>
 
     <div class="col-sm-4 col-lg-3 col-xl-auto">
-        @php $input = "menu" @endphp
+        @php $input = "menu_id" @endphp
         <div class="form-group">
             <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
             <select wire:model="{{ $input }}" class="form-select select2" id="{{ $input }}" name="{{ $input }}">
@@ -191,11 +191,11 @@
             <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
             <select wire:model="{{ $input }}" class="form-select select2" id="{{ $input }}" name="{{ $input }}">
                 <option value="">{{ trans("index.all") }}</option>
-                <option value="1">{{ trans("index.Created") }}</option>
-                <option value="2">{{ trans("index.Updated") }}</option>
-                <option value="3">{{ trans("index.Deleted") }}</option>
-                <option value="4">{{ trans("index.Restored") }}</option>
-                <option value="5">{{ trans("index.Deleted Permanent") }}</option>
+                <option value="1">{{ trans("index.created") }}</option>
+                <option value="2">{{ trans("index.updated") }}</option>
+                <option value="3">{{ trans("index.deleted") }}</option>
+                <option value="4">{{ trans("index.restored") }}</option>
+                <option value="5">{{ trans("index.deleted_permanent") }}</option>
             </select>
         </div>
     </div>

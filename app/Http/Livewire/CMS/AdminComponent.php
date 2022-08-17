@@ -121,8 +121,7 @@ class AdminComponent extends Component
         ]);
 
         $this->reset([
-            'admin',
-            'access',
+            'access_id',
             'name',
             'email',
             'username',
@@ -135,7 +134,7 @@ class AdminComponent extends Component
     {
         if ($this->admin) {
             $this->active = $this->admin->active;
-            $this->access = $this->admin->access?->id;
+            $this->access_id = $this->admin->access?->id;
             $this->name = $this->admin->name;
             $this->email = $this->admin->email;
             $this->username = $this->admin->username;
@@ -255,7 +254,7 @@ class AdminComponent extends Component
 
         return [
             'active' => 'required',
-            'access' => 'required|exists:access,id',
+            'access_id' => 'required|exists:access,id',
             'name' => "required|max:50|unique:{$this->menu_table},name,{$id}",
             'email' => "required|email|max:50|unique:{$this->menu_table},email,{$id}",
             'username' => "required|max:50|unique:{$this->menu_table},username,{$id}",
@@ -280,7 +279,7 @@ class AdminComponent extends Component
 
         $this->admin->active = $this->active;
 
-        $this->admin->access_id = $this->access;
+        $this->admin->access_id = $this->access_id;
         $this->admin->name = $this->name;
         $this->admin->email = $this->email;
         $this->admin->username = $this->username;
@@ -476,8 +475,8 @@ class AdminComponent extends Component
                     $query->where('active', $this->active);
                 })
 
-                ->when($this->access, function ($query) {
-                    $query->where('access_id', $this->access);
+                ->when($this->access_id, function ($query) {
+                    $query->where('access_id', $this->access_id);
                 })
                 ->when($this->name, function ($query) {
                     $query->where('name', 'LIKE', "%{$this->name}%");
