@@ -253,7 +253,7 @@ class UserComponent extends Component
         $password = $this->menu_type == 'edit' ? 'nullable' : 'required';
 
         return [
-            'active' => 'required',
+            'active' => 'required|boolean',
             'access' => 'required|exists:access,id',
             'name' => "required|max:50|unique:{$this->menu_table},name,{$id}",
             'email' => "required|email|max:50|unique:{$this->menu_table},email,{$id}",

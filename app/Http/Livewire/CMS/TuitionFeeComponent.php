@@ -242,7 +242,7 @@ class TuitionFeeComponent extends Component
         $id = $this->menu_type == 'edit' ? $this->tuition_fee->id : null;
 
         return [
-            'active' => 'required',
+            'active' => 'required|boolean',
             'name' => "required|max:100|unique:{$this->menu_table},name,{$id}",
             'name_id' => "required|max:100|unique:{$this->menu_table},name_id,{$id}",
             'description' => 'nullable|max:65535',

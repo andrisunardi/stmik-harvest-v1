@@ -260,7 +260,7 @@ class GalleryComponent extends Component
         $id = $this->menu_type == 'edit' ? $this->gallery->id : null;
 
         return [
-            'active' => 'required',
+            'active' => 'required|boolean',
             'category' => 'required',
             'name' => "required|max:100|unique:{$this->menu_table},name,{$id}",
             'name_id' => "required|max:100|unique:{$this->menu_table},name_id,{$id}",

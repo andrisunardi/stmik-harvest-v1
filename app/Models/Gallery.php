@@ -140,6 +140,13 @@ class Gallery extends Model
         return null;
     }
 
+    public function altVideo()
+    {
+        $name = $this->name ?? $this->id;
+
+        return trans('index.video').' - '.trans('index.'.Str::slug($this->table, '_'))." - {$name} - ".env('APP_TITLE');
+    }
+
     public function checkVideo()
     {
         if ($this->video && File::exists(public_path('videos/'.Str::slug($this->table)."/{$this->video}"))) {

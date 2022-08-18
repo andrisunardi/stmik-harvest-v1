@@ -255,7 +255,7 @@ class RoleComponent extends Component
         $id = $this->menu_type == 'edit' ? $this->role->id : null;
 
         return [
-            'active' => 'required',
+            'active' => 'required|boolean',
             'name' => "required|max:50|unique:{$this->menu_table},name,{$id}",
         ];
     }

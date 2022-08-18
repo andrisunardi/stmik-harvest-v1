@@ -225,7 +225,7 @@ class NewsletterComponent extends Component
     public function rules()
     {
         return [
-            'active' => 'required',
+            'active' => 'required|boolean',
             'email' => 'required|email|max:50',
         ];
     }

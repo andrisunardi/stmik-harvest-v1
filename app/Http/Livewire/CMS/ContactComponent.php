@@ -246,7 +246,7 @@ class ContactComponent extends Component
     public function rules()
     {
         return [
-            'active' => 'required',
+            'active' => 'required|boolean',
             'name' => 'required|max:50',
             'phone' => 'nullable|max:20',
             'email' => 'required|email|max:50',

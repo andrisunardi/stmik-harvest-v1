@@ -244,7 +244,7 @@ class MenuCategoryComponent extends Component
         $id = $this->menu_type == 'edit' ? $this->menu_category->id : null;
 
         return [
-            'active' => 'required',
+            'active' => 'required|boolean',
             'name' => "required|max:50|unique:{$this->menu_table},name,{$id}",
             'name_id' => "required|max:50|unique:{$this->menu_table},name_id,{$id}",
             'icon' => 'required|max:50',

@@ -266,7 +266,7 @@ class RegistrationComponent extends Component
         $id = $this->menu_type == 'edit' ? $this->registration->id : null;
 
         return [
-            'active' => 'required',
+            'active' => 'required|boolean',
             'name' => "required|max:50|unique:{$this->menu_table},name,{$id}",
             'email' => "required|max:50|email|unique:{$this->menu_table},email,{$id}",
             'phone' => "required|max:20|unique:{$this->menu_table},phone,{$id}",

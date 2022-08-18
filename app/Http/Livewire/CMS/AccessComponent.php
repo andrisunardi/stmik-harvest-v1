@@ -227,7 +227,7 @@ class AccessComponent extends Component
 
         return [
             'name' => "required|max:50|unique:{$this->menu_table},name,{$id}",
-            'active' => 'required',
+            'active' => 'required|boolean',
         ];
     }
 

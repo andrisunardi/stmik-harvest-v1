@@ -250,7 +250,7 @@ class MenuComponent extends Component
         $id = $this->menu_type == 'edit' ? $this->menu->id : null;
 
         return [
-            'active' => 'required',
+            'active' => 'required|boolean',
             'menu_category' => 'required|exists:menu_category,id',
             'name' => "required|max:50|unique:{$this->menu_table},name,{$id}",
             'name_id' => "required|max:50|unique:{$this->menu_table},name_id,{$id}",

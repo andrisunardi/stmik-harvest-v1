@@ -243,7 +243,7 @@ class NetworkComponent extends Component
         $id = $this->menu_type == 'edit' ? $this->network->id : null;
 
         return [
-            'active' => 'required',
+            'active' => 'required|boolean',
             'name' => "required|max:100|unique:{$this->menu_table},name,{$id}",
             'description' => 'nullable|max:65535',
             'link' => 'nullable|url|max:200',

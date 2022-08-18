@@ -283,7 +283,7 @@ class EventComponent extends Component
         $id = $this->menu_type == 'edit' ? $this->event->id : null;
 
         return [
-            'active' => 'required',
+            'active' => 'required|boolean',
             'event_category' => 'required|exists:event_category,id',
             'name' => "required|max:100|unique:{$this->menu_table},name,{$id}",
             'name_id' => "required|max:100|unique:{$this->menu_table},name_id,{$id}",

@@ -304,7 +304,7 @@ class SettingComponent extends Component
         $id = $this->menu_type == 'edit' ? $this->setting->id : null;
 
         return [
-            'active' => 'required',
+            'active' => 'required|boolean',
             'sms' => 'nullable|max:20',
             'call' => 'nullable|max:20',
             'fax' => 'nullable|max:20',

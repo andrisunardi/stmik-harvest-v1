@@ -243,7 +243,7 @@ class LogComponent extends Component
     public function rules()
     {
         return [
-            'active' => 'required',
+            'active' => 'required|boolean',
             'admin' => 'required|exists:admin,id',
             'menu' => 'required|exists:menu,id',
             'row_menu' => 'required|numeric|min:0|max:999999999',
