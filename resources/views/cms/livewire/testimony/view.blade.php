@@ -16,7 +16,7 @@
                 <a draggable="false" href="#image" data-bs-toggle="modal">
                     <img draggable="false" width="100"
                         src="{{ $testimony->assetImage() }}"
-                        alt="{{ trans("index." . Str::slug($menu_name, "_")) }} - {{ $testimony->translate_name }} - {{ env("APP_TITLE") }}"
+                        alt="{{ $testimony->altImage() }}"
                         data-bs-toggle="tooltip" data-bs-placement="top" title="{{ trans("index.click_to_view") }}">
                 </a>
                 <div class="modal fade" id="image" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="image" aria-hidden="true">
@@ -30,7 +30,7 @@
                                 <a draggable="false" href="{{ $testimony->assetImage() }}" target="_blank">
                                     <img draggable="false" class="img-fluid w-100"
                                         src="{{ $testimony->assetImage() }}"
-                                        alt="{{ trans("index." . Str::slug($menu_name, "_")) }} - {{ $testimony->translate_name }} - {{ env("APP_TITLE") }}"
+                                        alt="{{ $testimony->altImage() }}"
                                         data-bs-toggle="tooltip" data-bs-placement="top" title="{{ trans("index.click_to_view") }}">
                                 </a>
                             </div>

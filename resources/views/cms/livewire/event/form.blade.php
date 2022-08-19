@@ -201,7 +201,7 @@
                             <path d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z"/>
                         </svg>
                         <h4 class="text-white mt-3">{{ trans("index.uploading") }}</h4>
-                        <p class="text-white mb-0">{{ trans("index.Please wait until the uploading finished") }}</p>
+                        <p class="text-white mb-0">{{ trans("index.please_wait_until_the_uploading_finished") }}</p>
                     </div>
                 </div>
 
@@ -278,7 +278,7 @@
                             <a draggable="false" href="#image" data-bs-toggle="modal">
                                 <img draggable="false" class="img-fluid img-thumbnail rounded w-100 h-auto"
                                     src="{{ $event->assetImage() }}"
-                                    alt="{{ trans("index." . Str::slug($menu_name, "_")) }} - {{ $event->name }} - {{ env("APP_TITLE") }}"
+                                    alt="{{ $event->altImage() }}"
                                     data-bs-toggle="tooltip" data-bs-placement="top" title="{{ trans("index.click_to_view") }}">
                             </a>
                             <div class="modal fade" id="image" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="image" aria-hidden="true">
@@ -292,7 +292,7 @@
                                             <a draggable="false" href="{{ $event->assetImage() }}" target="_blank">
                                                 <img draggable="false" class="img-fluid w-100"
                                                     src="{{ $event->assetImage() }}"
-                                                    alt="{{ trans("index." . Str::slug($menu_name, "_")) }} - {{ $event->name }} - {{ env("APP_TITLE") }}"
+                                                    alt="{{ $event->altImage() }}"
                                                     data-bs-toggle="tooltip" data-bs-placement="top" title="{{ trans("index.click_to_view") }}">
                                             </a>
                                         </div>

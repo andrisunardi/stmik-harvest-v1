@@ -112,7 +112,7 @@
                             <path d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z"/>
                         </svg>
                         <h4 class="text-white mt-3">{{ trans("index.uploading") }}</h4>
-                        <p class="text-white mb-0">{{ trans("index.Please wait until the uploading finished") }}</p>
+                        <p class="text-white mb-0">{{ trans("index.please_wait_until_the_uploading_finished") }}</p>
                     </div>
                 </div>
 

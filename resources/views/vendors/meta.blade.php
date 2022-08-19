@@ -1,7 +1,7 @@
 <base href="{{ URL::to("/") }}" />
 <meta charset="{{ env("APP_CHARSET") }}" />
 
-<meta http-equiv="refresh" content="600" />
+<meta http-equiv="refresh" content="3600" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="Content-Language" content="{{ env("APP_LANGUAGE") }}" />
 <meta http-equiv="Content-Script-Type" content="text/javascript" />

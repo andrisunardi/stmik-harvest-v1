@@ -39,7 +39,7 @@
                             <a draggable="false" href="#image-{{ $gallery->id }}" data-bs-toggle="modal">
                                 <img draggable="false" width="100"
                                     src="{{ $gallery->assetImage() }}"
-                                    alt="{{ trans("index." . Str::slug($menu_name, "_")) }} - {{ $gallery->translate_name }} - {{ env("APP_TITLE") }}"
+                                    alt="{{ $gallery->altImage() }}"
                                     data-bs-toggle="tooltip" data-bs-placement="top" title="{{ trans("index.click_to_view") }}">
                             </a>
                             <div class="modal fade" id="image-{{ $gallery->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="image-{{ $gallery->id }}" aria-hidden="true">
@@ -53,7 +53,7 @@
                                             <a draggable="false" href="{{ $gallery->assetImage() }}" target="_blank">
                                                 <img draggable="false" class="img-fluid w-100"
                                                     src="{{ $gallery->assetImage() }}"
-                                                    alt="{{ trans("index." . Str::slug($menu_name, "_")) }} - {{ $gallery->translate_name }} - {{ env("APP_TITLE") }}"
+                                                    alt="{{ $gallery->altImage() }}"
                                                     data-bs-toggle="tooltip" data-bs-placement="top" title="{{ trans("index.click_to_view") }}">
                                             </a>
                                         </div>
