@@ -55,7 +55,7 @@ class ProfileComponent extends Component
 
     public function refresh()
     {
-        $this->resetErrorBag();
+        $this->resetValidation();
     }
 
     public function updated()
@@ -90,7 +90,7 @@ class ProfileComponent extends Component
     public function index()
     {
         $this->resetFilter();
-        $this->resetErrorBag();
+        $this->resetValidation();
 
         $this->menu_type = 'index';
     }
@@ -98,7 +98,7 @@ class ProfileComponent extends Component
     public function editProfile()
     {
         $this->resetFilter();
-        $this->resetErrorBag();
+        $this->resetValidation();
 
         $this->menu_type = 'edit-profile';
     }
@@ -119,7 +119,7 @@ class ProfileComponent extends Component
         Auth::user()->refresh();
 
         $this->resetFilter();
-        $this->resetErrorBag();
+        $this->resetValidation();
 
         return Session::flash('success', trans('index.Your Profile has been Edited Successfully'));
     }
@@ -127,7 +127,7 @@ class ProfileComponent extends Component
     public function changePassword()
     {
         $this->resetFilter();
-        $this->resetErrorBag();
+        $this->resetValidation();
 
         $this->menu_type = 'change-password';
     }
@@ -153,7 +153,7 @@ class ProfileComponent extends Component
         Auth::user()->refresh();
 
         $this->resetFilter();
-        $this->resetErrorBag();
+        $this->resetValidation();
 
         return Session::flash('success', trans('index.Your Password has been Changed Successfully'));
     }

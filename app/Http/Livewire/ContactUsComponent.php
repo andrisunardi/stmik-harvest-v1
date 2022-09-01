@@ -72,7 +72,7 @@ class ContactUsComponent extends Component
         }
 
         $this->resetInputFields();
-        $this->resetErrorBag();
+        $this->resetValidation();
 
         Session::flash('success', trans('index.thank_you_for_contacting_us_we_will_answer_as_soon_as_possible'));
     }

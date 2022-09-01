@@ -156,7 +156,7 @@ class RegistrationComponent extends Component
 
     public function refresh()
     {
-        $this->resetErrorBag();
+        $this->resetValidation();
     }
 
     public function updating()
@@ -212,7 +212,7 @@ class RegistrationComponent extends Component
     public function index()
     {
         $this->resetFilter();
-        $this->resetErrorBag();
+        $this->resetValidation();
 
         $this->menu_type = 'index';
     }
@@ -220,7 +220,7 @@ class RegistrationComponent extends Component
     public function form($menu_type, $id)
     {
         $this->resetFilter();
-        $this->resetErrorBag();
+        $this->resetValidation();
 
         $this->active = true;
 
@@ -241,7 +241,7 @@ class RegistrationComponent extends Component
     public function view($id)
     {
         $this->resetFilter();
-        $this->resetErrorBag();
+        $this->resetValidation();
 
         $this->menu_type = 'view';
         $this->row = $id;
@@ -256,7 +256,7 @@ class RegistrationComponent extends Component
     public function trash()
     {
         $this->resetFilter();
-        $this->resetErrorBag();
+        $this->resetValidation();
 
         $this->menu_type = 'trash';
     }
@@ -318,7 +318,7 @@ class RegistrationComponent extends Component
         Session::flash('success', trans('index.'.Str::slug($this->menu_name, '_')).' '.trans("index.has been {$this->menu_type_message} successfully"));
 
         $this->resetFilter();
-        $this->resetErrorBag();
+        $this->resetValidation();
 
         $this->menu_type = 'index';
     }
@@ -335,7 +335,7 @@ class RegistrationComponent extends Component
         $this->registration->save();
         $this->registration->refresh();
 
-        return Session::flash('success', trans('index.'.Str::slug($this->menu_name, '_')).' '.trans('index.has been set active successfully'));
+        return Session::flash('success', trans('index.'.Str::slug($this->menu_name, '_')).' '.trans('index.has_been_set_active_successfully'));
     }
 
     public function nonActive($id)
@@ -364,7 +364,7 @@ class RegistrationComponent extends Component
         $this->registration->delete();
         $this->registration->refresh();
 
-        return Session::flash('success', trans('index.'.Str::slug($this->menu_name, '_')).' '.trans('index.has been deleted successfully'));
+        return Session::flash('success', trans('index.'.Str::slug($this->menu_name, '_')).' '.trans('index.has_been_deleted_successfully'));
     }
 
     public function restore($id)
@@ -378,7 +378,7 @@ class RegistrationComponent extends Component
         $this->registration->restore();
         $this->registration->refresh();
 
-        return Session::flash('success', trans('index.'.Str::slug($this->menu_name, '_')).' '.trans('index.has been deleted successfully'));
+        return Session::flash('success', trans('index.'.Str::slug($this->menu_name, '_')).' '.trans('index.has_been_deleted_successfully'));
     }
 
     public function deletePermanent($id)
@@ -394,26 +394,26 @@ class RegistrationComponent extends Component
 
         if ($this->menu_type == 'view') {
             $this->resetFilter();
-            $this->resetErrorBag();
+            $this->resetValidation();
 
             $this->menu_type = 'index';
         }
 
-        return Session::flash('success', trans('index.'.Str::slug($this->menu_name, '_')).' '.trans('index.has been deleted permanent successfully'));
+        return Session::flash('success', trans('index.'.Str::slug($this->menu_name, '_')).' '.trans('index.has_been_deleted_permanent_successfully'));
     }
 
     public function restoreAll()
     {
         Registration::onlyTrashed()->restore();
 
-        return Session::flash('success', trans('index.'.Str::slug($this->menu_name, '_')).' '.trans('index.has been restored successfully'));
+        return Session::flash('success', trans('index.'.Str::slug($this->menu_name, '_')).' '.trans('index.has_been_restored_successfully'));
     }
 
     public function deletePermanentAll()
     {
         Registration::onlyTrashed()->forceDelete();
 
-        return Session::flash('success', trans('index.All')." {$this->menu_name} ".trans('index.at Trash has been Deleted Permanent Successfully'));
+        return Session::flash('success', trans('index.all')." {$this->menu_name} ".trans('index.at_trash has_been_deleted_permanent_successfully'));
     }
 
     public function getDataCreatedBy()

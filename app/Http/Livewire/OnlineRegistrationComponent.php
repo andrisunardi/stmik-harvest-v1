@@ -88,7 +88,7 @@ class OnlineRegistrationComponent extends Component
         }
 
         $this->resetInputFields();
-        $this->resetErrorBag();
+        $this->resetValidation();
 
         Session::flash('success', trans('index.thank_you_for_online_registration'));
     }

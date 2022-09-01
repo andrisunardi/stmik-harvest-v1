@@ -61,7 +61,7 @@ RewriteRule ^ index.php [L]
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_URI} !^/public/
-RewriteRule ^(assets|audios|cms|css|files|fonts|images|js|musics|plugins|sounds|vendor|vendors|videos)/(.*)$ public/$1/$2 [L,NC]
+RewriteRule ^(assets|audios|cms|css|files|fonts|images|js|livewire|musics|plugins|sounds|vendor|vendors|videos)/(.*)$ public/$1/$2 [L,NC]
 
 # START ACCESS FORBIDDEN
 RedirectMatch 403 /\..*$

@@ -71,11 +71,6 @@ class MenuCategory extends Model
         return App::isLocale('en') ? $this->name : $this->name_id;
     }
 
-    public function getTranslateDescriptionAttribute()
-    {
-        return App::isLocale('en') ? $this->description : $this->description_id;
-    }
-
     public function data_menu()
     {
         return $this->hasMany(Menu::class)->active()->orderBy('sort');

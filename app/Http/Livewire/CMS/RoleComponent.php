@@ -119,7 +119,7 @@ class RoleComponent extends Component
 
     public function refresh()
     {
-        $this->resetErrorBag();
+        $this->resetValidation();
     }
 
     public function updating()
@@ -175,7 +175,7 @@ class RoleComponent extends Component
     public function index()
     {
         $this->resetFilter();
-        $this->resetErrorBag();
+        $this->resetValidation();
 
         $this->menu_type = 'index';
     }
@@ -183,7 +183,7 @@ class RoleComponent extends Component
     public function add()
     {
         $this->resetFilter();
-        $this->resetErrorBag();
+        $this->resetValidation();
 
         $this->menu_type = 'add';
         $this->active = true;
@@ -192,7 +192,7 @@ class RoleComponent extends Component
     public function clone($id)
     {
         $this->resetFilter();
-        $this->resetErrorBag();
+        $this->resetValidation();
 
         $this->menu_type = 'clone';
         $this->row = $id;
@@ -211,7 +211,7 @@ class RoleComponent extends Component
     public function edit($id)
     {
         $this->resetFilter();
-        $this->resetErrorBag();
+        $this->resetValidation();
 
         $this->menu_type = 'edit';
         $this->row = $id;
@@ -230,7 +230,7 @@ class RoleComponent extends Component
     public function view($id)
     {
         $this->resetFilter();
-        $this->resetErrorBag();
+        $this->resetValidation();
 
         $this->menu_type = 'view';
         $this->row = $id;
@@ -245,7 +245,7 @@ class RoleComponent extends Component
     public function trash()
     {
         $this->resetFilter();
-        $this->resetErrorBag();
+        $this->resetValidation();
 
         $this->menu_type = 'trash';
     }
@@ -280,7 +280,7 @@ class RoleComponent extends Component
         Session::flash('success', trans('index.'.Str::slug($this->menu_name, '_')).' '.trans("index.has been {$this->menu_type_message} successfully"));
 
         $this->resetFilter();
-        $this->resetErrorBag();
+        $this->resetValidation();
 
         $this->menu_type = 'index';
     }
@@ -297,7 +297,7 @@ class RoleComponent extends Component
         $this->role->save();
         $this->role->refresh();
 
-        return Session::flash('success', trans('index.'.Str::slug($this->menu_name, '_')).' '.trans('index.has been set active successfully'));
+        return Session::flash('success', trans('index.'.Str::slug($this->menu_name, '_')).' '.trans('index.has_been_set_active_successfully'));
     }
 
     public function nonActive($id)
@@ -326,7 +326,7 @@ class RoleComponent extends Component
         $this->role->delete();
         $this->role->refresh();
 
-        return Session::flash('success', trans('index.'.Str::slug($this->menu_name, '_')).' '.trans('index.has been deleted successfully'));
+        return Session::flash('success', trans('index.'.Str::slug($this->menu_name, '_')).' '.trans('index.has_been_deleted_successfully'));
     }
 
     public function restore($id)
@@ -340,7 +340,7 @@ class RoleComponent extends Component
         $this->role->restore();
         $this->role->refresh();
 
-        return Session::flash('success', trans('index.'.Str::slug($this->menu_name, '_')).' '.trans('index.has been deleted successfully'));
+        return Session::flash('success', trans('index.'.Str::slug($this->menu_name, '_')).' '.trans('index.has_been_deleted_successfully'));
     }
 
     public function deletePermanent($id)
@@ -356,26 +356,26 @@ class RoleComponent extends Component
 
         if ($this->menu_type == 'view') {
             $this->resetFilter();
-            $this->resetErrorBag();
+            $this->resetValidation();
 
             $this->menu_type = 'index';
         }
 
-        return Session::flash('success', trans('index.'.Str::slug($this->menu_name, '_')).' '.trans('index.has been deleted permanent successfully'));
+        return Session::flash('success', trans('index.'.Str::slug($this->menu_name, '_')).' '.trans('index.has_been_deleted_permanent_successfully'));
     }
 
     public function restoreAll()
     {
         Role::onlyTrashed()->restore();
 
-        return Session::flash('success', trans('index.'.Str::slug($this->menu_name, '_')).' '.trans('index.has been restored successfully'));
+        return Session::flash('success', trans('index.'.Str::slug($this->menu_name, '_')).' '.trans('index.has_been_restored_successfully'));
     }
 
     public function deletePermanentAll()
     {
         Role::onlyTrashed()->forceDelete();
 
-        return Session::flash('success', trans('index.All')." {$this->menu_name} ".trans('index.at Trash has been Deleted Permanent Successfully'));
+        return Session::flash('success', trans('index.all')." {$this->menu_name} ".trans('index.at_trash has_been_deleted_permanent_successfully'));
     }
 
     public function getDataCreatedBy()
