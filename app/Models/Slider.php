@@ -11,6 +11,60 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Str;
 
+/**
+ * App\Models\Slider
+ *
+ * @property int $id
+ * @property string|null $name
+ * @property string|null $name_id
+ * @property string|null $description
+ * @property string|null $description_id
+ * @property string|null $button_name
+ * @property string|null $button_name_id
+ * @property string|null $button_link
+ * @property string|null $image
+ * @property int|null $active 1 = Yes, 0 = No
+ * @property int|null $created_by_id
+ * @property int|null $updated_by_id
+ * @property int|null $deleted_by_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property-read \App\Models\Admin|null $created_by
+ * @property-read \App\Models\Admin|null $deleted_by
+ * @property-read mixed $image_url
+ * @property-read mixed $translate_button_name
+ * @property-read mixed $translate_description
+ * @property-read mixed $translate_name
+ * @property-read \App\Models\Admin|null $updated_by
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder|Slider active()
+ * @method static \Database\Factories\SliderFactory factory(...$parameters)
+ * @method static \Illuminate\Database\Eloquent\Builder|Slider newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Slider newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Slider nonActive()
+ * @method static \Illuminate\Database\Query\Builder|Slider onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Slider query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Slider whereActive($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Slider whereButtonLink($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Slider whereButtonName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Slider whereButtonNameId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Slider whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Slider whereCreatedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Slider whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Slider whereDeletedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Slider whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Slider whereDescriptionId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Slider whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Slider whereImage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Slider whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Slider whereNameId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Slider whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Slider whereUpdatedById($value)
+ * @method static \Illuminate\Database\Query\Builder|Slider withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|Slider withoutTrashed()
+ * @mixin \Eloquent
+ */
 class Slider extends Model
 {
     use HasFactory, SoftDeletes;

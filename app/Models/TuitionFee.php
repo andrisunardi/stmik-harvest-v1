@@ -8,6 +8,50 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\App;
 
+/**
+ * App\Models\TuitionFee
+ *
+ * @property int $id
+ * @property string|null $name
+ * @property string|null $name_id
+ * @property string|null $description
+ * @property string|null $description_id
+ * @property int|null $active 1 = Yes, 0 = No
+ * @property int|null $created_by_id
+ * @property int|null $updated_by_id
+ * @property int|null $deleted_by_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property-read \App\Models\Admin|null $created_by
+ * @property-read \App\Models\Admin|null $deleted_by
+ * @property-read mixed $translate_description
+ * @property-read mixed $translate_name
+ * @property-read \App\Models\Admin|null $updated_by
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder|TuitionFee active()
+ * @method static \Database\Factories\TuitionFeeFactory factory(...$parameters)
+ * @method static \Illuminate\Database\Eloquent\Builder|TuitionFee newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|TuitionFee newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|TuitionFee nonActive()
+ * @method static \Illuminate\Database\Query\Builder|TuitionFee onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|TuitionFee query()
+ * @method static \Illuminate\Database\Eloquent\Builder|TuitionFee whereActive($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TuitionFee whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TuitionFee whereCreatedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TuitionFee whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TuitionFee whereDeletedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TuitionFee whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TuitionFee whereDescriptionId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TuitionFee whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TuitionFee whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TuitionFee whereNameId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TuitionFee whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TuitionFee whereUpdatedById($value)
+ * @method static \Illuminate\Database\Query\Builder|TuitionFee withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|TuitionFee withoutTrashed()
+ * @mixin \Eloquent
+ */
 class TuitionFee extends Model
 {
     use HasFactory, SoftDeletes;

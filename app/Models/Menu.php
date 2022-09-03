@@ -9,6 +9,56 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Str;
 
+/**
+ * App\Models\Menu
+ *
+ * @property int $id
+ * @property int|null $menu_category_id
+ * @property string|null $name
+ * @property string|null $name_id
+ * @property string|null $icon
+ * @property int|null $sort
+ * @property int|null $active 1 = Yes, 0 = No
+ * @property int|null $created_by_id
+ * @property int|null $updated_by_id
+ * @property int|null $deleted_by_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property-read \App\Models\Admin|null $created_by
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Log[] $data_log
+ * @property-read int|null $data_log_count
+ * @property-read \App\Models\Admin|null $deleted_by
+ * @property-read mixed $translate_description
+ * @property-read mixed $translate_name
+ * @property-read \App\Models\MenuCategory|null $menu_category
+ * @property-read \App\Models\Admin|null $updated_by
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder|Menu active()
+ * @method static \Database\Factories\MenuFactory factory(...$parameters)
+ * @method static \Illuminate\Database\Eloquent\Builder|Menu newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Menu newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Menu nonActive()
+ * @method static \Illuminate\Database\Query\Builder|Menu onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Menu query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Menu whereActive($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Menu whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Menu whereCreatedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Menu whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Menu whereDeletedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Menu whereIcon($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Menu whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Menu whereMenuCategoryId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Menu whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Menu whereNameId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Menu whereSort($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Menu whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Menu whereUpdatedById($value)
+ * @method static \Illuminate\Database\Query\Builder|Menu withTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Menu withoutMenuCategory()
+ * @method static \Illuminate\Database\Query\Builder|Menu withoutTrashed()
+ * @mixin \Eloquent
+ */
 class Menu extends Model
 {
     use HasFactory, SoftDeletes;

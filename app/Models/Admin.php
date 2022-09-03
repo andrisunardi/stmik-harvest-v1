@@ -11,6 +11,64 @@ use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Str;
 use Spatie\Permission\Traits\HasRoles;
 
+/**
+ * App\Models\Admin
+ *
+ * @property int $id
+ * @property int|null $access_id
+ * @property string|null $name
+ * @property string|null $email
+ * @property string|null $username
+ * @property string|null $password
+ * @property string|null $image
+ * @property int|null $active 1 = Yes, 0 = No
+ * @property int|null $created_by_id
+ * @property int|null $updated_by_id
+ * @property int|null $deleted_by_id
+ * @property string|null $remember_token
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property-read \App\Models\Access|null $access
+ * @property-read Admin|null $created_by
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Log[] $data_log
+ * @property-read int|null $data_log_count
+ * @property-read Admin|null $deleted_by
+ * @property-read mixed $image_url
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Spatie\Permission\Models\Permission[] $permissions
+ * @property-read int|null $permissions_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Spatie\Permission\Models\Role[] $roles
+ * @property-read int|null $roles_count
+ * @property-read Admin|null $updated_by
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder|Admin active()
+ * @method static \Database\Factories\AdminFactory factory(...$parameters)
+ * @method static \Illuminate\Database\Eloquent\Builder|Admin newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Admin newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Admin nonActive()
+ * @method static \Illuminate\Database\Query\Builder|Admin onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Admin permission($permissions)
+ * @method static \Illuminate\Database\Eloquent\Builder|Admin query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Admin role($roles, $guard = null)
+ * @method static \Illuminate\Database\Eloquent\Builder|Admin whereAccessId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Admin whereActive($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Admin whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Admin whereCreatedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Admin whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Admin whereDeletedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Admin whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Admin whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Admin whereImage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Admin whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Admin wherePassword($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Admin whereRememberToken($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Admin whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Admin whereUpdatedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Admin whereUsername($value)
+ * @method static \Illuminate\Database\Query\Builder|Admin withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|Admin withoutTrashed()
+ * @mixin \Eloquent
+ */
 class Admin extends Authenticatable
 {
     use HasFactory, HasRoles, SoftDeletes;

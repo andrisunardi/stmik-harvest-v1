@@ -11,6 +11,53 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Str;
 
+/**
+ * App\Models\Banner
+ *
+ * @property int $id
+ * @property string|null $name
+ * @property string|null $name_id
+ * @property string|null $description
+ * @property string|null $description_id
+ * @property string|null $image
+ * @property int|null $active 1 = Yes, 0 = No
+ * @property int|null $created_by_id
+ * @property int|null $updated_by_id
+ * @property int|null $deleted_by_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property-read \App\Models\Admin|null $created_by
+ * @property-read \App\Models\Admin|null $deleted_by
+ * @property-read mixed $image_url
+ * @property-read mixed $translate_description
+ * @property-read mixed $translate_name
+ * @property-read \App\Models\Admin|null $updated_by
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder|Banner active()
+ * @method static \Database\Factories\BannerFactory factory(...$parameters)
+ * @method static \Illuminate\Database\Eloquent\Builder|Banner newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Banner newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Banner nonActive()
+ * @method static \Illuminate\Database\Query\Builder|Banner onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Banner query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Banner whereActive($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Banner whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Banner whereCreatedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Banner whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Banner whereDeletedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Banner whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Banner whereDescriptionId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Banner whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Banner whereImage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Banner whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Banner whereNameId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Banner whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Banner whereUpdatedById($value)
+ * @method static \Illuminate\Database\Query\Builder|Banner withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|Banner withoutTrashed()
+ * @mixin \Eloquent
+ */
 class Banner extends Model
 {
     use HasFactory, SoftDeletes;

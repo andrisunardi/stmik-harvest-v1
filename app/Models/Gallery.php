@@ -11,6 +11,67 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Str;
 
+/**
+ * App\Models\Gallery
+ *
+ * @property int $id
+ * @property int|null $category 1 = Image, 2 = Video, 3 = Youtube
+ * @property string|null $name
+ * @property string|null $name_id
+ * @property string|null $description
+ * @property string|null $description_id
+ * @property string|null $tag
+ * @property string|null $tag_id
+ * @property string|null $image
+ * @property string|null $video
+ * @property string|null $youtube
+ * @property int|null $active 1 = Yes, 0 = No
+ * @property int|null $created_by_id
+ * @property int|null $updated_by_id
+ * @property int|null $deleted_by_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property-read \App\Models\Admin|null $created_by
+ * @property-read \App\Models\Admin|null $deleted_by
+ * @property-read mixed $category_text
+ * @property-read mixed $image_url
+ * @property-read mixed $translate_description
+ * @property-read mixed $translate_name
+ * @property-read mixed $translate_tag
+ * @property-read mixed $video_url
+ * @property-read mixed $youtube_code
+ * @property-read \App\Models\Admin|null $updated_by
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder|Gallery active()
+ * @method static \Database\Factories\GalleryFactory factory(...$parameters)
+ * @method static \Illuminate\Database\Eloquent\Builder|Gallery newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Gallery newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Gallery nonActive()
+ * @method static \Illuminate\Database\Query\Builder|Gallery onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Gallery query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Gallery whereActive($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Gallery whereCategory($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Gallery whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Gallery whereCreatedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Gallery whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Gallery whereDeletedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Gallery whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Gallery whereDescriptionId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Gallery whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Gallery whereImage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Gallery whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Gallery whereNameId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Gallery whereTag($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Gallery whereTagId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Gallery whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Gallery whereUpdatedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Gallery whereVideo($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Gallery whereYoutube($value)
+ * @method static \Illuminate\Database\Query\Builder|Gallery withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|Gallery withoutTrashed()
+ * @mixin \Eloquent
+ */
 class Gallery extends Model
 {
     use HasFactory, SoftDeletes;

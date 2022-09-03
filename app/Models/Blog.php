@@ -11,6 +11,65 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Str;
 
+/**
+ * App\Models\Blog
+ *
+ * @property int $id
+ * @property int|null $blog_category_id
+ * @property string|null $name
+ * @property string|null $name_id
+ * @property string|null $description
+ * @property string|null $description_id
+ * @property string|null $date
+ * @property string|null $tag
+ * @property string|null $tag_id
+ * @property string|null $image
+ * @property string|null $slug
+ * @property int|null $active 1 = Yes, 0 = No
+ * @property int|null $created_by_id
+ * @property int|null $updated_by_id
+ * @property int|null $deleted_by_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property-read \App\Models\BlogCategory|null $blog_category
+ * @property-read \App\Models\Admin|null $created_by
+ * @property-read \App\Models\Admin|null $deleted_by
+ * @property-read mixed $image_url
+ * @property-read mixed $translate_description
+ * @property-read mixed $translate_name
+ * @property-read mixed $translate_tag
+ * @property-read \App\Models\Admin|null $updated_by
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder|Blog active()
+ * @method static \Database\Factories\BlogFactory factory(...$parameters)
+ * @method static \Illuminate\Database\Eloquent\Builder|Blog newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Blog newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Blog nonActive()
+ * @method static \Illuminate\Database\Query\Builder|Blog onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Blog query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Blog whereActive($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Blog whereBlogCategoryId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Blog whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Blog whereCreatedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Blog whereDate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Blog whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Blog whereDeletedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Blog whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Blog whereDescriptionId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Blog whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Blog whereImage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Blog whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Blog whereNameId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Blog whereSlug($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Blog whereTag($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Blog whereTagId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Blog whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Blog whereUpdatedById($value)
+ * @method static \Illuminate\Database\Query\Builder|Blog withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|Blog withoutTrashed()
+ * @mixin \Eloquent
+ */
 class Blog extends Model
 {
     use HasFactory, SoftDeletes;
