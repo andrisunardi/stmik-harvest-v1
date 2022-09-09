@@ -204,7 +204,7 @@
                                 </li>
                                 <li class="drop"><a draggable="false" href="{{ route("about.index") }}">{{ trans("index.about_us") }}</a>
                                     <ul class="dropdown">
-                                        <li><a draggable="false" href="{{ route("about.index") }}">{{ trans("index.about") }} STMIK Harvest</a></li>
+                                        <li><a draggable="false" href="{{ route("about.index") }}">{{ trans("index.about") }} STMIK Kuwera</a></li>
                                         <li><a draggable="false" href="{{ route("our-profile.index") }}">{{ trans("index.our_profile") }}</a></li>
                                         <li><a draggable="false" href="{{ route("our-values.index") }}">{{ trans("index.our_values") }}</a></li>
                                         <li><a draggable="false" href="{{ route("our-network.index") }}">{{ trans("index.our_network") }}</a></li>
@@ -407,7 +407,7 @@
                                 <h2 class="footer__title">{{ trans("index.quick_links") }}</h2>
                                 <ul class="htc__ft__list">
                                     <li><a draggable="false" href="{{ route("index") }}">{{ trans("index.home") }}</a></li>
-                                    <li><a draggable="false" href="{{ route("about.index") }}">{{ trans("index.about") }} STMIK Harvest</a></li>
+                                    <li><a draggable="false" href="{{ route("about.index") }}">{{ trans("index.about") }} STMIK Kuwera</a></li>
                                     <li><a draggable="false" href="{{ route("our-profile.index") }}">{{ trans("index.our_profile") }}</a></li>
                                     <li><a draggable="false" href="{{ route("our-values.index") }}">{{ trans("index.our_values") }}</a></li>
                                     <li><a draggable="false" href="{{ route("our-network.index") }}">{{ trans("index.our_network") }}</a></li>
@@ -450,13 +450,13 @@
                                             {{ env("CONTACT_WHATSAPP") }}
                                         </a>
                                     </li>
-                                    <li>
+                                    {{-- <li>
                                         <a draggable="false" href="https://line.me/ti/p/~{{ env("CONTACT_LINE") }}" target="_blank">
                                             <i class="fab fa-line fa-fw me-1"></i>
                                             <strong>{{ trans("index.line") }} :</strong>
                                             {{ env("CONTACT_LINE") }}
                                         </a>
-                                    </li>
+                                    </li> --}}
                                     {{-- <li>
                                         <a draggable="false" href="http://www.pin.bbm.com/{{ env("CONTACT_BBM") }}" target="_blank">
                                             <i class="fab fa-blackberry fa-fw me-1"></i>
@@ -489,7 +489,7 @@
                                         <a draggable="false" href="{{ env("CONTACT_GOOGLE_MAPS") }}" target="_blank" class="lh-base">
                                             <i class="fas fa-map-marked-alt fa-fw me-1"></i>
                                             <strong>{{ trans("index.address") }} :</strong>
-                                            <strong>STMIK Harvest</strong><br>
+                                            <strong>STMIK Kuwera</strong><br>
                                             <div class="ms-5">{{ env("CONTACT_ADDRESS") }}</div>
                                         </a>
                                     </li>
