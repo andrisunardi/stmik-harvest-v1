@@ -9,7 +9,7 @@ return [
     ],
 
     'storage' => [
-        'enabled' => true,
+        'enabled' => false,
         'driver' => 'file',
         'path' => storage_path('debugbar'),
         'connection' => null,
