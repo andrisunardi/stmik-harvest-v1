@@ -134,7 +134,7 @@ class AppServiceProvider extends ServiceProvider
                 $color = 'danger';
                 // } else if ($value % 7 == 0) {
             //     $color = "light";
-            // } else if ($value % 8 == 0) {
+                // } else if ($value % 8 == 0) {
             //     $color = "dark";
             }
 

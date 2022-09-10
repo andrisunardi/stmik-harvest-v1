@@ -67,8 +67,8 @@ class EventComponent extends Component
                 ->orWhere('name_id', 'like', "%{$this->search}%")
                 ->orWhere('description', 'like', "%{$this->search}%")
                 ->orWhere('description_id', 'like', "%{$this->search}%")
-            )->when($this->category, fn ($query) => $query->where('event_category_id', $this->event_category->id)
-            )->active()->orderByDesc('id');
+        )->when($this->category, fn ($query) => $query->where('event_category_id', $this->event_category->id)
+        )->active()->orderByDesc('id');
 
         if ($this->search) {
             Session::flash('success', trans('index.found')." <b>'{$data_event->count()}'</b> ".trans('index.results_for')." <b>'{$this->search}'</b>");
