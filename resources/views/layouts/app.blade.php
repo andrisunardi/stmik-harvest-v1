@@ -143,11 +143,11 @@
                                         <i class="icon ion-social-facebook"></i>
                                     </a>
                                 </li>
-                                <li>
+                                {{-- <li>
                                     <a draggable="false" href="https://www.twitter.com/{{ env("SOCIAL_MEDIA_TWITTER") }}" target="_blank">
                                         <i class="icon ion-social-twitter"></i>
                                     </a>
-                                </li>
+                                </li> --}}
                                 <li>
                                     <a draggable="false" href="https://www.instagram.com/{{ env("SOCIAL_MEDIA_INSTAGRAM") }}" target="_blank">
                                         <i class="icon ion-social-instagram"></i>
@@ -352,12 +352,12 @@
                                         {{ trans("validation.attributes.facebook") }} : {{ env("SOCIAL_MEDIA_FACEBOOK") }}
                                     </a>
                                 </li>
-                                <li>
+                                {{-- <li>
                                     <a draggable="false" href="https://www.twitter.com/{{ env("SOCIAL_MEDIA_TWITTER") }}" target="blank">
                                         <i class="fab fa-twitter fa-fw me-1"></i>
                                         {{ trans("validation.attributes.twitter") }} : {{ env("SOCIAL_MEDIA_TWITTER") }}
                                     </a>
-                                </li>
+                                </li> --}}
                                 <li>
                                     <a draggable="false" href="https://www.instagram.com/{{ env("SOCIAL_MEDIA_INSTAGRAM") }}" target="blank">
                                         <i class="fab fa-instagram fa-fw me-1"></i>

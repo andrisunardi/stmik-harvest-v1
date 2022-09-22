@@ -198,13 +198,13 @@
                                 </div>
                             </div>
 
-                            <div class="contact__address">
+                            {{-- <div class="contact__address">
                                 <div class="cont__icon">
                                     <i class="fab fa-twitter"></i>
                                     <span>{{ trans("validation.attributes.twitter") }} :</span>
                                     <a draggable="false" class="text-dark" href="https://www.twitter.com/{{ env("SOCIAL_MEDIA_TWITTER") }}" target="_blank">{{ env("SOCIAL_MEDIA_TWITTER") }}</a>
                                 </div>
-                            </div>
+                            </div> --}}
 
                             <div class="contact__address">
                                 <div class="cont__icon">
