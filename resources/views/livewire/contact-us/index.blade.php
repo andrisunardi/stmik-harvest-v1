@@ -226,7 +226,7 @@
                                 <div class="cont__icon">
                                     <i class="fab fa-youtube"></i>
                                     <span>{{ trans("validation.attributes.youtube") }} :</span>
-                                    <a draggable="false" class="text-dark" href="https://www.youtube.com/{{ env("SOCIAL_MEDIA_YOUTUBE") }}" target="_blank">STMIK Harvest</a>
+                                    <a draggable="false" class="text-dark" href="https://www.youtube.com/{{ env("SOCIAL_MEDIA_YOUTUBE") }}" target="_blank">STMIK Kuwera</a>
                                 </div>
                             </div>
 

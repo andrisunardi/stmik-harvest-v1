@@ -373,7 +373,7 @@
                                 <li>
                                     <a draggable="false" href="https://www.youtube.com/{{ env("SOCIAL_MEDIA_YOUTUBE") }}" target="blank">
                                         <i class="fab fa-youtube fa-fw me-1"></i>
-                                        {{ trans("validation.attributes.youtube") }} : STMIK Harvest
+                                        {{ trans("validation.attributes.youtube") }} : STMIK Kuwera
                                     </a>
                                 </li>
                             </ul>
