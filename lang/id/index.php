@@ -1,29 +1,33 @@
 <?php
 
-use GuzzleHttp\Client;
-
-$client = new Client();
 $url = 'https://www.language.diw.co.id/api/id';
 
-$params = [];
-
 $headers = [
-    'api-key' => '',
+    'Content-Type' => env('HEADER_CONTENT_TYPE'),
+    'Accept' => env('HEADER_ACCEPT'),
+    'Key' => env('HEADER_KEY'),
 ];
 
-$response = $client->request('GET', $url, [
-    'json' => $params,
-    'headers' => $headers,
-    'verify' => false,
-]);
+$requestBody = [
+    'custom' => false,
+    'attribute' => false,
+    'portfolio' => null,
+];
+
+$response = Http::withHeaders($headers)
+    ->retry(3, 30)
+    ->timeout(30)
+    ->connectTimeout(3)
+    ->throw()
+    ->get($url, $requestBody);
 
 $language = null;
 
 if ($response->getStatusCode() == 200) {
-    $responseBody = json_decode($response->getBody());
+    $responseBody = $response->json()['data'];
 
     $language = collect();
-    foreach ($responseBody->data as $data) {
+    foreach ($responseBody as $data) {
         $language = $language->merge($data);
     }
 }

@@ -39,7 +39,7 @@
                     @if ($key == 5) @php $color = "warning" @endphp @endif
                     @if ($key == 6) @php $color = "danger" @endphp @endif
                     @php $total = "total_" . Str::slug($menu->name, "_") @endphp
-                    <div class="col-6 col-sm-4 col-lg-3 col-xl-2 col-xxl-1 my-2">
+                    <div class="col-6 col-sm-4 col-lg-3 col-xl-2 my-2">
                         <a draggable="false" href="{{ route("{$sub_domain}." . Str::slug($menu->name) .".index") }}">
                             <div class="card bg-gradient bg-{{ $color }} h-100">
                                 <div class="card-body">

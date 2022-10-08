@@ -1,31 +1,33 @@
 <?php
 
-use GuzzleHttp\Client;
-
-$client = new Client();
-$url = 'https://www.language.diw.co.id/api/en?attribute=true';
-
-$params = [
-    'attribute' => true,
-];
+$url = 'https://www.language.diw.co.id/api/en';
 
 $headers = [
-    'api-key' => '',
+    'Content-Type' => env('HEADER_CONTENT_TYPE'),
+    'Accept' => env('HEADER_ACCEPT'),
+    'Key' => env('HEADER_KEY'),
 ];
 
-$response = $client->request('GET', $url, [
-    'json' => $params,
-    'headers' => $headers,
-    'verify' => false,
-]);
+$requestBody = [
+    'custom' => false,
+    'attribute' => true,
+    'portfolio' => null,
+];
 
-$attributes = null;
+$response = Http::withHeaders($headers)
+    ->retry(3, 30)
+    ->connectTimeout(3)
+    ->timeout(30)
+    ->throw()
+    ->get($url, $requestBody);
+
+$language = null;
 
 if ($response->getStatusCode() == 200) {
-    $responseBody = json_decode($response->getBody());
+    $responseBody = $response->json()['data'];
 
     $language = collect();
-    foreach ($responseBody->data as $data) {
+    foreach ($responseBody as $data) {
         $language = $language->merge($data);
     }
 
@@ -33,7 +35,6 @@ if ($response->getStatusCode() == 200) {
 }
 
 return [
-
     'success' => 'Looks Good',
 
     'accepted' => 'The :attribute must be accepted.',
