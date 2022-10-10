@@ -18,7 +18,7 @@
                                 <div class="valid-feedback rounded bg-success p-2 mt-2 text-white">{{ trans("index.Looks Good") }}</div>
                                 <div class="invalid-feedback rounded bg-danger p-2 mt-2 text-white">@error($input_name){{ $message }}@else{{ trans("index.Please Fill In Correctly") }}@enderror</div>
                             </div>
-                            <div class="form-text mt-2">{{ trans("index.Format") }} .xls, .xlsx {{ trans("index.and max size") }} 2mb</div>
+                            <div class="form-text mt-2">{{ trans("index.format") }} .xls, .xlsx {{ trans("index.and max size") }} 2mb</div>
                         </div>
                     </div>
                 </div>

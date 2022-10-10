@@ -34,12 +34,12 @@
                                     <div class="login__form row">
                                         @php $input = "name" @endphp
                                         <div class="form-group col-sm-6">
-                                            <label class="form-label" for="{{ $input }}">{{ trans("index.Full Name") }} <span class="text-danger">*</span></label>
+                                            <label class="form-label" for="{{ $input }}">{{ trans("index.full_name") }} <span class="text-danger">*</span></label>
                                             <div class="input-group has-validation">
                                                 <div class="input-group-text"><span class="fas fa-user"></span></div>
                                                 <input wire:model="{{ $input }}" wire:keydown.enter="submit" id="{{ $input }}" name="{{ $input }}"
                                                     type="text" class="form-control @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" minlength="1" maxlength="50" value="{{ old($input) }}"
-                                                    placeholder="{{ trans("index.Full Name") }}" aria-label="{{ trans("index.Full Name") }}" aria-describedby="{{ trans("index.Full Name") }}"
+                                                    placeholder="{{ trans("index.full_name") }}" aria-label="{{ trans("index.full_name") }}" aria-describedby="{{ trans("index.full_name") }}"
                                                     autocomplete="off" autocapitalize="none" required>
                                                 @error($input)
                                                     <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
@@ -186,7 +186,7 @@
                                     </div>
 
                                     <div class="login__btn">
-                                        <button type="button" class="htc__btn btn--theme" wire:click="submit">{{ trans("index.Submit") }}</button>
+                                        <button type="button" class="htc__btn btn--theme" wire:click="submit">{{ trans("index.submit") }}</button>
                                     </div>
                                 </div>
                             </form>
@@ -201,7 +201,7 @@
                                     </li>
                                     <li>
                                         <a draggable="false" href="{{ route("scholarships.index") }}">
-                                            <i class="fas fa-hand-holding-dollar"></i><span>{{ trans("index.Scholarships") }}</span>
+                                            <i class="fas fa-hand-holding-dollar"></i><span>{{ trans("index.scholarships") }}</span>
                                         </a>
                                     </li>
                                 </ul>

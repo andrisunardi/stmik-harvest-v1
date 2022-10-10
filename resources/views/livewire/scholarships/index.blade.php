@@ -24,7 +24,7 @@
                         </p>
                     </div>
                     <div class="about__thumb mt-3">
-                        <img draggable="false" class="img-fluid w-100" src="{{ asset("images/scholarship/scholarship.webp") }}" alt="{{ trans("index.Scholarship") }} - 2 - {{ env("APP_TITLE") }}">
+                        <img draggable="false" class="img-fluid w-100" src="{{ asset("images/scholarship/scholarship.webp") }}" alt="{{ trans("index.scholarship") }} - 2 - {{ env("APP_TITLE") }}">
                     </div>
                 </div>
             </div>

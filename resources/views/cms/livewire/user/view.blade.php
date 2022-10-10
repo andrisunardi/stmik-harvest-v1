@@ -113,23 +113,23 @@
                             <th>{{ trans("index.file") }}</th>
                             <th>{{ trans("index.Repository Subject") }}</th>
                             <th>{{ trans("index.Study Program") }}</th>
-                            <th>{{ trans("index.Status") }}</th>
-                            <th>{{ trans("index.Title") }}</th>
+                            <th>{{ trans("index.status") }}</th>
+                            <th>{{ trans("index.title") }}</th>
                             <th>{{ trans("index.Journal Title") }}</th>
                             <th>{{ trans("index.date") }}</th>
-                            <th>{{ trans("index.Publication Date") }}</th>
-                            <th>{{ trans("index.Corporate Author") }}</th>
-                            <th>{{ trans("index.Publisher") }}</th>
-                            <th>{{ trans("index.Year") }}</th>
-                            {{-- <th>{{ trans("index.Abstract") }}</th> --}}
-                            <th>{{ trans("index.URL") }}</th>
-                            <th>{{ trans("index.Keyword") }}</th>
-                            <th>{{ trans("index.Volume") }}</th>
-                            <th>{{ trans("index.Issue") }}</th>
-                            <th>{{ trans("index.Page") }}</th>
-                            <th>{{ trans("index.First Page") }}</th>
-                            <th>{{ trans("index.Last Page") }}</th>
-                            <th>{{ trans("index.Scholar") }}</th>
+                            <th>{{ trans("index.publication_date") }}</th>
+                            <th>{{ trans("index.corporate_author") }}</th>
+                            <th>{{ trans("index.publisher") }}</th>
+                            <th>{{ trans("index.year") }}</th>
+                            {{-- <th>{{ trans("index.abstract") }}</th> --}}
+                            <th>{{ trans("index.url") }}</th>
+                            <th>{{ trans("index.keyword") }}</th>
+                            <th>{{ trans("index.volume") }}</th>
+                            <th>{{ trans("index.issue") }}</th>
+                            <th>{{ trans("index.page") }}</th>
+                            <th>{{ trans("index.first_page") }}</th>
+                            <th>{{ trans("index.last_page") }}</th>
+                            <th>{{ trans("index.scholar") }}</th>
                             <th>{{ trans("index.active") }}</th>
                             <th>{{ trans("index.created_by") }}</th>
                             <th>{{ trans("index.updated_by") }}</th>

@@ -49,7 +49,7 @@ class ForgotPasswordComponent extends Component
         $admin = Admin::where('username', $this->username)->where('email', $this->email)->first();
 
         if (! $admin) {
-            return redirect()->back()->withInput()->withDanger(trans('index.Username or Email is invalid'));
+            return redirect()->back()->withInput()->withDanger(trans('index.username or Email is invalid'));
         }
 
         $password = Str::random(5);

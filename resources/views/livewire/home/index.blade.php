@@ -372,7 +372,7 @@
                                     </div>
 
                                     <div class="acount__btn">
-                                        <button class="htc__btn btn--theme btn--smll" type="button" wire:click="submit">{{ trans("index.Submit") }}</button>
+                                        <button class="htc__btn btn--theme btn--smll" type="button" wire:click="submit">{{ trans("index.submit") }}</button>
                                     </div>
                                 </form>
                             @else

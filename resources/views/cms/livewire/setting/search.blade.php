@@ -27,10 +27,10 @@
                 <option value="google_maps_iframe">{{ trans("index.Google Maps Iframe") }}</option>
                 <option value="about_us">{{ trans("index.about_us") }}</option>
                 <option value="about_us_id">{{ trans("index.about_us") }}</option>
-                <option value="vision">{{ trans("index.Vision") }}</option>
-                <option value="vision_id">{{ trans("index.Vision ID") }}</option>
-                <option value="mission">{{ trans("index.Mission") }}</option>
-                <option value="mission_id">{{ trans("index.Mission ID") }}</option>
+                <option value="vision">{{ trans("index.vision") }}</option>
+                <option value="vision_id">{{ trans("index.vision ID") }}</option>
+                <option value="mission">{{ trans("index.mission") }}</option>
+                <option value="mission_id">{{ trans("index.mission ID") }}</option>
                 <option value="history">{{ trans("index.history") }}</option>
                 <option value="history_id">{{ trans("index.History ID") }}</option>
                 <option value="active" {{ "active" == $order_by ? "selected" : null }}>{{ trans("validation.attributes.active") }}</option>
