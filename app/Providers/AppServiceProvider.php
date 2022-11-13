@@ -65,14 +65,16 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         Str::macro('phone', function ($value) {
+            $value = Str::slug($value, '');
+
             if (Str::substr($value, 0, 3) == '021') {
-                return Str::slug(Str::substrReplace($value, '62', 0, 1), '');
+                return Str::substrReplace($value, '62', 0, 1);
             }
             if (Str::substr($value, 0, 5) == '(021)') {
-                return Str::slug(Str::substrReplace($value, '62', 0, 2), '');
+                return Str::substrReplace($value, '62', 0, 2);
             }
             if (Str::substr($value, 0, 1) == '0') {
-                return Str::slug(Str::substrReplace($value, '62', 0, 1), '');
+                return Str::substrReplace($value, '62', 0, 1);
             }
 
             return $value;
