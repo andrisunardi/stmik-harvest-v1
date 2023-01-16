@@ -23,7 +23,9 @@ class Banner extends Model
 
     // protected $dateFormat = "U";
 
-    protected $table = 'absents';
+    protected $table = 'banners';
+
+    protected $slug = 'banner';
 
     protected $primaryKey = 'id';
 
@@ -90,6 +92,45 @@ class Banner extends Model
     {
         return $this->belongsTo(User::class, 'deleted_by_id', 'id');
     }
+
+    public function altImage()
+    {
+        return trans('index.image').' - '.trans('index.'.Str::singular($this->table)).' - '.env('APP_TITLE');
+    }
+
+    public function checkImage()
+    {
+        if ($this->image && File::exists(public_path("images/{$this->slug}/{$this->image}"))) {
+            return true;
+        }
+    }
+
+    public function assetImage()
+    {
+        if ($this->checkImage()) {
+            return asset("images/{$this->slug}/{$this->image}");
+        } else {
+            return asset('images/image-not-available.pdf');
+        }
+    }
+
+    public function deleteImage()
+    {
+        if ($this->checkImage()) {
+            File::delete(public_path("images/{$this->slug}/{$this->image}"));
+        }
+    }
+
+    public function getImageUrlAttribute()
+    {
+        if ($this->checkImage()) {
+            return URL::to('/')."/images/{$this->slug}/{$this->image}";
+        }
+
+        return null;
+    }
+
+    protected $appends = ['image_url'];
 
     public function getTranslateNameAttribute()
     {
