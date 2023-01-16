@@ -8,19 +8,12 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('blogs', function (Blueprint $table) {
+        Schema::create('blog_categories', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('blog_category_id')->nullable()->unsigned();
-            $table->string('title', 100)->nullable()->unique();
-            $table->string('title_idn', 100)->nullable()->unique();
-            $table->string('short_body', 160)->nullable();
-            $table->string('short_body_idn', 160)->nullable();
-            $table->text('body')->nullable();
-            $table->text('body_idn')->nullable();
-            $table->date('date')->nullable();
-            $table->text('tag')->nullable();
-            $table->text('tag_id')->nullable();
-            $table->string('image', 120)->nullable();
+            $table->string('name', 100)->nullable()->unique();
+            $table->string('name_id', 100)->nullable()->unique();
+            $table->text('description')->nullable();
+            $table->text('description_id')->nullable();
             $table->string('slug', 100)->nullable()->unique();
             $table->boolean('is_active')->nullable()->unsigned()->default(true);
             $table->foreignId('created_by_id')->nullable()->unsigned();
@@ -33,6 +26,6 @@ return new class extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('blogs');
+        Schema::dropIfExists('blog_categories');
     }
 };

@@ -8,12 +8,13 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('procedures', function (Blueprint $table) {
+        Schema::create('admission_calendars', function (Blueprint $table) {
             $table->id();
             $table->string('name', 100)->nullable()->unique();
             $table->string('name_id', 100)->nullable()->unique();
             $table->text('description')->nullable();
             $table->text('description_id')->nullable();
+            $table->date('date')->nullable();
             $table->boolean('is_active')->nullable()->unsigned()->default(true);
             $table->foreignId('created_by_id')->nullable()->unsigned();
             $table->foreignId('updated_by_id')->nullable()->unsigned();
@@ -25,6 +26,6 @@ return new class extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('procedures');
+        Schema::dropIfExists('admission_calendars');
     }
 };

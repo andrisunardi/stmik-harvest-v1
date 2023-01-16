@@ -8,16 +8,18 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('blogs', function (Blueprint $table) {
+        Schema::create('banners', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('blog_category_id')->nullable()->unsigned();
+            $table->foreignId('event_category_id')->nullable()->unsigned();
             $table->string('title', 100)->nullable()->unique();
             $table->string('title_idn', 100)->nullable()->unique();
             $table->string('short_body', 160)->nullable();
             $table->string('short_body_idn', 160)->nullable();
             $table->text('body')->nullable();
             $table->text('body_idn')->nullable();
-            $table->date('date')->nullable();
+            $table->string('location', 100)->nullable();
+            $table->dateTime('start')->nullable();
+            $table->datetime('end')->nullable();
             $table->text('tag')->nullable();
             $table->text('tag_id')->nullable();
             $table->string('image', 120)->nullable();
@@ -33,6 +35,6 @@ return new class extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('blogs');
+        Schema::dropIfExists('banners');
     }
 };
