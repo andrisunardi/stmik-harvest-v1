@@ -1,71 +1,75 @@
 @if ($errors->any())
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <i class="icon-warning"></i>
-        {!! trans("index.please_check_all_form_input_validation") !!}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><i class="fas fa-times"></i></button>
+    <div class="alert alert-imaged alert-danger alert-dismissible fade show" role="alert">
+        <div class="icon-wrap"><ion-icon name="alert-circle-outline"></ion-icon></div>
+        <div>
+            @foreach ($errors->all() as $error)
+                {{ $loop->iteration }}. {{ $error }}<br>
+            @endforeach
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="{{ trans("index.close") }}"></button>
     </div>
 @endif
 
-@if(session()->has("primary"))
-    <div class="alert alert-primary alert-dismissible fade show" role="alert">
-        <i class="icon-bell-alt"></i>
-        {!! session()->get("primary") !!}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><i class="fas fa-times"></i></button>
+@if (Session::has("primary"))
+    <div class="alert alert-imaged alert-primary alert-dismissible fade show" role="alert">
+        <div class="icon-wrap"><ion-icon name="information-circle-outline"></ion-icon></div>
+        <div>{{ Session::get("primary") }}</div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="{{ trans("index.close") }}"></button>
     </div>
 @endif
 
-@if(session()->has("secondary"))
-    <div class="alert alert-secondary alert-dismissible fade show" role="alert">
-        <i class="icon-bell-alt"></i>
-        {!! session()->get("secondary") !!}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><i class="fas fa-times"></i></button>
+@if (Session::has("secondary"))
+    <div class="alert alert-imaged alert-secondary alert-dismissible fade show" role="alert">
+        <div class="icon-wrap"><ion-icon name="information-circle-outline"></ion-icon></div>
+        <div>{{ Session::get("secondary") }}</div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="{{ trans("index.close") }}"></button>
     </div>
 @endif
 
-@if(session()->has("success"))
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <i class="icon-ok-circle"></i>
-        {!! session()->get("success") !!}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><i class="fas fa-times"></i></button>
+@if (Session::has("success"))
+    <div class="alert alert-imaged alert-success alert-dismissible fade show" role="alert">
+        <div class="icon-wrap"><ion-icon name="checkmark-circle-outline"></ion-icon></div>
+        <div>{{ Session::get("success") }}</div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="{{ trans("index.close") }}"></button>
     </div>
 @endif
 
-@if(session()->has("danger"))
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <i class="icon-warning"></i>
-        {!! session()->get("danger") !!}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><i class="fas fa-times"></i></button>
+@if (Session::has("danger"))
+    <div class="alert alert-imaged alert-danger alert-dismissible fade show" role="alert">
+        <div class="icon-wrap"><ion-icon name="alert-circle-outline"></ion-icon></div>
+        <div>{{ Session::get("danger") }}</div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="{{ trans("index.close") }}"></button>
     </div>
 @endif
 
-@if(session()->has("warning"))
-    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <i class="icon-attention-circled"></i>
-        {!! session()->get("warning") !!}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><i class="fas fa-times"></i></button>
+@if (Session::has("warning"))
+    <div class="alert alert-imaged alert-warning alert-dismissible fade show" role="alert">
+        <div class="icon-wrap"><ion-icon name="warning-outline"></ion-icon></div>
+        <div>{{ Session::get("warning") }}</div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="{{ trans("index.close") }}"></button>
     </div>
 @endif
 
-@if(session()->has("info"))
-    <div class="alert alert-info alert-dismissible fade show" role="alert">
-        <i class="icon-info-circled"></i>
-        {!! session()->get("info") !!}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><i class="fas fa-times"></i></button>
+@if (Session::has("info"))
+    <div class="alert alert-imaged alert-info alert-dismissible fade show" role="alert">
+        <div class="icon-wrap"><ion-icon name="information-circle-outline"></ion-icon></div>
+        <div>{{ Session::get("info") }}</div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="{{ trans("index.close") }}"></button>
     </div>
 @endif
 
-@if(session()->has("light"))
-    <div class="alert alert-light alert-dismissible fade show" role="alert">
-        <i class="icon-bell-alt"></i>
-        {!! session()->get("light") !!}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><i class="fas fa-times"></i></button>
+@if (Session::has("light"))
+    <div class="alert alert-imaged alert-light alert-dismissible fade show" role="alert">
+        <div class="icon-wrap"><ion-icon name="information-circle-outline"></ion-icon></div>
+        <div>{{ Session::get("light") }}</div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="{{ trans("index.close") }}"></button>
     </div>
 @endif
 
-@if(session()->has("dark"))
-    <div class="alert alert-dark alert-dismissible fade show" role="alert">
-        <i class="icon-bell-alt"></i>
-        {!! session()->get("dark") !!}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><i class="fas fa-times"></i></button>
+@if (Session::has("dark"))
+    <div class="alert alert-imaged alert-dark alert-dismissible fade show" role="alert">
+        <div class="icon-wrap"><ion-icon name="information-circle-outline"></ion-icon></div>
+        <div>{{ Session::get("dark") }}</div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="{{ trans("index.close") }}"></button>
     </div>
 @endif

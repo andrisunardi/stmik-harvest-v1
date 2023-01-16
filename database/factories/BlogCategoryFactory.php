@@ -2,35 +2,38 @@
 
 namespace Database\Factories;
 
-use App\Models\BlogCategory;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class BlogCategoryFactory extends Factory
 {
-    protected $model = BlogCategory::class;
+    public $table = 'blog_categories';
 
     public function definition()
     {
-        $name = $this->faker->unique()->sentence();
+        if (env('APP_ENV') != 'testing') {
+            DB::statement(DB::raw("ALTER TABLE {$this->table} AUTO_INCREMENT = 1"));
+        }
+
+        $name = fake()->sentence();
 
         return [
+            'code' => Str::code('BC', $this->table, null, 8),
             'name' => $name,
-            'name_id' => $this->faker->unique()->sentence(),
-            'description' => $this->faker->paragraph(),
-            'description_id' => $this->faker->paragraph(),
+            'description' => fake()->paragraph(),
             'slug' => Str::slug($name),
-            'active' => $this->faker->boolean(),
+            'is_active' => fake()->boolean(),
         ];
     }
 
     public function active()
     {
-        return $this->state(fn ($attributes) => ['active' => true]);
+        return $this->state(fn ($attributes) => ['is_active' => true]);
     }
 
-    public function nonActive()
+    public function inActive()
     {
-        return $this->state(fn ($attributes) => ['active' => false]);
+        return $this->state(fn ($attributes) => ['is_active' => false]);
     }
 }

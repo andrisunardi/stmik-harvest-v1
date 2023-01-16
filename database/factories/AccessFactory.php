@@ -2,28 +2,34 @@
 
 namespace Database\Factories;
 
-use App\Models\Access;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class AccessFactory extends Factory
 {
-    protected $model = Access::class;
+    public $table = 'accesses';
 
     public function definition()
     {
+        if (env('APP_ENV') != 'testing') {
+            DB::statement(DB::raw("ALTER TABLE {$this->table} AUTO_INCREMENT = 1"));
+        }
+
         return [
-            'name' => $this->faker->unique()->jobTitle(),
-            'active' => $this->faker->boolean(),
+            'code' => Str::code('ACCESS', $this->table, null, 4),
+            'name' => fake()->jobTitle(),
+            'is_active' => fake()->boolean(),
         ];
     }
 
     public function active()
     {
-        return $this->state(fn ($attributes) => ['active' => true]);
+        return $this->state(fn ($attributes) => ['is_active' => true]);
     }
 
-    public function nonActive()
+    public function inActive()
     {
-        return $this->state(fn ($attributes) => ['active' => false]);
+        return $this->state(fn ($attributes) => ['is_active' => false]);
     }
 }

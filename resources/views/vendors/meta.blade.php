@@ -73,7 +73,7 @@
 <meta name="spiders" content="all" />
 <meta name="robots" content="all" />
 <meta name="audience" content="all" />
-<meta name="copyright" content="Copyright @if(env("APP_YEAR")){{ env("APP_YEAR") }} -@endif{{ date("Y") }} {{ env("APP_NAME") }}. All Rights Reserved." />
+<meta name="copyright" content="Copyright @if (env("APP_YEAR")){{ env("APP_YEAR") }} -@endif{{ date("Y") }} {{ env("APP_NAME") }}. All Rights Reserved." />
 <meta name="formatter" content="{{ env("APP_NAME") }}" />
 <meta name="generator" content="Laravel" />
 
@@ -103,7 +103,7 @@
 <meta name="DC.Relation" content="{{ URL::to("/") }}" scheme="URL" />
 <meta name="DC.Identifier" content="{{ URL::to("/") }}" scheme="DCTERMS.URI" />
 <meta name="DC.Coverage" content="{{ env("APP_COUNTRY") }}" />
-<meta name="DC.Rights" content="Copyright @if(env("APP_YEAR")){{ env("APP_YEAR") }} -@endif{{ date("Y") }} {{ env("APP_NAME") }}. All Rights Reserved." />
+<meta name="DC.Rights" content="Copyright @if (env("APP_YEAR")){{ env("APP_YEAR") }} -@endif{{ date("Y") }} {{ env("APP_NAME") }}. All Rights Reserved." />
 
 <meta name="geo.region" content="{{ env("GEO_REGION") }}" />
 <meta name="geo.placename" content="{{ env("GEO_PLACENAME") }}" />

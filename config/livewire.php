@@ -8,15 +8,15 @@ return [
 
     'layout' => 'layouts.app',
 
-    'asset_url' => env('APP_ENV') == 'production' ? 'public' : null,
+    'asset_url' => null,
 
-    'app_url' => env('APP_ENV') == 'production' ? env('APP_URL') : null,
+    'app_url' => null,
 
     'middleware_group' => 'web',
 
     'temporary_file_upload' => [
         'disk' => null,
-        'rules' => null,
+        'rules' => 'max:1048576',
         'directory' => null,
         'middleware' => null,
         'preview_mimes' => [

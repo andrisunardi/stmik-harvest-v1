@@ -1,7 +1,7 @@
 @push("script")
     <script>
-        @if(old())
-            @if(old("show-hide-password") == "1")
+        @if (old())
+            @if (old("show-hide-password") == "1")
                 $("#eye-on").hide();
                 $("#password").attr("type","text");
                 $("#eye-off").removeClass("d-none");
@@ -25,8 +25,8 @@
                 }
             });
 
-        @if(old())
-            @if(old("show-hide-current-password") == "1")
+        @if (old())
+            @if (old("show-hide-current-password") == "1")
                 $("#eye-on-current-password").hide();
                 $("#current_password").attr("type","text");
                 $("#eye-off-current-password").removeClass("d-none");
@@ -50,8 +50,8 @@
                 }
             });
 
-        @if(old())
-            @if(old("show-hide-new-password") == "1")
+        @if (old())
+            @if (old("show-hide-new-password") == "1")
                 $("#eye-on-new-password").hide();
                 $("#new_password").attr("type","text");
                 $("#eye-off-new-password").removeClass("d-none");
@@ -75,8 +75,8 @@
                 }
             });
 
-        @if(old())
-            @if(old("show-hide-confirm-password") == "1")
+        @if (old())
+            @if (old("show-hide-confirm-password") == "1")
                 $("#eye-on-confirm-password").hide();
                 $("#confirm_password").attr("type","text");
                 $("#eye-off-confirm-password").removeClass("d-none");

@@ -5,26 +5,21 @@ namespace Database\Seeders;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Str;
 
 class UserSeeder extends Seeder
 {
     public function run()
     {
-        $data = new User();
-        $data->name = 'Super User';
-        $data->email = Str::slug($data->name, '').'@gmail.com';
-        $data->username = Str::slug($data->name, '');
-        $data->password = Hash::make('12345');
-        $data->image = Str::slug($data->name).'.png';
-        $data->save();
+        $user = User::create([
+            'name' => 'Super User',
+            'username' => 'superuser',
+            'email' => 'superuser@gmail.com',
+            'phone' => '01234567890',
+            'password' => Hash::make('12345678'),
+            'image' => 'super-user.png',
+            'is_active' => true,
+        ]);
 
-        $data = new User();
-        $data->name = 'User';
-        $data->email = Str::slug($data->name, '').'@gmail.com';
-        $data->username = Str::slug($data->name, '');
-        $data->password = Hash::make('12345');
-        $data->image = Str::slug($data->name).'.png';
-        $data->save();
+        $user->assignRole('Super User');
     }
 }

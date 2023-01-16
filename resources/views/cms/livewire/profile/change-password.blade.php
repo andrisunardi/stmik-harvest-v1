@@ -1,74 +1,128 @@
+@section("title", $pageTitle)
+@section("icon", $pageIcon)
+
 <div>
-    <form wire:submit.prevent="changePasswordSubmit" wire:keydown.enter="changePasswordSubmit" class="was-validated-delete" method="post" role="form" action="{{ route("{$sub_domain}.{$menu_slug}.index") }}">
-        @csrf
 
-        @php $input = "current_password" @endphp
-        <div class="form-group">
-            <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }} <span class="text-danger">*</span></label>
-            <div class="input-group has-validation">
-                <div class="input-group-text">
-                    <span class="bi bi-lock-fill"></span>
+    @include("{$subDomain}.livewire.{$pageCategorySlug}.button")
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card mb-4">
+                <div class="card-header text-white bg-warning">
+                    <i class="@yield("icon") fa-fw"></i>
+                    @yield("title")
                 </div>
-                <input wire:model="{{ $input }}" wire:keydown.enter="submit" id="{{ $input }}" name="{{ $input }}"
-                    class="form-control @if($errors->any()){{ $errors->has($input) ? "is-invalid" : "is-valid" }} @endif"
-                    type="password" minlength="1" maxlength="50" value="{{ old($input) }}"
-                    placeholder="{{ trans("validation.attributes.{$input}") }}" aria-label="{{ trans("validation.attributes.{$input}") }}" aria-describedby="{{ trans("validation.attributes.{$input}") }}"
-                    autocomplete="off" autocapitalize="none" required>
-                @error($input)
-                    <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
-                @else
-                    <div class="valid-feedback rounded bg-success p-2 ms-0 mt-2 text-white">{{ trans("validation.success") }}</div>
-                @enderror
-            </div>
-        </div>
 
-        @php $input = "new_password" @endphp
-        <div class="form-group">
-            <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }} <span class="text-danger">*</span></label>
-            <div class="input-group has-validation">
-                <div class="input-group-text">
-                    <span class="bi bi-lock-fill"></span>
+                <div class="card-body">
+
+                    <form wire:submit.prevent="submit" role="form" autocomplete="off">
+
+                        @php $input = "current_password" @endphp
+                        <div class="mb-3">
+                            <label for="{{ $input }}" class="form-label @if ($errors->any()) {{ $errors->has($input) ? "text-danger" : "text-success" }}@endif">
+                                {{ trans("validation.attributes.{$input}") }}
+                                <span class="text-danger">*</span>
+                            </label>
+                            <div class="input-group has-validation">
+                                <span class="input-group-text @if ($errors->any()) {{ $errors->has($input) ? "border-danger" : "border-success" }}@endif">
+                                    <i class="fas fa-lock fa-fw @if ($errors->any()) {{ $errors->has($input) ? "text-danger" : "text-success" }}@endif"></i>
+                                </span>
+                                <input
+                                    class="form-control @if ($errors->any()) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif"
+                                    wire:model.defer="{{ $input }}"
+                                    id="{{ $input }}"
+                                    type="password"
+                                    minlength="1"
+                                    maxlength="50"
+                                    placeholder="{{ trans("validation.attributes.{$input}") }}"
+                                    required
+                                    autocapitalize="none"
+                                    autofocus />
+                                @error($input)
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @else
+                                    <div class="valid-feedback">{{ trans("validation.success") }}</div>
+                                @enderror
+                            </div>
+                        </div>
+
+                        @php $input = "new_password" @endphp
+                        <div class="mb-3">
+                            <label for="{{ $input }}" class="form-label @if ($errors->any()) {{ $errors->has($input) ? "text-danger" : "text-success" }}@endif">
+                                {{ trans("validation.attributes.{$input}") }}
+                                <span class="text-danger">*</span>
+                            </label>
+                            <div class="input-group has-validation">
+                                <span class="input-group-text @if ($errors->any()) {{ $errors->has($input) ? "border-danger" : "border-success" }}@endif">
+                                    <i class="fas fa-lock fa-fw @if ($errors->any()) {{ $errors->has($input) ? "text-danger" : "text-success" }}@endif"></i>
+                                </span>
+                                <input
+                                    class="form-control @if ($errors->any()) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif"
+                                    wire:model.defer="{{ $input }}"
+                                    id="{{ $input }}"
+                                    type="password"
+                                    minlength="1"
+                                    maxlength="50"
+                                    placeholder="{{ trans("validation.attributes.{$input}") }}"
+                                    required
+                                    autocapitalize="none" />
+                                @error($input)
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @else
+                                    <div class="valid-feedback">{{ trans("validation.success") }}</div>
+                                @enderror
+                            </div>
+                        </div>
+
+                        @php $input = "confirm_password" @endphp
+                        <div class="mb-3">
+                            <label for="{{ $input }}" class="form-label @if ($errors->any()) {{ $errors->has($input) ? "text-danger" : "text-success" }}@endif">
+                                {{ trans("validation.attributes.{$input}") }}
+                                <span class="text-danger">*</span>
+                            </label>
+                            <div class="input-group has-validation">
+                                <span class="input-group-text @if ($errors->any()) {{ $errors->has($input) ? "border-danger" : "border-success" }}@endif">
+                                    <i class="fas fa-lock fa-fw @if ($errors->any()) {{ $errors->has($input) ? "text-danger" : "text-success" }}@endif"></i>
+                                </span>
+                                <input
+                                    class="form-control @if ($errors->any()) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif"
+                                    wire:model.defer="{{ $input }}"
+                                    id="{{ $input }}"
+                                    type="password"
+                                    minlength="1"
+                                    maxlength="50"
+                                    placeholder="{{ trans("validation.attributes.{$input}") }}"
+                                    required
+                                    autocapitalize="none" />
+                                @error($input)
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @else
+                                    <div class="valid-feedback">{{ trans("validation.success") }}</div>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6 col-sm-auto">
+                                <button class="btn btn-primary w-100" type="submit" wire:loading.attr="disabled">
+                                    <i class="fas fa-save"></i>
+                                    {{ trans("index.save") }}
+                                </button>
+                            </div>
+                            <div class="col-6 col-sm-auto">
+                                <button class="btn btn-secondary w-100" type="button" wire:click="resetForm" wire:loading.attr="disabled">
+                                    <i class="fas fa-rotate-left"></i>
+                                    {{ trans("index.reset") }}
+                                </button>
+                            </div>
+                        </div>
+
+                    </form>
+
                 </div>
-                <input wire:model="{{ $input }}" wire:keydown.enter="submit" id="{{ $input }}" name="{{ $input }}"
-                    class="form-control @if($errors->any()){{ $errors->has($input) ? "is-invalid" : "is-valid" }} @endif"
-                    type="password" minlength="1" maxlength="50" value="{{ old($input) }}"
-                    placeholder="{{ trans("validation.attributes.{$input}") }}" aria-label="{{ trans("validation.attributes.{$input}") }}" aria-describedby="{{ trans("validation.attributes.{$input}") }}"
-                    autocomplete="off" autocapitalize="none" required>
-                @error($input)
-                    <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
-                @else
-                    <div class="valid-feedback rounded bg-success p-2 ms-0 mt-2 text-white">{{ trans("validation.success") }}</div>
-                @enderror
-            </div>
-        </div>
 
-        @php $input = "confirm_password" @endphp
-        <div class="form-group">
-            <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }} <span class="text-danger">*</span></label>
-            <div class="input-group has-validation">
-                <div class="input-group-text">
-                    <span class="bi bi-lock-fill"></span>
-                </div>
-                <input wire:model="{{ $input }}" wire:keydown.enter="submit" id="{{ $input }}" name="{{ $input }}"
-                    class="form-control @if($errors->any()){{ $errors->has($input) ? "is-invalid" : "is-valid" }} @endif"
-                    type="password" minlength="1" maxlength="50" value="{{ old($input) }}"
-                    placeholder="{{ trans("validation.attributes.{$input}") }}" aria-label="{{ trans("validation.attributes.{$input}") }}" aria-describedby="{{ trans("validation.attributes.{$input}") }}"
-                    autocomplete="off" autocapitalize="none" required>
-                @error($input)
-                    <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
-                @else
-                    <div class="valid-feedback rounded bg-success p-2 ms-0 mt-2 text-white">{{ trans("validation.success") }}</div>
-                @enderror
+                <div class="card-footer bg-warning"></div>
             </div>
         </div>
-
-        <div class="row">
-            <div class="col-12 col-sm-auto">
-                <button class="btn btn-primary w-100" type="button" wire:click="changePasswordSubmit">
-                    <i class="bi bi-save-fill me-1"></i>
-                    {{ trans("index.save_changes") }}
-                </button>
-            </div>
-        </div>
-    </form>
+    </div>
 </div>

@@ -2,47 +2,61 @@
 
 namespace Database\Factories;
 
-use App\Models\Blog;
 use App\Models\BlogCategory;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 
 class BlogFactory extends Factory
 {
-    protected $model = Blog::class;
+    public $table = 'blogs';
 
     public function definition()
     {
+        if (env('APP_ENV') != 'testing') {
+            DB::statement(DB::raw("ALTER TABLE {$this->table} AUTO_INCREMENT = 1"));
+        }
+
         BlogCategory::first() ?? BlogCategory::factory()->create();
 
-        $name = $this->faker->unique()->sentence();
+        User::first() ?? User::factory()->create();
+
+        $title = fake()->unique()->sentence();
+
+        $image = Str::slug($title).'.png';
+
+        $dateTime = fake()->dateTime();
 
         File::copy(
             public_path('images/image.png'),
-            public_path('images/'.Str::kebab(Str::substr($this->model, 11)).'/'.Str::slug($name).'.png'),
+            public_path('images/'.Str::singular(Str::slug($this->table)).'/'.$image),
         );
 
         return [
+            'code' => Str::code('BLOG', $this->table, $dateTime, 5),
             'blog_category_id' => BlogCategory::get()->random()->id,
-            'name' => $name,
-            'name_id' => $this->faker->unique()->sentence(),
-            'description' => $this->faker->paragraph(),
-            'description_id' => $this->faker->paragraph(),
-            'date' => $this->faker->unique()->date(),
-            'image' => Str::slug($name).'.png',
-            'slug' => Str::slug($name),
-            'active' => $this->faker->boolean(),
+            'title' => $title,
+            'title_idn' => $title,
+            'short_body' => fake()->paragraph(2),
+            'short_body_idn' => fake()->paragraph(2),
+            'body' => fake()->paragraph(),
+            'body_idn' => fake()->paragraph(),
+            'image' => $image,
+            'datetime' => $dateTime,
+            'is_active' => fake()->boolean(),
+            'slug' => Str::slug($title),
         ];
     }
 
     public function active()
     {
-        return $this->state(fn ($attributes) => ['active' => true]);
+        return $this->state(fn ($attributes) => ['is_active' => true]);
     }
 
-    public function nonActive()
+    public function inActive()
     {
-        return $this->state(fn ($attributes) => ['active' => false]);
+        return $this->state(fn ($attributes) => ['is_active' => false]);
     }
 }

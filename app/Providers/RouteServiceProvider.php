@@ -21,23 +21,23 @@ class RouteServiceProvider extends ServiceProvider
                 ->namespace("App\Http\Controllers\API")
                 ->name('api')
                 ->as('api.')
-                ->prefix('api')
-                // ->prefix(env('APP_ENV') == 'production' ? '' : 'api')
-                // ->domain(env("APP_ENV") == "production" ? "www.api." . env("APP_DOMAIN") : null)
+                // ->prefix('api')
+                ->prefix(env('APP_ENV') == 'production' ? '' : 'api')
+                ->domain(env('APP_ENV') == 'production' ? 'www.api.'.env('APP_DOMAIN') : null)
                 ->group(base_path('routes/api.php'));
 
             Route::middleware('web')
                 ->namespace("App\Http\Livewire\CMS")
                 ->name('cms')
                 ->as('cms.')
-                ->prefix('cms')
-                // ->prefix(env("APP_ENV") == "production" ? "" : "cms")
-                // ->domain(env("APP_ENV") == "production" ? "www.cms." . env("APP_DOMAIN") : null)
+                // ->prefix('cms')
+                ->prefix(env('APP_ENV') == 'production' ? '' : 'cms')
+                ->domain(env('APP_ENV') == 'production' ? 'www.cms.'.env('APP_DOMAIN') : null)
                 ->group(base_path('routes/cms.php'));
 
             Route::middleware('web')
                 ->namespace("App\Http\Livewire")
-                // ->domain(env("APP_ENV") == "production" ? "www." . env("APP_DOMAIN") : null)
+                ->domain(env('APP_ENV') == 'production' ? 'www.'.env('APP_DOMAIN') : null)
                 ->group(base_path('routes/web.php'));
         });
     }

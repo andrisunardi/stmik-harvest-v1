@@ -14,6 +14,14 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
+
+        // \RenatoMarinho\LaravelPageSpeed\Middleware\InlineCss::class,
+        // \RenatoMarinho\LaravelPageSpeed\Middleware\ElideAttributes::class,
+        // \RenatoMarinho\LaravelPageSpeed\Middleware\InsertDNSPrefetch::class,
+        // \RenatoMarinho\LaravelPageSpeed\Middleware\RemoveComments::class,
+        // \RenatoMarinho\LaravelPageSpeed\Middleware\TrimUrls::class,
+        // \RenatoMarinho\LaravelPageSpeed\Middleware\RemoveQuotes::class,
+        // \RenatoMarinho\LaravelPageSpeed\Middleware\CollapseWhitespace::class,
     ];
 
     protected $middlewareGroups = [
@@ -26,6 +34,8 @@ class Kernel extends HttpKernel
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
 
             \App\Http\Middleware\Localization::class,
+
+            \RealRashid\SweetAlert\ToSweetAlert::class,
         ],
 
         'api' => [
@@ -43,7 +53,7 @@ class Kernel extends HttpKernel
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'password.confirm' => \Illuminate\Auth\Middleware\RequirePassword::class,
-        'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
+        'signed' => \App\Http\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
 

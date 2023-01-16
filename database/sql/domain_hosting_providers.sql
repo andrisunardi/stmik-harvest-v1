@@ -1,0 +1,15 @@
+INSERT INTO `domain_hosting_providers` (`id`, `code`, `name`, `link`, `is_active`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'DHP0000001', 'Rumah Web', 'https://www.rumahweb.com', 1, '2017-10-26 13:00:00', '2017-10-26 13:00:00', NULL),
+(2, 'DHP0000002', 'Master Web', 'https://www.masterweb.com', 1, '2018-12-03 17:29:32', '2018-12-03 17:29:32', NULL),
+(3, 'DHP0000003', 'Domainesia', 'https://www.domainesia.com', 1, '2020-06-04 03:15:07', '2021-03-26 16:43:36', NULL),
+(4, 'DHP0000004', 'Hostinger', 'https://www.hostinger.co.id', 1, '2021-03-26 16:42:59', '2021-03-26 16:42:59', NULL),
+(5, 'DHP0000005', 'Niaga Hoster', 'https://www.niagahoster.co.id', 1, '2021-03-26 16:43:51', '2021-03-26 16:51:37', NULL),
+(6, 'DHP0000006', 'ID Web Host', 'https://idwebhost.com', 1, '2021-03-26 16:44:14', '2021-03-26 16:51:29', NULL),
+(7, 'DHP0000007', 'Blue Host', 'https://www.bluehost.com', 1, '2021-03-26 16:45:45', '2021-03-26 16:51:22', NULL),
+(8, 'DHP0000008', 'Dewa Web', 'https://www.dewaweb.com', 1, '2021-03-26 16:46:31', '2021-03-26 16:51:19', NULL),
+(9, 'DHP0000009', 'Dapur Hosting', 'https://dapurhosting.com', 1, '2021-03-26 16:47:42', '2021-03-26 16:51:15', NULL),
+(10, 'DHP0000010', 'ID Cloud Host', 'https://idcloudhost.com', 1, '2021-03-26 16:48:34', '2021-03-26 16:48:34', NULL),
+(11, 'DHP0000011', 'Qwords', 'https://www.qwords.com', 1, '2021-03-26 16:50:43', '2021-03-26 16:50:43', NULL),
+(12, 'DHP0000012', 'Indo Website', 'https://www.indowebsite.co.id', 1, '2021-03-26 16:51:57', '2021-03-26 16:51:57', NULL),
+(13, 'DHP0000013', 'Jagoan Hosting', 'https://www.jagoanhosting.com', 1, '2021-03-26 16:52:56', '2021-03-26 16:52:56', NULL),
+(14, 'DHP0000014', 'Rumah Hosting', 'https://rumahhosting.com', 1, '2021-03-26 16:54:01', '2021-03-26 16:54:01', NULL);

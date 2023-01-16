@@ -15,9 +15,9 @@ $requestBody = [
 ];
 
 $response = Http::withHeaders($headers)
-    ->retry(3, 30)
-    ->connectTimeout(3)
-    ->timeout(30)
+    ->retry(3, 60000)
+    ->timeout(60)
+    ->connectTimeout(60)
     ->throw()
     ->get($url, $requestBody);
 

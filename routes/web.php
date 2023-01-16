@@ -1,98 +1,53 @@
 <?php
 
+use App\Http\Livewire\HomeComponent;
+use App\Http\Livewire\AboutComponent;
+use App\Http\Livewire\OurProfileComponent;
+use App\Http\Livewire\OurValueComponent;
+use App\Http\Livewire\OurNetworkComponent;
+use App\Http\Livewire\FaqComponent;
+use App\Http\Livewire\OnlineRegistrationComponent;
+use App\Http\Livewire\AdmissionCalendarComponent;
+use App\Http\Livewire\InformationSystemComponent;
+use App\Http\Livewire\TuitionFeesComponent;
+use App\Http\Livewire\ScholarshipsComponent;
+use App\Http\Livewire\ProcedureComponent;
+use App\Http\Livewire\GalleryComponent;
+use App\Http\Livewire\EventComponent;
+use App\Http\Livewire\EventViewComponent;
+use App\Http\Livewire\BlogComponent;
+use App\Http\Livewire\BlogViewComponent;
+use App\Http\Livewire\ContactUsComponent;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Str;
 
 Route::any('locale/{locale}', function ($locale) {
     Session::put('locale', $locale);
 
     return redirect()->back()->withInfo(trans('index.language_has_been_changed'));
+})->name('locale');
+
+Route::any('', HomeComponent::class)->name('index');
+Route::any('about', AboutComponent::class)->name('about.index');
+Route::any('our-profile', OurProfileComponent::class)->name('our-profile.index');
+Route::any('our-value', OurValueComponent::class)->name('our-value.index');
+Route::any('our-network', OurNetworkComponent::class)->name('our-network.index');
+Route::any('faq', FaqComponent::class)->name('faq.index');
+Route::any('online-registration', OnlineRegistrationComponent::class)->name('online-registration.index');
+Route::any('admission-calendar', AdmissionCalendarComponent::class)->name('admission-calendar.index');
+Route::any('information-system', InformationSystemComponent::class)->name('information-system.index');
+Route::any('tuition-fees', TuitionFeesComponent::class)->name('tuition-fees.index');
+Route::any('scholarships', ScholarshipsComponent::class)->name('scholarships.index');
+Route::any('procedure', ProcedureComponent::class)->name('procedure.index');
+Route::any('gallery', GalleryComponent::class)->name('gallery.index');
+
+Route::group(['prefix' => 'blog', 'as' => 'blog.'], function () {
+    Route::any('', BlogComponent::class)->name('index');
+    Route::any('{slug}', BlogViewComponent::class)->name('view');
+});
+Route::group(['prefix' => 'event', 'as' => 'event.'], function () {
+    Route::any('', EventComponent::class)->name('index');
+    Route::any('{slug}', EventViewComponent::class)->name('view');
 });
 
-$page = 'Home';
-Route::group(['prefix' => null, 'as' => null], function () use ($page) {
-    Route::any('', Str::studly($page).'Component')->name('index');
-});
-
-$page = 'About';
-Route::group(['prefix' => Str::slug($page), 'as' => Str::slug($page).'.'], function () use ($page) {
-    Route::any('', Str::studly($page).'Component')->name('index');
-});
-
-$page = 'Our Profile';
-Route::group(['prefix' => Str::slug($page), 'as' => Str::slug($page).'.'], function () use ($page) {
-    Route::any('', Str::studly($page).'Component')->name('index');
-});
-
-$page = 'Our Values';
-Route::group(['prefix' => Str::slug($page), 'as' => Str::slug($page).'.'], function () use ($page) {
-    Route::any('', Str::studly($page).'Component')->name('index');
-});
-
-$page = 'Our Network';
-Route::group(['prefix' => Str::slug($page), 'as' => Str::slug($page).'.'], function () use ($page) {
-    Route::any('', Str::studly($page).'Component')->name('index');
-});
-
-$page = 'Faq';
-Route::group(['prefix' => Str::slug($page), 'as' => Str::slug($page).'.'], function () use ($page) {
-    Route::any('', Str::studly($page).'Component')->name('index');
-});
-
-$page = 'Online Registration';
-Route::group(['prefix' => Str::slug($page), 'as' => Str::slug($page).'.'], function () use ($page) {
-    Route::any('', Str::studly($page).'Component')->name('index');
-});
-
-$page = 'Admission Calendar';
-Route::group(['prefix' => Str::slug($page), 'as' => Str::slug($page).'.'], function () use ($page) {
-    Route::any('', Str::studly($page).'Component')->name('index');
-});
-
-$page = 'Information System';
-Route::group(['prefix' => Str::slug($page), 'as' => Str::slug($page).'.'], function () use ($page) {
-    Route::any('', Str::studly($page).'Component')->name('index');
-});
-
-$page = 'Tuition Fees';
-Route::group(['prefix' => Str::slug($page), 'as' => Str::slug($page).'.'], function () use ($page) {
-    Route::any('', Str::studly($page).'Component')->name('index');
-});
-
-$page = 'Scholarships';
-Route::group(['prefix' => Str::slug($page), 'as' => Str::slug($page).'.'], function () use ($page) {
-    Route::any('', Str::studly($page).'Component')->name('index');
-});
-
-$page = 'Procedure';
-Route::group(['prefix' => Str::slug($page), 'as' => Str::slug($page).'.'], function () use ($page) {
-    Route::any('', Str::studly($page).'Component')->name('index');
-});
-
-$page = 'Information System';
-Route::group(['prefix' => Str::slug($page), 'as' => Str::slug($page).'.'], function () use ($page) {
-    Route::any('', Str::studly($page).'Component')->name('index');
-});
-
-$page = 'Gallery';
-Route::group(['prefix' => Str::slug($page), 'as' => Str::slug($page).'.'], function () use ($page) {
-    Route::any('', Str::studly($page).'Component')->name('index');
-});
-
-$page = 'Event';
-Route::group(['prefix' => Str::slug($page), 'as' => Str::slug($page).'.'], function () use ($page) {
-    Route::any('', Str::studly($page).'Component')->name('index');
-    Route::any('{event_slug}', Str::studly($page).'ViewComponent')->name('view');
-});
-
-$page = 'Blog';
-Route::group(['prefix' => Str::slug($page), 'as' => Str::slug($page).'.'], function () use ($page) {
-    Route::any('', Str::studly($page).'Component')->name('index');
-    Route::any('{blog_slug}', Str::studly($page).'ViewComponent')->name('view');
-});
-
-$page = 'Contact Us';
-Route::group(['prefix' => Str::slug($page), 'as' => Str::slug($page).'.'], function () use ($page) {
-    Route::any('', Str::studly($page).'Component')->name('index');
-});
+Route::any('contact-us', ContactUsComponent::class)->name('contact-us.index');

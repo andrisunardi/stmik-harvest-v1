@@ -2,7 +2,7 @@
 
 return [
 
-    // "view" => "breadcrumbs::bootstrap5",
+    // 'view' => 'breadcrumbs::bootstrap5',
     'view' => 'vendors/breadcrumbs',
 
     'files' => base_path('routes/breadcrumbs.php'),

@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2022 DIW.co.id
+Copyright (c) 2015 DIW.co.id
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -1,71 +1,76 @@
 @if ($errors->any())
-    <div class="alert custom-alert-2 alert-danger alert-dismissible fade show" role="alert">
-        <i class="bi bi-x-circle"></i>
-        {{ trans("index.please_check_all_form_input_validation") }}
-        <button class="btn btn-close position-relative p-1 ms-auto" type="button" data-bs-dismiss="alert" aria-label="{{ trans("index.close") }}"></button>
+    <div class="alert alert-danger d-flex align-items-center alert-dismissible fade show" role="alert">
+        <div class="me-3"><i class="fas fa-circle-xmark"></i></div>
+        <div>
+            <strong>{{ trans("index.error") }}</strong><br>
+            @foreach ($errors->all() as $error)
+                {{ $loop->iteration }}. {{ $error }}<br>
+            @endforeach
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 @endif
 
-@if(session()->has("primary"))
-    <div class="alert custom-alert-2 alert-primary alert-dismissible fade show" role="alert">
-        <i class="bi bi-bell"></i>
-        {{ session()->get("primary") }}
-        <button class="btn btn-close position-relative p-1 ms-auto" type="button" data-bs-dismiss="alert" aria-label="{{ trans("index.close") }}"></button>
+@if (Session::has("primary"))
+    <div class="alert alert-primary d-flex align-items-center alert-dismissible fade show" role="alert">
+        <div class="me-3"><i class="fas fa-bell"></i></div>
+        <div><strong>{{ trans("index.notification") }}</strong><br>{{ Session::get("primary") }}</div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 @endif
 
-@if(session()->has("secondary"))
-    <div class="alert custom-alert-2 alert-secondary alert-dismissible fade show" role="alert">
-        <i class="bi bi-bell"></i>
-        {{ session()->get("secondary") }}
-        <button class="btn btn-close position-relative p-1 ms-auto" type="button" data-bs-dismiss="alert" aria-label="{{ trans("index.close") }}"></button>
+@if (Session::has("secondary"))
+    <div class="alert alert-secondary d-flex align-items-center alert-dismissible fade show" role="alert">
+        <div class="me-3"><i class="fas fa-bell"></i></div>
+        <div><strong>{{ trans("index.notification") }}</strong><br>{{ Session::get("secondary") }}</div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 @endif
 
-@if(session()->has("success"))
-    <div class="alert custom-alert-2 alert-success alert-dismissible fade show" role="alert">
-        <i class="bi bi-check-circle"></i>
-        {{ session()->get("success") }}
-        <button class="btn btn-close position-relative p-1 ms-auto" type="button" data-bs-dismiss="alert" aria-label="{{ trans("index.close") }}"></button>
+@if (Session::has("success"))
+    <div class="alert alert-success d-flex align-items-center alert-dismissible fade show" role="alert">
+        <div class="me-3"><i class="fas fa-circle-check"></i></div>
+        <div><strong>{{ trans("index.success") }}</strong><br>{{ Session::get("success") }}</div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 @endif
 
-@if(session()->has("danger"))
-    <div class="alert custom-alert-2 alert-danger alert-dismissible fade show" role="alert">
-        <i class="bi bi-x-circle"></i>
-        {{ session()->get("danger") }}
-        <button class="btn btn-close position-relative p-1 ms-auto" type="button" data-bs-dismiss="alert" aria-label="{{ trans("index.close") }}"></button>
+@if (Session::has("danger"))
+    <div class="alert alert-danger d-flex align-items-center alert-dismissible fade show" role="alert">
+        <div class="me-3"><i class="fas fa-triangle-exclamation"></i></div>
+        <div><strong>{{ trans("index.danger") }}</strong><br>{{ Session::get("danger") }}</div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 @endif
 
-@if(session()->has("warning"))
-    <div class="alert custom-alert-2 alert-warning alert-dismissible fade show" role="alert">
-        <i class="bi bi-exclamation-circle"></i>
-        {{ session()->get("warning") }}
-        <button class="btn btn-close position-relative p-1 ms-auto" type="button" data-bs-dismiss="alert" aria-label="{{ trans("index.close") }}"></button>
+@if (Session::has("warning"))
+    <div class="alert alert-warning d-flex align-items-center alert-dismissible fade show" role="alert">
+        <div class="me-3"><i class="fas fa-circle-exclamation"></i></div>
+        <div><strong><strong>{{ trans("index.warning") }}</strong><br></strong><br>{{ Session::get("warning") }}</div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 @endif
 
-@if(session()->has("info"))
-    <div class="alert custom-alert-2 alert-info alert-dismissible fade show" role="alert">
-        <i class="bi bi-info-circle"></i>
-        {{ session()->get("info") }}
-        <button class="btn btn-close position-relative p-1 ms-auto" type="button" data-bs-dismiss="alert" aria-label="{{ trans("index.close") }}"></button>
+@if (Session::has("info"))
+    <div class="alert alert-info d-flex align-items-center alert-dismissible fade show" role="alert">
+        <div class="me-3"><i class="fas fa-circle-info"></i></div>
+        <div><strong>{{ trans("index.info") }}</strong><br>{{ Session::get("info") }}</div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 @endif
 
-@if(session()->has("light"))
-    <div class="alert custom-alert-2 alert-light alert-dismissible fade show" role="alert">
-        <i class="bi bi-bell"></i>
-        {{ session()->get("light") }}
-        <button class="btn btn-close position-relative p-1 ms-auto" type="button" data-bs-dismiss="alert" aria-label="{{ trans("index.close") }}"></button>
+@if (Session::has("light"))
+    <div class="alert alert-light d-flex align-items-center alert-dismissible fade show" role="alert">
+        <div class="me-3"><i class="fas fa-bell"></i></div>
+        <div><strong>{{ trans("index.notification") }}</strong><br>{{ Session::get("light") }}</div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 @endif
 
-@if(session()->has("dark"))
-    <div class="alert custom-alert-2 alert-dark alert-dismissible fade show" role="alert">
-        <i class="bi bi-bell"></i>
-        {{ session()->get("dark") }}
-        <button class="btn btn-close position-relative p-1 ms-auto" type="button" data-bs-dismiss="alert" aria-label="{{ trans("index.close") }}"></button>
+@if (Session::has("dark"))
+    <div class="alert alert-dark d-flex align-items-center alert-dismissible fade show" role="alert">
+        <div class="me-3"><i class="fas fa-bell"></i></div>
+        <div><strong>{{ trans("index.notification") }}</strong><br>{{ Session::get("dark") }}</div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 @endif

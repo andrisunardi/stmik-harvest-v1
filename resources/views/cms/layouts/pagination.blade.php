@@ -2,7 +2,7 @@
     @if ($paginator->hasPages())
         @php(isset($this->numberOfPaginatorsRendered[$paginator->getPageName()]) ? $this->numberOfPaginatorsRendered[$paginator->getPageName()]++ : $this->numberOfPaginatorsRendered[$paginator->getPageName()] = 1)
 
-        <div class="d-lg-flex justify-content-between mt-3">
+        <div class="d-lg-flex justify-content-between">
             <p class="text-center mt-lg-1 text-lg-end">
                 {{ trans("index.showing") }}
                 {{ ($paginator->perPage() * $paginator->currentPage()) - $paginator->perPage() + 1 }}

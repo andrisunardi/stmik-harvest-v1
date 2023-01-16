@@ -1,74 +1,157 @@
+@section("title", $pageTitle)
+@section("icon", $pageIcon)
+
 <div>
-    <form wire:submit.prevent="editProfileSubmit" wire:keydown.enter="editProfileSubmit" class="was-validated-delete" method="post" role="form" action="{{ route("{$sub_domain}.{$menu_slug}.index") }}">
-        @csrf
+    @include("{$subDomain}.livewire.{$pageCategorySlug}.button")
 
-        @php $input = "name" @endphp
-        <div class="form-group">
-            <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}  <span class="text-danger">*</span></label>
-            <div class="input-group has-validation">
-                <div class="input-group-text">
-                    <span class="bi bi-person-fill"></span>
+    <div class="row">
+        <div class="col-12">
+            <div class="card mb-4">
+
+                <div class="card-header text-white bg-success">
+                    <i class="@yield("icon") fa-fw"></i>
+                    @yield("title")
                 </div>
-                <input wire:model="{{ $input }}" wire:keydown.enter="submit" id="{{ $input }}" name="{{ $input }}"
-                    class="form-control @if($errors->any()){{ $errors->has($input) ? "is-invalid" : "is-valid" }} @endif"
-                    type="text" minlength="1" maxlength="50" value="{{ old($input) }}"
-                    placeholder="{{ trans("validation.attributes.{$input}") }}" aria-label="{{ trans("validation.attributes.{$input}") }}" aria-describedby="{{ trans("validation.attributes.{$input}") }}"
-                    autocomplete="off" autocapitalize="none" required>
-                @error($input)
-                    <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
-                @else
-                    <div class="valid-feedback rounded bg-success p-2 ms-0 mt-2 text-white">{{ trans("validation.success") }}</div>
-                @enderror
-            </div>
-        </div>
 
-        @php $input = "email" @endphp
-        <div class="form-group">
-            <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }} <span class="text-danger">*</span></label>
-            <div class="input-group has-validation">
-                <div class="input-group-text">
-                    <span class="bi bi-envelope-fill"></span>
+                <div class="card-body">
+
+                    <form wire:submit.prevent="submit" role="form" autocomplete="off">
+
+                        @php $input = "name" @endphp
+                        <div class="mb-3">
+                            <label for="{{ $input }}" class="form-label @if ($errors->any()) {{ $errors->has($input) ? "text-danger" : "text-success" }}@endif">
+                                {{ trans("validation.attributes.{$input}") }}
+                                <span class="text-danger">*</span>
+                            </label>
+                            <div class="input-group has-validation">
+                                <span class="input-group-text @if ($errors->any()) {{ $errors->has($input) ? "border-danger" : "border-success" }}@endif">
+                                    <i class="fas fa-user fa-fw @if ($errors->any()) {{ $errors->has($input) ? "text-danger" : "text-success" }}@endif"></i>
+                                </span>
+                                <input
+                                    class="form-control @if ($errors->any()) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif"
+                                    wire:model.defer="{{ $input }}"
+                                    id="{{ $input }}"
+                                    type="text"
+                                    minlength="1"
+                                    maxlength="50"
+                                    placeholder="{{ trans("validation.attributes.{$input}") }}"
+                                    required
+                                    autocapitalize="none"
+                                    autofocus />
+                                @error($input)
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @else
+                                    <div class="valid-feedback">{{ trans("validation.success") }}</div>
+                                @enderror
+                            </div>
+                        </div>
+
+                        @php $input = "username" @endphp
+                        <div class="mb-3">
+                            <label for="{{ $input }}" class="form-label @if ($errors->any()) {{ $errors->has($input) ? "text-danger" : "text-success" }}@endif">
+                                {{ trans("validation.attributes.{$input}") }}
+                                <span class="text-danger">*</span>
+                            </label>
+                            <div class="input-group has-validation">
+                                <span class="input-group-text @if ($errors->any()) {{ $errors->has($input) ? "border-danger" : "border-success" }}@endif">
+                                    <i class="fas fa-id-card fa-fw @if ($errors->any()) {{ $errors->has($input) ? "text-danger" : "text-success" }}@endif"></i>
+                                </span>
+                                <input
+                                    class="form-control @if ($errors->any()) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif"
+                                    wire:model.defer="{{ $input }}"
+                                    id="{{ $input }}"
+                                    type="text"
+                                    minlength="1"
+                                    maxlength="50"
+                                    placeholder="{{ trans("validation.attributes.{$input}") }}"
+                                    required
+                                    autocapitalize="none" />
+                                @error($input)
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @else
+                                    <div class="valid-feedback">{{ trans("validation.success") }}</div>
+                                @enderror
+                            </div>
+                        </div>
+
+                        @php $input = "email" @endphp
+                        <div class="mb-3">
+                            <label for="{{ $input }}" class="form-label @if ($errors->any()) {{ $errors->has($input) ? "text-danger" : "text-success" }}@endif">
+                                {{ trans("validation.attributes.{$input}") }}
+                                <span class="text-danger">*</span>
+                            </label>
+                            <div class="input-group has-validation">
+                                <span class="input-group-text @if ($errors->any()) {{ $errors->has($input) ? "border-danger" : "border-success" }}@endif">
+                                    <i class="fas fa-envelope fa-fw @if ($errors->any()) {{ $errors->has($input) ? "text-danger" : "text-success" }}@endif"></i>
+                                </span>
+                                <input
+                                    class="form-control @if ($errors->any()) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif"
+                                    wire:model.defer="{{ $input }}"
+                                    id="{{ $input }}"
+                                    type="email"
+                                    minlength="1"
+                                    maxlength="50"
+                                    placeholder="{{ trans("validation.attributes.{$input}") }}"
+                                    required
+                                    autocapitalize="none" />
+                                @error($input)
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @else
+                                    <div class="valid-feedback">{{ trans("validation.success") }}</div>
+                                @enderror
+                            </div>
+                        </div>
+
+                        @php $input = "phone" @endphp
+                        <div class="mb-3">
+                            <label for="{{ $input }}" class="form-label @if ($errors->any()) {{ $errors->has($input) ? "text-danger" : "text-success" }}@endif">
+                                {{ trans("validation.attributes.{$input}") }}
+                                <span class="text-danger">*</span>
+                            </label>
+                            <div class="input-group has-validation">
+                                <span class="input-group-text @if ($errors->any()) {{ $errors->has($input) ? "border-danger" : "border-success" }}@endif">
+                                    <i class="fas fa-phone fa-fw @if ($errors->any()) {{ $errors->has($input) ? "text-danger" : "text-success" }}@endif"></i>
+                                </span>
+                                <input
+                                    class="form-control @if ($errors->any()) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif"
+                                    wire:model.defer="{{ $input }}"
+                                    id="{{ $input }}"
+                                    type="text"
+                                    minlength="1"
+                                    maxlength="20"
+                                    placeholder="{{ trans("validation.attributes.{$input}") }}"
+                                    required
+                                    autocapitalize="none" />
+                                @error($input)
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @else
+                                    <div class="valid-feedback">{{ trans("validation.success") }}</div>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6 col-sm-auto">
+                                <button class="btn btn-primary w-100" type="submit" wire:loading.attr="disabled">
+                                    <i class="fas fa-save"></i>
+                                    {{ trans("index.save") }}
+                                </button>
+                            </div>
+                            <div class="col-6 col-sm-auto">
+                                <button class="btn btn-secondary w-100" type="button" wire:click="resetForm" wire:loading.attr="disabled">
+                                    <i class="fas fa-rotate-left"></i>
+                                    {{ trans("index.reset") }}
+                                </button>
+                            </div>
+                        </div>
+
+                    </form>
+
                 </div>
-                <input wire:model="{{ $input }}" wire:keydown.enter="submit" id="{{ $input }}" name="{{ $input }}"
-                    class="form-control @if($errors->any()){{ $errors->has($input) ? "is-invalid" : "is-valid" }} @endif"
-                    type="text" minlength="1" maxlength="50" value="{{ old($input) }}"
-                    placeholder="{{ trans("validation.attributes.{$input}") }}" aria-label="{{ trans("validation.attributes.{$input}") }}" aria-describedby="{{ trans("validation.attributes.{$input}") }}"
-                    autocomplete="off" autocapitalize="none" required>
-                @error($input)
-                    <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
-                @else
-                    <div class="valid-feedback rounded bg-success p-2 ms-0 mt-2 text-white">{{ trans("validation.success") }}</div>
-                @enderror
-            </div>
-        </div>
 
-        @php $input = "username" @endphp
-        <div class="form-group">
-            <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }} <span class="text-danger">*</span></label>
-            <div class="input-group has-validation">
-                <div class="input-group-text">
-                    <span class="bi bi-person-badge-fill"></span>
-                </div>
-                <input wire:model="{{ $input }}" wire:keydown.enter="submit" id="{{ $input }}" name="{{ $input }}"
-                    class="form-control @if($errors->any()){{ $errors->has($input) ? "is-invalid" : "is-valid" }} @endif"
-                    type="text" minlength="1" maxlength="50" value="{{ old($input) }}"
-                    placeholder="{{ trans("validation.attributes.{$input}") }}" aria-label="{{ trans("validation.attributes.{$input}") }}" aria-describedby="{{ trans("validation.attributes.{$input}") }}"
-                    autocomplete="off" autocapitalize="none" required>
-                @error($input)
-                    <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
-                @else
-                    <div class="valid-feedback rounded bg-success p-2 ms-0 mt-2 text-white">{{ trans("validation.success") }}</div>
-                @enderror
-            </div>
-        </div>
+                <div class="card-footer bg-success"></div>
 
-        <div class="row">
-            <div class="col-12 col-sm-auto">
-                <button class="btn btn-primary w-100" type="button" wire:click="editProfileSubmit">
-                    <i class="bi bi-save-fill me-1"></i>
-                    {{ trans("index.save_changes") }}
-                </button>
             </div>
         </div>
-    </form>
+    </div>
 </div>

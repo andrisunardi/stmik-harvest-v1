@@ -18,7 +18,7 @@ return [
         'port' => 2304,
     ],
 
-    'editor' => env('DEBUGBAR_EDITOR', 'vscode'),
+    'editor' => env('DEBUGBAR_EDITOR', 'phpstorm'),
 
     'remote_sites_path' => env('DEBUGBAR_REMOTE_SITES_PATH', ''),
     'local_sites_path' => env('DEBUGBAR_LOCAL_SITES_PATH', ''),

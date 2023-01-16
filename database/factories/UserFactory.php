@@ -2,41 +2,31 @@
 
 namespace Database\Factories;
 
-use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
 class UserFactory extends Factory
 {
-    protected $model = User::class;
-
     public function definition()
     {
-        $name = $this->faker->unique()->name();
-
-        File::copy(
-            public_path('images/image.png'),
-            public_path('images/'.Str::kebab(Str::substr($this->model, 11)).'/'.Str::slug($name).'.png'),
-        );
-
         return [
-            'name' => $name,
-            'email' => $this->faker->unique()->email(),
-            'username' => $this->faker->unique()->username(),
-            'password' => $this->faker->password(),
-            'image' => Str::slug($name).'.png',
-            'active' => $this->faker->boolean(),
+            'name' => fake()->unique()->name(),
+            'email' => fake()->unique()->safeEmail(),
+            'email_verified_at' => now(),
+            'password' => Hash::make(12345),
+            'remember_token' => Str::random(10),
+            'is_active' => fake()->boolean(),
         ];
     }
 
     public function active()
     {
-        return $this->state(fn ($attributes) => ['active' => true]);
+        return $this->state(fn ($attributes) => ['is_active' => true]);
     }
 
-    public function nonActive()
+    public function inActive()
     {
-        return $this->state(fn ($attributes) => ['active' => false]);
+        return $this->state(fn ($attributes) => ['is_active' => false]);
     }
 }

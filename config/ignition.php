@@ -3,6 +3,10 @@
 use Spatie\Ignition\Solutions\SolutionProviders\BadMethodCallSolutionProvider;
 use Spatie\Ignition\Solutions\SolutionProviders\MergeConflictSolutionProvider;
 use Spatie\Ignition\Solutions\SolutionProviders\UndefinedPropertySolutionProvider;
+use Spatie\LaravelIgnition\Recorders\DumpRecorder\DumpRecorder;
+use Spatie\LaravelIgnition\Recorders\JobRecorder\JobRecorder;
+use Spatie\LaravelIgnition\Recorders\LogRecorder\LogRecorder;
+use Spatie\LaravelIgnition\Recorders\QueryRecorder\QueryRecorder;
 use Spatie\LaravelIgnition\Solutions\SolutionProviders\DefaultDbNameSolutionProvider;
 use Spatie\LaravelIgnition\Solutions\SolutionProviders\GenericLaravelExceptionSolutionProvider;
 use Spatie\LaravelIgnition\Solutions\SolutionProviders\IncorrectValetDbCredentialsSolutionProvider;
@@ -30,12 +34,10 @@ return [
     'register_commands' => env('REGISTER_IGNITION_COMMANDS', false),
 
     'solution_providers' => [
-        // from spatie/ignition
         BadMethodCallSolutionProvider::class,
         MergeConflictSolutionProvider::class,
         UndefinedPropertySolutionProvider::class,
 
-        // from spatie/laravel-ignition
         IncorrectValetDbCredentialsSolutionProvider::class,
         MissingAppKeySolutionProvider::class,
         DefaultDbNameSolutionProvider::class,
@@ -57,7 +59,7 @@ return [
 
     ],
 
-    'enable_runnable_solutions' => env('IGNITION_ENABLE_RUNNABLE_SOLUTIONS', env('APP_DEBUG', false)),
+    'enable_runnable_solutions' => env('IGNITION_ENABLE_RUNNABLE_SOLUTIONS'),
 
     'remote_sites_path' => env('IGNITION_REMOTE_SITES_PATH', base_path()),
     'local_sites_path' => env('IGNITION_LOCAL_SITES_PATH', ''),
@@ -66,4 +68,10 @@ return [
 
     'settings_file_path' => '',
 
+    'recorders' => [
+        DumpRecorder::class,
+        JobRecorder::class,
+        LogRecorder::class,
+        QueryRecorder::class,
+    ],
 ];

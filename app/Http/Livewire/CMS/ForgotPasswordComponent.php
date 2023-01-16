@@ -2,43 +2,74 @@
 
 namespace App\Http\Livewire\CMS;
 
-use App\Models\Admin;
+use App\Models\User;
+use App\Services\UserService;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 
 class ForgotPasswordComponent extends Component
 {
-    public $menu_name = 'Forgot Password';
+    public $pageName;
 
-    public $menu_icon = 'fas fa-question';
+    public $pageTitle;
 
-    public $menu_slug = 'forgot-password';
+    public $pageSlug;
 
-    public $menu_table = 'admin';
+    public $pageIcon;
+
+    public $pageTable;
+
+    public $pageCategoryName;
+
+    public $pageCategoryTitle;
+
+    public $pageCategorySlug;
+
+    public $pageSubCategoryName;
+
+    public $pageSubCategoryTitle;
+
+    public $pageSubCategorySlug;
+
+    public function boot()
+    {
+        $this->pageName = 'Forgot Password';
+        $this->pageTitle = trans('index.'.Str::snake($this->pageName));
+        $this->pageSlug = Str::slug($this->pageName);
+        $this->pageIcon = 'fas fa-question';
+        $this->pageTable = 'users';
+        $this->pageCategoryName = null;
+        $this->pageCategoryTitle = null;
+        $this->pageCategorySlug = null;
+        $this->pageSubCategoryName = null;
+        $this->pageSubCategoryTitle = null;
+        $this->pageSubCategorySlug = null;
+    }
 
     public $username;
 
     public $email;
 
+    public $phone;
+
     public $confirm_reset;
 
     public function mount()
     {
-        if (Auth::guard($this->menu_table)->check()) {
-            Session::flash('success', trans('index.you_already_login'));
+        if (Auth::check()) {
+            $this->flash('info', trans('index.you_already_login'));
 
-            return redirect()->route("{$this->sub_domain}.index");
+            return redirect()->route("{$this->subDomain}.index");
         }
     }
 
     public function rules()
     {
         return [
-            'username' => "required|max:50|exists:{$this->menu_table},username",
-            'email' => "required|max:50|email|exists:{$this->menu_table},email",
-            'confirm_reset' => 'required',
+            'username' => "required|max:50|exists:{$this->pageTable},username",
+            'email' => "required|max:50|email|exists:{$this->pageTable},email",
+            'phone' => "required|max:50|exists:{$this->pageTable},phone",
+            'confirm_reset' => 'required|boolean|accepted:1',
         ];
     }
 
@@ -46,24 +77,26 @@ class ForgotPasswordComponent extends Component
     {
         $this->validate();
 
-        $admin = Admin::where('username', $this->username)->where('email', $this->email)->first();
+        $user = User::where('username', $this->username)
+            ->where('email', $this->email)
+            ->where('phone', $this->phone)
+            ->first();
 
-        if (! $admin) {
-            return redirect()->back()->withInput()->withDanger(trans('index.username or Email is invalid'));
+        if (! $user) {
+            return $this->alert('error', trans('index.username_or_email_or_phone_is_invalid'));
         }
 
-        $password = Str::random(5);
-        $admin->password = Hash::make($password);
-        $admin->save();
+        $password = (new UserService())->resetPassword($user);
 
-        Session::flash('success', trans('index.New Password')." :  $password");
+        $this->flash('success', trans('validation.attributes.new_password')." : {$password}");
 
-        return redirect()->route("{$this->sub_domain}.login.index");
+        return redirect()->route("{$this->subDomain}.login.index");
     }
 
     public function render()
     {
-        return view("{$this->sub_domain}.livewire.{$this->menu_slug}.index")
-            ->extends("{$this->sub_domain}.layouts.app")->section('content');
+        return view("{$this->subDomain}.livewire.{$this->pageSlug}.index")
+            ->extends("{$this->subDomain}.layouts.app")
+            ->section('content');
     }
 }

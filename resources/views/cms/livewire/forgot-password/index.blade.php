@@ -1,123 +1,160 @@
-@section("name", trans("index." . Str::slug($menu_name, "_")))
-@section("icon", $menu_icon)
-
-@push("meta")
-@endpush
-
-@push("css")
-@endpush
-
-@push("script")
-@endpush
+@section("title", $pageTitle)
+@section("icon", $pageIcon)
 
 <div>
-    <div class="login-back-button">
-        <a draggable="false" href="{{ route("{$sub_domain}.login.index") }}">
-            <svg class="bi bi-arrow-left-short" width="32" height="32" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"></path>
-            </svg>
-        </a>
-    </div>
+    <div id="layoutAuthentication">
+        <div id="layoutAuthentication_content">
+            <main>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-5">
+                            <div class="card shadow-lg border-0 rounded-lg mt-4 mt-md-5 mb-4">
 
-    <div class="login-wrapper d-flex align-items-center justify-content-center">
-        <div class="custom-container">
-            <div class="text-center px-4">
-                <img draggable="false" class="login-intro-img"
-                    src="{{ asset("assets/{$sub_domain}/img/bg-img/37.png") }}"
-                    alt="{{ trans("index.{$menu_name}") }} - {{ env("APP_TITLE") }}">
-            </div>
-            <div class="register-form mt-4">
-                <h3 class="text-center">@yield("name")</h3>
-                <h6 class="mb-4 text-center">{{ trans("index.reset_password_to_get_random_password") }}</h6>
+                                <div class="card-header bg-white">
+                                    <div class="text-center mt-3">
+                                        <img draggable="false" class="w-50" src="{{ asset("images/logo.png") }}" alt="{{ trans("index.logo") }} - {{ env("APP_TITLE") }}">
+                                    </div>
+                                    <h3 class="text-center text-uppercase font-weight-light my-4">
+                                        @yield("title")
+                                        {{-- {{ env("APP_NAME") }} --}}
+                                    </h3>
+                                </div>
 
-                @include("{$sub_domain}.layouts.alert")
+                                <div class="card-body">
 
-                <form wire:submit.prevent="submit" enctype="multipart/form-data" class="was-validated-delete" method="post" role="form" action="{{ route("{$sub_domain}.{$menu_slug}.index") }}">
-                    @csrf
+                                    <form wire:submit.prevent="submit" role="form" autocomplete="off">
 
-                    @php $input = "username" @endphp
-                    <div class="form-group">
-                        <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }} <span class="text-danger">*</span></label>
-                        <div class="input-group has-validation">
-                            <div class="input-group-text"><span class="bi bi-person-fill"></span></div>
-                            <input wire:model="{{ $input }}" wire:keydown.enter="submit" id="{{ $input }}" name="{{ $input }}"
-                                type="text" class="form-control @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" minlength="1" maxlength="50" value="{{ old($input) }}"
-                                placeholder="{{ trans("validation.attributes.{$input}") }}" aria-label="{{ trans("validation.attributes.{$input}") }}" aria-describedby="{{ trans("validation.attributes.{$input}") }}"
-                                autocomplete="off" autocapitalize="none" autofocus required>
-                            @error($input)
-                                <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
-                            @else
-                                <div class="valid-feedback rounded bg-success p-2 ms-0 mt-2 text-white">{{ trans("validation.success") }}</div>
-                            @enderror
+                                        <div class="mb-3">
+                                            @php $input = "username" @endphp
+                                            <label for="{{ $input }}" class="form-label @if ($errors->any()) {{ $errors->has($input) ? "text-danger" : "text-success" }}@endif">
+                                                {{ trans("validation.attributes.{$input}") }}
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="input-group has-validation">
+                                                <span class="input-group-text @if ($errors->any()) {{ $errors->has($input) ? "border-danger" : "border-success" }}@endif">
+                                                    <i class="fas fa-id-card fa-fw @if ($errors->any()) {{ $errors->has($input) ? "text-danger" : "text-success" }}@endif"></i>
+                                                </span>
+                                                <input
+                                                    class="form-control @if ($errors->any()) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif"
+                                                    wire:model.defer="{{ $input }}"
+                                                    id="{{ $input }}"
+                                                    type="text"
+                                                    minlength="1"
+                                                    maxlength="50"
+                                                    placeholder="{{ trans("validation.attributes.{$input}") }}"
+                                                    required
+                                                    autocapitalize="none"
+                                                    autofocus />
+                                                @error($input)
+                                                    <div class="invalid-feedback">{{ $message }}</div>
+                                                @else
+                                                    <div class="valid-feedback">{{ trans("validation.success") }}</div>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            @php $input = "email" @endphp
+                                            <label for="{{ $input }}" class="form-label @if ($errors->any()) {{ $errors->has($input) ? "text-danger" : "text-success" }}@endif">
+                                                {{ trans("validation.attributes.{$input}") }}
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="input-group has-validation">
+                                                <span class="input-group-text @if ($errors->any()) {{ $errors->has($input) ? "border-danger" : "border-success" }}@endif">
+                                                    <i class="fas fa-envelope fa-fw @if ($errors->any()) {{ $errors->has($input) ? "text-danger" : "text-success" }}@endif"></i>
+                                                </span>
+                                                <input
+                                                    class="form-control @if ($errors->any()) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif"
+                                                    wire:model.defer="{{ $input }}"
+                                                    id="{{ $input }}"
+                                                    type="email"
+                                                    minlength="1"
+                                                    maxlength="50"
+                                                    placeholder="{{ trans("validation.attributes.{$input}") }}"
+                                                    required
+                                                    autocapitalize="none" />
+                                                @error($input)
+                                                    <div class="invalid-feedback">{{ $message }}</div>
+                                                @else
+                                                    <div class="valid-feedback">{{ trans("validation.success") }}</div>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            @php $input = "phone" @endphp
+                                            <label for="{{ $input }}" class="form-label @if ($errors->any()) {{ $errors->has($input) ? "text-danger" : "text-success" }}@endif">
+                                                {{ trans("validation.attributes.{$input}") }}
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="input-group has-validation">
+                                                <span class="input-group-text @if ($errors->any()) {{ $errors->has($input) ? "border-danger" : "border-success" }}@endif">
+                                                    <i class="fas fa-phone fa-fw @if ($errors->any()) {{ $errors->has($input) ? "text-danger" : "text-success" }}@endif"></i>
+                                                </span>
+                                                <input
+                                                    class="form-control @if ($errors->any()) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif"
+                                                    wire:model.defer="{{ $input }}"
+                                                    id="{{ $input }}"
+                                                    type="text"
+                                                    minlength="1"
+                                                    maxlength="20"
+                                                    placeholder="{{ trans("validation.attributes.{$input}") }}"
+                                                    required
+                                                    autocapitalize="none" />
+                                                @error($input)
+                                                    <div class="invalid-feedback">{{ $message }}</div>
+                                                @else
+                                                    <div class="valid-feedback">{{ trans("validation.success") }}</div>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+                                        <div class="form-check mb-3">
+                                            @php $input = "confirm_reset" @endphp
+                                            <label class="form-check-label" for="{{ $input }}">
+                                                {{ trans("validation.attributes.{$input}") }}
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <input
+                                                class="form-check-input"
+                                                wire:model.defer="{{ $input }}"
+                                                id="{{ $input }}"
+                                                type="checkbox"
+                                                value="1"
+                                                required />
+                                            @if ($errors->any())
+                                                @error($input)
+                                                    <div class="text-danger small">{{ $message }}</div>
+                                                @else
+                                                    <div class="text-success small">{{ trans("validation.success") }}</div>
+                                                @enderror
+                                            @endif
+                                        </div>
+
+                                        <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
+                                            <a draggable="false" class="small" href="{{ route("cms.login.index") }}">
+                                                <i class="fas fa-arrow-left me-1"></i>
+                                                {{ trans("index.back_to_login_page") }}
+                                            </a>
+                                            <button class="btn btn-primary" type="submit" wire:loading.attr="disabled">
+                                                <i class="fas fa-paper-plane me-1"></i> {{ trans("index.submit") }}
+                                            </button>
+                                        </div>
+
+                                    </form>
+
+                                </div>
+
+                                <div class="card-footer text-center py-3">
+                                    <div class="small">
+                                        CMS {{ env("APP_NAME") }}
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-
-                    @php $input = "email" @endphp
-                    <div class="form-group">
-                        <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }} <span class="text-danger">*</span></label>
-                        <div class="input-group has-validation">
-                            <div class="input-group-text"><span class="bi bi-envelope-fill"></span></div>
-                            <input wire:model="{{ $input }}" wire:keydown.enter="submit" id="{{ $input }}" name="{{ $input }}"
-                                type="email" class="form-control @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" minlength="1" maxlength="50" value="{{ old($input) }}"
-                                placeholder="{{ trans("validation.attributes.{$input}") }}" aria-label="{{ trans("validation.attributes.{$input}") }}" aria-describedby="{{ trans("validation.attributes.{$input}") }}"
-                                autocomplete="off" autocapitalize="none" required>
-                            @error($input)
-                                <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
-                            @else
-                                <div class="valid-feedback rounded bg-success p-2 ms-0 mt-2 text-white">{{ trans("validation.success") }}</div>
-                            @enderror
-                        </div>
-                    </div>
-
-                    @php $input = "confirm_reset" @endphp
-                    <div class="mb-3">
-                        <div class="form-check form-switch">
-                            <label class="form-check-label" for="{{ $input }}">{{ trans("index.{$input}") }}</label>
-                            <input wire:model="{{ $input }}" type="checkbox" class="form-check-input form-check-primary @if($errors->any() || Session::has("info") || Session::has("success") || Session::has("warning") || Session::has("danger")) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif" id="{{ $input }}" name="{{ $input }}" value="1" {{ old($input) ? "checked" : null }} required>
-                            @error($input)
-                                <div class="invalid-feedback rounded bg-danger p-2 ms-0 mt-2 text-white">{{ $message }}</div>
-                            @else
-                                <div class="valid-feedback rounded bg-success p-2 ms-0 mt-2 text-white">{{ trans("validation.success") }}</div>
-                            @enderror
-                        </div>
-                    </div>
-
-                    <button type="button" class="btn btn-creative btn-primary w-100" wire:click="submit" wire:loading.attr="disabled">
-                        <i class="bi bi-arrow-repeat me-1"></i>
-                        {{ trans("index.reset_password") }}
-                    </button>
-                </form>
-            </div>
-
-            <div class="login-meta-data text-center">
-                <a draggable="false" class="stretched-link forgot-password d-block mt-3 mb-1" href="{{ route("{$sub_domain}.login.index") }}">
-                    {{ trans("index.back_to_login_page") }}
-                </a>
-            </div>
-
-            <div class="social-info-wrap">
-                <a draggable="false" href="https://www.facebook.com/{{ env("SOCIAL_MEDIA_FACEBOOK") }}"><i class="bi bi-facebook"></i></a>
-                <a draggable="false" href="https://www.twitter.com/{{ env("SOCIAL_MEDIA_TWITTER") }}"><i class="bi bi-twitter"></i></a>
-                <a draggable="false" href="https://www.google.com/{{ env("SOCIAL_MEDIA_GOOGLE") }}"><i class="bi bi-google"></i></a>
-                <a draggable="false" href="https://www.instagram.com/{{ env("SOCIAL_MEDIA_LINKEDIN") }}"><i class="bi bi-instagram"></i></a>
-                <a draggable="false" href="https://www.youtube.com/{{ env("SOCIAL_MEDIA_YOUTUBE") }}"><i class="bi bi-youtube"></i></a>
-                <a draggable="false" href="https://www.linkedin.com/{{ env("SOCIAL_MEDIA_LINKEDIN") }}"><i class="bi bi-linkedin"></i></a>
-            </div>
-
-            <div class="copyright-info">
-                <p>
-                    &copy; {{ trans("index.copyright") }} @if(env("APP_YEAR") && env("APP_YEAR") != date("Y")) {{ env("APP_YEAR") . " - " }} @endif {{ date("Y") }} &reg;&nbsp;
-                    <br>
-                    <a draggable="false" href="{{ URL::to("/") }}" target="_blank"><strong>{{ env("APP_NAME") }}</strong></a> &trade;
-                    {{ trans("index.all_rights_reserved") }}.
-                </p>
-                <p class="mt-2">
-                    {{ trans("index.created_and_designed_by") }}
-                    <a draggable="false" href="https://www.diw.co.id" target="_blank">
-                        <img draggable="false" src="{{ asset("images/icon-diw.co.id.png") }}" alt="Icon DIW.co.id" title="{{ trans("index.created_and_designed_by") }} DIW.co.id">
-                    </a>
-                </p>
-            </div>
+                </div>
+            </main>
         </div>
     </div>
 </div>

@@ -14,6 +14,10 @@ class Kernel extends ConsoleKernel
         $schedule->command('logs:clear')->monthly();
         $schedule->command('database:clear')->monthly();
         $schedule->command('telescope:prune')->monthly();
+        $schedule->command('activitylog:clean')->daily();
+
+        $schedule->command('portfolio:expired')->daily();
+        $schedule->command('portfolio:expired-one-month-notice')->daily();
     }
 
     protected function commands()

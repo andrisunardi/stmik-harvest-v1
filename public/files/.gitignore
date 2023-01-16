@@ -1,0 +1,10 @@
+*
+!.gitignore
+
+!bank-bca/
+!cv/
+!games/
+!proposal-document/
+!revision/
+
+!file.pdf

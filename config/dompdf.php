@@ -3,10 +3,12 @@
 return [
 
     'show_warnings' => false,
-    'orientation' => 'portrait',
+
+    'public_path' => null,
+
     'convert_entities' => true,
 
-    'defines' => [
+    'options' => [
         'font_dir' => storage_path('fonts'),
 
         'font_cache' => storage_path('fonts'),
@@ -14,6 +16,14 @@ return [
         'temp_dir' => sys_get_temp_dir(),
 
         'chroot' => realpath(base_path()),
+
+        'allowed_protocols' => [
+            'file://' => ['rules' => []],
+            'http://' => ['rules' => []],
+            'https://' => ['rules' => []],
+        ],
+
+        'log_output_file' => null,
 
         'enable_font_subsetting' => false,
 
@@ -24,6 +34,8 @@ return [
         'default_media_type' => 'screen',
 
         'default_paper_size' => 'a4',
+
+        'default_paper_orientation' => 'portrait',
 
         'default_font' => 'serif',
 
@@ -39,4 +51,5 @@ return [
 
         'enable_html5_parser' => true,
     ],
+
 ];

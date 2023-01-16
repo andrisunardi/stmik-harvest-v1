@@ -2,32 +2,39 @@
 
 namespace Database\Factories;
 
-use App\Models\Contact;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class ContactFactory extends Factory
 {
-    protected $model = Contact::class;
+    public $table = 'contacts';
 
     public function definition()
     {
+        if (env('APP_ENV') != 'testing') {
+            DB::statement(DB::raw("ALTER TABLE {$this->table} AUTO_INCREMENT = 1"));
+        }
+
         return [
-            'name' => $this->faker->unique()->name(),
-            'phone' => $this->faker->unique()->phoneNumber(),
-            'email' => $this->faker->unique()->email(),
-            'company' => $this->faker->unique()->company(),
-            'message' => $this->faker->paragraph(),
-            'active' => $this->faker->boolean(),
+            'code' => Str::code('CONTACT', $this->table, fake()->dateTime(), 2),
+            'name' => fake()->name(),
+            'company' => fake()->company(),
+            'email' => fake()->email(),
+            'phone' => fake()->phoneNumber(),
+            'subject' => fake()->sentence(),
+            'message' => fake()->paragraph(),
+            'is_active' => fake()->boolean(),
         ];
     }
 
     public function active()
     {
-        return $this->state(fn ($attributes) => ['active' => true]);
+        return $this->state(fn ($attributes) => ['is_active' => true]);
     }
 
-    public function nonActive()
+    public function inActive()
     {
-        return $this->state(fn ($attributes) => ['active' => false]);
+        return $this->state(fn ($attributes) => ['is_active' => false]);
     }
 }

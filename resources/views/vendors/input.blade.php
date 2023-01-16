@@ -4,7 +4,7 @@
 
     <div class="form-group {{ $input_div_class }}">
 
-        @if ($input_group == "true")<div class="input-group has-validation">@endif
+        @if ($input_group == "true")<div class="input-group">@endif
 
             @include("vendors.input.group")
 

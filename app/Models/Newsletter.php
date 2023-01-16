@@ -2,54 +2,72 @@
 
 namespace App\Models;
 
+use App\Enums\NewsletterType;
 use DateTimeInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Activitylog\LogOptions;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 /**
  * App\Models\Newsletter
  *
  * @property int $id
  * @property string|null $email
- * @property int|null $active 1 = Yes, 0 = No
+ * @property string|null $phone
+ * @property bool|null $is_active
  * @property int|null $created_by_id
  * @property int|null $updated_by_id
  * @property int|null $deleted_by_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property \Illuminate\Support\Carbon|null $deleted_at
- * @property-read \App\Models\Admin|null $created_by
- * @property-read \App\Models\Admin|null $deleted_by
- * @property-read \App\Models\Admin|null $updated_by
+ * @property-read \App\Models\User|null $createdBy
+ * @property-read \App\Models\User|null $deletedBy
+ * @property-read \App\Models\User|null $updatedBy
  *
  * @method static \Illuminate\Database\Eloquent\Builder|Newsletter active()
- * @method static \Database\Factories\NewsletterFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|Newsletter newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Newsletter newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Newsletter nonActive()
+ * @method static \Illuminate\Database\Eloquent\Builder|Newsletter inActive()
  * @method static \Illuminate\Database\Query\Builder|Newsletter onlyTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|Newsletter query()
- * @method static \Illuminate\Database\Eloquent\Builder|Newsletter whereActive($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Newsletter whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Newsletter whereCreatedById($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Newsletter whereDeletedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Newsletter whereDeletedById($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Newsletter whereEmail($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Newsletter whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Newsletter whereIsActive($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Newsletter wherePhone($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Newsletter whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Newsletter whereUpdatedById($value)
  * @method static \Illuminate\Database\Query\Builder|Newsletter withTrashed()
  * @method static \Illuminate\Database\Query\Builder|Newsletter withoutTrashed()
+ *
  * @mixin \Eloquent
+ *
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Spatie\Activitylog\Models\Activity[] $activities
+ * @property-read int|null $activities_count
+ * @property string|null $value
+ * @property NewsletterType|null $type
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder|Newsletter whereType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Newsletter whereValue($value)
+ * @method static \Database\Factories\NewsletterFactory factory(...$parameters)
  */
 class Newsletter extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory;
+    use SoftDeletes;
+    use LogsActivity;
 
     // protected $connection = "mysql";
 
-    protected $table = 'newsletter';
+    // protected $dateFormat = "U";
+
+    protected $table = 'newsletters';
 
     protected $primaryKey = 'id';
 
@@ -57,16 +75,28 @@ class Newsletter extends Model
 
     public $timestamps = true;
 
-    protected $guarded = ['newsletter'];
+    protected $guarded = ['newsletters'];
 
     protected $dates = ['deleted_at'];
 
-    // protected $dateFormat = "U";
+    protected $casts = [
+        'value' => 'string',
+        'type' => NewsletterType::class,
+        // 'is_active' => 'boolean',
+    ];
 
     protected $fillable = [
-        'email',
-        'active',
+        'value',
+        'type',
+        'is_active',
     ];
+
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()
+            ->useLogName($this->table)
+            ->setDescriptionForEvent(fn (string $eventName) => "This model has been {$eventName}");
+    }
 
     public function serializeDate(DateTimeInterface $date)
     {
@@ -75,26 +105,26 @@ class Newsletter extends Model
 
     public function scopeActive($query)
     {
-        return $query->where('active', true);
+        return $query->where('is_active', true);
     }
 
-    public function scopeNonActive($query)
+    public function scopeInActive($query)
     {
-        return $query->where('active', false);
+        return $query->where('is_active', false);
     }
 
-    public function created_by()
+    public function createdBy()
     {
-        return $this->belongsTo(Admin::class, 'created_by_id', 'id');
+        return $this->belongsTo(User::class, 'created_by_id', 'id');
     }
 
-    public function updated_by()
+    public function updatedBy()
     {
-        return $this->belongsTo(Admin::class, 'updated_by_id', 'id');
+        return $this->belongsTo(User::class, 'updated_by_id', 'id');
     }
 
-    public function deleted_by()
+    public function deletedBy()
     {
-        return $this->belongsTo(Admin::class, 'deleted_by_id', 'id');
+        return $this->belongsTo(User::class, 'deleted_by_id', 'id');
     }
 }

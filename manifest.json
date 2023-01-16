@@ -1,13 +1,25 @@
 {
-    "short_name": "STMIK Kuwera",
-    "name": "STMIK Kuwera",
-    "display": "standalone",
-    "icons": [{
-        "src": "images/logo.png",
-        "type": "image/png",
-        "sizes": "192x192"
-    }],
-    "start_url": "/?utm_source=homescreen",
-    "background_color": "#21408f",
-    "theme_color": "#21408f"
+    "short_name": "SOTN",
+    "name": "School of Technopreneur Nusantara (SOTN)",
+    "description": "School of Technopreneur Nusantara (SOTN) adalah sebuah perguruan tinggi komputer yang didirikan oleh Yayasan STMIK Harvest, salah satu yayasan milik World Harvest, sebuah organisasi nirlaba internasional yang berkomitmen untuk memberi dampak pada dunia melalui pengembangan komunitas, pendidikan dan media.",
+    "icons": [
+        {
+            "src": "images/favicon.png",
+            "sizes": "400x400",
+            "type": "image/x-icon",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "images/logo.png",
+            "type": "image/png",
+            "sizes": "400x400",
+            "purpose": "any maskable"
+        }
+    ],
+    "start_url": "/",
+    "scope": ".",
+    "display": "fullscreen",
+    "orientation": "portrait",
+    "theme_color": "#21408f",
+    "background_color": "#21408f"
 }

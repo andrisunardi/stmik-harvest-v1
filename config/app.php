@@ -28,7 +28,7 @@ return [
 
     'maintenance' => [
         'driver' => 'file',
-        // "store"  => "redis",
+        // 'store'  => 'redis',
     ],
 
     'providers' => [
@@ -60,20 +60,22 @@ return [
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
+        App\Providers\HorizonServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\TelescopeServiceProvider::class,
 
-        Barryvdh\DomPDF\ServiceProvider::class,
+        // RenatoMarinho\LaravelPageSpeed\ServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
+        PrettyRoutes\ServiceProvider::class,
     ],
 
     'aliases' => Facade::defaultAliases()->merge([
-        // ...
+        'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+        'PDF' => Barryvdh\DomPDF\Facade::class,
     ])->toArray(),
 
-    'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
-    'Excel' => Maatwebsite\Excel\Facades\Excel::class,
-    'PDF' => Barryvdh\DomPDF\Facade::class,
 ];

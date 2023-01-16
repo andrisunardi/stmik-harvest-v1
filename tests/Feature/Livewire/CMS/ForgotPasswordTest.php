@@ -15,8 +15,29 @@ class ForgotPasswordTest extends TestCase
 
     public function test_index()
     {
-        Livewire::actingAs($this->admin)
+        $response = $this->get(route('cms.forgot-password.index'));
+        $response->assertStatus(200);
+        $response->assertSeeLivewire(ForgotPasswordComponent::class);
+
+        Livewire::test(ForgotPasswordComponent::class)
+            ->assertDontSee('custom.')
+            ->assertDontSee('index.')
+            ->assertDontSee('validation.')
+            ->assertHasNoErrors()
+            ->assertStatus(200);
+    }
+
+    public function test_already_login()
+    {
+        $response = $this->actingAs($this->auth)->get(route('cms.forgot-password.index'));
+        $response->assertStatus(302);
+
+        Livewire::actingAs($this->auth)
             ->test(ForgotPasswordComponent::class)
+            ->assertDontSee('custom.')
+            ->assertDontSee('index.')
+            ->assertDontSee('validation.')
+            ->assertHasNoErrors()
             ->assertStatus(200);
     }
 }

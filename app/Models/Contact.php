@@ -6,35 +6,38 @@ use DateTimeInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Activitylog\LogOptions;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 /**
  * App\Models\Contact
  *
  * @property int $id
+ * @property string|null $code
  * @property string|null $name
- * @property string|null $phone
- * @property string|null $email
  * @property string|null $company
+ * @property string|null $email
+ * @property string|null $phone
+ * @property string|null $subject
  * @property string|null $message
- * @property int|null $active 1 = Yes, 0 = No
+ * @property bool|null $is_active
  * @property int|null $created_by_id
  * @property int|null $updated_by_id
  * @property int|null $deleted_by_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property \Illuminate\Support\Carbon|null $deleted_at
- * @property-read \App\Models\Admin|null $created_by
- * @property-read \App\Models\Admin|null $deleted_by
- * @property-read \App\Models\Admin|null $updated_by
+ * @property-read \App\Models\User|null $createdBy
+ * @property-read \App\Models\User|null $deletedBy
+ * @property-read \App\Models\User|null $updatedBy
  *
  * @method static \Illuminate\Database\Eloquent\Builder|Contact active()
- * @method static \Database\Factories\ContactFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|Contact newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Contact newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Contact nonActive()
+ * @method static \Illuminate\Database\Eloquent\Builder|Contact inActive()
  * @method static \Illuminate\Database\Query\Builder|Contact onlyTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|Contact query()
- * @method static \Illuminate\Database\Eloquent\Builder|Contact whereActive($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Contact whereCode($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Contact whereCompany($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Contact whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Contact whereCreatedById($value)
@@ -42,22 +45,34 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static \Illuminate\Database\Eloquent\Builder|Contact whereDeletedById($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Contact whereEmail($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Contact whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Contact whereIsActive($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Contact whereMessage($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Contact whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Contact wherePhone($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Contact whereSubject($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Contact whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Contact whereUpdatedById($value)
  * @method static \Illuminate\Database\Query\Builder|Contact withTrashed()
  * @method static \Illuminate\Database\Query\Builder|Contact withoutTrashed()
+ *
  * @mixin \Eloquent
+ *
+ * @method static \Database\Factories\ContactFactory factory(...$parameters)
+ *
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Spatie\Activitylog\Models\Activity[] $activities
+ * @property-read int|null $activities_count
  */
 class Contact extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory;
+    use SoftDeletes;
+    use LogsActivity;
 
     // protected $connection = "mysql";
 
-    protected $table = 'contact';
+    // protected $dateFormat = "U";
+
+    protected $table = 'contacts';
 
     protected $primaryKey = 'id';
 
@@ -65,20 +80,38 @@ class Contact extends Model
 
     public $timestamps = true;
 
-    protected $guarded = ['contact'];
+    protected $guarded = ['contacts'];
 
     protected $dates = ['deleted_at'];
 
-    // protected $dateFormat = "U";
+    protected $casts = [
+        'code' => 'string',
+        'name' => 'string',
+        'company' => 'string',
+        'email' => 'string',
+        'phone' => 'string',
+        'subject' => 'string',
+        'message' => 'string',
+        // 'is_active' => 'boolean',
+    ];
 
     protected $fillable = [
+        'code',
         'name',
-        'phone',
-        'email',
         'company',
+        'email',
+        'phone',
+        'subject',
         'message',
-        'active',
+        'is_active',
     ];
+
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()
+            ->useLogName($this->table)
+            ->setDescriptionForEvent(fn (string $eventName) => "This model has been {$eventName}");
+    }
 
     public function serializeDate(DateTimeInterface $date)
     {
@@ -87,26 +120,26 @@ class Contact extends Model
 
     public function scopeActive($query)
     {
-        return $query->where('active', true);
+        return $query->where('is_active', true);
     }
 
-    public function scopeNonActive($query)
+    public function scopeInActive($query)
     {
-        return $query->where('active', false);
+        return $query->where('is_active', false);
     }
 
-    public function created_by()
+    public function createdBy()
     {
-        return $this->belongsTo(Admin::class, 'created_by_id', 'id');
+        return $this->belongsTo(User::class, 'created_by_id', 'id');
     }
 
-    public function updated_by()
+    public function updatedBy()
     {
-        return $this->belongsTo(Admin::class, 'updated_by_id', 'id');
+        return $this->belongsTo(User::class, 'updated_by_id', 'id');
     }
 
-    public function deleted_by()
+    public function deletedBy()
     {
-        return $this->belongsTo(Admin::class, 'deleted_by_id', 'id');
+        return $this->belongsTo(User::class, 'deleted_by_id', 'id');
     }
 }

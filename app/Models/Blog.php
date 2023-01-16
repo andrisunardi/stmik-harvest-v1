@@ -7,76 +7,87 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\URL;
-use Illuminate\Support\Str;
+use Spatie\Activitylog\LogOptions;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 /**
  * App\Models\Blog
  *
  * @property int $id
+ * @property string|null $code
  * @property int|null $blog_category_id
- * @property string|null $name
- * @property string|null $name_id
- * @property string|null $description
- * @property string|null $description_id
- * @property string|null $date
- * @property string|null $tag
- * @property string|null $tag_id
+ * @property int|null $user_id
+ * @property string|null $title
+ * @property string|null $title_idn
+ * @property string|null $short_body
+ * @property string|null $short_body_idn
+ * @property string|null $body
+ * @property string|null $body_idn
  * @property string|null $image
+ * @property \Illuminate\Support\Carbon|null $datetime
+ * @property bool|null $is_active
  * @property string|null $slug
- * @property int|null $active 1 = Yes, 0 = No
  * @property int|null $created_by_id
  * @property int|null $updated_by_id
  * @property int|null $deleted_by_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property \Illuminate\Support\Carbon|null $deleted_at
- * @property-read \App\Models\BlogCategory|null $blog_category
- * @property-read \App\Models\Admin|null $created_by
- * @property-read \App\Models\Admin|null $deleted_by
- * @property-read mixed $image_url
- * @property-read mixed $translate_description
- * @property-read mixed $translate_name
- * @property-read mixed $translate_tag
- * @property-read \App\Models\Admin|null $updated_by
+ * @property-read \App\Models\BlogCategory|null $blogCategory
+ * @property-read \App\Models\User|null $createdBy
+ * @property-read \App\Models\User|null $deletedBy
+ * @property-read mixed $translate_body
+ * @property-read mixed $translate_short_body
+ * @property-read mixed $translate_title
+ * @property-read \App\Models\User|null $updatedBy
+ * @property-read \App\Models\User|null $user
  *
  * @method static \Illuminate\Database\Eloquent\Builder|Blog active()
  * @method static \Database\Factories\BlogFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|Blog newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Blog newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Blog nonActive()
+ * @method static \Illuminate\Database\Eloquent\Builder|Blog inActive()
  * @method static \Illuminate\Database\Query\Builder|Blog onlyTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|Blog query()
- * @method static \Illuminate\Database\Eloquent\Builder|Blog whereActive($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Blog whereBlogCategoryId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Blog whereBody($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Blog whereBodyIdn($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Blog whereCode($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Blog whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Blog whereCreatedById($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Blog whereDate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Blog whereDatetime($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Blog whereDeletedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Blog whereDeletedById($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Blog whereDescription($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Blog whereDescriptionId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Blog whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Blog whereImage($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Blog whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Blog whereNameId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Blog whereIsActive($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Blog whereShortBody($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Blog whereShortBodyIdn($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Blog whereSlug($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Blog whereTag($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Blog whereTagId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Blog whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Blog whereTitleIdn($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Blog whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Blog whereUpdatedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Blog whereUserId($value)
  * @method static \Illuminate\Database\Query\Builder|Blog withTrashed()
  * @method static \Illuminate\Database\Query\Builder|Blog withoutTrashed()
+ *
  * @mixin \Eloquent
+ *
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Spatie\Activitylog\Models\Activity[] $activities
+ * @property-read int|null $activities_count
  */
 class Blog extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory;
+    use SoftDeletes;
+    use LogsActivity;
 
     // protected $connection = "mysql";
 
-    protected $table = 'blog';
+    // protected $dateFormat = "U";
+
+    protected $table = 'blogs';
 
     protected $primaryKey = 'id';
 
@@ -84,25 +95,48 @@ class Blog extends Model
 
     public $timestamps = true;
 
-    protected $guarded = ['blog'];
+    protected $guarded = ['blogs'];
 
     protected $dates = ['deleted_at'];
 
-    // protected $dateFormat = "U";
+    protected $casts = [
+        'code' => 'string',
+        'blog_category_id' => 'integer',
+        'user_id' => 'integer',
+        'title' => 'string',
+        'title_idn' => 'string',
+        'short_body' => 'string',
+        'short_body_idn' => 'string',
+        'body' => 'string',
+        'body_idn' => 'string',
+        'image' => 'string',
+        'datetime' => 'datetime',
+        'slug' => 'string',
+        // 'is_active' => 'boolean',
+    ];
 
     protected $fillable = [
+        'code',
         'blog_category_id',
-        'name',
-        'name_id',
-        'description',
-        'description_id',
-        'date',
-        'tag',
-        'tag_id',
+        'user_id',
+        'title',
+        'title_idn',
+        'short_body',
+        'short_body_idn',
+        'body',
+        'body_idn',
         'image',
+        'datetime',
         'slug',
-        'active',
+        'is_active',
     ];
+
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()
+            ->useLogName($this->table)
+            ->setDescriptionForEvent(fn (string $eventName) => "This model has been {$eventName}");
+    }
 
     public function serializeDate(DateTimeInterface $date)
     {
@@ -111,100 +145,51 @@ class Blog extends Model
 
     public function scopeActive($query)
     {
-        return $query->where('active', true);
+        return $query->where('is_active', true);
     }
 
-    public function scopeNonActive($query)
+    public function scopeInActive($query)
     {
-        return $query->where('active', false);
+        return $query->where('is_active', false);
     }
 
-    public function created_by()
+    public function createdBy()
     {
-        return $this->belongsTo(Admin::class, 'created_by_id', 'id');
+        return $this->belongsTo(User::class, 'created_by_id', 'id');
     }
 
-    public function updated_by()
+    public function updatedBy()
     {
-        return $this->belongsTo(Admin::class, 'updated_by_id', 'id');
+        return $this->belongsTo(User::class, 'updated_by_id', 'id');
     }
 
-    public function deleted_by()
+    public function deletedBy()
     {
-        return $this->belongsTo(Admin::class, 'deleted_by_id', 'id');
+        return $this->belongsTo(User::class, 'deleted_by_id', 'id');
     }
 
-    public function getTranslateNameAttribute()
-    {
-        return App::isLocale('en') ? $this->name : $this->name_id;
-    }
-
-    public function getTranslateDescriptionAttribute()
-    {
-        return App::isLocale('en') ? $this->description : $this->description_id;
-    }
-
-    public function getTranslateTagAttribute()
-    {
-        return App::isLocale('en') ? $this->tag : $this->tag_id;
-    }
-
-    public function altImage()
-    {
-        return trans('index.image').' - '.trans('index.'.Str::slug($this->table, '_')).' - '.env('APP_TITLE');
-    }
-
-    public function checkImage()
-    {
-        if ($this->image && File::exists(public_path('images/'.Str::slug($this->table)."/{$this->image}"))) {
-            return true;
-        }
-    }
-
-    public function assetImage()
-    {
-        if ($this->checkImage()) {
-            return asset('images/'.Str::slug($this->table)."/{$this->image}");
-        } else {
-            return asset('images/image-not-available.png');
-        }
-    }
-
-    public function deleteImage()
-    {
-        if ($this->checkImage()) {
-            File::delete(public_path('images/'.Str::slug($this->table)."/{$this->image}"));
-        }
-    }
-
-    public function getImageUrlAttribute()
-    {
-        if ($this->checkImage()) {
-            return URL::to('/').'/images/'.Str::slug($this->table)."/{$this->image}";
-        }
-
-        return null;
-    }
-
-    protected $appends = ['image_url'];
-
-    public function data_tags()
-    {
-        return explode(',', $this->translate_tag);
-    }
-
-    public function data_tag()
-    {
-        return explode(',', $this->tag);
-    }
-
-    public function data_tag_id()
-    {
-        return explode(',', $this->tag_id);
-    }
-
-    public function blog_category()
+    public function blogCategory()
     {
         return $this->belongsTo(BlogCategory::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function getTranslateTitleAttribute()
+    {
+        return App::isLocale('en') ? $this->title : $this->title_idn;
+    }
+
+    public function getTranslateShortBodyAttribute()
+    {
+        return App::isLocale('en') ? $this->short_body : $this->short_body_idn;
+    }
+
+    public function getTranslateBodyAttribute()
+    {
+        return App::isLocale('en') ? $this->body : $this->body_idn;
     }
 }

@@ -3,94 +3,50 @@
 namespace App\Observers;
 
 use App\Models\BlogCategory;
-use App\Models\Log;
-use App\Models\Menu;
 use Illuminate\Support\Facades\Auth;
 
 class BlogCategoryObserver
 {
-    protected $name = 'Blog Category';
-
-    public function creating(BlogCategory $blog_category)
+    public function creating(BlogCategory $blogCategory)
     {
-        $blog_category->created_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
-        $blog_category->updated_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $blogCategory->created_by_id = Auth::user()->id;
+        $blogCategory->updated_by_id = Auth::user()->id;
     }
 
-    public function created(BlogCategory $blog_category)
+    public function created(BlogCategory $blogCategory)
     {
-        $menu = Menu::where('name', $this->name)->first();
-
-        $log = new Log();
-        $log->admin_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
-        $log->menu_id = $menu->id;
-        $log->row = $blog_category->id;
-        $log->activity = 1;
-        $log->save();
     }
 
-    public function updating(BlogCategory $blog_category)
+    public function updating(BlogCategory $blogCategory)
     {
-        $blog_category->updated_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
+        $blogCategory->updated_by_id = Auth::user()->id;
     }
 
-    public function updated(BlogCategory $blog_category)
+    public function updated(BlogCategory $blogCategory)
     {
-        $menu = Menu::where('name', $this->name)->first();
-
-        $log = new Log();
-        $log->admin_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
-        $log->menu_id = $menu->id;
-        $log->row = $blog_category->id;
-        $log->activity = 2;
-        $log->save();
     }
 
-    public function deleting(BlogCategory $blog_category)
+    public function deleting(BlogCategory $blogCategory)
     {
-        $blog_category->deleted_by_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
-        $blog_category->save();
+        $blogCategory->deleted_by_id = Auth::user()->id;
+        $blogCategory->save();
     }
 
-    public function deleted(BlogCategory $blog_category)
+    public function deleted(BlogCategory $blogCategory)
     {
-        $menu = Menu::where('name', $this->name)->first();
-
-        $log = new Log();
-        $log->admin_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
-        $log->menu_id = $menu->id;
-        $log->row = $blog_category->id;
-        $log->activity = 3;
-        $log->save();
     }
 
-    public function restoring(BlogCategory $blog_category)
+    public function restoring(BlogCategory $blogCategory)
     {
-        $blog_category->deleted_by_id = null;
-        $blog_category->save();
+        $blogCategory->deleted_by_id = null;
+        $blogCategory->save();
     }
 
-    public function restored(BlogCategory $blog_category)
+    public function restored(BlogCategory $blogCategory)
     {
-        $menu = Menu::where('name', $this->name)->first();
-
-        $log = new Log();
-        $log->admin_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
-        $log->menu_id = $menu->id;
-        $log->row = $blog_category->id;
-        $log->activity = 4;
-        $log->save();
     }
 
-    public function forceDeleted(BlogCategory $blog_category)
+    public function forceDeleted(BlogCategory $blogCategory)
     {
-        $menu = Menu::where('name', $this->name)->first();
-
-        $log = new Log();
-        $log->admin_id = Auth::guard('admin')->hasUser(Auth::user()) ? Auth::user()->id : 0;
-        $log->menu_id = $menu->id;
-        $log->row = $blog_category->id;
-        $log->activity = 5;
-        $log->save();
     }
 }

@@ -1,12 +1,11 @@
-@if (env("APP_ENV") == "local")
-    @php($route = Request::segment(1))
+@env("production")
+    @php($route = Str::substr(Request::url(), 12, 3))
 @else
-    {{-- @php($route = Str::substr(Request::url(), 12, 3)) --}}
     @php($route = Request::segment(1))
 @endif
 @extends($route == "cms" ? "cms.layouts.app" : "layouts.app")
 
-@section("name", "418 - I'm a teapot")
+@section("title", "418 - I'm a teapot")
 @section("code", "418")
 @section("message", "I'm a teapot")
 @section("description", "This code was defined in 1998 as one of the traditional IETF April Fools' jokes, in RFC 2324, Hyper Text Coffee Pot Control Protocol, and is not expected to be implemented by actual HTTP servers. The RFC specifies this code should be returned by teapots requested to brew coffee.[53] This HTTP status is used as an Easter egg in some websites, such as Google.com's I'm a teapot easter egg.")

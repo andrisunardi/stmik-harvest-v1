@@ -13,7 +13,7 @@
                 disable_branding: "yes",
                 company_logo_url: "{{ env("APP_URL") }}/images/favicon.png",
                 call_to_action: "{{ trans("index.contact_us_if_you_have_any_questions") }}",
-                button_color: "#80BD00",
+                button_color: "#{{ env("APP_COLOR") }}",
                 position: "left",
                 order: "whatsapp,instagram"
             };

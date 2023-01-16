@@ -2,14 +2,17 @@
 
 namespace Tests;
 
-use App\Models\Admin;
+use App\Models\User;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Support\Facades\Hash;
 
 abstract class TestCase extends BaseTestCase
 {
     use CreatesApplication, WithFaker;
+
+    public $auth;
+
+    public $subDomain;
 
     public function setUp(): void
     {
@@ -17,10 +20,8 @@ abstract class TestCase extends BaseTestCase
 
         $this->seed();
 
-        $this->password = $this->faker->password();
-        $password = Hash::make($this->password);
+        $this->subDomain = 'cms';
 
-        $this->admin = Admin::factory()->active()->create(['password' => $password]);
-        $this->admin->deleteImage();
+        $this->auth = User::first();
     }
 }
