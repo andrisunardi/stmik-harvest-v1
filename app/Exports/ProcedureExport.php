@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Exports\Marketing;
+namespace App\Exports;
 
 use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\FromView;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 
-class PlatformExport implements FromView, ShouldAutoSize
+class ProcedureExport implements FromView, ShouldAutoSize
 {
     use Exportable;
 
-    public $title = 'Platform';
+    public $title = 'Procedure';
 
     public $data;
 
@@ -22,9 +22,9 @@ class PlatformExport implements FromView, ShouldAutoSize
 
     public function view(): View
     {
-        return view('cms.livewire.marketing.platform.excel', [
+        return view('cms.livewire.procedure.excel', [
             'title' => $this->title,
-            'platforms' => $this->data,
+            'procedures' => $this->data,
         ]);
     }
 }

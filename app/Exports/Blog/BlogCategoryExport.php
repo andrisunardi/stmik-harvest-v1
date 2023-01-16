@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Exports\Marketing\Blog;
+namespace App\Exports\Blog;
 
 use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Concerns\Exportable;
@@ -22,7 +22,7 @@ class BlogCategoryExport implements FromView, ShouldAutoSize
 
     public function view(): View
     {
-        return view('cms.livewire.marketing.blog.blog-category.excel', [
+        return view('cms.livewire.blog.blog-category.excel', [
             'title' => $this->title,
             'blogCategories' => $this->data,
         ]);

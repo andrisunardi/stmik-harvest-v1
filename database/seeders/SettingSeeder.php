@@ -10,6 +10,46 @@ class SettingSeeder extends Seeder
     public function run()
     {
         Setting::create([
+            'key' => 'sms',
+            'value' => "0812 9633 4496",
+        ]);
+
+        Setting::create([
+            'key' => 'call',
+            'value' => "0812 9633 4496",
+        ]);
+
+        Setting::create([
+            'key' => 'fax',
+            'value' => "0812 9633 4496",
+        ]);
+
+        Setting::create([
+            'key' => 'whatsapp',
+            'value' => "0812 9633 4496",
+        ]);
+
+        Setting::create([
+            'key' => 'email',
+            'value' => "pmb@stmikku.ac.id",
+        ]);
+
+        Setting::create([
+            'key' => 'address',
+            'value' => "Jl. Kalideres Permai No.3C, RT.1/RW.14, Kalideres, Kec. Kalideres, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta 11830",
+        ]);
+
+        Setting::create([
+            'key' => 'google_maps',
+            'value' => "https://goo.gl/maps/yHhNPra8cuxWN1Hq5",
+        ]);
+
+        Setting::create([
+            'key' => 'google_maps_iframe',
+            'value' => "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1983.4362896455623!2d106.7041492!3d-6.1478105!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f80dda59c309%3A0x82be74c891f4a16b!2sJl.%20Kalideres%20Permai%20No.3C%2C%20RT.1%2FRW.14%2C%20Kalideres%2C%20Kec.%20Kalideres%2C%20Kota%20Jakarta%20Barat%2C%20Daerah%20Khusus%20Ibukota%20Jakarta%2011830!5e0!3m2!1sid!2sid!4v1655314286312!5m2!1sid!2sid",
+        ]);
+
+        Setting::create([
             'key' => 'about_us',
             'value' => "STMIK Harvest Foundation has a university named <b>STMIK KUWERA (KESUNUS WIRA EKA NUSANTARA)</b> otherwise known as <b>SCHOOL OF TECHNOPRENEUR NUSANTARA (SOTN)</b>. Established since 1987, starting in South Jakarta, until now it is still standing with a new and more advanced vision and mission following the developments of the current technological era.",
         ]);

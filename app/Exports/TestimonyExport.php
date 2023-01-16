@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Exports\Other;
+namespace App\Exports;
 
 use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\FromView;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 
-class FaqExport implements FromView, ShouldAutoSize
+class TestimonyExport implements FromView, ShouldAutoSize
 {
     use Exportable;
 
-    public $title = 'Faq';
+    public $title = 'Testimony';
 
     public $data;
 
@@ -22,9 +22,9 @@ class FaqExport implements FromView, ShouldAutoSize
 
     public function view(): View
     {
-        return view('cms.livewire.other.faq.excel', [
+        return view('cms.livewire.testimony.excel', [
             'title' => $this->title,
-            'faqs' => $this->data,
+            'testimonies' => $this->data,
         ]);
     }
 }

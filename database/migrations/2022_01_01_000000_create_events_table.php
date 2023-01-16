@@ -8,7 +8,7 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('banners', function (Blueprint $table) {
+        Schema::create('events', function (Blueprint $table) {
             $table->id();
             $table->foreignId('event_category_id')->nullable()->unsigned();
             $table->string('title', 100)->nullable()->unique();
@@ -35,6 +35,6 @@ return new class extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('banners');
+        Schema::dropIfExists('events');
     }
 };

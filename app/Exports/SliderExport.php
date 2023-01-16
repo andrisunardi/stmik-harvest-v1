@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Exports\Development\Portfolio;
+namespace App\Exports;
 
 use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\FromView;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 
-class PortfolioCategoryExport implements FromView, ShouldAutoSize
+class SliderExport implements FromView, ShouldAutoSize
 {
     use Exportable;
 
-    public $title = 'Portfolio Category';
+    public $title = 'Slider';
 
     public $data;
 
@@ -22,9 +22,9 @@ class PortfolioCategoryExport implements FromView, ShouldAutoSize
 
     public function view(): View
     {
-        return view('cms.livewire.development.portfolio.portfolio-category.excel', [
+        return view('cms.livewire.slider.excel', [
             'title' => $this->title,
-            'portfolioCategories' => $this->data,
+            'sliders' => $this->data,
         ]);
     }
 }

@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Exports\Hrd;
+namespace App\Exports;
 
 use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\FromView;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 
-class AbsentExport implements FromView, ShouldAutoSize
+class AdmissionCalendarExport implements FromView, ShouldAutoSize
 {
     use Exportable;
 
-    public $title = 'Absent';
+    public $title = 'Admission Calendar';
 
     public $data;
 
@@ -22,9 +22,9 @@ class AbsentExport implements FromView, ShouldAutoSize
 
     public function view(): View
     {
-        return view('cms.livewire.hrd.absent.excel', [
+        return view('cms.livewire.admission-calendar.excel', [
             'title' => $this->title,
-            'absents' => $this->data,
+            'admissionCalendars' => $this->data,
         ]);
     }
 }

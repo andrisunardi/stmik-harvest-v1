@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Exports\Purchasing;
+namespace App\Exports;
 
 use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\FromView;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 
-class BuyDomainHostingExport implements FromView, ShouldAutoSize
+class NetworkExport implements FromView, ShouldAutoSize
 {
     use Exportable;
 
-    public $title = 'Buy Domain Hosting';
+    public $title = 'Network';
 
     public $data;
 
@@ -22,9 +22,9 @@ class BuyDomainHostingExport implements FromView, ShouldAutoSize
 
     public function view(): View
     {
-        return view('cms.livewire.purchasing.buy-domain-hosting.excel', [
+        return view('cms.livewire.network.excel', [
             'title' => $this->title,
-            'buyDomainHostings' => $this->data,
+            'networks' => $this->data,
         ]);
     }
 }

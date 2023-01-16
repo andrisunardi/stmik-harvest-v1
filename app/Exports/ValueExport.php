@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Exports\Finance\Payment;
+namespace App\Exports;
 
 use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\FromView;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 
-class PaymentExport implements FromView, ShouldAutoSize
+class ValueExport implements FromView, ShouldAutoSize
 {
     use Exportable;
 
-    public $title = 'Payment';
+    public $title = 'Value';
 
     public $data;
 
@@ -22,9 +22,9 @@ class PaymentExport implements FromView, ShouldAutoSize
 
     public function view(): View
     {
-        return view('cms.livewire.finance.payment.payment.excel', [
+        return view('cms.livewire.value.excel', [
             'title' => $this->title,
-            'payments' => $this->data,
+            'values' => $this->data,
         ]);
     }
 }
