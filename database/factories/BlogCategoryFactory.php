@@ -10,19 +10,24 @@ class BlogCategoryFactory extends Factory
 {
     public $table = 'blog_categories';
 
+    public $slug = 'blog-category';
+
     public function definition()
     {
         if (env('APP_ENV') != 'testing') {
             DB::statement(DB::raw("ALTER TABLE {$this->table} AUTO_INCREMENT = 1"));
         }
 
-        $name = fake()->sentence();
+        $name = fake()->unique()->sentence();
+
+        $slug = Str::slug($name);
 
         return [
-            'code' => Str::code('BC', $this->table, null, 8),
             'name' => $name,
+            'name_idn' => fake()->sentence(),
             'description' => fake()->paragraph(),
-            'slug' => Str::slug($name),
+            'description_idn' => fake()->paragraph(),
+            'slug' => $slug,
             'is_active' => fake()->boolean(),
         ];
     }

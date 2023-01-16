@@ -4,11 +4,12 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
 
-class AdvertisementProviderFactory extends Factory
+class TuitionFeeFactory extends Factory
 {
-    public $table = 'advertisement_providers';
+    public $table = 'tuition_fees';
+
+    public $slug = 'tuition-fee';
 
     public function definition()
     {
@@ -17,9 +18,10 @@ class AdvertisementProviderFactory extends Factory
         }
 
         return [
-            'code' => Str::code('ADP', $this->table, null, 7),
-            'name' => fake()->company(),
-            'link' => fake()->url(),
+            'name' => fake()->sentence(),
+            'name_idn' => fake()->sentence(),
+            'description' => fake()->paragraph(),
+            'description_idn' => fake()->paragraph(),
             'is_active' => fake()->boolean(),
         ];
     }

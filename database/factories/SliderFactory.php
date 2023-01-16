@@ -7,9 +7,11 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 
-class BuyPlnTokenFactory extends Factory
+class SliderFactory extends Factory
 {
-    public $table = 'buy_pln_tokens';
+    public $table = 'sliders';
+
+    public $slug = 'slider';
 
     public function definition()
     {
@@ -17,25 +19,24 @@ class BuyPlnTokenFactory extends Factory
             DB::statement(DB::raw("ALTER TABLE {$this->table} AUTO_INCREMENT = 1"));
         }
 
-        $dateTime = fake()->dateTime();
+        $name = fake()->unique()->sentence();
 
-        $code = Str::code('PLNTOKEN', $this->table, $dateTime, 1);
-
-        $image = $code.'.png';
+        $image = Str::slug($name).'.png';
 
         File::copy(
             public_path('images/image.png'),
-            public_path('images/'.Str::singular(Str::slug($this->table)).'/'.$image),
+            public_path("images/{$this->slug}/{$image}"),
         );
 
         return [
-            'code' => $code,
-            'no_meter' => fake()->numberBetween(0, 9999999999),
-            'no_token' => fake()->numberBetween(0, 9999999999),
-            'amount' => fake()->numberBetween(0, 9999999999),
+            'name' => $name,
+            'name_idn' => fake()->sentence(),
+            'description' => fake()->paragraph(),
+            'description_idn' => fake()->paragraph(),
+            'button_name' => fake()->word(),
+            'button_name_idn' => fake()->word(),
+            'button_link' => fake()->url(),
             'image' => $image,
-            'datetime' => $dateTime,
-            'notes' => fake()->paragraph(),
             'is_active' => fake()->boolean(),
         ];
     }

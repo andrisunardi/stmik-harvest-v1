@@ -4,11 +4,12 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
 
 class ContactFactory extends Factory
 {
     public $table = 'contacts';
+
+    public $slug = 'contact';
 
     public function definition()
     {
@@ -17,10 +18,9 @@ class ContactFactory extends Factory
         }
 
         return [
-            'code' => Str::code('CONTACT', $this->table, fake()->dateTime(), 2),
             'name' => fake()->name(),
             'company' => fake()->company(),
-            'email' => fake()->email(),
+            'email' => fake()->freeEmail(),
             'phone' => fake()->phoneNumber(),
             'subject' => fake()->sentence(),
             'message' => fake()->paragraph(),

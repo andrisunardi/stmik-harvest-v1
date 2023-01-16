@@ -4,11 +4,12 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
 
-class PlatformFactory extends Factory
+class SettingFactory extends Factory
 {
-    public $table = 'platforms';
+    public $table = 'settings';
+
+    public $slug = 'setting';
 
     public function definition()
     {
@@ -17,9 +18,8 @@ class PlatformFactory extends Factory
         }
 
         return [
-            'code' => Str::code('PLATFORM', $this->table, null, 2),
-            'name' => fake()->sentence(),
-            'description' => fake()->paragraph(),
+            'key' => fake()->unique()->username(),
+            'value' => fake()->unique()->paragraph(),
             'is_active' => fake()->boolean(),
         ];
     }

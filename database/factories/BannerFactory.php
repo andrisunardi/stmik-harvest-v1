@@ -4,11 +4,14 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 
-class NewsCategoryFactory extends Factory
+class BannerFactory extends Factory
 {
-    public $table = 'news_categories';
+    public $table = 'banners';
+
+    public $slug = 'banner';
 
     public function definition()
     {
@@ -16,13 +19,23 @@ class NewsCategoryFactory extends Factory
             DB::statement(DB::raw("ALTER TABLE {$this->table} AUTO_INCREMENT = 1"));
         }
 
+        $name = fake()->unique()->sentence();
+
+        $image = Str::slug($name).'.png';
+
+        File::copy(
+            public_path('images/image.png'),
+            public_path("images/{$this->slug}/{$image}"),
+        );
+
         return [
-            'code' => Str::code('NC', $this->table, null, 8),
-            'name' => fake()->sentence(),
+            'name' => $name,
             'name_idn' => fake()->sentence(),
             'description' => fake()->paragraph(),
             'description_idn' => fake()->paragraph(),
-            'is_active' => fake()->company(),
+            'image' => $image,
+            'datetime' => fake()->dateTime(),
+            'is_active' => fake()->boolean(),
         ];
     }
 

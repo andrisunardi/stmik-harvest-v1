@@ -6,9 +6,11 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
-class PortfolioCategoryFactory extends Factory
+class EventCategoryFactory extends Factory
 {
-    public $table = 'portfolio_categories';
+    public $table = 'event_categories';
+
+    public $slug = 'event-category';
 
     public function definition()
     {
@@ -16,12 +18,16 @@ class PortfolioCategoryFactory extends Factory
             DB::statement(DB::raw("ALTER TABLE {$this->table} AUTO_INCREMENT = 1"));
         }
 
+        $name = fake()->unique()->sentence();
+
+        $slug = Str::slug($name);
+
         return [
-            'code' => Str::code('PC', $this->table, null, 8),
-            'name' => fake()->sentence(),
+            'name' => $name,
             'name_idn' => fake()->sentence(),
             'description' => fake()->paragraph(),
             'description_idn' => fake()->paragraph(),
+            'slug' => $slug,
             'is_active' => fake()->boolean(),
         ];
     }

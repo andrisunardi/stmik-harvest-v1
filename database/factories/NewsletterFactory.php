@@ -11,6 +11,8 @@ class NewsletterFactory extends Factory
 {
     public $table = 'newsletters';
 
+    public $slug = 'newsletter';
+
     public function definition()
     {
         if (env('APP_ENV') != 'testing') {

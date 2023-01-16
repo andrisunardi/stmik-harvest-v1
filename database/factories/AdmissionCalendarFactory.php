@@ -5,9 +5,11 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\DB;
 
-class BankFactory extends Factory
+class AdmissionCalendarFactory extends Factory
 {
-    public $table = 'banks';
+    public $table = 'admission_calendars';
+
+    public $slug = 'admission-calendar';
 
     public function definition()
     {
@@ -16,8 +18,10 @@ class BankFactory extends Factory
         }
 
         return [
-            'code' => fake()->randomNumber(3, true),
-            'name' => fake()->company(),
+            'name' => fake()->sentence(),
+            'name_idn' => fake()->sentence(),
+            'description' => fake()->paragraph(),
+            'description_idn' => fake()->paragraph(),
             'is_active' => fake()->boolean(),
         ];
     }

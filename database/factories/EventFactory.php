@@ -2,15 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\NewsCategory;
+use App\Models\EventCategory;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 
-class NewsFactory extends Factory
+class EventFactory extends Factory
 {
-    public $table = 'news';
+    public $table = 'events';
+
+    public $slug = 'event';
 
     public function definition()
     {
@@ -18,39 +20,35 @@ class NewsFactory extends Factory
             DB::statement(DB::raw("ALTER TABLE {$this->table} AUTO_INCREMENT = 1"));
         }
 
-        NewsCategory::first() ?? NewsCategory::factory()->create();
+        EventCategory::first() ?? EventCategory::factory()->create();
 
         $title = fake()->unique()->sentence();
 
-        $image = Str::slug($title).'.png';
+        $slug = Str::slug($title);
 
-        $video = Str::slug($title).'.mp4';
-
-        $dateTime = fake()->dateTime();
+        $image = "{$slug}.png";
 
         File::copy(
             public_path('images/image.png'),
-            public_path('images/'.Str::singular(Str::slug($this->table)).'/'.$image),
-        );
-
-        File::copy(
-            public_path('videos/video.mp4'),
-            public_path('videos/'.Str::singular(Str::slug($this->table)).'/'.$video),
+            public_path("images/{$this->slug}/{$image}"),
         );
 
         return [
-            'code' => Str::code('NEWS', $this->table, $dateTime, 3),
-            'news_category_id' => NewsCategory::get()->random()->id,
+            'event_category_id' => EventCategory::get()->random()->id,
             'title' => $title,
             'title_idn' => $title,
             'short_body' => fake()->paragraph(2),
             'short_body_idn' => fake()->paragraph(2),
             'body' => fake()->paragraph(),
             'body_idn' => fake()->paragraph(),
+            'location' => fake()->address(),
+            'start' => fake()->dateTime(),
+            'end' => fake()->dateTime(),
+            'tag' => fake()->word(),
+            'tag_id' => fake()->word(),
             'image' => $image,
-            'video' => $video,
-            'link' => fake()->url(),
-            'datetime' => $dateTime,
+            'date' => fake()->date(),
+            'slug' => $slug,
             'is_active' => fake()->boolean(),
         ];
     }

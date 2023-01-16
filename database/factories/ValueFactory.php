@@ -4,11 +4,12 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
 
-class PhoneCreditProviderFactory extends Factory
+class ValueFactory extends Factory
 {
-    public $table = 'phone_credit_providers';
+    public $table = 'values';
+
+    public $slug = 'value';
 
     public function definition()
     {
@@ -17,9 +18,11 @@ class PhoneCreditProviderFactory extends Factory
         }
 
         return [
-            'code' => Str::code('PCP', $this->table, null, 7),
-            'name' => fake()->company(),
-            'link' => fake()->url(),
+            'name' => fake()->sentence(),
+            'name_idn' => fake()->sentence(),
+            'description' => fake()->paragraph(),
+            'description_idn' => fake()->paragraph(),
+            'icon' => fake()->word(),
             'is_active' => fake()->boolean(),
         ];
     }

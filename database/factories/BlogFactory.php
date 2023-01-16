@@ -3,7 +3,6 @@
 namespace Database\Factories;
 
 use App\Models\BlogCategory;
-use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
@@ -13,6 +12,8 @@ class BlogFactory extends Factory
 {
     public $table = 'blogs';
 
+    public $slug = 'blog';
+
     public function definition()
     {
         if (env('APP_ENV') != 'testing') {
@@ -21,21 +22,18 @@ class BlogFactory extends Factory
 
         BlogCategory::first() ?? BlogCategory::factory()->create();
 
-        User::first() ?? User::factory()->create();
-
         $title = fake()->unique()->sentence();
 
-        $image = Str::slug($title).'.png';
+        $slug = Str::slug($title);
 
-        $dateTime = fake()->dateTime();
+        $image = "{$slug}.png";
 
         File::copy(
             public_path('images/image.png'),
-            public_path('images/'.Str::singular(Str::slug($this->table)).'/'.$image),
+            public_path("images/{$this->slug}/{$image}"),
         );
 
         return [
-            'code' => Str::code('BLOG', $this->table, $dateTime, 5),
             'blog_category_id' => BlogCategory::get()->random()->id,
             'title' => $title,
             'title_idn' => $title,
@@ -44,9 +42,9 @@ class BlogFactory extends Factory
             'body' => fake()->paragraph(),
             'body_idn' => fake()->paragraph(),
             'image' => $image,
-            'datetime' => $dateTime,
+            'date' => fake()->date(),
+            'slug' => $slug,
             'is_active' => fake()->boolean(),
-            'slug' => Str::slug($title),
         ];
     }
 

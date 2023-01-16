@@ -4,11 +4,14 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 
-class DepositCategoryFactory extends Factory
+class NetworkFactory extends Factory
 {
-    public $table = 'deposit_categories';
+    public $table = 'networks';
+
+    public $slug = 'network';
 
     public function definition()
     {
@@ -16,10 +19,20 @@ class DepositCategoryFactory extends Factory
             DB::statement(DB::raw("ALTER TABLE {$this->table} AUTO_INCREMENT = 1"));
         }
 
+        $name = fake()->unique()->sentence();
+
+        $image = Str::slug($name).'.png';
+
+        File::copy(
+            public_path('images/image.png'),
+            public_path("images/{$this->slug}/{$image}"),
+        );
+
         return [
-            'code' => Str::code('DPCAT', $this->table, null, 5),
-            'name' => fake()->sentence(),
+            'name' => $name,
             'description' => fake()->paragraph(),
+            'link' => fake()->url(),
+            'image' => $image,
             'is_active' => fake()->boolean(),
         ];
     }

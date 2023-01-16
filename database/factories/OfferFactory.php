@@ -4,12 +4,12 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Str;
 
-class BankBcaFactory extends Factory
+class OfferFactory extends Factory
 {
-    public $table = 'bank_bcas';
+    public $table = 'offers';
+
+    public $slug = 'offer';
 
     public function definition()
     {
@@ -17,21 +17,14 @@ class BankBcaFactory extends Factory
             DB::statement(DB::raw("ALTER TABLE {$this->table} AUTO_INCREMENT = 1"));
         }
 
-        $code = Str::code('BANKBCA', $this->table, null, 3);
-
-        $file = $code.'.pdf';
-
-        File::copy(
-            public_path('files/file.pdf'),
-            public_path('files/'.Str::singular(Str::slug($this->table)).'/'.$file),
-        );
-
         return [
-            'code' => $code,
             'name' => fake()->sentence(),
-            'file' => $file,
-            'date' => fake()->date(),
-            'notes' => fake()->paragraph(),
+            'name_idn' => fake()->sentence(),
+            'description' => fake()->paragraph(),
+            'description_idn' => fake()->paragraph(),
+            'button_name' => fake()->word(),
+            'button_name_idn' => fake()->word(),
+            'button_link' => fake()->url(),
             'is_active' => fake()->boolean(),
         ];
     }

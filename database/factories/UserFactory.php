@@ -8,11 +8,15 @@ use Illuminate\Support\Str;
 
 class UserFactory extends Factory
 {
+    public $table = 'users';
+
+    public $slug = 'user';
+
     public function definition()
     {
         return [
             'name' => fake()->unique()->name(),
-            'email' => fake()->unique()->safeEmail(),
+            'email' => fake()->unique()->freeEmail(),
             'email_verified_at' => now(),
             'password' => Hash::make(12345),
             'remember_token' => Str::random(10),
