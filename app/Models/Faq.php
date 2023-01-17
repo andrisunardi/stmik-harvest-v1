@@ -67,17 +67,27 @@ class Faq extends Model
 
     // protected $dateFormat = "U";
 
+    // protected $primaryKey = 'id';
+
+    // public $incrementing = false;
+
+    // public $timestamps = false;
+
+    // protected $guarded = ['*'];
+
+    // protected $hidden = ['id'];
+
+    // protected $visible = ['id'];
+
     protected $table = 'faqs';
 
-    protected $primaryKey = 'id';
+    protected $slug = 'faq';
 
-    public $incrementing = true;
-
-    public $timestamps = true;
-
-    protected $guarded = ['faqs'];
-
-    protected $dates = ['deleted_at'];
+    protected $dates = [
+        'created_at',
+        'updated_at',
+        'deleted_at',
+    ];
 
     protected $casts = [
         'question' => 'string',

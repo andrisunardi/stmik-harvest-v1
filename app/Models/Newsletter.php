@@ -67,17 +67,27 @@ class Newsletter extends Model
 
     // protected $dateFormat = "U";
 
+    // protected $primaryKey = 'id';
+
+    // public $incrementing = false;
+
+    // public $timestamps = false;
+
+    // protected $guarded = ['*'];
+
+    // protected $hidden = ['id'];
+
+    // protected $visible = ['id'];
+
     protected $table = 'newsletters';
 
-    protected $primaryKey = 'id';
+    protected $slug = 'newsletter';
 
-    public $incrementing = true;
-
-    public $timestamps = true;
-
-    protected $guarded = ['newsletters'];
-
-    protected $dates = ['deleted_at'];
+    protected $dates = [
+        'created_at',
+        'updated_at',
+        'deleted_at',
+    ];
 
     protected $casts = [
         'value' => 'string',

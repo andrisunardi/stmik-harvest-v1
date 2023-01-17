@@ -201,81 +201,56 @@ class User extends Authenticatable
     use HasRoles;
     use LogsActivity;
 
-    // public $connection = "mysql";
+    // protected $connection = "mysql";
 
-    // public $dateFormat = "U";
+    // protected $dateFormat = "U";
 
-    public $table = 'users';
+    // protected $primaryKey = 'id';
 
-    public $primaryKey = 'id';
+    // public $incrementing = false;
 
-    public $incrementing = true;
+    // public $timestamps = false;
 
-    public $timestamps = true;
-
-    public $guarded = ['users'];
-
-    public $dates = ['deleted_at'];
-
-    public $casts = [
-        'name' => 'string',
-        'username' => 'string',
-        'password' => 'string',
-        'email_verified_at' => 'datetime',
-    ];
+    // protected $guarded = ['*'];
 
     public $hidden = [
         'password',
         'remember_token',
     ];
 
-    public $fillable = [
-        'code',
-        'portfolio_id',
-        'access_id',
-        'platform_id',
-        'referral_id',
-        'name',
-        'level',
-        'exp',
-        'status',
-        'identity_card',
-        'gender',
-        'birthday_at',
-        'birthday',
-        'biography',
-        'phone',
-        'address',
-        'line',
-        'whatsapp',
-        'position',
-        'company',
-        'website',
-        'email',
-        'username',
-        'password',
-        'facebook',
-        'twitter',
-        'google',
-        'instagram',
-        'youtube',
-        'tumblr',
-        'pinterest',
-        'linkedin',
-        'bank_id',
-        'account_number',
-        'account_name',
-        'image',
-        'notes',
-        'slug',
-        'ip',
-        'join_date',
-        'is_online',
-        'is_resign',
-        'is_newsletter',
+    // protected $visible = ['id'];
+
+    protected $table = 'users';
+
+    protected $slug = 'user';
+
+    protected $dates = [
         'email_verified_at',
         'phone_verified_at',
-        'identity_card_verified_at',
+        'created_at',
+        'updated_at',
+        'deleted_at',
+    ];
+
+    public $casts = [
+        'name' => 'string',
+        'email' => 'string',
+        'phone' => 'string',
+        'username' => 'string',
+        'password' => 'string',
+        'email_verified_at' => 'datetime',
+        'phone_verified_at' => 'datetime',
+        // 'is_active' => 'boolean',
+    ];
+
+    public $fillable = [
+        'name',
+        'email',
+        'phone',
+        'username',
+        'password',
+        'email_verified_at',
+        'phone_verified_at',
         'is_active',
     ];
 
@@ -315,133 +290,4 @@ class User extends Authenticatable
     {
         return $this->belongsTo(User::class, 'deleted_by_id', 'id');
     }
-
-    public function portfolio()
-    {
-        return $this->belongsTo(Portfolio::class);
-    }
-
-    public function access()
-    {
-        return $this->belongsTo(Access::class);
-    }
-
-    public function platform()
-    {
-        return $this->belongsTo(Platform::class);
-    }
-
-    public function referral()
-    {
-        return $this->belongsTo(User::class, 'referral_id', 'id');
-    }
-
-    public function bank()
-    {
-        return $this->belongsTo(Bank::class);
-    }
-
-    public function absents()
-    {
-        return $this->hasMany(Absent::class)->orderBy('id');
-    }
-
-    public function assignments()
-    {
-        return $this->hasMany(Assignment::class)->orderBy('id');
-    }
-
-    public function charges()
-    {
-        return $this->hasMany(Charge::class)->orderBy('id');
-    }
-
-    public function portfolioDislike()
-    {
-        return $this->hasMany(PortfolioDislike::class)->orderBy('id');
-    }
-
-    public function forums()
-    {
-        return $this->hasMany(Forum::class)->orderBy('id');
-    }
-
-    public function invoices()
-    {
-        return $this->hasMany(Invoice::class)->orderBy('id');
-    }
-
-    public function jobs()
-    {
-        return $this->hasMany(Job::class)->orderBy('id');
-    }
-
-    public function portfolioLike()
-    {
-        return $this->hasMany(PortfolioLike::class)->orderBy('id');
-    }
-
-    public function loyalties()
-    {
-        return $this->hasMany(Loyalty::class)->orderBy('id');
-    }
-
-    public function payments()
-    {
-        return $this->hasMany(Payment::class)->orderBy('id');
-    }
-
-    public function registerInfluencers()
-    {
-        return $this->hasMany(RegisterInfluencer::class)->orderBy('id');
-    }
-
-    public function salaries()
-    {
-        return $this->hasMany(Salary::class)->orderBy('id');
-    }
-
-    public function revisions()
-    {
-        return $this->hasMany(Revision::class)->orderBy('id');
-    }
-
-    public function altImage()
-    {
-        return trans('index.image').' - '.Str::translate($this->table)." - {$this->name} - ".env('APP_TITLE');
-    }
-
-    public function checkImage()
-    {
-        if ($this->image && File::exists(public_path('images/'.Str::singular(Str::slug($this->table))."/{$this->image}"))) {
-            return true;
-        }
-    }
-
-    public function assetImage()
-    {
-        if ($this->checkImage()) {
-            return asset('images/'.Str::singular(Str::slug($this->table))."/{$this->image}");
-        }
-
-        return asset('images/'.Str::singular(Str::slug($this->table)).'.png');
-    }
-
-    public function deleteImage()
-    {
-        if ($this->checkImage()) {
-            File::delete(public_path('images/'.Str::singular(Str::slug($this->table))."/{$this->image}"));
-        }
-    }
-
-    public function getImageUrlAttribute()
-    {
-        if ($this->checkImage()) {
-            return URL::to('/').'/images/'.Str::singular(Str::slug($this->table))."/{$this->image}";
-        }
-
-        return null;
-    }
-
-    public $appends = ['image_url'];
 }

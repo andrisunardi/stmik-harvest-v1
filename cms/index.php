@@ -1,5 +1,5 @@
 <?php
 
-header('location: https://www.cms.diw.co.id', true, 301);
+header('location: https://www.cms.stmikku.ac.id', true, 301);
 
 exit();

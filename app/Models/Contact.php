@@ -72,20 +72,29 @@ class Contact extends Model
 
     // protected $dateFormat = "U";
 
+    // protected $primaryKey = 'id';
+
+    // public $incrementing = false;
+
+    // public $timestamps = false;
+
+    // protected $guarded = ['*'];
+
+    // protected $hidden = ['id'];
+
+    // protected $visible = ['id'];
+
     protected $table = 'contacts';
 
-    protected $primaryKey = 'id';
+    protected $slug = 'contact';
 
-    public $incrementing = true;
-
-    public $timestamps = true;
-
-    protected $guarded = ['contacts'];
-
-    protected $dates = ['deleted_at'];
+    protected $dates = [
+        'created_at',
+        'updated_at',
+        'deleted_at',
+    ];
 
     protected $casts = [
-        'code' => 'string',
         'name' => 'string',
         'company' => 'string',
         'email' => 'string',
@@ -96,7 +105,6 @@ class Contact extends Model
     ];
 
     protected $fillable = [
-        'code',
         'name',
         'company',
         'email',

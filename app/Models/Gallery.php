@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\GalleryCategory;
 use DateTimeInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -13,7 +14,7 @@ use Illuminate\Support\Str;
 use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
 
-class Banner extends Model
+class Gallery extends Model
 {
     use HasFactory;
     use SoftDeletes;
@@ -35,9 +36,9 @@ class Banner extends Model
 
     // protected $visible = ['id'];
 
-    protected $table = 'banners';
+    protected $table = 'galleries';
 
-    protected $slug = 'banner';
+    protected $slug = 'gallery';
 
     protected $dates = [
         'created_at',
@@ -46,20 +47,30 @@ class Banner extends Model
     ];
 
     protected $casts = [
+        'category' => GalleryCategory::class,
         'name' => 'string',
         'name_idn' => 'string',
         'description' => 'string',
         'description_idn' => 'string',
+        'tag' => 'string',
+        'tag_idn' => 'string',
         'image' => 'string',
+        'video' => 'string',
+        'youtube' => 'string',
         // 'is_active' => 'boolean',
     ];
 
     protected $fillable = [
+        'category',
         'name',
         'name_idn',
         'description',
         'description_idn',
+        'tag',
+        'tag_idn',
         'image',
+        'video',
+        'youtube',
         'is_active',
     ];
 
@@ -100,45 +111,6 @@ class Banner extends Model
         return $this->belongsTo(User::class, 'deleted_by_id', 'id');
     }
 
-    public function altImage()
-    {
-        return trans('index.image').' - '.trans('index.'.Str::singular($this->table)).' - '.env('APP_TITLE');
-    }
-
-    public function checkImage()
-    {
-        if ($this->image && File::exists(public_path("images/{$this->slug}/{$this->image}"))) {
-            return true;
-        }
-    }
-
-    public function assetImage()
-    {
-        if ($this->checkImage()) {
-            return asset("images/{$this->slug}/{$this->image}");
-        } else {
-            return asset('images/image-not-available.pdf');
-        }
-    }
-
-    public function deleteImage()
-    {
-        if ($this->checkImage()) {
-            File::delete(public_path("images/{$this->slug}/{$this->image}"));
-        }
-    }
-
-    public function getImageUrlAttribute()
-    {
-        if ($this->checkImage()) {
-            return URL::to('/')."/images/{$this->slug}/{$this->image}";
-        }
-
-        return null;
-    }
-
-    protected $appends = ['image_url'];
-
     public function getTranslateNameAttribute()
     {
         return App::isLocale('en') ? $this->name : $this->name_idn;
@@ -148,4 +120,80 @@ class Banner extends Model
     {
         return App::isLocale('en') ? $this->description : $this->description_idn;
     }
+
+    public function altImage()
+    {
+        return trans('index.image').' - '.Str::translate($this->table)." - {$this->name} - ".env('APP_TITLE');
+    }
+
+    public function checkImage()
+    {
+        if ($this->image && File::exists(public_path('images/'.Str::singular(Str::slug($this->table))."/{$this->image}"))) {
+            return true;
+        }
+    }
+
+    public function assetImage()
+    {
+        if ($this->checkImage()) {
+            return asset('images/'.Str::singular(Str::slug($this->table))."/{$this->image}");
+        }
+
+        return asset('images/image-not-available.png');
+    }
+
+    public function deleteImage()
+    {
+        if ($this->checkImage()) {
+            File::delete(public_path('images/'.Str::singular(Str::slug($this->table))."/{$this->image}"));
+        }
+    }
+
+    public function getImageUrlAttribute()
+    {
+        if ($this->checkImage()) {
+            return URL::to('/').'/images/'.Str::singular(Str::slug($this->table))."/{$this->image}";
+        }
+
+        return null;
+    }
+
+    public function altVideo()
+    {
+        return trans('index.video').' - '.Str::translate($this->table)." - {$this->title} - ".env('APP_TITLE');
+    }
+
+    public function checkVideo()
+    {
+        if ($this->video && File::exists(public_path('videos/'.Str::singular(Str::slug($this->table))."/{$this->video}"))) {
+            return true;
+        }
+    }
+
+    public function assetVideo()
+    {
+        if ($this->checkVideo()) {
+            return asset('videos/'.Str::singular(Str::slug($this->table))."/{$this->video}");
+        }
+
+        return asset('videos/video.mp4');
+    }
+
+    public function deleteVideo()
+    {
+        if ($this->checkVideo()) {
+            File::delete(public_path('videos/'.Str::singular(Str::slug($this->table))."/{$this->video}"));
+        }
+    }
+
+    public function getVideoUrlAttribute()
+    {
+        if ($this->checkVideo()) {
+            return URL::to('/').'/videos/'.Str::singular(Str::slug($this->table))."/{$this->video}";
+        }
+
+        return null;
+    }
+
+    protected $appends = ['image_url', 'video_url'];
 }

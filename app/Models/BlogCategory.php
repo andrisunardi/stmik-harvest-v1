@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\App;
 use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
 
-class AdmissionCalendar extends Model
+class BlogCategory extends Model
 {
     use HasFactory;
     use SoftDeletes;
@@ -32,12 +32,11 @@ class AdmissionCalendar extends Model
 
     // protected $visible = ['id'];
 
-    protected $table = 'admission_calendars';
+    protected $table = 'blog_categories';
 
-    protected $slug = 'admission-calendar';
+    protected $slug = 'blog-category';
 
     protected $dates = [
-        'date',
         'created_at',
         'updated_at',
         'deleted_at',
@@ -48,7 +47,6 @@ class AdmissionCalendar extends Model
         'name_idn' => 'string',
         'description' => 'string',
         'description_idn' => 'string',
-        'date' => 'datetime',
         // 'is_active' => 'boolean',
     ];
 
@@ -57,7 +55,6 @@ class AdmissionCalendar extends Model
         'name_idn',
         'description',
         'description_idn',
-        'date',
         'is_active',
     ];
 
@@ -106,5 +103,10 @@ class AdmissionCalendar extends Model
     public function getTranslateDescriptionAttribute()
     {
         return App::isLocale('en') ? $this->description : $this->description_idn;
+    }
+
+    public function blogs()
+    {
+        return $this->hasMany(Blog::class)->active()->orderBy('id');
     }
 }
