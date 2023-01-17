@@ -42,7 +42,6 @@ class AdmissionCalendar extends Model
     ];
 
     protected $fillable = [
-        'code',
         'name',
         'name_idn',
         'description',

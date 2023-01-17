@@ -47,7 +47,6 @@ class Banner extends Model
     ];
 
     protected $fillable = [
-        'code',
         'name',
         'name_idn',
         'description',
