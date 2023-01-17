@@ -14,6 +14,68 @@ use Illuminate\Support\Str;
 use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
 
+/**
+ * App\Models\Gallery
+ *
+ * @property int $id
+ * @property GalleryCategory|null $category
+ * @property string|null $name
+ * @property string|null $name_idn
+ * @property string|null $description
+ * @property string|null $description_idn
+ * @property string|null $tag
+ * @property string|null $tag_idn
+ * @property string|null $image
+ * @property string|null $video
+ * @property string|null $youtube
+ * @property int|null $is_active
+ * @property int|null $created_by_id
+ * @property int|null $updated_by_id
+ * @property int|null $deleted_by_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Spatie\Activitylog\Models\Activity[] $activities
+ * @property-read int|null $activities_count
+ * @property-read \App\Models\User|null $createdBy
+ * @property-read \App\Models\User|null $deletedBy
+ * @property-read mixed $image_url
+ * @property-read mixed $translate_description
+ * @property-read mixed $translate_name
+ * @property-read mixed $video_url
+ * @property-read mixed $youtube_code
+ * @property-read \App\Models\User|null $updatedBy
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder|Gallery active()
+ * @method static \Database\Factories\GalleryFactory factory(...$parameters)
+ * @method static \Illuminate\Database\Eloquent\Builder|Gallery inActive()
+ * @method static \Illuminate\Database\Eloquent\Builder|Gallery newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Gallery newQuery()
+ * @method static \Illuminate\Database\Query\Builder|Gallery onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Gallery query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Gallery whereCategory($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Gallery whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Gallery whereCreatedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Gallery whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Gallery whereDeletedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Gallery whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Gallery whereDescriptionIdn($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Gallery whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Gallery whereImage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Gallery whereIsActive($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Gallery whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Gallery whereNameIdn($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Gallery whereTag($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Gallery whereTagIdn($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Gallery whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Gallery whereUpdatedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Gallery whereVideo($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Gallery whereYoutube($value)
+ * @method static \Illuminate\Database\Query\Builder|Gallery withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|Gallery withoutTrashed()
+ *
+ * @mixin \Eloquent
+ */
 class Gallery extends Model
 {
     use HasFactory;
@@ -190,6 +252,15 @@ class Gallery extends Model
     {
         if ($this->checkVideo()) {
             return URL::to('/').'/videos/'.Str::singular(Str::slug($this->table))."/{$this->video}";
+        }
+
+        return null;
+    }
+
+    public function getYoutubeCodeAttribute()
+    {
+        if ($this->youtube) {
+            return Str::replace('https://www.youtube.com/watch?v=', '', $this->youtube);
         }
 
         return null;

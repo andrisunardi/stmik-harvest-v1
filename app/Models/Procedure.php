@@ -11,14 +11,13 @@ use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
 
 /**
- * App\Models\EventCategory
+ * App\Models\Procedure
  *
  * @property int $id
  * @property string|null $name
  * @property string|null $name_id
  * @property string|null $description
  * @property string|null $description_id
- * @property string|null $slug
  * @property int|null $is_active
  * @property int|null $created_by_id
  * @property int|null $updated_by_id
@@ -30,38 +29,35 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @property-read int|null $activities_count
  * @property-read \App\Models\User|null $createdBy
  * @property-read \App\Models\User|null $deletedBy
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Event[] $events
- * @property-read int|null $events_count
  * @property-read mixed $translate_description
  * @property-read mixed $translate_name
  * @property-read \App\Models\User|null $updatedBy
  *
- * @method static \Illuminate\Database\Eloquent\Builder|EventCategory active()
- * @method static \Database\Factories\EventCategoryFactory factory(...$parameters)
- * @method static \Illuminate\Database\Eloquent\Builder|EventCategory inActive()
- * @method static \Illuminate\Database\Eloquent\Builder|EventCategory newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|EventCategory newQuery()
- * @method static \Illuminate\Database\Query\Builder|EventCategory onlyTrashed()
- * @method static \Illuminate\Database\Eloquent\Builder|EventCategory query()
- * @method static \Illuminate\Database\Eloquent\Builder|EventCategory whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|EventCategory whereCreatedById($value)
- * @method static \Illuminate\Database\Eloquent\Builder|EventCategory whereDeletedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|EventCategory whereDeletedById($value)
- * @method static \Illuminate\Database\Eloquent\Builder|EventCategory whereDescription($value)
- * @method static \Illuminate\Database\Eloquent\Builder|EventCategory whereDescriptionId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|EventCategory whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|EventCategory whereIsActive($value)
- * @method static \Illuminate\Database\Eloquent\Builder|EventCategory whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|EventCategory whereNameId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|EventCategory whereSlug($value)
- * @method static \Illuminate\Database\Eloquent\Builder|EventCategory whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|EventCategory whereUpdatedById($value)
- * @method static \Illuminate\Database\Query\Builder|EventCategory withTrashed()
- * @method static \Illuminate\Database\Query\Builder|EventCategory withoutTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Procedure active()
+ * @method static \Database\Factories\ProcedureFactory factory(...$parameters)
+ * @method static \Illuminate\Database\Eloquent\Builder|Procedure inActive()
+ * @method static \Illuminate\Database\Eloquent\Builder|Procedure newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Procedure newQuery()
+ * @method static \Illuminate\Database\Query\Builder|Procedure onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Procedure query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Procedure whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Procedure whereCreatedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Procedure whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Procedure whereDeletedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Procedure whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Procedure whereDescriptionId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Procedure whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Procedure whereIsActive($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Procedure whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Procedure whereNameId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Procedure whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Procedure whereUpdatedById($value)
+ * @method static \Illuminate\Database\Query\Builder|Procedure withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|Procedure withoutTrashed()
  *
  * @mixin \Eloquent
  */
-class EventCategory extends Model
+class Procedure extends Model
 {
     use HasFactory;
     use SoftDeletes;
@@ -83,9 +79,9 @@ class EventCategory extends Model
 
     // protected $visible = ['id'];
 
-    protected $table = 'event_categories';
+    protected $table = 'procedures';
 
-    protected $slug = 'event-category';
+    protected $slug = 'procedure';
 
     protected $dates = [
         'created_at',
@@ -103,9 +99,9 @@ class EventCategory extends Model
 
     protected $fillable = [
         'name',
-        'name_idn',
+        'name_id',
         'description',
-        'description_idn',
+        'description_id',
         'is_active',
     ];
 
@@ -154,10 +150,5 @@ class EventCategory extends Model
     public function getTranslateDescriptionAttribute()
     {
         return App::isLocale('en') ? $this->description : $this->description_idn;
-    }
-
-    public function events()
-    {
-        return $this->hasMany(Event::class)->active()->orderBy('id');
     }
 }

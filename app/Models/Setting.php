@@ -49,6 +49,8 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @method static \Illuminate\Database\Query\Builder|Setting withoutTrashed()
  *
  * @mixin \Eloquent
+ *
+ * @method static \Database\Factories\SettingFactory factory(...$parameters)
  */
 class Setting extends Model
 {

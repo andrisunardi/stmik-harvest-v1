@@ -56,6 +56,8 @@ use Spatie\Activitylog\Traits\LogsActivity;
  *
  * @property-read \Illuminate\Database\Eloquent\Collection|\Spatie\Activitylog\Models\Activity[] $activities
  * @property-read int|null $activities_count
+ *
+ * @method static \Database\Factories\FaqFactory factory(...$parameters)
  */
 class Faq extends Model
 {

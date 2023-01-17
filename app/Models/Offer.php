@@ -11,14 +11,16 @@ use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
 
 /**
- * App\Models\EventCategory
+ * App\Models\Offer
  *
  * @property int $id
  * @property string|null $name
- * @property string|null $name_id
+ * @property string|null $name_idn
  * @property string|null $description
- * @property string|null $description_id
- * @property string|null $slug
+ * @property string|null $description_idn
+ * @property string|null $button_name
+ * @property string|null $button_name_idn
+ * @property string|null $button_link
  * @property int|null $is_active
  * @property int|null $created_by_id
  * @property int|null $updated_by_id
@@ -30,38 +32,39 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @property-read int|null $activities_count
  * @property-read \App\Models\User|null $createdBy
  * @property-read \App\Models\User|null $deletedBy
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Event[] $events
- * @property-read int|null $events_count
+ * @property-read mixed $translate_button_name
  * @property-read mixed $translate_description
  * @property-read mixed $translate_name
  * @property-read \App\Models\User|null $updatedBy
  *
- * @method static \Illuminate\Database\Eloquent\Builder|EventCategory active()
- * @method static \Database\Factories\EventCategoryFactory factory(...$parameters)
- * @method static \Illuminate\Database\Eloquent\Builder|EventCategory inActive()
- * @method static \Illuminate\Database\Eloquent\Builder|EventCategory newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|EventCategory newQuery()
- * @method static \Illuminate\Database\Query\Builder|EventCategory onlyTrashed()
- * @method static \Illuminate\Database\Eloquent\Builder|EventCategory query()
- * @method static \Illuminate\Database\Eloquent\Builder|EventCategory whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|EventCategory whereCreatedById($value)
- * @method static \Illuminate\Database\Eloquent\Builder|EventCategory whereDeletedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|EventCategory whereDeletedById($value)
- * @method static \Illuminate\Database\Eloquent\Builder|EventCategory whereDescription($value)
- * @method static \Illuminate\Database\Eloquent\Builder|EventCategory whereDescriptionId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|EventCategory whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|EventCategory whereIsActive($value)
- * @method static \Illuminate\Database\Eloquent\Builder|EventCategory whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|EventCategory whereNameId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|EventCategory whereSlug($value)
- * @method static \Illuminate\Database\Eloquent\Builder|EventCategory whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|EventCategory whereUpdatedById($value)
- * @method static \Illuminate\Database\Query\Builder|EventCategory withTrashed()
- * @method static \Illuminate\Database\Query\Builder|EventCategory withoutTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Offer active()
+ * @method static \Database\Factories\OfferFactory factory(...$parameters)
+ * @method static \Illuminate\Database\Eloquent\Builder|Offer inActive()
+ * @method static \Illuminate\Database\Eloquent\Builder|Offer newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Offer newQuery()
+ * @method static \Illuminate\Database\Query\Builder|Offer onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Offer query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Offer whereButtonLink($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Offer whereButtonName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Offer whereButtonNameIdn($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Offer whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Offer whereCreatedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Offer whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Offer whereDeletedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Offer whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Offer whereDescriptionIdn($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Offer whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Offer whereIsActive($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Offer whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Offer whereNameIdn($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Offer whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Offer whereUpdatedById($value)
+ * @method static \Illuminate\Database\Query\Builder|Offer withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|Offer withoutTrashed()
  *
  * @mixin \Eloquent
  */
-class EventCategory extends Model
+class Offer extends Model
 {
     use HasFactory;
     use SoftDeletes;
@@ -83,9 +86,9 @@ class EventCategory extends Model
 
     // protected $visible = ['id'];
 
-    protected $table = 'event_categories';
+    protected $table = 'offers';
 
-    protected $slug = 'event-category';
+    protected $slug = 'offer';
 
     protected $dates = [
         'created_at',
@@ -98,14 +101,20 @@ class EventCategory extends Model
         'name_idn' => 'string',
         'description' => 'string',
         'description_idn' => 'string',
+        'button_name' => 'string',
+        'button_name_idn' => 'string',
+        'button_link' => 'string',
         // 'is_active' => 'boolean',
     ];
 
     protected $fillable = [
         'name',
-        'name_idn',
+        'name_id',
         'description',
-        'description_idn',
+        'description_id',
+        'button_name',
+        'button_name_id',
+        'button_link',
         'is_active',
     ];
 
@@ -156,8 +165,8 @@ class EventCategory extends Model
         return App::isLocale('en') ? $this->description : $this->description_idn;
     }
 
-    public function events()
+    public function getTranslateButtonNameAttribute()
     {
-        return $this->hasMany(Event::class)->active()->orderBy('id');
+        return App::isLocale('en') ? $this->button_name : $this->button_name_idn;
     }
 }

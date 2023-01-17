@@ -13,6 +13,72 @@ use Illuminate\Support\Str;
 use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
 
+/**
+ * App\Models\Blog
+ *
+ * @property int $id
+ * @property int|null $blog_category_id
+ * @property string|null $title
+ * @property string|null $title_idn
+ * @property string|null $short_body
+ * @property string|null $short_body_idn
+ * @property string|null $body
+ * @property string|null $body_idn
+ * @property \Illuminate\Support\Carbon|null $date
+ * @property string|null $tag
+ * @property string|null $tag_id
+ * @property string|null $image
+ * @property string|null $slug
+ * @property int|null $is_active
+ * @property int|null $created_by_id
+ * @property int|null $updated_by_id
+ * @property int|null $deleted_by_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Spatie\Activitylog\Models\Activity[] $activities
+ * @property-read int|null $activities_count
+ * @property-read \App\Models\BlogCategory|null $blogCategory
+ * @property-read \App\Models\User|null $createdBy
+ * @property-read \App\Models\User|null $deletedBy
+ * @property-read mixed $image_url
+ * @property-read mixed $translate_description
+ * @property-read mixed $translate_name
+ * @property-read mixed $translate_tag
+ * @property-read \App\Models\User|null $updatedBy
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder|Blog active()
+ * @method static \Database\Factories\BlogFactory factory(...$parameters)
+ * @method static \Illuminate\Database\Eloquent\Builder|Blog inActive()
+ * @method static \Illuminate\Database\Eloquent\Builder|Blog newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Blog newQuery()
+ * @method static \Illuminate\Database\Query\Builder|Blog onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Blog query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Blog whereBlogCategoryId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Blog whereBody($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Blog whereBodyIdn($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Blog whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Blog whereCreatedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Blog whereDate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Blog whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Blog whereDeletedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Blog whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Blog whereImage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Blog whereIsActive($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Blog whereShortBody($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Blog whereShortBodyIdn($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Blog whereSlug($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Blog whereTag($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Blog whereTagId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Blog whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Blog whereTitleIdn($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Blog whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Blog whereUpdatedById($value)
+ * @method static \Illuminate\Database\Query\Builder|Blog withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|Blog withoutTrashed()
+ *
+ * @mixin \Eloquent
+ */
 class Blog extends Model
 {
     use HasFactory;
@@ -149,6 +215,11 @@ class Blog extends Model
     }
 
     protected $appends = ['image_url'];
+
+    public function blogCategory()
+    {
+        return $this->belongsTo(BlogCategory::class);
+    }
 
     public function getTranslateNameAttribute()
     {

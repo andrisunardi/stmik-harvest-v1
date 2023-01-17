@@ -14,23 +14,17 @@ use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
 
 /**
- * App\Models\Event
+ * App\Models\Slider
  *
  * @property int $id
- * @property int|null $event_category_id
- * @property string|null $title
- * @property string|null $title_idn
- * @property string|null $short_body
- * @property string|null $short_body_idn
- * @property string|null $body
- * @property string|null $body_idn
- * @property string|null $location
- * @property \Illuminate\Support\Carbon|null $start
- * @property \Illuminate\Support\Carbon|null $end
- * @property string|null $tag
- * @property string|null $tag_id
+ * @property string|null $name
+ * @property string|null $name_idn
+ * @property string|null $description
+ * @property string|null $description_idn
+ * @property string|null $button_name
+ * @property string|null $button_name_idn
+ * @property string|null $button_link
  * @property string|null $image
- * @property string|null $slug
  * @property int|null $is_active
  * @property int|null $created_by_id
  * @property int|null $updated_by_id
@@ -42,48 +36,41 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @property-read int|null $activities_count
  * @property-read \App\Models\User|null $createdBy
  * @property-read \App\Models\User|null $deletedBy
- * @property-read \App\Models\EventCategory|null $eventCategory
  * @property-read mixed $image_url
+ * @property-read mixed $translate_button_name
  * @property-read mixed $translate_description
  * @property-read mixed $translate_name
- * @property-read mixed $translate_tag
  * @property-read \App\Models\User|null $updatedBy
  *
- * @method static \Illuminate\Database\Eloquent\Builder|Event active()
- * @method static \Database\Factories\EventFactory factory(...$parameters)
- * @method static \Illuminate\Database\Eloquent\Builder|Event inActive()
- * @method static \Illuminate\Database\Eloquent\Builder|Event newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Event newQuery()
- * @method static \Illuminate\Database\Query\Builder|Event onlyTrashed()
- * @method static \Illuminate\Database\Eloquent\Builder|Event query()
- * @method static \Illuminate\Database\Eloquent\Builder|Event whereBody($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Event whereBodyIdn($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Event whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Event whereCreatedById($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Event whereDeletedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Event whereDeletedById($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Event whereEnd($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Event whereEventCategoryId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Event whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Event whereImage($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Event whereIsActive($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Event whereLocation($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Event whereShortBody($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Event whereShortBodyIdn($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Event whereSlug($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Event whereStart($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Event whereTag($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Event whereTagId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Event whereTitle($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Event whereTitleIdn($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Event whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Event whereUpdatedById($value)
- * @method static \Illuminate\Database\Query\Builder|Event withTrashed()
- * @method static \Illuminate\Database\Query\Builder|Event withoutTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Slider active()
+ * @method static \Database\Factories\SliderFactory factory(...$parameters)
+ * @method static \Illuminate\Database\Eloquent\Builder|Slider inActive()
+ * @method static \Illuminate\Database\Eloquent\Builder|Slider newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Slider newQuery()
+ * @method static \Illuminate\Database\Query\Builder|Slider onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Slider query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Slider whereButtonLink($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Slider whereButtonName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Slider whereButtonNameIdn($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Slider whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Slider whereCreatedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Slider whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Slider whereDeletedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Slider whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Slider whereDescriptionIdn($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Slider whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Slider whereImage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Slider whereIsActive($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Slider whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Slider whereNameIdn($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Slider whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Slider whereUpdatedById($value)
+ * @method static \Illuminate\Database\Query\Builder|Slider withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|Slider withoutTrashed()
  *
  * @mixin \Eloquent
  */
-class Event extends Model
+class Slider extends Model
 {
     use HasFactory;
     use SoftDeletes;
@@ -105,45 +92,37 @@ class Event extends Model
 
     // protected $visible = ['id'];
 
-    protected $table = 'events';
+    protected $table = 'sliders';
 
-    protected $slug = 'event';
+    protected $slug = 'slider';
 
     protected $dates = [
-        'start',
-        'end',
         'created_at',
         'updated_at',
         'deleted_at',
     ];
 
     protected $casts = [
-        'event_category_id' => 'integer',
         'name' => 'string',
         'name_idn' => 'string',
         'description' => 'string',
         'description_idn' => 'string',
-        'start' => 'datetime',
-        'end' => 'datetime',
-        'tag' => 'string',
-        'tag_idn' => 'string',
+        'button_name' => 'string',
+        'button_name_idn' => 'string',
+        'button_link' => 'string',
         'image' => 'string',
-        'slug' => 'string',
         // 'is_active' => 'boolean',
     ];
 
     protected $fillable = [
-        'event_category_id',
         'name',
-        'name_idn',
+        'name_id',
         'description',
-        'description_idn',
-        'start',
-        'end',
-        'tag',
-        'tag_idn',
+        'description_id',
+        'button_name',
+        'button_name_id',
+        'button_link',
         'image',
-        'slug',
         'is_active',
     ];
 
@@ -223,11 +202,6 @@ class Event extends Model
 
     protected $appends = ['image_url'];
 
-    public function eventCategory()
-    {
-        return $this->belongsTo(EventCategory::class);
-    }
-
     public function getTranslateNameAttribute()
     {
         return App::isLocale('en') ? $this->name : $this->name_idn;
@@ -238,8 +212,8 @@ class Event extends Model
         return App::isLocale('en') ? $this->description : $this->description_idn;
     }
 
-    public function getTranslateTagAttribute()
+    public function getTranslateButtonNameAttribute()
     {
-        return App::isLocale('en') ? $this->tag : $this->tag_id;
+        return App::isLocale('en') ? $this->button_name : $this->button_name_idn;
     }
 }

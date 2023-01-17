@@ -21,7 +21,6 @@ use App\Models\Testimony;
 use App\Models\TuitionFee;
 use App\Models\User;
 use App\Models\Value;
-
 use App\Observers\AdmissionCalendarObserver;
 use App\Observers\BannerObserver;
 use App\Observers\BlogCategoryObserver;
@@ -41,7 +40,6 @@ use App\Observers\TestimonyObserver;
 use App\Observers\TuitionFeeObserver;
 use App\Observers\UserObserver;
 use App\Observers\ValueObserver;
-
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Artisan;

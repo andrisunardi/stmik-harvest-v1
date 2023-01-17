@@ -14,13 +14,12 @@ use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
 
 /**
- * App\Models\Banner
+ * App\Models\Testimony
  *
  * @property int $id
  * @property string|null $name
- * @property string|null $name_idn
  * @property string|null $description
- * @property string|null $description_idn
+ * @property string|null $graduate
  * @property string|null $image
  * @property int|null $is_active
  * @property int|null $created_by_id
@@ -34,36 +33,33 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @property-read \App\Models\User|null $createdBy
  * @property-read \App\Models\User|null $deletedBy
  * @property-read mixed $image_url
- * @property-read mixed $translate_description
- * @property-read mixed $translate_name
  * @property-read \App\Models\User|null $updatedBy
  *
- * @method static \Illuminate\Database\Eloquent\Builder|Banner active()
- * @method static \Database\Factories\BannerFactory factory(...$parameters)
- * @method static \Illuminate\Database\Eloquent\Builder|Banner inActive()
- * @method static \Illuminate\Database\Eloquent\Builder|Banner newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Banner newQuery()
- * @method static \Illuminate\Database\Query\Builder|Banner onlyTrashed()
- * @method static \Illuminate\Database\Eloquent\Builder|Banner query()
- * @method static \Illuminate\Database\Eloquent\Builder|Banner whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Banner whereCreatedById($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Banner whereDeletedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Banner whereDeletedById($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Banner whereDescription($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Banner whereDescriptionIdn($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Banner whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Banner whereImage($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Banner whereIsActive($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Banner whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Banner whereNameIdn($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Banner whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Banner whereUpdatedById($value)
- * @method static \Illuminate\Database\Query\Builder|Banner withTrashed()
- * @method static \Illuminate\Database\Query\Builder|Banner withoutTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Testimony active()
+ * @method static \Database\Factories\TestimonyFactory factory(...$parameters)
+ * @method static \Illuminate\Database\Eloquent\Builder|Testimony inActive()
+ * @method static \Illuminate\Database\Eloquent\Builder|Testimony newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Testimony newQuery()
+ * @method static \Illuminate\Database\Query\Builder|Testimony onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Testimony query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Testimony whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Testimony whereCreatedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Testimony whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Testimony whereDeletedById($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Testimony whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Testimony whereGraduate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Testimony whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Testimony whereImage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Testimony whereIsActive($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Testimony whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Testimony whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Testimony whereUpdatedById($value)
+ * @method static \Illuminate\Database\Query\Builder|Testimony withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|Testimony withoutTrashed()
  *
  * @mixin \Eloquent
  */
-class Banner extends Model
+class Testimony extends Model
 {
     use HasFactory;
     use SoftDeletes;
@@ -85,9 +81,9 @@ class Banner extends Model
 
     // protected $visible = ['id'];
 
-    protected $table = 'banners';
+    protected $table = 'testimonies';
 
-    protected $slug = 'banner';
+    protected $slug = 'testimony';
 
     protected $dates = [
         'created_at',
@@ -97,18 +93,16 @@ class Banner extends Model
 
     protected $casts = [
         'name' => 'string',
-        'name_idn' => 'string',
         'description' => 'string',
-        'description_idn' => 'string',
+        'graduate' => 'string',
         'image' => 'string',
         // 'is_active' => 'boolean',
     ];
 
     protected $fillable = [
         'name',
-        'name_idn',
         'description',
-        'description_idn',
+        'graduate',
         'image',
         'is_active',
     ];
@@ -188,14 +182,4 @@ class Banner extends Model
     }
 
     protected $appends = ['image_url'];
-
-    public function getTranslateNameAttribute()
-    {
-        return App::isLocale('en') ? $this->name : $this->name_idn;
-    }
-
-    public function getTranslateDescriptionAttribute()
-    {
-        return App::isLocale('en') ? $this->description : $this->description_idn;
-    }
 }
