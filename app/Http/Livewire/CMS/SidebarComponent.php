@@ -185,7 +185,7 @@ class SidebarComponent extends Component
                     'permissions' => 'Value',
                     'name' => trans('index.value'),
                     'slug' => 'value',
-                    'icon' => 'fas fa-trophy fa-fw',
+                    'icon' => 'fas fa-star fa-fw',
                     'url' => route("{$this->subDomain}.value.index"),
                     'pages' => null,
                 ], [

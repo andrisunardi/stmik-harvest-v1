@@ -36,7 +36,7 @@ Breadcrumbs::for('our-profile.index', function (BreadcrumbTrail $trail) {
 
 Breadcrumbs::for('our-values.index', function (BreadcrumbTrail $trail) {
     $trail->parent('index');
-    $trail->push(trans('index.our_values'), route('our-values.index'), ['icon' => 'fas fa-trophy fa-fw']);
+    $trail->push(trans('index.our_values'), route('our-values.index'), ['icon' => 'fas fa-star fa-fw']);
 });
 
 Breadcrumbs::for('our-network.index', function (BreadcrumbTrail $trail) {

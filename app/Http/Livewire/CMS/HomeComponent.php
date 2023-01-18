@@ -169,7 +169,7 @@ class HomeComponent extends Component
             'url' => route("{$this->subDomain}.tuition-fee.index"),
         ], [
             'name' => trans('index.value'),
-            'icon' => 'fas fa-trophy fa-fw',
+            'icon' => 'fas fa-star fa-fw',
             'total' => Value::cursor()->count(),
             'url' => route("{$this->subDomain}.value.index"),
         ], [

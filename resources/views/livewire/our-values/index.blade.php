@@ -1,5 +1,5 @@
 @section("title", trans("index.our_values"))
-@section("icon", "fas fa-trophy")
+@section("icon", "fas fa-star")
 @section("our-values-active", "active")
 
 <div>

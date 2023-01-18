@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\CMS;
 
 use App\Enums\NewsletterType;
-use App\Exports\Marketing\NewsletterExport;
+use App\Exports\NewsletterExport;
 use App\Models\Newsletter;
 use App\Models\User;
 use App\Services\NewsletterService;
@@ -43,9 +43,9 @@ class NewsletterComponent extends Component
         $this->pageSlug = Str::slug($this->pageName);
         $this->pageIcon = 'fas fa-envelopes-bulk';
         $this->pageTable = Str::plural(Str::snake($this->pageName));
-        $this->pageCategoryName = 'Marketing';
-        $this->pageCategoryTitle = trans('index.'.Str::snake($this->pageCategoryName));
-        $this->pageCategorySlug = Str::slug($this->pageCategoryName);
+        $this->pageCategoryName = null;
+        $this->pageCategoryTitle = null;
+        $this->pageCategorySlug = null;
         $this->pageSubCategoryName = null;
         $this->pageSubCategoryTitle = null;
         $this->pageSubCategorySlug = null;
@@ -301,7 +301,7 @@ class NewsletterComponent extends Component
                 'error',
                 "{$this->pageName} ".trans('index.not_found_or_has_been_deleted'),
                 [],
-                route("{$this->subDomain}.{$this->pageCategorySlug}.{$this->pageSubCategorySlug}.{$this->pageSlug}.index"),
+                route("{$this->subDomain}.{$this->pageSlug}.index"),
             );
         }
 
@@ -327,7 +327,7 @@ class NewsletterComponent extends Component
                 'error',
                 "{$this->pageName} ".trans('index.not_found_or_has_been_deleted'),
                 [],
-                route("{$this->subDomain}.{$this->pageCategorySlug}.{$this->pageSubCategorySlug}.{$this->pageSlug}.index"),
+                route("{$this->subDomain}.{$this->pageSlug}.index"),
             );
         }
 
@@ -354,7 +354,7 @@ class NewsletterComponent extends Component
                 'error',
                 "{$this->pageName} ".trans('index.not_found_or_has_been_deleted'),
                 [],
-                route("{$this->subDomain}.{$this->pageCategorySlug}.{$this->pageSubCategorySlug}.{$this->pageSlug}.index"),
+                route("{$this->subDomain}.{$this->pageSlug}.index"),
             );
         }
 
@@ -585,7 +585,7 @@ class NewsletterComponent extends Component
 
         $this->alert('info', trans('index.export_to_pdf'));
 
-        $pdf = PDF::loadView("{$this->subDomain}.livewire.{$this->pageCategorySlug}.{$this->pageSubCategorySlug}.{$this->pageSlug}.pdf", [
+        $pdf = PDF::loadView("{$this->subDomain}.livewire.{$this->pageSlug}.pdf", [
             'newsletters' => $this->getNewsletters(paginate: false),
             'title' => $this->pageName,
         ])->output();
@@ -641,7 +641,7 @@ class NewsletterComponent extends Component
 
     public function render()
     {
-        return view("{$this->subDomain}.livewire.{$this->pageCategorySlug}.{$this->pageSubCategorySlug}.{$this->pageSlug}.index", [
+        return view("{$this->subDomain}.livewire.{$this->pageSlug}.index", [
             'createdBies' => $this->readyToLoad ? $this->getCreatedBies() : collect(),
             'updatedBies' => $this->readyToLoad ? $this->getUpdatedBies() : collect(),
             'deletedBies' => $this->readyToLoad ? $this->getDeletedBies() : collect(),

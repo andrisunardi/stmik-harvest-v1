@@ -72,7 +72,7 @@
                         </td>
                         <td>
                             @if ($blog->blogCategory)
-                                <a draggable="false" href="{{ route("{$subDomain}.finance.blog.category.index") . "?pageType=view&row={$blog->blogCategory->id}" }}" target="_blank">
+                                <a draggable="false" href="{{ route("{$subDomain}.blog.category.index") . "?pageType=view&row={$blog->blogCategory->id}" }}" target="_blank">
                                     {{ $blog->blogCategory->name }}
                                 </a>
                             @endif

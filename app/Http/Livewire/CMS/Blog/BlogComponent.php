@@ -585,7 +585,7 @@ class BlogComponent extends Component
     public function getBlogs($paginate = true)
     {
         if (in_array($this->pageType, ['index', 'trash'])) {
-            $blogs = Blog::with('createdBy', 'updatedBy', 'deletedBy', 'blogCategory', 'bank')
+            $blogs = Blog::with('createdBy', 'updatedBy', 'deletedBy', 'blogCategory')
                 ->when($this->blog_category_id, fn ($q) => $q->where('blog_category_id', $this->blog_category_id))
                 ->when($this->title, fn ($q) => $q->where('title', 'LIKE', "%{$this->title}%"))
                 ->when($this->title_idn, fn ($q) => $q->where('title_idn', 'LIKE', "%{$this->title_idn}%"))
