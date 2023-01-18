@@ -3,49 +3,45 @@
 @section("faq-active", "active")
 
 <div>
-    <div class="section mt-2">
-        <h2 class="text-center h2">@yield("title")</h2>
-        <h6 class="text-center h6">
-            @if (App::isLocale("en"))
-                Find answers to commonly asked questions about our service. You can search for keywords or browse the list of topics
-            @else
-                Temukan jawaban atas pertanyaan umum tentang layanan kami. Anda dapat mencari kata kunci atau menelusuri daftar topik
-            @endif
-        </h6>
-    </div>
+    <section class="our__about__area bg__white pb--80 pt--100">
+        <div class="container">
+            <div class="section__title text-center">
+                <h2 class="title__line">{{ trans("index.list_of_frequently_asked_questions") }}</h2>
+                <p>{{ trans("index.if_there_is_no_question_or_answer_you_are_looking_for_please_contact_us") }}</p>
+            </div>
+            <div class="accordion mt-5" id="accordion-faq">
+                @foreach ($faqs as $faq)
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                            <button class="accordion-button {{ $loop->first ? null : "collapsed" }}" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse-{{ $loop->iteration }}" aria-expanded="{{ $loop->first ? "true" : "false" }}" aria-controls="panelsStayOpen-collapse-{{ $loop->iteration }}">{{ $faq->translate_question }}</button>
+                        </h2>
+                        <div id="panelsStayOpen-collapse-{{ $loop->iteration }}" class="accordion-collapse collapse {{ $loop->first ? "show" : null }}" aria-labelledby="panelsStayOpen-headingOne">
+                            <div class="accordion-body">{!! html_entity_decode($faq->translate_answer) !!}</div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
 
-    <div class="section mt-2">
-        <div class="card overflow-hidden">
-            <div class="card-body p-0">
-                <div class="accordion border-0" id="accordion-faq">
-                    @foreach ($faqs as $faq)
-                        <div class="item">
-                            <div class="accordion-header">
-                                <button class="btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-{{ $faq->id }}">
-                                    {{ $faq->translate_question }}
-                                </button>
-                            </div>
-                            <div id="faq-{{ $faq->id }}" class="accordion-body collapse" data-bs-parent="#accordion-faq">
-                                <div class="accordion-content">
-                                    {!! $faq->translate_answer !!}
-                                </div>
+    <section class="htc__findout__area bg__cat--3">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="findout__wrap my-5 my-sm-auto">
+                        <div class="findout__inner">
+                            <h2>
+                                <span class="text-nowrap me-md-2">{{ trans("index.ready_to_join") }} ?</span>
+                                {{ trans("custom.it_easy_now_to_you_for_being_our_part_just_click_the_button_below_and_fill_out_the_form_with_your_data") }}
+                            </h2>
+                            <div class="findout__btn">
+                                {{-- <a draggable="false" class="htc__btn btn--yellow" href="{{ route("online-registration.index") }}">{{ trans("index.Register") }}</a> --}}
+                                <a draggable="false" class="htc__btn btn--yellow" href="https://pmb.stmik-kuwera.civitas.id" target="_blank">{{ trans("index.register") }}</a>
                             </div>
                         </div>
-                    @endforeach
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-
-    <div class="section mt-2 mb-2">
-        <div class="card bg-primary">
-            <div class="card-body text-center">
-                <h5 class="card-title">{{ trans("index.still_have_question") }} ?</h5>
-                <p class="card-text">
-                    {{ trans("index.feel_free_to_contact_us") }}
-                </p>
-                <a draggable="false" href="{{ route("contact.index") }}" class="btn btn-dark"><ion-icon name="mail-open-outline"></ion-icon> {{ trans("index.contact") }}</a>
-            </div>
-        </div>
-    </div>
+    </section>
 </div>

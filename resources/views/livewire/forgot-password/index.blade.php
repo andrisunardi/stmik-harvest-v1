@@ -3,62 +3,55 @@
 @section("forgot-password-active", "active")
 
 <div>
-    <div class="section mt-2">
-        <h2 class="text-center h2">@yield("title")</h2>
-        <h6 class="text-center h6">
-            @if (App::isLocale("en"))
-                No need to worry if you forget your password. We will reset your old password
-            @else
-                Tidak perlu khawatir jika lupa anda lupa password. Kami akan mereset password lama anda
-            @endif
-        </h6>
-    </div>
+    {{-- <body id="login_bg">
 
-    <div class="section mt-2 mb-2">
-        <div class="card">
-            <div class="card-body">
+        <nav id="menu" class="fake_menu"></nav>
 
-                @include("vendors.alert")
-
-                <form class="mt-2" role="form">
-                    @csrf
-
-                    <div class="form-group basic">
-                        <div class="input-wrapper">
-                            @php $input = "email" @endphp
-                            <label class="label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
-                            <input type="email" class="form-control" pattern="[^\s*].*[^\s*]" id="{{ $input }}" placeholder="{{ trans("validation.attributes.{$input}") }}" autocomplete="off" autocapitalize="none" required>
-                            <i class="clear-input"><ion-icon name="close-circle"></ion-icon></i>
-                        </div>
-                    </div>
-
-                    <div class="form-group basic">
-                        <div class="input-wrapper">
-                            @php $input = "phone" @endphp
-                            <label class="label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
-                            <input type="text" class="form-control" pattern="[^\s*].*[^\s*]" id="{{ $input }}" placeholder="{{ trans("validation.attributes.{$input}") }}" autocomplete="off" autocapitalize="none" required>
-                            <i class="clear-input"><ion-icon name="close-circle"></ion-icon></i>
-                        </div>
-                    </div>
-                    <div class="form-group row mt-2 mb-2">
-                        <div class="col-12">
-                            <div class="custom-control custom-checkbox">
-                                @php $input = "confirm_reset" @endphp
-                                <input type="checkbox" class="custom-control-input" id="{{ $input }}" required />
-                                <label class="custom-control-label text-muted" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <button type="submit" class="btn btn-primary btn-block">{{ trans("index.send_request") }}</button>
-                    </div>
-                </form>
-
-                <div class="form-links mt-2">
-                    <div><a draggable="false" href="{{ route("login.index") }}">{{ trans("index.login") }}</a></div>
-                    <div><a draggable="false" href="{{ route("register.index") }}" class="text-muted">{{ trans("index.register") }}</a></div>
-                </div>
-            </div>
+        <div id="preloader">
+            <div data-loader="circle-side"></div>
         </div>
-    </div>
+
+        <div id="login">
+            <aside>
+                <figure>
+                    <a draggable="false" href="{{ route("index") }}">
+                        <img draggable="false" src="{{ asset("images/logo.png") }}" width="150" alt="{{ trans("index.logo") }}">
+                    </a>
+                </figure> --}}
+                <div class="row justify-content-center">
+                    <div class="col-4">
+                        <form role="form" action="{{ route("{$menu_slug}.index") }}">
+                            {{-- <div class="access_social">
+                                <a draggable="false" href="#0" class="social_bt facebook">Login with Facebook</a>
+                                <a draggable="false" href="#0" class="social_bt google">Login with Google</a>
+                                <a draggable="false" href="#0" class="social_bt linkedin">Login with Linkedin</a>
+                            </div>
+                            <div class="divider"><span>{{ trans("index.OR") }}</span></div> --}}
+                            <div class="form-group">
+                                <span class="input">
+                                    <input class="input_field" type="email" autocomplete="off" name="email">
+                                        <label class="input_label">
+                                        <span class="input__label-content">Your email</span>
+                                    </label>
+                                </span>
+
+                                <span class="input">
+                                    <input class="input_field" type="password" autocomplete="new-password" name="password">
+                                        <label class="input_label">
+                                        <span class="input__label-content">Your password</span>
+                                    </label>
+                                </span>
+                                <small><a draggable="false" href="#0">Forgot password?</a></small>
+                            </div>
+                            <a draggable="false" href="#0" class="btn_1 rounded full-width add_top_60">Login to Udema</a>
+                            <div class="text-center add_top_10">
+                                New to Udema? <strong><a draggable="false" href="register.html">Sign up!</a></strong>
+                            </div>
+                        </form>
+                        <div class="copy">© 2021 Udema</div>
+                    </div>
+                </div>
+            {{-- </aside>
+        </div>
+    </body> --}}
 </div>

@@ -183,6 +183,11 @@ class Gallery extends Model
         return App::isLocale('en') ? $this->description : $this->description_idn;
     }
 
+    public function getTranslateTagAttribute()
+    {
+        return App::isLocale('en') ? $this->tag : $this->tag_idn;
+    }
+
     public function altImage()
     {
         return trans('index.image').' - '.Str::translate($this->table)." - {$this->name} - ".env('APP_TITLE');

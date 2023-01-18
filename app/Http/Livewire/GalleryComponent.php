@@ -43,8 +43,9 @@ class GalleryComponent extends Component
 
     public function render()
     {
-        return view('livewire.faq.index', [
+        return view('livewire.gallery.index', [
             'banner' => $this->getBanner(),
+            'categories' => $this->getCategories(),
             'galleries' => $this->getGalleries(),
         ])->extends('layouts.app', [
             'banner' => $this->getBanner(),
