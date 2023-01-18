@@ -11,6 +11,27 @@ class DatabaseSeeder extends Seeder
         $this->call([
             RoleSeeder::class,
             UserSeeder::class,
+
+            AdmissionCalendarSeeder::class,
+            BannerSeeder::class,
+            BlogCategorySeeder::class,
+            BlogSeeder::class,
+            ContactSeeder::class,
+            EventCategorySeeder::class,
+            EventSeeder::class,
+            FaqSeeder::class,
+            FrameworkSeeder::class,
+            GallerySeeder::class,
+            NetworkSeeder::class,
+            NewsletterSeeder::class,
+            OfferSeeder::class,
+            ProcedureSeeder::class,
+            RegistrationSeeder::class,
+            SettingSeeder::class,
+            SliderSeeder::class,
+            TestimonySeeder::class,
+            TuitionFeeSeeder::class,
+            ValueSeeder::class,
         ]);
     }
 }
