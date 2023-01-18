@@ -18,7 +18,7 @@
                     <tr>
                         <td width="1%" class="text-nowrap">{{ trans("index.total") }} {{ trans("index.blog") }}</td>
                         <td>
-                            <a draggable="false" href="{{ route("{$subDomain}.marketing.blog.index") . "?blog_category_id={$blogCategory->id}" }}" target="_blank">
+                            <a draggable="false" href="{{ route("{$subDomain}.blog.index") . "?blog_category_id={$blogCategory->id}" }}" target="_blank">
                                 {{ $blogCategory->blogs->count() }}
                             </a>
                         </td>

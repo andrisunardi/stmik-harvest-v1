@@ -81,7 +81,7 @@ Breadcrumbs::for('information-system.index', function (BreadcrumbTrail $trail) {
 
 Breadcrumbs::for('event.index', function (BreadcrumbTrail $trail) {
     $trail->parent('index');
-    $trail->push(trans('index.event'), route('event.index'), ['icon' => 'fas fa-calendar fa-fw']);
+    $trail->push(trans('index.event'), route('event.index'), ['icon' => 'fas fa-calendar-day fa-fw']);
 });
 
 Breadcrumbs::for('event.view', function (BreadcrumbTrail $trail, $slug) {
@@ -150,7 +150,7 @@ Breadcrumbs::for("{$subDomain}.{$menu}.{$page}.index", function (BreadcrumbTrail
 $menu = 'event';
 Breadcrumbs::for("{$subDomain}.{$menu}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu) {
     $trail->parent("{$subDomain}.index");
-    $trail->push(trans("index.{$menu}"), route("{$subDomain}.{$menu}.index"), ['icon' => 'fas fa-newspaper fa-fw']);
+    $trail->push(trans("index.{$menu}"), route("{$subDomain}.{$menu}.index"), ['icon' => 'fas fa-calendar-day fa-fw']);
 });
 
 $page = 'category';

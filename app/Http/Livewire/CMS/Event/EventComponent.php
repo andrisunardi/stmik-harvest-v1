@@ -585,7 +585,7 @@ class EventComponent extends Component
     public function getEvents($paginate = true)
     {
         if (in_array($this->pageType, ['index', 'trash'])) {
-            $events = Event::with('createdBy', 'updatedBy', 'deletedBy', 'eventCategory', 'bank')
+            $events = Event::with('createdBy', 'updatedBy', 'deletedBy', 'eventCategory')
                 ->when($this->event_category_id, fn ($q) => $q->where('event_category_id', $this->event_category_id))
                 ->when($this->title, fn ($q) => $q->where('title', 'LIKE', "%{$this->title}%"))
                 ->when($this->title_idn, fn ($q) => $q->where('title_idn', 'LIKE', "%{$this->title_idn}%"))
@@ -662,17 +662,17 @@ class EventComponent extends Component
 
     public function getSummary()
     {
-        $today = Event::whereDate('date', now());
-        $yesterday = Event::whereDate('date', now()->subDay());
+        $today = Event::whereDate('start', now());
+        $yesterday = Event::whereDate('start', now()->subDay());
 
-        $month = Event::whereMonth('date', now()->format('m'))->whereYear('date', now()->format('Y'));
-        $lastMonth = Event::whereMonth('date', now()->subMonth()->format('m'))->whereYear('date', now()->subMonth()->format('Y'));
+        $month = Event::whereMonth('start', now()->format('m'))->whereYear('start', now()->format('Y'));
+        $lastMonth = Event::whereMonth('start', now()->subMonth()->format('m'))->whereYear('start', now()->subMonth()->format('Y'));
 
-        $year = Event::whereYear('date', now()->format('Y'));
-        $lastYear = Event::whereYear('date', now()->subYear()->format('Y'));
+        $year = Event::whereYear('start', now()->format('Y'));
+        $lastYear = Event::whereYear('start', now()->subYear()->format('Y'));
 
         $all = Event::query();
-        $beforeThisYear = Event::whereYear('date', '<', now()->format('Y'));
+        $beforeThisYear = Event::whereYear('start', '<', now()->format('Y'));
 
         $todayCount = $today->count();
         $yesterdayCount = $yesterday->count();
