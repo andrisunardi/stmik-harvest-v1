@@ -162,7 +162,7 @@ Breadcrumbs::for("{$subDomain}.{$menu}.{$page}.index", function (BreadcrumbTrail
 $page = 'admission-calendar';
 Breadcrumbs::for("{$subDomain}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $page) {
     $trail->parent("{$subDomain}.index");
-    $trail->push(trans("index.admission_calendar"), route("{$subDomain}.{$page}.index"), ['icon' => 'fas fa-calendar fa-fw']);
+    $trail->push(trans('index.admission_calendar'), route("{$subDomain}.{$page}.index"), ['icon' => 'fas fa-calendar fa-fw']);
 });
 
 $page = 'banner';
@@ -216,7 +216,7 @@ Breadcrumbs::for("{$subDomain}.{$page}.index", function (BreadcrumbTrail $trail)
 $page = 'tuition-fee';
 Breadcrumbs::for("{$subDomain}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $page) {
     $trail->parent("{$subDomain}.index");
-    $trail->push(trans("index.tuition_fee"), route("{$subDomain}.{$page}.index"), ['icon' => 'fas fa-envelopes-bulk fa-fw']);
+    $trail->push(trans('index.tuition_fee'), route("{$subDomain}.{$page}.index"), ['icon' => 'fas fa-envelopes-bulk fa-fw']);
 });
 
 $page = 'value';

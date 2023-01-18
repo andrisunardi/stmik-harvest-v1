@@ -1,18 +1,16 @@
 <?php
 
-namespace App\Http\Livewire\CMS\Blog;
+namespace App\Http\Livewire\CMS;
 
-use App\Exports\Blog\BlogExport;
-use App\Http\Livewire\CMS\Component;
-use App\Models\Blog;
-use App\Models\BlogCategory;
+use App\Exports\ContactExport;
+use App\Models\Contact;
 use App\Models\User;
-use App\Services\BlogService;
+use App\Services\ContactService;
 use Illuminate\Support\Str;
 use Maatwebsite\Excel\Facades\Excel;
 use PDF;
 
-class BlogComponent extends Component
+class ContactComponent extends Component
 {
     public $pageName;
 
@@ -38,14 +36,14 @@ class BlogComponent extends Component
 
     public function boot()
     {
-        $this->pageName = 'Blog';
+        $this->pageName = 'Contact';
         $this->pageTitle = trans('index.'.Str::snake($this->pageName));
         $this->pageSlug = Str::slug($this->pageName);
-        $this->pageIcon = 'fas fa-newspaper';
+        $this->pageIcon = 'fas fa-phone';
         $this->pageTable = Str::plural(Str::snake($this->pageName));
-        $this->pageCategoryName = 'Blog';
-        $this->pageCategoryTitle = trans('index.'.Str::snake($this->pageCategoryName));
-        $this->pageCategorySlug = Str::slug($this->pageCategoryName);
+        $this->pageCategoryName = null;
+        $this->pageCategoryTitle = null;
+        $this->pageCategorySlug = null;
         $this->pageSubCategoryName = null;
         $this->pageSubCategoryTitle = null;
         $this->pageSubCategorySlug = null;
@@ -93,31 +91,19 @@ class BlogComponent extends Component
 
     public $checkbox_id;
 
-    public $blog;
+    public $contact;
 
-    public $blog_category_id = '';
+    public $name;
 
-    public $title;
+    public $company;
 
-    public $title_idn;
+    public $email;
 
-    public $short_body;
+    public $phone;
 
-    public $short_body_idn;
+    public $subject;
 
-    public $body;
-
-    public $body_idn;
-
-    public $date;
-
-    public $tag;
-
-    public $tag_idn;
-
-    public $image;
-
-    public $slug;
+    public $message;
 
     public $is_active = '';
 
@@ -142,17 +128,12 @@ class BlogComponent extends Component
         'action' => ['except' => ''],
         'detail' => ['except' => ''],
 
-        'blog_category_id' => ['except' => ''],
-        'title' => ['except' => ''],
-        'title_idn' => ['except' => ''],
-        'short_body' => ['except' => ''],
-        'short_body_idn' => ['except' => ''],
-        'body' => ['except' => ''],
-        'body_idn' => ['except' => ''],
-        'date' => ['except' => ''],
-        'tag' => ['except' => ''],
-        'tag_idn' => ['except' => ''],
-        'slug' => ['except' => ''],
+        'name' => ['except' => ''],
+        'company' => ['except' => ''],
+        'email' => ['except' => ''],
+        'phone' => ['except' => ''],
+        'subject' => ['except' => ''],
+        'message' => ['except' => ''],
         'is_active' => ['except' => ''],
     ];
 
@@ -227,19 +208,13 @@ class BlogComponent extends Component
         ]);
 
         $this->reset([
-            'blog',
-            'blog_category_id',
-            'title',
-            'title_idn',
-            'short_body',
-            'short_body_idn',
-            'body',
-            'body_idn',
-            'date',
-            'tag',
-            'tag_idn',
-            'image',
-            'slug',
+            'contact',
+            'name',
+            'company',
+            'email',
+            'phone',
+            'subject',
+            'message',
             'is_active',
         ]);
 
@@ -248,19 +223,14 @@ class BlogComponent extends Component
 
     public function resetForm()
     {
-        if ($this->blog) {
-            $this->blog_category_id = $this->blog_category_id ?: $this->blog->blog_category_id;
-            $this->title = $this->title ?: $this->blog->title;
-            $this->title_idn = $this->title_idn ?: $this->blog->title_idn;
-            $this->short_body = $this->short_body ?: $this->blog->short_body;
-            $this->short_body_idn = $this->short_body_idn ?: $this->blog->short_body_idn;
-            $this->body = $this->body ?: $this->blog->body;
-            $this->body_idn = $this->body_idn ?: $this->blog->body_idn;
-            $this->date = $this->date ?: $this->blog->date?->format('Y-m-d');
-            $this->tag = $this->tag ?: $this->blog->tag;
-            $this->tag_idn = $this->tag_idn ?: $this->blog->tag_idn;
-            $this->slug = $this->slug ?: $this->blog->slug;
-            $this->is_active = $this->is_active ?: $this->blog->is_active;
+        if ($this->contact) {
+            $this->name = $this->name ?: $this->contact->name;
+            $this->company = $this->company ?: $this->contact->company;
+            $this->email = $this->email ?: $this->contact->email;
+            $this->phone = $this->phone ?: $this->contact->phone;
+            $this->subject = $this->subject ?: $this->contact->subject;
+            $this->message = $this->message ?: $this->contact->message;
+            $this->is_active = $this->is_active ?: $this->contact->is_active;
         }
 
         $this->alert('info', trans('index.reset_form'));
@@ -296,15 +266,14 @@ class BlogComponent extends Component
         $this->checkPermission($this->pageType, 'trash', "{$this->pageName} Trash");
 
         if ($this->pageType == 'add') {
-            $this->date = now()->format('Y-m-d');
             $this->is_active = 1;
         }
 
         if ($this->row && (! in_array($this->pageType, ['index', 'trash']))) {
             if ($this->pageType == 'view') {
-                $this->blog = Blog::withTrashed()->findOrFail($this->row);
+                $this->contact = Contact::withTrashed()->findOrFail($this->row);
             } else {
-                $this->blog = Blog::findOrFail($this->row);
+                $this->contact = Contact::findOrFail($this->row);
             }
 
             if ($this->pageType != 'view') {
@@ -330,7 +299,6 @@ class BlogComponent extends Component
         $this->resetFilter();
         $this->resetValidation();
 
-        $this->date = now()->format('Y-m-d');
         $this->is_active = 1;
         $this->pageType = 'add';
 
@@ -344,9 +312,9 @@ class BlogComponent extends Component
         $this->resetFilter();
         $this->resetValidation();
 
-        $this->blog = Blog::find($id);
+        $this->contact = Contact::find($id);
 
-        if (! $this->blog) {
+        if (! $this->contact) {
             return $this->flash(
                 'error',
                 "{$this->pageName} ".trans('index.not_found_or_has_been_deleted'),
@@ -370,9 +338,9 @@ class BlogComponent extends Component
         $this->resetFilter();
         $this->resetValidation();
 
-        $this->blog = Blog::find($id);
+        $this->contact = Contact::find($id);
 
-        if (! $this->blog) {
+        if (! $this->contact) {
             return $this->flash(
                 'error',
                 "{$this->pageName} ".trans('index.not_found_or_has_been_deleted'),
@@ -397,9 +365,9 @@ class BlogComponent extends Component
         $this->pageType = 'view';
         $this->row = $id;
 
-        $this->blog = Blog::withTrashed()->find($id);
+        $this->contact = Contact::withTrashed()->find($id);
 
-        if (! $this->blog) {
+        if (! $this->contact) {
             return $this->flash(
                 'error',
                 "{$this->pageName} ".trans('index.not_found_or_has_been_deleted'),
@@ -425,20 +393,15 @@ class BlogComponent extends Component
 
     public function rules()
     {
-        $id = $this->pageType == 'edit' ? $this->blog->id : null;
+        $id = $this->pageType == 'edit' ? $this->contact->id : null;
 
         return [
-            'blog_category_id' => 'required|integer|numeric|exists:blog_categories,id',
-            'title' => "required|max:100|unique:{$this->pageTable},title,{$id}",
-            'title_idn' => "required|max:100|unique:{$this->pageTable},title_idn,{$id}",
-            'short_body' => 'required|max:160',
-            'short_body_idn' => 'required|max:160',
-            'description' => 'nullable|max:65535',
-            'description_idn' => 'nullable|max:65535',
-            'date' => 'required|date|date_format:Y-m-d',
-            'tag' => 'nullable|max:65535',
-            'tag_idn' => 'nullable|max:65535',
-            'image' => 'nullable|max:'.env('MAX_IMAGE').'|mimes:'.env('MIMES_IMAGE'),
+            'name' => 'required|max:50',
+            'company' => 'nullable|max:50',
+            'email' => "required|max:50|email:rfc,dns|regex:/^\S*$/u",
+            'phone' => 'nullable|max:15',
+            'subject' => 'required|max:100',
+            'message' => 'required|max:1000',
             'is_active' => 'required|boolean',
         ];
     }
@@ -451,17 +414,17 @@ class BlogComponent extends Component
 
         if ($this->pageType == 'add') {
             $action = 'added';
-            (new BlogService())->add($this->validate());
+            (new ContactService())->add($this->validate());
         }
 
         if ($this->pageType == 'clone') {
             $action = 'cloned';
-            (new BlogService())->clone($this->validate(), $this->blog);
+            (new ContactService())->clone($this->validate(), $this->contact);
         }
 
         if ($this->pageType == 'edit') {
             $action = 'edited';
-            (new BlogService())->edit($this->blog, $this->validate());
+            (new ContactService())->edit($this->contact, $this->validate());
         }
 
         $this->index();
@@ -473,15 +436,15 @@ class BlogComponent extends Component
     {
         $this->checkPermission('edit', 'edit', "{$this->pageName} Edit");
 
-        $blog = Blog::find($id);
+        $contact = Contact::find($id);
 
-        if (! $blog) {
+        if (! $contact) {
             return $this->alert('error', "{$this->pageName} ".trans('index.not_found_or_has_been_deleted'));
         }
 
-        (new BlogService())->active($blog);
+        (new ContactService())->active($contact);
 
-        $active = Str::slug(Str::active($blog->is_active), '_');
+        $active = Str::slug(Str::active($contact->is_active), '_');
 
         $this->alert('success', "{$this->pageName} ".trans("index.has_been_set_{$active}_successfully"));
     }
@@ -490,13 +453,13 @@ class BlogComponent extends Component
     {
         $this->checkPermission('delete', 'delete', "{$this->pageName} Delete");
 
-        $blog = Blog::find($id);
+        $contact = Contact::find($id);
 
-        if (! $blog) {
+        if (! $contact) {
             return $this->alert('error', "{$this->pageName} ".trans('index.not_found_or_has_been_deleted'));
         }
 
-        (new BlogService())->delete($blog);
+        (new ContactService())->delete($contact);
 
         $this->alert('success', "{$this->pageName} ".trans('index.has_been_deleted_successfully'));
     }
@@ -505,13 +468,13 @@ class BlogComponent extends Component
     {
         $this->checkPermission('restore', 'restore', "{$this->pageName} Restore");
 
-        $blog = Blog::onlyTrashed()->find($id);
+        $contact = Contact::onlyTrashed()->find($id);
 
-        if (! $blog) {
+        if (! $contact) {
             return $this->alert('error', "{$this->pageName} ".trans('index.not_found_or_has_been_deleted'));
         }
 
-        (new BlogService())->restore($blog);
+        (new ContactService())->restore($contact);
 
         $this->alert('success', "{$this->pageName} ".trans('index.has_been_restored_successfully'));
     }
@@ -520,13 +483,13 @@ class BlogComponent extends Component
     {
         $this->checkPermission('deletePermanent', 'deletePermanent', "{$this->pageName} Delete Permanent");
 
-        $blog = Blog::onlyTrashed()->find($id);
+        $contact = Contact::onlyTrashed()->find($id);
 
-        if (! $blog) {
+        if (! $contact) {
             return $this->alert('error', "{$this->pageName} ".trans('index.not_found_or_has_been_deleted'));
         }
 
-        (new BlogService())->deletePermanent($blog);
+        (new ContactService())->deletePermanent($contact);
 
         if ($this->pageType == 'view') {
             $this->resetFilter();
@@ -542,7 +505,7 @@ class BlogComponent extends Component
     {
         $this->checkPermission('restore', 'restore', "{$this->pageName} Restore");
 
-        (new BlogService())->restoreAll($ids);
+        (new ContactService())->restoreAll($ids);
 
         $this->alert('success', trans('index.all').' '."{$this->pageName} ".trans('index.has_been_restored_successfully'));
     }
@@ -551,52 +514,42 @@ class BlogComponent extends Component
     {
         $this->checkPermission('deletePermanent', 'deletePermanent', "{$this->pageName} Delete Permanent");
 
-        (new BlogService())->deletePermanentAll($ids);
+        (new ContactService())->deletePermanentAll($ids);
 
         $this->alert('success', trans('index.all').' '."{$this->pageName} ".trans('index.at_trash_has_been_deleted_permanently_successfully'));
     }
 
     public function getCreatedBies()
     {
-        $created_by_id = Blog::groupBy('created_by_id')->pluck('created_by_id');
+        $created_by_id = Contact::groupBy('created_by_id')->pluck('created_by_id');
 
         return User::whereIn('id', $created_by_id)->active()->orderBy('name')->get();
     }
 
     public function getUpdatedBies()
     {
-        $updated_by_id = Blog::groupBy('updated_by_id')->pluck('updated_by_id');
+        $updated_by_id = Contact::groupBy('updated_by_id')->pluck('updated_by_id');
 
         return User::whereIn('id', $updated_by_id)->active()->orderBy('name')->get();
     }
 
     public function getDeletedBies()
     {
-        $deleted_by_id = Blog::groupBy('deleted_by_id')->pluck('deleted_by_id');
+        $deleted_by_id = Contact::groupBy('deleted_by_id')->pluck('deleted_by_id');
 
         return User::whereIn('id', $deleted_by_id)->active()->orderBy('name')->get();
     }
 
-    public function getBlogCategories()
-    {
-        return BlogCategory::active()->orderBy('name')->get();
-    }
-
-    public function getBlogs($paginate = true)
+    public function getContacts($paginate = true)
     {
         if (in_array($this->pageType, ['index', 'trash'])) {
-            $blogs = Blog::with('createdBy', 'updatedBy', 'deletedBy', 'blogCategory', 'bank')
-                ->when($this->blog_category_id, fn ($q) => $q->where('blog_category_id', $this->blog_category_id))
-                ->when($this->title, fn ($q) => $q->where('title', 'LIKE', "%{$this->title}%"))
-                ->when($this->title_idn, fn ($q) => $q->where('title_idn', 'LIKE', "%{$this->title_idn}%"))
-                ->when($this->short_body, fn ($q) => $q->where('short_body', 'LIKE', "%{$this->short_body}%"))
-                ->when($this->short_body_idn, fn ($q) => $q->where('short_body_idn', 'LIKE', "%{$this->short_body_idn}%"))
-                ->when($this->body, fn ($q) => $q->where('body', 'LIKE', "%{$this->body}%"))
-                ->when($this->body_idn, fn ($q) => $q->where('body_idn', 'LIKE', "%{$this->body_idn}%"))
-                ->when($this->date, fn ($q) => $q->whereDate('datetime', $this->date))
-                ->when($this->tag, fn ($q) => $q->where('tag', 'LIKE', "%{$this->tag}%"))
-                ->when($this->tag_idn, fn ($q) => $q->where('tag_idn', 'LIKE', "%{$this->tag_idn}%"))
-                ->when($this->slug, fn ($q) => $q->where('slug', 'LIKE', "%{$this->slug}%"))
+            $contacts = Contact::with('createdBy', 'updatedBy', 'deletedBy')
+                ->when($this->name, fn ($q) => $q->where('name', 'LIKE', "%{$this->name}%"))
+                ->when($this->company, fn ($q) => $q->where('company', 'LIKE', "%{$this->company}%"))
+                ->when($this->email, fn ($q) => $q->where('email', 'LIKE', "%{$this->email}%"))
+                ->when($this->phone, fn ($q) => $q->where('phone', 'LIKE', "%{$this->phone}%"))
+                ->when($this->subject, fn ($q) => $q->where('subject', 'LIKE', "%{$this->subject}%"))
+                ->when($this->message, fn ($q) => $q->where('message', 'LIKE', "%{$this->message}%"))
 
                 ->when($this->is_active, fn ($q) => $q->where('is_active', $this->is_active == 2 ? false : true))
                 ->when($this->created_by_id, fn ($q) => $q->where('created_by_id', $this->created_by_id))
@@ -610,29 +563,29 @@ class BlogComponent extends Component
                 ->when($this->end_deleted_at, fn ($q) => $q->whereDate('deleted_at', '<=', $this->end_deleted_at));
 
             if ($this->order_by == 'created_by_id') {
-                $blogs->leftJoin('users', 'users.id', "{$this->pageTable}.created_by_id")
+                $contacts->leftJoin('users', 'users.id', "{$this->pageTable}.created_by_id")
                     ->select("{$this->pageTable}.*", 'users.name as user_name')
                     ->orderByRaw("user_name {$this->sort_by}");
             } elseif ($this->order_by == 'updated_by_id') {
-                $blogs->leftJoin('users', 'users.id', "{$this->pageTable}.updated_by_id")
+                $contacts->leftJoin('users', 'users.id', "{$this->pageTable}.updated_by_id")
                     ->select("{$this->pageTable}.*", 'users.name as user_name')
                     ->orderByRaw("user_name {$this->sort_by}");
             } elseif ($this->order_by == 'deleted_by_id') {
-                $blogs->leftJoin('users', 'users.id', "{$this->pageTable}.deleted_by_id")
+                $contacts->leftJoin('users', 'users.id', "{$this->pageTable}.deleted_by_id")
                     ->select("{$this->pageTable}.*", 'users.name as user_name')
                     ->orderByRaw("user_name {$this->sort_by}");
             } else {
-                $blogs->orderBy($this->order_by ?? 'id', $this->sort_by ?? 'desc');
+                $contacts->orderBy($this->order_by ?? 'id', $this->sort_by ?? 'desc');
             }
 
             if ($this->pageType == 'trash') {
-                $blogs->onlyTrashed();
+                $contacts->onlyTrashed();
             }
 
             if ($paginate) {
-                return $blogs->paginate($this->per_page ?? 10);
+                return $contacts->paginate($this->per_page ?? 10);
             } else {
-                return $blogs->get();
+                return $contacts->get();
             }
         }
     }
@@ -643,7 +596,7 @@ class BlogComponent extends Component
 
         $this->alert('info', trans('index.export_to_excel'));
 
-        return Excel::download(new BlogExport($this->getBlogs(paginate: false)), "{$this->pageName}.xlsx");
+        return Excel::download(new ContactExport($this->getContacts(paginate: false)), "{$this->pageName}.xlsx");
     }
 
     public function exportToPdf()
@@ -653,7 +606,7 @@ class BlogComponent extends Component
         $this->alert('info', trans('index.export_to_pdf'));
 
         $pdf = PDF::loadView("{$this->subDomain}.livewire.{$this->pageCategorySlug}.{$this->pageSubCategorySlug}.{$this->pageSlug}.pdf", [
-            'blogs' => $this->getBlogs(paginate: false),
+            'contacts' => $this->getContacts(paginate: false),
             'title' => $this->pageName,
         ])->output();
 
@@ -662,17 +615,17 @@ class BlogComponent extends Component
 
     public function getSummary()
     {
-        $today = Blog::whereDate('date', now());
-        $yesterday = Blog::whereDate('date', now()->subDay());
+        $today = Contact::whereDate('created_at', now());
+        $yesterday = Contact::whereDate('created_at', now()->subDay());
 
-        $month = Blog::whereMonth('date', now()->format('m'))->whereYear('date', now()->format('Y'));
-        $lastMonth = Blog::whereMonth('date', now()->subMonth()->format('m'))->whereYear('date', now()->subMonth()->format('Y'));
+        $month = Contact::whereMonth('created_at', now()->format('m'))->whereYear('created_at', now()->format('Y'));
+        $lastMonth = Contact::whereMonth('created_at', now()->subMonth()->format('m'))->whereYear('created_at', now()->subMonth()->format('Y'));
 
-        $year = Blog::whereYear('date', now()->format('Y'));
-        $lastYear = Blog::whereYear('date', now()->subYear()->format('Y'));
+        $year = Contact::whereYear('created_at', now()->format('Y'));
+        $lastYear = Contact::whereYear('created_at', now()->subYear()->format('Y'));
 
-        $all = Blog::query();
-        $beforeThisYear = Blog::whereYear('date', '<', now()->format('Y'));
+        $all = Contact::query();
+        $beforeThisYear = Contact::whereYear('created_at', '<', now()->format('Y'));
 
         $todayCount = $today->count();
         $yesterdayCount = $yesterday->count();
@@ -712,8 +665,7 @@ class BlogComponent extends Component
             'createdBies' => $this->readyToLoad ? $this->getCreatedBies() : collect(),
             'updatedBies' => $this->readyToLoad ? $this->getUpdatedBies() : collect(),
             'deletedBies' => $this->readyToLoad ? $this->getDeletedBies() : collect(),
-            'blogCategories' => $this->readyToLoad ? $this->getBlogCategories() : collect(),
-            'blogs' => $this->readyToLoad ? $this->getBlogs() : collect(),
+            'contacts' => $this->readyToLoad ? $this->getContacts() : collect(),
             'summary' => $this->readyToLoad ? $this->getSummary() : collect(),
         ])->extends("{$this->subDomain}.layouts.app")->section('content');
     }

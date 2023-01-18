@@ -1,5 +1,5 @@
 @section("title", $eventCategory ? $eventCategory->translate_name : trans("index.event"))
-@section("icon", "fas fa-calendar")
+@section("icon", "fas fa-calendar-day")
 @section("event-active", "active")
 
 <div>

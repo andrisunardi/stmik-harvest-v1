@@ -36,13 +36,14 @@ class SidebarComponent extends Component
                     'url' => route("{$this->subDomain}.newsletter.index"),
                     'pages' => null,
                 ], [
+                    'category' => null,
                     'roles' => 'Super User|Admin',
                     'permissions' => 'Blog',
                     'name' => trans('index.blog'),
                     'slug' => 'blog',
                     'icon' => 'fas fa-newspaper fa-fw',
                     'url' => route("{$this->subDomain}.blog.index"),
-                    'categories' => [
+                    'pages' => [
                         [
                             'roles' => 'Super User|Marketing',
                             'permissions' => 'Blog',
@@ -50,6 +51,7 @@ class SidebarComponent extends Component
                             'slug' => 'blog',
                             'icon' => 'fas fa-newspaper fa-fw',
                             'url' => route("{$this->subDomain}.blog.index"),
+                            'categories' => null,
                         ], [
                             'roles' => 'Super User|Marketing',
                             'permissions' => 'Blog Category',
@@ -57,23 +59,26 @@ class SidebarComponent extends Component
                             'slug' => 'category',
                             'icon' => 'fas fa-tags fa-fw',
                             'url' => route("{$this->subDomain}.blog.category.index"),
+                            'categories' => null,
                         ],
                     ],
                 ], [
+                    'category' => null,
                     'roles' => 'Super User|Admin',
                     'permissions' => 'Event',
                     'name' => trans('index.event'),
                     'slug' => 'event',
-                    'icon' => 'fas fa-newspaper fa-fw',
+                    'icon' => 'fas fa-calendar-day fa-fw',
                     'url' => route("{$this->subDomain}.event.index"),
-                    'categories' => [
+                    'pages' => [
                         [
                             'roles' => 'Super User|Marketing',
                             'permissions' => 'Event',
                             'name' => trans('index.event'),
                             'slug' => 'event',
-                            'icon' => 'fas fa-newspaper fa-fw',
+                            'icon' => 'fas fa-calendar-day fa-fw',
                             'url' => route("{$this->subDomain}.event.index"),
+                            'categories' => null,
                         ], [
                             'roles' => 'Super User|Marketing',
                             'permissions' => 'Event Category',
@@ -81,6 +86,7 @@ class SidebarComponent extends Component
                             'slug' => 'category',
                             'icon' => 'fas fa-tags fa-fw',
                             'url' => route("{$this->subDomain}.event.category.index"),
+                            'categories' => null,
                         ],
                     ],
                 ], [
@@ -152,7 +158,7 @@ class SidebarComponent extends Component
                     'permissions' => 'Slider',
                     'name' => trans('index.slider'),
                     'slug' => 'slider',
-                    'icon' => 'fas fa-sliders-h fa-fw',
+                    'icon' => 'fas fa-sliders fa-fw',
                     'url' => route("{$this->subDomain}.slider.index"),
                     'pages' => null,
                 ], [
@@ -170,7 +176,7 @@ class SidebarComponent extends Component
                     'permissions' => 'Tuition Fee',
                     'name' => trans('index.tuition_fee'),
                     'slug' => 'tuition-fee',
-                    'icon' => 'fas fa-money fa-fw',
+                    'icon' => 'fas fa-money-check-dollar fa-fw',
                     'url' => route("{$this->subDomain}.tuition-fee.index"),
                     'pages' => null,
                 ], [

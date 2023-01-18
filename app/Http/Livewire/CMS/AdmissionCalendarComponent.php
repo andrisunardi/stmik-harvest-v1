@@ -3,7 +3,6 @@
 namespace App\Http\Livewire\CMS;
 
 use App\Exports\AdmissionCalendarExport;
-use App\Http\Livewire\CMS\Component;
 use App\Models\AdmissionCalendar;
 use App\Models\User;
 use App\Services\AdmissionCalendarService;
@@ -37,10 +36,10 @@ class AdmissionCalendarComponent extends Component
 
     public function boot()
     {
-        $this->pageName = '';
+        $this->pageName = 'Admission Calendar';
         $this->pageTitle = trans('index.'.Str::snake($this->pageName));
         $this->pageSlug = Str::slug($this->pageName);
-        $this->pageIcon = 'fas fa-tags';
+        $this->pageIcon = 'fas fa-calendar';
         $this->pageTable = Str::plural(Str::snake($this->pageName));
         $this->pageCategoryName = 'Event';
         $this->pageCategoryTitle = trans('index.'.Str::snake($this->pageCategoryName));
@@ -317,7 +316,7 @@ class AdmissionCalendarComponent extends Component
                 'error',
                 "{$this->pageName} ".trans('index.not_found_or_has_been_deleted'),
                 [],
-                route("{$this->subDomain}.{$this->pageCategorySlug}.{$this->pageSubCategorySlug}.{$this->pageSlug}.index"),
+                route("{$this->subDomain}.{$this->pageSlug}.index"),
             );
         }
 
@@ -343,7 +342,7 @@ class AdmissionCalendarComponent extends Component
                 'error',
                 "{$this->pageName} ".trans('index.not_found_or_has_been_deleted'),
                 [],
-                route("{$this->subDomain}.{$this->pageCategorySlug}.{$this->pageSubCategorySlug}.{$this->pageSlug}.index"),
+                route("{$this->subDomain}.{$this->pageSlug}.index"),
             );
         }
 
@@ -370,7 +369,7 @@ class AdmissionCalendarComponent extends Component
                 'error',
                 "{$this->pageName} ".trans('index.not_found_or_has_been_deleted'),
                 [],
-                route("{$this->subDomain}.{$this->pageCategorySlug}.{$this->pageSubCategorySlug}.{$this->pageSlug}.index"),
+                route("{$this->subDomain}.{$this->pageSlug}.index"),
             );
         }
 
@@ -540,7 +539,7 @@ class AdmissionCalendarComponent extends Component
     public function getAdmissionCalendars($paginate = true)
     {
         if (in_array($this->pageType, ['index', 'trash'])) {
-            $admissionCalendars = AdmissionCalendar::with('createdBy', 'updatedBy', 'deletedBy', 'events')
+            $admissionCalendars = AdmissionCalendar::with('createdBy', 'updatedBy', 'deletedBy')
                 ->when($this->name, fn ($q) => $q->where('name', 'LIKE', "%{$this->name}%"))
                 ->when($this->name_idn, fn ($q) => $q->where('name_idn', 'LIKE', "%{$this->name_idn}%"))
                 ->when($this->description, fn ($q) => $q->where('description', 'LIKE', "%{$this->description}%"))
@@ -601,7 +600,7 @@ class AdmissionCalendarComponent extends Component
 
         $this->alert('info', trans('index.export_to_pdf'));
 
-        $pdf = PDF::loadView("{$this->subDomain}.livewire.{$this->pageCategorySlug}.{$this->pageSubCategorySlug}.{$this->pageSlug}.pdf", [
+        $pdf = PDF::loadView("{$this->subDomain}.livewire.{$this->pageSlug}.pdf", [
             'admissionCalendars' => $this->getAdmissionCalendars(paginate: false),
             'title' => $this->pageName,
         ])->output();
@@ -611,7 +610,7 @@ class AdmissionCalendarComponent extends Component
 
     public function render()
     {
-        return view("{$this->subDomain}.livewire.{$this->pageCategorySlug}.{$this->pageSubCategorySlug}.{$this->pageSlug}.index", [
+        return view("{$this->subDomain}.livewire.{$this->pageSlug}.index", [
             'createdBies' => $this->readyToLoad ? $this->getCreatedBies() : collect(),
             'updatedBies' => $this->readyToLoad ? $this->getUpdatedBies() : collect(),
             'deletedBies' => $this->readyToLoad ? $this->getDeletedBies() : collect(),

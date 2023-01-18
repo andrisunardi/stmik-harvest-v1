@@ -95,8 +95,6 @@ class EventComponent extends Component
 
     public $event;
 
-    public $code;
-
     public $event_category_id = '';
 
     public $title;
@@ -144,7 +142,6 @@ class EventComponent extends Component
         'action' => ['except' => ''],
         'detail' => ['except' => ''],
 
-        'code' => ['except' => ''],
         'event_category_id' => ['except' => ''],
         'title' => ['except' => ''],
         'title_idn' => ['except' => ''],
@@ -432,8 +429,8 @@ class EventComponent extends Component
 
         return [
             'event_category_id' => 'required|integer|numeric|exists:event_categories,id',
-            'name' => "required|max:100|unique:{$this->pageTable},name,{$id}",
-            'name_idn' => "required|max:100|unique:{$this->pageTable},name_idn,{$id}",
+            'title' => "required|max:100|unique:{$this->pageTable},title,{$id}",
+            'title_idn' => "required|max:100|unique:{$this->pageTable},title_idn,{$id}",
             'short_body' => 'required|max:160',
             'short_body_idn' => 'required|max:160',
             'description' => 'nullable|max:65535',

@@ -12,14 +12,6 @@
                         <td>{!! $admissionCalendar->description_idn !!}</td>
                     </tr>
                     <tr>
-                        <td width="1%" class="text-nowrap">{{ trans("index.total") }} {{ trans("index.blog") }}</td>
-                        <td>
-                            <a draggable="false" href="{{ route("{$subDomain}.marketing.blog.index") . "?blog_category_id={$admissionCalendar->id}" }}" target="_blank">
-                                {{ $admissionCalendar->blogs->count() }}
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
                         <td width="1%" class="text-nowrap">{{ trans("index.created_by") }}</td>
                         <td>
                             @if ($admissionCalendar->createdBy)

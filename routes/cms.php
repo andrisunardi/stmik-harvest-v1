@@ -38,6 +38,9 @@ Route::any('forgot-password', ForgotPasswordComponent::class)->name('forgot-pass
 
 Route::group(['middleware' => ['auth', 'role:Super User|Board Of Directors|Admin|Finance|Sales|Development|Staff']], function () {
     Route::any('', HomeComponent::class)->name('index');
+    Route::any('registration', FaqComponent::class)->name('registration.index')->middleware('permission:Faq');
+    Route::any('contact', FaqComponent::class)->name('contact.index')->middleware('permission:Faq');
+    Route::any('newsletter', FaqComponent::class)->name('newsletter.index')->middleware('permission:Faq');
 
     Route::group(['prefix' => 'blog', 'as' => 'blog.'], function () {
         Route::any('', BlogComponent::class)->name('index')->middleware('permission:Blog');
