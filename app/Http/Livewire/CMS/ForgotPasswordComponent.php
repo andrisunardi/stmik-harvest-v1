@@ -67,7 +67,7 @@ class ForgotPasswordComponent extends Component
     {
         return [
             'username' => "required|max:50|exists:{$this->pageTable},username",
-            'email' => "required|max:50|email|exists:{$this->pageTable},email",
+            'email' => "required|max:50|email:rfc,dns|exists:{$this->pageTable},email",
             'phone' => "required|max:50|exists:{$this->pageTable},phone",
             'confirm_reset' => 'required|boolean|accepted:1',
         ];

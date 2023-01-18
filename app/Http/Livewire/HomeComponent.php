@@ -56,7 +56,7 @@ class HomeComponent extends Component
     {
         return [
             'name' => 'required|max:50|unique:registration,name',
-            'email' => 'required|max:50|email|unique:registration,email',
+            'email' => 'required|max:50|email:rfc,dns|unique:registration,email',
             'phone' => 'required|max:20|unique:registration,phone',
             'gender' => 'required|numeric|'.Rule::in([1, 2]),
             'school' => 'required|max:50',

@@ -1,71 +1,75 @@
 @if ($errors->any())
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
         <i class="icon-warning"></i>
-        {!! trans("index.please_check_all_form_input_validation") !!}
+        <div>
+            @foreach ($errors->all() as $error)
+                {{ $loop->iteration }}. {{ $error }}<br>
+            @endforeach
+        </div>
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><i class="fas fa-times"></i></button>
     </div>
 @endif
 
-@if(session()->has("primary"))
+@if(Session::has("primary"))
     <div class="alert alert-primary alert-dismissible fade show" role="alert">
         <i class="icon-bell-alt"></i>
-        {!! session()->get("primary") !!}
+        {!! Session::get("primary") !!}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><i class="fas fa-times"></i></button>
     </div>
 @endif
 
-@if(session()->has("secondary"))
+@if(Session::has("secondary"))
     <div class="alert alert-secondary alert-dismissible fade show" role="alert">
         <i class="icon-bell-alt"></i>
-        {!! session()->get("secondary") !!}
+        {!! Session::get("secondary") !!}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><i class="fas fa-times"></i></button>
     </div>
 @endif
 
-@if(session()->has("success"))
+@if(Session::has("success"))
     <div class="alert alert-success alert-dismissible fade show" role="alert">
         <i class="icon-ok-circle"></i>
-        {!! session()->get("success") !!}
+        {!! Session::get("success") !!}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><i class="fas fa-times"></i></button>
     </div>
 @endif
 
-@if(session()->has("danger"))
+@if(Session::has("danger"))
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
         <i class="icon-warning"></i>
-        {!! session()->get("danger") !!}
+        {!! Session::get("danger") !!}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><i class="fas fa-times"></i></button>
     </div>
 @endif
 
-@if(session()->has("warning"))
+@if(Session::has("warning"))
     <div class="alert alert-warning alert-dismissible fade show" role="alert">
         <i class="icon-attention-circled"></i>
-        {!! session()->get("warning") !!}
+        {!! Session::get("warning") !!}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><i class="fas fa-times"></i></button>
     </div>
 @endif
 
-@if(session()->has("info"))
+@if(Session::has("info"))
     <div class="alert alert-info alert-dismissible fade show" role="alert">
         <i class="icon-info-circled"></i>
-        {!! session()->get("info") !!}
+        {!! Session::get("info") !!}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><i class="fas fa-times"></i></button>
     </div>
 @endif
 
-@if(session()->has("light"))
+@if(Session::has("light"))
     <div class="alert alert-light alert-dismissible fade show" role="alert">
         <i class="icon-bell-alt"></i>
-        {!! session()->get("light") !!}
+        {!! Session::get("light") !!}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><i class="fas fa-times"></i></button>
     </div>
 @endif
 
-@if(session()->has("dark"))
+@if(Session::has("dark"))
     <div class="alert alert-dark alert-dismissible fade show" role="alert">
         <i class="icon-bell-alt"></i>
-        {!! session()->get("dark") !!}
+        {!! Session::get("dark") !!}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><i class="fas fa-times"></i></button>
     </div>
 @endif

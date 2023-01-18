@@ -508,7 +508,7 @@
                         <div class="copyright__inner">
                             <div class="copyright">
                                 <p>
-                                    &copy; {{ trans("index.copyright") }} @if(env("APP_YEAR") && env("APP_YEAR") != date("Y")) {{ env("APP_YEAR") . " - " }} @endif {{ date("Y") }} &reg;&nbsp;
+                                    &copy; {{ trans("index.copyright") }} @if (env("APP_YEAR") && env("APP_YEAR") != date("Y")) {{ env("APP_YEAR") . " - " }} @endif {{ date("Y") }} &reg;&nbsp;
                                     <a draggable="false" href="{{ URL::to("/") }}" target="_blank">
                                         <strong>{{ env("APP_NAME") }}</strong>
                                     </a> &trade;
@@ -579,7 +579,7 @@
 
             @yield("header")
 
-            @if(!trim($__env->yieldContent("code")))
+            @if (!trim($__env->yieldContent("code")))
 
                 @if (!Route::is("index"))
 

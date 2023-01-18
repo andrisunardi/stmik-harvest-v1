@@ -21,7 +21,6 @@ class OurValuesComponent extends Component
     {
         return view('livewire.our-values.index', [
             'banner' => $this->getBanner(),
-            'networks' => $this->getNetworks(),
             'values' => $this->getValues(),
         ])->extends('layouts.app', [
             'banner' => $this->getBanner(),

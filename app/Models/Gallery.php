@@ -75,6 +75,8 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @method static \Illuminate\Database\Query\Builder|Gallery withoutTrashed()
  *
  * @mixin \Eloquent
+ *
+ * @property-read mixed $translate_tag
  */
 class Gallery extends Model
 {

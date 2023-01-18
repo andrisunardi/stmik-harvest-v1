@@ -21,8 +21,7 @@ class ProcedureComponent extends Component
     {
         return view('livewire.procedure.index', [
             'banner' => $this->getBanner(),
-            'networks' => $this->getNetworks(),
-            'values' => $this->getValues(),
+            'procedures' => $this->getProcedures(),
         ])->extends('layouts.app', [
             'banner' => $this->getBanner(),
         ])->section('content');

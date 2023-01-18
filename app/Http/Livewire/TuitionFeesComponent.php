@@ -19,7 +19,7 @@ class TuitionFeesComponent extends Component
 
     public function render()
     {
-        return view('livewire.procedure.index', [
+        return view('livewire.tuition-fees.index', [
             'banner' => $this->getBanner(),
             'tuitionFees' => $this->getTuitionFees(),
         ])->extends('layouts.app', [

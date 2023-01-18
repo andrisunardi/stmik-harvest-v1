@@ -47,9 +47,9 @@ class OnlineRegistrationComponent extends Component
     public function rules()
     {
         return [
-            'name' => 'required|max:50|unique:registration,name',
-            'email' => 'required|max:50|email|unique:registration,email',
-            'phone' => 'required|max:20|unique:registration,phone',
+            'name' => 'required|max:50|unique:registrations,name',
+            'email' => 'required|max:50|email:rfc,dns|unique:registrations,email',
+            'phone' => 'required|max:20|unique:registrations,phone',
             'gender' => 'required|numeric|'.Rule::in([1, 2]),
             'school' => 'required|max:50',
             'major' => 'required|max:50',
