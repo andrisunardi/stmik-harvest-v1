@@ -41,9 +41,9 @@ class BannerComponent extends Component
         $this->pageSlug = Str::slug($this->pageName);
         $this->pageIcon = 'fas fa-image';
         $this->pageTable = Str::plural(Str::snake($this->pageName));
-        $this->pageCategoryName = 'Banner';
-        $this->pageCategoryTitle = trans('index.'.Str::snake($this->pageCategoryName));
-        $this->pageCategorySlug = Str::slug($this->pageCategoryName);
+        $this->pageCategoryName = null;
+        $this->pageCategoryTitle = null;
+        $this->pageCategorySlug = null;
         $this->pageSubCategoryName = null;
         $this->pageSubCategoryTitle = null;
         $this->pageSubCategorySlug = null;
@@ -205,7 +205,6 @@ class BannerComponent extends Component
 
         $this->reset([
             'banner',
-            'banner_category_id',
             'name',
             'name_idn',
             'description',
@@ -313,7 +312,7 @@ class BannerComponent extends Component
                 'error',
                 "{$this->pageName} ".trans('index.not_found_or_has_been_deleted'),
                 [],
-                route("{$this->subDomain}.{$this->pageCategorySlug}.{$this->pageSlug}.index"),
+                route("{$this->subDomain}.{$this->pageSlug}.index"),
             );
         }
 
@@ -339,7 +338,7 @@ class BannerComponent extends Component
                 'error',
                 "{$this->pageName} ".trans('index.not_found_or_has_been_deleted'),
                 [],
-                route("{$this->subDomain}.{$this->pageCategorySlug}.{$this->pageSlug}.index"),
+                route("{$this->subDomain}.{$this->pageSlug}.index"),
             );
         }
 
@@ -366,7 +365,7 @@ class BannerComponent extends Component
                 'error',
                 "{$this->pageName} ".trans('index.not_found_or_has_been_deleted'),
                 [],
-                route("{$this->subDomain}.{$this->pageCategorySlug}.{$this->pageSlug}.index"),
+                route("{$this->subDomain}.{$this->pageSlug}.index"),
             );
         }
 
@@ -536,7 +535,7 @@ class BannerComponent extends Component
     public function getBanners($paginate = true)
     {
         if (in_array($this->pageType, ['index', 'trash'])) {
-            $banners = Banner::with('createdBy', 'updatedBy', 'deletedBy', 'bannerCategory', 'bank')
+            $banners = Banner::with('createdBy', 'updatedBy', 'deletedBy')
                 ->when($this->name, fn ($q) => $q->where('name', 'LIKE', "%{$this->name}%"))
                 ->when($this->name_idn, fn ($q) => $q->where('name_idn', 'LIKE', "%{$this->name_idn}%"))
                 ->when($this->description, fn ($q) => $q->where('description', 'LIKE', "%{$this->description}%"))
@@ -596,7 +595,7 @@ class BannerComponent extends Component
 
         $this->alert('info', trans('index.export_to_pdf'));
 
-        $pdf = PDF::loadView("{$this->subDomain}.livewire.{$this->pageCategorySlug}.{$this->pageSlug}.pdf", [
+        $pdf = PDF::loadView("{$this->subDomain}.livewire.{$this->pageSlug}.pdf", [
             'banners' => $this->getBanners(paginate: false),
             'title' => $this->pageName,
         ])->output();
@@ -606,17 +605,17 @@ class BannerComponent extends Component
 
     public function getSummary()
     {
-        $today = Banner::whereDate('date', now());
-        $yesterday = Banner::whereDate('date', now()->subDay());
+        $today = Banner::whereDate('created_at', now());
+        $yesterday = Banner::whereDate('created_at', now()->subDay());
 
-        $month = Banner::whereMonth('date', now()->format('m'))->whereYear('date', now()->format('Y'));
-        $lastMonth = Banner::whereMonth('date', now()->subMonth()->format('m'))->whereYear('date', now()->subMonth()->format('Y'));
+        $month = Banner::whereMonth('created_at', now()->format('m'))->whereYear('created_at', now()->format('Y'));
+        $lastMonth = Banner::whereMonth('created_at', now()->subMonth()->format('m'))->whereYear('created_at', now()->subMonth()->format('Y'));
 
-        $year = Banner::whereYear('date', now()->format('Y'));
-        $lastYear = Banner::whereYear('date', now()->subYear()->format('Y'));
+        $year = Banner::whereYear('created_at', now()->format('Y'));
+        $lastYear = Banner::whereYear('created_at', now()->subYear()->format('Y'));
 
         $all = Banner::query();
-        $beforeThisYear = Banner::whereYear('date', '<', now()->format('Y'));
+        $beforeThisYear = Banner::whereYear('created_at', '<', now()->format('Y'));
 
         $todayCount = $today->count();
         $yesterdayCount = $yesterday->count();
@@ -652,7 +651,7 @@ class BannerComponent extends Component
 
     public function render()
     {
-        return view("{$this->subDomain}.livewire.{$this->pageCategorySlug}.{$this->pageSlug}.index", [
+        return view("{$this->subDomain}.livewire.{$this->pageSlug}.index", [
             'createdBies' => $this->readyToLoad ? $this->getCreatedBies() : collect(),
             'updatedBies' => $this->readyToLoad ? $this->getUpdatedBies() : collect(),
             'deletedBies' => $this->readyToLoad ? $this->getDeletedBies() : collect(),

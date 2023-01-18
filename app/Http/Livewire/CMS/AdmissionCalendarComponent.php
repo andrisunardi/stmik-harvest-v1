@@ -41,9 +41,9 @@ class AdmissionCalendarComponent extends Component
         $this->pageSlug = Str::slug($this->pageName);
         $this->pageIcon = 'fas fa-calendar';
         $this->pageTable = Str::plural(Str::snake($this->pageName));
-        $this->pageCategoryName = 'Event';
-        $this->pageCategoryTitle = trans('index.'.Str::snake($this->pageCategoryName));
-        $this->pageCategorySlug = Str::slug($this->pageCategoryName);
+        $this->pageCategoryName = null;
+        $this->pageCategoryTitle = null;
+        $this->pageCategorySlug = null;
         $this->pageSubCategoryName = null;
         $this->pageSubCategoryTitle = null;
         $this->pageSubCategorySlug = null;

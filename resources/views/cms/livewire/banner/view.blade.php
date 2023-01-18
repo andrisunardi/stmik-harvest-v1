@@ -4,135 +4,43 @@
             <h6>{{ trans("index.id") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
-            {{ $event->id }}
+            {{ $banner->id }}
         </div>
     </div>
 
     <div class="row mb-2">
         <div class="col-sm-6 col-md-4 col-lg-3">
-            <h6>{{ trans("index.event_category") }}</h6>
+            <h6>{{ trans("index.name") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
-            @if ($event->eventCategory)
-                <a draggable="false" href="{{ route("{$subDomain}.event.category.index") . "?pageType=view&row={$event->eventCategory->id}" }}" target="_blank">
-                    {{ $event->eventCategory->name }}
-                </a>
-            @endif
+            {{ $banner->name }}
         </div>
     </div>
 
     <div class="row mb-2">
         <div class="col-sm-6 col-md-4 col-lg-3">
-            <h6>{{ trans("index.title") }}</h6>
+            <h6>{{ trans("index.name_idn") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
-            {{ $event->title }}
-            <a draggable="false" href="{{ route("event.view", ["slug" => $event->slug]) }}" class="btn btn-link btn-sm" target="_blank">
-                <i class="fas fa-external-link"></i>
-            </a>
+            {{ $banner->name_idn }}
         </div>
     </div>
 
     <div class="row mb-2">
         <div class="col-sm-6 col-md-4 col-lg-3">
-            <h6>{{ trans("index.title_idn") }}</h6>
+            <h6>{{ trans("index.description") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
-            {{ $event->title_idn }}
-            <a draggable="false" href="{{ route("event.view", ["slug" => $event->slug]) }}" class="btn btn-link btn-sm" target="_blank">
-                <i class="fas fa-external-link"></i>
-            </a>
+            {!! $banner->description !!}
         </div>
     </div>
 
     <div class="row mb-2">
         <div class="col-sm-6 col-md-4 col-lg-3">
-            <h6>{{ trans("index.short_body") }}</h6>
+            <h6>{{ trans("index.description_idn") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
-            {{ $event->short_body }}
-        </div>
-    </div>
-
-    <div class="row mb-2">
-        <div class="col-sm-6 col-md-4 col-lg-3">
-            <h6>{{ trans("index.short_body_idn") }}</h6>
-        </div>
-        <div class="col-sm-6 col-md-8 col-lg-9">
-            {{ $event->short_body_idn }}
-        </div>
-    </div>
-
-    <div class="row mb-2">
-        <div class="col-sm-6 col-md-4 col-lg-3">
-            <h6>{{ trans("index.body") }}</h6>
-        </div>
-        <div class="col-sm-6 col-md-8 col-lg-9">
-            {!! $event->body !!}
-        </div>
-    </div>
-
-    <div class="row mb-2">
-        <div class="col-sm-6 col-md-4 col-lg-3">
-            <h6>{{ trans("index.body_idn") }}</h6>
-        </div>
-        <div class="col-sm-6 col-md-8 col-lg-9">
-            {!! $event->body_idn !!}
-        </div>
-    </div>
-
-    <div class="row mb-2">
-        <div class="col-sm-6 col-md-4 col-lg-3">
-            <h6>{{ trans("index.location") }}</h6>
-        </div>
-        <div class="col-sm-6 col-md-8 col-lg-9">
-            {{ $event->location }}
-        </div>
-    </div>
-
-    <div class="row mb-2">
-        <div class="col-sm-6 col-md-4 col-lg-3">
-            <h6>{{ trans("index.start") }}</h6>
-        </div>
-        <div class="col-sm-6 col-md-8 col-lg-9">
-            @if ($event->start)
-                {{ $event->start->format("l,") }}
-                {{ $event->start->isoFormat("LL") }}
-                <br>
-                ({{ $event->start->diffForHumans() }})
-            @endif
-        </div>
-    </div>
-
-    <div class="row mb-2">
-        <div class="col-sm-6 col-md-4 col-lg-3">
-            <h6>{{ trans("index.end") }}</h6>
-        </div>
-        <div class="col-sm-6 col-md-8 col-lg-9">
-            @if ($event->end)
-                {{ $event->end->format("l,") }}
-                {{ $event->end->isoFormat("LL") }}
-                <br>
-                ({{ $event->end->diffForHumans() }})
-            @endif
-        </div>
-    </div>
-
-    <div class="row mb-2">
-        <div class="col-sm-6 col-md-4 col-lg-3">
-            <h6>{{ trans("index.tag") }}</h6>
-        </div>
-        <div class="col-sm-6 col-md-8 col-lg-9">
-            {{ $event->tag }}
-        </div>
-    </div>
-
-    <div class="row mb-2">
-        <div class="col-sm-6 col-md-4 col-lg-3">
-            <h6>{{ trans("index.tag_idn") }}</h6>
-        </div>
-        <div class="col-sm-6 col-md-8 col-lg-9">
-            {{ $event->tag_idn }}
+            {!! $banner->description_idn !!}
         </div>
     </div>
 
@@ -141,12 +49,12 @@
             <h6>{{ trans("index.image") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
-            @if ($event->checkImage())
-                <a draggable="false" class="btn btn-sm btn-primary" href="{{ $event->assetImage() }}" target="_blank">
+            @if ($banner->checkImage())
+                <a draggable="false" class="btn btn-sm btn-primary" href="{{ $banner->assetImage() }}" target="_blank">
                     <i class="fas fa-eye me-1"></i>
                     {{ trans("index.view") }}
                 </a>
-                <a draggable="false" class="btn btn-sm btn-info text-white" href="{{ $event->assetImage() }}" download>
+                <a draggable="false" class="btn btn-sm btn-info text-white" href="{{ $banner->assetImage() }}" download>
                     <i class="fas fa-download me-1"></i>
                     {{ trans("index.download") }}
                 </a>
@@ -156,20 +64,11 @@
 
     <div class="row mb-2">
         <div class="col-sm-6 col-md-4 col-lg-3">
-            <h6>{{ trans("index.slug") }}</h6>
-        </div>
-        <div class="col-sm-6 col-md-8 col-lg-9">
-            {{ $event->slug }}
-        </div>
-    </div>
-
-    <div class="row mb-2">
-        <div class="col-sm-6 col-md-4 col-lg-3">
             <h6>{{ trans("index.active") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
-            <span class="{{ "badge bg-" . Str::successdanger($event->is_active) }}">
-                {{ trans("index." . Str::slug(Str::active($event->is_active), '_')) }}
+            <span class="{{ "badge bg-" . Str::successdanger($banner->is_active) }}">
+                {{ trans("index." . Str::slug(Str::active($banner->is_active), '_')) }}
             </span>
         </div>
     </div>
@@ -179,9 +78,9 @@
             <h6>{{ trans("index.created_by") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
-            @if ($event->createdBy)
-                <a draggable="false" href="{{ route("{$subDomain}.configuration.user.index") . "?pageType=view&row={$event->createdBy->id}" }}" target="_blank">
-                    {{ $event->createdBy->name }}
+            @if ($banner->createdBy)
+                <a draggable="false" href="{{ route("{$subDomain}.configuration.user.index") . "?pageType=view&row={$banner->createdBy->id}" }}" target="_blank">
+                    {{ $banner->createdBy->name }}
                 </a>
             @endif
         </div>
@@ -192,23 +91,23 @@
             <h6>{{ trans("index.updated_by") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
-            @if ($event->updatedBy)
-                <a draggable="false" href="{{ route("{$subDomain}.configuration.user.index") . "?pageType=view&row={$event->updatedBy->id}" }}" target="_blank">
-                    {{ $event->updatedBy->name }}
+            @if ($banner->updatedBy)
+                <a draggable="false" href="{{ route("{$subDomain}.configuration.user.index") . "?pageType=view&row={$banner->updatedBy->id}" }}" target="_blank">
+                    {{ $banner->updatedBy->name }}
                 </a>
             @endif
         </div>
     </div>
 
-    @if ($event->trashed())
+    @if ($banner->trashed())
         <div class="row mb-2">
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <h6>{{ trans("index.deleted_by") }}</h6>
             </div>
             <div class="col-sm-6 col-md-8 col-lg-9">
-                @if ($event->deletedBy)
-                    <a draggable="false" href="{{ route("{$subDomain}.configuration.user.index") . "?pageType=view&row={$event->deletedBy->id}" }}" target="_blank">
-                        {{ $event->deletedBy->name }}
+                @if ($banner->deletedBy)
+                    <a draggable="false" href="{{ route("{$subDomain}.configuration.user.index") . "?pageType=view&row={$banner->deletedBy->id}" }}" target="_blank">
+                        {{ $banner->deletedBy->name }}
                     </a>
                 @endif
             </div>
@@ -220,10 +119,10 @@
             <h6>{{ trans("index.created_at") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
-            @if ($event->created_at)
-                {{ $event->created_at->format("l, H:i:s") }}<br class="d-md-none">
-                {{ $event->created_at->isoFormat("LL") }}<br class="d-md-none">
-                ({{ $event->created_at->diffForHumans() }})
+            @if ($banner->created_at)
+                {{ $banner->created_at->format("l, H:i:s") }}<br class="d-md-none">
+                {{ $banner->created_at->isoFormat("LL") }}<br class="d-md-none">
+                ({{ $banner->created_at->diffForHumans() }})
             @endif
         </div>
     </div>
@@ -233,43 +132,43 @@
             <h6>{{ trans("index.updated_at") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
-            @if ($event->updated_at)
-                {{ $event->updated_at->format("l, H:i:s") }}<br class="d-md-none">
-                {{ $event->updated_at->isoFormat("LL") }}<br class="d-md-none">
-                ({{ $event->updated_at->diffForHumans() }})
+            @if ($banner->updated_at)
+                {{ $banner->updated_at->format("l, H:i:s") }}<br class="d-md-none">
+                {{ $banner->updated_at->isoFormat("LL") }}<br class="d-md-none">
+                ({{ $banner->updated_at->diffForHumans() }})
             @endif
         </div>
     </div>
 
-    @if ($event->trashed())
+    @if ($banner->trashed())
         <div class="row mb-2">
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <h6>{{ trans("index.deleted_at") }}</h6>
             </div>
             <div class="col-sm-6 col-md-8 col-lg-9">
-                @if ($event->deleted_at)
-                    {{ $event->deleted_at->format("l, H:i:s") }}<br class="d-md-none">
-                    {{ $event->deleted_at->isoFormat("LL") }}<br class="d-md-none">
-                    ({{ $event->deleted_at->diffForHumans() }})
+                @if ($banner->deleted_at)
+                    {{ $banner->deleted_at->format("l, H:i:s") }}<br class="d-md-none">
+                    {{ $banner->deleted_at->isoFormat("LL") }}<br class="d-md-none">
+                    ({{ $banner->deleted_at->diffForHumans() }})
                 @endif
             </div>
         </div>
     @endif
 
     <div class="row">
-        @if ($event->trashed())
+        @if ($banner->trashed())
             @can("{$pageName} Restore")
                 <div class="col-12 col-sm-auto mt-3 mt-sm-0">
-                    <button class="btn btn-sm btn-success w-100" type="button" data-bs-toggle="modal" data-bs-target="#restore-{{ $event->id }}">
+                    <button class="btn btn-sm btn-success w-100" type="button" data-bs-toggle="modal" data-bs-target="#restore-{{ $banner->id }}">
                         <i class="fas fa-trash-restore me-1"></i>
                         {{ trans("index.restore") }}
                     </button>
 
-                    <div class="modal fade" id="restore-{{ $event->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="restore-{{ $event->id }}" aria-hidden="true">
+                    <div class="modal fade" id="restore-{{ $banner->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="restore-{{ $banner->id }}" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h6 class="modal-title" id="restore-{{ $event->id }}">{{ trans("index.restore") }} - {{ $pageTitle }}</h6>
+                                    <h6 class="modal-title" id="restore-{{ $banner->id }}">{{ trans("index.restore") }} - {{ $pageTitle }}</h6>
                                     <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="{{ trans("index.close") }}"></button>
                                 </div>
                                 <div class="modal-body">
@@ -280,7 +179,7 @@
                                         <i class="fas fa-times me-1"></i>
                                         {{ trans("index.close") }}
                                     </button>
-                                    <button class="btn btn-sm btn-success" type="button" data-bs-dismiss="modal" wire:click="restore({{ $event->id }})">
+                                    <button class="btn btn-sm btn-success" type="button" data-bs-dismiss="modal" wire:click="restore({{ $banner->id }})">
                                         <i class="fas fa-check me-1"></i>
                                         {{ trans("index.yes") }}
                                     </button>
@@ -293,16 +192,16 @@
 
             @can("{$pageName} Delete Permanent")
                 <div class="col-12 col-sm-auto mt-3 mt-sm-0">
-                    <button class="btn btn-sm btn-danger w-100" type="button" data-bs-toggle="modal" data-bs-target="#delete-permanent-{{ $event->id }}">
+                    <button class="btn btn-sm btn-danger w-100" type="button" data-bs-toggle="modal" data-bs-target="#delete-permanent-{{ $banner->id }}">
                         <i class="fas fa-dumpster-fire me-1"></i>
                         {{ trans("index.delete_permanent") }}
                     </button>
 
-                    <div class="modal fade" id="delete-permanent-{{ $event->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="delete-permanent-{{ $event->id }}" aria-hidden="true">
+                    <div class="modal fade" id="delete-permanent-{{ $banner->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="delete-permanent-{{ $banner->id }}" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h6 class="modal-title" id="delete-permanent-{{ $event->id }}">{{ trans("index.delete_permanent") }} - {{ $pageTitle }}</h6>
+                                    <h6 class="modal-title" id="delete-permanent-{{ $banner->id }}">{{ trans("index.delete_permanent") }} - {{ $pageTitle }}</h6>
                                     <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="{{ trans("index.close") }}"></button>
                                 </div>
                                 <div class="modal-body">
@@ -315,7 +214,7 @@
                                         <i class="fas fa-times me-1"></i>
                                         {{ trans("index.close") }}
                                     </button>
-                                    <button class="btn btn-sm btn-danger" type="button" data-bs-dismiss="modal" wire:click="deletePermanent({{ $event->id }})">
+                                    <button class="btn btn-sm btn-danger" type="button" data-bs-dismiss="modal" wire:click="deletePermanent({{ $banner->id }})">
                                         <i class="fas fa-check me-1"></i>
                                         {{ trans("index.yes") }}
                                     </button>
@@ -329,46 +228,46 @@
 
             @can("{$pageName} Edit")
                 <div class="col-6 col-sm-auto mt-3 mt-sm-0">
-                    <button class="btn btn-sm btn-{{ $event->is_active ? "danger" : "success" }} w-100" wire:click="active({{ $event->id }})" wire:loading.attr="disabled">
-                        <i class="fas fa-{{ $event->is_active ? "times" : "check" }}-circle me-1"></i>
-                        {{ $event->is_active ? trans("index.inactive") : trans("index.active") }}
-                        <div wire:loading wire:target="active({{ $event->id }})"><i class="fas fa-spinner fa-spin"></i></div>
+                    <button class="btn btn-sm btn-{{ $banner->is_active ? "danger" : "success" }} w-100" wire:click="active({{ $banner->id }})" wire:loading.attr="disabled">
+                        <i class="fas fa-{{ $banner->is_active ? "times" : "check" }}-circle me-1"></i>
+                        {{ $banner->is_active ? trans("index.inactive") : trans("index.active") }}
+                        <div wire:loading wire:target="active({{ $banner->id }})"><i class="fas fa-spinner fa-spin"></i></div>
                     </button>
                 </div>
             @endcan
 
             @can("{$pageName} Clone")
                 <div class="col-6 col-sm-auto mt-3 mt-sm-0">
-                    <button class="btn btn-sm btn-info text-white w-100" wire:click="clone({{ $event->id }})" wire:loading.attr="disabled">
+                    <button class="btn btn-sm btn-info text-white w-100" wire:click="clone({{ $banner->id }})" wire:loading.attr="disabled">
                         <i class="fas fa-clipboard me-1"></i>
                         {{ trans("index.clone") }}
-                        <div wire:loading wire:target="clone({{ $event->id }})"><i class="fas fa-spinner fa-spin"></i></div>
+                        <div wire:loading wire:target="clone({{ $banner->id }})"><i class="fas fa-spinner fa-spin"></i></div>
                     </button>
                 </div>
             @endcan
 
             @can("{$pageName} Edit")
                 <div class="col-6 col-sm-auto mt-3 mt-sm-0">
-                    <button class="btn btn-sm btn-success w-100" wire:click="edit({{ $event->id }})" wire:loading.attr="disabled">
+                    <button class="btn btn-sm btn-success w-100" wire:click="edit({{ $banner->id }})" wire:loading.attr="disabled">
                         <i class="fas fa-pencil me-1"></i>
                         {{ trans("index.edit") }}
-                        <div wire:loading wire:target="edit({{ $event->id }})"><i class="fas fa-spinner fa-spin"></i></div>
+                        <div wire:loading wire:target="edit({{ $banner->id }})"><i class="fas fa-spinner fa-spin"></i></div>
                     </button>
                 </div>
             @endcan
 
             @can("{$pageName} Delete")
                 <div class="col-6 col-sm-auto mt-3 mt-sm-0">
-                    <button class="btn btn-sm btn-danger w-100" type="button" data-bs-toggle="modal" data-bs-target="#delete-{{ $event->id }}">
+                    <button class="btn btn-sm btn-danger w-100" type="button" data-bs-toggle="modal" data-bs-target="#delete-{{ $banner->id }}">
                         <i class="fas fa-trash me-1"></i>
                         {{ trans("index.delete") }}
                     </button>
 
-                    <div class="modal fade" id="delete-{{ $event->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="delete-{{ $event->id }}" aria-hidden="true">
+                    <div class="modal fade" id="delete-{{ $banner->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="delete-{{ $banner->id }}" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h6 class="modal-title" id="delete-{{ $event->id }}">{{ trans("index.delete") }} - {{ $pageTitle }}</h6>
+                                    <h6 class="modal-title" id="delete-{{ $banner->id }}">{{ trans("index.delete") }} - {{ $pageTitle }}</h6>
                                     <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="{{ trans("index.close") }}"></button>
                                 </div>
                                 <div class="modal-body">
@@ -380,7 +279,7 @@
                                         <i class="fas fa-times me-1"></i>
                                         {{ trans("index.close") }}
                                     </button>
-                                    <button class="btn btn-sm btn-danger" type="button" data-bs-dismiss="modal" wire:click="delete({{ $event->id }})">
+                                    <button class="btn btn-sm btn-danger" type="button" data-bs-dismiss="modal" wire:click="delete({{ $banner->id }})">
                                         <i class="fas fa-check me-1"></i>
                                         {{ trans("index.yes") }}
                                     </button>

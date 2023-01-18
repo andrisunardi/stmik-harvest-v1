@@ -168,61 +168,61 @@ Breadcrumbs::for("{$subDomain}.{$page}.index", function (BreadcrumbTrail $trail)
 $page = 'banner';
 Breadcrumbs::for("{$subDomain}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $page) {
     $trail->parent("{$subDomain}.index");
-    $trail->push(trans("index.{$page}"), route("{$subDomain}.{$page}.index"), ['icon' => 'fas fa-envelopes-bulk fa-fw']);
+    $trail->push(trans("index.{$page}"), route("{$subDomain}.{$page}.index"), ['icon' => 'fas fa-image fa-fw']);
 });
 
 $page = 'faq';
 Breadcrumbs::for("{$subDomain}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $page) {
     $trail->parent("{$subDomain}.index");
-    $trail->push(trans("index.{$page}"), route("{$subDomain}.{$page}.index"), ['icon' => 'fas fa-envelopes-bulk fa-fw']);
+    $trail->push(trans("index.{$page}"), route("{$subDomain}.{$page}.index"), ['icon' => 'fas fa-question fa-fw']);
 });
 
 $page = 'gallery';
 Breadcrumbs::for("{$subDomain}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $page) {
     $trail->parent("{$subDomain}.index");
-    $trail->push(trans("index.{$page}"), route("{$subDomain}.{$page}.index"), ['icon' => 'fas fa-envelopes-bulk fa-fw']);
+    $trail->push(trans("index.{$page}"), route("{$subDomain}.{$page}.index"), ['icon' => 'fas fa-photo-film fa-fw']);
 });
 
 $page = 'network';
 Breadcrumbs::for("{$subDomain}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $page) {
     $trail->parent("{$subDomain}.index");
-    $trail->push(trans("index.{$page}"), route("{$subDomain}.{$page}.index"), ['icon' => 'fas fa-envelopes-bulk fa-fw']);
+    $trail->push(trans("index.{$page}"), route("{$subDomain}.{$page}.index"), ['icon' => 'fas fa-sitemap fa-fw']);
 });
 
 $page = 'offer';
 Breadcrumbs::for("{$subDomain}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $page) {
     $trail->parent("{$subDomain}.index");
-    $trail->push(trans("index.{$page}"), route("{$subDomain}.{$page}.index"), ['icon' => 'fas fa-envelopes-bulk fa-fw']);
+    $trail->push(trans("index.{$page}"), route("{$subDomain}.{$page}.index"), ['icon' => 'fas fa-gift fa-fw']);
 });
 
 $page = 'procedure';
 Breadcrumbs::for("{$subDomain}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $page) {
     $trail->parent("{$subDomain}.index");
-    $trail->push(trans("index.{$page}"), route("{$subDomain}.{$page}.index"), ['icon' => 'fas fa-envelopes-bulk fa-fw']);
+    $trail->push(trans("index.{$page}"), route("{$subDomain}.{$page}.index"), ['icon' => 'fas fa-list fa-fw']);
 });
 
 $page = 'slider';
 Breadcrumbs::for("{$subDomain}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $page) {
     $trail->parent("{$subDomain}.index");
-    $trail->push(trans("index.{$page}"), route("{$subDomain}.{$page}.index"), ['icon' => 'fas fa-envelopes-bulk fa-fw']);
+    $trail->push(trans("index.{$page}"), route("{$subDomain}.{$page}.index"), ['icon' => 'fas fa-sliders fa-fw']);
 });
 
 $page = 'testimony';
 Breadcrumbs::for("{$subDomain}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $page) {
     $trail->parent("{$subDomain}.index");
-    $trail->push(trans("index.{$page}"), route("{$subDomain}.{$page}.index"), ['icon' => 'fas fa-envelopes-bulk fa-fw']);
+    $trail->push(trans("index.{$page}"), route("{$subDomain}.{$page}.index"), ['icon' => 'fas fa-comments fa-fw']);
 });
 
 $page = 'tuition-fee';
 Breadcrumbs::for("{$subDomain}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $page) {
     $trail->parent("{$subDomain}.index");
-    $trail->push(trans('index.tuition_fee'), route("{$subDomain}.{$page}.index"), ['icon' => 'fas fa-envelopes-bulk fa-fw']);
+    $trail->push(trans('index.tuition_fee'), route("{$subDomain}.{$page}.index"), ['icon' => 'fas fa-money-check-dollar fa-fw']);
 });
 
 $page = 'value';
 Breadcrumbs::for("{$subDomain}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $page) {
     $trail->parent("{$subDomain}.index");
-    $trail->push(trans("index.{$page}"), route("{$subDomain}.{$page}.index"), ['icon' => 'fas fa-envelopes-bulk fa-fw']);
+    $trail->push(trans("index.{$page}"), route("{$subDomain}.{$page}.index"), ['icon' => 'fas fa-star fa-fw']);
 });
 
 // CONFIGURATION

@@ -109,7 +109,11 @@ class EventComponent extends Component
 
     public $body_idn;
 
-    public $date;
+    public $location;
+
+    public $start;
+
+    public $end;
 
     public $tag;
 
@@ -149,7 +153,9 @@ class EventComponent extends Component
         'short_body_idn' => ['except' => ''],
         'body' => ['except' => ''],
         'body_idn' => ['except' => ''],
-        'date' => ['except' => ''],
+        'location' => ['except' => ''],
+        'start' => ['except' => ''],
+        'end' => ['except' => ''],
         'tag' => ['except' => ''],
         'tag_idn' => ['except' => ''],
         'slug' => ['except' => ''],
@@ -235,7 +241,9 @@ class EventComponent extends Component
             'short_body_idn',
             'body',
             'body_idn',
-            'date',
+            'location',
+            'start',
+            'end',
             'tag',
             'tag_idn',
             'image',
@@ -256,7 +264,9 @@ class EventComponent extends Component
             $this->short_body_idn = $this->short_body_idn ?: $this->event->short_body_idn;
             $this->body = $this->body ?: $this->event->body;
             $this->body_idn = $this->body_idn ?: $this->event->body_idn;
-            $this->date = $this->date ?: $this->event->date?->format('Y-m-d');
+            $this->location = $this->location ?: $this->event->location;
+            $this->start = $this->start ?: $this->event->start?->format('Y-m-d');
+            $this->end = $this->end ?: $this->event->end?->format('Y-m-d');
             $this->tag = $this->tag ?: $this->event->tag;
             $this->tag_idn = $this->tag_idn ?: $this->event->tag_idn;
             $this->slug = $this->slug ?: $this->event->slug;
@@ -296,7 +306,8 @@ class EventComponent extends Component
         $this->checkPermission($this->pageType, 'trash', "{$this->pageName} Trash");
 
         if ($this->pageType == 'add') {
-            $this->date = now()->format('Y-m-d');
+            $this->start = now()->format('Y-m-d');
+            $this->end = now()->format('Y-m-d');
             $this->is_active = 1;
         }
 
@@ -330,7 +341,8 @@ class EventComponent extends Component
         $this->resetFilter();
         $this->resetValidation();
 
-        $this->date = now()->format('Y-m-d');
+        $this->start = now()->format('Y-m-d');
+        $this->end = now()->format('Y-m-d');
         $this->is_active = 1;
         $this->pageType = 'add';
 
@@ -351,7 +363,7 @@ class EventComponent extends Component
                 'error',
                 "{$this->pageName} ".trans('index.not_found_or_has_been_deleted'),
                 [],
-                route("{$this->subDomain}.{$this->pageCategorySlug}.{$this->pageSubCategorySlug}.{$this->pageSlug}.index"),
+                route("{$this->subDomain}.{$this->pageCategorySlug}.{$this->pageSlug}.index"),
             );
         }
 
@@ -377,7 +389,7 @@ class EventComponent extends Component
                 'error',
                 "{$this->pageName} ".trans('index.not_found_or_has_been_deleted'),
                 [],
-                route("{$this->subDomain}.{$this->pageCategorySlug}.{$this->pageSubCategorySlug}.{$this->pageSlug}.index"),
+                route("{$this->subDomain}.{$this->pageCategorySlug}.{$this->pageSlug}.index"),
             );
         }
 
@@ -404,7 +416,7 @@ class EventComponent extends Component
                 'error',
                 "{$this->pageName} ".trans('index.not_found_or_has_been_deleted'),
                 [],
-                route("{$this->subDomain}.{$this->pageCategorySlug}.{$this->pageSubCategorySlug}.{$this->pageSlug}.index"),
+                route("{$this->subDomain}.{$this->pageCategorySlug}.{$this->pageSlug}.index"),
             );
         }
 
@@ -435,7 +447,9 @@ class EventComponent extends Component
             'short_body_idn' => 'required|max:160',
             'description' => 'nullable|max:65535',
             'description_idn' => 'nullable|max:65535',
-            'date' => 'required|date|date_format:Y-m-d',
+            'location' => 'nullable|max:100',
+            'start' => 'required|date|date_format:Y-m-d',
+            'end' => 'required|date|date_format:Y-m-d',
             'tag' => 'nullable|max:65535',
             'tag_idn' => 'nullable|max:65535',
             'image' => 'nullable|max:'.env('MAX_IMAGE').'|mimes:'.env('MIMES_IMAGE'),
@@ -593,7 +607,9 @@ class EventComponent extends Component
                 ->when($this->short_body_idn, fn ($q) => $q->where('short_body_idn', 'LIKE', "%{$this->short_body_idn}%"))
                 ->when($this->body, fn ($q) => $q->where('body', 'LIKE', "%{$this->body}%"))
                 ->when($this->body_idn, fn ($q) => $q->where('body_idn', 'LIKE', "%{$this->body_idn}%"))
-                ->when($this->date, fn ($q) => $q->whereDate('datetime', $this->date))
+                ->when($this->location, fn ($q) => $q->where('location', 'LIKE', "%{$this->location}%"))
+                ->when($this->start, fn ($q) => $q->whereDate('date', $this->start))
+                ->when($this->end, fn ($q) => $q->whereDate('end', $this->end))
                 ->when($this->tag, fn ($q) => $q->where('tag', 'LIKE', "%{$this->tag}%"))
                 ->when($this->tag_idn, fn ($q) => $q->where('tag_idn', 'LIKE', "%{$this->tag_idn}%"))
                 ->when($this->slug, fn ($q) => $q->where('slug', 'LIKE', "%{$this->slug}%"))
@@ -652,7 +668,7 @@ class EventComponent extends Component
 
         $this->alert('info', trans('index.export_to_pdf'));
 
-        $pdf = PDF::loadView("{$this->subDomain}.livewire.{$this->pageCategorySlug}.{$this->pageSubCategorySlug}.{$this->pageSlug}.pdf", [
+        $pdf = PDF::loadView("{$this->subDomain}.livewire.{$this->pageCategorySlug}.{$this->pageSlug}.pdf", [
             'events' => $this->getEvents(paginate: false),
             'title' => $this->pageName,
         ])->output();
@@ -708,7 +724,7 @@ class EventComponent extends Component
 
     public function render()
     {
-        return view("{$this->subDomain}.livewire.{$this->pageCategorySlug}.{$this->pageSubCategorySlug}.{$this->pageSlug}.index", [
+        return view("{$this->subDomain}.livewire.{$this->pageCategorySlug}.{$this->pageSlug}.index", [
             'createdBies' => $this->readyToLoad ? $this->getCreatedBies() : collect(),
             'updatedBies' => $this->readyToLoad ? $this->getUpdatedBies() : collect(),
             'deletedBies' => $this->readyToLoad ? $this->getDeletedBies() : collect(),

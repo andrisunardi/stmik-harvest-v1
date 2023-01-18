@@ -593,7 +593,7 @@ class BlogComponent extends Component
                 ->when($this->short_body_idn, fn ($q) => $q->where('short_body_idn', 'LIKE', "%{$this->short_body_idn}%"))
                 ->when($this->body, fn ($q) => $q->where('body', 'LIKE', "%{$this->body}%"))
                 ->when($this->body_idn, fn ($q) => $q->where('body_idn', 'LIKE', "%{$this->body_idn}%"))
-                ->when($this->date, fn ($q) => $q->whereDate('datetime', $this->date))
+                ->when($this->date, fn ($q) => $q->whereDate('date', $this->date))
                 ->when($this->tag, fn ($q) => $q->where('tag', 'LIKE', "%{$this->tag}%"))
                 ->when($this->tag_idn, fn ($q) => $q->where('tag_idn', 'LIKE', "%{$this->tag_idn}%"))
                 ->when($this->slug, fn ($q) => $q->where('slug', 'LIKE', "%{$this->slug}%"))

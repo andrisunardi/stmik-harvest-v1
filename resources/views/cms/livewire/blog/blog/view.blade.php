@@ -38,6 +38,7 @@
             <h6>{{ trans("index.title_idn") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
+            {{ $blog->title_idn }}
             <a draggable="false" href="{{ route("blog.view", ["slug" => $blog->slug]) }}" class="btn btn-link btn-sm" target="_blank">
                 <i class="fas fa-external-link"></i>
             </a>
