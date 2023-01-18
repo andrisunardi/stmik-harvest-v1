@@ -66,7 +66,7 @@ class ContactUsComponent extends Component
 
     public function render()
     {
-        return view('livewire.contact.index', [
+        return view('livewire.contact-us.index', [
             'banner' => $this->getBanner(),
         ])->extends('layouts.app', [
             'banner' => $this->getBanner(),

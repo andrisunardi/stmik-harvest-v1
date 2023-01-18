@@ -102,7 +102,7 @@ class BannerSeeder extends Seeder
 
         $data = new Banner();
         $data->name = 'Contact Us';
-        $data->name_idn = 'Hubungi Kami';
+        $data->name_idn = 'Kontak Kami';
         $data->image = Str::slug($data->name).'.png';
         $data->save();
     }

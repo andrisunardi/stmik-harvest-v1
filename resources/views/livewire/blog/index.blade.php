@@ -6,7 +6,7 @@
     <section class="htc__blog__area ptb--80 bg__white">
         <div class="container">
 
-            {{-- @include("layouts.alert") --}}
+            @include("layouts.alert")
 
             @if ($blogCategory)
                 <div class="section__title text-center mb--40">
