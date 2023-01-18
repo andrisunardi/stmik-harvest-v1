@@ -82,6 +82,10 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @property string|null $tag_idn
  *
  * @method static \Illuminate\Database\Eloquent\Builder|Blog whereTagIdn($value)
+ *
+ * @property-read mixed $translate_body
+ * @property-read mixed $translate_short_body
+ * @property-read mixed $translate_title
  */
 class Blog extends Model
 {
@@ -225,18 +229,38 @@ class Blog extends Model
         return $this->belongsTo(BlogCategory::class);
     }
 
-    public function getTranslateNameAttribute()
+    public function getTranslateTitleAttribute()
     {
-        return App::isLocale('en') ? $this->name : $this->name_idn;
+        return App::isLocale('en') ? $this->title : $this->title_idn;
     }
 
-    public function getTranslateDescriptionAttribute()
+    public function getTranslateShortBodyAttribute()
     {
-        return App::isLocale('en') ? $this->description : $this->description_idn;
+        return App::isLocale('en') ? $this->short_body : $this->short_body_idn;
+    }
+
+    public function getTranslateBodyAttribute()
+    {
+        return App::isLocale('en') ? $this->body : $this->body_idn;
     }
 
     public function getTranslateTagAttribute()
     {
-        return App::isLocale('en') ? $this->tag : $this->tag_id;
+        return App::isLocale('en') ? $this->tag : $this->tag_idn;
+    }
+
+    public function tags()
+    {
+        return explode(',', $this->translate_tag);
+    }
+
+    public function tag()
+    {
+        return explode(',', $this->tag);
+    }
+
+    public function tagsIdn()
+    {
+        return explode(',', $this->tag_idn);
     }
 }

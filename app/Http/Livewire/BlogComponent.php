@@ -18,6 +18,8 @@ class BlogComponent extends Component
 
     public $category;
 
+    public $blogCategory;
+
     public $queryString = [
         'page' => ['except' => 1],
         'search' => ['except' => ''],
@@ -36,9 +38,9 @@ class BlogComponent extends Component
 
     public function mount()
     {
-        $blogCategory = BlogCategory::where('slug', $this->category)->first();
+        $this->blogCategory = BlogCategory::where('slug', $this->category)->first();
 
-        if ($this->category && ! $blogCategory) {
+        if ($this->category && ! $this->blogCategory) {
             abort(404);
             Session::flash('danger', trans('index.blog_category').' '.trans('index.not_found_or_has_been_deleted'));
 
@@ -67,29 +69,11 @@ class BlogComponent extends Component
         return $data_blog->paginate(10);
     }
 
-    public function getBlogCategories()
-    {
-        return BlogCategory::active()->orderBy('name')->get();
-    }
-
-    public function getRecentBlogs()
-    {
-        return Blog::active()->latest('date')->limit(3)->get();
-    }
-
-    public function getPopularTag()
-    {
-        return Blog::active()->latest('date')->first();
-    }
-
     public function render()
     {
         return view('livewire.blog.index', [
             'banner' => $this->getBanner(),
             'blogs' => $this->getBlogs(),
-            'blogCategories' => $this->getBlogCategories(),
-            'recentBlogs' => $this->getRecentBlogs(),
-            'popularTag' => $this->getPopularTag(),
         ])->extends('layouts.app', [
             'banner' => $this->getBanner(),
         ])->section('content');

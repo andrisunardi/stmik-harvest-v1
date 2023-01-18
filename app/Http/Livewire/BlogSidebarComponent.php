@@ -2,34 +2,32 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Blog;
 use App\Models\BlogCategory;
 
 class BlogSidebarComponent extends Component
 {
-    public $name;
-
-    public $slug;
-
     public function getBlogCategories()
     {
-        return BlogCategory::with('blogs')->active()->orderBy('name')->get();
+        return BlogCategory::active()->orderBy('name')->get();
     }
 
-    public function mount($id, $name, $slug)
+    public function getRecentBlogs()
     {
-        $this->id = $id;
-        $this->name = $name;
-        $this->slug = $slug;
+        return Blog::with('blogCategory')->active()->latest('date')->limit(3)->get();
+    }
+
+    public function getPopularTags()
+    {
+        return Blog::active()->latest('date')->first();
     }
 
     public function render()
     {
         return view('livewire.blog.sidebar', [
-            'id' => $this->id,
-            'name' => $this->name,
             'blogCategories' => $this->getBlogCategories(),
-        ])->extends('layouts.app', [
-            'banner' => $this->getBanner(),
-        ])->section('content');
+            'recentBlogs' => $this->getRecentBlogs(),
+            'popularTags' => $this->getPopularTags(),
+        ])->extends('layouts.app')->section('content');
     }
 }

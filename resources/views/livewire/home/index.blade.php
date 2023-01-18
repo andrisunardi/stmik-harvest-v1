@@ -498,7 +498,7 @@
                                     <img draggable="false" class="img-fluid w-100" src="{{ $blog->assetImage() }}" alt="{{ $blog->altImage() }}">
                                 </a>
                                 <div class="blog__date">
-                                    <span>{{ Date::parse($blog->date)->format("d F Y") }}</span>
+                                    <span>{{ Date::parse($blog->date)->isoFormat("LL") }}</span>
                                 </div>
                             </div>
                             <div class="blog__details">

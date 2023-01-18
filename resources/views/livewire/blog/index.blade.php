@@ -1,76 +1,47 @@
-@section("title", trans("index.blog"))
-@section("icon", "fas fa-th-large")
+@section("title", $blogCategory ? $blogCategory->translate_name : trans("index.blog"))
+@section("icon", "fas fa-newspaper")
 @section("blog-active", "active")
 
 <div>
-    <div class="section mt-2">
-        <h2 class="text-center h2">@yield("title")</h2>
-        <h6 class="text-center h6">
-            @if (App::isLocale("en"))
-                We take seriously in the work we do for each every one of our blog
-            @else
-                Kami sangat serius dengan pekerjaan yang kami lakukan untuk masing-masing dari setiap portofolio kami
+    <section class="htc__blog__area ptb--80 bg__white">
+        <div class="container">
+
+            {{-- @include("layouts.alert") --}}
+
+            @if ($blogCategory)
+                <div class="section__title text-center mb--40">
+                    <h2 class="title__line">{{ $blogCategory->translate_name }}</h2>
+                    <p>{!! html_entity_decode($blogCategory->translate_description) !!}</p>
+                </div>
             @endif
-        </h6>
-    </div>
 
-    <div class="section mt-2 mb-2">
-        <div class="row">
-
-            @livewire('blog-sidebar-component', ["id" => null, "name" => null, "slug" => null])
-
-            <div class="col-12 col-md-7 col-lg-8 col-xl-9 order-first order-md-last">
-                <div class="row">
-                    @foreach($blogs as $blog)
-                        <div class="col-sm-6 col-xl-4 mb-2">
-                            <div class="card h-100">
-                                <a draggable="false" href="{{ route("blog.view", ["slug" => $blog->slug]) }}" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ trans("index.image") }}">
-                                    <img draggable="false" class="card-img-top lozad w-100" src="{{ $blog->assetImage() }}" alt="{{ $blog->altImage() }}">
+            <div class="row pb--40 htc__blog__wrap">
+                @foreach ($blogs as $blog)
+                    <div class="col-lg-4 col-md-6">
+                        <div class="blog">
+                            <div class="blog__thumb">
+                                <a draggable="false" href="{{ route("blog.view", ["slug" => $blog->slug]) }}">
+                                    <img draggable="false" class="img-fluid w-100" src="{{ $blog->assetImage() }}" alt="{{ $blog->altImage() }}">
                                 </a>
-                                <div class="card-body">
-                                    <h5 class="card-title text-center">
-                                        <a draggable="false" href="{{ route("blog.view", ["slug" => $blog->slug]) }}" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ trans("index.title") }}">
-                                            {{ $blog->translate_title }}
-                                        </a>
-                                    </h5>
-                                    <h5 class="card-subtitle text-center mt-2 mb-2" data-bs-toggle="tooltip" data-bs-placement="bottom" title="{{ trans("index.date") }}">
-                                        {{ $blog->datetime?->isoFormat("LL") }}
-                                    </h5>
-                                    <p class="card-text" data-bs-toggle="tooltip" data-bs-placement="bottom" title="{{ trans("index.blog_description") }}">
-                                        {!! $blog->translate_short_body ?? strip_tags(Str::limit($blog->translate_body), 160) !!}
-                                    </p>
+                                <div class="blog__date">
+                                    <span>{{ $blog->date?->isoFormat("LL") }}</span>
                                 </div>
-                                <hr>
-                                <div class="text-center mb-2" data-bs-toggle="tooltip" data-bs-placement="bottom" title="{{ trans("index.blog_category") }}">
-                                    <a draggable="false" href="{{ route("blog.category.view", ["slug" => $blog->blogCategory->slug]) }}" >
-                                        {{ $blog->blogCategory->translate_name }}
-                                    </a>
-                                </div>
-                                <div class="card-footer">
-                                    <a draggable="false" href="{{ route("blog.view", ["slug" => $blog->slug]) }}" class="btn btn-primary btn-block btn-sm">
+                            </div>
+                            <div class="blog__details">
+                                <h2><a draggable="false" href="{{ route("blog.view", ["slug" => $blog->slug]) }}">{{ $blog->translate_title }}</a></h2>
+                                <p>{{ $blog->translate_short_body }}</p>
+                                <div class="blog__btn">
+                                    <a draggable="false" class="read__more__btn" href="{{ route("blog.view", ["slug" => $blog->slug]) }}">
                                         {{ trans("index.read_more") }}
                                     </a>
                                 </div>
                             </div>
                         </div>
-                    @endforeach
-                </div>
-
-                <div class="row">
-                    <div class="col-6">
-                        <button type="button" class="btn btn-block btn-{{ $page == 1 ? "secondary disabled" : "info" }} mb-2" wire:click="resetFilter()" wire:loading.attr="disabled" {{ $page == 1 ? "disabled" : null }}>
-                            <ion-icon name="refresh-outline" wire:ignore></ion-icon>
-                            {{ trans("index.reset_filter") }}
-                        </button>
                     </div>
-                    <div class="col-6">
-                        <button type="button" class="btn btn-block btn-{{ 8 * $page < $totalBlog ? "primary" : "secondary disabled" }} mb-2" wire:click="loadMore()" wire:loading.attr="disabled" {{ 8 * $page < $totalBlog ? null : "disabled" }}>
-                            <ion-icon name="albums-outline" wire:ignore></ion-icon>
-                            {{ trans("index.load_more") }}
-                        </button>
-                    </div>
-                </div>
+                @endforeach
             </div>
+
+            {{ $blogs->links("layouts.pagination") }}
         </div>
-    </div>
+    </section>
 </div>
