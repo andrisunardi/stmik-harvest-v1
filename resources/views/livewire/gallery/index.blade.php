@@ -28,13 +28,13 @@
                                         </div>
                                         <div class="ml-hover-information">
                                             <div class="ml-hover-action">
-                                                @if ($gallery->category == 1)
+                                                @if ($gallery->category->value == 1)
                                                     <a draggable="false" href="{{ $gallery->assetImage() }}" data-lightbox="tfportimg" data-title="{{ $gallery->translate_name }}"><i class="icon ion-ios-search-strong"></i></a>
                                                 @endif
-                                                @if ($gallery->category == 2)
+                                                @if ($gallery->category->value == 2)
                                                     <a draggable="false" href="{{ $gallery->assetVideo() }}" target="_blank"><i class="icon ion-ios-videocam"></i></a>
                                                 @endif
-                                                @if ($gallery->category == 3)
+                                                @if ($gallery->category->value == 3)
                                                     <a draggable="false" href="{{ $gallery->youtube }}" target="_blank"><i class="icon ion-social-youtube"></i></a>
                                                 @endif
                                             </div>

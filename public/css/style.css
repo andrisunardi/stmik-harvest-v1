@@ -2725,7 +2725,7 @@ End Section Title
   -ms-appearance: none;
   -o-appearance: none;
   -o-: none;
-   background: rgba(0, 0, 0, 0) url("images/icons/arow.png") no-repeat scroll 92% 17px / 10px 5px;
+   background: rgba(0, 0, 0, 0) url("img/icons/arow.png") no-repeat scroll 92% 17px / 10px 5px;
 }
 .select__option__inner select option {
   padding: 3px 6px;

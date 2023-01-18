@@ -1248,7 +1248,7 @@
     }
 
     .bg--4 {
-        background: rgba(0, 0, 0, 0) url("../images/bg/4.jpg") no-repeat scroll center center / cover;
+        background: rgba(0, 0, 0, 0) url("../img/bg/4.jpg") no-repeat scroll center center / cover;
     }
 
     .countdown__inner {

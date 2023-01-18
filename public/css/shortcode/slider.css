@@ -33,16 +33,16 @@ Slider images
 }
 
 .slider__bg--2 {
-  background: rgba(0, 0, 0, 0) url("../../images/slider/bg/3.jpg") no-repeat scroll center center / cover ;
+  background: rgba(0, 0, 0, 0) url("../../img/slider/bg/3.jpg") no-repeat scroll center center / cover ;
 }
 .slider__bg--3 {
-  background: rgba(0, 0, 0, 0) url("../../images/slider/bg/4.jpg") no-repeat scroll center center / cover;
+  background: rgba(0, 0, 0, 0) url("../../img/slider/bg/4.jpg") no-repeat scroll center center / cover;
 }
 .slider__bg--5 {
-  background: rgba(0, 0, 0, 0) url("../../images/slider/bg/5.jpg") no-repeat scroll center center / cover;
+  background: rgba(0, 0, 0, 0) url("../../img/slider/bg/5.jpg") no-repeat scroll center center / cover;
 }
 .slider__bg--6 {
-  background: rgba(0, 0, 0, 0) url("../../images/slider/bg/6.jpg") no-repeat scroll center center / cover;
+  background: rgba(0, 0, 0, 0) url("../../img/slider/bg/6.jpg") no-repeat scroll center center / cover;
 }
 .slider__bg--4 {
   background: #56a4b1;
@@ -212,15 +212,15 @@ Slider images
     right: 180px;
     top: 14px;
     width: 757px;
-    /* background-image: url("../../images/slider/fornt-img/1.png"); */
+    /* background-image: url("../../img/slider/fornt-img/1.png"); */
 }
 .fornt__image--right-2::before {
-    /* background-image: url("../../images/slider/fornt-img/2.png"); */
+    /* background-image: url("../../img/slider/fornt-img/2.png"); */
     bottom: 0px !important;
     top: 15px;
 }
 .fornt__image--right-3::before {
-    /* background-image: url("../../images/slider/fornt-img/3.png"); */
+    /* background-image: url("../../img/slider/fornt-img/3.png"); */
     bottom: 0 !important;
     top: 25px;
 }
