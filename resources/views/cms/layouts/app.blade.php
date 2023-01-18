@@ -117,7 +117,7 @@
             <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
                 <li class="nav-item d-none d-lg-inline">
                     <a draggable="false" class="nav-link text-white" href="javascript:;">
-                        @livewire("server-time-component")
+                        @livewire("c-m-s.server-time-component")
                     </a>
                 </li>
 
