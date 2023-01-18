@@ -104,6 +104,7 @@ class BlogCategory extends Model
         'name_idn' => 'string',
         'description' => 'string',
         'description_idn' => 'string',
+        'slug' => 'string',
         // 'is_active' => 'boolean',
     ];
 
@@ -112,6 +113,7 @@ class BlogCategory extends Model
         'name_idn',
         'description',
         'description_idn',
+        'slug',
         'is_active',
     ];
 

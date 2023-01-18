@@ -122,10 +122,12 @@ class Blog extends Model
 
     protected $casts = [
         'blog_category_id' => 'integer',
-        'name' => 'string',
-        'name_idn' => 'string',
-        'description' => 'string',
-        'description_idn' => 'string',
+        'title' => 'string',
+        'title_idn' => 'string',
+        'short_body' => 'string',
+        'short_body_idn' => 'string',
+        'body' => 'string',
+        'body_idn' => 'string',
         'date' => 'datetime',
         'tag' => 'string',
         'tag_idn' => 'string',
@@ -136,10 +138,12 @@ class Blog extends Model
 
     protected $fillable = [
         'blog_category_id',
-        'name',
-        'name_idn',
-        'description',
-        'description_idn',
+        'title',
+        'title_idn',
+        'short_body',
+        'short_body_idn',
+        'body',
+        'body_idn',
         'date',
         'tag',
         'tag_idn',
