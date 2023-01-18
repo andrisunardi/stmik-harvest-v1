@@ -9,6 +9,8 @@ class NewsletterService
 {
     public $table = 'newsletters';
 
+    public $slug = 'newsletter';
+
     public function add(array $data = []): Newsletter
     {
         DB::statement(DB::raw("ALTER TABLE {$this->table} AUTO_INCREMENT = 1"));

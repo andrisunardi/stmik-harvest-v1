@@ -3,12 +3,12 @@
 namespace App\Http\Livewire;
 
 use App\Models\Banner;
-use App\Models\Blog;
-use App\Models\BlogCategory;
+use App\Models\Event;
+use App\Models\EventCategory;
 use Illuminate\Support\Facades\Session;
 use Livewire\WithPagination;
 
-class BlogComponent extends Component
+class EventComponent extends Component
 {
     use WithPagination;
 
@@ -36,11 +36,11 @@ class BlogComponent extends Component
 
     public function mount()
     {
-        $blogCategory = BlogCategory::where('slug', $this->category)->first();
+        $eventCategory = EventCategory::where('slug', $this->category)->first();
 
-        if ($this->category && ! $blogCategory) {
+        if ($this->category && ! $eventCategory) {
             abort(404);
-            Session::flash('danger', trans('index.blog_category').' '.trans('index.not_found_or_has_been_deleted'));
+            Session::flash('danger', trans('index.event_category').' '.trans('index.not_found_or_has_been_deleted'));
 
             return redirect()->route("{$this->menu_slug}.index");
         }
@@ -48,46 +48,46 @@ class BlogComponent extends Component
 
     public function getBanner()
     {
-        return Banner::find(15);
+        return Banner::find(14);
     }
 
-    public function getBlogs()
+    public function getEvents()
     {
-        $data_blog = Blog::when($this->search, fn ($query) => $query->where('name', 'like', "%{$this->search}%")
+        $data_event = Event::when($this->search, fn ($query) => $query->where('name', 'like', "%{$this->search}%")
             ->orWhere('name_id', 'like', "%{$this->search}%")
             ->orWhere('description', 'like', "%{$this->search}%")
             ->orWhere('description_id', 'like', "%{$this->search}%")
-        )->when($this->category, fn ($query) => $query->where('blog_category_id', $this->blog_category->id)
+        )->when($this->category, fn ($query) => $query->where('event_category_id', $this->event_category->id)
         )->active()->orderByDesc('id');
 
         if ($this->search) {
-            Session::flash('success', trans('index.found')." <b>'{$data_blog->count()}'</b> ".trans('index.results_for')." <b>'{$this->search}'</b>");
+            Session::flash('success', trans('index.found')." <b>'{$data_event->count()}'</b> ".trans('index.results_for')." <b>'{$this->search}'</b>");
         }
 
-        return $data_blog->paginate(10);
+        return $data_event->paginate(10);
     }
 
-    public function getBlogCategories()
+    public function getEventCategories()
     {
-        return BlogCategory::active()->orderBy('name')->get();
+        return EventCategory::active()->orderBy('name')->get();
     }
 
-    public function getRecentBlogs()
+    public function getRecentEvents()
     {
-        return Blog::active()->latest('date')->limit(3)->get();
+        return Event::active()->latest('date')->limit(3)->get();
     }
 
     public function getPopularTag()
     {
-        return Blog::active()->latest('date')->first();
+        return Event::active()->latest('date')->first();
     }
 
     public function render()
     {
-        return view('livewire.blog.index', [
+        return view('livewire.event.index', [
             'banner' => $this->getBanner(),
-            'blogs' => $this->getBlogs(),
-            'blogCategories' => $this->getBlogCategories(),
+            'events' => $this->getBlogs(),
+            'eventCategories' => $this->getBlogCategories(),
             'recentBlogs' => $this->getRecentBlogs(),
             'popularTag' => $this->getPopularTag(),
         ])->extends('layouts.app')->section('content');

@@ -10,9 +10,10 @@ class BlogCategoryService
 {
     public $table = 'blog_categories';
 
+    public $slug = 'blog-category';
+
     public function add(array $data = []): BlogCategory
     {
-        $data['code'] = Str::code('BC', $this->table, null, 8);
         $data['slug'] = Str::slug($data['name']);
 
         DB::statement(DB::raw("ALTER TABLE {$this->table} AUTO_INCREMENT = 1"));
@@ -20,9 +21,8 @@ class BlogCategoryService
         return BlogCategory::create($data);
     }
 
-    public function clone(array $data, BlogCategory $blogCategory): BlogCategory
+    public function clone(array $data, BlogCategory $blogCategories): BlogCategory
     {
-        $data['code'] = Str::code('BC', $this->table, null, 8);
         $data['slug'] = Str::slug($data['name']);
 
         DB::statement(DB::raw("ALTER TABLE {$this->table} AUTO_INCREMENT = 1"));
@@ -30,28 +30,28 @@ class BlogCategoryService
         return BlogCategory::create($data);
     }
 
-    public function edit(BlogCategory $blogCategory, $data): BlogCategory
+    public function edit(BlogCategory $blogCategories, $data): BlogCategory
     {
         $data['slug'] = Str::slug($data['name']);
 
-        $blogCategory->update($data);
-        $blogCategory->refresh();
+        $blogCategories->update($data);
+        $blogCategories->refresh();
 
-        return $blogCategory;
+        return $blogCategories;
     }
 
-    public function active(BlogCategory $blogCategory): BlogCategory
+    public function active(BlogCategory $blogCategories): BlogCategory
     {
-        $blogCategory->is_active = ! $blogCategory->is_active;
-        $blogCategory->save();
-        $blogCategory->refresh();
+        $blogCategories->is_active = ! $blogCategories->is_active;
+        $blogCategories->save();
+        $blogCategories->refresh();
 
-        return $blogCategory;
+        return $blogCategories;
     }
 
-    public function delete(BlogCategory $blogCategory): bool
+    public function delete(BlogCategory $blogCategories): bool
     {
-        return $blogCategory->delete();
+        return $blogCategories->delete();
     }
 
     public function deleteAll(array $blogCategories = []): bool
@@ -59,9 +59,9 @@ class BlogCategoryService
         return BlogCategory::when($blogCategories, fn ($q) => $q->whereIn('id', $blogCategories))->delete();
     }
 
-    public function restore(BlogCategory $blogCategory): bool
+    public function restore(BlogCategory $blogCategories): bool
     {
-        return $blogCategory->restore();
+        return $blogCategories->restore();
     }
 
     public function restoreAll(array $blogCategories = []): bool
@@ -69,9 +69,9 @@ class BlogCategoryService
         return BlogCategory::when($blogCategories, fn ($q) => $q->whereIn('id', $blogCategories))->onlyTrashed()->restore();
     }
 
-    public function deletePermanent(BlogCategory $blogCategory): bool
+    public function deletePermanent(BlogCategory $blogCategories): bool
     {
-        return $blogCategory->forceDelete();
+        return $blogCategories->forceDelete();
     }
 
     public function deletePermanentAll(array $blogCategories = []): bool

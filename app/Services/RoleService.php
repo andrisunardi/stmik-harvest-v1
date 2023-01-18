@@ -9,6 +9,8 @@ class RoleService
 {
     public $table = 'roles';
 
+    public $slug = 'role';
+
     public function add(array $data = []): Role
     {
         DB::statement(DB::raw("ALTER TABLE {$this->table} AUTO_INCREMENT = 1"));

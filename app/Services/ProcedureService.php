@@ -4,16 +4,15 @@ namespace App\Services;
 
 use App\Models\Procedure;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
 
 class ProcedureService
 {
     public $table = 'procedures';
 
+    public $slug = 'procedure';
+
     public function add(array $data = []): Procedure
     {
-        $data['code'] = Str::code('PROCEDURE', $this->table, null, 6);
-
         DB::statement(DB::raw("ALTER TABLE {$this->table} AUTO_INCREMENT = 1"));
 
         return Procedure::create($data);
@@ -21,8 +20,6 @@ class ProcedureService
 
     public function clone(array $data, Procedure $procedure): Procedure
     {
-        $data['code'] = Str::code('PROCEDURE', $this->table, null, 6);
-
         DB::statement(DB::raw("ALTER TABLE {$this->table} AUTO_INCREMENT = 1"));
 
         return Procedure::create($data);

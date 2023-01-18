@@ -2,18 +2,18 @@
 
 namespace App\Services;
 
-use App\Models\Blog;
+use App\Models\Event;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 
-class BlogService
+class EventService
 {
-    public $table = 'blogs';
+    public $table = 'events';
 
-    public $slug = 'blog';
+    public $slug = 'event';
 
-    public function add(array $data = []): Blog
+    public function add(array $data = []): Event
     {
         $image = $data['image'];
         $imageName = Str::slug($data['name']).'-'.now()->format('Y-m-d-H-i-s');
@@ -27,10 +27,10 @@ class BlogService
 
         DB::statement(DB::raw("ALTER TABLE {$this->table} AUTO_INCREMENT = 1"));
 
-        return Blog::create($data);
+        return Event::create($data);
     }
 
-    public function clone(array $data, Blog $blog): Blog
+    public function clone(array $data, Event $event): Event
     {
         $image = $data['image'];
         $imageName = Str::slug($data['name']).'-'.now()->format('Y-m-d-H-i-s');
@@ -39,11 +39,11 @@ class BlogService
             $data['image'] = "{$imageName}.{$image->getClientOriginalExtension()}";
             $image->storePubliclyAs($this->slug, $data['image'], 'images');
         } else {
-            if ($blog->checkImage()) {
-                $data['image'] = "{$imageName}.".explode('.', $blog->image)[1];
+            if ($event->checkImage()) {
+                $data['image'] = "{$imageName}.".explode('.', $event->image)[1];
 
                 File::copy(
-                    public_path("images/{$this->slug}/{$blog->image}"),
+                    public_path("images/{$this->slug}/{$event->image}"),
                     public_path("images/{$this->slug}/{$data['image']}"),
                 );
             }
@@ -53,16 +53,16 @@ class BlogService
 
         DB::statement(DB::raw("ALTER TABLE {$this->table} AUTO_INCREMENT = 1"));
 
-        return Blog::create($data);
+        return Event::create($data);
     }
 
-    public function edit(Blog $blog, $data): Blog
+    public function edit(Event $event, $data): Event
     {
         $image = $data['image'];
         $imageName = Str::slug($data['name']).'-'.now()->format('Y-m-d-H-i-s');
 
         if ($image) {
-            $blog->deleteImage();
+            $event->deleteImage();
 
             $data['image'] = "{$imageName}.{$image->getClientOriginalExtension()}";
             $image->storePubliclyAs($this->slug, $data['image'], 'images');
@@ -72,55 +72,55 @@ class BlogService
 
         $data['slug'] = Str::slug($data['title']);
 
-        $blog->update($data);
-        $blog->refresh();
+        $event->update($data);
+        $event->refresh();
 
-        return $blog;
+        return $event;
     }
 
-    public function active(Blog $blog): Blog
+    public function active(Event $event): Event
     {
-        $blog->is_active = ! $blog->is_active;
-        $blog->save();
-        $blog->refresh();
+        $event->is_active = ! $event->is_active;
+        $event->save();
+        $event->refresh();
 
-        return $blog;
+        return $event;
     }
 
-    public function delete(Blog $blog): bool
+    public function delete(Event $event): bool
     {
-        return $blog->delete();
+        return $event->delete();
     }
 
-    public function deleteAll(array $blogs = []): bool
+    public function deleteAll(array $events = []): bool
     {
-        return Blog::when($blogs, fn ($q) => $q->whereIn('id', $blogs))->delete();
+        return Event::when($events, fn ($q) => $q->whereIn('id', $events))->delete();
     }
 
-    public function restore(Blog $blog): bool
+    public function restore(Event $event): bool
     {
-        return $blog->restore();
+        return $event->restore();
     }
 
-    public function restoreAll(array $blogs = []): bool
+    public function restoreAll(array $events = []): bool
     {
-        return Blog::when($blogs, fn ($q) => $q->whereIn('id', $blogs))->onlyTrashed()->restore();
+        return Event::when($events, fn ($q) => $q->whereIn('id', $events))->onlyTrashed()->restore();
     }
 
-    public function deletePermanent(Blog $blog): bool
+    public function deletePermanent(Event $event): bool
     {
-        $blog->deleteFile();
+        $event->deleteFile();
 
-        return $blog->forceDelete();
+        return $event->forceDelete();
     }
 
-    public function deletePermanentAll(array $blogs = []): bool
+    public function deletePermanentAll(array $events = []): bool
     {
-        $blogs = Blog::when($blogs, fn ($q) => $q->whereIn('id', $blogs))->onlyTrashed()->get();
+        $events = Event::when($events, fn ($q) => $q->whereIn('id', $events))->onlyTrashed()->get();
 
-        foreach ($blogs as $blog) {
-            $blog->deleteFile();
-            $blog->forceDelete();
+        foreach ($events as $event) {
+            $event->deleteFile();
+            $event->forceDelete();
         }
 
         return true;

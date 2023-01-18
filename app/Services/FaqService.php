@@ -9,6 +9,8 @@ class FaqService
 {
     public $table = 'faqs';
 
+    public $slug = 'faq';
+
     public function add(array $data = []): Faq
     {
         DB::statement(DB::raw("ALTER TABLE {$this->table} AUTO_INCREMENT = 1"));

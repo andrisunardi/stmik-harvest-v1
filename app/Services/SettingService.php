@@ -9,6 +9,8 @@ class SettingService
 {
     public $table = 'settings';
 
+    public $slug = 'setting';
+
     public function add(array $data = []): Setting
     {
         DB::statement(DB::raw("ALTER TABLE {$this->table} AUTO_INCREMENT = 1"));

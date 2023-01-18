@@ -1,5 +1,5 @@
 <x-mail::message>
-    <img draggable="false" src="{{ env("APP_URL") }}/images/logo.webp" width="100%" alt="{{ trans("index.logo") }} - {{ env("APP_TITLE") }}">
+    <img draggable="false" src="{{ env("APP_URL") }}/images/logo.png" width="100%" alt="{{ trans("index.logo") }} - {{ env("APP_TITLE") }}">
 
     Form Contact
 

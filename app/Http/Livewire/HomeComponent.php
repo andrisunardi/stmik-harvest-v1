@@ -2,14 +2,78 @@
 
 namespace App\Http\Livewire;
 
+use App\Mail\RegistrationMail;
 use App\Models\Blog;
-use App\Models\BuyEndorse;
-use App\Models\Framework;
-use App\Models\News;
-use App\Models\Portfolio;
+use App\Services\RegistrationService;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Validation\Rule;
 
 class HomeComponent extends Component
 {
+    public $emailNewsletter;
+
+    public $name;
+
+    public $email;
+
+    public $phone;
+
+    public $gender;
+
+    public $school;
+
+    public $major;
+
+    public $city;
+
+    public $type;
+
+    public $agree;
+
+    public function resetForm()
+    {
+        $this->reset([
+            'emailNewsletter',
+            'name',
+            'email',
+            'phone',
+            'gender',
+            'school',
+            'major',
+            'city',
+            'type',
+            'agree',
+        ]);
+    }
+
+    public function rules()
+    {
+        return [
+            'name' => 'required|max:50|unique:registration,name',
+            'email' => 'required|max:50|email|unique:registration,email',
+            'phone' => 'required|max:20|unique:registration,phone',
+            'gender' => 'required|numeric|'.Rule::in([1, 2]),
+            'school' => 'required|max:50',
+            'major' => 'required|max:50',
+            'city' => 'required|max:50',
+            'type' => 'required|numeric|'.Rule::in([1, 2]),
+        ];
+    }
+
+    public function submit()
+    {
+        $contact = (new RegistrationService())->add($this->validate());
+
+        if (env('APP_ENV') == 'production') {
+            Mail::to('registration@'.env('APP_DOMAIN'))->send(new RegistrationMail($contact));
+        }
+
+        $this->resetForm();
+
+        Session::flash('success', trans('index.thank_you_for_contacting_us_we_will_reply_to_your_message_as_soon_as_possible'));
+    }
+
     public function getNews()
     {
         return News::active()->latest('id')->limit('4')->get();

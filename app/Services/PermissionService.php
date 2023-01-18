@@ -9,6 +9,8 @@ class PermissionService
 {
     public $table = 'permissions';
 
+    public $slug = 'permission';
+
     public function add(array $data = []): Permission
     {
         DB::statement(DB::raw("ALTER TABLE {$this->table} AUTO_INCREMENT = 1"));

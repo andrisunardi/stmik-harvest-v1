@@ -4,16 +4,15 @@ namespace App\Services;
 
 use App\Models\Contact;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
 
 class ContactService
 {
     public $table = 'contacts';
 
+    public $slug = 'contact';
+
     public function add(array $data = []): Contact
     {
-        $data['code'] = Str::code('CONTACT', $this->table, now()->format('Y-m-d'), 2);
-
         DB::statement(DB::raw("ALTER TABLE {$this->table} AUTO_INCREMENT = 1"));
 
         return Contact::create($data);
@@ -21,8 +20,6 @@ class ContactService
 
     public function clone(array $data, Contact $contact): Contact
     {
-        $data['code'] = Str::code('CONTACT', $this->table, now()->format('Y-m-d'), 2);
-
         DB::statement(DB::raw("ALTER TABLE {$this->table} AUTO_INCREMENT = 1"));
 
         return Contact::create($data);

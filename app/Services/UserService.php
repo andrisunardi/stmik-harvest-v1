@@ -11,6 +11,8 @@ class UserService
 {
     public $table = 'users';
 
+    public $slug = 'user';
+
     public function add(array $data = []): User
     {
         $data['password'] = Hash::make($data['password']);
