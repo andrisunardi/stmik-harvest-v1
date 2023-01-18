@@ -27,20 +27,14 @@ class EventViewComponent extends Component
         return Banner::find(14);
     }
 
-    public function getEvents()
+    public function getRelatedEvents()
     {
-        $data_event = Event::when($this->search, fn ($query) => $query->where('name', 'like', "%{$this->search}%")
-            ->orWhere('name_idn', 'like', "%{$this->search}%")
-            ->orWhere('description', 'like', "%{$this->search}%")
-            ->orWhere('description_idn', 'like', "%{$this->search}%")
-        )->when($this->category, fn ($query) => $query->where('event_category_id', $this->event_category->id)
-        )->active()->orderByDesc('id');
-
-        if ($this->search) {
-            Session::flash('success', trans('index.found')." <b>'{$data_event->count()}'</b> ".trans('index.results_for')." <b>'{$this->search}'</b>");
-        }
-
-        return $data_event->paginate(10);
+        return Event::where('id', '!=', $this->event->id)
+            ->where('event_category_id', $this->event->eventCategory->id)
+            ->active()
+            ->inRandomOrder()
+            ->limit('3')
+            ->get();
     }
 
     public function getEventCategories()
@@ -48,34 +42,24 @@ class EventViewComponent extends Component
         return EventCategory::active()->orderBy('name')->get();
     }
 
-    public function getOtherEvents()
-    {
-        return Event::where('id', '!=', $this->event->id)
-            ->where('event_category_id', $this->event->event_category->id)
-            ->active()
-            ->inRandomOrder()
-            ->limit('3')
-            ->get();
-    }
-
     public function getRecentEvents()
     {
-        return Event::active()->latest('date')->limit(3)->get();
+        return Event::with('eventCategory')->active()->latest('start')->limit(3)->get();
     }
 
-    public function getPopularTag()
+    public function getPopularTags()
     {
-        return Event::active()->latest('date')->first();
+        return Event::active()->latest('start')->first();
     }
 
     public function render()
     {
-        return view('livewire.event.index', [
+        return view('livewire.event.view', [
             'banner' => $this->getBanner(),
-            'events' => $this->getEvents(),
+            'relatedEvents' => $this->getRelatedEvents(),
             'eventCategories' => $this->getEventCategories(),
             'recentEvents' => $this->getRecentEvents(),
-            'popularTag' => $this->getPopularTag(),
+            'popularTags' => $this->getPopularTags(),
         ])->extends('layouts.app', [
             'banner' => $this->getBanner(),
         ])->section('content');

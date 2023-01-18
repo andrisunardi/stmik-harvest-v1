@@ -86,6 +86,10 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @property string|null $tag_idn
  *
  * @method static \Illuminate\Database\Eloquent\Builder|Event whereTagIdn($value)
+ *
+ * @property-read mixed $translate_body
+ * @property-read mixed $translate_short_body
+ * @property-read mixed $translate_title
  */
 class Event extends Model
 {
@@ -123,8 +127,8 @@ class Event extends Model
 
     protected $casts = [
         'event_category_id' => 'integer',
-        'name' => 'string',
-        'name_idn' => 'string',
+        'title' => 'string',
+        'title_idn' => 'string',
         'description' => 'string',
         'description_idn' => 'string',
         'start' => 'datetime',
@@ -138,8 +142,8 @@ class Event extends Model
 
     protected $fillable = [
         'event_category_id',
-        'name',
-        'name_idn',
+        'title',
+        'title_idn',
         'description',
         'description_idn',
         'start',
@@ -232,18 +236,50 @@ class Event extends Model
         return $this->belongsTo(EventCategory::class);
     }
 
-    public function getTranslateNameAttribute()
+    public function getTranslateTitleAttribute()
     {
-        return App::isLocale('en') ? $this->name : $this->name_idn;
+        return App::isLocale('en') ? $this->title : $this->title_idn;
     }
 
-    public function getTranslateDescriptionAttribute()
+    public function getTranslateShortBodyAttribute()
     {
-        return App::isLocale('en') ? $this->description : $this->description_idn;
+        return App::isLocale('en') ? $this->short_body : $this->short_body_idn;
+    }
+
+    public function getTranslateBodyAttribute()
+    {
+        return App::isLocale('en') ? $this->body : $this->body_idn;
     }
 
     public function getTranslateTagAttribute()
     {
-        return App::isLocale('en') ? $this->tag : $this->tag_id;
+        return App::isLocale('en') ? $this->tag : $this->tag_idn;
+    }
+
+    public function tags()
+    {
+        if ($this->tag && $this->tag_idn) {
+            return explode(',', $this->translate_tag);
+        }
+
+        return 0;
+    }
+
+    public function tag()
+    {
+        if ($this->tag) {
+            return explode(',', $this->tag);
+        }
+
+        return 0;
+    }
+
+    public function tagIdn()
+    {
+        if ($this->tag_idn) {
+            return explode(',', $this->tag_idn);
+        }
+
+        return 0;
     }
 }

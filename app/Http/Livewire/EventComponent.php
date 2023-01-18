@@ -18,6 +18,8 @@ class EventComponent extends Component
 
     public $category;
 
+    public $eventCategory;
+
     public $queryString = [
         'page' => ['except' => 1],
         'search' => ['except' => ''],
@@ -36,9 +38,9 @@ class EventComponent extends Component
 
     public function mount()
     {
-        $eventCategory = EventCategory::where('slug', $this->category)->first();
+        $this->eventCategory = EventCategory::where('slug', $this->category)->first();
 
-        if ($this->category && ! $eventCategory) {
+        if ($this->category && ! $this->eventCategory) {
             abort(404);
             Session::flash('danger', trans('index.event_category').' '.trans('index.not_found_or_has_been_deleted'));
 
@@ -53,11 +55,13 @@ class EventComponent extends Component
 
     public function getEvents()
     {
-        $data_event = Event::when($this->search, fn ($query) => $query->where('name', 'like', "%{$this->search}%")
-            ->orWhere('name_idn', 'like', "%{$this->search}%")
-            ->orWhere('description', 'like', "%{$this->search}%")
-            ->orWhere('description_idn', 'like', "%{$this->search}%")
-        )->when($this->category, fn ($query) => $query->where('event_category_id', $this->event_category->id)
+        $data_event = Event::when($this->search, fn ($query) => $query->where('title', 'like', "%{$this->search}%")
+            ->orWhere('title_idn', 'like', "%{$this->search}%")
+            ->orWhere('short_body', 'like', "%{$this->search}%")
+            ->orWhere('short_body_idn', 'like', "%{$this->search}%")
+            ->orWhere('body', 'like', "%{$this->search}%")
+            ->orWhere('body_idn', 'like', "%{$this->search}%")
+        )->when($this->category, fn ($query) => $query->where('event_category_id', $this->eventCategory->id)
         )->active()->orderByDesc('id');
 
         if ($this->search) {
@@ -67,29 +71,11 @@ class EventComponent extends Component
         return $data_event->paginate(10);
     }
 
-    public function getEventCategories()
-    {
-        return EventCategory::active()->orderBy('name')->get();
-    }
-
-    public function getRecentEvents()
-    {
-        return Event::active()->latest('date')->limit(3)->get();
-    }
-
-    public function getPopularTag()
-    {
-        return Event::active()->latest('date')->first();
-    }
-
     public function render()
     {
         return view('livewire.event.index', [
             'banner' => $this->getBanner(),
-            'events' => $this->getBlogs(),
-            'eventCategories' => $this->getBlogCategories(),
-            'recentBlogs' => $this->getRecentBlogs(),
-            'popularTag' => $this->getPopularTag(),
+            'events' => $this->getEvents(),
         ])->extends('layouts.app', [
             'banner' => $this->getBanner(),
         ])->section('content');

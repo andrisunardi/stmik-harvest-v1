@@ -251,16 +251,28 @@ class Blog extends Model
 
     public function tags()
     {
-        return explode(',', $this->translate_tag);
+        if ($this->tag && $this->tag_idn) {
+            return explode(',', $this->translate_tag);
+        }
+
+        return 0;
     }
 
     public function tag()
     {
-        return explode(',', $this->tag);
+        if ($this->tag) {
+            return explode(',', $this->tag);
+        }
+
+        return 0;
     }
 
-    public function tagsIdn()
+    public function tagIdn()
     {
-        return explode(',', $this->tag_idn);
+        if ($this->tag_idn) {
+            return explode(',', $this->tag_idn);
+        }
+
+        return 0;
     }
 }
