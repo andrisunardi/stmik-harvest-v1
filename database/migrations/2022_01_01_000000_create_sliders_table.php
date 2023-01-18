@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('button_name', 100)->nullable();
             $table->string('button_name_idn', 100)->nullable();
             $table->string('button_link', 100)->nullable();
-            $table->string('image', 120)->nullable();
+            $table->string('image', 130)->nullable();
             $table->boolean('is_active')->nullable()->unsigned()->default(true);
             $table->foreignId('created_by_id')->nullable()->unsigned();
             $table->foreignId('updated_by_id')->nullable()->unsigned();

@@ -3,21 +3,14 @@
 namespace App\Http\Livewire;
 
 use App\Mail\RegistrationMail;
-use App\Models\AdmissionCalendar;
-use App\Models\Blog;
-use App\Models\Event;
-use App\Models\Offer;
-use App\Models\Slider;
-use App\Models\Testimony;
+use App\Models\Banner;
 use App\Services\RegistrationService;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Validation\Rule;
 
-class HomeComponent extends Component
+class OnlineRegistrationComponent extends Component
 {
-    public $emailNewsletter;
-
     public $name;
 
     public $email;
@@ -39,7 +32,6 @@ class HomeComponent extends Component
     public function resetForm()
     {
         $this->reset([
-            'emailNewsletter',
             'name',
             'email',
             'phone',
@@ -79,53 +71,15 @@ class HomeComponent extends Component
         Session::flash('success', trans('index.thank_you_for_online_registration'));
     }
 
-    public function getSliders()
+    public function getBanner()
     {
-        return Slider::active()->latest('id')->limit(3)->get();
-    }
-
-    public function getOffers()
-    {
-        return Offer::active()->latest('id')->limit(4)->get();
-    }
-
-    public function getAdmissionCalendar()
-    {
-        return AdmissionCalendar::active()->latest('id')->first();
-    }
-
-    public function getTestimonies()
-    {
-        return Testimony::active()->latest('id')->limit(10)->get();
-    }
-
-    public function getBlogs()
-    {
-        return Blog::active()->limit(3)->latest('id')->get();
-    }
-
-    public function getEvents()
-    {
-        return Event::where('start', '>=', now()->format('Y-m-d'))
-            ->where('end', '<=', now()->format('Y-m-d'))
-            ->active()->limit(6)->latest('start')->get();
-    }
-
-    public function getUpcomingEvents()
-    {
-        return Event::where('start', '>', now()->format('Y-m-d'))->active()->limit(2)->latest('start')->get();
+        return Banner::find(7);
     }
 
     public function render()
     {
-        return view('livewire.home.index', [
-            'sliders' => $this->getSliders(),
-            'offers' => $this->getOffers(),
-            'admissionCalendar' => $this->getAdmissionCalendar(),
-            'testimonies' => $this->getTestimonies(),
-            'blogs' => $this->getBlogs(),
-            'events' => $this->getEvents(),
-            'upcomingEvents' => $this->getUpcomingEvents(),
+        return view('livewire.online-registration.index', [
+            'banner' => $this->getBanner(),
         ])->extends('layouts.app')->section('content');
     }
 }

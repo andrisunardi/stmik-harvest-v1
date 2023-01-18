@@ -22,7 +22,7 @@ return new class extends Migration
             $table->datetime('end')->nullable();
             $table->text('tag')->nullable();
             $table->text('tag_id')->nullable();
-            $table->string('image', 120)->nullable();
+            $table->string('image', 130)->nullable();
             $table->string('slug', 100)->nullable()->unique();
             $table->boolean('is_active')->nullable()->unsigned()->default(true);
             $table->foreignId('created_by_id')->nullable()->unsigned();

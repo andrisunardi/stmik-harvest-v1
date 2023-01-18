@@ -13,7 +13,7 @@ return new class extends Migration
             $table->string('name', 100)->nullable()->unique();
             $table->text('description')->nullable();
             $table->string('link', 200)->nullable();
-            $table->string('image', 120)->nullable();
+            $table->string('image', 130)->nullable();
             $table->boolean('is_active')->nullable()->unsigned()->default(true);
             $table->foreignId('created_by_id')->nullable()->unsigned();
             $table->foreignId('updated_by_id')->nullable()->unsigned();
