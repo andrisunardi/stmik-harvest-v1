@@ -54,9 +54,9 @@ class BlogComponent extends Component
     public function getBlogs()
     {
         $data_blog = Blog::when($this->search, fn ($query) => $query->where('name', 'like', "%{$this->search}%")
-            ->orWhere('name_id', 'like', "%{$this->search}%")
+            ->orWhere('name_idn', 'like', "%{$this->search}%")
             ->orWhere('description', 'like', "%{$this->search}%")
-            ->orWhere('description_id', 'like', "%{$this->search}%")
+            ->orWhere('description_idn', 'like', "%{$this->search}%")
         )->when($this->category, fn ($query) => $query->where('blog_category_id', $this->blog_category->id)
         )->active()->orderByDesc('id');
 

@@ -9,8 +9,8 @@ class NetworkObserver
 {
     public function creating(Network $network)
     {
-        $network->created_by_id = Auth::user()->id;
-        $network->updated_by_id = Auth::user()->id;
+        $network->created_by_id = Auth::user()->id ?? null;
+        $network->updated_by_id = Auth::user()->id ?? null;
     }
 
     public function created(Network $network)
@@ -19,7 +19,7 @@ class NetworkObserver
 
     public function updating(Network $network)
     {
-        $network->updated_by_id = Auth::user()->id;
+        $network->updated_by_id = Auth::user()->id ?? null;
     }
 
     public function updated(Network $network)
@@ -28,7 +28,7 @@ class NetworkObserver
 
     public function deleting(Network $network)
     {
-        $network->deleted_by_id = Auth::user()->id;
+        $network->deleted_by_id = Auth::user()->id ?? null;
         $network->save();
     }
 

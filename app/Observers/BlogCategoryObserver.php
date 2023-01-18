@@ -9,8 +9,8 @@ class BlogCategoryObserver
 {
     public function creating(BlogCategory $blogCategory)
     {
-        $blogCategory->created_by_id = Auth::user()->id;
-        $blogCategory->updated_by_id = Auth::user()->id;
+        $blogCategory->created_by_id = Auth::user()->id ?? null;
+        $blogCategory->updated_by_id = Auth::user()->id ?? null;
     }
 
     public function created(BlogCategory $blogCategory)
@@ -19,7 +19,7 @@ class BlogCategoryObserver
 
     public function updating(BlogCategory $blogCategory)
     {
-        $blogCategory->updated_by_id = Auth::user()->id;
+        $blogCategory->updated_by_id = Auth::user()->id ?? null;
     }
 
     public function updated(BlogCategory $blogCategory)
@@ -28,7 +28,7 @@ class BlogCategoryObserver
 
     public function deleting(BlogCategory $blogCategory)
     {
-        $blogCategory->deleted_by_id = Auth::user()->id;
+        $blogCategory->deleted_by_id = Auth::user()->id ?? null;
         $blogCategory->save();
     }
 

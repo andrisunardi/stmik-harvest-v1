@@ -30,9 +30,9 @@ class EventViewComponent extends Component
     public function getEvents()
     {
         $data_event = Event::when($this->search, fn ($query) => $query->where('name', 'like', "%{$this->search}%")
-            ->orWhere('name_id', 'like', "%{$this->search}%")
+            ->orWhere('name_idn', 'like', "%{$this->search}%")
             ->orWhere('description', 'like', "%{$this->search}%")
-            ->orWhere('description_id', 'like', "%{$this->search}%")
+            ->orWhere('description_idn', 'like', "%{$this->search}%")
         )->when($this->category, fn ($query) => $query->where('event_category_id', $this->event_category->id)
         )->active()->orderByDesc('id');
 

@@ -12,9 +12,11 @@ class EventSeeder extends Seeder
     {
         $data = new Event();
         $data->event_category_id = 1;
-        $data->name = 'New Student Orientation 2015/2016';
-        $data->name_id = 'Orientasi Mahasiswa Baru 2015/2016';
-        $data->description = '
+        $data->title = 'New Student Orientation 2015/2016';
+        $data->title_idn = 'Orientasi Mahasiswa Baru 2015/2016';
+        $data->short_body = 'New Student Orientation 2015/2016';
+        $data->short_body_idn = 'Orientasi Mahasiswa Baru 2015/2016';
+        $data->body = '
         <p>New Student Orientation for STMIK Harvest Information System students for the 2015/2016 Academic Year took place on 19 September 2015.</p>
         <p>Welcoming new students who join STMIK Harvest and providing supplies that are deemed necessary for future lectures.</p>
         <p><b>This student orientation is carried out with a series of activities, including :</b></p>
@@ -32,7 +34,7 @@ class EventSeeder extends Seeder
             <li>5. Academic Overview.</li>
         </ul>
         ';
-        $data->description_id = '
+        $data->body_idn = '
         <p>Orientasi Mahasiswa Baru untuk mahasiswa STMIK Harvest Sistem Informasi Tahun Ajaran 2015/2016 berlangsung pada tanggal 19 Sept 2015.</p>
         <p>Menyambut mahasiswa baru yang bergabung dengan STMIK Harvest dan memberikan pembekalan yang dirasa perlu untuk perkuliahan nantinya.</p>
         <p><b>Orientasi mahasiswa ini dilakukan dengan serangkaian kegiatan antara lain :</b></p>
@@ -54,16 +56,18 @@ class EventSeeder extends Seeder
         $data->start = '2015-09-19 08:00:00';
         $data->end = '2015-09-19 17:00:00';
         $data->tag = 'Orientation';
-        $data->tag_id = 'Orientasi';
-        $data->image = Str::slug($data->name).'.png';
-        $data->slug = Str::slug($data->name);
+        $data->tag_idn = 'Orientasi';
+        $data->image = Str::slug($data->title).'.png';
+        $data->slug = Str::slug($data->title);
         $data->save();
 
         $data = new Event();
         $data->event_category_id = 2;
-        $data->name = 'Community Service Wahana Harapan Kampung Melayu School';
-        $data->name_id = 'Pengabdian Kepada Masyarakat Sekolah Wahana Harapan Kampung Melayu';
-        $data->description = "
+        $data->title = 'Community Service Wahana Harapan Kampung Melayu School';
+        $data->title_idn = 'Pengabdian Kepada Masyarakat Sekolah Wahana Harapan Kampung Melayu';
+        $data->short_body = 'Community Service Wahana Harapan Kampung Melayu School';
+        $data->short_body_idn = 'Pengabdian Kepada Masyarakat Sekolah Wahana Harapan Kampung Melayu';
+        $data->body = "
         <p>Community Service (PKM) which is held to carry out the tridharma of higher education by presenting a seminar with the theme 'Social Media 101'.</p>
         <p>Give parents and teachers an idea of how social media is in our midst, and parents are encouraged to understand their children's activities.</p>
         <p><b>What We Do :</b></p>
@@ -72,7 +76,7 @@ class EventSeeder extends Seeder
             <li>2. The seminar was also continued with additional explanations about child psychology which aims to make parents or teachers understand how children behave.</li>
         </ul>
         ";
-        $data->description_id = "
+        $data->body_idn = "
         <p>Pengabdian Kepada Masyarakat (PKM) yang diselenggarakan untuk menjalankan tridarma perguruan tinggi dengan membawakan seminar bertema 'Social Media 101'.</p>
         <p>Memberikan gambaran kepada orang tua dan guru tentang bagaimana social media sudah ada ditengah-tengah kita, dan orang-tua dihimbau untuk bisa memahami kegiatan anak-anak mereka.</p>
         <p><b>Apa Yang Kita Lakukan :</b></p>
@@ -84,15 +88,17 @@ class EventSeeder extends Seeder
         $data->location = 'Sekolah Wahana Harapan Kampung Melayu';
         $data->start = '2015-09-01 09:00:00';
         $data->end = '2015-09-01 17:00:00';
-        $data->image = Str::slug($data->name).'.png';
-        $data->slug = Str::slug($data->name);
+        $data->image = Str::slug($data->title).'.png';
+        $data->slug = Str::slug($data->title);
         $data->save();
 
         $data = new Event();
         $data->event_category_id = 3;
-        $data->name = 'Seminar Computational Thinking';
-        $data->name_id = 'Seminar Computational Thinking';
-        $data->description = '
+        $data->title = 'Seminar Computational Thinking';
+        $data->title_idn = 'Seminar Computational Thinking';
+        $data->short_body = 'Seminar Computational Thinking';
+        $data->short_body_idn = 'Seminar Computational Thinking';
+        $data->body = '
         <p>Held a seminar with the theme of Computational Thinking by inviting experts from the industry.</p>
         <p>Giving students insight into what computational thinking is and how it can be useful in everyday life.</p>
         <p><b>What We Do :</b></p>
@@ -103,7 +109,7 @@ class EventSeeder extends Seeder
             <li>This seminar is carried out with seminars and interesting games so that students can understand better.</li>
         </ul>
         ';
-        $data->description_id = '
+        $data->body_idn = '
         <p>Mengadakan seminar dengan tema Computational Thinking dengan mengundang pakar dari industry.</p>
         <p>Memberikan pandangan kepada mahasiswa tentang apa itu computational thinking dan bagaimana bisa berguna dalam kehidupan sehari-hari.</p>
         <p><b>Apa Yang Kita Lakukan :</b></p>
@@ -117,15 +123,17 @@ class EventSeeder extends Seeder
         $data->location = 'STMIK Harvest, Harvest Square Room';
         $data->start = '2015-11-01 08:00:00';
         $data->end = '2015-11-01 17:00:00';
-        $data->image = Str::slug($data->name).'.png';
-        $data->slug = Str::slug($data->name);
+        $data->image = Str::slug($data->title).'.png';
+        $data->slug = Str::slug($data->title);
         $data->save();
 
         $data = new Event();
         $data->event_category_id = 2;
-        $data->name = 'Community Service Wahana Harapan Tegal Angus School';
-        $data->name_id = 'Pengabdian Kepada Masyarakat Sekolah Wahana Harapan Tegal Angus';
-        $data->description = "
+        $data->title = 'Community Service Wahana Harapan Tegal Angus School';
+        $data->title_idn = 'Pengabdian Kepada Masyarakat Sekolah Wahana Harapan Tegal Angus';
+        $data->short_body = 'Community Service Wahana Harapan Tegal Angus School';
+        $data->short_body_idn = 'Pengabdian Kepada Masyarakat Sekolah Wahana Harapan Tegal Angus';
+        $data->body = "
         <p>Community Service (PKM) which was held in collaboration with World Teach Indonesia with the theme 'Social Media and Me'.</p>
         <p>Give an overview to the students of SMP Wahana Harapan about how we should have goals and ideals, understanding that there are many distractions in life. Internet and Social media can be one of these distractions, but they can also be overcome if we use them wisely.</p>
         <p><b>What's new :</b></p>
@@ -134,7 +142,7 @@ class EventSeeder extends Seeder
             <li>The second part of this seminar was presented by STMIK Harvest where STMIK Harvest explained that the internet and social media can help us to be smarter or better but also can make us waste our time doing things that are not too important. For this reason, STMIK Harvest provides exposure on how to use social media with good ethics.</li>
         </ul>
         ";
-        $data->description_id = "
+        $data->body_idn = "
         <p>Pengabdian Kepada Masyarakat (PKM) yang diselenggarakan bekerjasama dengan World Teach Indonesia dengan tema 'Social Media and Me'.</p>
         <p>Memberikan gambaran kepada para murid SMP Wahana Harapan tentang bagaimana kita harus memiliki target dan cita-cita, memahami bahwa ada banyak gangguan dalam hidup. Internet dan Social media bisa menjadi salah satu gangguan tersebut, tapi juga bisa diatasi jika kita menggunakannya dengan bijak.</p>
         <p><b>Apa yang baru :</b></p>
@@ -146,15 +154,17 @@ class EventSeeder extends Seeder
         $data->location = 'Sekolah Wahana Harapan Tegal Angus';
         $data->start = '2016-01-26 09:00:00';
         $data->end = '2016-01-26 17:00:00';
-        $data->image = Str::slug($data->name).'.png';
-        $data->slug = Str::slug($data->name);
+        $data->image = Str::slug($data->title).'.png';
+        $data->slug = Str::slug($data->title);
         $data->save();
 
         $data = new Event();
         $data->event_category_id = 3;
-        $data->name = 'Seminar Social Media And Me';
-        $data->name_id = 'Seminar Social Media And Me';
-        $data->description = "
+        $data->title = 'Seminar Social Media And Me';
+        $data->title_idn = 'Seminar Social Media And Me';
+        $data->short_body = 'Seminar Social Media And Me';
+        $data->short_body_idn = 'Seminar Social Media And Me';
+        $data->body = "
         <p>Seminar in collaboration with World Teach Indonesia with the theme 'Social Media and Me'.</p>
         <p>Providing insight into what social media are currently developing and how much they are growing. We all have dreams or aspirations, but don't let the internet and social media become a barrier for us so that our time is not effective. for that STMIK Harvest provides direction on how to use social media well.</p>
         <p><b>What's new :</b></p>
@@ -163,7 +173,7 @@ class EventSeeder extends Seeder
             <li>The second part of this seminar was presented by STMIK Harvest where STMIK Harvest explained that the internet and social media can help us to be smarter or better but also can make us waste our time doing things that are not too important. For this reason, STMIK Harvest provides exposure on how to use social media with good ethics.</li>
         </ul>
         ";
-        $data->description_id = "
+        $data->body_idn = "
         <p>Seminar yang bekerjasama dengan World Teach Indonesia dengan tema 'Social Media and Me'.</p>
         <p>Memberikan wawasan mengenai apa saja media sosial yang sedang berkembang dan seberapa besar pertumbuhannya. kita semua memiliki mimpi ataupun cita-cita, tapi janganlah internet dan sosial media menjadi penghalang bagi kita sehingga waktu-waktu kita tidak efektif. untuk itu STMIK Harvest memberikan arahan bagaimana menggunakan sosial media dengan baik.</p>
         <p><b>Apa yang baru :</b></p>
@@ -175,15 +185,17 @@ class EventSeeder extends Seeder
         $data->location = 'SMAN 23 Tomang Jakarta Barat';
         $data->start = '2016-05-11 13:00:00';
         $data->end = '2016-05-11 15:00:00';
-        $data->image = Str::slug($data->name).'.png';
-        $data->slug = Str::slug($data->name);
+        $data->image = Str::slug($data->title).'.png';
+        $data->slug = Str::slug($data->title);
         $data->save();
 
         $data = new Event();
         $data->event_category_id = 2;
-        $data->name = 'Community Service at Immanuel Elementary School, West Jakarta';
-        $data->name_id = 'Pengabdian Kepada Masyarakat SD Immanuel Jakarta Barat';
-        $data->description = "
+        $data->title = 'Community Service at Immanuel Elementary School, West Jakarta';
+        $data->title_idn = 'Pengabdian Kepada Masyarakat SD Immanuel Jakarta Barat';
+        $data->short_body = 'Community Service at Immanuel Elementary School, West Jakarta';
+        $data->short_body_idn = 'Pengabdian Kepada Masyarakat SD Immanuel Jakarta Barat';
+        $data->body = "
         <p>Community Service (PKM) which was held in collaboration with World Teach Indonesia with the theme 'Social Media and Me'.</p>
         <p>gives an idea to Immanuel Elementary School students to be able to make better use of their cellphones and not just spend time playing games.</p>
         <p><b>What's new :</b></p>
@@ -192,7 +204,7 @@ class EventSeeder extends Seeder
             <li>The second part of this seminar was presented by STMIK Harvest where STMIK Harvest explained that the internet and social media and games can help us to be smarter or better but also can make us waste our time doing things that are not too important. For this reason, STMIK Harvest provides an explanation of how students can reduce playing time and learn more.</li>
         </ul>
         ";
-        $data->description_id = "
+        $data->body_idn = "
         <p>Pengabdian Kepada Masyarakat (PKM) yang diselenggarakan bekerjasama dengan World Teach Indonesia dengan tema 'Social Media and Me'.</p>
         <p>memberikan gambaran kepada murid-murid SD Immanuel untuk bisa lebih memanfaatkan handphone dengan lebih baik dan tidak menghabiskan waktu untuk bermain saja.</p>
         <p><b>Apa yang baru :</b></p>
@@ -204,15 +216,17 @@ class EventSeeder extends Seeder
         $data->location = 'SD Immanuel Jakarta Barat';
         $data->start = '2016-06-22 10:00:00';
         $data->end = '2016-06-22 11:00:00';
-        $data->image = Str::slug($data->name).'.png';
-        $data->slug = Str::slug($data->name);
+        $data->image = Str::slug($data->title).'.png';
+        $data->slug = Str::slug($data->title);
         $data->save();
 
         $data = new Event();
         $data->event_category_id = 1;
-        $data->name = 'New Student Orientation 2016/2017';
-        $data->name_id = 'Orientasi Mahasiswa Baru 2016/2017';
-        $data->description = '
+        $data->title = 'New Student Orientation 2016/2017';
+        $data->title_idn = 'Orientasi Mahasiswa Baru 2016/2017';
+        $data->short_body = 'New Student Orientation 2016/2017';
+        $data->short_body_idn = 'Orientasi Mahasiswa Baru 2016/2017';
+        $data->body = '
         <p>New Student Orientation for STMIK Harvest Information System students for 2016/2017 Academic Year will take place on 17 September 2016.</p>
          <p>Welcoming new students who join STMIK Harvest and providing briefing and motivation.</p>
          <p><b>This student orientation is carried out with a series of activities, including:</b></p>
@@ -227,7 +241,7 @@ class EventSeeder extends Seeder
              <li>“Technopreneur” by Mr. Beny Saputro, CEO of Nataproperty (Nataproperty.com).</li>
          </ul>
         ';
-        $data->description_id = '
+        $data->body_idn = '
         <p>Orientasi Mahasiswa Baru untuk mahasiswa STMIK Harvest Sistem Informasi Tahun Ajaran 2016/2017 berlangsung pada tanggal 17 Sept 2016.</p>
         <p>Menyambut mahasiswa baru yang bergabung dengan STMIK Harvest dan memberikan pembekalan dan juga motivasi.</p>
         <p><b>Orientasi mahasiswa ini dilakukan dengan serangkaian kegiatan antara lain:</b></p>
@@ -245,15 +259,17 @@ class EventSeeder extends Seeder
         $data->location = 'STMIK Harvest';
         $data->start = '2016-09-17 08:00:00';
         $data->end = '2016-09-17 19:00:00';
-        $data->image = Str::slug($data->name).'.png';
-        $data->slug = Str::slug($data->name);
+        $data->image = Str::slug($data->title).'.png';
+        $data->slug = Str::slug($data->title);
         $data->save();
 
         $data = new Event();
         $data->event_category_id = 3;
-        $data->name = 'Citra Berkat High School Citra Raya Tangerang Seminar';
-        $data->name_id = 'Seminar SMA Citra Berkat Citra Raya';
-        $data->description = "
+        $data->title = 'Citra Berkat High School Citra Raya Tangerang Seminar';
+        $data->title_idn = 'Seminar SMA Citra Berkat Citra Raya';
+        $data->short_body = 'Citra Berkat High School Citra Raya Tangerang Seminar';
+        $data->short_body_idn = 'Seminar SMA Citra Berkat Citra Raya';
+        $data->body = "
         <p>Sexuality & Pornography Seminar for Citra Berkat Citra Raya Tangerang High School students took place on February 14, 2017.</p>
         <p>In the context of Valentine's Day, which is widely celebrated by young people, Citra Berkat School holds a Sexuality & Pornography seminar, so that students at Citra Berkat High School can become more mature individuals in the face of the times.</p>
         <p><b>This seminar is carried out with a series of activities, including:</b></p>
@@ -268,7 +284,7 @@ class EventSeeder extends Seeder
             <li>Yasinta Indrianti, M.Psi, Psychologist from STMIK Harvest.</li>
         </ul>
         ";
-        $data->description_id = '
+        $data->body_idn = '
         <p>Seminar Seksualitas & Pornografi untuk siswa/i SMA Citra Berkat Citra Raya Tangerang berlangsung pada tanggal 14 Februari 2017.</p>
         <p>Dalam rangka acara hari Valentine yang dirayakan secara luas oleh anak muda, sekolah Citra Berkat mengadakan seminar Seksualitas & Pornografi, agar siswa siswi di SMA Citra Berkat bisa menjadi pribadi yang lebih dewasa dalam menghadapi perkembangan jaman.</p>
         <p><b>Seminar ini dilaksanakan dengan serangkaian kegiatan antara lain:</b></p>
@@ -286,15 +302,17 @@ class EventSeeder extends Seeder
         $data->location = 'SMA Citra Berkat, Citra Raya, Tangerang';
         $data->start = '2017-02-14 10:30:00';
         $data->end = '2017-02-14 14:30:00';
-        $data->image = Str::slug($data->name).'.png';
-        $data->slug = Str::slug($data->name);
+        $data->image = Str::slug($data->title).'.png';
+        $data->slug = Str::slug($data->title);
         $data->save();
 
         $data = new Event();
         $data->event_category_id = 3;
-        $data->name = 'PGRI 1 Tangerang Vocational High School Motivation Seminar';
-        $data->name_id = 'Seminar Motivasi SMK PGRI 1 Tangerang';
-        $data->description = '
+        $data->title = 'PGRI 1 Tangerang Vocational High School Motivation Seminar';
+        $data->title_idn = 'Seminar Motivasi SMK PGRI 1 Tangerang';
+        $data->short_body = 'PGRI 1 Tangerang Vocational High School Motivation Seminar';
+        $data->short_body_idn = 'Seminar Motivasi SMK PGRI 1 Tangerang';
+        $data->body = '
         <p>The motivational seminar for new students at SMK PGRI 1 Tangerang will take place on July 21, 2017.</p>
         <p>In a series of new student orientations at SMK PGRI 1 Tangerang, STMIK Harvest brought a motivational material to 10th graders who had just joined. This motivational seminar aims to make the existing students more enthusiastic about entering a new chapter in their education and not to never give up for the future.</p>
         <p><b>Some points in this seminar:</b></p>
@@ -308,7 +326,7 @@ class EventSeeder extends Seeder
             <li>Yoas Arnest Sutopo, S.Inf, M.M, Marketing Manager of STMIK Harvest.</li>
         </ul>
         ';
-        $data->description_id = '
+        $data->body_idn = '
         <p>Seminar Motivasi untuk siswa/i baru di SMK PGRI 1 Tangerang berlangsung pada tanggal 21 Juli 2017.</p>
         <p>Dalam rangkaian orientasi murid baru di SMK PGRI 1 Tangerang, STMIK Harvest membawakan sebuah materi motivasi kepada murid-murid kelas 10 yang baru saja bergabung. Seminar Motivasi ini bertujuan agar para siswa/i yang ada dapat lebih semangat memasuki babak baru dalam pendidikan mereka dan tidak pantang menyerah untuk keadaan yang akan datang.</p>
         <p><b>Beberapa poin dalam seminar ini:</b></p>
@@ -325,15 +343,17 @@ class EventSeeder extends Seeder
         $data->location = 'SMK PGRI 1 Tangerang';
         $data->start = '2017-07-21 08:00:00';
         $data->end = '2017-07-21 10:00:00';
-        $data->image = Str::slug($data->name).'.png';
-        $data->slug = Str::slug($data->name);
+        $data->image = Str::slug($data->title).'.png';
+        $data->slug = Str::slug($data->title);
         $data->save();
 
         $data = new Event();
         $data->event_category_id = 1;
-        $data->name = 'New Student Orientation 2017/2018';
-        $data->name_id = 'Orientasi Mahasiswa Baru 2017/2018';
-        $data->description = '
+        $data->title = 'New Student Orientation 2017/2018';
+        $data->title_idn = 'Orientasi Mahasiswa Baru 2017/2018';
+        $data->short_body = 'New Student Orientation 2017/2018';
+        $data->short_body_idn = 'Orientasi Mahasiswa Baru 2017/2018';
+        $data->body = '
         <p>New Student Orientation for STMIK Harvest Information System students for the 2017/2018 academic year took place on 9 September 2017.</p>
         <p>STMIK Harvest provides a series of motivational seminars, briefings, and introductions about campus.</p>
         <p><b>This student orientation is carried out with a series of activities, including:</b></p>
@@ -350,7 +370,7 @@ class EventSeeder extends Seeder
             <li>4. Seminar to dare to try new things.</li>
         </ul>
         ';
-        $data->description_id = '
+        $data->body_idn = '
         <p>Orientasi Mahasiswa Baru untuk mahasiswa STMIK Harvest Sistem Informasi Tahun Ajaran 2017/2018 berlangsung pada tanggal 9 Sept 2017.</p>
         <p>STMIK Harvest memberikan serangkaian seminar motivasi, pembekalan, serta pengenalan tentang kampus.</p>
         <p><b>Orientasi mahasiswa ini dilakukan dengan serangkaian kegiatan antara lain:</b></p>
@@ -371,16 +391,18 @@ class EventSeeder extends Seeder
         $data->start = '2017-09-09 08:00:00';
         $data->end = '2017-09-10 17:00:00';
         $data->tag = 'Orientation';
-        $data->tag_id = 'Orientasi';
-        $data->image = Str::slug($data->name).'.png';
-        $data->slug = Str::slug($data->name);
+        $data->tag_idn = 'Orientasi';
+        $data->image = Str::slug($data->title).'.png';
+        $data->slug = Str::slug($data->title);
         $data->save();
 
         $data = new Event();
         $data->event_category_id = 1;
-        $data->name = 'IP Activator Program';
-        $data->name_id = 'IP Activator Program';
-        $data->description = '
+        $data->title = 'IP Activator Program';
+        $data->title_idn = 'IP Activator Program';
+        $data->short_body = 'IP Activator Program';
+        $data->short_body_idn = 'IP Activator Program';
+        $data->body = '
         <p>IP Activator Program at STMIK Harvest.</p>
         <p>IP Activator is an entrepreneurship program to encourage students to have ideas and learn how to become entrepreneurs quickly.</p>
         <p><b>The IP Activator program consists of:</b></p>
@@ -397,7 +419,7 @@ class EventSeeder extends Seeder
             <li>Lectures are more interesting and dynamic.</li>
         </ul>
         ';
-        $data->description_id = '
+        $data->body_idn = '
         <p>Program IP Activator di STMIK Harvest.</p>
         <p>IP Activator adalah program enterpreneurship untuk mendorong para mahasiswa memiliki ide dan mempelajari bagaimana menjadi pengusaha dalam waktu yang cepat.</p>
         <p><b>Rangkaian program IP Activator terdiri dari:</b></p>
@@ -417,8 +439,8 @@ class EventSeeder extends Seeder
         $data->location = 'Plaza Semanggi 5th Floor, Jakarta';
         $data->start = '2018-03-05 19:00:00';
         $data->end = '2018-07-16 19:00:00';
-        $data->image = Str::slug($data->name).'.png';
-        $data->slug = Str::slug($data->name);
+        $data->image = Str::slug($data->title).'.png';
+        $data->slug = Str::slug($data->title);
         $data->save();
     }
 }

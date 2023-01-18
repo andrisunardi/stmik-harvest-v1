@@ -9,8 +9,8 @@ class SliderObserver
 {
     public function creating(Slider $slider)
     {
-        $slider->created_by_id = Auth::user()->id;
-        $slider->updated_by_id = Auth::user()->id;
+        $slider->created_by_id = Auth::user()->id ?? null;
+        $slider->updated_by_id = Auth::user()->id ?? null;
     }
 
     public function created(Slider $slider)
@@ -19,7 +19,7 @@ class SliderObserver
 
     public function updating(Slider $slider)
     {
-        $slider->updated_by_id = Auth::user()->id;
+        $slider->updated_by_id = Auth::user()->id ?? null;
     }
 
     public function updated(Slider $slider)
@@ -28,7 +28,7 @@ class SliderObserver
 
     public function deleting(Slider $slider)
     {
-        $slider->deleted_by_id = Auth::user()->id;
+        $slider->deleted_by_id = Auth::user()->id ?? null;
         $slider->save();
     }
 

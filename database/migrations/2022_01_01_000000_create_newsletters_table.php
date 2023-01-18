@@ -8,13 +8,10 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('admission_calendars', function (Blueprint $table) {
+        Schema::create('newsletters', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 100)->nullable()->unique();
-            $table->string('name_idn', 100)->nullable()->unique();
-            $table->text('description')->nullable();
-            $table->text('description_idn')->nullable();
-            $table->date('date')->nullable();
+            $table->string('value', 100)->nullable()->unique();
+            $table->boolean('type')->nullable()->unsigned();
             $table->boolean('is_active')->nullable()->unsigned()->default(true);
             $table->foreignId('created_by_id')->nullable()->unsigned();
             $table->foreignId('updated_by_id')->nullable()->unsigned();
@@ -26,6 +23,6 @@ return new class extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('admission_calendars');
+        Schema::dropIfExists('newsletters');
     }
 };

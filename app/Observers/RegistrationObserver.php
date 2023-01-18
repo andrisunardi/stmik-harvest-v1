@@ -9,8 +9,8 @@ class RegistrationObserver
 {
     public function creating(Registration $registration)
     {
-        $registration->created_by_id = Auth::user()->id;
-        $registration->updated_by_id = Auth::user()->id;
+        $registration->created_by_id = Auth::user()->id ?? null;
+        $registration->updated_by_id = Auth::user()->id ?? null;
     }
 
     public function created(Registration $registration)
@@ -19,7 +19,7 @@ class RegistrationObserver
 
     public function updating(Registration $registration)
     {
-        $registration->updated_by_id = Auth::user()->id;
+        $registration->updated_by_id = Auth::user()->id ?? null;
     }
 
     public function updated(Registration $registration)
@@ -28,7 +28,7 @@ class RegistrationObserver
 
     public function deleting(Registration $registration)
     {
-        $registration->deleted_by_id = Auth::user()->id;
+        $registration->deleted_by_id = Auth::user()->id ?? null;
         $registration->save();
     }
 

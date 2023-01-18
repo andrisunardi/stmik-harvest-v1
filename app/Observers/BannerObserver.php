@@ -9,8 +9,8 @@ class BannerObserver
 {
     public function creating(Banner $banner)
     {
-        $banner->created_by_id = Auth::user()->id;
-        $banner->updated_by_id = Auth::user()->id;
+        $banner->created_by_id = Auth::user()->id ?? null;
+        $banner->updated_by_id = Auth::user()->id ?? null;
     }
 
     public function created(Banner $banner)
@@ -19,7 +19,7 @@ class BannerObserver
 
     public function updating(Banner $banner)
     {
-        $banner->updated_by_id = Auth::user()->id;
+        $banner->updated_by_id = Auth::user()->id ?? null;
     }
 
     public function updated(Banner $banner)
@@ -28,7 +28,7 @@ class BannerObserver
 
     public function deleting(Banner $banner)
     {
-        $banner->deleted_by_id = Auth::user()->id;
+        $banner->deleted_by_id = Auth::user()->id ?? null;
         $banner->save();
     }
 

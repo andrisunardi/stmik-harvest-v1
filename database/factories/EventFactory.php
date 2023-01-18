@@ -45,9 +45,8 @@ class EventFactory extends Factory
             'start' => fake()->dateTime(),
             'end' => fake()->dateTime(),
             'tag' => fake()->word(),
-            'tag_id' => fake()->word(),
+            'tag_idn' => fake()->word(),
             'image' => $image,
-            'date' => fake()->date(),
             'slug' => $slug,
             'is_active' => fake()->boolean(),
         ];

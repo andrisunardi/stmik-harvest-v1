@@ -99,9 +99,9 @@ class TuitionFee extends Model
 
     protected $fillable = [
         'name',
-        'name_id',
+        'name_idn',
         'description',
-        'description_id',
+        'description_idn',
         'is_active',
     ];
 

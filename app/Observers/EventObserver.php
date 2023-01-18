@@ -9,8 +9,8 @@ class EventObserver
 {
     public function creating(Event $event)
     {
-        $event->created_by_id = Auth::user()->id;
-        $event->updated_by_id = Auth::user()->id;
+        $event->created_by_id = Auth::user()->id ?? null;
+        $event->updated_by_id = Auth::user()->id ?? null;
     }
 
     public function created(Event $event)
@@ -19,7 +19,7 @@ class EventObserver
 
     public function updating(Event $event)
     {
-        $event->updated_by_id = Auth::user()->id;
+        $event->updated_by_id = Auth::user()->id ?? null;
     }
 
     public function updated(Event $event)
@@ -28,7 +28,7 @@ class EventObserver
 
     public function deleting(Event $event)
     {
-        $event->deleted_by_id = Auth::user()->id;
+        $event->deleted_by_id = Auth::user()->id ?? null;
         $event->save();
     }
 

@@ -9,8 +9,8 @@ class OfferObserver
 {
     public function creating(Offer $offer)
     {
-        $offer->created_by_id = Auth::user()->id;
-        $offer->updated_by_id = Auth::user()->id;
+        $offer->created_by_id = Auth::user()->id ?? null;
+        $offer->updated_by_id = Auth::user()->id ?? null;
     }
 
     public function created(Offer $offer)
@@ -19,7 +19,7 @@ class OfferObserver
 
     public function updating(Offer $offer)
     {
-        $offer->updated_by_id = Auth::user()->id;
+        $offer->updated_by_id = Auth::user()->id ?? null;
     }
 
     public function updated(Offer $offer)
@@ -28,7 +28,7 @@ class OfferObserver
 
     public function deleting(Offer $offer)
     {
-        $offer->deleted_by_id = Auth::user()->id;
+        $offer->deleted_by_id = Auth::user()->id ?? null;
         $offer->save();
     }
 

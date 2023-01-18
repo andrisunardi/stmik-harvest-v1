@@ -10,7 +10,8 @@ class NewsletterSeeder extends Seeder
     public function run()
     {
         $data = new Newsletter();
-        $data->email = 'info@andrisunardi.com';
+        $data->value = 'pmb@stmikku.ac.id';
+        $data->type = 1;
         $data->save();
     }
 }

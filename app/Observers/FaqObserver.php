@@ -9,8 +9,8 @@ class FaqObserver
 {
     public function creating(Faq $faq)
     {
-        $faq->created_by_id = Auth::user()->id;
-        $faq->updated_by_id = Auth::user()->id;
+        $faq->created_by_id = Auth::user()->id ?? null;
+        $faq->updated_by_id = Auth::user()->id ?? null;
     }
 
     public function created(Faq $faq)
@@ -19,7 +19,7 @@ class FaqObserver
 
     public function updating(Faq $faq)
     {
-        $faq->updated_by_id = Auth::user()->id;
+        $faq->updated_by_id = Auth::user()->id ?? null;
     }
 
     public function updated(Faq $faq)
@@ -28,7 +28,7 @@ class FaqObserver
 
     public function deleting(Faq $faq)
     {
-        $faq->deleted_by_id = Auth::user()->id;
+        $faq->deleted_by_id = Auth::user()->id ?? null;
         $faq->save();
     }
 

@@ -9,8 +9,8 @@ class BlogObserver
 {
     public function creating(Blog $blog)
     {
-        $blog->created_by_id = Auth::user()->id;
-        $blog->updated_by_id = Auth::user()->id;
+        $blog->created_by_id = Auth::user()->id ?? null;
+        $blog->updated_by_id = Auth::user()->id ?? null;
     }
 
     public function created(Blog $blog)
@@ -19,7 +19,7 @@ class BlogObserver
 
     public function updating(Blog $blog)
     {
-        $blog->updated_by_id = Auth::user()->id;
+        $blog->updated_by_id = Auth::user()->id ?? null;
     }
 
     public function updated(Blog $blog)
@@ -28,7 +28,7 @@ class BlogObserver
 
     public function deleting(Blog $blog)
     {
-        $blog->deleted_by_id = Auth::user()->id;
+        $blog->deleted_by_id = Auth::user()->id ?? null;
         $blog->save();
     }
 

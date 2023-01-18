@@ -9,8 +9,8 @@ class GalleryObserver
 {
     public function creating(Gallery $gallery)
     {
-        $gallery->created_by_id = Auth::user()->id;
-        $gallery->updated_by_id = Auth::user()->id;
+        $gallery->created_by_id = Auth::user()->id ?? null;
+        $gallery->updated_by_id = Auth::user()->id ?? null;
     }
 
     public function created(Gallery $gallery)
@@ -19,7 +19,7 @@ class GalleryObserver
 
     public function updating(Gallery $gallery)
     {
-        $gallery->updated_by_id = Auth::user()->id;
+        $gallery->updated_by_id = Auth::user()->id ?? null;
     }
 
     public function updated(Gallery $gallery)
@@ -28,7 +28,7 @@ class GalleryObserver
 
     public function deleting(Gallery $gallery)
     {
-        $gallery->deleted_by_id = Auth::user()->id;
+        $gallery->deleted_by_id = Auth::user()->id ?? null;
         $gallery->save();
     }
 

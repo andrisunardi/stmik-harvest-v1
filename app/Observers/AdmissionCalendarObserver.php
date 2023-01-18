@@ -9,8 +9,8 @@ class AdmissionCalendarObserver
 {
     public function creating(AdmissionCalendar $admissionCalendar)
     {
-        $admissionCalendar->created_by_id = Auth::user()->id;
-        $admissionCalendar->updated_by_id = Auth::user()->id;
+        $admissionCalendar->created_by_id = Auth::user()->id ?? null;
+        $admissionCalendar->updated_by_id = Auth::user()->id ?? null;
     }
 
     public function created(AdmissionCalendar $admissionCalendar)
@@ -19,7 +19,7 @@ class AdmissionCalendarObserver
 
     public function updating(AdmissionCalendar $admissionCalendar)
     {
-        $admissionCalendar->updated_by_id = Auth::user()->id;
+        $admissionCalendar->updated_by_id = Auth::user()->id ?? null;
     }
 
     public function updated(AdmissionCalendar $admissionCalendar)
@@ -28,7 +28,7 @@ class AdmissionCalendarObserver
 
     public function deleting(AdmissionCalendar $admissionCalendar)
     {
-        $admissionCalendar->deleted_by_id = Auth::user()->id;
+        $admissionCalendar->deleted_by_id = Auth::user()->id ?? null;
         $admissionCalendar->save();
     }
 

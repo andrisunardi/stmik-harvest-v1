@@ -34,7 +34,6 @@ class BannerFactory extends Factory
             'description' => fake()->paragraph(),
             'description_idn' => fake()->paragraph(),
             'image' => $image,
-            'datetime' => fake()->dateTime(),
             'is_active' => fake()->boolean(),
         ];
     }

@@ -1,2 +1,0 @@
-INSERT INTO `proposal_documents` (`id`, `name`, `name_idn`, `description`, `description_idn`, `image`, `file`, `is_active`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Proposal Document DIW.co.id Version 1', 'Dokumen Proposal DIW.co.id Versi 1', 'Format .pdf - Size 449.08 kb', 'Format .pdf - Ukuran 449.08 kb', 'proposal-document-diw.co.id-version-1.png', 'Proposal Document DIW.co.id Version 1.pdf', 1, '2020-11-12 17:14:14', '2020-11-12 17:14:14', NULL);

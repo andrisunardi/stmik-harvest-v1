@@ -21,7 +21,7 @@ return new class extends Migration
             $table->dateTime('start')->nullable();
             $table->datetime('end')->nullable();
             $table->text('tag')->nullable();
-            $table->text('tag_id')->nullable();
+            $table->text('tag_idn')->nullable();
             $table->string('image', 130)->nullable();
             $table->string('slug', 100)->nullable()->unique();
             $table->boolean('is_active')->nullable()->unsigned()->default(true);

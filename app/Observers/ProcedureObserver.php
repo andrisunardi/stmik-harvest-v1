@@ -9,8 +9,8 @@ class ProcedureObserver
 {
     public function creating(Procedure $procedure)
     {
-        $procedure->created_by_id = Auth::user()->id;
-        $procedure->updated_by_id = Auth::user()->id;
+        $procedure->created_by_id = Auth::user()->id ?? null;
+        $procedure->updated_by_id = Auth::user()->id ?? null;
     }
 
     public function created(Procedure $procedure)
@@ -19,7 +19,7 @@ class ProcedureObserver
 
     public function updating(Procedure $procedure)
     {
-        $procedure->updated_by_id = Auth::user()->id;
+        $procedure->updated_by_id = Auth::user()->id ?? null;
     }
 
     public function updated(Procedure $procedure)
@@ -28,7 +28,7 @@ class ProcedureObserver
 
     public function deleting(Procedure $procedure)
     {
-        $procedure->deleted_by_id = Auth::user()->id;
+        $procedure->deleted_by_id = Auth::user()->id ?? null;
         $procedure->save();
     }
 

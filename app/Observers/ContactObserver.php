@@ -9,8 +9,8 @@ class ContactObserver
 {
     public function creating(Contact $contact)
     {
-        $contact->created_by_id = Auth::user()->id;
-        $contact->updated_by_id = Auth::user()->id;
+        $contact->created_by_id = Auth::user()->id ?? null;
+        $contact->updated_by_id = Auth::user()->id ?? null;
     }
 
     public function created(Contact $contact)
@@ -19,7 +19,7 @@ class ContactObserver
 
     public function updating(Contact $contact)
     {
-        $contact->updated_by_id = Auth::user()->id;
+        $contact->updated_by_id = Auth::user()->id ?? null;
     }
 
     public function updated(Contact $contact)
@@ -28,7 +28,7 @@ class ContactObserver
 
     public function deleting(Contact $contact)
     {
-        $contact->deleted_by_id = Auth::user()->id;
+        $contact->deleted_by_id = Auth::user()->id ?? null;
         $contact->save();
     }
 

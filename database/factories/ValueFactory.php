@@ -14,7 +14,7 @@ class ValueFactory extends Factory
     public function definition()
     {
         if (env('APP_ENV') != 'testing') {
-            DB::statement(DB::raw("ALTER TABLE {$this->table} AUTO_INCREMENT = 1"));
+            // DB::statement(DB::raw("ALTER TABLE {$this->table} AUTO_INCREMENT = 1"));
         }
 
         return [

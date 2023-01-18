@@ -36,7 +36,7 @@ class GalleryFactory extends Factory
             'description' => fake()->paragraph(),
             'description_idn' => fake()->paragraph(),
             'tag' => fake()->word(),
-            'tag_id' => fake()->word(),
+            'tag_idn' => fake()->word(),
             'image' => $image,
             'is_active' => fake()->boolean(),
         ];

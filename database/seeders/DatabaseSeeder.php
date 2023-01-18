@@ -20,7 +20,6 @@ class DatabaseSeeder extends Seeder
             EventCategorySeeder::class,
             EventSeeder::class,
             FaqSeeder::class,
-            FrameworkSeeder::class,
             GallerySeeder::class,
             NetworkSeeder::class,
             NewsletterSeeder::class,

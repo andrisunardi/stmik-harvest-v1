@@ -9,8 +9,8 @@ class TuitionFeeObserver
 {
     public function creating(TuitionFee $tuitionFee)
     {
-        $tuitionFee->created_by_id = Auth::user()->id;
-        $tuitionFee->updated_by_id = Auth::user()->id;
+        $tuitionFee->created_by_id = Auth::user()->id ?? null;
+        $tuitionFee->updated_by_id = Auth::user()->id ?? null;
     }
 
     public function created(TuitionFee $tuitionFee)
@@ -19,7 +19,7 @@ class TuitionFeeObserver
 
     public function updating(TuitionFee $tuitionFee)
     {
-        $tuitionFee->updated_by_id = Auth::user()->id;
+        $tuitionFee->updated_by_id = Auth::user()->id ?? null;
     }
 
     public function updated(TuitionFee $tuitionFee)
@@ -28,7 +28,7 @@ class TuitionFeeObserver
 
     public function deleting(TuitionFee $tuitionFee)
     {
-        $tuitionFee->deleted_by_id = Auth::user()->id;
+        $tuitionFee->deleted_by_id = Auth::user()->id ?? null;
         $tuitionFee->save();
     }
 

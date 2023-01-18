@@ -9,8 +9,8 @@ class TestimonyObserver
 {
     public function creating(Testimony $testimony)
     {
-        $testimony->created_by_id = Auth::user()->id;
-        $testimony->updated_by_id = Auth::user()->id;
+        $testimony->created_by_id = Auth::user()->id ?? null;
+        $testimony->updated_by_id = Auth::user()->id ?? null;
     }
 
     public function created(Testimony $testimony)
@@ -19,7 +19,7 @@ class TestimonyObserver
 
     public function updating(Testimony $testimony)
     {
-        $testimony->updated_by_id = Auth::user()->id;
+        $testimony->updated_by_id = Auth::user()->id ?? null;
     }
 
     public function updated(Testimony $testimony)
@@ -28,7 +28,7 @@ class TestimonyObserver
 
     public function deleting(Testimony $testimony)
     {
-        $testimony->deleted_by_id = Auth::user()->id;
+        $testimony->deleted_by_id = Auth::user()->id ?? null;
         $testimony->save();
     }
 

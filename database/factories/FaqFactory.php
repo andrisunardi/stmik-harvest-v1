@@ -18,10 +18,10 @@ class FaqFactory extends Factory
         }
 
         return [
-            'name' => fake()->sentence(),
-            'name_idn' => fake()->sentence(),
-            'description' => fake()->paragraph(),
-            'description_idn' => fake()->paragraph(),
+            'question' => fake()->sentence(),
+            'question_idn' => fake()->sentence(),
+            'answer' => fake()->paragraph(),
+            'answer_idn' => fake()->paragraph(),
             'is_active' => fake()->boolean(),
         ];
     }

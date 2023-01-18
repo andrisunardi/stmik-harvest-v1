@@ -9,8 +9,8 @@ class ValueObserver
 {
     public function creating(Value $value)
     {
-        $value->created_by_id = Auth::user()->id;
-        $value->updated_by_id = Auth::user()->id;
+        $value->created_by_id = Auth::user()->id ?? null;
+        $value->updated_by_id = Auth::user()->id ?? null;
     }
 
     public function created(Value $value)
@@ -19,7 +19,7 @@ class ValueObserver
 
     public function updating(Value $value)
     {
-        $value->updated_by_id = Auth::user()->id;
+        $value->updated_by_id = Auth::user()->id ?? null;
     }
 
     public function updated(Value $value)
@@ -28,7 +28,7 @@ class ValueObserver
 
     public function deleting(Value $value)
     {
-        $value->deleted_by_id = Auth::user()->id;
+        $value->deleted_by_id = Auth::user()->id ?? null;
         $value->save();
     }
 

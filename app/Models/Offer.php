@@ -109,9 +109,9 @@ class Offer extends Model
 
     protected $fillable = [
         'name',
-        'name_id',
+        'name_idn',
         'description',
-        'description_id',
+        'description_idn',
         'button_name',
         'button_name_id',
         'button_link',

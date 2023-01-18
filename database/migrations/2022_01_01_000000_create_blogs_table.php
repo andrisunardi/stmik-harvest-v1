@@ -19,7 +19,7 @@ return new class extends Migration
             $table->text('body_idn')->nullable();
             $table->date('date')->nullable();
             $table->text('tag')->nullable();
-            $table->text('tag_id')->nullable();
+            $table->text('tag_idn')->nullable();
             $table->string('image', 130)->nullable();
             $table->string('slug', 100)->nullable()->unique();
             $table->boolean('is_active')->nullable()->unsigned()->default(true);

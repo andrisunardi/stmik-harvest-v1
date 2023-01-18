@@ -9,8 +9,8 @@ class NewsletterObserver
 {
     public function creating(Newsletter $newsletter)
     {
-        $newsletter->created_by_id = Auth::user()->id;
-        $newsletter->updated_by_id = Auth::user()->id;
+        $newsletter->created_by_id = Auth::user()->id ?? null;
+        $newsletter->updated_by_id = Auth::user()->id ?? null;
     }
 
     public function created(Newsletter $newsletter)
@@ -19,7 +19,7 @@ class NewsletterObserver
 
     public function updating(Newsletter $newsletter)
     {
-        $newsletter->updated_by_id = Auth::user()->id;
+        $newsletter->updated_by_id = Auth::user()->id ?? null;
     }
 
     public function updated(Newsletter $newsletter)
@@ -28,7 +28,7 @@ class NewsletterObserver
 
     public function deleting(Newsletter $newsletter)
     {
-        $newsletter->deleted_by_id = Auth::user()->id;
+        $newsletter->deleted_by_id = Auth::user()->id ?? null;
         $newsletter->save();
     }
 

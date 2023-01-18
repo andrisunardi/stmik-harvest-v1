@@ -9,8 +9,8 @@ class EventCategoryObserver
 {
     public function creating(EventCategory $eventCategory)
     {
-        $eventCategory->created_by_id = Auth::user()->id;
-        $eventCategory->updated_by_id = Auth::user()->id;
+        $eventCategory->created_by_id = Auth::user()->id ?? null;
+        $eventCategory->updated_by_id = Auth::user()->id ?? null;
     }
 
     public function created(EventCategory $eventCategory)
@@ -19,7 +19,7 @@ class EventCategoryObserver
 
     public function updating(EventCategory $eventCategory)
     {
-        $eventCategory->updated_by_id = Auth::user()->id;
+        $eventCategory->updated_by_id = Auth::user()->id ?? null;
     }
 
     public function updated(EventCategory $eventCategory)
@@ -28,7 +28,7 @@ class EventCategoryObserver
 
     public function deleting(EventCategory $eventCategory)
     {
-        $eventCategory->deleted_by_id = Auth::user()->id;
+        $eventCategory->deleted_by_id = Auth::user()->id ?? null;
         $eventCategory->save();
     }
 
