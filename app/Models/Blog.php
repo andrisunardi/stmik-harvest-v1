@@ -78,6 +78,10 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @method static \Illuminate\Database\Query\Builder|Blog withoutTrashed()
  *
  * @mixin \Eloquent
+ *
+ * @property string|null $tag_idn
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder|Blog whereTagIdn($value)
  */
 class Blog extends Model
 {

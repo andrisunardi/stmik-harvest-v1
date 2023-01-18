@@ -90,6 +90,8 @@ class EventComponent extends Component
             'eventCategories' => $this->getBlogCategories(),
             'recentBlogs' => $this->getRecentBlogs(),
             'popularTag' => $this->getPopularTag(),
-        ])->extends('layouts.app')->section('content');
+        ])->extends('layouts.app', [
+            'banner' => $this->getBanner(),
+        ])->section('content');
     }
 }

@@ -37,7 +37,7 @@ class EventViewComponent extends Component
         )->active()->orderByDesc('id');
 
         if ($this->search) {
-            // Session::flash('success', trans('index.found')." <b>'{$data_event->count()}'</b> ".trans('index.results_for')." <b>'{$this->search}'</b>");
+            Session::flash('success', trans('index.found')." <b>'{$data_event->count()}'</b> ".trans('index.results_for')." <b>'{$this->search}'</b>");
         }
 
         return $data_event->paginate(10);
@@ -76,6 +76,8 @@ class EventViewComponent extends Component
             'eventCategories' => $this->getEventCategories(),
             'recentEvents' => $this->getRecentEvents(),
             'popularTag' => $this->getPopularTag(),
-        ])->extends('layouts.app')->section('content');
+        ])->extends('layouts.app', [
+            'banner' => $this->getBanner(),
+        ])->section('content');
     }
 }

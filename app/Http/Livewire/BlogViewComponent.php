@@ -37,7 +37,7 @@ class BlogViewComponent extends Component
         )->active()->orderByDesc('id');
 
         if ($this->search) {
-            // Session::flash('success', trans('index.found')." <b>'{$data_blog->count()}'</b> ".trans('index.results_for')." <b>'{$this->search}'</b>");
+            Session::flash('success', trans('index.found')." <b>'{$data_blog->count()}'</b> ".trans('index.results_for')." <b>'{$this->search}'</b>");
         }
 
         return $data_blog->paginate(10);
@@ -76,6 +76,8 @@ class BlogViewComponent extends Component
             'blogCategories' => $this->getBlogCategories(),
             'recentBlogs' => $this->getRecentBlogs(),
             'popularTag' => $this->getPopularTag(),
-        ])->extends('layouts.app')->section('content');
+        ])->extends('layouts.app', [
+            'banner' => $this->getBanner(),
+        ])->section('content');
     }
 }

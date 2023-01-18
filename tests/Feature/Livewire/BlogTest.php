@@ -105,11 +105,11 @@ class BlogTest extends TestCase
             'blog_category_id' => $blog_category->id,
         ]);
 
-        $response = $this->get(route("{$this->menu_slug}.view", ['blog_slug' => $blogs[0]->slug]));
+        $response = $this->get(route("{$this->menu_slug}.view", ['slug' => $blogs[0]->slug]));
         $response->assertStatus(200);
         $response->assertSeeLivewire(BlogViewComponent::class);
 
-        Livewire::test(BlogViewComponent::class, ['blog_slug' => $blogs[0]->slug])
+        Livewire::test(BlogViewComponent::class, ['slug' => $blogs[0]->slug])
             ->assertSee($blog_category->translate_name)
             ->assertSee($blog_category->slug)
             ->assertSee($blogs[0]->blog_category->translate_name)

@@ -28,6 +28,8 @@ class BlogSidebarComponent extends Component
             'id' => $this->id,
             'name' => $this->name,
             'blogCategories' => $this->getBlogCategories(),
-        ])->extends('layouts.app')->section('content');
+        ])->extends('layouts.app', [
+            'banner' => $this->getBanner(),
+        ])->section('content');
     }
 }

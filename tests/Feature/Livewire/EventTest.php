@@ -166,11 +166,11 @@ class EventTest extends TestCase
             'event_category_id' => $event_category->id,
         ]);
 
-        $response = $this->get(route("{$this->menu_slug}.view", ['event_slug' => $events[0]->slug]));
+        $response = $this->get(route("{$this->menu_slug}.view", ['slug' => $events[0]->slug]));
         $response->assertStatus(200);
         $response->assertSeeLivewire(EventViewComponent::class);
 
-        Livewire::test(EventViewComponent::class, ['event_slug' => $events[0]->slug])
+        Livewire::test(EventViewComponent::class, ['slug' => $events[0]->slug])
             ->assertSee($event_category->translate_name)
             ->assertSee($event_category->slug)
             ->assertSee($events[0]->event_category->translate_name)

@@ -23,6 +23,8 @@ class ProcedureComponent extends Component
             'banner' => $this->getBanner(),
             'networks' => $this->getNetworks(),
             'values' => $this->getValues(),
-        ])->extends('layouts.app')->section('content');
+        ])->extends('layouts.app', [
+            'banner' => $this->getBanner(),
+        ])->section('content');
     }
 }

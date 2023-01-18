@@ -22,6 +22,8 @@ class TuitionFeesComponent extends Component
         return view('livewire.procedure.index', [
             'banner' => $this->getBanner(),
             'tuitionFees' => $this->getTuitionFees(),
-        ])->extends('layouts.app')->section('content');
+        ])->extends('layouts.app', [
+            'banner' => $this->getBanner(),
+        ])->section('content');
     }
 }

@@ -58,6 +58,12 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @method static \Illuminate\Database\Query\Builder|AdmissionCalendar withoutTrashed()
  *
  * @mixin \Eloquent
+ *
+ * @property string|null $name_idn
+ * @property string|null $description_idn
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder|AdmissionCalendar whereDescriptionIdn($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|AdmissionCalendar whereNameIdn($value)
  */
 class AdmissionCalendar extends Model
 {

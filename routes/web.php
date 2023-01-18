@@ -1,23 +1,23 @@
 <?php
 
-use App\Http\Livewire\HomeComponent;
 use App\Http\Livewire\AboutComponent;
-use App\Http\Livewire\OurProfileComponent;
-use App\Http\Livewire\OurValuesComponent;
-use App\Http\Livewire\OurNetworkComponent;
-use App\Http\Livewire\FaqComponent;
-use App\Http\Livewire\OnlineRegistrationComponent;
 use App\Http\Livewire\AdmissionCalendarComponent;
-use App\Http\Livewire\InformationSystemComponent;
-use App\Http\Livewire\TuitionFeesComponent;
-use App\Http\Livewire\ScholarshipsComponent;
-use App\Http\Livewire\ProcedureComponent;
-use App\Http\Livewire\GalleryComponent;
-use App\Http\Livewire\EventComponent;
-use App\Http\Livewire\EventViewComponent;
 use App\Http\Livewire\BlogComponent;
 use App\Http\Livewire\BlogViewComponent;
 use App\Http\Livewire\ContactUsComponent;
+use App\Http\Livewire\EventComponent;
+use App\Http\Livewire\EventViewComponent;
+use App\Http\Livewire\FaqComponent;
+use App\Http\Livewire\GalleryComponent;
+use App\Http\Livewire\HomeComponent;
+use App\Http\Livewire\InformationSystemComponent;
+use App\Http\Livewire\OnlineRegistrationComponent;
+use App\Http\Livewire\OurNetworkComponent;
+use App\Http\Livewire\OurProfileComponent;
+use App\Http\Livewire\OurValuesComponent;
+use App\Http\Livewire\ProcedureComponent;
+use App\Http\Livewire\ScholarshipsComponent;
+use App\Http\Livewire\TuitionFeesComponent;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 

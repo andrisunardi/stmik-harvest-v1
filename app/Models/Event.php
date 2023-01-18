@@ -82,6 +82,10 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @method static \Illuminate\Database\Query\Builder|Event withoutTrashed()
  *
  * @mixin \Eloquent
+ *
+ * @property string|null $tag_idn
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder|Event whereTagIdn($value)
  */
 class Event extends Model
 {

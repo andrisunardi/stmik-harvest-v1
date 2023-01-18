@@ -203,7 +203,7 @@
                     @foreach ($events as $event)
                         <div class="courses">
                             <div class="courses__thumb">
-                                <a draggable="false" href="{{ route("event.view", ["event_slug" => $event->slug]) }}">
+                                <a draggable="false" href="{{ route("event.view", ["slug" => $event->slug]) }}">
                                     <img draggable="false" class="img-fluid w-100" src="{{ $event->assetImage() }}" alt="{{ $event->altImage() }}">
                                 </a>
                                 <div class="courses__hover__info">
@@ -219,7 +219,7 @@
                             </div>
                             <div class="courses__details">
                                 <div class="courses__details__inner">
-                                    <h2><a draggable="false" href="{{ route("event.view", ["event_slug" => $event->slug]) }}">{{ $event->translate_name }}</a></h2>
+                                    <h2><a draggable="false" href="{{ route("event.view", ["slug" => $event->slug]) }}">{{ $event->translate_name }}</a></h2>
                                     <p>{{ strip_tags(Str::limit($event->translate_description, 100)) }}</p>
                                 </div>
                                 {{-- <ul class="courses__meta">
@@ -401,7 +401,7 @@
                         <div class="upcoming">
                             <div class="upcoming__inner">
                                 <div class="upcoming__thumb">
-                                    <a draggable="false" href="{{ route("event.view", ["event_slug" => $upcoming_event->slug]) }}">
+                                    <a draggable="false" href="{{ route("event.view", ["slug" => $upcoming_event->slug]) }}">
                                         <img draggable="false" class="img-fluid w-100" src="{{ $upcoming_event->assetImage() }}" alt="{{ $upcoming_event->altImage() }}">
                                     </a>
                                 </div>
@@ -426,7 +426,7 @@
                                             <p>{{ $upcoming_event->translate_name }}</p>
                                         </div>
                                         <div class="event__btn">
-                                            <a draggable="false" class="htc__btn btn--transparent" href="{{ route("event.view", ["event_slug" => $upcoming_event->slug]) }}">{{ trans("index.view_detail") }}</a>
+                                            <a draggable="false" class="htc__btn btn--transparent" href="{{ route("event.view", ["slug" => $upcoming_event->slug]) }}">{{ trans("index.view_detail") }}</a>
                                         </div>
                                     </div>
                                 </div>
@@ -494,7 +494,7 @@
                     <div class="col-lg-4 col-xl-4 col-md-6 mb-6">
                         <div class="blog">
                             <div class="blog__thumb">
-                                <a draggable="false" href="{{ route("blog.view", ["blog_slug" => $blog->slug]) }}">
+                                <a draggable="false" href="{{ route("blog.view", ["slug" => $blog->slug]) }}">
                                     <img draggable="false" class="img-fluid w-100" src="{{ $blog->assetImage() }}" alt="{{ $blog->altImage() }}">
                                 </a>
                                 <div class="blog__date">
@@ -502,10 +502,10 @@
                                 </div>
                             </div>
                             <div class="blog__details">
-                                <h2><a draggable="false" href="{{ route("blog.view", ["blog_slug" => $blog->slug]) }}">{{ $blog->translate_name }}</a></h2>
+                                <h2><a draggable="false" href="{{ route("blog.view", ["slug" => $blog->slug]) }}">{{ $blog->translate_name }}</a></h2>
                                 <p>{{ strip_tags(Str::limit($blog->translate_description, 300)) }}</p>
                                 <div class="blog__btn">
-                                    <a draggable="false" class="read__more__btn" href="{{ route("blog.view", ["blog_slug" => $blog->slug]) }}">{{ trans("index.read_more") }}</a>
+                                    <a draggable="false" class="read__more__btn" href="{{ route("blog.view", ["slug" => $blog->slug]) }}">{{ trans("index.read_more") }}</a>
                                 </div>
                             </div>
                         </div>

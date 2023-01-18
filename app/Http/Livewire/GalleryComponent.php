@@ -46,6 +46,8 @@ class GalleryComponent extends Component
         return view('livewire.faq.index', [
             'banner' => $this->getBanner(),
             'galleries' => $this->getGalleries(),
-        ])->extends('layouts.app')->section('content');
+        ])->extends('layouts.app', [
+            'banner' => $this->getBanner(),
+        ])->section('content');
     }
 }

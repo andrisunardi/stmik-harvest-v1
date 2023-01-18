@@ -22,6 +22,8 @@ class OurNetworkComponent extends Component
         return view('livewire.our-network.index', [
             'banner' => $this->getBanner(),
             'networks' => $this->getNetworks(),
-        ])->extends('layouts.app')->section('content');
+        ])->extends('layouts.app', [
+            'banner' => $this->getBanner(),
+        ])->section('content');
     }
 }

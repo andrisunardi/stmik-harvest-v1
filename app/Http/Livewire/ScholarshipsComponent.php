@@ -15,6 +15,8 @@ class ScholarshipsComponent extends Component
     {
         return view('livewire.scholarships.index', [
             'banner' => $this->getBanner(),
-        ])->extends('layouts.app')->section('content');
+        ])->extends('layouts.app', [
+            'banner' => $this->getBanner(),
+        ])->section('content');
     }
 }

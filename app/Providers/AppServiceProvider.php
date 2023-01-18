@@ -231,14 +231,9 @@ class AppServiceProvider extends ServiceProvider
         $this->subDomain = 'cms';
         View::share('subDomain', $this->subDomain);
 
-        // if (Schema::hasTable('banner')) {
-        //     $this->banner = Banner::active()->orderBy('id')->first();
-        //     View::share('banner', $this->banner);
-        // }
-
-        // if (Schema::hasTable('setting')) {
-        //     $this->setting = Setting::active()->orderByDesc('id')->first();
-        //     View::share('setting', $this->setting);
-        // }
+        if (Schema::hasTable('banners')) {
+            $this->banner = Banner::active()->orderBy('id')->first();
+            View::share('banner', $this->banner);
+        }
     }
 }
