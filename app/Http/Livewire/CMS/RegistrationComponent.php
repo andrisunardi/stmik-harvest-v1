@@ -2,11 +2,14 @@
 
 namespace App\Http\Livewire\CMS;
 
+use App\Enums\RegistrationGender;
+use App\Enums\RegistrationType;
 use App\Exports\RegistrationExport;
 use App\Models\Registration;
 use App\Models\User;
 use App\Services\RegistrationService;
 use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
 use Maatwebsite\Excel\Facades\Excel;
 use PDF;
 
@@ -39,7 +42,7 @@ class RegistrationComponent extends Component
         $this->pageName = 'Registration';
         $this->pageTitle = trans('index.'.Str::snake($this->pageName));
         $this->pageSlug = Str::slug($this->pageName);
-        $this->pageIcon = 'fas fa-phone';
+        $this->pageIcon = 'fas fa-pencil';
         $this->pageTable = Str::plural(Str::snake($this->pageName));
         $this->pageCategoryName = null;
         $this->pageCategoryTitle = null;
@@ -95,15 +98,19 @@ class RegistrationComponent extends Component
 
     public $name;
 
-    public $company;
-
     public $email;
 
     public $phone;
 
-    public $subject;
+    public $gender = '';
 
-    public $message;
+    public $school;
+
+    public $major;
+
+    public $city;
+
+    public $type = '';
 
     public $is_active = '';
 
@@ -129,11 +136,13 @@ class RegistrationComponent extends Component
         'detail' => ['except' => ''],
 
         'name' => ['except' => ''],
-        'company' => ['except' => ''],
         'email' => ['except' => ''],
         'phone' => ['except' => ''],
-        'subject' => ['except' => ''],
-        'message' => ['except' => ''],
+        'gender' => ['except' => ''],
+        'school' => ['except' => ''],
+        'major' => ['except' => ''],
+        'city' => ['except' => ''],
+        'type' => ['except' => ''],
         'is_active' => ['except' => ''],
     ];
 
@@ -210,11 +219,13 @@ class RegistrationComponent extends Component
         $this->reset([
             'registration',
             'name',
-            'company',
             'email',
             'phone',
-            'subject',
-            'message',
+            'gender',
+            'school',
+            'major',
+            'city',
+            'type',
             'is_active',
         ]);
 
@@ -225,11 +236,13 @@ class RegistrationComponent extends Component
     {
         if ($this->registration) {
             $this->name = $this->name ?: $this->registration->name;
-            $this->company = $this->company ?: $this->registration->company;
             $this->email = $this->email ?: $this->registration->email;
             $this->phone = $this->phone ?: $this->registration->phone;
-            $this->subject = $this->subject ?: $this->registration->subject;
-            $this->message = $this->message ?: $this->registration->message;
+            $this->gender = $this->gender ?: $this->registration->gender;
+            $this->school = $this->school ?: $this->registration->school;
+            $this->major = $this->major ?: $this->registration->major;
+            $this->city = $this->city ?: $this->registration->city;
+            $this->type = $this->type ?: $this->registration->type;
             $this->is_active = $this->is_active ?: $this->registration->is_active;
         }
 
@@ -396,12 +409,14 @@ class RegistrationComponent extends Component
         $id = $this->pageType == 'edit' ? $this->registration->id : null;
 
         return [
-            'name' => 'required|max:50',
-            'company' => 'nullable|max:50',
-            'email' => "required|max:50|email:rfc,dns|regex:/^\S*$/u",
-            'phone' => 'nullable|max:15',
-            'subject' => 'required|max:100',
-            'message' => 'required|max:1000',
+            'name' => 'required|max:50|unique:registrations,name',
+            'email' => 'required|max:50|email:rfc,dns|unique:registrations,email',
+            'phone' => 'required|max:20|unique:registrations,phone',
+            'gender' => 'required|numeric|'.Rule::in([1, 2]),
+            'school' => 'required|max:50',
+            'major' => 'required|max:50',
+            'city' => 'required|max:50',
+            'type' => 'required|numeric|'.Rule::in([1, 2]),
             'is_active' => 'required|boolean',
         ];
     }
@@ -519,6 +534,16 @@ class RegistrationComponent extends Component
         $this->alert('success', trans('index.all').' '."{$this->pageName} ".trans('index.at_trash_has_been_deleted_permanently_successfully'));
     }
 
+    public function getRegistrationGenders()
+    {
+        return RegistrationGender::cases();
+    }
+
+    public function getRegistrationTypes()
+    {
+        return RegistrationType::cases();
+    }
+
     public function getCreatedBies()
     {
         $created_by_id = Registration::groupBy('created_by_id')->pluck('created_by_id');
@@ -545,11 +570,13 @@ class RegistrationComponent extends Component
         if (in_array($this->pageType, ['index', 'trash'])) {
             $registrations = Registration::with('createdBy', 'updatedBy', 'deletedBy')
                 ->when($this->name, fn ($q) => $q->where('name', 'LIKE', "%{$this->name}%"))
-                ->when($this->company, fn ($q) => $q->where('company', 'LIKE', "%{$this->company}%"))
                 ->when($this->email, fn ($q) => $q->where('email', 'LIKE', "%{$this->email}%"))
                 ->when($this->phone, fn ($q) => $q->where('phone', 'LIKE', "%{$this->phone}%"))
-                ->when($this->subject, fn ($q) => $q->where('subject', 'LIKE', "%{$this->subject}%"))
-                ->when($this->message, fn ($q) => $q->where('message', 'LIKE', "%{$this->message}%"))
+                ->when($this->gender, fn ($q) => $q->where('gender', $this->gender))
+                ->when($this->school, fn ($q) => $q->where('school', 'LIKE', "%{$this->school}%"))
+                ->when($this->major, fn ($q) => $q->where('major', 'LIKE', "%{$this->major}%"))
+                ->when($this->city, fn ($q) => $q->where('city', 'LIKE', "%{$this->city}%"))
+                ->when($this->type, fn ($q) => $q->where('type', $this->type))
 
                 ->when($this->is_active, fn ($q) => $q->where('is_active', $this->is_active == 2 ? false : true))
                 ->when($this->created_by_id, fn ($q) => $q->where('created_by_id', $this->created_by_id))
@@ -665,6 +692,8 @@ class RegistrationComponent extends Component
             'createdBies' => $this->readyToLoad ? $this->getCreatedBies() : collect(),
             'updatedBies' => $this->readyToLoad ? $this->getUpdatedBies() : collect(),
             'deletedBies' => $this->readyToLoad ? $this->getDeletedBies() : collect(),
+            'registrationGenders' => $this->readyToLoad ? $this->getRegistrationGenders() : collect(),
+            'registrationTypes' => $this->readyToLoad ? $this->getRegistrationTypes() : collect(),
             'registrations' => $this->readyToLoad ? $this->getRegistrations() : collect(),
             'summary' => $this->readyToLoad ? $this->getSummary() : collect(),
         ])->extends("{$this->subDomain}.layouts.app")->section('content');
