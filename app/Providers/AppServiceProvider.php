@@ -15,6 +15,7 @@ use App\Models\Network;
 use App\Models\Newsletter;
 use App\Models\Offer;
 use App\Models\Procedure;
+use App\Models\Registration;
 use App\Models\Setting;
 use App\Models\Slider;
 use App\Models\Testimony;
@@ -34,6 +35,7 @@ use App\Observers\NetworkObserver;
 use App\Observers\NewsletterObserver;
 use App\Observers\OfferObserver;
 use App\Observers\ProcedureObserver;
+use App\Observers\RegistrationObserver;
 use App\Observers\SettingObserver;
 use App\Observers\SliderObserver;
 use App\Observers\TestimonyObserver;
@@ -53,6 +55,8 @@ use Illuminate\Support\Str;
 class AppServiceProvider extends ServiceProvider
 {
     public $subDomain;
+
+    public $banner;
 
     public function register()
     {
@@ -213,6 +217,7 @@ class AppServiceProvider extends ServiceProvider
         Newsletter::observe(NewsletterObserver::class);
         Offer::observe(OfferObserver::class);
         Procedure::observe(ProcedureObserver::class);
+        Registration::observe(RegistrationObserver::class);
         Setting::observe(SettingObserver::class);
         Slider::observe(SliderObserver::class);
         Testimony::observe(TestimonyObserver::class);

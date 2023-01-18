@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Http\Livewire\CMS\Marketing;
+namespace App\Http\Livewire\CMS;
 
 use App\Enums\NewsletterType;
 use App\Exports\Marketing\NewsletterExport;
-use App\Http\Livewire\CMS\Component;
 use App\Models\Newsletter;
 use App\Models\User;
 use App\Services\NewsletterService;

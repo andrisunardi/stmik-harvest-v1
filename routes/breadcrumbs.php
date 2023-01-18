@@ -117,533 +117,112 @@ Breadcrumbs::for("{$subDomain}.index", function (BreadcrumbTrail $trail) use ($s
     $trail->push(trans('index.home'), route("{$subDomain}.index"), ['icon' => 'fas fa-home fa-fw']);
 });
 
-$page = 'calendar';
+$page = 'registration';
 Breadcrumbs::for("{$subDomain}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $page) {
     $trail->parent("{$subDomain}.index");
-    $trail->push(trans("index.{$page}"), route("{$subDomain}.{$page}.index"), ['icon' => 'fas fa-calendar fa-fw']);
-});
-
-$page = 'my-task';
-Breadcrumbs::for("{$subDomain}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $page) {
-    $trail->parent("{$subDomain}.index");
-    $trail->push(trans('index.my_task'), route("{$subDomain}.{$page}.index"), ['icon' => 'fas fa-tasks fa-fw']);
-});
-
-$page = 'my-assignment';
-Breadcrumbs::for("{$subDomain}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $page) {
-    $trail->parent("{$subDomain}.index");
-    $trail->push(trans('index.my_assignment'), route("{$subDomain}.{$page}.index"), ['icon' => 'fas fa-square-check fa-fw']);
-});
-
-$page = 'my-absent';
-Breadcrumbs::for("{$subDomain}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $page) {
-    $trail->parent("{$subDomain}.index");
-    $trail->push(trans('index.my_absent'), route("{$subDomain}.{$page}.index"), ['icon' => 'fas fa-check-to-slot fa-fw']);
-});
-
-$page = 'my-salary';
-Breadcrumbs::for("{$subDomain}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $page) {
-    $trail->parent("{$subDomain}.index");
-    $trail->push(trans('index.my_salary'), route("{$subDomain}.{$page}.index"), ['icon' => 'fas fa-hand-holding-usd fa-fw']);
-});
-
-// REPORT
-$menu = 'report';
-Breadcrumbs::for("{$subDomain}.{$menu}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu) {
-    $trail->parent("{$subDomain}.index");
-    $trail->push(trans("index.{$menu}"), route("{$subDomain}.{$menu}.index"), ['icon' => 'fas fa-file-lines fa-fw']);
-});
-
-$page = 'absent-report';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $page) {
-    $trail->parent("{$subDomain}.{$menu}.index");
-    $trail->push(trans('index.absent_report'), route("{$subDomain}.{$menu}.{$page}.index"), ['icon' => 'fas fa-file-circle-check fa-fw']);
-});
-
-$page = 'annual-report';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $page) {
-    $trail->parent("{$subDomain}.{$menu}.index");
-    $trail->push(trans('index.annual_report'), route("{$subDomain}.{$menu}.{$page}.index"), ['icon' => 'fas fa-file-signature fa-fw']);
-});
-
-$page = 'balance-sheet';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $page) {
-    $trail->parent("{$subDomain}.{$menu}.index");
-    $trail->push(trans('index.balance_sheet'), route("{$subDomain}.{$menu}.{$page}.index"), ['icon' => 'fas fa-file-invoice fa-fw']);
-});
-
-$page = 'income-statement';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $page) {
-    $trail->parent("{$subDomain}.{$menu}.index");
-    $trail->push(trans('index.income_statement'), route("{$subDomain}.{$menu}.{$page}.index"), ['icon' => 'fas fa-file-invoice-dollar fa-fw']);
-});
-
-// DEVELOPMENT
-$menu = 'development';
-Breadcrumbs::for("{$subDomain}.{$menu}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu) {
-    $trail->parent("{$subDomain}.index");
-    $trail->push(trans("index.{$menu}"), route("{$subDomain}.{$menu}.index"), ['icon' => 'fas fa-tools fa-fw']);
-});
-
-$subMenu = 'portfolio';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$subMenu}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $subMenu) {
-    $trail->parent("{$subDomain}.{$menu}.index");
-    $trail->push(trans("index.{$subMenu}"), route("{$subDomain}.{$menu}.{$subMenu}.index"), ['icon' => 'fas fa-th-large fa-fw']);
-});
-
-$page = 'category';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$subMenu}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $subMenu, $page) {
-    $trail->parent("{$subDomain}.{$menu}.{$subMenu}.index");
-    $trail->push(trans("index.portfolio_{$page}"), route("{$subDomain}.{$menu}.{$subMenu}.{$page}.index"), ['icon' => 'fas fa-tags fa-fw']);
-});
-
-$subMenu = 'product';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$subMenu}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $subMenu) {
-    $trail->parent("{$subDomain}.{$menu}.index");
-    $trail->push(trans("index.{$subMenu}"), route("{$subDomain}.{$menu}.{$subMenu}.index"), ['icon' => 'fas fa-boxes fa-fw']);
-});
-
-$page = 'category';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$subMenu}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $subMenu, $page) {
-    $trail->parent("{$subDomain}.{$menu}.{$subMenu}.index");
-    $trail->push(trans("index.product_{$page}"), route("{$subDomain}.{$menu}.{$subMenu}.{$page}.index"), ['icon' => 'fas fa-tags fa-fw']);
-});
-
-$subMenu = 'template';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$subMenu}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $subMenu) {
-    $trail->parent("{$subDomain}.{$menu}.index");
-    $trail->push(trans("index.{$subMenu}"), route("{$subDomain}.{$menu}.{$subMenu}.index"), ['icon' => 'fas fa-th fa-fw']);
-});
-
-$page = 'category';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$subMenu}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $subMenu, $page) {
-    $trail->parent("{$subDomain}.{$menu}.{$subMenu}.index");
-    $trail->push(trans("index.template_{$page}"), route("{$subDomain}.{$menu}.{$subMenu}.{$page}.index"), ['icon' => 'fas fa-tags fa-fw']);
-});
-
-$page = 'task';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $page) {
-    $trail->parent("{$subDomain}.{$menu}.index");
-    $trail->push(trans("index.{$page}"), route("{$subDomain}.{$menu}.{$page}.index"), ['icon' => 'fas fa-tasks fa-fw']);
-});
-
-$page = 'assignment';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $page) {
-    $trail->parent("{$subDomain}.{$menu}.index");
-    $trail->push(trans("index.{$page}"), route("{$subDomain}.{$menu}.{$page}.index"), ['icon' => 'fas fa-list-check fa-fw']);
-});
-
-$page = 'progress';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $page) {
-    $trail->parent("{$subDomain}.{$menu}.index");
-    $trail->push(trans("index.{$page}"), route("{$subDomain}.{$menu}.{$page}.index"), ['icon' => 'fas fa-bar fa-fw']);
-});
-
-$page = 'revision';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $page) {
-    $trail->parent("{$subDomain}.{$menu}.index");
-    $trail->push(trans("index.{$page}"), route("{$subDomain}.{$menu}.{$page}.index"), ['icon' => 'fas fa-file-check fa-fw']);
-});
-
-// HRD
-$menu = 'hrd';
-Breadcrumbs::for("{$subDomain}.{$menu}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu) {
-    $trail->parent("{$subDomain}.index");
-    $trail->push(trans("index.{$menu}"), route("{$subDomain}.{$menu}.index"), ['icon' => 'fas fa-user-tie fa-fw']);
-});
-
-$page = 'absent';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $page) {
-    $trail->parent("{$subDomain}.{$menu}.index");
-    $trail->push(trans("index.{$page}"), route("{$subDomain}.{$menu}.{$page}.index"), ['icon' => 'fas fa-check-to-slot fa-fw']);
-});
-
-$page = 'employee';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $page) {
-    $trail->parent("{$subDomain}.{$menu}.index");
-    $trail->push(trans("index.{$page}"), route("{$subDomain}.{$menu}.{$page}.index"), ['icon' => 'fas fa-users fa-fw']);
-});
-
-$page = 'endorse';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $page) {
-    $trail->parent("{$subDomain}.{$menu}.index");
-    $trail->push(trans("index.{$page}"), route("{$subDomain}.{$menu}.{$page}.index"), ['icon' => 'fas fa-people-group fa-fw']);
-});
-
-$page = 'client';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $page) {
-    $trail->parent("{$subDomain}.{$menu}.index");
-    $trail->push(trans("index.{$page}"), route("{$subDomain}.{$menu}.{$page}.index"), ['icon' => 'fas fa-user-tie fa-fw']);
-});
-
-$page = 'agent';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $page) {
-    $trail->parent("{$subDomain}.{$menu}.index");
-    $trail->push(trans("index.{$page}"), route("{$subDomain}.{$menu}.{$page}.index"), ['icon' => 'fas fa-user-secret fa-fw']);
-});
-
-$page = 'career';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $page) {
-    $trail->parent("{$subDomain}.{$menu}.index");
-    $trail->push(trans("index.{$page}"), route("{$subDomain}.{$menu}.{$page}.index"), ['icon' => 'fas fa-briefcase fa-fw']);
-});
-
-$subMenu = 'procedure';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$subMenu}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $subMenu) {
-    $trail->parent("{$subDomain}.{$menu}.index");
-    $trail->push(trans("index.{$subMenu}"), route("{$subDomain}.{$menu}.{$subMenu}.index"), ['icon' => 'fas fa-th-large fa-fw']);
-});
-
-$page = 'category';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$subMenu}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $subMenu, $page) {
-    $trail->parent("{$subDomain}.{$menu}.{$subMenu}.index");
-    $trail->push(trans("index.procedure_{$page}"), route("{$subDomain}.{$menu}.{$subMenu}.{$page}.index"), ['icon' => 'fas fa-tags fa-fw']);
-});
-
-$subMenu = 'rule';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$subMenu}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $subMenu) {
-    $trail->parent("{$subDomain}.{$menu}.index");
-    $trail->push(trans("index.{$subMenu}"), route("{$subDomain}.{$menu}.{$subMenu}.index"), ['icon' => 'fas fa-th-large fa-fw']);
-});
-
-$page = 'category';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$subMenu}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $subMenu, $page) {
-    $trail->parent("{$subDomain}.{$menu}.{$subMenu}.index");
-    $trail->push(trans("index.rule_{$page}"), route("{$subDomain}.{$menu}.{$subMenu}.{$page}.index"), ['icon' => 'fas fa-tags fa-fw']);
-});
-
-$page = 'register-influencer';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $page) {
-    $trail->parent("{$subDomain}.{$menu}.index");
-    $trail->push(trans('index.register_influencer'), route("{$subDomain}.{$menu}.{$page}.index"), ['icon' => 'fas fa-pen fa-fw']);
-});
-
-$page = 'sponsor';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $page) {
-    $trail->parent("{$subDomain}.{$menu}.index");
-    $trail->push(trans("index.{$page}"), route("{$subDomain}.{$menu}.{$page}.index"), ['icon' => 'fas fa-people-line fa-fw']);
-});
-
-$page = 'testimonial';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $page) {
-    $trail->parent("{$subDomain}.{$menu}.index");
-    $trail->push(trans("index.{$page}"), route("{$subDomain}.{$menu}.{$page}.index"), ['icon' => 'fas fa-comments fa-fw']);
-});
-
-// PURCHASING
-$menu = 'purchasing';
-Breadcrumbs::for("{$subDomain}.{$menu}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu) {
-    $trail->parent("{$subDomain}.index");
-    $trail->push(trans("index.{$menu}"), route("{$subDomain}.{$menu}.index"), ['icon' => 'fas fa-cash-register fa-fw']);
-});
-
-$page = 'buy-advertisement';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $page) {
-    $trail->parent("{$subDomain}.{$menu}.index");
-    $trail->push(trans('index.buy_advertisement'), route("{$subDomain}.{$menu}.{$page}.index"), ['icon' => 'fas fa-bullhorn fa-fw']);
-});
-
-$page = 'advertisement-provider';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $page) {
-    $trail->parent("{$subDomain}.{$menu}.index");
-    $trail->push(trans('index.advertisement_provider'), route("{$subDomain}.{$menu}.{$page}.index"), ['icon' => 'fas fa-tags fa-fw']);
-});
-
-$page = 'buy-domain-hosting';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $page) {
-    $trail->parent("{$subDomain}.{$menu}.index");
-    $trail->push(trans('index.buy_domain_hosting'), route("{$subDomain}.{$menu}.{$page}.index"), ['icon' => 'fas fa-server fa-fw']);
-});
-
-$page = 'domain-hosting-provider';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $page) {
-    $trail->parent("{$subDomain}.{$menu}.index");
-    $trail->push(trans('index.domain_hosting_provider'), route("{$subDomain}.{$menu}.{$page}.index"), ['icon' => 'fas fa-tags fa-fw']);
-});
-
-$page = 'buy-internet';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $page) {
-    $trail->parent("{$subDomain}.{$menu}.index");
-    $trail->push(trans('index.bu_internet'), route("{$subDomain}.{$menu}.{$page}.index"), ['icon' => 'fas fa-wifi fa-fw']);
-});
-
-$page = 'internet-provider';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $page) {
-    $trail->parent("{$subDomain}.{$menu}.index");
-    $trail->push(trans('index.internet_provider'), route("{$subDomain}.{$menu}.{$page}.index"), ['icon' => 'fas fa-tags fa-fw']);
-});
-
-$page = 'buy-phone-credit';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $page) {
-    $trail->parent("{$subDomain}.{$menu}.index");
-    $trail->push(trans('index.buy_phone_credit'), route("{$subDomain}.{$menu}.{$page}.index"), ['icon' => 'fas fa-coins fa-fw']);
-});
-
-$page = 'phone-credit-provider';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $page) {
-    $trail->parent("{$subDomain}.{$menu}.index");
-    $trail->push(trans('index.phone_credit_provider'), route("{$subDomain}.{$menu}.{$page}.index"), ['icon' => 'fas fa-tags fa-fw']);
-});
-
-$page = 'buy-item';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $page) {
-    $trail->parent("{$subDomain}.{$menu}.index");
-    $trail->push(trans('index.buy_item'), route("{$subDomain}.{$menu}.{$page}.index"), ['icon' => 'fas fa-box fa-fw']);
-});
-
-$page = 'buy-pln-token';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $page) {
-    $trail->parent("{$subDomain}.{$menu}.index");
-    $trail->push(trans('index.buy_pln_token'), route("{$subDomain}.{$menu}.{$page}.index"), ['icon' => 'fas fa-plug-circle-bold fa-fw']);
-});
-
-// MARKETING
-$menu = 'marketing';
-Breadcrumbs::for("{$subDomain}.{$menu}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu) {
-    $trail->parent("{$subDomain}.index");
-    $trail->push(trans("index.{$menu}"), route("{$subDomain}.{$menu}.index"), ['icon' => 'fas fa-bullhorn fa-fw']);
-});
-
-$subMenu = 'news';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$subMenu}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $subMenu) {
-    $trail->parent("{$subDomain}.{$menu}.index");
-    $trail->push(trans("index.{$subMenu}"), route("{$subDomain}.{$menu}.{$subMenu}.index"), ['icon' => 'fas fa-newspaper fa-fw']);
-});
-
-$page = 'category';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$subMenu}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $subMenu, $page) {
-    $trail->parent("{$subDomain}.{$menu}.{$subMenu}.index");
-    $trail->push(trans("index.news_{$page}"), route("{$subDomain}.{$menu}.{$subMenu}.{$page}.index"), ['icon' => 'fas fa-tags fa-fw']);
-});
-
-$subMenu = 'blog';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$subMenu}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $subMenu) {
-    $trail->parent("{$subDomain}.{$menu}.index");
-    $trail->push(trans("index.{$subMenu}"), route("{$subDomain}.{$menu}.{$subMenu}.index"), ['icon' => 'fas fa-note-sticky fa-fw']);
-});
-
-$page = 'category';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$subMenu}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $subMenu, $page) {
-    $trail->parent("{$subDomain}.{$menu}.{$subMenu}.index");
-    $trail->push(trans("index.blog_{$page}"), route("{$subDomain}.{$menu}.{$subMenu}.{$page}.index"), ['icon' => 'fas fa-tags fa-fw']);
-});
-
-$subMenu = 'game';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$subMenu}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $subMenu) {
-    $trail->parent("{$subDomain}.{$menu}.index");
-    $trail->push(trans("index.{$subMenu}"), route("{$subDomain}.{$menu}.{$subMenu}.index"), ['icon' => 'fas fa-gamepad fa-fw']);
-});
-
-$page = 'category';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$subMenu}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $subMenu, $page) {
-    $trail->parent("{$subDomain}.{$menu}.{$subMenu}.index");
-    $trail->push(trans("index.game_{$page}"), route("{$subDomain}.{$menu}.{$subMenu}.{$page}.index"), ['icon' => 'fas fa-tags fa-fw']);
-});
-
-$subMenu = 'job';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$subMenu}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $subMenu) {
-    $trail->parent("{$subDomain}.{$menu}.index");
-    $trail->push(trans("index.{$subMenu}"), route("{$subDomain}.{$menu}.{$subMenu}.index"), ['icon' => 'fas fa-suitcase fa-fw']);
-});
-
-$page = 'category';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$subMenu}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $subMenu, $page) {
-    $trail->parent("{$subDomain}.{$menu}.{$subMenu}.index");
-    $trail->push(trans("index.job_{$page}"), route("{$subDomain}.{$menu}.{$subMenu}.{$page}.index"), ['icon' => 'fas fa-tags fa-fw']);
-});
-
-$subMenu = 'forum';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$subMenu}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $subMenu) {
-    $trail->parent("{$subDomain}.{$menu}.index");
-    $trail->push(trans("index.{$subMenu}"), route("{$subDomain}.{$menu}.{$subMenu}.index"), ['icon' => 'fas fa-comments-dots fa-fw']);
-});
-
-$page = 'category';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$subMenu}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $subMenu, $page) {
-    $trail->parent("{$subDomain}.{$menu}.{$subMenu}.index");
-    $trail->push(trans("index.forum_{$page}"), route("{$subDomain}.{$menu}.{$subMenu}.{$page}.index"), ['icon' => 'fas fa-tags fa-fw']);
-});
-
-$page = 'order';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $page) {
-    $trail->parent("{$subDomain}.{$menu}.index");
-    $trail->push(trans("index.{$page}"), route("{$subDomain}.{$menu}.{$page}.index"), ['icon' => 'fas fa-cart-shopping fa-fw']);
+    $trail->push(trans("index.{$page}"), route("{$subDomain}.{$page}.index"), ['icon' => 'fas fa-pencil fa-fw']);
 });
 
 $page = 'contact';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $page) {
-    $trail->parent("{$subDomain}.{$menu}.index");
-    $trail->push(trans("index.{$page}"), route("{$subDomain}.{$menu}.{$page}.index"), ['icon' => 'fas fa-phone fa-fw']);
-});
-
-$page = 'promotion';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $page) {
-    $trail->parent("{$subDomain}.{$menu}.index");
-    $trail->push(trans("index.{$page}"), route("{$subDomain}.{$menu}.{$page}.index"), ['icon' => 'fas fa-gift fa-fw']);
-});
-
-$page = 'price-list';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $page) {
-    $trail->parent("{$subDomain}.{$menu}.index");
-    $trail->push(trans('index.price_list'), route("{$subDomain}.{$menu}.{$page}.index"), ['icon' => 'fas fa-list-ol fa-fw']);
+Breadcrumbs::for("{$subDomain}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $page) {
+    $trail->parent("{$subDomain}.index");
+    $trail->push(trans("index.{$page}"), route("{$subDomain}.{$page}.index"), ['icon' => 'fas fa-phone fa-fw']);
 });
 
 $page = 'newsletter';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $page) {
-    $trail->parent("{$subDomain}.{$menu}.index");
-    $trail->push(trans("index.{$page}"), route("{$subDomain}.{$menu}.{$page}.index"), ['icon' => 'fas fa-envelopes-bulk fa-fw']);
+Breadcrumbs::for("{$subDomain}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $page) {
+    $trail->parent("{$subDomain}.index");
+    $trail->push(trans("index.{$page}"), route("{$subDomain}.{$page}.index"), ['icon' => 'fas fa-envelopes-bulk fa-fw']);
 });
 
-$page = 'platform';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $page) {
-    $trail->parent("{$subDomain}.{$menu}.index");
-    $trail->push(trans("index.{$page}"), route("{$subDomain}.{$menu}.{$page}.index"), ['icon' => 'fas fa-circle-check fa-fw']);
-});
-
-$page = 'service';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $page) {
-    $trail->parent("{$subDomain}.{$menu}.index");
-    $trail->push(trans("index.{$page}"), route("{$subDomain}.{$menu}.{$page}.index"), ['icon' => 'fas fa-wrench fa-fw']);
-});
-
-// FINANCE
-$menu = 'finance';
+$menu = 'blog';
 Breadcrumbs::for("{$subDomain}.{$menu}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu) {
     $trail->parent("{$subDomain}.index");
-    $trail->push(trans("index.{$menu}"), route("{$subDomain}.{$menu}.index"), ['icon' => 'fas fa-wallet fa-fw']);
-});
-
-$subMenu = 'payment';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$subMenu}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $subMenu) {
-    $trail->parent("{$subDomain}.{$menu}.index");
-    $trail->push(trans("index.{$subMenu}"), route("{$subDomain}.{$menu}.{$subMenu}.index"), ['icon' => 'fas fa-credit-card fa-fw']);
+    $trail->push(trans("index.{$menu}"), route("{$subDomain}.{$menu}.index"), ['icon' => 'fas fa-newspaper fa-fw']);
 });
 
 $page = 'category';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$subMenu}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $subMenu, $page) {
-    $trail->parent("{$subDomain}.{$menu}.{$subMenu}.index");
-    $trail->push(trans("index.payment_{$page}"), route("{$subDomain}.{$menu}.{$subMenu}.{$page}.index"), ['icon' => 'fas fa-tags fa-fw']);
-});
-
-$page = 'charge';
 Breadcrumbs::for("{$subDomain}.{$menu}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $page) {
     $trail->parent("{$subDomain}.{$menu}.index");
-    $trail->push(trans("index.{$page}"), route("{$subDomain}.{$menu}.{$page}.index"), ['icon' => 'fas fa-money-check fa-fw']);
+    $trail->push(trans("index.blog_{$page}"), route("{$subDomain}.{$menu}.{$page}.index"), ['icon' => 'fas fa-tags fa-fw']);
 });
 
-$page = 'google-adsense';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $page) {
-    $trail->parent("{$subDomain}.{$menu}.index");
-    $trail->push(trans("index.{$page}"), route("{$subDomain}.{$menu}.{$page}.index"), ['icon' => 'fas fa-money-bill-wave fa-fw']);
-});
-
-$page = 'salary';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $page) {
-    $trail->parent("{$subDomain}.{$menu}.index");
-    $trail->push(trans("index.{$page}"), route("{$subDomain}.{$menu}.{$page}.index"), ['icon' => 'fas fa-hand-holding-usd fa-fw']);
-});
-
-$page = 'loyalty';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $page) {
-    $trail->parent("{$subDomain}.{$menu}.index");
-    $trail->push(trans("index.{$page}"), route("{$subDomain}.{$menu}.{$page}.index"), ['icon' => 'fas fa-money-bill fa-fw']);
-});
-
-$subMenu = 'deposit';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$subMenu}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $subMenu) {
-    $trail->parent("{$subDomain}.{$menu}.index");
-    $trail->push(trans("index.{$subMenu}"), route("{$subDomain}.{$menu}.{$subMenu}.index"), ['icon' => 'fas fa-arrow-alt-circle-down fa-fw']);
-});
-
-$page = 'category';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$subMenu}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $subMenu, $page) {
-    $trail->parent("{$subDomain}.{$menu}.{$subMenu}.index");
-    $trail->push(trans("index.deposit_{$page}"), route("{$subDomain}.{$menu}.{$subMenu}.{$page}.index"), ['icon' => 'fas fa-tags fa-fw']);
-});
-
-$subMenu = 'withdraw';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$subMenu}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $subMenu) {
-    $trail->parent("{$subDomain}.{$menu}.index");
-    $trail->push(trans("index.{$subMenu}"), route("{$subDomain}.{$menu}.{$subMenu}.index"), ['icon' => 'fas fa-arrow-alt-circle-up fa-fw']);
-});
-
-$page = 'category';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$subMenu}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $subMenu, $page) {
-    $trail->parent("{$subDomain}.{$menu}.{$subMenu}.index");
-    $trail->push(trans("index.withdraw_{$page}"), route("{$subDomain}.{$menu}.{$subMenu}.{$page}.index"), ['icon' => 'fas fa-tags fa-fw']);
-});
-
-$subMenu = 'donation';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$subMenu}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $subMenu) {
-    $trail->parent("{$subDomain}.{$menu}.index");
-    $trail->push(trans("index.{$subMenu}"), route("{$subDomain}.{$menu}.{$subMenu}.index"), ['icon' => 'fas fa-donate fa-fw']);
-});
-
-$page = 'category';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$subMenu}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $subMenu, $page) {
-    $trail->parent("{$subDomain}.{$menu}.{$subMenu}.index");
-    $trail->push(trans("index.payment_{$page}"), route("{$subDomain}.{$menu}.{$subMenu}.{$page}.index"), ['icon' => 'fas fa-tags fa-fw']);
-});
-
-$page = 'bank-interest';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $page) {
-    $trail->parent("{$subDomain}.{$menu}.index");
-    $trail->push(trans('index.bank_interest'), route("{$subDomain}.{$menu}.{$page}.index"), ['icon' => 'fas fa-piggy-bank fa-fw']);
-});
-
-$page = 'administrative-cost';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $page) {
-    $trail->parent("{$subDomain}.{$menu}.index");
-    $trail->push(trans('index.administrative_cost'), route("{$subDomain}.{$menu}.{$page}.index"), ['icon' => 'fas fa-money-bill-1 fa-fw']);
-});
-
-$page = 'bank-bca';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $page) {
-    $trail->parent("{$subDomain}.{$menu}.index");
-    $trail->push(trans('index.bank_bca'), route("{$subDomain}.{$menu}.{$page}.index"), ['icon' => 'fas fa-building-flag fa-fw']);
-});
-
-$page = 'bank';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $page) {
-    $trail->parent("{$subDomain}.{$menu}.index");
-    $trail->push(trans("index.{$page}"), route("{$subDomain}.{$menu}.{$page}.index"), ['icon' => 'fas fa-bank fa-fw']);
-});
-
-// OTHER
-$menu = 'other';
+$menu = 'event';
 Breadcrumbs::for("{$subDomain}.{$menu}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu) {
     $trail->parent("{$subDomain}.index");
-    $trail->push(trans("index.{$menu}"), route("{$subDomain}.{$menu}.index"), ['icon' => 'fas fa-database fa-fw']);
+    $trail->push(trans("index.{$menu}"), route("{$subDomain}.{$menu}.index"), ['icon' => 'fas fa-newspaper fa-fw']);
 });
 
-$subMenu = 'history';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$subMenu}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $subMenu) {
+$page = 'category';
+Breadcrumbs::for("{$subDomain}.{$menu}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $page) {
     $trail->parent("{$subDomain}.{$menu}.index");
-    $trail->push(trans("index.{$subMenu}"), route("{$subDomain}.{$menu}.{$subMenu}.index"), ['icon' => 'fas fa-scroll fa-fw']);
+    $trail->push(trans("index.event_{$page}"), route("{$subDomain}.{$menu}.{$page}.index"), ['icon' => 'fas fa-tags fa-fw']);
 });
 
-$subMenu = 'documentation';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$subMenu}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $subMenu) {
-    $trail->parent("{$subDomain}.{$menu}.index");
-    $trail->push(trans("index.{$subMenu}"), route("{$subDomain}.{$menu}.{$subMenu}.index"), ['icon' => 'fas fa-photo-film fa-fw']);
+$page = 'admission-calendar';
+Breadcrumbs::for("{$subDomain}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $page) {
+    $trail->parent("{$subDomain}.index");
+    $trail->push(trans("index.admission_calendar"), route("{$subDomain}.{$page}.index"), ['icon' => 'fas fa-calendar fa-fw']);
 });
 
-$subMenu = 'quote';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$subMenu}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $subMenu) {
-    $trail->parent("{$subDomain}.{$menu}.index");
-    $trail->push(trans("index.{$subMenu}"), route("{$subDomain}.{$menu}.{$subMenu}.index"), ['icon' => 'fas fa-quote-left fa-fw']);
+$page = 'banner';
+Breadcrumbs::for("{$subDomain}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $page) {
+    $trail->parent("{$subDomain}.index");
+    $trail->push(trans("index.{$page}"), route("{$subDomain}.{$page}.index"), ['icon' => 'fas fa-envelopes-bulk fa-fw']);
 });
 
-$subMenu = 'notification';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$subMenu}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $subMenu) {
-    $trail->parent("{$subDomain}.{$menu}.index");
-    $trail->push(trans("index.{$subMenu}"), route("{$subDomain}.{$menu}.{$subMenu}.index"), ['icon' => 'fas fa-bell fa-fw']);
+$page = 'faq';
+Breadcrumbs::for("{$subDomain}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $page) {
+    $trail->parent("{$subDomain}.index");
+    $trail->push(trans("index.{$page}"), route("{$subDomain}.{$page}.index"), ['icon' => 'fas fa-envelopes-bulk fa-fw']);
 });
 
-$subMenu = 'faq';
-Breadcrumbs::for("{$subDomain}.{$menu}.{$subMenu}.index", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $subMenu) {
-    $trail->parent("{$subDomain}.{$menu}.index");
-    $trail->push(trans("index.{$subMenu}"), route("{$subDomain}.{$menu}.{$subMenu}.index"), ['icon' => 'fas fa-question fa-fw']);
+$page = 'gallery';
+Breadcrumbs::for("{$subDomain}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $page) {
+    $trail->parent("{$subDomain}.index");
+    $trail->push(trans("index.{$page}"), route("{$subDomain}.{$page}.index"), ['icon' => 'fas fa-envelopes-bulk fa-fw']);
+});
+
+$page = 'network';
+Breadcrumbs::for("{$subDomain}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $page) {
+    $trail->parent("{$subDomain}.index");
+    $trail->push(trans("index.{$page}"), route("{$subDomain}.{$page}.index"), ['icon' => 'fas fa-envelopes-bulk fa-fw']);
+});
+
+$page = 'offer';
+Breadcrumbs::for("{$subDomain}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $page) {
+    $trail->parent("{$subDomain}.index");
+    $trail->push(trans("index.{$page}"), route("{$subDomain}.{$page}.index"), ['icon' => 'fas fa-envelopes-bulk fa-fw']);
+});
+
+$page = 'procedure';
+Breadcrumbs::for("{$subDomain}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $page) {
+    $trail->parent("{$subDomain}.index");
+    $trail->push(trans("index.{$page}"), route("{$subDomain}.{$page}.index"), ['icon' => 'fas fa-envelopes-bulk fa-fw']);
+});
+
+$page = 'slider';
+Breadcrumbs::for("{$subDomain}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $page) {
+    $trail->parent("{$subDomain}.index");
+    $trail->push(trans("index.{$page}"), route("{$subDomain}.{$page}.index"), ['icon' => 'fas fa-envelopes-bulk fa-fw']);
+});
+
+$page = 'testimony';
+Breadcrumbs::for("{$subDomain}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $page) {
+    $trail->parent("{$subDomain}.index");
+    $trail->push(trans("index.{$page}"), route("{$subDomain}.{$page}.index"), ['icon' => 'fas fa-envelopes-bulk fa-fw']);
+});
+
+$page = 'tuition-fee';
+Breadcrumbs::for("{$subDomain}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $page) {
+    $trail->parent("{$subDomain}.index");
+    $trail->push(trans("index.tuition_fee"), route("{$subDomain}.{$page}.index"), ['icon' => 'fas fa-envelopes-bulk fa-fw']);
+});
+
+$page = 'value';
+Breadcrumbs::for("{$subDomain}.{$page}.index", function (BreadcrumbTrail $trail) use ($subDomain, $page) {
+    $trail->parent("{$subDomain}.index");
+    $trail->push(trans("index.{$page}"), route("{$subDomain}.{$page}.index"), ['icon' => 'fas fa-envelopes-bulk fa-fw']);
 });
 
 // CONFIGURATION

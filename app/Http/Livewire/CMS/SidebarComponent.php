@@ -9,6 +9,33 @@ class SidebarComponent extends Component
         return collect(
             [
                 [
+                    'category' => null,
+                    'roles' => 'Super User|Admin',
+                    'permissions' => 'Registration',
+                    'name' => trans('index.registration'),
+                    'slug' => 'registration',
+                    'icon' => 'fas fa-pencil fa-fw',
+                    'url' => route("{$this->subDomain}.registration.index"),
+                    'pages' => null,
+                ], [
+                    'category' => null,
+                    'roles' => 'Super User|Admin',
+                    'permissions' => 'Admission Calendar',
+                    'name' => trans('index.contact'),
+                    'slug' => 'contact',
+                    'icon' => 'fas fa-phone fa-fw',
+                    'url' => route("{$this->subDomain}.contact.index"),
+                    'pages' => null,
+                ], [
+                    'category' => null,
+                    'roles' => 'Super User|Admin',
+                    'permissions' => 'Newsletter',
+                    'name' => trans('index.newsletter'),
+                    'slug' => 'newsletter',
+                    'icon' => 'fas fa-envelopes-bulk fa-fw',
+                    'url' => route("{$this->subDomain}.newsletter.index"),
+                    'pages' => null,
+                ], [
                     'roles' => 'Super User|Admin',
                     'permissions' => 'Blog',
                     'name' => trans('index.blog'),
@@ -60,7 +87,7 @@ class SidebarComponent extends Component
                     'category' => null,
                     'roles' => 'Super User|Admin',
                     'permissions' => 'Admission Calendar',
-                    'name' => trans('index.admission-calendar'),
+                    'name' => trans('index.admission_calendar'),
                     'slug' => 'admission-calendar',
                     'icon' => 'fas fa-calendar fa-fw',
                     'url' => route("{$this->subDomain}.admission-calendar.index"),

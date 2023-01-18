@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Http\Livewire\CMS\Other;
+namespace App\Http\Livewire\CMS;
 
 use App\Exports\Other\FaqExport;
-use App\Http\Livewire\CMS\Component;
 use App\Models\Faq;
 use App\Models\User;
 use App\Services\FaqService;
