@@ -11,6 +11,13 @@
                             <i class="fas fa-sort-amount-{{ $order_by == "id" && $sort_by == "desc" ? "down" : "up" }} text-white"></i>
                         </a>
                     </th>
+                    <th width="1%">
+                        @php($column = "category")
+                        {{ trans("index.{$column}") }}
+                        <a draggable="false" href="javascript:;" wire:click="sort('{{ $column }}', '{{ $order_by == $column && $sort_by == "desc" ? "asc" : "desc" }}')">
+                            <i class="fas fa-sort-amount-{{ $order_by == $column && $sort_by == "desc" ? "down" : "up" }} text-white"></i>
+                        </a>
+                    </th>
                     <th>
                         @php($column = "name")
                         {{ trans("index.{$column}") }}
@@ -37,88 +44,89 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($banners as $banner)
+                @foreach ($galleries as $gallery)
                     <tr>
                         <td>
                             <input
                                 class="form-check-input"
-                                wire:model="checkbox_id.{{ $banner->id }}"
+                                wire:model="checkbox_id.{{ $gallery->id }}"
                                 type="checkbox" />
                         </td>
                         <td class="text-center">
-                            {{ (($banners->currentPage() - 1) * $banners->perPage()) + $loop->iteration }}
+                            {{ (($galleries->currentPage() - 1) * $galleries->perPage()) + $loop->iteration }}
                         </td>
                         <td class="text-center">
                             <button
                                 class="btn btn-link text-decoration-none"
-                                wire:click="view({{ $banner->id }})"
+                                wire:click="view({{ $gallery->id }})"
                                 type="button">
-                                {{ $banner->id }}
+                                {{ $gallery->id }}
                             </button>
                         </td>
-                        <td>{{ $banner->name }} </td>
-                        <td>{{ $banner->name_idn }} </td>
+                        <td class="text-center">{{ $gallery->category?->name }} </td>
+                        <td class="text-wrap">{{ $gallery->name }} </td>
+                        <td class="text-wrap">{{ $gallery->name_idn }} </td>
                         <td>
                             @if ($pageType == "index")
                                 @can("{$pageName} Edit")
                                     <div class="form-check form-switch">
                                         <input
                                             class="form-check-input"
-                                            wire:click="active({{ $banner->id }})"
+                                            wire:click="active({{ $gallery->id }})"
                                             wire:loading.attr="disabled"
                                             type="checkbox"
                                             role="switch"
-                                            id="active-{{ $banner->id }}"
+                                            id="active-{{ $gallery->id }}"
                                             value="1"
-                                            {{ $banner->is_active ? "checked" : null }} />
-                                        <div wire:loading wire:target="active({{ $banner->id }})">
+                                            {{ $gallery->is_active ? "checked" : null }} />
+                                        <div wire:loading wire:target="active({{ $gallery->id }})">
                                             <i class="fas fa-refresh fa-spin"></i>
                                         </div>
-                                        <div wire:loading.remove wire:target="active({{ $banner->id }})">
-                                            <label class="form-check-label" for="active-{{ $banner->id }}">
-                                                <span class="{{ "badge bg-" . Str::successdanger($banner->is_active) }}">
-                                                    {{ trans("index." . Str::slug(Str::active($banner->is_active), "_")) }}
+                                        <div wire:loading.remove wire:target="active({{ $gallery->id }})">
+                                            <label class="form-check-label" for="active-{{ $gallery->id }}">
+                                                <span class="{{ "badge bg-" . Str::successdanger($gallery->is_active) }}">
+                                                    {{ trans("index." . Str::slug(Str::active($gallery->is_active), "_")) }}
                                                 </span>
                                             </label>
                                         </div>
                                     </div>
                                 @else
-                                    <span class="{{ "badge bg-" . Str::successdanger($banner->is_active) }}">
-                                        {{ trans("index." . Str::slug(Str::active($banner->is_active), "_")) }}
+                                    <span class="{{ "badge bg-" . Str::successdanger($gallery->is_active) }}">
+                                        {{ trans("index." . Str::slug(Str::active($gallery->is_active), "_")) }}
                                     </span>
                                 @endcan
                             @endif
 
                             @if ($pageType == "trash")
-                                <span class="{{ "badge bg-" . Str::successdanger($banner->is_active) }}">
-                                    {{ trans("index." . Str::slug(Str::active($banner->is_active), "_")) }}
+                                <span class="{{ "badge bg-" . Str::successdanger($gallery->is_active) }}">
+                                    {{ trans("index." . Str::slug(Str::active($gallery->is_active), "_")) }}
                                 </span>
                             @endif
                         </td>
                         <td class="text-center">
                             <button
-                                class="btn btn-sm {{ empty($detail[$banner->id]) ? "btn-outline-primary" : "btn-primary" }} btn-dropdown"
-                                wire:click="detail({{ $banner->id }})"
+                                class="btn btn-sm {{ empty($detail[$gallery->id]) ? "btn-outline-primary" : "btn-primary" }} btn-dropdown"
+                                wire:click="detail({{ $gallery->id }})"
                                 wire:loading.attr="disabled"
                                 type="button"
                                 data-bs-toggle="collapse"
-                                data-bs-target="#detail-{{ $banner->id }}">
+                                data-bs-target="#detail-{{ $gallery->id }}">
                                 <span class="me-1">{{ trans("index.detail") }}</span>
-                                <i class="{{ empty($detail[$banner->id]) ? "fas fa-caret-down" : "fas fa-caret-up" }}"></i>
-                                <div wire:loading wire:target="detail({{ $banner->id }})"><i class="fas fa-spinner fa-spin"></i></div>
+                                <i class="{{ empty($detail[$gallery->id]) ? "fas fa-caret-down" : "fas fa-caret-up" }}"></i>
+                                <div wire:loading wire:target="detail({{ $gallery->id }})"><i class="fas fa-spinner fa-spin"></i></div>
                             </button>
                         </td>
                         <td>
                             <button
-                                class="btn btn-sm {{ empty($action[$banner->id]) ? "btn-outline-primary" : "btn-primary" }} btn-dropdown"
-                                wire:click="action({{ $banner->id }})"
+                                class="btn btn-sm {{ empty($action[$gallery->id]) ? "btn-outline-primary" : "btn-primary" }} btn-dropdown"
+                                wire:click="action({{ $gallery->id }})"
                                 wire:loading.attr="disabled"
                                 type="button"
                                 data-bs-toggle="collapse"
-                                data-bs-target="#action-{{ $banner->id }}">
+                                data-bs-target="#action-{{ $gallery->id }}">
                                 <span class="me-1">{{ trans("index.action") }}</span>
-                                <i class="{{ empty($action[$banner->id]) ? "fas fa-caret-down" : "fas fa-caret-up" }}"></i>
-                                <div wire:loading wire:target="action({{ $banner->id }})"><i class="fas fa-spinner fa-spin"></i></div>
+                                <i class="{{ empty($action[$gallery->id]) ? "fas fa-caret-down" : "fas fa-caret-up" }}"></i>
+                                <div wire:loading wire:target="action({{ $gallery->id }})"><i class="fas fa-spinner fa-spin"></i></div>
                             </button>
                         </td>
                     </tr>
@@ -129,7 +137,7 @@
 
                 @endforeach
 
-                @if (!$banners->count())
+                @if (!$galleries->count())
                     <tr>
                         <td class="text-center" colspan="100%">
                             <div wire:loading.remove>
@@ -145,7 +153,7 @@
         </table>
     </div>
 
-    @if ($banners->first())
-        {{ $banners->links("{$subDomain}.layouts.pagination") }}
+    @if ($galleries->first())
+        {{ $galleries->links("{$subDomain}.layouts.pagination") }}
     @endif
 </div>

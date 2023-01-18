@@ -24,6 +24,9 @@
                         <option value="name_idn" {{ "name_idn" == $order_by ? "selected" : null }}>{{ trans("index.name_idn") }}</option>
                         <option value="description" {{ "description" == $order_by ? "selected" : null }}>{{ trans("index.description") }}</option>
                         <option value="description_idn" {{ "description_idn" == $order_by ? "selected" : null }}>{{ trans("index.description_idn") }}</option>
+                        <option value="tag" {{ "tag" == $order_by ? "selected" : null }}>{{ trans("index.tag") }}</option>
+                        <option value="tag_idn" {{ "tag_idn" == $order_by ? "selected" : null }}>{{ trans("index.tag_idn") }}</option>
+                        <option value="youtube" {{ "youtube" == $order_by ? "selected" : null }}>{{ trans("index.youtube") }}</option>
                         <option value="is_active" {{ "is_active" == $order_by ? "selected" : null }}>{{ trans("index.active") }}</option>
                         <option value="created_by_id" {{ "created_by_id" == $order_by ? "selected" : null }}>{{ trans("index.created_by") }}</option>
                         <option value="updated_by_id" {{ "updated_by_id" == $order_by ? "selected" : null }}>{{ trans("index.updated_by") }}</option>

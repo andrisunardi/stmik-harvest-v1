@@ -39,11 +39,11 @@ class FaqComponent extends Component
         $this->pageName = 'Faq';
         $this->pageTitle = trans('index.'.Str::snake($this->pageName));
         $this->pageSlug = Str::slug($this->pageName);
-        $this->pageIcon = 'fas fa-question-circle';
+        $this->pageIcon = 'fas fa-question';
         $this->pageTable = Str::plural(Str::snake($this->pageName));
-        $this->pageCategoryName = 'Other';
-        $this->pageCategoryTitle = trans('index.'.Str::snake($this->pageCategoryName));
-        $this->pageCategorySlug = Str::slug($this->pageCategoryName);
+        $this->pageCategoryName = null;
+        $this->pageCategoryTitle = null;
+        $this->pageCategorySlug = null;
         $this->pageSubCategoryName = null;
         $this->pageSubCategoryTitle = null;
         $this->pageSubCategorySlug = null;
@@ -309,7 +309,7 @@ class FaqComponent extends Component
                 'error',
                 "{$this->pageName} ".trans('index.not_found_or_has_been_deleted'),
                 [],
-                route("{$this->subDomain}.{$this->pageCategorySlug}.{$this->pageSubCategorySlug}.{$this->pageSlug}.index"),
+                route("{$this->subDomain}.{$this->pageSlug}.index"),
             );
         }
 
@@ -335,7 +335,7 @@ class FaqComponent extends Component
                 'error',
                 "{$this->pageName} ".trans('index.not_found_or_has_been_deleted'),
                 [],
-                route("{$this->subDomain}.{$this->pageCategorySlug}.{$this->pageSubCategorySlug}.{$this->pageSlug}.index"),
+                route("{$this->subDomain}.{$this->pageSlug}.index"),
             );
         }
 
@@ -362,7 +362,7 @@ class FaqComponent extends Component
                 'error',
                 "{$this->pageName} ".trans('index.not_found_or_has_been_deleted'),
                 [],
-                route("{$this->subDomain}.{$this->pageCategorySlug}.{$this->pageSubCategorySlug}.{$this->pageSlug}.index"),
+                route("{$this->subDomain}.{$this->pageSlug}.index"),
             );
         }
 
@@ -591,7 +591,7 @@ class FaqComponent extends Component
 
         $this->alert('info', trans('index.export_to_pdf'));
 
-        $pdf = PDF::loadView("{$this->subDomain}.livewire.{$this->pageCategorySlug}.{$this->pageSubCategorySlug}.{$this->pageSlug}.pdf", [
+        $pdf = PDF::loadView("{$this->subDomain}.livewire.{$this->pageSlug}.pdf", [
             'faqs' => $this->getFaqs(paginate: false),
             'title' => $this->pageName,
         ])->output();
@@ -647,7 +647,7 @@ class FaqComponent extends Component
 
     public function render()
     {
-        return view("{$this->subDomain}.livewire.{$this->pageCategorySlug}.{$this->pageSubCategorySlug}.{$this->pageSlug}.index", [
+        return view("{$this->subDomain}.livewire.{$this->pageSlug}.index", [
             'createdBies' => $this->readyToLoad ? $this->getCreatedBies() : collect(),
             'updatedBies' => $this->readyToLoad ? $this->getUpdatedBies() : collect(),
             'deletedBies' => $this->readyToLoad ? $this->getDeletedBies() : collect(),
