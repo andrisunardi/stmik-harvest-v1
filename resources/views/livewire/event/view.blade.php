@@ -244,10 +244,10 @@
                                         </div>
                                         <div class="recent__post__details">
                                             <h2><a draggable="false" href="{{ route("event.view", ["slug" => $recentEvent->slug]) }}">{{ $recentEvent->translate_title }}</a></h2>
-                                            @if ($recentEvent->event_category)
-                                                <a draggable="false" href="{{ route("event.index") . "?category={$recentEvent->event_category->slug}" }}">
+                                            @if ($recentEvent->eventCategory)
+                                                <a draggable="false" href="{{ route("event.index") . "?category={$recentEvent->eventCategory->slug}" }}">
                                                     <span class="post__price">
-                                                        {{ $recentEvent->event_category->translate_name }}
+                                                        {{ $recentEvent->eventCategory->translate_name }}
                                                     </span>
                                                 </a>
                                             @endif
