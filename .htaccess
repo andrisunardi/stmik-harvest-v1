@@ -76,29 +76,3 @@ RedirectMatch 403 /\..*$
     Deny from all
 </FilesMatch>
 # END ACCESS FORBIDDEN
-
-# # START REDIRECT ALL ERRORS
-# ErrorDocument 401 https://www.%{HTTP_HOST}
-# ErrorDocument 402 https://www.%{HTTP_HOST}
-# ErrorDocument 403 https://www.%{HTTP_HOST}
-# ErrorDocument 404 https://www.%{HTTP_HOST}
-# ErrorDocument 405 https://www.%{HTTP_HOST}
-# ErrorDocument 406 https://www.%{HTTP_HOST}
-# ErrorDocument 407 https://www.%{HTTP_HOST}
-# ErrorDocument 408 https://www.%{HTTP_HOST}
-# ErrorDocument 409 https://www.%{HTTP_HOST}
-# ErrorDocument 410 https://www.%{HTTP_HOST}
-# ErrorDocument 411 https://www.%{HTTP_HOST}
-# ErrorDocument 412 https://www.%{HTTP_HOST}
-# ErrorDocument 413 https://www.%{HTTP_HOST}
-# ErrorDocument 414 https://www.%{HTTP_HOST}
-# ErrorDocument 415 https://www.%{HTTP_HOST}
-# ErrorDocument 416 https://www.%{HTTP_HOST}
-# ErrorDocument 417 https://www.%{HTTP_HOST}
-# ErrorDocument 500 https://www.%{HTTP_HOST}
-# ErrorDocument 501 https://www.%{HTTP_HOST}
-# ErrorDocument 502 https://www.%{HTTP_HOST}
-# ErrorDocument 503 https://www.%{HTTP_HOST}
-# ErrorDocument 504 https://www.%{HTTP_HOST}
-# ErrorDocument 505 https://www.%{HTTP_HOST}
-# # END REDIRECT ALL ERRORS
