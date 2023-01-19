@@ -16,7 +16,7 @@ class EventService
     public function add(array $data = []): Event
     {
         $image = $data['image'];
-        $imageName = Str::slug($data['name']).'-'.now()->format('Y-m-d-H-i-s');
+        $imageName = Str::slug($data['title']).'-'.now()->format('Y-m-d-H-i-s');
 
         if ($image) {
             $data['image'] = "{$imageName}.{$image->getClientOriginalExtension()}";
@@ -33,7 +33,7 @@ class EventService
     public function clone(array $data, Event $event): Event
     {
         $image = $data['image'];
-        $imageName = Str::slug($data['name']).'-'.now()->format('Y-m-d-H-i-s');
+        $imageName = Str::slug($data['title']).'-'.now()->format('Y-m-d-H-i-s');
 
         if ($image) {
             $data['image'] = "{$imageName}.{$image->getClientOriginalExtension()}";
@@ -59,7 +59,7 @@ class EventService
     public function edit(Event $event, $data): Event
     {
         $image = $data['image'];
-        $imageName = Str::slug($data['name']).'-'.now()->format('Y-m-d-H-i-s');
+        $imageName = Str::slug($data['title']).'-'.now()->format('Y-m-d-H-i-s');
 
         if ($image) {
             $event->deleteImage();
