@@ -50,7 +50,7 @@
                         </td>
                         <td>{{ $permission->name }}</td>
                         <td>{{ $permission->guard_name }}</td>
-                        <td>
+                        <td class="text-wrap">
                             @foreach ($permission->roles as $role)
                                 <a draggable="false" href="{{ route("{$subDomain}.configuration.role.index") . "?pageType=view&row={$role->id}" }}" target="_blank">
                                     {{ $role->name }}
