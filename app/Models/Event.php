@@ -215,7 +215,7 @@ class Event extends Model
         if ($this->checkImage()) {
             return asset("images/{$this->slug}/{$this->image}");
         } else {
-            return asset('images/image-not-available.pdf');
+            return asset('images/image-not-available.png');
         }
     }
 
