@@ -38,9 +38,9 @@ Route::any('forgot-password', ForgotPasswordComponent::class)->name('forgot-pass
 
 Route::group(['middleware' => ['auth', 'role:' . config('app.route_cms_roles')]], function () {
     Route::any('', HomeComponent::class)->name('index');
-    Route::any('registration', RegistrationComponent::class)->name('registration.index')->middleware('permission:Faq');
-    Route::any('contact', ContactComponent::class)->name('contact.index')->middleware('permission:Faq');
-    Route::any('newsletter', NewsletterComponent::class)->name('newsletter.index')->middleware('permission:Faq');
+    Route::any('registration', RegistrationComponent::class)->name('registration.index')->middleware('permission:Registration');
+    Route::any('contact', ContactComponent::class)->name('contact.index')->middleware('permission:Contact');
+    Route::any('newsletter', NewsletterComponent::class)->name('newsletter.index')->middleware('permission:Newsletter');
 
     Route::group(['prefix' => 'blog', 'as' => 'blog.'], function () {
         Route::any('', BlogComponent::class)->name('index')->middleware('permission:Blog');
