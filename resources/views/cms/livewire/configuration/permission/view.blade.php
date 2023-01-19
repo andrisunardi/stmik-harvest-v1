@@ -28,11 +28,11 @@
 
     <div class="row mb-2">
         <div class="col-sm-6 col-md-4 col-lg-3">
-            <h6>{{ trans("index.total") }} {{ trans("index.permission") }}</h6>
+            <h6>{{ trans("index.total") }} {{ trans("index.roles") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
-            <a draggable="false" href="{{ route("{$subDomain}.configuration.permission.index") . "?permission_id={$permission->id}" }}" target="_blank">
-                {{ $permission->permissions->count() }}
+            <a draggable="false" href="{{ route("{$subDomain}.configuration.role.index") . "?permission_id={$permission->id}" }}" target="_blank">
+                {{ $permission->roles->count() }}
             </a>
         </div>
     </div>

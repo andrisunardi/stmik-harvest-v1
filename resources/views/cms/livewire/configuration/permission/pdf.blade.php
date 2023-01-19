@@ -17,7 +17,7 @@
                     <th class="text-center" width="1%">{{ trans("index.id") }}</th>
                     <th class="text-center">{{ trans("index.name") }}</th>
                     <th class="text-center">{{ trans("index.guard_name") }}</th>
-                    <th class="text-center">{{ trans("index.role") }}</th>
+                    <th class="text-center">{{ trans("index.roles") }}</th>
                     <th class="text-center">{{ trans("index.total") }} {{ trans("index.role") }}</th>
                     <th class="text-center">{{ trans("index.total") }} {{ trans("index.user") }}</th>
                 </tr>

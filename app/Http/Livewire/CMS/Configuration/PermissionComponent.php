@@ -217,7 +217,7 @@ class PermissionComponent extends Component
         if ($this->permission) {
             $this->name = $this->name ?? $this->permission->name;
             $this->guard_name = $this->guard_name ?? $this->permission->guard_name;
-            $this->roles_id = $this->roles_id ? $this->roles_id : $this->role->roles->pluck('id')->toArray();
+            $this->roles_id = $this->roles_id ? $this->roles_id : $this->permission->roles->pluck('id')->toArray();
         }
 
         $this->alert('info', trans('index.reset_form'));
@@ -350,7 +350,7 @@ class PermissionComponent extends Component
         $this->pageType = 'view';
         $this->row = $id;
 
-        $this->permission = Permission::withTrashed()->find($id);
+        $this->permission = Permission::find($id);
 
         if (! $this->permission) {
             return $this->flash(

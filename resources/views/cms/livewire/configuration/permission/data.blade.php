@@ -23,7 +23,7 @@
                             <i class="fas fa-sort-amount-{{ $order_by == "guard_name" && $sort_by == "desc" ? "down" : "up" }} text-white"></i>
                         </a>
                     </th>
-                    <th>{{ trans("index.permission") }}</th>
+                    <th>{{ trans("index.roles") }}</th>
                     <th width="1%">{{ trans("index.detail") }}</th>
                     <th width="1%">{{ trans("index.action") }}</th>
                 </tr>
