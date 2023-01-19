@@ -158,7 +158,7 @@
                         {{-- <iframe width="100%" height="300" src="https://www.youtube.com/embed/hmUwBHxYLDw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> --}}
 
                         <video width="100%" height="100%" controls controlsList="noplaybackrate nodownload">
-                            <source src="{{ asset("videos/gallery/company-profile-stmik-kuwera.mp4") }}" type="video/mp4">
+                            <source src="{{ asset("videos/company-profile-stmik-kuwera.mp4") }}" type="video/mp4">
                         </video>
                     </div>
                 </div>
