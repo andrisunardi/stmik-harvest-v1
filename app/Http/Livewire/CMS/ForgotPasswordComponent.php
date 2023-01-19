@@ -80,6 +80,7 @@ class ForgotPasswordComponent extends Component
         $user = User::where('username', $this->username)
             ->where('email', $this->email)
             ->where('phone', $this->phone)
+            ->role(config('app.cms_roles'))
             ->first();
 
         if (! $user) {

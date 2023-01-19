@@ -31,6 +31,8 @@ return [
         // 'store'  => 'redis',
     ],
 
+    'cms_roles' => ['Super User', 'Admin', 'Blog & Event'],
+
     'providers' => [
 
         Illuminate\Auth\AuthServiceProvider::class,

@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\CMS;
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 
 class LoginComponent extends Component
@@ -72,9 +73,14 @@ class LoginComponent extends Component
         $this->validate();
 
         if (Auth::attempt(['username' => $this->username, 'password' => $this->password], $this->remember)) {
-            $this->flash('success', trans('index.login_has_been_successfully'));
+            if (Auth::user()->hasAnyRole(config('app.cms_roles'))) {
+                $this->flash('success', trans('index.login_has_been_successfully'));
 
-            return redirect()->intended('cms');
+                return redirect()->intended('cms');
+            } else {
+                Auth::logout();
+                Session::flush();
+            }
         }
 
         $this->alert('error', trans('index.username_or_password_is_invalid'));
