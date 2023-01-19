@@ -16,7 +16,7 @@ class BlogService
     public function add(array $data = []): Blog
     {
         $image = $data['image'];
-        $imageName = Str::slug($data['name']).'-'.now()->format('Y-m-d-H-i-s');
+        $imageName = Str::slug($data['title']).'-'.now()->format('Y-m-d-H-i-s');
 
         if ($image) {
             $data['image'] = "{$imageName}.{$image->getClientOriginalExtension()}";
@@ -33,7 +33,7 @@ class BlogService
     public function clone(array $data, Blog $blog): Blog
     {
         $image = $data['image'];
-        $imageName = Str::slug($data['name']).'-'.now()->format('Y-m-d-H-i-s');
+        $imageName = Str::slug($data['title']).'-'.now()->format('Y-m-d-H-i-s');
 
         if ($image) {
             $data['image'] = "{$imageName}.{$image->getClientOriginalExtension()}";
@@ -59,7 +59,7 @@ class BlogService
     public function edit(Blog $blog, $data): Blog
     {
         $image = $data['image'];
-        $imageName = Str::slug($data['name']).'-'.now()->format('Y-m-d-H-i-s');
+        $imageName = Str::slug($data['title']).'-'.now()->format('Y-m-d-H-i-s');
 
         if ($image) {
             $blog->deleteImage();
