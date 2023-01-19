@@ -78,7 +78,7 @@
                                 <div id="description" role="tabpanel" class="single__crs__content tab-pane fade show active clearfix">
                                     <div class="single__crs__details">
                                         <h2>{{ trans("index.description_event") }}</h2>
-                                        <p>{!! html_entity_decode($event->translate_body) !!}</p>
+                                        <p class="text-pre">{!! html_entity_decode($event->translate_body) !!}</p>
                                     </div>
                                 </div>
 

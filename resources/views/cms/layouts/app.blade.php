@@ -71,6 +71,10 @@
             cursor: pointer;
         }
 
+        .text-pre {
+            white-space: pre;
+        }
+
         .background-primary {
             background: #{{ env("APP_COLOR") }};
         }

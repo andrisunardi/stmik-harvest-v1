@@ -38,7 +38,7 @@
                             </a>
                         </div>
                         <div class="htc__blog__details">
-                            <div class="single__details">{!! html_entity_decode($blog->translate_description) !!}</div>
+                            <div class="single__details text-pre">{!! html_entity_decode($blog->translate_body) !!}</div>
                         </div>
 
                         <div class="blog__related__post mt--90">
