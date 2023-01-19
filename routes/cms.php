@@ -36,7 +36,7 @@ Route::any('locale/{locale}', function ($locale) {
 Route::any('login', LoginComponent::class)->name('login.index');
 Route::any('forgot-password', ForgotPasswordComponent::class)->name('forgot-password.index');
 
-Route::group(['middleware' => ['auth', 'role:Super User|Board Of Directors|Admin|Finance|Sales|Development|Staff']], function () {
+Route::group(['middleware' => ['auth', 'role:' . config('app.route_cms_roles')]], function () {
     Route::any('', HomeComponent::class)->name('index');
     Route::any('registration', RegistrationComponent::class)->name('registration.index')->middleware('permission:Faq');
     Route::any('contact', ContactComponent::class)->name('contact.index')->middleware('permission:Faq');
