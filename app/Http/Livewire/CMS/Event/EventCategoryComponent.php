@@ -605,6 +605,52 @@ class EventCategoryComponent extends Component
         return response()->streamDownload(fn () => print($pdf), "{$this->pageName}.pdf");
     }
 
+    public function getSummary()
+    {
+        $today = EventCategory::whereDate('created_at', now());
+        $yesterday = EventCategory::whereDate('created_at', now()->subDay());
+
+        $month = EventCategory::whereMonth('created_at', now()->format('m'))->whereYear('created_at', now()->format('Y'));
+        $lastMonth = EventCategory::whereMonth('created_at', now()->subMonth()->format('m'))->whereYear('created_at', now()->subMonth()->format('Y'));
+
+        $year = EventCategory::whereYear('created_at', now()->format('Y'));
+        $lastYear = EventCategory::whereYear('created_at', now()->subYear()->format('Y'));
+
+        $all = EventCategory::query();
+        $beforeThisYear = EventCategory::whereYear('created_at', '<', now()->format('Y'));
+
+        $todayCount = $today->count();
+        $yesterdayCount = $yesterday->count();
+        $todayCountPercentage = $todayCount && $yesterdayCount ? (($todayCount - $yesterdayCount) / $yesterdayCount) * 100 : 0;
+
+        $monthCount = $month->count();
+        $lastMonthCount = $lastMonth->count();
+        $monthCountPercentage = $monthCount && $lastMonthCount ? (($monthCount - $lastMonthCount) / $lastMonthCount) * 100 : 0;
+
+        $yearCount = $year->count();
+        $lastYearCount = $lastYear->count();
+        $yearCountPercentage = $yearCount && $lastYearCount ? (($yearCount - $lastYearCount) / $lastYearCount) * 100 : 0;
+
+        $allCount = $all->count();
+        $beforeThisYearCount = $beforeThisYear->count();
+        $allCountPercentage = $allCount && $beforeThisYearCount ? (($allCount - $beforeThisYearCount) / $beforeThisYearCount) * 100 : 0;
+
+        return collect([
+            'todayCount' => $todayCount,
+            'yesterdayCount' => $yesterdayCount,
+            'todayCountPercentage' => $todayCountPercentage,
+            'monthCount' => $monthCount,
+            'lastMonthCount' => $lastMonthCount,
+            'monthCountPercentage' => $monthCountPercentage,
+            'yearCount' => $yearCount,
+            'lastYearCount' => $lastYearCount,
+            'yearCountPercentage' => $yearCountPercentage,
+            'allCount' => $allCount,
+            'beforeThisYearCount' => $beforeThisYearCount,
+            'allCountPercentage' => $allCountPercentage,
+        ]);
+    }
+
     public function render()
     {
         return view("{$this->subDomain}.livewire.{$this->pageCategorySlug}.{$this->pageSubCategorySlug}.{$this->pageSlug}.index", [
@@ -612,6 +658,7 @@ class EventCategoryComponent extends Component
             'updatedBies' => $this->readyToLoad ? $this->getUpdatedBies() : collect(),
             'deletedBies' => $this->readyToLoad ? $this->getDeletedBies() : collect(),
             'eventCategories' => $this->readyToLoad ? $this->getEventCategorys() : collect(),
+            'summary' => $this->readyToLoad ? $this->getSummary() : collect(),
         ])->extends("{$this->subDomain}.layouts.app")->section('content');
     }
 }

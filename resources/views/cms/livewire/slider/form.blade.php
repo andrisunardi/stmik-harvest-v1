@@ -126,7 +126,7 @@
                         id="{{ $input }}"
                         type="text"
                         minlength="1"
-                        maxlength="100"
+                        maxlength="160"
                         placeholder="{{ trans("validation.attributes.{$input}") }}"
                         required />
                     @error($input)
@@ -153,7 +153,7 @@
                         id="{{ $input }}"
                         type="text"
                         minlength="1"
-                        maxlength="100"
+                        maxlength="160"
                         placeholder="{{ trans("validation.attributes.{$input}") }}"
                         required />
                     @error($input)
@@ -193,6 +193,56 @@
                 </div>
             </div>
 
+            <div class="form-group col-sm-6 mb-3">
+                @php $input = "image" @endphp
+                <label for="{{ $input }}" class="form-label @if ($errors->any()) {{ $errors->has($input) ? "text-danger" : "text-success" }}@endif">
+                    {{ trans("validation.attributes.{$input}") }}
+                </label>
+                <div class="input-group">
+                    <div class="input-group-text @if ($errors->any()) {{ $errors->has($input) ? "border-danger" : "border-success" }}@endif">
+                        <span class="fas fa-image fa-fw @if ($errors->any()) {{ $errors->has($input) ? "text-danger" : "text-success" }}@endif"></span>
+                    </div>
+                    <input
+                        class="form-control @if ($errors->any()) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif"
+                        wire:model="{{ $input }}"
+                        id="{{ $input }}"
+                        type="file"
+                        accept="{{ env("ACCEPT_IMAGE") }}"
+                        placeholder="{{ trans("validation.attributes.{$input}") }}" />
+                    @error($input)
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @else
+                        <div class="valid-feedback">{{ trans("validation.success") }}</div>
+                    @enderror
+                </div>
+
+                <div class="form-text mt-2">
+                    {{ trans("index.format") }} : {{ env("FORMAT_IMAGE") }} | {{ trans("index.size") }} : {{ env("SIZE_IMAGE") }}
+                </div>
+
+                <div class="alert alert-info w-100 mt-3" role="alert" wire:loading wire:target="{{ $input }}">
+                    {{ trans("index.please_wait_until_the_uploading_finished") }}
+                </div>
+
+                @if ($image || ($pageType != "add" && $slider->checkImage()))
+                    @if ($image ? $image->temporaryUrl() : $slider->checkImage())
+                        <img draggable="false" src="{{ $image ? $image->temporaryUrl() : $slider->assetImage() }}" class="w-100 mt-3" />
+                        <div class="mt-3">
+                            <a draggable="false" class="btn btn-sm btn-primary" href="{{ $image ? $image->temporaryUrl() : $slider->assetImage() }}" target="_blank">
+                                <i class="fas fa-eye me-1"></i>
+                                {{ trans("index.view") }}
+                            </a>
+                            <a draggable="false" class="btn btn-sm btn-info text-white" href="{{ $image ? $image->temporaryUrl() : $slider->assetImage() }}" download>
+                                <i class="fas fa-download me-1"></i>
+                                {{ trans("index.download") }}
+                            </a>
+                        </div>
+                    @endif
+                @endif
+            </div>
+        </div>
+
+        <div class="row">
             <div class="form-group col-sm-6 mb-3">
                 @php $input = "is_active" @endphp
                 <label for="{{ $input }}" class="form-label @if ($errors->any()) {{ $errors->has($input) ? "text-danger" : "text-success" }}@endif">
