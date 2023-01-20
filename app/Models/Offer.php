@@ -17,7 +17,7 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @property string|null $name
  * @property string|null $name_idn
  * @property string|null $description
- * @property string|null $description_idn
+ * @property string|null $description_idn1
  * @property string|null $button_name
  * @property string|null $button_name_idn
  * @property string|null $button_link
@@ -63,6 +63,8 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @method static \Illuminate\Database\Query\Builder|Offer withoutTrashed()
  *
  * @mixin \Eloquent
+ *
+ * @property string|null $description_idn
  */
 class Offer extends Model
 {
