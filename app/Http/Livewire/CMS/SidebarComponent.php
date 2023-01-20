@@ -37,7 +37,7 @@ class SidebarComponent extends Component
                     'pages' => null,
                 ], [
                     'category' => null,
-                    'roles' => 'Super User|Admin',
+                    'roles' => 'Super User|Admin|Blog & Event',
                     'permissions' => 'Blog',
                     'name' => trans('index.blog'),
                     'slug' => 'blog',
@@ -45,7 +45,7 @@ class SidebarComponent extends Component
                     'url' => route("{$this->subDomain}.blog.index"),
                     'pages' => [
                         [
-                            'roles' => 'Super User|Marketing',
+                            'roles' => 'Super User|Admin|Blog & Event',
                             'permissions' => 'Blog',
                             'name' => trans('index.blog'),
                             'slug' => 'blog',
@@ -53,7 +53,7 @@ class SidebarComponent extends Component
                             'url' => route("{$this->subDomain}.blog.index"),
                             'categories' => null,
                         ], [
-                            'roles' => 'Super User|Marketing',
+                            'roles' => 'Super User|Admin|Blog & Event',
                             'permissions' => 'Blog Category',
                             'name' => trans('index.category'),
                             'slug' => 'category',
@@ -64,7 +64,7 @@ class SidebarComponent extends Component
                     ],
                 ], [
                     'category' => null,
-                    'roles' => 'Super User|Admin',
+                    'roles' => 'Super User|Admin|Blog & Event',
                     'permissions' => 'Event',
                     'name' => trans('index.event'),
                     'slug' => 'event',
@@ -72,7 +72,7 @@ class SidebarComponent extends Component
                     'url' => route("{$this->subDomain}.event.index"),
                     'pages' => [
                         [
-                            'roles' => 'Super User|Marketing',
+                            'roles' => 'Super User|Admin|Blog & Event',
                             'permissions' => 'Event',
                             'name' => trans('index.event'),
                             'slug' => 'event',
@@ -80,7 +80,7 @@ class SidebarComponent extends Component
                             'url' => route("{$this->subDomain}.event.index"),
                             'categories' => null,
                         ], [
-                            'roles' => 'Super User|Marketing',
+                            'roles' => 'Super User|Admin|Blog & Event',
                             'permissions' => 'Event Category',
                             'name' => trans('index.category'),
                             'slug' => 'category',
