@@ -57,21 +57,21 @@
 
         <div class="row">
             <div class="form-group col-sm-6 mb-3">
-                @php $input = "link" @endphp
+                @php $input = "graduate" @endphp
                 <label for="{{ $input }}" class="form-label @if ($errors->any()) {{ $errors->has($input) ? "text-danger" : "text-success" }}@endif">
                     {{ trans("validation.attributes.{$input}") }}
                 </label>
                 <div class="input-group">
                     <div class="input-group-text @if ($errors->any()) {{ $errors->has($input) ? "border-danger" : "border-success" }}@endif">
-                        <span class="fas fa-link fa-fw @if ($errors->any()) {{ $errors->has($input) ? "text-danger" : "text-success" }}@endif"></span>
+                        <span class="fas fa-graduation-cap fa-fw @if ($errors->any()) {{ $errors->has($input) ? "text-danger" : "text-success" }}@endif"></span>
                     </div>
                     <input
                         class="form-control @if ($errors->any()) {{ $errors->has($input) ? "is-invalid" : "is-valid" }}@endif"
                         wire:model="{{ $input }}"
                         id="{{ $input }}"
-                        type="url"
+                        type="text"
                         minlength="1"
-                        maxlength="200"
+                        maxlength="100"
                         placeholder="{{ trans("validation.attributes.{$input}") }}" />
                     @error($input)
                         <div class="invalid-feedback">{{ $message }}</div>
@@ -112,15 +112,15 @@
                     {{ trans("index.please_wait_until_the_uploading_finished") }}
                 </div>
 
-                @if ($image || ($pageType != "add" && $network->checkImage()))
-                    @if ($image ? $image->temporaryUrl() : $network->checkImage())
-                        <img draggable="false" src="{{ $image ? $image->temporaryUrl() : $network->assetImage() }}" class="w-100 mt-3" />
+                @if ($image || ($pageType != "add" && $testimony->checkImage()))
+                    @if ($image ? $image->temporaryUrl() : $testimony->checkImage())
+                        <img draggable="false" src="{{ $image ? $image->temporaryUrl() : $testimony->assetImage() }}" class="w-100 mt-3" />
                         <div class="mt-3">
-                            <a draggable="false" class="btn btn-sm btn-primary" href="{{ $image ? $image->temporaryUrl() : $network->assetImage() }}" target="_blank">
+                            <a draggable="false" class="btn btn-sm btn-primary" href="{{ $image ? $image->temporaryUrl() : $testimony->assetImage() }}" target="_blank">
                                 <i class="fas fa-eye me-1"></i>
                                 {{ trans("index.view") }}
                             </a>
-                            <a draggable="false" class="btn btn-sm btn-info text-white" href="{{ $image ? $image->temporaryUrl() : $network->assetImage() }}" download>
+                            <a draggable="false" class="btn btn-sm btn-info text-white" href="{{ $image ? $image->temporaryUrl() : $testimony->assetImage() }}" download>
                                 <i class="fas fa-download me-1"></i>
                                 {{ trans("index.download") }}
                             </a>
