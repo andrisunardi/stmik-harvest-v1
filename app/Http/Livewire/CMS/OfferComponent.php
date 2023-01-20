@@ -232,7 +232,9 @@ class OfferComponent extends Component
             $this->name_idn = $this->name_idn ?: $this->offer->name_idn;
             $this->description = $this->description ?: $this->offer->description;
             $this->description_idn = $this->description_idn ?: $this->offer->description_idn;
-            $this->date = $this->date ?: $this->event->date?->format('Y-m-d');
+            $this->button_name = $this->button_name ?: $this->offer->button_name;
+            $this->button_name_idn = $this->button_name_idn ?: $this->offer->button_name_idn;
+            $this->button_link = $this->button_link ?: $this->offer->button_link;
             $this->is_active = $this->is_active ?: $this->offer->is_active;
         }
 
@@ -405,7 +407,7 @@ class OfferComponent extends Component
             'description_idn' => 'nullable|max:65535',
             'button_name' => 'nullable|max:100',
             'button_name_idn' => 'nullable|max:100',
-            'button_link' => 'nullable|max:100',
+            'button_link' => 'nullable|max:100|url',
             'is_active' => 'required|boolean',
         ];
     }
