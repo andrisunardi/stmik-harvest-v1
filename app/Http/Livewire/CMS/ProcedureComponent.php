@@ -101,12 +101,6 @@ class ProcedureComponent extends Component
 
     public $description_idn;
 
-    public $button_name;
-
-    public $button_name_idn;
-
-    public $button_link;
-
     public $is_active = '';
 
     public $queryString = [
