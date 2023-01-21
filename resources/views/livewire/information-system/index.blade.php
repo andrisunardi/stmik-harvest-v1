@@ -117,102 +117,102 @@
                     <tbody>
                         <tr>
                             <td>{{ trans("Discreet Math") }}</td>
-                            <td>3</td>
+                            <td class="text-center">3</td>
                             <td></td>
                             <td>{{ trans("English 1") }}</td>
-                            <td>2</td>
+                            <td class="text-center">2</td>
                             <td></td>
                             <td>{{ trans("Pancasila") }}</td>
-                            <td>3</td>
+                            <td class="text-center">3</td>
                             <td></td>
                             <td>{{ trans("English 2") }}</td>
-                            <td>2</td>
+                            <td class="text-center">2</td>
                         </tr>
                         <tr>
                             <td>{{ trans("Character Building 1 (Religion)") }}</td>
-                            <td>3</td>
+                            <td class="text-center">3</td>
                             <td></td>
                             <td>{{ trans("Character Building 2 (Citizenship)") }}</td>
-                            <td>2</td>
+                            <td class="text-center">2</td>
                             <td></td>
                             <td>{{ trans("Bahasa Indonesia") }}</td>
-                            <td>3</td>
+                            <td class="text-center">3</td>
                             <td></td>
                             <td>{{ trans("Statistics") }}</td>
-                            <td>3</td>
+                            <td class="text-center">3</td>
                         </tr>
                         <tr>
                             <td>{{ trans("Leadership") }}</td>
-                            <td>2</td>
+                            <td class="text-center">2</td>
                             <td></td>
                             <td>{{ trans("Management Information System") }}</td>
-                            <td>3</td>
+                            <td class="text-center">3</td>
                             <td></td>
                             <td>{{ trans("Introduction to Accounting") }}</td>
-                            <td>3</td>
+                            <td class="text-center">3</td>
                             <td></td>
                             <td>{{ trans("Research Methodology") }}</td>
-                            <td>3</td>
+                            <td class="text-center">3</td>
                         </tr>
                         <tr>
                             <td>{{ trans("Algorithm and Programming") }}</td>
-                            <td>4</td>
+                            <td class="text-center">4</td>
                             <td></td>
                             <td>{{ trans("Web Programming 2") }}</td>
-                            <td>3</td>
+                            <td class="text-center">3</td>
                             <td></td>
                             <td>{{ trans("Introduction to Marketing") }}</td>
-                            <td>2</td>
+                            <td class="text-center">2</td>
                             <td></td>
                             <td>{{ trans("System Design and Analysis") }}</td>
-                            <td>4</td>
+                            <td class="text-center">4</td>
                         </tr>
                         <tr>
                             <td>{{ trans("Introduction to Information System") }}</td>
-                            <td>3</td>
+                            <td class="text-center">3</td>
                             <td></td>
                             <td>{{ trans("C Programming") }}</td>
-                            <td>3</td>
+                            <td class="text-center">3</td>
                             <td></td>
                             <td>{{ trans("Database 1") }}</td>
-                            <td>3</td>
+                            <td class="text-center">3</td>
                             <td></td>
                             <td>{{ trans("Operating System") }}</td>
-                            <td>3</td>
+                            <td class="text-center">3</td>
                         </tr>
                         <tr>
                             <td>{{ trans("Web Programming 1") }}</td>
-                            <td>3</td>
+                            <td class="text-center">3</td>
                             <td></td>
                             <td>{{ trans("Data Structure") }}</td>
-                            <td>3</td>
+                            <td class="text-center">3</td>
                             <td></td>
                             <td>{{ trans("Information System Project Management") }}</td>
-                            <td>3</td>
+                            <td class="text-center">3</td>
                             <td></td>
                             <td>{{ trans("Mobile Programming 1") }}</td>
-                            <td>3</td>
+                            <td class="text-center">3</td>
                         </tr>
                         <tr>
                             <td>{{ trans("Introduction to Business") }}</td>
-                            <td>2</td>
+                            <td class="text-center">2</td>
                             <td></td>
                             <td>{{ trans("Introduction to Management") }}</td>
-                            <td>2</td>
+                            <td class="text-center">2</td>
                             <td></td>
                             <td>{{ trans("Object Oriented Programming") }}</td>
-                            <td>3</td>
+                            <td class="text-center">3</td>
                             <td></td>
                             <td>{{ trans("Web Programming 3") }}</td>
-                            <td>3</td>
+                            <td class="text-center">3</td>
                         </tr>
                         <tr>
-                            <td></td>
                             <td>{{ trans("Matrix and Linear Transformation") }}</td>
-                            <td>2</td>
+                            <td class="text-center">2</td>
                             <td></td>
                             <td>{{ trans("Introduction to Computer Networking") }}</td>
-                            <td>2</td>
+                            <td class="text-center">2</td>
+                            <td></td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -221,16 +221,16 @@
                         </tr>
                         <tr>
                             <td><b>{{ trans("Total") }}</b></td>
-                            <td>19</td>
+                            <td class="text-center">19</td>
                             <td></td>
                             <td><b>{{ trans("Total") }}</b></td>
-                            <td>20</td>
+                            <td class="text-center">20</td>
                             <td></td>
                             <td><b>{{ trans("Total") }}</b></td>
-                            <td>22</td>
+                            <td class="text-center">22</td>
                             <td></td>
                             <td><b>{{ trans("Total") }}</b></td>
-                            <td>21</td>
+                            <td class="text-center">21</td>
                         </tr>
                     </tbody>
                     <thead>
@@ -247,60 +247,60 @@
                     <tbody>
                         <tr>
                             <td>{{ trans("Business Ethics") }}</td>
-                            <td>2</td>
+                            <td class="text-center">2</td>
                             <td></td>
                             <td>{{ trans("Enterpreneurship 1") }}</td>
-                            <td>3</td>
+                            <td class="text-center">3</td>
                             <td></td>
                             <td>{{ trans("Community Development") }}</td>
-                            <td>4</td>
+                            <td class="text-center">4</td>
                             <td></td>
                             <td>{{ trans("Final Project") }}</td>
-                            <td>6</td>
+                            <td class="text-center">6</td>
                         </tr>
                         <tr>
                             <td>{{ trans("Database 2") }}</td>
-                            <td>3</td>
+                            <td class="text-center">3</td>
                             <td></td>
                             <td>{{ trans("Project 2") }}</td>
-                            <td>3</td>
+                            <td class="text-center">3</td>
                             <td></td>
                             <td>{{ trans("Intership") }}</td>
-                            <td>4</td>
+                            <td class="text-center">4</td>
                             <td></td>
                             <td></td>
                             <td></td>
                         </tr>
                         <tr>
                             <td>{{ trans("Distributed System & Cloud Computing") }}</td>
-                            <td>3</td>
+                            <td class="text-center">3</td>
                             <td></td>
                             <td>{{ trans("Computer Security & Risk Management") }}</td>
-                            <td>3</td>
+                            <td class="text-center">3</td>
                             <td></td>
                             <td>{{ trans("Information System Security") }}</td>
-                            <td>3</td>
+                            <td class="text-center">3</td>
                             <td></td>
                             <td></td>
                             <td></td>
                         </tr>
                         <tr>
                             <td>{{ trans("Project 1") }}</td>
-                            <td>3</td>
+                            <td class="text-center">3</td>
                             <td></td>
                             <td>{{ trans("Finance for non Finance") }}</td>
-                            <td>3</td>
+                            <td class="text-center">3</td>
                             <td></td>
                             <td>{{ trans("Human Computer Interaction") }}</td>
-                            <td>2</td>
+                            <td class="text-center">2</td>
                             <td></td>
                             <td></td>
                             <td></td>
                         </tr>
                         <tr>
-                            <td></td>
                             <td>{{ trans("Enterpreneurship 2") }}</td>
-                            <td>2</td>
+                            <td class="text-center">2</td>
+                            <td></td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -314,16 +314,16 @@
 
                     <thead>
                         <tr class="bg-warning text-white text-center">
-                            <th colspan="100%">{{ trans("custom.BUSINESS INFORMATION SYSTEM (BIS)") }}</th>
+                            <th colspan="100%">{{ trans("BUSINESS INFORMATION SYSTEM (BIS)") }}</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>{{ trans("E-Business") }}</td>
-                            <td>3</td>
+                            <td class="text-center">3</td>
                             <td></td>
                             <td>{{ trans("IT Strategic Planning") }}</td>
-                            <td>3</td>
+                            <td class="text-center">3</td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -333,10 +333,10 @@
                         </tr>
                         <tr>
                             <td>{{ trans("Business Communication") }}</td>
-                            <td>2</td>
+                            <td class="text-center">2</td>
                             <td></td>
                             <td>{{ trans("Elective") }}</td>
-                            <td>3</td>
+                            <td class="text-center">3</td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -346,10 +346,10 @@
                         </tr>
                         <tr>
                             <td>{{ trans("Asset Management & IT Audit") }}</td>
-                            <td>3</td>
+                            <td class="text-center">3</td>
                             <td></td>
                             <td>{{ trans("Elective") }}</td>
-                            <td>3</td>
+                            <td class="text-center">3</td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -359,31 +359,31 @@
                         </tr>
                         <tr>
                             <td><b>{{ trans("Total") }}</b></td>
-                            <td>20</td>
+                            <td class="text-center">20</td>
                             <td></td>
                             <td><b>{{ trans("Total") }}</b></td>
-                            <td>21</td>
+                            <td class="text-center">21</td>
                             <td></td>
                             <td><b>{{ trans("Total") }}</b></td>
-                            <td>15</td>
+                            <td class="text-center">15</td>
                             <td></td>
                             <td><b>{{ trans("Total") }}</b></td>
-                            <td>6</td>
+                            <td class="text-center">6</td>
                         </tr>
                     </tbody>
 
                     <thead>
                         <tr class="bg-warning text-white text-center">
-                            <th colspan="100%">{{ trans("custom.INFORMATION SYSTEM SPECIALIST (ISS)") }}</th>
+                            <th colspan="100%">{{ trans("INFORMATION SYSTEM SPECIALIST (ISS)") }}</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>{{ trans("Mobile Programming 2") }}</td>
-                            <td>3</td>
+                            <td class="text-center">3</td>
                             <td></td>
                             <td>{{ trans("Enterprise Architecture") }}</td>
-                            <td>3</td>
+                            <td class="text-center">3</td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -393,10 +393,10 @@
                         </tr>
                         <tr>
                             <td>{{ trans("Software Testing") }}</td>
-                            <td>2</td>
+                            <td class="text-center">2</td>
                             <td></td>
                             <td>{{ trans("Elective") }}</td>
-                            <td>3</td>
+                            <td class="text-center">3</td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -406,10 +406,10 @@
                         </tr>
                         <tr>
                             <td>{{ trans("Software Engineering") }}</td>
-                            <td>3</td>
+                            <td class="text-center">3</td>
                             <td></td>
                             <td>{{ trans("Elective") }}</td>
-                            <td>3</td>
+                            <td class="text-center">3</td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -419,16 +419,16 @@
                         </tr>
                         <tr>
                             <td><b>{{ trans("Total") }}</b></td>
-                            <td>20</td>
+                            <td class="text-center">20</td>
                             <td></td>
                             <td><b>{{ trans("Total") }}</b></td>
-                            <td>21</td>
+                            <td class="text-center">21</td>
                             <td></td>
                             <td><b>{{ trans("Total") }}</b></td>
-                            <td>15</td>
+                            <td class="text-center">15</td>
                             <td></td>
                             <td><b>{{ trans("Total") }}</b></td>
-                            <td>6</td>
+                            <td class="text-center">6</td>
                         </tr>
                     </tbody>
 

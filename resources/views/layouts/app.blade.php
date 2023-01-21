@@ -218,7 +218,7 @@
                                         <li><a draggable="false" href="{{ route("faq.index") }}">{{ trans("index.faq") }}</a></li>
                                     </ul>
                                 </li>
-                                <li class="drop"><a draggable="false" href="javascript:;">{{ trans("index.admission") }}</a>
+                                <li class="drop"><a draggable="false" href="{{ route("admission-calendar.index") }}">{{ trans("index.admission") }}</a>
                                     <ul class="dropdown">
                                         {{-- <li><a draggable="false" href="{{ route("online-registration.index") }}">{{ trans("index.online_registration") }}</a></li> --}}
                                         <li><a draggable="false" href="https://pmb.stmik-kuwera.civitas.id/p/pmb.php" target="_blank">{{ trans("index.online_registration") }}</a></li>
@@ -228,12 +228,12 @@
                                         <li><a draggable="false" href="{{ route("scholarships.index") }}">{{ trans("index.scholarships") }}</a></li>
                                     </ul>
                                 </li>
-                                <li class="drop"><a draggable="false" href="javascript:;">{{ trans("index.programme") }}</a>
+                                <li class="drop"><a draggable="false" href="{{ route("information-system.index") }}">{{ trans("index.programme") }}</a>
                                     <ul class="dropdown">
                                         <li><a draggable="false" href="{{ route("information-system.index") }}">{{ trans("index.undergraduate") }} - {{ trans("index.information_system") }}</a></li>
                                     </ul>
                                 </li>
-                                <li class="drop"><a draggable="false" href="javascript:;">{{ trans("index.campus_activities") }}</a>
+                                <li class="drop"><a draggable="false" href="{{ route("gallery.index") }}">{{ trans("index.campus_activities") }}</a>
                                     <ul class="dropdown">
                                         <li><a draggable="false" href="{{ route("gallery.index") }}">{{ trans("index.gallery") }}</a></li>
                                         <li><a draggable="false" href="{{ route("event.index") }}">{{ trans("index.event") }}</a></li>
