@@ -1,19 +1,6 @@
 <div>
     <div class="row">
         <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
-            @php $input = "slider_category_id" @endphp
-            <div class="form-group">
-                <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
-                <select wire:model="{{ $input }}" class="form-select select2" id="{{ $input }}">
-                    <option value="">{{ trans("index.all") }} {{ trans("validation.attributes.{$input}") }}</option>
-                    @foreach ($sliderCategories as $sliderCategory)
-                        <option value="{{ $sliderCategory->id }}" {{ $sliderCategory->id == $slider_category_id ? "selected" : null }}>{{ $sliderCategory->name }}</option>
-                    @endforeach
-                </select>
-            </div>
-        </div>
-
-        <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
             @php $input = "name" @endphp
             <div class="form-group">
                 <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>

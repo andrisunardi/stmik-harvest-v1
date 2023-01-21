@@ -57,11 +57,7 @@
                             </button>
                         </td>
                         <td>{{ $testimony->name }} </td>
-                        <td>
-                            <a draggable="false" href="{{ $testimony->link }}" target="_blank">
-                                {{ $testimony->link }}
-                            </a>
-                         </td>
+                        <td>{{ $testimony->graduate }} </td>
                         <td>
                             @if ($pageType == "index")
                                 @can("{$pageName} Edit")

@@ -554,7 +554,6 @@ class SliderComponent extends Component
     {
         if (in_array($this->pageType, ['index', 'trash'])) {
             $sliders = Slider::with('createdBy', 'updatedBy', 'deletedBy')
-                ->when($this->slider_category_id, fn ($q) => $q->where('slider_category_id', $this->slider_category_id))
                 ->when($this->name, fn ($q) => $q->where('name', 'LIKE', "%{$this->name}%"))
                 ->when($this->name_idn, fn ($q) => $q->where('name_idn', 'LIKE', "%{$this->name_idn}%"))
                 ->when($this->description, fn ($q) => $q->where('description', 'LIKE', "%{$this->description}%"))
@@ -677,7 +676,6 @@ class SliderComponent extends Component
             'createdBies' => $this->readyToLoad ? $this->getCreatedBies() : collect(),
             'updatedBies' => $this->readyToLoad ? $this->getUpdatedBies() : collect(),
             'deletedBies' => $this->readyToLoad ? $this->getDeletedBies() : collect(),
-            'sliderCategories' => $this->readyToLoad ? $this->getSliderCategories() : collect(),
             'sliders' => $this->readyToLoad ? $this->getSliders() : collect(),
             'summary' => $this->readyToLoad ? $this->getSummary() : collect(),
         ])->extends("{$this->subDomain}.layouts.app")->section('content');

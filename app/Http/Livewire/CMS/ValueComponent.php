@@ -101,8 +101,6 @@ class ValueComponent extends Component
 
     public $description_idn;
 
-    public $icon;
-
     public $is_active = '';
 
     public $queryString = [
@@ -130,7 +128,6 @@ class ValueComponent extends Component
         'name_idn' => ['except' => ''],
         'description' => ['except' => ''],
         'description_idn' => ['except' => ''],
-        'icon' => ['except' => ''],
         'is_active' => ['except' => ''],
     ];
 
@@ -210,7 +207,6 @@ class ValueComponent extends Component
             'name_idn',
             'description',
             'description_idn',
-            'icon',
             'is_active',
         ]);
 
@@ -224,7 +220,6 @@ class ValueComponent extends Component
             $this->name_idn = $this->name_idn ?: $this->value->name_idn;
             $this->description = $this->description ?: $this->value->description;
             $this->description_idn = $this->description_idn ?: $this->value->description_idn;
-            $this->icon = $this->icon ?: $this->value->icon;
             $this->is_active = $this->is_active ?: $this->value->is_active;
         }
 
@@ -395,7 +390,6 @@ class ValueComponent extends Component
             'name_idn' => "required|max:100|unique:{$this->pageTable},name_idn,{$id}",
             'description' => 'nullable|max:65535',
             'description_idn' => 'nullable|max:65535',
-            'icon' => 'nullable|max:50',
             'is_active' => 'required|boolean',
         ];
     }
@@ -537,12 +531,11 @@ class ValueComponent extends Component
     public function getValues($paginate = true)
     {
         if (in_array($this->pageType, ['index', 'trash'])) {
-            $value = Value::with('createdBy', 'updatedBy', 'deletedBy')
+            $values = Value::with('createdBy', 'updatedBy', 'deletedBy')
                 ->when($this->name, fn ($q) => $q->where('name', 'LIKE', "%{$this->name}%"))
                 ->when($this->name_idn, fn ($q) => $q->where('name_idn', 'LIKE', "%{$this->name_idn}%"))
                 ->when($this->description, fn ($q) => $q->where('description', 'LIKE', "%{$this->description}%"))
                 ->when($this->description_idn, fn ($q) => $q->where('description_idn', 'LIKE', "%{$this->description_idn}%"))
-                ->when($this->icon, fn ($q) => $q->where('icon', 'LIKE', "%{$this->icon}%"))
 
                 ->when($this->is_active, fn ($q) => $q->where('is_active', $this->is_active == 2 ? false : true))
                 ->when($this->created_by_id, fn ($q) => $q->where('created_by_id', $this->created_by_id))
@@ -556,29 +549,29 @@ class ValueComponent extends Component
                 ->when($this->end_deleted_at, fn ($q) => $q->whereDate('deleted_at', '<=', $this->end_deleted_at));
 
             if ($this->order_by == 'created_by_id') {
-                $value->leftJoin('users', 'users.id', "{$this->pageTable}.created_by_id")
+                $values->leftJoin('users', 'users.id', "{$this->pageTable}.created_by_id")
                     ->select("{$this->pageTable}.*", 'users.name as user_name')
                     ->orderByRaw("user_name {$this->sort_by}");
             } elseif ($this->order_by == 'updated_by_id') {
-                $value->leftJoin('users', 'users.id', "{$this->pageTable}.updated_by_id")
+                $values->leftJoin('users', 'users.id', "{$this->pageTable}.updated_by_id")
                     ->select("{$this->pageTable}.*", 'users.name as user_name')
                     ->orderByRaw("user_name {$this->sort_by}");
             } elseif ($this->order_by == 'deleted_by_id') {
-                $value->leftJoin('users', 'users.id', "{$this->pageTable}.deleted_by_id")
+                $values->leftJoin('users', 'users.id', "{$this->pageTable}.deleted_by_id")
                     ->select("{$this->pageTable}.*", 'users.name as user_name')
                     ->orderByRaw("user_name {$this->sort_by}");
             } else {
-                $value->orderBy($this->order_by ?? 'id', $this->sort_by ?? 'desc');
+                $values->orderBy($this->order_by ?? 'id', $this->sort_by ?? 'desc');
             }
 
             if ($this->pageType == 'trash') {
-                $value->onlyTrashed();
+                $values->onlyTrashed();
             }
 
             if ($paginate) {
-                return $value->paginate($this->per_page ?? 10);
+                return $values->paginate($this->per_page ?? 10);
             } else {
-                return $value->get();
+                return $values->get();
             }
         }
     }
@@ -599,7 +592,7 @@ class ValueComponent extends Component
         $this->alert('info', trans('index.export_to_pdf'));
 
         $pdf = PDF::loadView("{$this->subDomain}.livewire.{$this->pageSlug}.pdf", [
-            'value' => $this->getValues(paginate: false),
+            'values' => $this->getValues(paginate: false),
             'title' => $this->pageName,
         ])->output();
 
@@ -658,7 +651,7 @@ class ValueComponent extends Component
             'createdBies' => $this->readyToLoad ? $this->getCreatedBies() : collect(),
             'updatedBies' => $this->readyToLoad ? $this->getUpdatedBies() : collect(),
             'deletedBies' => $this->readyToLoad ? $this->getDeletedBies() : collect(),
-            'value' => $this->readyToLoad ? $this->getValues() : collect(),
+            'values' => $this->readyToLoad ? $this->getValues() : collect(),
             'summary' => $this->readyToLoad ? $this->getSummary() : collect(),
         ])->extends("{$this->subDomain}.layouts.app")->section('content');
     }

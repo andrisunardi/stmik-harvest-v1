@@ -529,7 +529,7 @@ class TestimonyComponent extends Component
     public function getTestimonys($paginate = true)
     {
         if (in_array($this->pageType, ['index', 'trash'])) {
-            $testimonys = Testimony::with('createdBy', 'updatedBy', 'deletedBy')
+            $testimonies = Testimony::with('createdBy', 'updatedBy', 'deletedBy')
                 ->when($this->name, fn ($q) => $q->where('name', 'LIKE', "%{$this->name}%"))
                 ->when($this->description, fn ($q) => $q->where('description', 'LIKE', "%{$this->description}%"))
                 ->when($this->graduate, fn ($q) => $q->where('graduate', 'LIKE', "%{$this->graduate}%"))
@@ -546,29 +546,29 @@ class TestimonyComponent extends Component
                 ->when($this->end_deleted_at, fn ($q) => $q->whereDate('deleted_at', '<=', $this->end_deleted_at));
 
             if ($this->order_by == 'created_by_id') {
-                $testimonys->leftJoin('users', 'users.id', "{$this->pageTable}.created_by_id")
+                $testimonies->leftJoin('users', 'users.id', "{$this->pageTable}.created_by_id")
                     ->select("{$this->pageTable}.*", 'users.name as user_name')
                     ->orderByRaw("user_name {$this->sort_by}");
             } elseif ($this->order_by == 'updated_by_id') {
-                $testimonys->leftJoin('users', 'users.id', "{$this->pageTable}.updated_by_id")
+                $testimonies->leftJoin('users', 'users.id', "{$this->pageTable}.updated_by_id")
                     ->select("{$this->pageTable}.*", 'users.name as user_name')
                     ->orderByRaw("user_name {$this->sort_by}");
             } elseif ($this->order_by == 'deleted_by_id') {
-                $testimonys->leftJoin('users', 'users.id', "{$this->pageTable}.deleted_by_id")
+                $testimonies->leftJoin('users', 'users.id', "{$this->pageTable}.deleted_by_id")
                     ->select("{$this->pageTable}.*", 'users.name as user_name')
                     ->orderByRaw("user_name {$this->sort_by}");
             } else {
-                $testimonys->orderBy($this->order_by ?? 'id', $this->sort_by ?? 'desc');
+                $testimonies->orderBy($this->order_by ?? 'id', $this->sort_by ?? 'desc');
             }
 
             if ($this->pageType == 'trash') {
-                $testimonys->onlyTrashed();
+                $testimonies->onlyTrashed();
             }
 
             if ($paginate) {
-                return $testimonys->paginate($this->per_page ?? 10);
+                return $testimonies->paginate($this->per_page ?? 10);
             } else {
-                return $testimonys->get();
+                return $testimonies->get();
             }
         }
     }
@@ -589,7 +589,7 @@ class TestimonyComponent extends Component
         $this->alert('info', trans('index.export_to_pdf'));
 
         $pdf = PDF::loadView("{$this->subDomain}.livewire.{$this->pageSlug}.pdf", [
-            'testimonys' => $this->getTestimonys(paginate: false),
+            'testimonies' => $this->getTestimonys(paginate: false),
             'title' => $this->pageName,
         ])->output();
 
@@ -648,7 +648,7 @@ class TestimonyComponent extends Component
             'createdBies' => $this->readyToLoad ? $this->getCreatedBies() : collect(),
             'updatedBies' => $this->readyToLoad ? $this->getUpdatedBies() : collect(),
             'deletedBies' => $this->readyToLoad ? $this->getDeletedBies() : collect(),
-            'testimonys' => $this->readyToLoad ? $this->getTestimonys() : collect(),
+            'testimonies' => $this->readyToLoad ? $this->getTestimonys() : collect(),
             'summary' => $this->readyToLoad ? $this->getSummary() : collect(),
         ])->extends("{$this->subDomain}.layouts.app")->section('content');
     }
