@@ -20,36 +20,6 @@
                         </td>
                     </tr>
                     <tr>
-                        <td width="1%" class="text-nowrap">{{ trans("index.created_by") }}</td>
-                        <td>
-                            @if ($role->createdBy)
-                                <a draggable="false" href="{{ route("{$subDomain}.configuration.user.index") . "?pageType=view&row={$role->createdBy->id}" }}" target="_blank">
-                                    {{ $role->createdBy->name }}
-                                </a>
-                            @endif
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="1%" class="text-nowrap">{{ trans("index.updated_by") }}</td>
-                        <td>
-                            @if ($role->updatedBy)
-                                <a draggable="false" href="{{ route("{$subDomain}.configuration.user.index") . "?pageType=view&row={$role->updatedBy->id}" }}" target="_blank">
-                                    {{ $role->updatedBy->name }}
-                                </a>
-                            @endif
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="1%" class="text-nowrap">{{ trans("index.deleted_by") }}</td>
-                        <td>
-                            @if ($role->deletedBy)
-                                <a draggable="false" href="{{ route("{$subDomain}.configuration.user.index") . "?pageType=view&row={$role->deletedBy->id}" }}" target="_blank">
-                                    {{ $role->deletedBy->name }}
-                                </a>
-                            @endif
-                        </td>
-                    </tr>
-                    <tr>
                         <td width="1%" class="text-nowrap">{{ trans("index.created_at") }}</td>
                         <td>
                             @if ($role->created_at)
@@ -69,18 +39,6 @@
                             @endif
                         </td>
                     </tr>
-                    @if ($pageType == "trash")
-                        <tr>
-                            <td width="1%" class="text-nowrap">{{ trans("index.deleted_at") }}</td>
-                            <td>
-                                @if ($role->deleted_at)
-                                    {{ $role->deleted_at->format("l, H:i:s") }}
-                                    {{ $role->deleted_at->isoFormat("LL") }}
-                                    ({{ $role->deleted_at->diffForHumans() }})
-                                @endif
-                            </td>
-                        </tr>
-                    @endif
                 </table>
             </div>
         </td>

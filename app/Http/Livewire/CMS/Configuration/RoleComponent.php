@@ -350,7 +350,7 @@ class RoleComponent extends Component
         $this->pageType = 'view';
         $this->row = $id;
 
-        $this->role = Role::withTrashed()->find($id);
+        $this->role = Role::find($id);
 
         if (! $this->role) {
             return $this->flash(
