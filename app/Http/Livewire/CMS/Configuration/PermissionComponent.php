@@ -250,7 +250,6 @@ class PermissionComponent extends Component
         $this->checkPermission($this->pageType, 'add', "{$this->pageName} Add");
         $this->checkPermission($this->pageType, 'clone', "{$this->pageName} Clone");
         $this->checkPermission($this->pageType, 'edit', "{$this->pageName} Edit");
-        $this->checkPermission($this->pageType, 'trash', "{$this->pageName} Trash");
 
         if ($this->pageType == 'add') {
             $this->guard_name = 'web';

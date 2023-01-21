@@ -29,7 +29,7 @@
             @endif
         @endif
 
-        @if ($pageType == "index" || $pageType == "trash")
+        @if ($pageType == "index")
             <div class="col-6 col-sm-auto mb-3">
                 <button type="button" class="btn btn-info text-white w-100" wire:click="resetFilter" wire:loading.attr="disabled">
                     <i class="fas fa-eraser me-1"></i>

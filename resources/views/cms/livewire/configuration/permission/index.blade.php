@@ -3,7 +3,7 @@
 
 <div wire:init="loadData">
 
-    @if ($pageType == "index" || $pageType == "trash")
+    @if ($pageType == "index")
         @include("{$subDomain}.livewire.{$pageCategorySlug}.{$pageSlug}.summary")
     @endif
 

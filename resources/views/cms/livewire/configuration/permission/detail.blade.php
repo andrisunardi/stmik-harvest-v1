@@ -20,36 +20,6 @@
                         </td>
                     </tr>
                     <tr>
-                        <td width="1%" class="text-nowrap">{{ trans("index.created_by") }}</td>
-                        <td>
-                            @if ($permission->createdBy)
-                                <a draggable="false" href="{{ route("{$subDomain}.configuration.user.index") . "?pageType=view&row={$permission->createdBy->id}" }}" target="_blank">
-                                    {{ $permission->createdBy->name }}
-                                </a>
-                            @endif
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="1%" class="text-nowrap">{{ trans("index.updated_by") }}</td>
-                        <td>
-                            @if ($permission->updatedBy)
-                                <a draggable="false" href="{{ route("{$subDomain}.configuration.user.index") . "?pageType=view&row={$permission->updatedBy->id}" }}" target="_blank">
-                                    {{ $permission->updatedBy->name }}
-                                </a>
-                            @endif
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="1%" class="text-nowrap">{{ trans("index.deleted_by") }}</td>
-                        <td>
-                            @if ($permission->deletedBy)
-                                <a draggable="false" href="{{ route("{$subDomain}.configuration.user.index") . "?pageType=view&row={$permission->deletedBy->id}" }}" target="_blank">
-                                    {{ $permission->deletedBy->name }}
-                                </a>
-                            @endif
-                        </td>
-                    </tr>
-                    <tr>
                         <td width="1%" class="text-nowrap">{{ trans("index.created_at") }}</td>
                         <td>
                             @if ($permission->created_at)
@@ -69,18 +39,6 @@
                             @endif
                         </td>
                     </tr>
-                    @if ($pageType == "trash")
-                        <tr>
-                            <td width="1%" class="text-nowrap">{{ trans("index.deleted_at") }}</td>
-                            <td>
-                                @if ($permission->deleted_at)
-                                    {{ $permission->deleted_at->format("l, H:i:s") }}
-                                    {{ $permission->deleted_at->isoFormat("LL") }}
-                                    ({{ $permission->deleted_at->diffForHumans() }})
-                                @endif
-                            </td>
-                        </tr>
-                    @endif
                 </table>
             </div>
         </td>
