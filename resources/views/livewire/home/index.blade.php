@@ -209,7 +209,7 @@
                                 <div class="courses__hover__info">
                                     <div class="courses__hover__action">
                                         <div class="courses__hover__thumb">
-                                            <img draggable="false" src="{{ asset("images/logo-square.png") }}" class="rounded-circle" style="width:50px" alt="{{ $event->altImage() }}">
+                                            <img draggable="false" src="{{ asset("images/logo-square.png") }}" class="rounded-circle bg-white" style="width:50px" alt="{{ $event->altImage() }}">
                                         </div>
                                         <h4>Administrator</h4>
                                         <span class="crs__separator">/</span>
@@ -219,14 +219,14 @@
                             </div>
                             <div class="courses__details">
                                 <div class="courses__details__inner">
-                                    <h2><a draggable="false" href="{{ route("event.view", ["slug" => $event->slug]) }}">{{ $event->translate_name }}</a></h2>
-                                    <p>{{ strip_tags(Str::limit($event->translate_description, 100)) }}</p>
+                                    <h2><a draggable="false" href="{{ route("event.view", ["slug" => $event->slug]) }}">{{ $event->translate_title }}</a></h2>
+                                    <p>{{ $event->translate_short_body }}</p>
                                 </div>
                                 {{-- <ul class="courses__meta">
                                     <li class="crs__price">
                                         <i class="icon ion-calendar"></i>
-                                        {{ Date::parse($event->start)->format("d M Y H:i") }} -
-                                        {{ Date::parse($event->end)->format("d M Y H:i") }}
+                                        {{ $event->start?->isoFormat("LLLL") }} -
+                                        {{ $event->end?->isoFormat("LLLL") }}
                                     </li>
                                 </ul> --}}
                                 <ul class="courses__meta">
@@ -409,21 +409,21 @@
                                     <div class="upcoming__hover__action">
                                         <div class="upcoming__event__time">
                                             <div class="event__time">
-                                                <span>{{ Date::parse($upcoming_event->start)->format("d") }}</span>
-                                                <span>{{ Date::parse($upcoming_event->start)->format("F") }}</span>
+                                                <span>{{ $upcoming_event->start?->format("d") }}</span>
+                                                <span>{{ $upcoming_event->start?->format("F") }}</span>
                                             </div>
                                             <span class="event__separator"></span>
                                             <ul class="event__location">
                                                 <li>
                                                     <i class="icon ion-android-time"></i>
-                                                    {{ Date::parse($upcoming_event->start)->format("H:i") }} -
-                                                    {{ Date::parse($upcoming_event->end)->format("H:i") }}
+                                                    {{ $upcoming_event->start?->format("H:i") }} -
+                                                    {{ $upcoming_event->end?->format("H:i") }}
                                                 </li>
                                                 <li><i class="icon ion-ios-location"></i> {{ strip_tags(Str::limit($upcoming_event->location, 15)) }}</li>
                                             </ul>
                                         </div>
                                         <div class="upcoming__details hidden-xs">
-                                            <p>{{ $upcoming_event->translate_name }}</p>
+                                            <p>{{ $upcoming_event->translate_title }}</p>
                                         </div>
                                         <div class="event__btn">
                                             <a draggable="false" class="htc__btn btn--transparent" href="{{ route("event.view", ["slug" => $upcoming_event->slug]) }}">{{ trans("index.view_detail") }}</a>
@@ -498,12 +498,12 @@
                                     <img draggable="false" class="img-fluid w-100" src="{{ $blog->assetImage() }}" alt="{{ $blog->altImage() }}">
                                 </a>
                                 <div class="blog__date">
-                                    <span>{{ Date::parse($blog->date)->isoFormat("LL") }}</span>
+                                    <span>{{ $blog->date?->isoFormat("LL") }}</span>
                                 </div>
                             </div>
                             <div class="blog__details">
-                                <h2><a draggable="false" href="{{ route("blog.view", ["slug" => $blog->slug]) }}">{{ $blog->translate_name }}</a></h2>
-                                <p>{{ strip_tags(Str::limit($blog->translate_description, 300)) }}</p>
+                                <h2><a draggable="false" href="{{ route("blog.view", ["slug" => $blog->slug]) }}">{{ $blog->translate_title }}</a></h2>
+                                <p>{{ $blog->translate_short_body }}</p>
                                 <div class="blog__btn">
                                     <a draggable="false" class="read__more__btn" href="{{ route("blog.view", ["slug" => $blog->slug]) }}">{{ trans("index.read_more") }}</a>
                                 </div>
