@@ -78,7 +78,7 @@
                                 <div id="description" role="tabpanel" class="single__crs__content tab-pane fade show active clearfix">
                                     <div class="single__crs__details">
                                         <h2>{{ trans("index.description_event") }}</h2>
-                                        <p class="text-pre-wrap ">{!! html_entity_decode($event->translate_body) !!}</p>
+                                        <p class="text-pre-wrap">{!! html_entity_decode($event->translate_body) !!}</p>
                                     </div>
                                 </div>
 
@@ -142,7 +142,7 @@
                                                 <div class="courses__hover__info">
                                                     <div class="courses__hover__action">
                                                         <div class="courses__hover__thumb">
-                                                            <img draggable="false" src="{{ asset("images/logo-square.png") }}" class="rounded-circle" style="width:50px" alt="Administrator - {{ $relatedEvent->translate_name }} - {{ env("APP_TITLE") }}">
+                                                            <img draggable="false" src="{{ asset("images/logo-square.png") }}" class="rounded-circle bg-white" style="width:50px" alt="Administrator - {{ $relatedEvent->translate_name }} - {{ env("APP_TITLE") }}">
                                                         </div>
                                                         <h4>Administrator</h4>
                                                         <span class="crs__separator">/</span>
@@ -158,8 +158,8 @@
                                                 <ul class="courses__meta">
                                                     <li class="crs__price">
                                                         <i class="icon ion-calendar"></i>
-                                                        {{ $relatedEvent->start?->isoFormat("LLLL") }} -
-                                                        {{ $relatedEvent->end?->isoFormat("LLLL") }}
+                                                        {{ $relatedEvent->start?->isoFormat("LLLL") }}
+                                                        {{-- {{ $relatedEvent->end?->isoFormat("LLLL") }} --}}
                                                     </li>
                                                 </ul>
                                                 <ul class="courses__meta">
@@ -210,8 +210,8 @@
                                             </a>
                                         @endif
                                     </li>
-                                    <li>{{ Date::parse($event->start)->format("H:i:s - d F Y") }}</li>
-                                    <li>{{ Date::parse($event->end)->format("H:i:s - d F Y") }}</li>
+                                    <li>{{ $event->start?->isoFormat("LLL") }}</li>
+                                    <li>{{ $event->end?->isoFormat("LLL") }}</li>
                                     <li>{{ $event->location }}</li>
                                 </ul>
                             </div>

@@ -73,7 +73,7 @@
                                                 <ul class="courses__meta">
                                                     <li class="crs__price">
                                                         <i class="icon ion-calendar"></i>
-                                                        {{ Date::parse($event->start)->isoFormat("LL") }}
+                                                        {{ $event->start?->isoFormat("LL") }}
                                                     </li>
                                                 </ul>
                                                 <ul class="courses__meta">
@@ -119,7 +119,7 @@
                                                         <ul class="list__meta">
                                                             <li class="crs__price">
                                                                 <i class="icon ion-calendar"></i>
-                                                                {{ Date::parse($event->start)->isoFormat("LL") }}
+                                                                {{ $event->start?->isoFormat("LL") }}
                                                             </li>
                                                         </ul>
                                                         <ul class="list__meta">

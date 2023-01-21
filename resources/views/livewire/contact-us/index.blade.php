@@ -248,9 +248,10 @@
                                 </div>
 
                                 <div class="contact-btn">
-                                    <button class="htc__btn btn--theme" type="submit" wire:loading.attr="disabled">
+                                    <button class="btn htc__btn btn--theme" type="submit" wire:loading.attr="disabled">
                                         <i class="fas fa-paper-plane fa-fw"></i>
                                         {{ trans("index.submit") }}
+                                        <div wire:loading wire:target="submit"><i class="fas fa-spinner fa-spin"></i></div>
                                     </button>
                                 </div>
                             </form>

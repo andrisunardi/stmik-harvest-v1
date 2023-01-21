@@ -513,10 +513,10 @@
                         <div class="copyright__inner">
                             <div class="copyright">
                                 <p>
-                                    &copy; {{ trans("index.copyright") }} @if (env("APP_YEAR") && env("APP_YEAR") != date("Y")) {{ env("APP_YEAR") . " - " }} @endif {{ date("Y") }} &reg;&nbsp;
+                                    &copy; {{ trans("index.copyright") }} @if (env("APP_YEAR") && env("APP_YEAR") != date("Y")) {{ env("APP_YEAR") . " - " }} @endif {{ date("Y") }} &reg;
                                     <a draggable="false" href="{{ URL::to("/") }}" target="_blank">
-                                        <strong>{{ env("APP_NAME") }}</strong>
-                                    </a> &trade;
+                                        <strong>{{ env("APP_NAME") }}</strong>&trade;
+                                    </a>
                                 </p>
                             </div>
                             <ul class="footer__menu">
