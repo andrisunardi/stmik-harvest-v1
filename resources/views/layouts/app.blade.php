@@ -87,8 +87,8 @@
 
     <style>
 
-        .text-pre {
-            white-space: pre;
+        .text-pre-wrap {
+            white-space: pre-wrap;
         }
 
         body * :not(i[class^="fas fa-"], i[class^="fab fa-"], i[class^="far fa-"], span[class^="fas fa-"], span[class^="fab fa-"], span[class^="far fa-"]) {

@@ -71,8 +71,8 @@
             cursor: pointer;
         }
 
-        .text-pre {
-            white-space: pre;
+        .text-pre-wrap {
+            white-space: pre-wrap;
         }
 
         .background-primary {
