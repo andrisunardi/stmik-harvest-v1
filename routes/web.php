@@ -45,6 +45,7 @@ Route::group(['prefix' => 'blog', 'as' => 'blog.'], function () {
     Route::any('', BlogComponent::class)->name('index');
     Route::any('{slug}', BlogViewComponent::class)->name('view');
 });
+
 Route::group(['prefix' => 'event', 'as' => 'event.'], function () {
     Route::any('', EventComponent::class)->name('index');
     Route::any('{slug}', EventViewComponent::class)->name('view');
