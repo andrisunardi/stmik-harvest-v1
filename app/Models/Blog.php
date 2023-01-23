@@ -131,8 +131,8 @@ class Blog extends Model
         'date' => 'datetime',
         'tag' => 'string',
         'tag_idn' => 'string',
-        'slug' => 'string',
         'image' => 'string',
+        'slug' => 'string',
         // 'is_active' => 'boolean',
     ];
 
