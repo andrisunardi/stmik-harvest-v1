@@ -70,6 +70,12 @@ return new class extends Migration
             $table->foreign('deleted_by_id')->references('id')->on('users')->constrained()->nullable()->cascadeOnUpdate()->cascadeOnDelete();
         });
 
+        Schema::table('newsletters', function (Blueprint $table) {
+            $table->foreign('created_by_id')->references('id')->on('users')->constrained()->nullable()->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreign('updated_by_id')->references('id')->on('users')->constrained()->nullable()->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreign('deleted_by_id')->references('id')->on('users')->constrained()->nullable()->cascadeOnUpdate()->cascadeOnDelete();
+        });
+
         Schema::table('offers', function (Blueprint $table) {
             $table->foreign('created_by_id')->references('id')->on('users')->constrained()->nullable()->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreign('updated_by_id')->references('id')->on('users')->constrained()->nullable()->cascadeOnUpdate()->cascadeOnDelete();
@@ -185,6 +191,12 @@ return new class extends Migration
             });
 
             Schema::table('networks', function (Blueprint $table) {
+                $table->dropConstrainedForeignId('created_by_id');
+                $table->dropConstrainedForeignId('updated_by_id');
+                $table->dropConstrainedForeignId('deleted_by_id');
+            });
+
+            Schema::table('newsletters', function (Blueprint $table) {
                 $table->dropConstrainedForeignId('created_by_id');
                 $table->dropConstrainedForeignId('updated_by_id');
                 $table->dropConstrainedForeignId('deleted_by_id');
