@@ -17,7 +17,7 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @property string|null $name
  * @property string|null $name_idn
  * @property string|null $description
- * @property string|null $description_idn1
+ * @property string|null $description_idn
  * @property string|null $button_name
  * @property string|null $button_name_idn
  * @property string|null $button_link
@@ -115,7 +115,7 @@ class Offer extends Model
         'description',
         'description_idn',
         'button_name',
-        'button_name_id',
+        'button_name_idn',
         'button_link',
         'is_active',
     ];
