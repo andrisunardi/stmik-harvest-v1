@@ -61,6 +61,8 @@ class BlogComponent extends Component
             ->orWhere('short_body_idn', 'like', "%{$this->search}%")
             ->orWhere('body', 'like', "%{$this->search}%")
             ->orWhere('body_idn', 'like', "%{$this->search}%")
+            ->orWhere('tag', 'like', "%{$this->search}%")
+            ->orWhere('tag_id', 'like', "%{$this->search}%")
         )->when($this->category, fn ($query) => $query->where('blog_category_id', $this->blogCategory->id)
         )->active()->orderByDesc('id');
 

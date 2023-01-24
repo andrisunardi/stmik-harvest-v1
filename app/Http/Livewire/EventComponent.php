@@ -61,6 +61,8 @@ class EventComponent extends Component
             ->orWhere('short_body_idn', 'like', "%{$this->search}%")
             ->orWhere('body', 'like', "%{$this->search}%")
             ->orWhere('body_idn', 'like', "%{$this->search}%")
+            ->orWhere('tag', 'like', "%{$this->search}%")
+            ->orWhere('tag_id', 'like', "%{$this->search}%")
         )->when($this->category, fn ($query) => $query->where('event_category_id', $this->eventCategory->id)
         )->active()->orderByDesc('id');
 
