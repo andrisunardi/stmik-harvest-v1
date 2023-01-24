@@ -63,6 +63,7 @@ class OnlineRegistrationComponent extends Component
         $registration = (new RegistrationService())->add($this->validate());
 
         if (env('APP_ENV') == 'production') {
+            Mail::to($this->email)->send(new RegistrationMail($registration));
             Mail::to('registration@'.env('APP_DOMAIN'))->send(new RegistrationMail($registration));
         }
 

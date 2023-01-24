@@ -14,27 +14,27 @@ class RegistrationMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $contact;
+    public $registration;
 
-    public function __construct(Registration $contact)
+    public function __construct(Registration $registration)
     {
-        $this->contact = $contact;
+        $this->registration = $registration;
     }
 
     public function envelope()
     {
         return new Envelope(
             from: new Address(env('MAIL_FROM_ADDRESS'), env('APP_NAME')),
-            subject: "New Registration From {$this->contact->name}",
+            subject: "New Registration From {$this->registration->name}",
         );
     }
 
     public function content()
     {
         return new Content(
-            markdown: 'emails.contact',
+            markdown: 'emails.registration',
             with: [
-                'contact' => $this->contact,
+                'registration' => $this->registration,
             ],
         );
     }

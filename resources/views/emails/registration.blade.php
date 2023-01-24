@@ -3,21 +3,21 @@
 
     Form Registration
 
-    Full Name : {{ $contact->name }}
+    Full Name : {{ $registration->name }}
 
-    Email Address : {{ $contact->email }}
+    Email Address : {{ $registration->email }}
 
-    Phone Number : {{ $contact->phone }}
+    Phone Number : {{ $registration->phone }}
 
-    Gender : {{ $contact->gender?->name }}
+    Gender : {{ $registration->gender?->name }}
 
-    School : {{ $contact->school }}
+    School : {{ $registration->school }}
 
-    Major : {{ $contact->major }}
+    Major : {{ $registration->major }}
 
-    City : {{ $contact->city }}
+    City : {{ $registration->city }}
 
-    Type : {{ $contact->type?->name }}
+    Type : {{ $registration->type?->name }}
 
     Created At : {{ now() }}
 
@@ -25,21 +25,21 @@
 
     Pendaftaran Formulir
 
-    Nama Lengkap : {{ $contact->name }}
+    Nama Lengkap : {{ $registration->name }}
 
-    Alamat Email : {{ $contact->email }}
+    Alamat Email : {{ $registration->email }}
 
-    Nomor Telepon : {{ $contact->phone }}
+    Nomor Telepon : {{ $registration->phone }}
 
-    Jenis Kelamin : {{ $contact->gender?->name }}
+    Jenis Kelamin : {{ $registration->gender?->name }}
 
-    Sekolah : {{ $contact->school }}
+    Sekolah : {{ $registration->school }}
 
-    Jurusan : {{ $contact->major }}
+    Jurusan : {{ $registration->major }}
 
-    Kota : {{ $contact->city }}
+    Kota : {{ $registration->city }}
 
-    Tipe : {{ $contact->type?->name }}
+    Tipe : {{ $registration->type?->name }}
 
     Tanggal Dibuat : {{ now() }}
 </x-mail::message>
