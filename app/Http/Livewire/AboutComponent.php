@@ -26,7 +26,6 @@ class AboutComponent extends Component
     public function render()
     {
         return view('livewire.about.index', [
-            'banner' => $this->getBanner(),
             'networks' => $this->getNetworks(),
             'values' => $this->getValues(),
         ])->extends('layouts.app', [

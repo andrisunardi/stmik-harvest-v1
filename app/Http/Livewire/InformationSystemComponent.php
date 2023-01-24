@@ -13,9 +13,7 @@ class InformationSystemComponent extends Component
 
     public function render()
     {
-        return view('livewire.information-system.index', [
-            'banner' => $this->getBanner(),
-        ])->extends('layouts.app', [
+        return view('livewire.information-system.index')->extends('layouts.app', [
             'banner' => $this->getBanner(),
         ])->section('content');
     }

@@ -13,9 +13,7 @@ class OurProfileComponent extends Component
 
     public function render()
     {
-        return view('livewire.our-profile.index', [
-            'banner' => $this->getBanner(),
-        ])->extends('layouts.app', [
+        return view('livewire.our-profile.index')->extends('layouts.app', [
             'banner' => $this->getBanner(),
         ])->section('content');
     }

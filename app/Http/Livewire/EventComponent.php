@@ -76,7 +76,6 @@ class EventComponent extends Component
     public function render()
     {
         return view('livewire.event.index', [
-            'banner' => $this->getBanner(),
             'events' => $this->getEvents(),
         ])->extends('layouts.app', [
             'banner' => $this->getBanner(),

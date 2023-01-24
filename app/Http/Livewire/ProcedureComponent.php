@@ -20,7 +20,6 @@ class ProcedureComponent extends Component
     public function render()
     {
         return view('livewire.procedure.index', [
-            'banner' => $this->getBanner(),
             'procedures' => $this->getProcedures(),
         ])->extends('layouts.app', [
             'banner' => $this->getBanner(),

@@ -79,9 +79,7 @@ class OnlineRegistrationComponent extends Component
 
     public function render()
     {
-        return view('livewire.online-registration.index', [
-            'banner' => $this->getBanner(),
-        ])->extends('layouts.app', [
+        return view('livewire.online-registration.index')->extends('layouts.app', [
             'banner' => $this->getBanner(),
         ])->section('content');
     }

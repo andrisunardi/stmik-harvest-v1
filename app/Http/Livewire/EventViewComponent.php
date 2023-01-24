@@ -55,7 +55,6 @@ class EventViewComponent extends Component
     public function render()
     {
         return view('livewire.event.view', [
-            'banner' => $this->getBanner(),
             'relatedEvents' => $this->getRelatedEvents(),
             'eventCategories' => $this->getEventCategories(),
             'recentEvents' => $this->getRecentEvents(),

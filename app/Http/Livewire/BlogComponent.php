@@ -76,7 +76,6 @@ class BlogComponent extends Component
     public function render()
     {
         return view('livewire.blog.index', [
-            'banner' => $this->getBanner(),
             'blogs' => $this->getBlogs(),
         ])->extends('layouts.app', [
             'banner' => $this->getBanner(),

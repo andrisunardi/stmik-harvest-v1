@@ -20,7 +20,6 @@ class OurNetworkComponent extends Component
     public function render()
     {
         return view('livewire.our-network.index', [
-            'banner' => $this->getBanner(),
             'networks' => $this->getNetworks(),
         ])->extends('layouts.app', [
             'banner' => $this->getBanner(),

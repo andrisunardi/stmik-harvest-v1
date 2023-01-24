@@ -20,7 +20,6 @@ class OurValuesComponent extends Component
     public function render()
     {
         return view('livewire.our-values.index', [
-            'banner' => $this->getBanner(),
             'values' => $this->getValues(),
         ])->extends('layouts.app', [
             'banner' => $this->getBanner(),

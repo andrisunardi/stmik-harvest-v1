@@ -20,7 +20,6 @@ class FaqComponent extends Component
     public function render()
     {
         return view('livewire.faq.index', [
-            'banner' => $this->getBanner(),
             'faqs' => $this->getFaqs(),
         ])->extends('layouts.app', [
             'banner' => $this->getBanner(),

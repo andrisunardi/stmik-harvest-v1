@@ -20,7 +20,6 @@ class AdmissionCalendarComponent extends Component
     public function render()
     {
         return view('livewire.admission-calendar.index', [
-            'banner' => $this->getBanner(),
             'admissionCalendars' => $this->getAdmissionCalendars(),
         ])->extends('layouts.app', [
             'banner' => $this->getBanner(),
