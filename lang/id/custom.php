@@ -1,6 +1,6 @@
 <?php
 
-$url = 'https://www.language.diw.co.id/api/id';
+$url = 'https://www.api.language.diw.co.id/en';
 
 $headers = [
     'Content-Type' => env('HEADER_CONTENT_TYPE'),

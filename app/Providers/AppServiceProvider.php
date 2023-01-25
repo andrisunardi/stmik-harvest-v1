@@ -105,7 +105,7 @@ class AppServiceProvider extends ServiceProvider
         });
 
         Str::macro('active', function ($value) {
-            return $value ? 'Active' : 'Non Active';
+            return $value ? 'Active' : 'Inactive';
         });
 
         Str::macro('successdanger', function ($value) {
