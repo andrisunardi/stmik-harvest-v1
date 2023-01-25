@@ -107,12 +107,14 @@
                                 <button class="btn btn-primary w-100" type="submit" wire:loading.attr="disabled">
                                     <i class="fas fa-save"></i>
                                     {{ trans("index.save") }}
+                                    <div wire:loading wire:target="submit"><i class="fas fa-spinner fa-spin"></i></div>
                                 </button>
                             </div>
                             <div class="col-6 col-sm-auto">
                                 <button class="btn btn-secondary w-100" type="button" wire:click="resetForm" wire:loading.attr="disabled">
                                     <i class="fas fa-rotate-left"></i>
                                     {{ trans("index.reset") }}
+                                    <div wire:loading wire:target="resetForm"><i class="fas fa-spinner fa-spin"></i></div>
                                 </button>
                             </div>
                         </div>

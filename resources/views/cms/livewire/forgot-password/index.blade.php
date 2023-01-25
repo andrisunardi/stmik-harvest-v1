@@ -138,6 +138,7 @@
                                             </a>
                                             <button class="btn btn-primary" type="submit" wire:loading.attr="disabled">
                                                 <i class="fas fa-paper-plane me-1"></i> {{ trans("index.submit") }}
+                                                <div wire:loading wire:target="submit"><i class="fas fa-spinner fa-spin"></i></div>
                                             </button>
                                         </div>
 

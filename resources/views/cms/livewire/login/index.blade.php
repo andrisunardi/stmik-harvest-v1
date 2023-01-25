@@ -105,6 +105,7 @@
                                             </a>
                                             <button class="btn btn-primary" type="submit" wire:loading.attr="disabled">
                                                 <i class="fas fa-sign-in-alt me-1"></i> {{ trans("index.login") }}
+                                                <div wire:loading wire:target="submit"><i class="fas fa-spinner fa-spin"></i></div>
                                             </button>
                                         </div>
 
