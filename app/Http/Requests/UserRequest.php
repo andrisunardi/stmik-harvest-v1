@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PortfolioRequest extends FormRequest
+class UserRequest extends FormRequest
 {
     public function authorize()
     {
@@ -14,10 +14,9 @@ class PortfolioRequest extends FormRequest
     public function rules()
     {
         return [
-            'portfolio_category_id' => [
-                'nullable',
-                'integer',
-                'exists:portfolio_categories,id',
+            'name' => [
+                'required',
+                'numeric',
             ],
         ];
     }
