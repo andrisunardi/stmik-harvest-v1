@@ -222,8 +222,8 @@ class AppServiceProvider extends ServiceProvider
         Slider::observe(SliderObserver::class);
         Testimony::observe(TestimonyObserver::class);
         TuitionFee::observe(TuitionFeeObserver::class);
-        Value::observe(ValueObserver::class);
         User::observe(UserObserver::class);
+        Value::observe(ValueObserver::class);
 
         if (env('APP_ENV') == 'production') {
             URL::forceScheme('https');
