@@ -20,7 +20,7 @@
                     <th class="text-center">{{ trans("index.description") }}</th>
                     <th class="text-center">{{ trans("index.description_idn") }}</th>
                     <th class="text-center">{{ trans("index.icon") }}</th>
-                    <th class="text-center">{{ trans("index.is_active") }}</th>
+                    <th class="text-center">{{ trans("index.active") }}</th>
                 </tr>
                 @foreach($values as $value)
                 <tr>

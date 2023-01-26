@@ -8,7 +8,7 @@
         <th align="center"><b>{{ trans("index.id") }}</b></th>
         <th align="center"><b>{{ trans("index.key") }}</b></th>
         <th align="center"><b>{{ trans("index.value") }}</b></th>
-        <th align="center"><b>{{ trans("index.is_active") }}</b></th>
+        <th align="center"><b>{{ trans("index.active") }}</b></th>
     </tr>
     @foreach ($settings as $setting)
         <tr>

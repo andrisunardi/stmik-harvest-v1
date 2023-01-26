@@ -23,7 +23,7 @@
                     <th class="text-center"><b>{{ trans("index.button_name_idn") }}</b></th>
                     <th class="text-center"><b>{{ trans("index.button_link") }}</b></th>
                     <th class="text-center"><b>{{ trans("index.image") }}</b></th>
-                    <th class="text-center"><b>{{ trans("index.is_active") }}</b></th>
+                    <th class="text-center"><b>{{ trans("index.active") }}</b></th>
                 </tr>
                 @foreach($sliders as $slider)
                 <tr>

@@ -20,7 +20,7 @@
                     <th class="text-center">{{ trans("index.description") }}</th>
                     <th class="text-center">{{ trans("index.description_idn") }}</th>
                     <th class="text-center">{{ trans("index.slug") }}</th>
-                    <th class="text-center">{{ trans("index.is_active") }}</th>
+                    <th class="text-center">{{ trans("index.active") }}</th>
                     <th class="text-center">{{ trans("index.total") }} {{ trans("index.blog") }}</th>
                 </tr>
                 @foreach($blogCategories as $blogCategory)

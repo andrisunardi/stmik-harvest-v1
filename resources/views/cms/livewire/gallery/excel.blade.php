@@ -15,7 +15,7 @@
         <th align="center"><b>{{ trans("index.image") }}</b></th>
         <th align="center"><b>{{ trans("index.video") }}</b></th>
         <th align="center"><b>{{ trans("index.youtube") }}</b></th>
-        <th align="center"><b>{{ trans("index.is_active") }}</b></th>
+        <th align="center"><b>{{ trans("index.active") }}</b></th>
     </tr>
     @foreach ($galleries as $gallery)
         <tr>

@@ -13,7 +13,7 @@
         <th align="center"><b>{{ trans("index.button_name") }}</b></th>
         <th align="center"><b>{{ trans("index.button_name_idn") }}</b></th>
         <th align="center"><b>{{ trans("index.button_link") }}</b></th>
-        <th align="center"><b>{{ trans("index.is_active") }}</b></th>
+        <th align="center"><b>{{ trans("index.active") }}</b></th>
     </tr>
     @foreach ($offers as $offer)
         <tr>

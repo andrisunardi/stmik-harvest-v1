@@ -14,7 +14,7 @@
         <th align="center"><b>{{ trans("index.major") }}</b></th>
         <th align="center"><b>{{ trans("index.city") }}</b></th>
         <th align="center"><b>{{ trans("index.type") }}</b></th>
-        <th align="center"><b>{{ trans("index.is_active") }}</b></th>
+        <th align="center"><b>{{ trans("index.active") }}</b></th>
     </tr>
     @foreach ($registrations as $registration)
         <tr>

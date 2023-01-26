@@ -10,7 +10,7 @@
         <th align="center"><b>{{ trans("index.question_idn") }}</b></th>
         <th align="center"><b>{{ trans("index.answer") }}</b></th>
         <th align="center"><b>{{ trans("index.answer_idn") }}</b></th>
-        <th align="center"><b>{{ trans("index.is_active") }}</b></th>
+        <th align="center"><b>{{ trans("index.active") }}</b></th>
     </tr>
     @foreach ($faqs as $faq)
         <tr>

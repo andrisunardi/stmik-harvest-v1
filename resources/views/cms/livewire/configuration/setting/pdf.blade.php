@@ -17,7 +17,7 @@
                     <th class="text-center" width="1%">{{ trans("index.id") }}</th>
                     <th class="text-center">{{ trans("index.key") }}</th>
                     <th class="text-center">{{ trans("index.value") }}</th>
-                    <th class="text-center">{{ trans("index.is_active") }}</th>
+                    <th class="text-center">{{ trans("index.active") }}</th>
                 </tr>
                 @foreach($settings as $setting)
                 <tr>

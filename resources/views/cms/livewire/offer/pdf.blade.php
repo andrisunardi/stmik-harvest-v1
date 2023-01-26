@@ -22,7 +22,7 @@
                     <th class="text-center">{{ trans("index.button_name") }}</th>
                     <th class="text-center">{{ trans("index.button_name_idn") }}</th>
                     <th class="text-center">{{ trans("index.button_link") }}</th>
-                    <th class="text-center">{{ trans("index.is_active") }}</th>
+                    <th class="text-center">{{ trans("index.active") }}</th>
                 </tr>
                 @foreach($offers as $offer)
                 <tr>

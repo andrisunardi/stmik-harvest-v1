@@ -19,7 +19,7 @@
                     <th class="text-center">{{ trans("index.username") }}</th>
                     <th class="text-center">{{ trans("index.email") }}</th>
                     <th class="text-center">{{ trans("index.phone") }}</th>
-                    <th class="text-center">{{ trans("index.is_active") }}</th>
+                    <th class="text-center">{{ trans("index.active") }}</th>
                     <th class="text-center">{{ trans("index.roles_and_permission") }}</th>
                 </tr>
                 @foreach($users as $user)

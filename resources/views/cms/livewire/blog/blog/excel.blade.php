@@ -18,7 +18,7 @@
         <th align="center"><b>{{ trans("index.tag_idn") }}</b></th>
         <th align="center"><b>{{ trans("index.image") }}</b></th>
         <th align="center"><b>{{ trans("index.slug") }}</b></th>
-        <th align="center"><b>{{ trans("index.is_active") }}</b></th>
+        <th align="center"><b>{{ trans("index.active") }}</b></th>
     </tr>
     @foreach ($blogs as $blog)
         <tr>

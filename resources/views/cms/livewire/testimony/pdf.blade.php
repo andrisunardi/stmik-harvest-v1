@@ -19,7 +19,7 @@
                     <th class="text-center"><b>{{ trans("index.description") }}</b></th>
                     <th class="text-center"><b>{{ trans("index.graduate") }}</b></th>
                     <th class="text-center"><b>{{ trans("index.image") }}</b></th>
-                    <th class="text-center"><b>{{ trans("index.is_active") }}</b></th>
+                    <th class="text-center"><b>{{ trans("index.active") }}</b></th>
                 </tr>
                 @foreach($testimonies as $testimony)
                 <tr>

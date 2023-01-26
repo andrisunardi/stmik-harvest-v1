@@ -22,7 +22,7 @@
                     <th class="text-center">{{ trans("index.phone") }}</th>
                     <th class="text-center">{{ trans("index.subject") }}</th>
                     <th class="text-center">{{ trans("index.message") }}</th>
-                    <th class="text-center">{{ trans("index.is_active") }}</th>
+                    <th class="text-center">{{ trans("index.active") }}</th>
                 </tr>
                 @foreach($contacts as $contact)
                 <tr>
