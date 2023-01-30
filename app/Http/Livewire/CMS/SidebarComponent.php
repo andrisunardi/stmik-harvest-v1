@@ -20,7 +20,7 @@ class SidebarComponent extends Component
                 ], [
                     'category' => null,
                     'roles' => 'Super User|Admin',
-                    'permissions' => 'Admission Calendar',
+                    'permissions' => 'Contact',
                     'name' => trans('index.contact'),
                     'slug' => 'contact',
                     'icon' => 'fas fa-phone fa-fw',
