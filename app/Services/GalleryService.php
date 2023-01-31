@@ -103,7 +103,7 @@ class GalleryService
 
     public function deletePermanent(Gallery $gallery): bool
     {
-        $gallery->deleteFile();
+        $gallery->deleteImage();
 
         return $gallery->forceDelete();
     }
@@ -113,7 +113,7 @@ class GalleryService
         $galleries = Gallery::when($galleries, fn ($q) => $q->whereIn('id', $galleries))->onlyTrashed()->get();
 
         foreach ($galleries as $gallery) {
-            $gallery->deleteFile();
+            $gallery->deleteImage();
             $gallery->forceDelete();
         }
 

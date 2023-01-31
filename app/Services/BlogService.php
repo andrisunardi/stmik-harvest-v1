@@ -109,7 +109,7 @@ class BlogService
 
     public function deletePermanent(Blog $blog): bool
     {
-        $blog->deleteFile();
+        $blog->deleteImage();
 
         return $blog->forceDelete();
     }
@@ -119,7 +119,7 @@ class BlogService
         $blogs = Blog::when($blogs, fn ($q) => $q->whereIn('id', $blogs))->onlyTrashed()->get();
 
         foreach ($blogs as $blog) {
-            $blog->deleteFile();
+            $blog->deleteImage();
             $blog->forceDelete();
         }
 

@@ -103,7 +103,7 @@ class TestimonyService
 
     public function deletePermanent(Testimony $testimony): bool
     {
-        $testimony->deleteFile();
+        $testimony->deleteImage();
 
         return $testimony->forceDelete();
     }
@@ -113,7 +113,7 @@ class TestimonyService
         $testimonies = Testimony::when($testimonies, fn ($q) => $q->whereIn('id', $testimonies))->onlyTrashed()->get();
 
         foreach ($testimonies as $testimony) {
-            $testimony->deleteFile();
+            $testimony->deleteImage();
             $testimony->forceDelete();
         }
 

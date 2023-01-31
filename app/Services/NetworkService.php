@@ -103,7 +103,7 @@ class NetworkService
 
     public function deletePermanent(Network $network): bool
     {
-        $network->deleteFile();
+        $network->deleteImage();
 
         return $network->forceDelete();
     }
@@ -113,7 +113,7 @@ class NetworkService
         $networks = Network::when($networks, fn ($q) => $q->whereIn('id', $networks))->onlyTrashed()->get();
 
         foreach ($networks as $network) {
-            $network->deleteFile();
+            $network->deleteImage();
             $network->forceDelete();
         }
 

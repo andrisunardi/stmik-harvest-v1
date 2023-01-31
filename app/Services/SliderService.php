@@ -103,7 +103,7 @@ class SliderService
 
     public function deletePermanent(Slider $slider): bool
     {
-        $slider->deleteFile();
+        $slider->deleteImage();
 
         return $slider->forceDelete();
     }
@@ -113,7 +113,7 @@ class SliderService
         $sliders = Slider::when($sliders, fn ($q) => $q->whereIn('id', $sliders))->onlyTrashed()->get();
 
         foreach ($sliders as $slider) {
-            $slider->deleteFile();
+            $slider->deleteImage();
             $slider->forceDelete();
         }
 

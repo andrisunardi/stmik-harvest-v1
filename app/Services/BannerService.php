@@ -103,7 +103,7 @@ class BannerService
 
     public function deletePermanent(Banner $banner): bool
     {
-        $banner->deleteFile();
+        $banner->deleteImage();
 
         return $banner->forceDelete();
     }
@@ -113,7 +113,7 @@ class BannerService
         $banners = Banner::when($banners, fn ($q) => $q->whereIn('id', $banners))->onlyTrashed()->get();
 
         foreach ($banners as $banner) {
-            $banner->deleteFile();
+            $banner->deleteImage();
             $banner->forceDelete();
         }
 

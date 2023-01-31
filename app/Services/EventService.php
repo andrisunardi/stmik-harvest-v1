@@ -109,7 +109,7 @@ class EventService
 
     public function deletePermanent(Event $event): bool
     {
-        $event->deleteFile();
+        $event->deleteImage();
 
         return $event->forceDelete();
     }
@@ -119,7 +119,7 @@ class EventService
         $events = Event::when($events, fn ($q) => $q->whereIn('id', $events))->onlyTrashed()->get();
 
         foreach ($events as $event) {
-            $event->deleteFile();
+            $event->deleteImage();
             $event->forceDelete();
         }
 
