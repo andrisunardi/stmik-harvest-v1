@@ -13,28 +13,6 @@ use PDF;
 
 class BlogCategoryComponent extends Component
 {
-    public $pageName;
-
-    public $pageTitle;
-
-    public $pageSlug;
-
-    public $pageIcon;
-
-    public $pageTable;
-
-    public $pageCategoryName;
-
-    public $pageCategoryTitle;
-
-    public $pageCategorySlug;
-
-    public $pageSubCategoryName;
-
-    public $pageSubCategoryTitle;
-
-    public $pageSubCategorySlug;
-
     public function boot()
     {
         $this->pageName = 'Blog Category';
@@ -49,48 +27,6 @@ class BlogCategoryComponent extends Component
         $this->pageSubCategoryTitle = null;
         $this->pageSubCategorySlug = null;
     }
-
-    public $readyToLoad = false;
-
-    public $pageType = 'index';
-
-    public $page = 1;
-
-    public $per_page = 10;
-
-    public $order_by = 'id';
-
-    public $sort_by = 'desc';
-
-    public $start_created_at;
-
-    public $end_created_at;
-
-    public $start_updated_at;
-
-    public $end_updated_at;
-
-    public $start_deleted_at;
-
-    public $end_deleted_at;
-
-    public $created_by_id = '';
-
-    public $updated_by_id = '';
-
-    public $deleted_by_id = '';
-
-    public $row;
-
-    public $advanced_search = false;
-
-    public $action = [];
-
-    public $detail = [];
-
-    public $checkbox_all;
-
-    public $checkbox_id;
 
     public $blogCategory;
 

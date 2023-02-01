@@ -9,28 +9,6 @@ use Spatie\Activitylog\Models\Activity;
 
 class ActivityComponent extends Component
 {
-    public $pageName;
-
-    public $pageTitle;
-
-    public $pageSlug;
-
-    public $pageIcon;
-
-    public $pageTable;
-
-    public $pageCategoryName;
-
-    public $pageCategoryTitle;
-
-    public $pageCategorySlug;
-
-    public $pageSubCategoryName;
-
-    public $pageSubCategoryTitle;
-
-    public $pageSubCategorySlug;
-
     public function boot()
     {
         $this->pageName = 'Activity';
@@ -45,32 +23,6 @@ class ActivityComponent extends Component
         $this->pageSubCategoryTitle = null;
         $this->pageSubCategorySlug = null;
     }
-
-    public $readyToLoad = false;
-
-    public $page = 1;
-
-    public $per_page = 10;
-
-    public $order_by = 'id';
-
-    public $sort_by = 'desc';
-
-    public $start_created_at;
-
-    public $end_created_at;
-
-    public $start_updated_at;
-
-    public $end_updated_at;
-
-    public $start_deleted_at;
-
-    public $end_deleted_at;
-
-    public $row;
-
-    public $advanced_search = false;
 
     public $activity;
 

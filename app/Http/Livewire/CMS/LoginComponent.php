@@ -8,28 +8,6 @@ use Illuminate\Support\Str;
 
 class LoginComponent extends Component
 {
-    public $pageName;
-
-    public $pageTitle;
-
-    public $pageSlug;
-
-    public $pageIcon;
-
-    public $pageTable;
-
-    public $pageCategoryName;
-
-    public $pageCategoryTitle;
-
-    public $pageCategorySlug;
-
-    public $pageSubCategoryName;
-
-    public $pageSubCategoryTitle;
-
-    public $pageSubCategorySlug;
-
     public function boot()
     {
         $this->pageName = 'Login';
