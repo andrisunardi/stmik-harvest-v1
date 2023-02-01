@@ -256,9 +256,7 @@ class PermissionComponent extends Component
         }
 
         if ($this->row && (! in_array($this->pageType, ['index']))) {
-            if ($this->pageType == 'view') {
-                $this->permission = Permission::findOrFail($this->row);
-            }
+            $this->permission = Permission::findOrFail($this->row);
 
             if ($this->pageType != 'view') {
                 $this->resetForm();

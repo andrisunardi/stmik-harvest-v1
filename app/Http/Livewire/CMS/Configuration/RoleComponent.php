@@ -256,9 +256,7 @@ class RoleComponent extends Component
         }
 
         if ($this->row && (! in_array($this->pageType, ['index']))) {
-            if ($this->pageType == 'view') {
-                $this->role = Role::findOrFail($this->row);
-            }
+            $this->role = Role::findOrFail($this->row);
 
             if ($this->pageType != 'view') {
                 $this->resetForm();
