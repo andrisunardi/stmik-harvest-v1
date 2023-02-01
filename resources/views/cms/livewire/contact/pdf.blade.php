@@ -15,7 +15,6 @@
                 <tr>
                     <th class="text-center" width="1%">{{ trans("index.#") }}</th>
                     <th class="text-center" width="1%">{{ trans("index.id") }}</th>
-                    <th class="text-center">{{ trans("index.code") }}</th>
                     <th class="text-center">{{ trans("index.name") }}</th>
                     <th class="text-center">{{ trans("index.company") }}</th>
                     <th class="text-center">{{ trans("index.email") }}</th>
@@ -28,7 +27,6 @@
                 <tr>
                     <td class="text-center">{{ $loop->iteration }}</td>
                     <td class="text-center">{{ $contact->id }}</td>
-                    <td class="text-center">{{ $contact->code }}</td>
                     <td>{{ $contact->name }}</td>
                     <td>{{ $contact->company }}</td>
                     <td>{{ $contact->email }}</td>

@@ -20,7 +20,6 @@
                     <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
                     <select wire:model="{{ $input }}" class="form-select select2" id="{{ $input }}">
                         <option value="id" {{ "id" == $order_by ? "selected" : null }}>{{ trans("index.id") }}</option>
-                        <option value="code" {{ "code" == $order_by ? "selected" : null }}>{{ trans("index.code") }}</option>
                         <option value="name" {{ "name" == $order_by ? "selected" : null }}>{{ trans("index.name") }}</option>
                         <option value="company" {{ "company" == $order_by ? "selected" : null }}>{{ trans("index.company") }}</option>
                         <option value="email" {{ "email" == $order_by ? "selected" : null }}>{{ trans("index.email") }}</option>

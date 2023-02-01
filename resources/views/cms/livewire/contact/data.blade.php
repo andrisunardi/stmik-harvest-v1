@@ -12,13 +12,6 @@
                             <i class="fas fa-sort-amount-{{ $order_by == $column && $sort_by == "desc" ? "down" : "up" }} text-white"></i>
                         </a>
                     </th>
-                    <th width="1%">
-                        @php($column = "code")
-                        {{ trans("index.{$column}") }}
-                        <a draggable="false" href="javascript:;" wire:click="sort('{{ $column }}', '{{ $order_by == $column && $sort_by == "desc" ? "asc" : "desc" }}')">
-                            <i class="fas fa-sort-amount-{{ $order_by == $column && $sort_by == "desc" ? "down" : "up" }} text-white"></i>
-                        </a>
-                    </th>
                     <th>
                         @php($column = "name")
                         {{ trans("index.{$column}") }}
@@ -78,7 +71,6 @@
                                 {{ $contact->id }}
                             </button>
                         </td>
-                        <td>{{ $contact->code }}</td>
                         <td>{{ $contact->name }}</td>
                         <td>{{ $contact->company }}</td>
                         <td>

@@ -1,12 +1,11 @@
 <table>
-    <tr><th align="center" colspan="10"><b>{{ env("APP_NAME") }}</b></th></tr>
-    <tr><th align="center" colspan="10"><b>{{ Str::upper(trans("index." . Str::slug($title, '_'))) }}</b></th></tr>
-    <tr><th align="center" colspan="10">{{ trans("index.printed_date") }} : {{ now()->format("l, H:i:s") }} {{ now()->isoFormat("LL") }}</th></tr>
+    <tr><th align="center" colspan="9"><b>{{ env("APP_NAME") }}</b></th></tr>
+    <tr><th align="center" colspan="9"><b>{{ Str::upper(trans("index." . Str::slug($title, '_'))) }}</b></th></tr>
+    <tr><th align="center" colspan="9">{{ trans("index.printed_date") }} : {{ now()->format("l, H:i:s") }} {{ now()->isoFormat("LL") }}</th></tr>
     <tr></tr>
     <tr>
         <th align="center"><b>{{ trans("index.#") }}</b></th>
         <th align="center"><b>{{ trans("index.id") }}</b></th>
-        <th align="center"><b>{{ trans("index.code") }}</b></th>
         <th align="center"><b>{{ trans("index.name") }}</b></th>
         <th align="center"><b>{{ trans("index.company") }}</b></th>
         <th align="center"><b>{{ trans("index.email") }}</b></th>
@@ -19,7 +18,6 @@
         <tr>
             <td align="center">{{ $loop->iteration }}</td>
             <td align="center">{{ $contact->id }}</td>
-            <td align="center">{{ $contact->code }}</td>
             <td>{{ $contact->name }}</td>
             <td>{{ $contact->company }}</td>
             <td>{{ $contact->email }}</td>

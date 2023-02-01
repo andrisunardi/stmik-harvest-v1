@@ -1,14 +1,6 @@
 <div>
     <div class="row">
         <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
-            @php $input = "code" @endphp
-            <div class="form-group">
-                <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>
-                <input wire:model="{{ $input }}" type="search" class="form-control" id="{{ $input }}" placeholder="{{ trans("validation.attributes.{$input}") }}">
-            </div>
-        </div>
-
-        <div class="col-sm-4 col-lg-3 col-xl-auto mb-3">
             @php $input = "name" @endphp
             <div class="form-group">
                 <label class="form-label" for="{{ $input }}">{{ trans("validation.attributes.{$input}") }}</label>

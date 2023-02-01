@@ -10,15 +10,6 @@
 
     <div class="row mb-2">
         <div class="col-sm-6 col-md-4 col-lg-3">
-            <h6>{{ trans("index.code") }}</h6>
-        </div>
-        <div class="col-sm-6 col-md-8 col-lg-9">
-            {{ $contact->code }}
-        </div>
-    </div>
-
-    <div class="row mb-2">
-        <div class="col-sm-6 col-md-4 col-lg-3">
             <h6>{{ trans("index.name") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
