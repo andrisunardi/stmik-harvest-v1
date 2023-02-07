@@ -134,9 +134,9 @@
                         </td>
                     </tr>
 
-                    @include("{$subDomain}.livewire.{$pageCategorySlug}.{$pageSubCategorySlug}.{$pageSlug}.detail")
+                    @include("{$subDomain}.livewire.{$pageCategorySlug}.{$pageSlug}.detail")
 
-                    @include("{$subDomain}.livewire.{$pageCategorySlug}.{$pageSubCategorySlug}.{$pageSlug}.action")
+                    @include("{$subDomain}.livewire.{$pageCategorySlug}.{$pageSlug}.action")
 
                 @endforeach
 

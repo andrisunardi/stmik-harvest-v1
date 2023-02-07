@@ -4,7 +4,7 @@
 <div wire:init="loadData">
 
     @if ($pageType == "index" || $pageType == "trash")
-        @include("{$subDomain}.livewire.{$pageCategorySlug}.{$pageSlug}.summary")
+        @include("{$subDomain}.livewire.{$pageSlug}.summary")
     @endif
 
     <div class="card">

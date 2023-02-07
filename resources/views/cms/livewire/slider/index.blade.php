@@ -4,7 +4,7 @@
 <div wire:init="loadData">
 
     @if ($pageType == "index" || $pageType == "trash")
-        @include("{$subDomain}.livewire.{$pageCategorySlug}.{$pageSlug}.summary")
+        @include("{$subDomain}.livewire.{$pageSlug}.summary")
     @endif
 
     <div class="card">
@@ -21,26 +21,26 @@
 
         <div class="card-body">
 
-            @include("{$subDomain}.livewire.{$pageCategorySlug}.{$pageSlug}.button")
+            @include("{$subDomain}.livewire.{$pageSlug}.button")
 
             @if ($pageType == "index" || $pageType == "trash")
 
-                @include("{$subDomain}.livewire.{$pageCategorySlug}.{$pageSlug}.search")
+                @include("{$subDomain}.livewire.{$pageSlug}.search")
 
-                @include("{$subDomain}.livewire.{$pageCategorySlug}.{$pageSlug}.advanced-search")
+                @include("{$subDomain}.livewire.{$pageSlug}.advanced-search")
 
-                @include("{$subDomain}.livewire.{$pageCategorySlug}.{$pageSlug}.button-data")
+                @include("{$subDomain}.livewire.{$pageSlug}.button-data")
 
-                @include("{$subDomain}.livewire.{$pageCategorySlug}.{$pageSlug}.data")
+                @include("{$subDomain}.livewire.{$pageSlug}.data")
 
             @endif
 
             @if ($pageType == "add" || $pageType == "clone" || $pageType == "edit")
-                @include("{$subDomain}.livewire.{$pageCategorySlug}.{$pageSlug}.form")
+                @include("{$subDomain}.livewire.{$pageSlug}.form")
             @endif
 
             @if ($pageType == "view")
-                @include("{$subDomain}.livewire.{$pageCategorySlug}.{$pageSlug}.view")
+                @include("{$subDomain}.livewire.{$pageSlug}.view")
             @endif
 
         </div>
