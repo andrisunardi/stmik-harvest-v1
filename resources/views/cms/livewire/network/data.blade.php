@@ -56,7 +56,7 @@
                                 {{ $network->id }}
                             </button>
                         </td>
-                        <td>{{ $network->name }} </td>
+                        <td>{{ $network->name }}</td>
                         <td>
                             <a draggable="false" href="{{ $network->link }}" target="_blank">
                                 {{ $network->link }}

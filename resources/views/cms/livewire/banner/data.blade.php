@@ -56,8 +56,8 @@
                                 {{ $banner->id }}
                             </button>
                         </td>
-                        <td>{{ $banner->name }} </td>
-                        <td>{{ $banner->name_idn }} </td>
+                        <td>{{ $banner->name }}</td>
+                        <td>{{ $banner->name_idn }}</td>
                         <td>
                             @if ($pageType == "index")
                                 @can("{$pageName} Edit")

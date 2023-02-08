@@ -63,9 +63,9 @@
                                 {{ $gallery->id }}
                             </button>
                         </td>
-                        <td class="text-center">{{ $gallery->category?->name }} </td>
-                        <td class="text-wrap">{{ $gallery->name }} </td>
-                        <td class="text-wrap">{{ $gallery->name_idn }} </td>
+                        <td class="text-center">{{ $gallery->category?->name }}</td>
+                        <td class="text-wrap">{{ $gallery->name }}</td>
+                        <td class="text-wrap">{{ $gallery->name_idn }}</td>
                         <td>
                             @if ($pageType == "index")
                                 @can("{$pageName} Edit")
