@@ -598,7 +598,7 @@
 
                 @include("layouts.breadcrumbs")
 
-                @yield("error-content")
+                @yield("errorContent")
 
             @endif
 

@@ -284,7 +284,7 @@
     </div>
 @endsection
 
-@section("error-content")
+@section("errorContent")
     <div id="layoutError" class="pt-5">
         <div id="layoutError_content">
             <main>
@@ -397,7 +397,7 @@
 
         @else
 
-            @yield("error-content")
+            @yield("errorContent")
 
         @endif
 
