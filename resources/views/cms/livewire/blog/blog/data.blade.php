@@ -77,13 +77,13 @@
                                 </a>
                             @endif
                         </td>
-                        <td>
+                        <td class="text-wrap">
                             {{ $blog->title }}
                             <a draggable="false" href="{{ route("blog.view", ["slug" => $blog->slug]) }}" class="btn btn-link btn-sm" target="_blank">
                                 <i class="fas fa-external-link"></i>
                             </a>
                         </td>
-                        <td>
+                        <td class="text-wrap">
                             {{ $blog->title_idn }}
                             <a draggable="false" href="{{ route("blog.view", ["slug" => $blog->slug]) }}" class="btn btn-link btn-sm" target="_blank">
                                 <i class="fas fa-external-link"></i>
