@@ -14,7 +14,7 @@
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
             {{ $eventCategory->name }}
-            <a draggable="false" href="{{ route("event.index") . "?category={$eventCategory->slug}" }}" class="btn btn-link btn-sm" target="_blank">
+            <a draggable="false" href="{{ route("event.index") . "?event_category_id={$eventCategory->slug}" }}" class="btn btn-link btn-sm" target="_blank">
                 <i class="fas fa-external-link"></i>
             </a>
         </div>
@@ -26,7 +26,7 @@
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
             {{ $eventCategory->name_idn }}
-            <a draggable="false" href="{{ route("event.index") . "?category={$eventCategory->slug}" }}" class="btn btn-link btn-sm" target="_blank">
+            <a draggable="false" href="{{ route("event.index") . "?event_category_id={$eventCategory->slug}" }}" class="btn btn-link btn-sm" target="_blank">
                 <i class="fas fa-external-link"></i>
             </a>
         </div>
