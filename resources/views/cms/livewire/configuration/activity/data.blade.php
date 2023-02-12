@@ -5,51 +5,73 @@
                 <tr class="bg-primary text-white text-center">
                     <th width="1%">{{ trans("index.#") }}</th>
                     <th width="1%">
-                        {{ trans("index.id") }}
-                        <a draggable="false" href="javascript:;" wire:click="sort('id', '{{ $order_by == "id" && $sort_by == "desc" ? "asc" : "desc" }}')">
-                            <i class="fas fa-sort-amount-{{ $order_by == "id" && $sort_by == "desc" ? "down" : "up" }} text-white"></i>
-                        </a>
-                    </th>
-                    <th width="1%">
-                        {{ trans("index.log_name") }}
-                        <a draggable="false" href="javascript:;" wire:click="sort('log_name', '{{ $order_by == "log_name" && $sort_by == "desc" ? "asc" : "desc" }}')">
-                            <i class="fas fa-sort-amount-{{ $order_by == "log_name" && $sort_by == "desc" ? "down" : "up" }} text-white"></i>
+                        @php($column = "id")
+                        {{ trans("index.{$column}") }}
+                        <a draggable="false" href="javascript:;" wire:click="sort('{{ $column }}', '{{ $order_by == $column && $sort_by == "desc" ? "asc" : "desc" }}')">
+                            <i class="fas fa-sort-amount-{{ $order_by == $column && $sort_by == "desc" ? "down" : "up" }} text-white"></i>
                         </a>
                     </th>
                     <th>
-                        {{ trans("index.description") }}
-                        <a draggable="false" href="javascript:;" wire:click="sort('description', '{{ $order_by == "description" && $sort_by == "desc" ? "asc" : "desc" }}')">
-                            <i class="fas fa-sort-amount-{{ $order_by == "description" && $sort_by == "desc" ? "down" : "up" }} text-white"></i>
+                        @php($column = "log_name")
+                        {{ trans("index.{$column}") }}
+                        <a draggable="false" href="javascript:;" wire:click="sort('{{ $column }}', '{{ $order_by == $column && $sort_by == "desc" ? "asc" : "desc" }}')">
+                            <i class="fas fa-sort-amount-{{ $order_by == $column && $sort_by == "desc" ? "down" : "up" }} text-white"></i>
                         </a>
                     </th>
                     <th>
-                        {{ trans("index.event") }}
-                        <a draggable="false" href="javascript:;" wire:click="sort('event', '{{ $order_by == "event" && $sort_by == "desc" ? "asc" : "desc" }}')">
-                            <i class="fas fa-sort-amount-{{ $order_by == "event" && $sort_by == "desc" ? "down" : "up" }} text-white"></i>
+                        @php($column = "description")
+                        {{ trans("index.{$column}") }}
+                        <a draggable="false" href="javascript:;" wire:click="sort('{{ $column }}', '{{ $order_by == $column && $sort_by == "desc" ? "asc" : "desc" }}')">
+                            <i class="fas fa-sort-amount-{{ $order_by == $column && $sort_by == "desc" ? "down" : "up" }} text-white"></i>
                         </a>
                     </th>
                     <th>
-                        {{ trans("index.subject") }}
-                        <a draggable="false" href="javascript:;" wire:click="sort('subject', '{{ $order_by == "subject" && $sort_by == "desc" ? "asc" : "desc" }}')">
-                            <i class="fas fa-sort-amount-{{ $order_by == "subject" && $sort_by == "desc" ? "down" : "up" }} text-white"></i>
+                        @php($column = "event")
+                        {{ trans("index.{$column}") }}
+                        <a draggable="false" href="javascript:;" wire:click="sort('{{ $column }}', '{{ $order_by == $column && $sort_by == "desc" ? "asc" : "desc" }}')">
+                            <i class="fas fa-sort-amount-{{ $order_by == $column && $sort_by == "desc" ? "down" : "up" }} text-white"></i>
                         </a>
                     </th>
                     <th>
-                        {{ trans("index.causer") }}
-                        <a draggable="false" href="javascript:;" wire:click="sort('causer', '{{ $order_by == "causer" && $sort_by == "desc" ? "asc" : "desc" }}')">
-                            <i class="fas fa-sort-amount-{{ $order_by == "causer" && $sort_by == "desc" ? "down" : "up" }} text-white"></i>
+                        @php($column = "subject")
+                        {{ trans("index.{$column}") }}
+                        <a draggable="false" href="javascript:;" wire:click="sort('{{ $column }}', '{{ $order_by == $column && $sort_by == "desc" ? "asc" : "desc" }}')">
+                            <i class="fas fa-sort-amount-{{ $order_by == $column && $sort_by == "desc" ? "down" : "up" }} text-white"></i>
                         </a>
                     </th>
                     <th>
-                        {{ trans("index.properties") }}
-                        <a draggable="false" href="javascript:;" wire:click="sort('properties', '{{ $order_by == "properties" && $sort_by == "desc" ? "asc" : "desc" }}')">
-                            <i class="fas fa-sort-amount-{{ $order_by == "properties" && $sort_by == "desc" ? "down" : "up" }} text-white"></i>
+                        @php($column = "causer")
+                        {{ trans("index.{$column}") }}
+                        <a draggable="false" href="javascript:;" wire:click="sort('{{ $column }}', '{{ $order_by == $column && $sort_by == "desc" ? "asc" : "desc" }}')">
+                            <i class="fas fa-sort-amount-{{ $order_by == $column && $sort_by == "desc" ? "down" : "up" }} text-white"></i>
                         </a>
                     </th>
                     <th>
-                        {{ trans("index.batch_uuid") }}
-                        <a draggable="false" href="javascript:;" wire:click="sort('batch_uuid', '{{ $order_by == "batch_uuid" && $sort_by == "desc" ? "asc" : "desc" }}')">
-                            <i class="fas fa-sort-amount-{{ $order_by == "batch_uuid" && $sort_by == "desc" ? "down" : "up" }} text-white"></i>
+                        @php($column = "properties")
+                        {{ trans("index.{$column}") }}
+                        <a draggable="false" href="javascript:;" wire:click="sort('{{ $column }}', '{{ $order_by == $column && $sort_by == "desc" ? "asc" : "desc" }}')">
+                            <i class="fas fa-sort-amount-{{ $order_by == $column && $sort_by == "desc" ? "down" : "up" }} text-white"></i>
+                        </a>
+                    </th>
+                    <th>
+                        @php($column = "batch_uuid")
+                        {{ trans("index.{$column}") }}
+                        <a draggable="false" href="javascript:;" wire:click="sort('{{ $column }}', '{{ $order_by == $column && $sort_by == "desc" ? "asc" : "desc" }}')">
+                            <i class="fas fa-sort-amount-{{ $order_by == $column && $sort_by == "desc" ? "down" : "up" }} text-white"></i>
+                        </a>
+                    </th>
+                    <th>
+                        @php($column = "created_at")
+                        {{ trans("index.{$column}") }}
+                        <a draggable="false" href="javascript:;" wire:click="sort('{{ $column }}', '{{ $order_by == $column && $sort_by == "desc" ? "asc" : "desc" }}')">
+                            <i class="fas fa-sort-amount-{{ $order_by == $column && $sort_by == "desc" ? "down" : "up" }} text-white"></i>
+                        </a>
+                    </th>
+                    <th>
+                        @php($column = "updated_at")
+                        {{ trans("index.{$column}") }}
+                        <a draggable="false" href="javascript:;" wire:click="sort('{{ $column }}', '{{ $order_by == $column && $sort_by == "desc" ? "asc" : "desc" }}')">
+                            <i class="fas fa-sort-amount-{{ $order_by == $column && $sort_by == "desc" ? "down" : "up" }} text-white"></i>
                         </a>
                     </th>
                 </tr>
@@ -70,7 +92,7 @@
                         </td>
                         <td>{{ $activity->log_name }}</td>
                         <td class="text-wrap">{{ $activity->description }}</td>
-                        <td>{{ trans("index.{$activity->event}") }}</td>
+                        <td>{{ Str::translate($activity->event) }}</td>
                         <td>
                             <div>{{ trans("index.type") }} : {{ $activity->subject_type }}</div>
                             <div>{{ trans("index.id") }} : {{ $activity->subject_id }}</div>
@@ -83,6 +105,16 @@
                         </td>
                         <td>{{ $activity->properties }}</td>
                         <td>{{ $activity->batch_uuid }}</td>
+                        <td>
+                            {{ $activity->created_at->format("l, H:i:s") }}<br>
+                            {{ $activity->created_at->isoFormat("LL") }}<br>
+                            ({{ $activity->created_at->diffForHumans() }})
+                        </td>
+                        <td>
+                            {{ $activity->updated_at->format("l, H:i:s") }}<br>
+                            {{ $activity->updated_at->isoFormat("LL") }}<br>
+                            ({{ $activity->updated_at->diffForHumans() }})
+                        </td>
                     </tr>
 
                 @endforeach
