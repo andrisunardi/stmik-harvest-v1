@@ -52,7 +52,7 @@
                     <td>{{ $blog->tag_idn }}</td>
                     <td>{{ $blog->image_url }}</td>
                     <td>{{ $blog->slug }}</td>
-                    <td class="text-center">{{ trans("index." . Str::slug(Str::active($blog->is_active), "_")) }}</td>
+                    <td class="text-center">{{ Str::translate(Str::active($blog->is_active)) }}</td>
                 </tr>
                 @endforeach
             </table>

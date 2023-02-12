@@ -25,7 +25,7 @@
                     <td class="text-center">{{ $newsletter->id }}</td>
                     <td>{{ $newsletter->value }}</td>
                     <td class="text-center">{{ $newsletter->type?->name }}</td>
-                    <td class="text-center">{{ trans("index." . Str::slug(Str::active($newsletter->is_active), "_")) }}</td>
+                    <td class="text-center">{{ Str::translate(Str::active($newsletter->is_active)) }}</td>
                 </tr>
                 @endforeach
             </table>

@@ -49,8 +49,8 @@
             <h6>{{ trans("index.active") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
-            <span class="{{ "badge bg-" . Str::successdanger($procedure->is_active) }}">
-                {{ trans("index." . Str::slug(Str::active($procedure->is_active), '_')) }}
+            <span class="badge bg-{{ Str::successdanger($procedure->is_active) }}">
+                {{ Str::translate(Str::active($procedure->is_active)) }}
             </span>
         </div>
     </div>

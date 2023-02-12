@@ -76,22 +76,22 @@
                                         </div>
                                         <div wire:loading.remove wire:target="active({{ $testimony->id }})">
                                             <label class="form-check-label" for="active-{{ $testimony->id }}">
-                                                <span class="{{ "badge bg-" . Str::successdanger($testimony->is_active) }}">
-                                                    {{ trans("index." . Str::slug(Str::active($testimony->is_active), "_")) }}
+                                                <span class="badge bg-{{ Str::successdanger($testimony->is_active) }}">
+                                                    {{ Str::translate(Str::active($testimony->is_active)) }}
                                                 </span>
                                             </label>
                                         </div>
                                     </div>
                                 @else
-                                    <span class="{{ "badge bg-" . Str::successdanger($testimony->is_active) }}">
-                                        {{ trans("index." . Str::slug(Str::active($testimony->is_active), "_")) }}
+                                    <span class="badge bg-{{ Str::successdanger($testimony->is_active) }}">
+                                        {{ Str::translate(Str::active($testimony->is_active)) }}
                                     </span>
                                 @endcan
                             @endif
 
                             @if ($pageType == "trash")
-                                <span class="{{ "badge bg-" . Str::successdanger($testimony->is_active) }}">
-                                    {{ trans("index." . Str::slug(Str::active($testimony->is_active), "_")) }}
+                                <span class="badge bg-{{ Str::successdanger($testimony->is_active) }}">
+                                    {{ Str::translate(Str::active($testimony->is_active)) }}
                                 </span>
                             @endif
                         </td>

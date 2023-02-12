@@ -92,22 +92,22 @@
                                         </div>
                                         <div wire:loading.remove wire:target="active({{ $admissionCalendar->id }})">
                                             <label class="form-check-label" for="active-{{ $admissionCalendar->id }}">
-                                                <span class="{{ "badge bg-" . Str::successdanger($admissionCalendar->is_active) }}">
-                                                    {{ trans("index." . Str::slug(Str::active($admissionCalendar->is_active), "_")) }}
+                                                <span class="badge bg-{{ Str::successdanger($admissionCalendar->is_active) }}">
+                                                    {{ Str::translate(Str::active($admissionCalendar->is_active)) }}
                                                 </span>
                                             </label>
                                         </div>
                                     </div>
                                 @else
-                                    <span class="{{ "badge bg-" . Str::successdanger($admissionCalendar->is_active) }}">
-                                        {{ trans("index." . Str::slug(Str::active($admissionCalendar->is_active), "_")) }}
+                                    <span class="badge bg-{{ Str::successdanger($admissionCalendar->is_active) }}">
+                                        {{ Str::translate(Str::active($admissionCalendar->is_active)) }}
                                     </span>
                                 @endcan
                             @endif
 
                             @if ($pageType == "trash")
-                                <span class="{{ "badge bg-" . Str::successdanger($admissionCalendar->is_active) }}">
-                                    {{ trans("index." . Str::slug(Str::active($admissionCalendar->is_active), "_")) }}
+                                <span class="badge bg-{{ Str::successdanger($admissionCalendar->is_active) }}">
+                                    {{ Str::translate(Str::active($admissionCalendar->is_active)) }}
                                 </span>
                             @endif
                         </td>

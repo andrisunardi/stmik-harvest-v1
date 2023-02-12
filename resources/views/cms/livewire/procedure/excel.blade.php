@@ -20,7 +20,7 @@
             <td>{{ $procedure->name_idn }}</td>
             <td>{{ $procedure->description }}</td>
             <td>{{ $procedure->description_idn }}</td>
-            <td align="center">{{ trans("index." . Str::slug(Str::active($procedure->is_active), "_")) }}</td>
+            <td align="center">{{ Str::translate(Str::active($procedure->is_active)) }}</td>
         </tr>
     @endforeach
 </table>

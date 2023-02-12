@@ -29,7 +29,7 @@
                     <td>{{ $faq->question_idn }}</td>
                     <td>{{ $faq->answer }}</td>
                     <td>{{ $faq->answer_idn }}</td>
-                    <td class="text-center">{{ trans("index." . Str::slug(Str::active($faq->is_active), "_")) }}</td>
+                    <td class="text-center">{{ Str::translate(Str::active($faq->is_active)) }}</td>
                 </tr>
                 @endforeach
             </table>

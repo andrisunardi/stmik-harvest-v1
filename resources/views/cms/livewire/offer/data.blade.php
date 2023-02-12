@@ -77,22 +77,22 @@
                                         </div>
                                         <div wire:loading.remove wire:target="active({{ $offer->id }})">
                                             <label class="form-check-label" for="active-{{ $offer->id }}">
-                                                <span class="{{ "badge bg-" . Str::successdanger($offer->is_active) }}">
-                                                    {{ trans("index." . Str::slug(Str::active($offer->is_active), "_")) }}
+                                                <span class="badge bg-{{ Str::successdanger($offer->is_active) }}">
+                                                    {{ Str::translate(Str::active($offer->is_active)) }}
                                                 </span>
                                             </label>
                                         </div>
                                     </div>
                                 @else
-                                    <span class="{{ "badge bg-" . Str::successdanger($offer->is_active) }}">
-                                        {{ trans("index." . Str::slug(Str::active($offer->is_active), "_")) }}
+                                    <span class="badge bg-{{ Str::successdanger($offer->is_active) }}">
+                                        {{ Str::translate(Str::active($offer->is_active)) }}
                                     </span>
                                 @endcan
                             @endif
 
                             @if ($pageType == "trash")
-                                <span class="{{ "badge bg-" . Str::successdanger($offer->is_active) }}">
-                                    {{ trans("index." . Str::slug(Str::active($offer->is_active), "_")) }}
+                                <span class="badge bg-{{ Str::successdanger($offer->is_active) }}">
+                                    {{ Str::translate(Str::active($offer->is_active)) }}
                                 </span>
                             @endif
                         </td>

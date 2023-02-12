@@ -37,7 +37,7 @@
                     <td>{{ $registration->major }}</td>
                     <td>{{ $registration->city }}</td>
                     <td>{{ $registration->type?->name }}</td>
-                    <td class="text-center">{{ trans("index." . Str::slug(Str::active($registration->is_active), "_")) }}</td>
+                    <td class="text-center">{{ Str::translate(Str::active($registration->is_active)) }}</td>
                 </tr>
                 @endforeach
             </table>

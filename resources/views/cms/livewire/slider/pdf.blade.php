@@ -37,7 +37,7 @@
                     <td>{{ $slider->button_name_idn }}</td>
                     <td>{{ $slider->button_link }}</td>
                     <td>{{ $slider->image_url }}</td>
-                    <td class="text-center">{{ trans("index." . Str::slug(Str::active($slider->is_active), "_")) }}</td>
+                    <td class="text-center">{{ Str::translate(Str::active($slider->is_active)) }}</td>
                 </tr>
                 @endforeach
             </table>

@@ -129,22 +129,22 @@
                                         </div>
                                         <div wire:loading.remove wire:target="active({{ $registration->id }})">
                                             <label class="form-check-label" for="active-{{ $registration->id }}">
-                                                <span class="{{ "badge bg-" . Str::successdanger($registration->is_active) }}">
-                                                    {{ trans("index." . Str::slug(Str::active($registration->is_active), "_")) }}
+                                                <span class="badge bg-{{ Str::successdanger($registration->is_active) }}">
+                                                    {{ Str::translate(Str::active($registration->is_active)) }}
                                                 </span>
                                             </label>
                                         </div>
                                     </div>
                                 @else
-                                    <span class="{{ "badge bg-" . Str::successdanger($registration->is_active) }}">
-                                        {{ trans("index." . Str::slug(Str::active($registration->is_active), "_")) }}
+                                    <span class="badge bg-{{ Str::successdanger($registration->is_active) }}">
+                                        {{ Str::translate(Str::active($registration->is_active)) }}
                                     </span>
                                 @endcan
                             @endif
 
                             @if ($pageType == "trash")
-                                <span class="{{ "badge bg-" . Str::successdanger($registration->is_active) }}">
-                                    {{ trans("index." . Str::slug(Str::active($registration->is_active), "_")) }}
+                                <span class="badge bg-{{ Str::successdanger($registration->is_active) }}">
+                                    {{ Str::translate(Str::active($registration->is_active)) }}
                                 </span>
                             @endif
                         </td>

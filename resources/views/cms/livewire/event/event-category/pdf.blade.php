@@ -32,7 +32,7 @@
                     <td>{{ $eventCategory->description }}</td>
                     <td>{{ $eventCategory->description_idn }}</td>
                     <td>{{ $eventCategory->slug }}</td>
-                    <td class="text-center">{{ trans("index." . Str::slug(Str::active($eventCategory->is_active), "_")) }}</td>
+                    <td class="text-center">{{ Str::translate(Str::active($eventCategory->is_active)) }}</td>
                     <td class="text-center">{{ $eventCategory->events->count() }}</td>
                 </tr>
                 @endforeach

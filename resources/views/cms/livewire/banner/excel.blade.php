@@ -23,7 +23,7 @@
             <td>{{ $banner->description }}</td>
             <td>{{ $banner->description_idn }}</td>
             <td>{{ $banner->image_url }}</td>
-            <td align="center">{{ trans("index." . Str::slug(Str::active($banner->is_active), "_")) }}</td>
+            <td align="center">{{ Str::translate(Str::active($banner->is_active)) }}</td>
         </tr>
     @endforeach
 </table>

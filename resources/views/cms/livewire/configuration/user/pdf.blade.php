@@ -30,7 +30,7 @@
                     <td>{{ $user->username }}</td>
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->phone }}</td>
-                    <td class="text-center">{{ trans("index." . Str::slug(Str::active($user->is_active), "_")) }}</td>
+                    <td class="text-center">{{ Str::translate(Str::active($user->is_active)) }}</td>
                     <td>
                         @foreach ($user->roles as $role)
                             {{ $loop->iteration }}. {{ $role->name }}<br />

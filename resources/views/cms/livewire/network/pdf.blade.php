@@ -29,7 +29,7 @@
                     <td>{{ $network->description }}</td>
                     <td>{{ $network->link }}</td>
                     <td>{{ $network->image_url }}</td>
-                    <td class="text-center">{{ trans("index." . Str::slug(Str::active($network->is_active), "_")) }}</td>
+                    <td class="text-center">{{ Str::translate(Str::active($network->is_active)) }}</td>
                 </tr>
                 @endforeach
             </table>

@@ -21,7 +21,7 @@
             <td>{{ $testimony->description }}</td>
             <td>{{ $testimony->graduate }}</td>
             <td>{{ $testimony->image_url }}</td>
-            <td align="center">{{ trans("index." . Str::slug(Str::active($testimony->is_active), "_")) }}</td>
+            <td align="center">{{ Str::translate(Str::active($testimony->is_active)) }}</td>
         </tr>
     @endforeach
 </table>

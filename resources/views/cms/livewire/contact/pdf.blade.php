@@ -33,7 +33,7 @@
                     <td>{{ $contact->phone }}</td>
                     <td>{{ $contact->subject }}</td>
                     <td>{{ $contact->message }}</td>
-                    <td class="text-center">{{ trans("index." . Str::slug(Str::active($contact->is_active), "_")) }}</td>
+                    <td class="text-center">{{ Str::translate(Str::active($contact->is_active)) }}</td>
                 </tr>
                 @endforeach
             </table>

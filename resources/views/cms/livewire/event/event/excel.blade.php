@@ -54,7 +54,7 @@
             <td>{{ $event->tag_idn }}</td>
             <td>{{ $event->image_url }}</td>
             <td>{{ $event->slug }}</td>
-            <td align="center">{{ trans("index." . Str::slug(Str::active($event->is_active), "_")) }}</td>
+            <td align="center">{{ Str::translate(Str::active($event->is_active)) }}</td>
         </tr>
     @endforeach
 </table>

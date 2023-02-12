@@ -2,7 +2,7 @@
     <div class="table-responsive">
         <table class="table table-striped table-hover table-bordered text-nowrap table-responsive align-middle">
             <thead>
-                <tr class="bg-{{ $pageType == "index" ? "primary" : "warning" }} text-white text-center">
+                <tr class="bg-primary text-white text-center">
                     <th width="1%"><input class="form-check-input" type="checkbox" wire:model="checkbox_all"></th>
                     <th width="1%">{{ trans("index.#") }}</th>
                     <th width="1%">

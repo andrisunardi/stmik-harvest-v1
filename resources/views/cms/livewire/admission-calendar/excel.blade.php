@@ -29,7 +29,7 @@
                     ({{ $admissionCalendar->date->diffForHumans() }})
                 @endif
             </td>
-            <td align="center">{{ trans("index." . Str::slug(Str::active($admissionCalendar->is_active), "_")) }}</td>
+            <td align="center">{{ Str::translate(Str::active($admissionCalendar->is_active)) }}</td>
         </tr>
     @endforeach
 </table>

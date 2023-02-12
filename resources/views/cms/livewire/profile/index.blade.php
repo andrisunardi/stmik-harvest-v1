@@ -67,7 +67,7 @@
                         </div>
                         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-9">
                             <span class="{{ "badge bg-" . Str::successdanger(Auth::user()->is_active) }}">
-                                {{ trans("index." . Str::slug(Str::active(Auth::user()->is_active), '_')) }}
+                                {{ Str::translate(Str::active(Auth::user()->is_active)) }}
                             </span>
                         </div>
                     </div>

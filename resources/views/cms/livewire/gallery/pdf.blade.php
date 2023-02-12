@@ -39,7 +39,7 @@
                     <td>{{ $gallery->image_url }}</td>
                     <td>{{ $gallery->video_url }}</td>
                     <td>{{ $gallery->youtube }}</td>
-                    <td class="text-center">{{ trans("index." . Str::slug(Str::active($gallery->is_active), "_")) }}</td>
+                    <td class="text-center">{{ Str::translate(Str::active($gallery->is_active)) }}</td>
                 </tr>
                 @endforeach
             </table>

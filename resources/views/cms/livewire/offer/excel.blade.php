@@ -30,7 +30,7 @@
                     {{ $offer->button_link }}
                 </a>
             </td>
-            <td align="center">{{ trans("index." . Str::slug(Str::active($offer->is_active), "_")) }}</td>
+            <td align="center">{{ Str::translate(Str::active($offer->is_active)) }}</td>
         </tr>
     @endforeach
 </table>

@@ -87,22 +87,22 @@
                                         </div>
                                         <div wire:loading.remove wire:target="active({{ $blogCategory->id }})">
                                             <label class="form-check-label" for="active-{{ $blogCategory->id }}">
-                                                <span class="{{ "badge bg-" . Str::successdanger($blogCategory->is_active) }}">
-                                                    {{ trans("index." . Str::slug(Str::active($blogCategory->is_active), "_")) }}
+                                                <span class="badge bg-{{ Str::successdanger($blogCategory->is_active) }}">
+                                                    {{ Str::translate(Str::active($blogCategory->is_active)) }}
                                                 </span>
                                             </label>
                                         </div>
                                     </div>
                                 @else
-                                    <span class="{{ "badge bg-" . Str::successdanger($blogCategory->is_active) }}">
-                                        {{ trans("index." . Str::slug(Str::active($blogCategory->is_active), "_")) }}
+                                    <span class="badge bg-{{ Str::successdanger($blogCategory->is_active) }}">
+                                        {{ Str::translate(Str::active($blogCategory->is_active)) }}
                                     </span>
                                 @endcan
                             @endif
 
                             @if ($pageType == "trash")
-                                <span class="{{ "badge bg-" . Str::successdanger($blogCategory->is_active) }}">
-                                    {{ trans("index." . Str::slug(Str::active($blogCategory->is_active), "_")) }}
+                                <span class="badge bg-{{ Str::successdanger($blogCategory->is_active) }}">
+                                    {{ Str::translate(Str::active($blogCategory->is_active)) }}
                                 </span>
                             @endif
                         </td>

@@ -20,7 +20,7 @@
             <td>{{ $tuitionFee->name_idn }}</td>
             <td>{{ $tuitionFee->description }}</td>
             <td>{{ $tuitionFee->description_idn }}</td>
-            <td align="center">{{ trans("index." . Str::slug(Str::active($tuitionFee->is_active), "_")) }}</td>
+            <td align="center">{{ Str::translate(Str::active($tuitionFee->is_active)) }}</td>
         </tr>
     @endforeach
 </table>

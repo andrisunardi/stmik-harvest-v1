@@ -73,22 +73,22 @@
                                         </div>
                                         <div wire:loading.remove wire:target="active({{ $setting->id }})">
                                             <label class="form-check-label" for="active-{{ $setting->id }}">
-                                                <span class="{{ "badge bg-" . Str::successdanger($setting->is_active) }}">
-                                                    {{ trans("index." . Str::slug(Str::active($setting->is_active), "_")) }}
+                                                <span class="badge bg-{{ Str::successdanger($setting->is_active) }}">
+                                                    {{ Str::translate(Str::active($setting->is_active)) }}
                                                 </span>
                                             </label>
                                         </div>
                                     </div>
                                 @else
-                                    <span class="{{ "badge bg-" . Str::successdanger($setting->is_active) }}">
-                                        {{ trans("index." . Str::slug(Str::active($setting->is_active), "_")) }}
+                                    <span class="badge bg-{{ Str::successdanger($setting->is_active) }}">
+                                        {{ Str::translate(Str::active($setting->is_active)) }}
                                     </span>
                                 @endcan
                             @endif
 
                             @if ($pageType == "trash")
-                                <span class="{{ "badge bg-" . Str::successdanger($setting->is_active) }}">
-                                    {{ trans("index." . Str::slug(Str::active($setting->is_active), "_")) }}
+                                <span class="badge bg-{{ Str::successdanger($setting->is_active) }}">
+                                    {{ Str::translate(Str::active($setting->is_active)) }}
                                 </span>
                             @endif
                         </td>

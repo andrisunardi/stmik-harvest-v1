@@ -77,22 +77,22 @@
                                         </div>
                                         <div wire:loading.remove wire:target="active({{ $faq->id }})">
                                             <label class="form-check-label" for="active-{{ $faq->id }}">
-                                                <span class="{{ "badge bg-" . Str::successdanger($faq->is_active) }}">
-                                                    {{ trans("index." . Str::slug(Str::active($faq->is_active), "_")) }}
+                                                <span class="badge bg-{{ Str::successdanger($faq->is_active) }}">
+                                                    {{ Str::translate(Str::active($faq->is_active)) }}
                                                 </span>
                                             </label>
                                         </div>
                                     </div>
                                 @else
-                                    <span class="{{ "badge bg-" . Str::successdanger($faq->is_active) }}">
-                                        {{ trans("index." . Str::slug(Str::active($faq->is_active), "_")) }}
+                                    <span class="badge bg-{{ Str::successdanger($faq->is_active) }}">
+                                        {{ Str::translate(Str::active($faq->is_active)) }}
                                     </span>
                                 @endcan
                             @endif
 
                             @if ($pageType == "trash")
-                                <span class="{{ "badge bg-" . Str::successdanger($faq->is_active) }}">
-                                    {{ trans("index." . Str::slug(Str::active($faq->is_active), "_")) }}
+                                <span class="badge bg-{{ Str::successdanger($faq->is_active) }}">
+                                    {{ Str::translate(Str::active($faq->is_active)) }}
                                 </span>
                             @endif
                         </td>
