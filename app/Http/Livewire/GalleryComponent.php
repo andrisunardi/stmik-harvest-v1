@@ -37,7 +37,7 @@ class GalleryComponent extends Component
         return Gallery::when($this->tag, fn ($query) => $query->where('tag', Str::headline($this->tag))
             ->orWhere('tag_idn', Str::headline($this->tag)))
             ->active()
-            ->orderBy('id')
+            ->orderByDesc('id')
             ->paginate(12);
     }
 
