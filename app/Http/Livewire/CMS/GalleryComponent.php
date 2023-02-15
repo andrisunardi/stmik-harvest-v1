@@ -350,7 +350,7 @@ class GalleryComponent extends Component
         $id = $this->pageType == 'edit' ? $this->gallery->id : null;
 
         return [
-            'gender' => 'required|numeric|'.Rule::in([1, 2, 3]),
+            'category' => 'required|numeric|'.Rule::in([1, 2, 3]),
             'name' => "required|max:100|unique:{$this->pageTable},name,{$id}",
             'name_idn' => "required|max:100|unique:{$this->pageTable},name_idn,{$id}",
             'description' => 'nullable|max:65535',
