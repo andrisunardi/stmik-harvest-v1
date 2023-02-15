@@ -357,9 +357,9 @@ class GalleryComponent extends Component
             'description_idn' => 'nullable|max:65535',
             'tag' => 'nullable|max:65535',
             'tag_idn' => 'nullable|max:65535',
-            'image' => 'required_if:category,1|max:'.env('MAX_IMAGE').'|mimes:'.env('MIMES_IMAGE'),
-            'video' => 'required_if:category,2|max:'.env('MAX_VIDEO').'|mimes:'.env('MIMES_VIDEO'),
-            'youtube' => 'required_if:category,3|max:200',
+            'image' => 'nullable|required_if:category,1|max:'.env('MAX_IMAGE').'|mimes:'.env('MIMES_IMAGE'),
+            'video' => 'nullable|required_if:category,2|max:'.env('MAX_VIDEO').'|mimes:'.env('MIMES_VIDEO'),
+            'youtube' => 'nullable|required_if:category,3|max:200',
             'is_active' => 'required|boolean',
         ];
     }
