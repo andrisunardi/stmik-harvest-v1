@@ -106,7 +106,7 @@
                         <td>
                             <a draggable="false" href="https://api.whatsapp.com/send?phone={{ Str::phone($registration->phone) }}">{{ $registration->phone }}</a>
                         </td>
-                        <td>{{ $registration->gender?->name }}</td>
+                        <td>{{ Str::translate($registration->gender?->name) }}</td>
                         <td>{{ $registration->school }}</td>
                         <td>{{ $registration->major }}</td>
                         <td>{{ $registration->city }}</td>

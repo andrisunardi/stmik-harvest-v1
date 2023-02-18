@@ -242,9 +242,9 @@ class EventComponent extends Component
         $this->checkPermission($this->pageType, 'trash', "{$this->pageName} Trash");
 
         if ($this->pageType == 'add') {
-            $this->start = now()->format('Y-m-d');
-            $this->end = now()->format('Y-m-d');
-            $this->is_active = 1;
+            $this->start = $this->start ?: now()->format('Y-m-d');
+            $this->end = $this->end ?: now()->format('Y-m-d');
+            $this->is_active = $this->is_active == 1 || !$this->is_active ? 1 : 0;
         }
 
         if ($this->row && (! in_array($this->pageType, ['index', 'trash']))) {
@@ -277,9 +277,9 @@ class EventComponent extends Component
         $this->resetFilter();
         $this->resetValidation();
 
-        $this->start = now()->format('Y-m-d');
-        $this->end = now()->format('Y-m-d');
-        $this->is_active = 1;
+        $this->start = $this->start ?: now()->format('Y-m-d');
+        $this->end = $this->end ?: now()->format('Y-m-d');
+        $this->is_active = $this->is_active == 1 || !$this->is_active ? 1 : 0;
         $this->pageType = 'add';
 
         $this->alert('info', trans('index.form').' '.trans('index.add'));

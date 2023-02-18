@@ -197,7 +197,7 @@ class EventCategoryComponent extends Component
         $this->checkPermission($this->pageType, 'trash', "{$this->pageName} Trash");
 
         if ($this->pageType == 'add') {
-            $this->is_active = 1;
+            $this->is_active = $this->is_active == 1 || !$this->is_active ? 1 : 0;
         }
 
         if ($this->row && (! in_array($this->pageType, ['index', 'trash']))) {
@@ -230,7 +230,7 @@ class EventCategoryComponent extends Component
         $this->resetFilter();
         $this->resetValidation();
 
-        $this->is_active = 1;
+        $this->is_active = $this->is_active == 1 || !$this->is_active ? 1 : 0;
         $this->pageType = 'add';
 
         $this->alert('info', trans('index.form').' '.trans('index.add'));
