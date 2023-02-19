@@ -165,7 +165,7 @@ class Slider extends Model
 
     public function altImage()
     {
-        return trans('index.image').' - '.trans('index.'.Str::singular($this->table)).' - '.env('APP_TITLE');
+        return trans('index.image').' - '.Str::translate(Str::singular($this->table)).' - '.env('APP_TITLE');
     }
 
     public function checkImage()
