@@ -212,7 +212,7 @@ class RoleComponent extends Component
 
     public function add()
     {
-        $this->checkPermission('add', 'add', "{$this->pageName} Add");
+        $this->checkPermission();
 
         $this->resetFilter();
         $this->resetValidation();
@@ -225,7 +225,7 @@ class RoleComponent extends Component
 
     public function edit($id)
     {
-        $this->checkPermission('edit', 'edit', "{$this->pageName} Edit");
+        $this->checkPermission();
 
         $this->resetFilter();
         $this->resetValidation();
@@ -251,7 +251,7 @@ class RoleComponent extends Component
 
     public function clone($id)
     {
-        $this->checkPermission('clone', 'clone', "{$this->pageName} Clone");
+        $this->checkPermission();
 
         $this->resetFilter();
         $this->resetValidation();
@@ -310,9 +310,7 @@ class RoleComponent extends Component
 
     public function submit()
     {
-        $this->checkPermission('add', 'add', "{$this->pageName} Add");
-        $this->checkPermission('clone', 'clone', "{$this->pageName} Clone");
-        $this->checkPermission('edit', 'edit', "{$this->pageName} Edit");
+        $this->checkPermission();
 
         if ($this->pageType == 'add') {
             $action = 'added';
@@ -336,7 +334,7 @@ class RoleComponent extends Component
 
     public function delete($id)
     {
-        $this->checkPermission('delete', 'delete', "{$this->pageName} Delete");
+        $this->checkPermission();
 
         $role = Role::find($id);
 

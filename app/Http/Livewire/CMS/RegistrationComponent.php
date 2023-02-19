@@ -209,10 +209,7 @@ class RegistrationComponent extends Component
             abort(404);
         }
 
-        $this->checkPermission($this->pageType, 'add', "{$this->pageName} Add");
-        $this->checkPermission($this->pageType, 'clone', "{$this->pageName} Clone");
-        $this->checkPermission($this->pageType, 'edit', "{$this->pageName} Edit");
-        $this->checkPermission($this->pageType, 'trash', "{$this->pageName} Trash");
+        $this->checkPermission();
 
         if ($this->pageType == 'add') {
             $this->is_active = $this->is_active == 1 || !$this->is_active ? 1 : 0;
@@ -243,7 +240,7 @@ class RegistrationComponent extends Component
 
     public function add()
     {
-        $this->checkPermission('add', 'add', "{$this->pageName} Add");
+        $this->checkPermission();
 
         $this->resetFilter();
         $this->resetValidation();
@@ -256,7 +253,7 @@ class RegistrationComponent extends Component
 
     public function edit($id)
     {
-        $this->checkPermission('edit', 'edit', "{$this->pageName} Edit");
+        $this->checkPermission();
 
         $this->resetFilter();
         $this->resetValidation();
@@ -282,7 +279,7 @@ class RegistrationComponent extends Component
 
     public function clone($id)
     {
-        $this->checkPermission('clone', 'clone', "{$this->pageName} Clone");
+        $this->checkPermission();
 
         $this->resetFilter();
         $this->resetValidation();
@@ -330,7 +327,7 @@ class RegistrationComponent extends Component
 
     public function trash()
     {
-        $this->checkPermission('trash', 'trash', "{$this->pageName} Trash");
+        $this->checkPermission();
 
         $this->resetFilter();
         $this->resetValidation();
@@ -359,9 +356,7 @@ class RegistrationComponent extends Component
 
     public function submit()
     {
-        $this->checkPermission('add', 'add', "{$this->pageName} Add");
-        $this->checkPermission('clone', 'clone', "{$this->pageName} Clone");
-        $this->checkPermission('edit', 'edit', "{$this->pageName} Edit");
+        $this->checkPermission();
 
         if ($this->pageType == 'add') {
             $action = 'added';
@@ -385,7 +380,8 @@ class RegistrationComponent extends Component
 
     public function active($id)
     {
-        $this->checkPermission('edit', 'edit', "{$this->pageName} Edit");
+        $this->pageType = 'edit';
+        $this->checkPermission();
 
         $registration = Registration::find($id);
 
@@ -402,7 +398,7 @@ class RegistrationComponent extends Component
 
     public function delete($id)
     {
-        $this->checkPermission('delete', 'delete', "{$this->pageName} Delete");
+        $this->checkPermission();
 
         $registration = Registration::find($id);
 
@@ -417,7 +413,7 @@ class RegistrationComponent extends Component
 
     public function restore($id)
     {
-        $this->checkPermission('restore', 'restore', "{$this->pageName} Restore");
+        $this->checkPermission();
 
         $registration = Registration::onlyTrashed()->find($id);
 
@@ -432,7 +428,7 @@ class RegistrationComponent extends Component
 
     public function deletePermanent($id)
     {
-        $this->checkPermission('deletePermanent', 'deletePermanent', "{$this->pageName} Delete Permanent");
+        $this->checkPermission();
 
         $registration = Registration::onlyTrashed()->find($id);
 
@@ -454,7 +450,7 @@ class RegistrationComponent extends Component
 
     public function restoreAll(array $ids = [])
     {
-        $this->checkPermission('restore', 'restore', "{$this->pageName} Restore");
+        $this->checkPermission();
 
         (new RegistrationService())->restoreAll($ids);
 
@@ -463,7 +459,7 @@ class RegistrationComponent extends Component
 
     public function deletePermanentAll(array $ids = [])
     {
-        $this->checkPermission('deletePermanent', 'deletePermanent', "{$this->pageName} Delete Permanent");
+        $this->checkPermission();
 
         (new RegistrationService())->deletePermanentAll($ids);
 

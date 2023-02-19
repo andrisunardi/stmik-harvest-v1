@@ -178,10 +178,7 @@ class NewsletterComponent extends Component
             abort(404);
         }
 
-        $this->checkPermission($this->pageType, 'add', "{$this->pageName} Add");
-        $this->checkPermission($this->pageType, 'clone', "{$this->pageName} Clone");
-        $this->checkPermission($this->pageType, 'edit', "{$this->pageName} Edit");
-        $this->checkPermission($this->pageType, 'trash', "{$this->pageName} Trash");
+        $this->checkPermission();
 
         if ($this->pageType == 'add') {
             $this->is_active = $this->is_active == 1 || !$this->is_active ? 1 : 0;
@@ -212,7 +209,7 @@ class NewsletterComponent extends Component
 
     public function add()
     {
-        $this->checkPermission('add', 'add', "{$this->pageName} Add");
+        $this->checkPermission();
 
         $this->resetFilter();
         $this->resetValidation();
@@ -225,7 +222,7 @@ class NewsletterComponent extends Component
 
     public function edit($id)
     {
-        $this->checkPermission('edit', 'edit', "{$this->pageName} Edit");
+        $this->checkPermission();
 
         $this->resetFilter();
         $this->resetValidation();
@@ -251,7 +248,7 @@ class NewsletterComponent extends Component
 
     public function clone($id)
     {
-        $this->checkPermission('clone', 'clone', "{$this->pageName} Clone");
+        $this->checkPermission();
 
         $this->resetFilter();
         $this->resetValidation();
@@ -299,7 +296,7 @@ class NewsletterComponent extends Component
 
     public function trash()
     {
-        $this->checkPermission('trash', 'trash', "{$this->pageName} Trash");
+        $this->checkPermission();
 
         $this->resetFilter();
         $this->resetValidation();
@@ -323,9 +320,7 @@ class NewsletterComponent extends Component
 
     public function submit()
     {
-        $this->checkPermission('add', 'add', "{$this->pageName} Add");
-        $this->checkPermission('clone', 'clone', "{$this->pageName} Clone");
-        $this->checkPermission('edit', 'edit', "{$this->pageName} Edit");
+        $this->checkPermission();
 
         if ($this->pageType == 'add') {
             $action = 'added';
@@ -349,7 +344,8 @@ class NewsletterComponent extends Component
 
     public function active($id)
     {
-        $this->checkPermission('edit', 'edit', "{$this->pageName} Edit");
+        $this->pageType = 'edit';
+        $this->checkPermission();
 
         $newsletter = Newsletter::find($id);
 
@@ -366,7 +362,7 @@ class NewsletterComponent extends Component
 
     public function delete($id)
     {
-        $this->checkPermission('delete', 'delete', "{$this->pageName} Delete");
+        $this->checkPermission();
 
         $newsletter = Newsletter::find($id);
 
@@ -381,7 +377,7 @@ class NewsletterComponent extends Component
 
     public function restore($id)
     {
-        $this->checkPermission('restore', 'restore', "{$this->pageName} Restore");
+        $this->checkPermission();
 
         $newsletter = Newsletter::onlyTrashed()->find($id);
 
@@ -396,7 +392,7 @@ class NewsletterComponent extends Component
 
     public function deletePermanent($id)
     {
-        $this->checkPermission('deletePermanent', 'deletePermanent', "{$this->pageName} Delete Permanent");
+        $this->checkPermission();
 
         $newsletter = Newsletter::onlyTrashed()->find($id);
 
@@ -418,7 +414,7 @@ class NewsletterComponent extends Component
 
     public function restoreAll(array $ids = [])
     {
-        $this->checkPermission('restore', 'restore', "{$this->pageName} Restore");
+        $this->checkPermission();
 
         (new NewsletterService())->restoreAll($ids);
 
@@ -427,7 +423,7 @@ class NewsletterComponent extends Component
 
     public function deletePermanentAll(array $ids = [])
     {
-        $this->checkPermission('deletePermanent', 'deletePermanent', "{$this->pageName} Delete Permanent");
+        $this->checkPermission();
 
         (new NewsletterService())->deletePermanentAll($ids);
 
