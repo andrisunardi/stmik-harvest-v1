@@ -63,7 +63,7 @@
                                 {{ $gallery->id }}
                             </button>
                         </td>
-                        <td class="text-center">{{ $gallery->category?->name }}</td>
+                        <td class="text-center">{{ Str::translate($gallery->category?->name) }}</td>
                         <td class="text-wrap">{{ $gallery->name }}</td>
                         <td class="text-wrap">{{ $gallery->name_idn }}</td>
                         <td>

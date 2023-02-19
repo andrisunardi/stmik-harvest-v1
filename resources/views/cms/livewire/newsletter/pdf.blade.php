@@ -24,7 +24,7 @@
                     <td class="text-center">{{ $loop->iteration }}</td>
                     <td class="text-center">{{ $newsletter->id }}</td>
                     <td>{{ $newsletter->value }}</td>
-                    <td class="text-center">{{ $newsletter->type?->name }}</td>
+                    <td class="text-center">{{ Str::translate($newsletter->type?->name) }}</td>
                     <td class="text-center">{{ Str::translate(Str::active($newsletter->is_active)) }}</td>
                 </tr>
                 @endforeach

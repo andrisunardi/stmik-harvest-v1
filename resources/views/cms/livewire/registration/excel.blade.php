@@ -23,11 +23,11 @@
             <td>{{ $registration->name }}</td>
             <td>{{ $registration->email }}</td>
             <td>{{ $registration->phone }}</td>
-            <td>{{ $registration->gender?->name }}</td>
+            <td>{{ Str::translate($registration->gender?->name) }}</td>
             <td>{{ $registration->school }}</td>
             <td>{{ $registration->major }}</td>
             <td>{{ $registration->city }}</td>
-            <td>{{ $registration->type?->name }}</td>
+            <td>{{ Str::translate($registration->type?->name) }}</td>
             <td align="center">{{ Str::translate(Str::active($registration->is_active)) }}</td>
         </tr>
     @endforeach

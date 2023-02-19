@@ -172,7 +172,7 @@ class AppServiceProvider extends ServiceProvider
         });
 
         Str::macro('translate', function ($value) {
-            return trans('index.'.Str::slug(Str::headline($value), '_'));
+            return $value ? trans('index.'.Str::snake(Str::headline($value))) : null;
         });
 
         Str::macro('setting', function ($value) {

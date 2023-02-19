@@ -70,7 +70,7 @@
                                 {{ $newsletter->value }}
                             @endif
                         </td>
-                        <td class="text-center">{{ $newsletter->type?->name }}</td>
+                        <td class="text-center">{{ Str::translate($newsletter->type?->name) }}</td>
                         <td>
                             @if ($pageType == "index")
                                 @can("{$pageName} Edit")
