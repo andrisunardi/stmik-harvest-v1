@@ -15,21 +15,21 @@
                 <tr>
                     <th class="text-center" width="1%">{{ trans("index.#") }}</th>
                     <th class="text-center" width="1%">{{ trans("index.id") }}</th>
-                    <th class="text-center"><b>{{ trans("index.event_category") }}</b></th>
-                    <th class="text-center"><b>{{ trans("index.title") }}</b></th>
-                    <th class="text-center"><b>{{ trans("index.title_idn") }}</b></th>
-                    <th class="text-center"><b>{{ trans("index.short_body") }}</b></th>
-                    <th class="text-center"><b>{{ trans("index.short_body_idn") }}</b></th>
-                    <th class="text-center"><b>{{ trans("index.body") }}</b></th>
-                    <th class="text-center"><b>{{ trans("index.body_idn") }}</b></th>
-                    <th class="text-center"><b>{{ trans("index.location") }}</b></th>
-                    <th class="text-center"><b>{{ trans("index.start") }}</b></th>
-                    <th class="text-center"><b>{{ trans("index.end") }}</b></th>
-                    <th class="text-center"><b>{{ trans("index.tag") }}</b></th>
-                    <th class="text-center"><b>{{ trans("index.tag_idn") }}</b></th>
-                    <th class="text-center"><b>{{ trans("index.image") }}</b></th>
-                    <th class="text-center"><b>{{ trans("index.slug") }}</b></th>
-                    <th class="text-center"><b>{{ trans("index.active") }}</b></th>
+                    <th class="text-center">{{ trans("index.event_category") }}</th>
+                    <th class="text-center">{{ trans("index.title") }}</th>
+                    <th class="text-center">{{ trans("index.title_idn") }}</th>
+                    <th class="text-center">{{ trans("index.short_body") }}</th>
+                    <th class="text-center">{{ trans("index.short_body_idn") }}</th>
+                    <th class="text-center">{{ trans("index.body") }}</th>
+                    <th class="text-center">{{ trans("index.body_idn") }}</th>
+                    <th class="text-center">{{ trans("index.location") }}</th>
+                    <th class="text-center">{{ trans("index.start") }}</th>
+                    <th class="text-center">{{ trans("index.end") }}</th>
+                    <th class="text-center">{{ trans("index.tag") }}</th>
+                    <th class="text-center">{{ trans("index.tag_idn") }}</th>
+                    <th class="text-center">{{ trans("index.image") }}</th>
+                    <th class="text-center">{{ trans("index.slug") }}</th>
+                    <th class="text-center">{{ trans("index.active") }}</th>
                 </tr>
                 @foreach($events as $event)
                 <tr>

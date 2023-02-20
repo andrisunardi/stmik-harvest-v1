@@ -15,12 +15,12 @@
                 <tr>
                     <th class="text-center" width="1%">{{ trans("index.#") }}</th>
                     <th class="text-center" width="1%">{{ trans("index.id") }}</th>
-                    <th class="text-center"><b>{{ trans("index.name") }}</b></th>
-                    <th class="text-center"><b>{{ trans("index.name_idn") }}</b></th>
-                    <th class="text-center"><b>{{ trans("index.description") }}</b></th>
-                    <th class="text-center"><b>{{ trans("index.description_idn") }}</b></th>
-                    <th class="text-center"><b>{{ trans("index.image") }}</b></th>
-                    <th class="text-center"><b>{{ trans("index.active") }}</b></th>
+                    <th class="text-center">{{ trans("index.name") }}</th>
+                    <th class="text-center">{{ trans("index.name_idn") }}</th>
+                    <th class="text-center">{{ trans("index.description") }}</th>
+                    <th class="text-center">{{ trans("index.description_idn") }}</th>
+                    <th class="text-center">{{ trans("index.image") }}</th>
+                    <th class="text-center">{{ trans("index.active") }}</th>
                 </tr>
                 @foreach($banners as $banner)
                 <tr>

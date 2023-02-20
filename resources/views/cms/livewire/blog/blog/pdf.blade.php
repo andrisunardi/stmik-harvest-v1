@@ -15,19 +15,19 @@
                 <tr>
                     <th class="text-center" width="1%">{{ trans("index.#") }}</th>
                     <th class="text-center" width="1%">{{ trans("index.id") }}</th>
-                    <th class="text-center"><b>{{ trans("index.blog_category") }}</b></th>
-                    <th class="text-center"><b>{{ trans("index.title") }}</b></th>
-                    <th class="text-center"><b>{{ trans("index.title_idn") }}</b></th>
-                    <th class="text-center"><b>{{ trans("index.short_body") }}</b></th>
-                    <th class="text-center"><b>{{ trans("index.short_body_idn") }}</b></th>
-                    <th class="text-center"><b>{{ trans("index.body") }}</b></th>
-                    <th class="text-center"><b>{{ trans("index.body_idn") }}</b></th>
-                    <th class="text-center"><b>{{ trans("index.date") }}</b></th>
-                    <th class="text-center"><b>{{ trans("index.tag") }}</b></th>
-                    <th class="text-center"><b>{{ trans("index.tag_idn") }}</b></th>
-                    <th class="text-center"><b>{{ trans("index.image") }}</b></th>
-                    <th class="text-center"><b>{{ trans("index.slug") }}</b></th>
-                    <th class="text-center"><b>{{ trans("index.active") }}</b></th>
+                    <th class="text-center">{{ trans("index.blog_category") }}</th>
+                    <th class="text-center">{{ trans("index.title") }}</th>
+                    <th class="text-center">{{ trans("index.title_idn") }}</th>
+                    <th class="text-center">{{ trans("index.short_body") }}</th>
+                    <th class="text-center">{{ trans("index.short_body_idn") }}</th>
+                    <th class="text-center">{{ trans("index.body") }}</th>
+                    <th class="text-center">{{ trans("index.body_idn") }}</th>
+                    <th class="text-center">{{ trans("index.date") }}</th>
+                    <th class="text-center">{{ trans("index.tag") }}</th>
+                    <th class="text-center">{{ trans("index.tag_idn") }}</th>
+                    <th class="text-center">{{ trans("index.image") }}</th>
+                    <th class="text-center">{{ trans("index.slug") }}</th>
+                    <th class="text-center">{{ trans("index.active") }}</th>
                 </tr>
                 @foreach($blogs as $blog)
                 <tr>
