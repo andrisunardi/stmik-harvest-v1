@@ -6,9 +6,10 @@
                     <th width="1%"><input class="form-check-input" type="checkbox" wire:model="checkbox_all"></th>
                     <th width="1%">{{ trans("index.#") }}</th>
                     <th width="1%">
-                        {{ trans("index.id") }}
-                        <a draggable="false" href="javascript:;" wire:click="sort('id', '{{ $order_by == "id" && $sort_by == "desc" ? "asc" : "desc" }}')">
-                            <i class="fas fa-sort-amount-{{ $order_by == "id" && $sort_by == "desc" ? "down" : "up" }} text-white"></i>
+                        @php($column = "id")
+                        {{ trans("index.{$column}") }}
+                        <a draggable="false" href="javascript:;" wire:click="sort('{{ $column }}', '{{ $order_by == $column && $sort_by == "desc" ? "asc" : "desc" }}')">
+                            <i class="fas fa-sort-amount-{{ $order_by == $column && $sort_by == "desc" ? "down" : "up" }} text-white"></i>
                         </a>
                     </th>
                     <th width="1%">

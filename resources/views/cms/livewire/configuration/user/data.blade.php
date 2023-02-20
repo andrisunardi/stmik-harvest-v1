@@ -6,28 +6,32 @@
                     <th width="1%"><input class="form-check-input" type="checkbox" wire:model="checkbox_all"></th>
                     <th width="1%">{{ trans("index.#") }}</th>
                     <th width="1%">
-                        {{ trans("index.id") }}
-                        <a draggable="false" href="javascript:;" wire:click="sort('id', '{{ $order_by == "id" && $sort_by == "desc" ? "asc" : "desc" }}')">
-                            <i class="fas fa-sort-amount-{{ $order_by == "id" && $sort_by == "desc" ? "down" : "up" }} text-white"></i>
+                        @php($column = "id")
+                        {{ trans("index.{$column}") }}
+                        <a draggable="false" href="javascript:;" wire:click="sort('{{ $column }}', '{{ $order_by == $column && $sort_by == "desc" ? "asc" : "desc" }}')">
+                            <i class="fas fa-sort-amount-{{ $order_by == $column && $sort_by == "desc" ? "down" : "up" }} text-white"></i>
                         </a>
                     </th>
                     <th>
-                        {{ trans("index.name") }}
-                        <a draggable="false" href="javascript:;" wire:click="sort('name', '{{ $order_by == "name" && $sort_by == "desc" ? "asc" : "desc" }}')">
-                            <i class="fas fa-sort-amount-{{ $order_by == "name" && $sort_by == "desc" ? "down" : "up" }} text-white"></i>
+                        @php($column = "name")
+                        {{ trans("index.{$column}") }}
+                        <a draggable="false" href="javascript:;" wire:click="sort('{{ $column }}', '{{ $order_by == $column && $sort_by == "desc" ? "asc" : "desc" }}')">
+                            <i class="fas fa-sort-amount-{{ $order_by == $column && $sort_by == "desc" ? "down" : "up" }} text-white"></i>
                         </a>
                     </th>
                     <th>
-                        {{ trans("index.username") }}
-                        <a draggable="false" href="javascript:;" wire:click="sort('username', '{{ $order_by == "username" && $sort_by == "desc" ? "asc" : "desc" }}')">
-                            <i class="fas fa-sort-amount-{{ $order_by == "username" && $sort_by == "desc" ? "down" : "up" }} text-white"></i>
+                        @php($column = "username")
+                        {{ trans("index.{$column}") }}
+                        <a draggable="false" href="javascript:;" wire:click="sort('{{ $column }}', '{{ $order_by == $column && $sort_by == "desc" ? "asc" : "desc" }}')">
+                            <i class="fas fa-sort-amount-{{ $order_by == $column && $sort_by == "desc" ? "down" : "up" }} text-white"></i>
                         </a>
                     </th>
                     <th>{{ trans("index.roles_and_permissions") }}</th>
                     <th width="1%">
+                        @php($column = "is_active")
                         {{ trans("index.active") }}
-                        <a draggable="false" href="javascript:;" wire:click="sort('is_active', '{{ $order_by == "is_active" && $sort_by == "desc" ? "asc" : "desc" }}')">
-                            <i class="fas fa-sort-amount-{{ $order_by == "is_active" && $sort_by == "desc" ? "down" : "up" }} text-white"></i>
+                        <a draggable="false" href="javascript:;" wire:click="sort('{{ $column }}', '{{ $order_by == $column && $sort_by == "desc" ? "asc" : "desc" }}')">
+                            <i class="fas fa-sort-amount-{{ $order_by == $column && $sort_by == "desc" ? "down" : "up" }} text-white"></i>
                         </a>
                     </th>
                     <th width="1%">{{ trans("index.detail") }}</th>
