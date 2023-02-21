@@ -55,13 +55,13 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @method static \Illuminate\Database\Query\Builder|Procedure withTrashed()
  * @method static \Illuminate\Database\Query\Builder|Procedure withoutTrashed()
  *
- * @mixin \Eloquent
- *
  * @property string|null $name_idn
  * @property string|null $description_idn
  *
  * @method static \Illuminate\Database\Eloquent\Builder|Procedure whereDescriptionIdn($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Procedure whereNameIdn($value)
+ *
+ * @mixin \Eloquent
  */
 class Procedure extends Model
 {

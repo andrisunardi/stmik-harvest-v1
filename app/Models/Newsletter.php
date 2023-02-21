@@ -46,8 +46,6 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @method static \Illuminate\Database\Query\Builder|Newsletter withTrashed()
  * @method static \Illuminate\Database\Query\Builder|Newsletter withoutTrashed()
  *
- * @mixin \Eloquent
- *
  * @property-read \Illuminate\Database\Eloquent\Collection|\Spatie\Activitylog\Models\Activity[] $activities
  * @property-read int|null $activities_count
  * @property string|null $value
@@ -56,6 +54,8 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @method static \Illuminate\Database\Eloquent\Builder|Newsletter whereType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Newsletter whereValue($value)
  * @method static \Database\Factories\NewsletterFactory factory(...$parameters)
+ *
+ * @mixin \Eloquent
  */
 class Newsletter extends Model
 {

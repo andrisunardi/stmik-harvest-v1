@@ -59,13 +59,13 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @method static \Illuminate\Database\Query\Builder|BlogCategory withTrashed()
  * @method static \Illuminate\Database\Query\Builder|BlogCategory withoutTrashed()
  *
- * @mixin \Eloquent
- *
  * @property string|null $name_idn
  * @property string|null $description_idn
  *
  * @method static \Illuminate\Database\Eloquent\Builder|BlogCategory whereDescriptionIdn($value)
  * @method static \Illuminate\Database\Eloquent\Builder|BlogCategory whereNameIdn($value)
+ *
+ * @mixin \Eloquent
  */
 class BlogCategory extends Model
 {

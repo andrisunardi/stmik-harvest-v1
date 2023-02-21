@@ -52,12 +52,12 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @method static \Illuminate\Database\Query\Builder|Faq withTrashed()
  * @method static \Illuminate\Database\Query\Builder|Faq withoutTrashed()
  *
- * @mixin \Eloquent
- *
  * @property-read \Illuminate\Database\Eloquent\Collection|\Spatie\Activitylog\Models\Activity[] $activities
  * @property-read int|null $activities_count
  *
  * @method static \Database\Factories\FaqFactory factory(...$parameters)
+ *
+ * @mixin \Eloquent
  */
 class Faq extends Model
 {

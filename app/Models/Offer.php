@@ -62,9 +62,9 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @method static \Illuminate\Database\Query\Builder|Offer withTrashed()
  * @method static \Illuminate\Database\Query\Builder|Offer withoutTrashed()
  *
- * @mixin \Eloquent
- *
  * @property string|null $description_idn
+ *
+ * @mixin \Eloquent
  */
 class Offer extends Model
 {

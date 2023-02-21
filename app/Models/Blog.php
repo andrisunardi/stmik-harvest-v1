@@ -77,8 +77,6 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @method static \Illuminate\Database\Query\Builder|Blog withTrashed()
  * @method static \Illuminate\Database\Query\Builder|Blog withoutTrashed()
  *
- * @mixin \Eloquent
- *
  * @property string|null $tag_idn
  *
  * @method static \Illuminate\Database\Eloquent\Builder|Blog whereTagIdn($value)
@@ -86,6 +84,8 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @property-read mixed $translate_body
  * @property-read mixed $translate_short_body
  * @property-read mixed $translate_title
+ *
+ * @mixin \Eloquent
  */
 class Blog extends Model
 {

@@ -47,10 +47,9 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @method static \Illuminate\Database\Eloquent\Builder|Setting whereValue($value)
  * @method static \Illuminate\Database\Query\Builder|Setting withTrashed()
  * @method static \Illuminate\Database\Query\Builder|Setting withoutTrashed()
+ * @method static \Database\Factories\SettingFactory factory(...$parameters)
  *
  * @mixin \Eloquent
- *
- * @method static \Database\Factories\SettingFactory factory(...$parameters)
  */
 class Setting extends Model
 {

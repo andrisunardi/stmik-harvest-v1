@@ -54,13 +54,12 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @method static \Illuminate\Database\Eloquent\Builder|Contact whereUpdatedById($value)
  * @method static \Illuminate\Database\Query\Builder|Contact withTrashed()
  * @method static \Illuminate\Database\Query\Builder|Contact withoutTrashed()
- *
- * @mixin \Eloquent
- *
  * @method static \Database\Factories\ContactFactory factory(...$parameters)
  *
  * @property-read \Illuminate\Database\Eloquent\Collection|\Spatie\Activitylog\Models\Activity[] $activities
  * @property-read int|null $activities_count
+ *
+ * @mixin \Eloquent
  */
 class Contact extends Model
 {

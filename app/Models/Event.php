@@ -81,8 +81,6 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @method static \Illuminate\Database\Query\Builder|Event withTrashed()
  * @method static \Illuminate\Database\Query\Builder|Event withoutTrashed()
  *
- * @mixin \Eloquent
- *
  * @property string|null $tag_idn
  *
  * @method static \Illuminate\Database\Eloquent\Builder|Event whereTagIdn($value)
@@ -90,6 +88,8 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @property-read mixed $translate_body
  * @property-read mixed $translate_short_body
  * @property-read mixed $translate_title
+ *
+ * @mixin \Eloquent
  */
 class Event extends Model
 {

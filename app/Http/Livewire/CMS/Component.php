@@ -84,9 +84,9 @@ class Component extends LivewireComponent
     public function checkPermission(string $type = null)
     {
         $type = $type ?? $this->pageType;
-        $permission = "{$this->pageName} " . Str::title($type);
+        $permission = "{$this->pageName} ".Str::title($type);
 
-        if ($type != "index" && !auth()->user()->can($permission)) {
+        if ($type != 'index' && ! auth()->user()->can($permission)) {
             abort(403);
         }
 
