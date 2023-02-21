@@ -351,8 +351,7 @@ class TestimonyComponent extends Component
 
     public function active($id)
     {
-        $this->pageType = 'edit';
-        $this->checkPermission();
+        $this->checkPermission('edit');
 
         $testimony = Testimony::find($id);
 

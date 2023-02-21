@@ -81,6 +81,17 @@ class TestimonyService
         return $testimony;
     }
 
+    public function deleteImage(Testimony $testimony)
+    {
+        $testimony->deleteImage();
+
+        $testimony->image = null;
+        $testimony->save();
+        $testimony->refresh();
+
+        return $testimony;
+    }
+
     public function delete(Testimony $testimony): bool
     {
         return $testimony->delete();

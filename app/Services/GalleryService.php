@@ -23,6 +23,14 @@ class GalleryService
             $image->storePubliclyAs($this->slug, $data['image'], 'images');
         }
 
+        $video = $data['video'];
+        $videoName = Str::slug($data['name']).'-'.now()->format('Y-m-d-H-i-s');
+
+        if ($video) {
+            $data['video'] = "{$videoName}.{$video->getClientOriginalExtension()}";
+            $video->storePubliclyAs($this->slug, $data['video'], 'videos');
+        }
+
         DB::statement(DB::raw("ALTER TABLE {$this->table} AUTO_INCREMENT = 1"));
 
         return Gallery::create($data);
@@ -47,6 +55,23 @@ class GalleryService
             }
         }
 
+        $video = $data['video'];
+        $videoName = Str::slug($data['name']).'-'.now()->format('Y-m-d-H-i-s');
+
+        if ($video) {
+            $data['video'] = "{$videoName}.{$video->getClientOriginalExtension()}";
+            $video->storePubliclyAs($this->slug, $data['video'], 'videos');
+        } else {
+            if ($gallery->checkVideo()) {
+                $data['video'] = "{$videoName}.".explode('.', $gallery->video)[1];
+
+                File::copy(
+                    public_path("videos/{$this->slug}/{$gallery->video}"),
+                    public_path("videos/{$this->slug}/{$data['video']}"),
+                );
+            }
+        }
+
         DB::statement(DB::raw("ALTER TABLE {$this->table} AUTO_INCREMENT = 1"));
 
         return Gallery::create($data);
@@ -66,6 +91,18 @@ class GalleryService
             unset($data['image']);
         }
 
+        $video = $data['video'];
+        $videoName = Str::slug($data['name']).'-'.now()->format('Y-m-d-H-i-s');
+
+        if ($video) {
+            $gallery->deleteVideo();
+
+            $data['video'] = "{$videoName}.{$video->getClientOriginalExtension()}";
+            $video->storePubliclyAs($this->slug, $data['video'], 'videos');
+        } else {
+            unset($data['video']);
+        }
+
         $gallery->update($data);
         $gallery->refresh();
 
@@ -75,6 +112,28 @@ class GalleryService
     public function active(Gallery $gallery): Gallery
     {
         $gallery->is_active = ! $gallery->is_active;
+        $gallery->save();
+        $gallery->refresh();
+
+        return $gallery;
+    }
+
+    public function deleteImage(Gallery $gallery)
+    {
+        $gallery->deleteImage();
+
+        $gallery->image = null;
+        $gallery->save();
+        $gallery->refresh();
+
+        return $gallery;
+    }
+
+    public function deleteVideo(Gallery $gallery)
+    {
+        $gallery->deleteVideo();
+
+        $gallery->image = null;
         $gallery->save();
         $gallery->refresh();
 

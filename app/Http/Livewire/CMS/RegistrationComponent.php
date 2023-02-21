@@ -380,8 +380,7 @@ class RegistrationComponent extends Component
 
     public function active($id)
     {
-        $this->pageType = 'edit';
-        $this->checkPermission();
+        $this->checkPermission('edit');
 
         $registration = Registration::find($id);
 

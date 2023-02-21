@@ -81,6 +81,17 @@ class SliderService
         return $slider;
     }
 
+    public function deleteImage(Slider $slider)
+    {
+        $slider->deleteImage();
+
+        $slider->image = null;
+        $slider->save();
+        $slider->refresh();
+
+        return $slider;
+    }
+
     public function delete(Slider $slider): bool
     {
         return $slider->delete();

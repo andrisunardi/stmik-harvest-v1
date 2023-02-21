@@ -81,6 +81,17 @@ class NetworkService
         return $network;
     }
 
+    public function deleteImage(Network $network)
+    {
+        $network->deleteImage();
+
+        $network->image = null;
+        $network->save();
+        $network->refresh();
+
+        return $network;
+    }
+
     public function delete(Network $network): bool
     {
         return $network->delete();

@@ -87,6 +87,17 @@ class BlogService
         return $blog;
     }
 
+    public function deleteImage(Blog $blog)
+    {
+        $blog->deleteImage();
+
+        $blog->image = null;
+        $blog->save();
+        $blog->refresh();
+
+        return $blog;
+    }
+
     public function delete(Blog $blog): bool
     {
         return $blog->delete();

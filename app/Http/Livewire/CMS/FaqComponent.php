@@ -353,8 +353,7 @@ class FaqComponent extends Component
 
     public function active($id)
     {
-        $this->pageType = 'edit';
-        $this->checkPermission();
+        $this->checkPermission('edit');
 
         $faq = Faq::find($id);
 

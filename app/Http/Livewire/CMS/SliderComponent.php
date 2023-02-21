@@ -375,8 +375,7 @@ class SliderComponent extends Component
 
     public function active($id)
     {
-        $this->pageType = 'edit';
-        $this->checkPermission();
+        $this->checkPermission('edit');
 
         $slider = Slider::find($id);
 

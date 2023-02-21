@@ -81,6 +81,17 @@ class BannerService
         return $banner;
     }
 
+    public function deleteImage(Banner $banner)
+    {
+        $banner->deleteImage();
+
+        $banner->image = null;
+        $banner->save();
+        $banner->refresh();
+
+        return $banner;
+    }
+
     public function delete(Banner $banner): bool
     {
         return $banner->delete();

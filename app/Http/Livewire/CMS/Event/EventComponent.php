@@ -416,8 +416,7 @@ class EventComponent extends Component
 
     public function active($id)
     {
-        $this->pageType = 'edit';
-        $this->checkPermission();
+        $this->checkPermission('edit');
 
         $event = Event::find($id);
 

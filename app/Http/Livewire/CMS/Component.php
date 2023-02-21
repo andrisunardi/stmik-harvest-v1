@@ -81,11 +81,12 @@ class Component extends LivewireComponent
 
     public $checkbox_id;
 
-    public function checkPermission()
+    public function checkPermission(string $type = null)
     {
-        $permission = "{$this->pageName} " . Str::title($this->pageType);
+        $type = $type ?? $this->pageType;
+        $permission = "{$this->pageName} " . Str::title($type);
 
-        if ($this->pageType != "index" && !auth()->user()->can($permission)) {
+        if ($type != "index" && !auth()->user()->can($permission)) {
             abort(403);
         }
 

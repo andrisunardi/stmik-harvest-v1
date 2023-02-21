@@ -371,8 +371,7 @@ class OfferComponent extends Component
 
     public function active($id)
     {
-        $this->pageType = 'edit';
-        $this->checkPermission();
+        $this->checkPermission('edit');
 
         $offer = Offer::find($id);
 

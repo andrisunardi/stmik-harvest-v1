@@ -87,6 +87,17 @@ class EventService
         return $event;
     }
 
+    public function deleteImage(Event $event)
+    {
+        $event->deleteImage();
+
+        $event->image = null;
+        $event->save();
+        $event->refresh();
+
+        return $event;
+    }
+
     public function delete(Event $event): bool
     {
         return $event->delete();

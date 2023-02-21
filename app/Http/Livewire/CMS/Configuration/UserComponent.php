@@ -375,8 +375,7 @@ class UserComponent extends Component
 
     public function active($id)
     {
-        $this->pageType = 'edit';
-        $this->checkPermission();
+        $this->checkPermission('edit');
 
         $user = User::find($id);
 

@@ -57,6 +57,17 @@ class UserService
         return $user;
     }
 
+    public function deleteImage(User $user)
+    {
+        $user->deleteImage();
+
+        $user->image = null;
+        $user->save();
+        $user->refresh();
+
+        return $user;
+    }
+
     public function delete(User $user): bool
     {
         return $user->delete();

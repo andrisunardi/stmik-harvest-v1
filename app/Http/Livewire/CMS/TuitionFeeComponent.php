@@ -353,8 +353,7 @@ class TuitionFeeComponent extends Component
 
     public function active($id)
     {
-        $this->pageType = 'edit';
-        $this->checkPermission();
+        $this->checkPermission('edit');
 
         $tuitionFee = TuitionFee::find($id);
 
