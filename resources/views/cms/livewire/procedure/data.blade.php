@@ -57,8 +57,8 @@
                                 {{ $procedure->id }}
                             </button>
                         </td>
-                        <td>{{ $procedure->name }}</td>
-                        <td>{{ $procedure->name_idn }}</td>
+                        <td class="text-wrap">{{ $procedure->name }}</td>
+                        <td class="text-wrap">{{ $procedure->name_idn }}</td>
                         <td>
                             @if ($pageType == "index")
                                 @can("{$pageName} Edit")

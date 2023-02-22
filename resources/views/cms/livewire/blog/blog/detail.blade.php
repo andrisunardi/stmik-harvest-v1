@@ -13,11 +13,11 @@
                     </tr>
                     <tr>
                         <td width="1%" class="text-nowrap">{{ trans("index.body") }}</td>
-                        <td>{!! $blog->body !!}</td>
+                        <td class="text-pre-wrap">{!! $blog->body !!}</td>
                     </tr>
                     <tr>
                         <td width="1%" class="text-nowrap">{{ trans("index.body_idn") }}</td>
-                        <td>{!! $blog->body_idn !!}</td>
+                        <td class="text-pre-wrap">{!! $blog->body_idn !!}</td>
                     </tr>
                     <tr>
                         <td width="1%" class="text-nowrap">{{ trans("index.tag") }}</td>
@@ -26,21 +26,6 @@
                     <tr>
                         <td width="1%" class="text-nowrap">{{ trans("index.tag_idn") }}</td>
                         <td>{{ $blog->tag_idn }}</td>
-                    </tr>
-                    <tr>
-                        <td width="1%" class="text-nowrap">{{ trans("index.image") }}</td>
-                        <td>
-                            @if ($blog->checkImage())
-                                <a draggable="false" class="btn btn-sm btn-primary" href="{{ $blog->assetImage() }}" target="_blank">
-                                    <i class="fas fa-eye me-1"></i>
-                                    {{ trans("index.view") }}
-                                </a>
-                                <a draggable="false" class="btn btn-sm btn-info text-white" href="{{ $blog->assetImage() }}" download>
-                                    <i class="fas fa-download me-1"></i>
-                                    {{ trans("index.download") }}
-                                </a>
-                            @endif
-                        </td>
                     </tr>
                     <tr>
                         <td width="1%" class="text-nowrap">{{ trans("index.slug") }}</td>

@@ -13,11 +13,11 @@
                     </tr>
                     <tr>
                         <td width="1%" class="text-nowrap">{{ trans("index.body") }}</td>
-                        <td>{!! $event->body !!}</td>
+                        <td class="text-pre-wrap">{!! $event->body !!}</td>
                     </tr>
                     <tr>
                         <td width="1%" class="text-nowrap">{{ trans("index.body_idn") }}</td>
-                        <td>{!! $event->body_idn !!}</td>
+                        <td class="text-pre-wrap">{!! $event->body_idn !!}</td>
                     </tr>
                     <tr>
                         <td width="1%" class="text-nowrap">{{ trans("index.location") }}</td>

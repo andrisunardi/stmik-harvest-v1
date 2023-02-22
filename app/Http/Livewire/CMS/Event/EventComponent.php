@@ -431,6 +431,21 @@ class EventComponent extends Component
         $this->alert('success', "{$this->pageName} ".trans("index.has_been_set_{$active}_successfully"));
     }
 
+    public function deleteImage($id)
+    {
+        $this->checkPermission('edit');
+
+        $event = Event::find($id);
+
+        if (! $event) {
+            return $this->alert('error', trans('index.image_not_found_or_has_been_deleted'));
+        }
+
+        (new EventService())->deleteImage($event);
+
+        $this->alert('success', trans('index.image_has_been_deleted_successfully'));
+    }
+
     public function delete($id)
     {
         $this->checkPermission();

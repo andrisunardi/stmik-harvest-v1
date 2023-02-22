@@ -64,8 +64,8 @@
                                 {{ $value->id }}
                             </button>
                         </td>
-                        <td>{{ $value->name }}</td>
-                        <td>{{ $value->name_idn }}</td>
+                        <td class="text-wrap">{{ $value->name }}</td>
+                        <td class="text-wrap">{{ $value->name_idn }}</td>
                         <td><i class="{{ $value->icon }}"></i> ({{ $value->icon }})</td>
                         <td>
                             @if ($pageType == "index")

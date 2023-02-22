@@ -31,7 +31,7 @@
             <h6>{{ trans("index.answer") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
-            {!! $faq->answer !!}
+            <div class="text-pre-wrap">{!! $faq->answer !!}</div>
         </div>
     </div>
 
@@ -40,7 +40,7 @@
             <h6>{{ trans("index.answer_idn") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
-            {!! $faq->answer_idn !!}
+            <div class="text-pre-wrap">{!! $faq->answer_idn !!}</div>
         </div>
     </div>
 

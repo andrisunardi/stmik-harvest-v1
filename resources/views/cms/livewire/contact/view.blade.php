@@ -58,7 +58,7 @@
             <h6>{{ trans("index.message") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
-            {!! $contact->message !!}
+            <div class="text-pre-wrap">{!! $contact->message !!}</div>
         </div>
     </div>
 

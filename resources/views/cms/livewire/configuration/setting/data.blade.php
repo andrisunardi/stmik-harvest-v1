@@ -58,7 +58,7 @@
                             </button>
                         </td>
                         <td>{{ $setting->key }}</td>
-                        <td class="text-wrap">{!! $setting->value !!}</td>
+                        <td class="text-pre-wrap">{!! $setting->value !!}</td>
                         <td>
                             @if ($pageType == "index")
                                 @can("{$pageName} Edit")

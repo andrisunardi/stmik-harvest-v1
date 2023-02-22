@@ -57,8 +57,8 @@
                                 {{ $testimony->id }}
                             </button>
                         </td>
-                        <td>{{ $testimony->name }}</td>
-                        <td>{{ $testimony->graduate }}</td>
+                        <td class="text-wrap">{{ $testimony->name }}</td>
+                        <td class="text-wrap">{{ $testimony->graduate }}</td>
                         <td>
                             @if ($pageType == "index")
                                 @can("{$pageName} Edit")

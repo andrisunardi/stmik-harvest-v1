@@ -5,11 +5,11 @@
                 <table class="table table-striped table-hover table-bordered text-wrap table-responsive align-middle mb-0 pb-0">
                     <tr>
                         <td width="1%" class="text-nowrap">{{ trans("index.description") }}</td>
-                        <td>{!! $eventCategory->description !!}</td>
+                        <td class="text-pre-wrap">{!! $eventCategory->description !!}</td>
                     </tr>
                     <tr>
                         <td width="1%" class="text-nowrap">{{ trans("index.description_idn") }}</td>
-                        <td>{!! $eventCategory->description_idn !!}</td>
+                        <td class="text-pre-wrap">{!! $eventCategory->description_idn !!}</td>
                     </tr>
                     <tr>
                         <td width="1%" class="text-nowrap">{{ trans("index.slug") }}</td>

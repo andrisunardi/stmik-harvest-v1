@@ -5,11 +5,11 @@
                 <table class="table table-striped table-hover table-bordered text-wrap table-responsive align-middle mb-0 pb-0">
                     <tr>
                         <td width="1%" class="text-nowrap">{{ trans("index.description") }}</td>
-                        <td>{!! $banner->description !!}</td>
+                        <td class="text-pre-wrap">{!! $banner->description !!}</td>
                     </tr>
                     <tr>
                         <td width="1%" class="text-nowrap">{{ trans("index.description_idn") }}</td>
-                        <td>{!! $banner->description_idn !!}</td>
+                        <td class="text-pre-wrap">{!! $banner->description_idn !!}</td>
                     </tr>
                     <tr>
                         <td width="1%" class="text-nowrap">{{ trans("index.image") }}</td>

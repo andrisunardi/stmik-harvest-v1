@@ -9,7 +9,7 @@
                     </tr>
                     <tr>
                         <td width="1%" class="text-nowrap">{{ trans("index.message") }}</td>
-                        <td>{!! $contact->message !!}</td>
+                        <td class="text-pre-wrap">{!! $contact->message !!}</td>
                     </tr>
                     <tr>
                         <td width="1%" class="text-nowrap">{{ trans("index.created_by") }}</td>

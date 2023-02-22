@@ -31,7 +31,7 @@
             <h6>{{ trans("index.description") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
-            {!! $slider->description !!}
+            <div class="text-pre-wrap">{!! $slider->description !!}</div>
         </div>
     </div>
 
@@ -40,7 +40,7 @@
             <h6>{{ trans("index.description_idn") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
-            {!! $slider->description_idn !!}
+            <div class="text-pre-wrap">{!! $slider->description_idn !!}</div>
         </div>
     </div>
 

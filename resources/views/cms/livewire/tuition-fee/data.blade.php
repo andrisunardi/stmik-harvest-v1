@@ -57,8 +57,8 @@
                                 {{ $tuitionFee->id }}
                             </button>
                         </td>
-                        <td>{{ $tuitionFee->name }}</td>
-                        <td>{{ $tuitionFee->name_idn }}</td>
+                        <td class="text-wrap">{{ $tuitionFee->name }}</td>
+                        <td class="text-wrap">{{ $tuitionFee->name_idn }}</td>
                         <td>
                             @if ($pageType == "index")
                                 @can("{$pageName} Edit")

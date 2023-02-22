@@ -71,7 +71,7 @@
             <h6>{{ trans("index.body") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
-            {!! $event->body !!}
+            <div class="text-pre-wrap">{!! $event->body !!}</div>
         </div>
     </div>
 
@@ -80,7 +80,7 @@
             <h6>{{ trans("index.body_idn") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
-            {!! $event->body_idn !!}
+            <div class="text-pre-wrap">{!! $event->body_idn !!}</div>
         </div>
     </div>
 
@@ -101,7 +101,7 @@
             @if ($event->start)
                 {{ $event->start->format("l,") }}
                 {{ $event->start->isoFormat("LL") }}
-                <br>
+                <br class="d-md-none">
                 ({{ $event->start->diffForHumans() }})
             @endif
         </div>
@@ -115,7 +115,7 @@
             @if ($event->end)
                 {{ $event->end->format("l,") }}
                 {{ $event->end->isoFormat("LL") }}
-                <br>
+                <br class="d-md-none">
                 ({{ $event->end->diffForHumans() }})
             @endif
         </div>

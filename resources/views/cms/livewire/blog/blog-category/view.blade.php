@@ -14,7 +14,7 @@
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
             {{ $blogCategory->name }}
-            <a draggable="false" href="{{ route("blog.index") . "?blog_category_id={$blogCategory->slug}" }}" class="btn btn-link btn-sm" target="_blank">
+            <a draggable="false" href="{{ route("blog.index") . "?category={$blogCategory->slug}" }}" class="btn btn-link btn-sm" target="_blank">
                 <i class="fas fa-external-link"></i>
             </a>
         </div>
@@ -26,7 +26,7 @@
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
             {{ $blogCategory->name_idn }}
-            <a draggable="false" href="{{ route("blog.index") . "?blog_category_id={$blogCategory->slug}" }}" class="btn btn-link btn-sm" target="_blank">
+            <a draggable="false" href="{{ route("blog.index") . "?category={$blogCategory->slug}" }}" class="btn btn-link btn-sm" target="_blank">
                 <i class="fas fa-external-link"></i>
             </a>
         </div>
@@ -37,7 +37,7 @@
             <h6>{{ trans("index.description") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
-            {!! $blogCategory->description !!}
+            <div class="text-pre-wrap">{!! $blogCategory->description !!}</div>
         </div>
     </div>
 
@@ -46,7 +46,7 @@
             <h6>{{ trans("index.description_idn") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
-            {!! $blogCategory->description_idn !!}
+            <div class="text-pre-wrap">{!! $blogCategory->description_idn !!}</div>
         </div>
     </div>
 

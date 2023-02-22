@@ -22,7 +22,7 @@
             <h6>{{ trans("index.value") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
-            {!! $setting->value !!}
+            <div class="text-pre-wrap">{!! $setting->value !!}</div>
         </div>
     </div>
 

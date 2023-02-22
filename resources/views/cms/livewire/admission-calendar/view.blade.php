@@ -52,7 +52,7 @@
             @if ($admissionCalendar->date)
                 {{ $admissionCalendar->date->format("l,") }}
                 {{ $admissionCalendar->date->isoFormat("LL") }}
-                <br>
+                <br class="d-md-none">
                 ({{ $admissionCalendar->date->diffForHumans() }})
             @endif
         </div>

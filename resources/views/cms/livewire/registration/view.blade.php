@@ -40,7 +40,7 @@
             <h6>{{ trans("index.gender") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
-            {{ $registration->gender?->name }}
+            {{ Str::translate($registration->gender?->name) }}
         </div>
     </div>
 
@@ -76,7 +76,7 @@
             <h6>{{ trans("index.type") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
-            {{ $registration->type?->name }}
+            {{ Str::translate($registration->type?->name) }}
         </div>
     </div>
 

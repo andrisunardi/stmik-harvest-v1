@@ -57,8 +57,8 @@
                                 {{ $slider->id }}
                             </button>
                         </td>
-                        <td>{{ $slider->name }}</td>
-                        <td>{{ $slider->name_idn }}</td>
+                        <td class="text-wrap">{{ $slider->name }}</td>
+                        <td class="text-wrap">{{ $slider->name_idn }}</td>
                         <td>
                             @if ($pageType == "index")
                                 @can("{$pageName} Edit")

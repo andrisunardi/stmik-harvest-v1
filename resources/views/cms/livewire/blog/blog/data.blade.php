@@ -12,6 +12,7 @@
                             <i class="fas fa-sort-amount-{{ $order_by == $column && $sort_by == "desc" ? "down" : "up" }} text-white"></i>
                         </a>
                     </th>
+                    <th width="1%">{{ trans("index.image") }}</th>
                     <th width="1%">
                         @php($column = "blog_category_id")
                         {{ trans("index.blog_category") }}
@@ -72,9 +73,23 @@
                             </button>
                         </td>
                         <td>
+                            @if ($blog->checkImage())
+                                <a draggable="false" href="{{ $blog->assetImage() }}" target="_blank">
+                                    <img
+                                        draggable="false"
+                                        class="w-100 img-thumbnail"
+                                        src="{{ $blog->assetImage() }}"
+                                        alt="{{ $blog->altImage() }}">
+                                </a>
+                            @endif
+                        </td>
+                        <td>
                             @if ($blog->blogCategory)
                                 <a draggable="false" href="{{ route("{$subDomain}.blog.category.index") . "?pageType=view&row={$blog->blogCategory->id}" }}" target="_blank">
                                     {{ $blog->blogCategory->name }}
+                                </a>
+                                <a draggable="false" href="{{ route("blog.index") . "?category={$blog->blogCategory->slug}" }}" class="btn btn-link btn-sm" target="_blank">
+                                    <i class="fas fa-external-link"></i>
                                 </a>
                             @endif
                         </td>

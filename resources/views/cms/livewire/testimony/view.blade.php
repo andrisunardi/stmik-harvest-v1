@@ -22,7 +22,7 @@
             <h6>{{ trans("index.description") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
-            {!! $testimony->description !!}
+            <div class="text-pre-wrap">{!! $testimony->description !!}</div>
         </div>
     </div>
 

@@ -64,13 +64,12 @@
                                 {{ $admissionCalendar->id }}
                             </button>
                         </td>
-                        <td>{{ $admissionCalendar->name }}</td>
-                        <td>{{ $admissionCalendar->name_idn }}</td>
-                        <td>
+                        <td class="text-wrap">{{ $admissionCalendar->name }}</td>
+                        <td class="text-wrap">{{ $admissionCalendar->name_idn }}</td>
+                        <td width="1%">
                             @if ($admissionCalendar->date)
                                 {{ $admissionCalendar->date->format("l,") }}
                                 {{ $admissionCalendar->date->isoFormat("LL") }}
-                                <br>
                                 ({{ $admissionCalendar->date->diffForHumans() }})
                             @endif
                         </td>

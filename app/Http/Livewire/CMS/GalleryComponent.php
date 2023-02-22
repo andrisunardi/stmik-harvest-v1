@@ -402,6 +402,36 @@ class GalleryComponent extends Component
         $this->alert('success', "{$this->pageName} ".trans("index.has_been_set_{$active}_successfully"));
     }
 
+    public function deleteImage($id)
+    {
+        $this->checkPermission('edit');
+
+        $gallery = Gallery::find($id);
+
+        if (! $gallery) {
+            return $this->alert('error', trans('index.image_not_found_or_has_been_deleted'));
+        }
+
+        (new GalleryService())->deleteImage($gallery);
+
+        $this->alert('success', trans('index.image_has_been_deleted_successfully'));
+    }
+
+    public function deleteVideo($id)
+    {
+        $this->checkPermission('edit');
+
+        $gallery = Gallery::find($id);
+
+        if (! $gallery) {
+            return $this->alert('error', trans('index.video_not_found_or_has_been_deleted'));
+        }
+
+        (new GalleryService())->deleteVideo($gallery);
+
+        $this->alert('success', trans('index.video_has_been_deleted_successfully'));
+    }
+
     public function delete($id)
     {
         $this->checkPermission();
