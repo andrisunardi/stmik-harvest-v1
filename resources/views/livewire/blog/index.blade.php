@@ -11,7 +11,7 @@
             @if ($blogCategory)
                 <div class="section__title text-center mb--40">
                     <h2 class="title__line">{{ $blogCategory->translate_name }}</h2>
-                    <p>{!! html_entity_decode($blogCategory->translate_description) !!}</p>
+                    <p class="text-pre-wrap">{!! $blogCategory->translate_description !!}</p>
                 </div>
             @endif
 

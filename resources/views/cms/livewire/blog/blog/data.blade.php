@@ -34,13 +34,6 @@
                             <i class="fas fa-sort-amount-{{ $order_by == $column && $sort_by == "desc" ? "down" : "up" }} text-white"></i>
                         </a>
                     </th>
-                    <th>
-                        @php($column = "date")
-                        {{ trans("index.{$column}") }}
-                        <a draggable="false" href="javascript:;" wire:click="sort('{{ $column }}', '{{ $order_by == $column && $sort_by == "desc" ? "asc" : "desc" }}')">
-                            <i class="fas fa-sort-amount-{{ $order_by == $column && $sort_by == "desc" ? "down" : "up" }} text-white"></i>
-                        </a>
-                    </th>
                     <th width="1%">
                         @php($column = "is_active")
                         {{ trans("index.active") }}
@@ -83,7 +76,7 @@
                                 </a>
                             @endif
                         </td>
-                        <td>
+                        <td class="text-wrap">
                             @if ($blog->blogCategory)
                                 <a draggable="false" href="{{ route("{$subDomain}.blog.category.index") . "?pageType=view&row={$blog->blogCategory->id}" }}" target="_blank">
                                     {{ $blog->blogCategory->name }}
@@ -104,14 +97,6 @@
                             <a draggable="false" href="{{ route("blog.view", ["slug" => $blog->slug]) }}" class="btn btn-link btn-sm" target="_blank">
                                 <i class="fas fa-external-link"></i>
                             </a>
-                        </td>
-                        <td>
-                            @if ($blog->date)
-                                {{ $blog->date->format("l,") }}
-                                {{ $blog->date->isoFormat("LL") }}
-                                <br>
-                                ({{ $blog->date->diffForHumans() }})
-                            @endif
                         </td>
                         <td>
                             @if ($pageType == "index")

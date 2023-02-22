@@ -20,6 +20,16 @@
                         <td class="text-pre-wrap">{!! $blog->body_idn !!}</td>
                     </tr>
                     <tr>
+                        <td width="1%" class="text-nowrap">{{ trans("index.date") }}</td>
+                        <td>
+                            @if ($blog->date)
+                                {{ $blog->date->format("l,") }}
+                                {{ $blog->date->isoFormat("LL") }}
+                                ({{ $blog->date->diffForHumans() }})
+                            @endif
+                        </td>
+                    </tr>
+                    <tr>
                         <td width="1%" class="text-nowrap">{{ trans("index.tag") }}</td>
                         <td>{{ $blog->tag }}</td>
                     </tr>
