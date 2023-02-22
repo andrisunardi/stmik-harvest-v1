@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
@@ -17,6 +18,14 @@ class UserService
     {
         $data['password'] = Hash::make($data['password']);
 
+        $image = $data['image'];
+        $imageName = Str::slug($data['name']).'-'.now()->format('Y-m-d-H-i-s');
+
+        if ($image) {
+            $data['image'] = "{$imageName}.{$image->getClientOriginalExtension()}";
+            $image->storePubliclyAs($this->slug, $data['image'], 'images');
+        }
+
         DB::statement(DB::raw("ALTER TABLE {$this->table} AUTO_INCREMENT = 1"));
 
         return User::create($data)->assignRole($data['roles_id']);
@@ -25,6 +34,23 @@ class UserService
     public function clone(array $data, User $user): User
     {
         $data['password'] = Hash::make($data['password']);
+
+        $image = $data['image'];
+        $imageName = Str::slug($data['name']).'-'.now()->format('Y-m-d-H-i-s');
+
+        if ($image) {
+            $data['image'] = "{$imageName}.{$image->getClientOriginalExtension()}";
+            $image->storePubliclyAs($this->slug, $data['image'], 'images');
+        } else {
+            if ($user->checkImage()) {
+                $data['image'] = "{$imageName}.".explode('.', $user->image)[1];
+
+                File::copy(
+                    public_path("images/{$this->slug}/{$user->image}"),
+                    public_path("images/{$this->slug}/{$data['image']}"),
+                );
+            }
+        }
 
         DB::statement(DB::raw("ALTER TABLE {$this->table} AUTO_INCREMENT = 1"));
 
@@ -39,6 +65,18 @@ class UserService
             $data['password'] = Hash::make($data['password']);
         } else {
             unset($data['password']);
+        }
+
+        $image = $data['image'];
+        $imageName = Str::slug($data['name']).'-'.now()->format('Y-m-d-H-i-s');
+
+        if ($image) {
+            $user->deleteImage();
+
+            $data['image'] = "{$imageName}.{$image->getClientOriginalExtension()}";
+            $image->storePubliclyAs($this->slug, $data['image'], 'images');
+        } else {
+            unset($data['image']);
         }
 
         $user->update($data);

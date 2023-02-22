@@ -41,6 +41,8 @@ class UserComponent extends Component
 
     public $password;
 
+    public $image;
+
     public $is_active = '';
 
     public $role_id = '';
@@ -158,6 +160,7 @@ class UserComponent extends Component
             'email',
             'phone',
             'password',
+            'image',
             'is_active',
             'role_id',
             'permission_id',
@@ -344,6 +347,7 @@ class UserComponent extends Component
             'email' => "required|max:50|email:rfc,dns|regex:/^\S*$/u|unique:{$this->pageTable},email,{$id}",
             'phone' => "required|max:15|unique:{$this->pageTable},phone,{$id}",
             'password' => "{$password}|max:50",
+            'image' => 'nullable|max:'.env('MAX_IMAGE').'|mimes:'.env('MIMES_IMAGE'),
             'is_active' => 'required|boolean',
             'roles_id' => 'nullable|exists:roles,id',
         ];
