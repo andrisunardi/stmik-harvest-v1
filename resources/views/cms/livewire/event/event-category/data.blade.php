@@ -59,13 +59,13 @@
                         </td>
                         <td>
                             {{ $eventCategory->name }}
-                            <a draggable="false" href="{{ route("event.index") . "?event_category_id={$eventCategory->slug}" }}" class="btn btn-link btn-sm" target="_blank">
+                            <a draggable="false" href="{{ route("event.index") . "?category={$eventCategory->slug}" }}" class="btn btn-link btn-sm" target="_blank">
                                 <i class="fas fa-external-link"></i>
                             </a>
                         </td>
                         <td>
                             {{ $eventCategory->name_idn }}
-                            <a draggable="false" href="{{ route("event.index") . "?event_category_id={$eventCategory->slug}" }}" class="btn btn-link btn-sm" target="_blank">
+                            <a draggable="false" href="{{ route("event.index") . "?category={$eventCategory->slug}" }}" class="btn btn-link btn-sm" target="_blank">
                                 <i class="fas fa-external-link"></i>
                             </a>
                         </td>

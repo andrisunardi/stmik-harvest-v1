@@ -69,6 +69,9 @@
                                 <a draggable="false" href="{{ route("{$subDomain}.event.category.index") . "?pageType=view&row={$event->eventCategory->id}" }}" target="_blank">
                                     {{ $event->eventCategory->name }}
                                 </a>
+                                <a draggable="false" href="{{ route("event.index") . "?category={$event->eventCategory->slug}" }}" class="btn btn-link btn-sm" target="_blank">
+                                    <i class="fas fa-external-link"></i>
+                                </a>
                             @endif
                         </td>
                         <td class="text-wrap">
