@@ -225,8 +225,8 @@
 
                 @if ($image || ($pageType != "add" && $gallery->checkImage()))
                     @if ($image ? $image->temporaryUrl() : $gallery->checkImage())
-                        <a draggable="false" class="mt-3" href="{{ $image ? $image->temporaryUrl() : $gallery->assetImage() }}" target="_blank">
-                            <img draggable="false" src="{{ $image ? $image->temporaryUrl() : $gallery->assetImage() }}" class="w-100 img-thumbnail" />
+                        <a draggable="false" href="{{ $image ? $image->temporaryUrl() : $gallery->assetImage() }}" target="_blank">
+                            <img draggable="false" src="{{ $image ? $image->temporaryUrl() : $gallery->assetImage() }}" class="w-100 mt-3 img-thumbnail" />
                         </a>
                         <div class="row mt-3">
                             <div class="col-6 col-md-auto">
@@ -246,7 +246,7 @@
                 @endif
             </div>
 
-            @if ($gallery->category->value == App\Enums\GalleryCategory::Video)
+            @if ($category == 2)
                 <div class="form-group col-sm-6 mb-3">
                     @php $input = "video" @endphp
                     <label for="{{ $input }}" class="form-label @if ($errors->any()) {{ $errors->has($input) ? "text-danger" : "text-success" }}@endif">
@@ -302,7 +302,7 @@
                 </div>
             @endif
 
-            @if ($gallery->category->value == App\Enums\GalleryCategory::Youtube)
+            @if ($category == 3)
                 <div class="form-group col-sm-6 mb-3">
                     @php $input = "youtube" @endphp
                     <label for="{{ $input }}" class="form-label @if ($errors->any()) {{ $errors->has($input) ? "text-danger" : "text-success" }}@endif">
@@ -327,6 +327,10 @@
                         @else
                             <div class="valid-feedback">{{ trans("validation.success") }}</div>
                         @enderror
+                    </div>
+
+                    <div class="form-text mt-2">
+                        {{ trans("index.format") }} : https://www.youtube.com/watch?v=[YOUTUBE_CODE]
                     </div>
 
                     @if ($youtube)

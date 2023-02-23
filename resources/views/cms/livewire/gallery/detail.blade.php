@@ -19,7 +19,7 @@
                         <td width="1%" class="text-nowrap">{{ trans("index.tag_idn") }}</td>
                         <td>{{ $gallery->tag_idn }}</td>
                     </tr>
-                    @if ($gallery->category->value == App\Enums\GalleryCategory::Video)
+                    @if ($gallery->category == App\Enums\GalleryCategory::Video)
                         <tr>
                             <td width="1%" class="text-nowrap">{{ trans("index.video") }}</td>
                             <td>
@@ -29,7 +29,7 @@
                             </td>
                         </tr>
                     @endif
-                    @if ($gallery->category->value == App\Enums\GalleryCategory::Youtube)
+                    @if ($gallery->category == App\Enums\GalleryCategory::Youtube)
                         <tr>
                             <td width="1%" class="text-nowrap">{{ trans("index.youtube") }}</td>
                             <td>

@@ -174,8 +174,8 @@
 
                 @if ($image || ($pageType != "add" && $user->checkImage()))
                     @if ($image ? $image->temporaryUrl() : $user->checkImage())
-                        <a draggable="false" class="mt-3" href="{{ $image ? $image->temporaryUrl() : $user->assetImage() }}" target="_blank">
-                            <img draggable="false" src="{{ $image ? $image->temporaryUrl() : $user->assetImage() }}" class="w-100 img-thumbnail" />
+                        <a draggable="false" href="{{ $image ? $image->temporaryUrl() : $user->assetImage() }}" target="_blank">
+                            <img draggable="false" src="{{ $image ? $image->temporaryUrl() : $user->assetImage() }}" class="w-100 mt-3 img-thumbnail" />
                         </a>
                         <div class="row mt-3">
                             <div class="col-6 col-md-auto">

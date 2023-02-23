@@ -23,12 +23,25 @@ class GalleryService
             $image->storePubliclyAs($this->slug, $data['image'], 'images');
         }
 
-        $video = $data['video'];
-        $videoName = Str::slug($data['name']).'-'.now()->format('Y-m-d-H-i-s');
+        if ($data['category'] == 1) {
+            $data['video'] = null;
+            $data['youtube'] = null;
+        }
 
-        if ($video) {
-            $data['video'] = "{$videoName}.{$video->getClientOriginalExtension()}";
-            $video->storePubliclyAs($this->slug, $data['video'], 'videos');
+        if ($data['category'] == 2) {
+            $video = $data['video'];
+            $videoName = Str::slug($data['name']).'-'.now()->format('Y-m-d-H-i-s');
+
+            if ($video) {
+                $data['video'] = "{$videoName}.{$video->getClientOriginalExtension()}";
+                $video->storePubliclyAs($this->slug, $data['video'], 'videos');
+            }
+
+            $data['youtube'] = null;
+        }
+
+        if ($data['category'] == 3) {
+            $data['video'] = null;
         }
 
         DB::statement(DB::raw("ALTER TABLE {$this->table} AUTO_INCREMENT = 1"));
@@ -55,21 +68,34 @@ class GalleryService
             }
         }
 
-        $video = $data['video'];
-        $videoName = Str::slug($data['name']).'-'.now()->format('Y-m-d-H-i-s');
+        if ($data['category'] == 1) {
+            $data['video'] = null;
+            $data['youtube'] = null;
+        }
 
-        if ($video) {
-            $data['video'] = "{$videoName}.{$video->getClientOriginalExtension()}";
-            $video->storePubliclyAs($this->slug, $data['video'], 'videos');
-        } else {
-            if ($gallery->checkVideo()) {
-                $data['video'] = "{$videoName}.".explode('.', $gallery->video)[1];
+        if ($data['category'] == 2) {
+            $video = $data['video'];
+            $videoName = Str::slug($data['name']).'-'.now()->format('Y-m-d-H-i-s');
 
-                File::copy(
-                    public_path("videos/{$this->slug}/{$gallery->video}"),
-                    public_path("videos/{$this->slug}/{$data['video']}"),
-                );
+            if ($video) {
+                $data['video'] = "{$videoName}.{$video->getClientOriginalExtension()}";
+                $video->storePubliclyAs($this->slug, $data['video'], 'videos');
+            } else {
+                if ($gallery->checkVideo()) {
+                    $data['video'] = "{$videoName}.".explode('.', $gallery->video)[1];
+
+                    File::copy(
+                        public_path("videos/{$this->slug}/{$gallery->video}"),
+                        public_path("videos/{$this->slug}/{$data['video']}"),
+                    );
+                }
             }
+
+            $data['youtube'] = null;
+        }
+
+        if ($data['category'] == 3) {
+            $data['video'] = null;
         }
 
         DB::statement(DB::raw("ALTER TABLE {$this->table} AUTO_INCREMENT = 1"));
@@ -91,16 +117,33 @@ class GalleryService
             unset($data['image']);
         }
 
-        $video = $data['video'];
-        $videoName = Str::slug($data['name']).'-'.now()->format('Y-m-d-H-i-s');
-
-        if ($video) {
+        if ($data['category'] == 1) {
             $gallery->deleteVideo();
 
-            $data['video'] = "{$videoName}.{$video->getClientOriginalExtension()}";
-            $video->storePubliclyAs($this->slug, $data['video'], 'videos');
-        } else {
-            unset($data['video']);
+            $data['video'] = null;
+            $data['youtube'] = null;
+        }
+
+        if ($data['category'] == 2) {
+            $video = $data['video'];
+            $videoName = Str::slug($data['name']).'-'.now()->format('Y-m-d-H-i-s');
+
+            if ($video) {
+                $gallery->deleteVideo();
+
+                $data['video'] = "{$videoName}.{$video->getClientOriginalExtension()}";
+                $video->storePubliclyAs($this->slug, $data['video'], 'videos');
+            } else {
+                unset($data['video']);
+            }
+
+            $data['youtube'] = null;
+        }
+
+        if ($data['category'] == 3) {
+            $gallery->deleteVideo();
+
+            $data['video'] = null;
         }
 
         $gallery->update($data);
@@ -163,6 +206,7 @@ class GalleryService
     public function deletePermanent(Gallery $gallery): bool
     {
         $gallery->deleteImage();
+        $gallery->deleteVideo();
 
         return $gallery->forceDelete();
     }
@@ -173,6 +217,7 @@ class GalleryService
 
         foreach ($galleries as $gallery) {
             $gallery->deleteImage();
+            $gallery->deleteVideo();
             $gallery->forceDelete();
         }
 

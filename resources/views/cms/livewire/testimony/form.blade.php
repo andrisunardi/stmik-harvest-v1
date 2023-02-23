@@ -114,8 +114,8 @@
 
                 @if ($image || ($pageType != "add" && $testimony->checkImage()))
                     @if ($image ? $image->temporaryUrl() : $testimony->checkImage())
-                        <a draggable="false" class="mt-3" href="{{ $image ? $image->temporaryUrl() : $testimony->assetImage() }}" target="_blank">
-                            <img draggable="false" src="{{ $image ? $image->temporaryUrl() : $testimony->assetImage() }}" class="w-100 img-thumbnail" />
+                        <a draggable="false" href="{{ $image ? $image->temporaryUrl() : $testimony->assetImage() }}" target="_blank">
+                            <img draggable="false" src="{{ $image ? $image->temporaryUrl() : $testimony->assetImage() }}" class="w-100 mt-3 img-thumbnail" />
                         </a>
                         <div class="row mt-3">
                             <div class="col-6 col-md-auto">

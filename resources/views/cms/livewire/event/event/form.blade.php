@@ -360,8 +360,8 @@
 
                 @if ($image || ($pageType != "add" && $event->checkImage()))
                     @if ($image ? $image->temporaryUrl() : $event->checkImage())
-                        <a draggable="false" class="mt-3" href="{{ $image ? $image->temporaryUrl() : $event->assetImage() }}" target="_blank">
-                            <img draggable="false" src="{{ $image ? $image->temporaryUrl() : $event->assetImage() }}" class="w-100 img-thumbnail" />
+                        <a draggable="false" href="{{ $image ? $image->temporaryUrl() : $event->assetImage() }}" target="_blank">
+                            <img draggable="false" src="{{ $image ? $image->temporaryUrl() : $event->assetImage() }}" class="w-100 mt-3 img-thumbnail" />
                         </a>
                         <div class="row mt-3">
                             <div class="col-6 col-md-auto">

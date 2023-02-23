@@ -12,7 +12,6 @@
                             <i class="fas fa-sort-amount-{{ $order_by == $column && $sort_by == "desc" ? "down" : "up" }} text-white"></i>
                         </a>
                     </th>
-                    <th width="1%">{{ trans("index.image") }}</th>
                     <th width="1%">
                         @php($column = "category")
                         {{ trans("index.{$column}") }}
@@ -34,6 +33,7 @@
                             <i class="fas fa-sort-amount-{{ $order_by == $column && $sort_by == "desc" ? "down" : "up" }} text-white"></i>
                         </a>
                     </th>
+                    <th width="1%">{{ trans("index.image") }}</th>
                     <th width="1%">
                         @php($column = "is_active")
                         {{ trans("index.active") }}
@@ -65,6 +65,9 @@
                                 {{ $gallery->id }}
                             </button>
                         </td>
+                        <td class="text-center">{{ Str::translate($gallery->category?->name) }}</td>
+                        <td class="text-wrap">{{ $gallery->name }}</td>
+                        <td class="text-wrap">{{ $gallery->name_idn }}</td>
                         <td>
                             @if ($gallery->checkImage())
                                 <a draggable="false" href="{{ $gallery->assetImage() }}" target="_blank">
@@ -76,9 +79,6 @@
                                 </a>
                             @endif
                         </td>
-                        <td class="text-center">{{ Str::translate($gallery->category?->name) }}</td>
-                        <td class="text-wrap">{{ $gallery->name }}</td>
-                        <td class="text-wrap">{{ $gallery->name_idn }}</td>
                         <td>
                             @if ($pageType == "index")
                                 @can("{$pageName} Edit")
