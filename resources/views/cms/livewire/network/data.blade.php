@@ -12,6 +12,7 @@
                             <i class="fas fa-sort-amount-{{ $order_by == $column && $sort_by == "desc" ? "down" : "up" }} text-white"></i>
                         </a>
                     </th>
+                    <th width="1%">{{ trans("index.image") }}</th>
                     <th>
                         @php($column = "name")
                         {{ trans("index.{$column}") }}
@@ -56,6 +57,17 @@
                                 type="button">
                                 {{ $network->id }}
                             </button>
+                        </td>
+                        <td>
+                            @if ($network->checkImage())
+                                <a draggable="false" href="{{ $network->assetImage() }}" target="_blank">
+                                    <img
+                                        draggable="false"
+                                        class="w-100 img-thumbnail"
+                                        src="{{ $network->assetImage() }}"
+                                        alt="{{ $network->altImage() }}">
+                                </a>
+                            @endif
                         </td>
                         <td>{{ $network->name }}</td>
                         <td>

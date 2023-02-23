@@ -20,47 +20,13 @@
                         <td>{{ $gallery->tag_idn }}</td>
                     </tr>
                     <tr>
-                        <td width="1%" class="text-nowrap">{{ trans("index.image") }}</td>
+                        <td width="1%" class="text-nowrap">{{ trans("index.youtube") }}</td>
                         <td>
-                            @if ($gallery->checkImage())
-                                <a draggable="false" class="btn btn-sm btn-primary" href="{{ $gallery->assetImage() }}" target="_blank">
-                                    <i class="fas fa-eye me-1"></i>
-                                    {{ trans("index.view") }}
-                                </a>
-                                <a draggable="false" class="btn btn-sm btn-info text-white" href="{{ $gallery->assetImage() }}" download>
-                                    <i class="fas fa-download me-1"></i>
-                                    {{ trans("index.download") }}
-                                </a>
-                            @endif
+                            <a draggable="false" href="{{ $gallery->youtube }}" target="_blank">
+                                {{ $gallery->youtube }}
+                            </a>
                         </td>
                     </tr>
-                    @if ($gallery->category->value == 2)
-                        <tr>
-                            <td width="1%" class="text-nowrap">{{ trans("index.video") }}</td>
-                            <td>
-                                @if ($gallery->checkVideo())
-                                    <a draggable="false" class="btn btn-sm btn-primary" href="{{ $gallery->assetVideo() }}" target="_blank">
-                                        <i class="fas fa-eye me-1"></i>
-                                        {{ trans("index.view") }}
-                                    </a>
-                                    <a draggable="false" class="btn btn-sm btn-info text-white" href="{{ $gallery->assetVideo() }}" download>
-                                        <i class="fas fa-download me-1"></i>
-                                        {{ trans("index.download") }}
-                                    </a>
-                                @endif
-                            </td>
-                        </tr>
-                    @endif
-                    @if ($gallery->category->value == 3)
-                        <tr>
-                            <td width="1%" class="text-nowrap">{{ trans("index.youtube") }}</td>
-                            <td>
-                                <a draggable="false" href="{{ $gallery->youtube }}" target="_blank">
-                                    {{ $gallery->youtube }}
-                                </a>
-                            </td>
-                        </tr>
-                    @endif
                     <tr>
                         <td width="1%" class="text-nowrap">{{ trans("index.created_by") }}</td>
                         <td>

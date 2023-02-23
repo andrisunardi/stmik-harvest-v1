@@ -8,21 +8,6 @@
                         <td class="text-pre-wrap">{!! $network->description !!}</td>
                     </tr>
                     <tr>
-                        <td width="1%" class="text-nowrap">{{ trans("index.image") }}</td>
-                        <td>
-                            @if ($network->checkImage())
-                                <a draggable="false" class="btn btn-sm btn-primary" href="{{ $network->assetImage() }}" target="_blank">
-                                    <i class="fas fa-eye me-1"></i>
-                                    {{ trans("index.view") }}
-                                </a>
-                                <a draggable="false" class="btn btn-sm btn-info text-white" href="{{ $network->assetImage() }}" download>
-                                    <i class="fas fa-download me-1"></i>
-                                    {{ trans("index.download") }}
-                                </a>
-                            @endif
-                        </td>
-                    </tr>
-                    <tr>
                         <td width="1%" class="text-nowrap">{{ trans("index.created_by") }}</td>
                         <td>
                             @if ($network->createdBy)

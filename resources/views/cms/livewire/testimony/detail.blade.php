@@ -8,21 +8,6 @@
                         <td class="text-pre-wrap">{!! $testimony->description !!}</td>
                     </tr>
                     <tr>
-                        <td width="1%" class="text-nowrap">{{ trans("index.image") }}</td>
-                        <td>
-                            @if ($testimony->checkImage())
-                                <a draggable="false" class="btn btn-sm btn-primary" href="{{ $testimony->assetImage() }}" target="_blank">
-                                    <i class="fas fa-eye me-1"></i>
-                                    {{ trans("index.view") }}
-                                </a>
-                                <a draggable="false" class="btn btn-sm btn-info text-white" href="{{ $testimony->assetImage() }}" download>
-                                    <i class="fas fa-download me-1"></i>
-                                    {{ trans("index.download") }}
-                                </a>
-                            @endif
-                        </td>
-                    </tr>
-                    <tr>
                         <td width="1%" class="text-nowrap">{{ trans("index.created_by") }}</td>
                         <td>
                             @if ($testimony->createdBy)

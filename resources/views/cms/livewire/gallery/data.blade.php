@@ -12,6 +12,8 @@
                             <i class="fas fa-sort-amount-{{ $order_by == $column && $sort_by == "desc" ? "down" : "up" }} text-white"></i>
                         </a>
                     </th>
+                    <th width="1%">{{ trans("index.image") }}</th>
+                    <th width="1%">{{ trans("index.video") }}</th>
                     <th width="1%">
                         @php($column = "category")
                         {{ trans("index.{$column}") }}
@@ -63,6 +65,22 @@
                                 type="button">
                                 {{ $gallery->id }}
                             </button>
+                        </td>
+                        <td>
+                            @if ($gallery->checkImage())
+                                <a draggable="false" href="{{ $gallery->assetImage() }}" target="_blank">
+                                    <img
+                                        draggable="false"
+                                        class="w-100 img-thumbnail"
+                                        src="{{ $gallery->assetImage() }}"
+                                        alt="{{ $gallery->altImage() }}">
+                                </a>
+                            @endif
+                        </td>
+                        <td>
+                            @if ($gallery->checkVideo())
+                                <video src="{{ $gallery->assetVideo() }}" class="w-100" controls></video>
+                            @endif
                         </td>
                         <td class="text-center">{{ Str::translate($gallery->category?->name) }}</td>
                         <td class="text-wrap">{{ $gallery->name }}</td>

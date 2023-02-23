@@ -12,6 +12,7 @@
                             <i class="fas fa-sort-amount-{{ $order_by == $column && $sort_by == "desc" ? "down" : "up" }} text-white"></i>
                         </a>
                     </th>
+                    <th width="1%">{{ trans("index.image") }}</th>
                     <th width="1%">
                         @php($column = "event_category_id")
                         {{ trans("index.event_category") }}
@@ -63,6 +64,17 @@
                                 type="button">
                                 {{ $event->id }}
                             </button>
+                        </td>
+                        <td>
+                            @if ($event->checkImage())
+                                <a draggable="false" href="{{ $event->assetImage() }}" target="_blank">
+                                    <img
+                                        draggable="false"
+                                        class="w-100 img-thumbnail"
+                                        src="{{ $event->assetImage() }}"
+                                        alt="{{ $event->altImage() }}">
+                                </a>
+                            @endif
                         </td>
                         <td>
                             @if ($event->eventCategory)

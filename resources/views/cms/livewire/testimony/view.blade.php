@@ -10,6 +10,47 @@
 
     <div class="row mb-2">
         <div class="col-sm-6 col-md-4 col-lg-3">
+            <h6>{{ trans("index.image") }}</h6>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+            @if ($testimony->checkImage())
+                <a draggable="false" href="{{ $testimony->assetImage() }}" target="_blank">
+                    <img
+                        draggable="false"
+                        class="w-100 img-thumbnail"
+                        src="{{ $testimony->assetImage() }}"
+                        alt="{{ $testimony->altImage() }}">
+                </a>
+                @can("{$pageName} Edit")
+                    <div class="row my-3">
+                        <div class="col-6">
+                            <a draggable="false" class="btn btn-sm btn-info text-white w-100" href="{{ $testimony->assetImage() }}" download>
+                                <i class="fas fa-download me-1"></i>
+                                {{ trans("index.download") }}
+                            </a>
+                        </div>
+                        <div class="col-6">
+                            <button
+                                class="btn btn-sm btn-danger w-100"
+                                type="button"
+                                wire:click="deleteImage({{ $testimony->id }})"
+                                wire:loading.attr="disabled"
+                                onclick='confirm("{{ trans("index.are_you_sure_you_want_to_delete_this_image") }} ?") || event.stopImmediatePropagation()'>
+                                <i class="fas fa-trash me-1"></i>
+                                {{ trans("index.delete") }}
+                                <div wire:loading wire:target="deleteImage({{ $testimony->id }})">
+                                    <i class="fas fa-spinner fa-spin"></i>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                @endcan
+            @endif
+        </div>
+    </div>
+
+    <div class="row mb-2">
+        <div class="col-sm-6 col-md-4 col-lg-3">
             <h6>{{ trans("index.name") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
@@ -32,24 +73,6 @@
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
             {{ $testimony->graduate }}
-        </div>
-    </div>
-
-    <div class="row mb-2">
-        <div class="col-sm-6 col-md-4 col-lg-3">
-            <h6>{{ trans("index.image") }}</h6>
-        </div>
-        <div class="col-sm-6 col-md-8 col-lg-9">
-            @if ($testimony->checkImage())
-                <a draggable="false" class="btn btn-sm btn-primary" href="{{ $testimony->assetImage() }}" target="_blank">
-                    <i class="fas fa-eye me-1"></i>
-                    {{ trans("index.view") }}
-                </a>
-                <a draggable="false" class="btn btn-sm btn-info text-white" href="{{ $testimony->assetImage() }}" download>
-                    <i class="fas fa-download me-1"></i>
-                    {{ trans("index.download") }}
-                </a>
-            @endif
         </div>
     </div>
 

@@ -225,16 +225,22 @@
 
                 @if ($image || ($pageType != "add" && $gallery->checkImage()))
                     @if ($image ? $image->temporaryUrl() : $gallery->checkImage())
-                        <img draggable="false" src="{{ $image ? $image->temporaryUrl() : $gallery->assetImage() }}" class="w-100 mt-3" />
-                        <div class="mt-3">
-                            <a draggable="false" class="btn btn-sm btn-primary" href="{{ $image ? $image->temporaryUrl() : $gallery->assetImage() }}" target="_blank">
-                                <i class="fas fa-eye me-1"></i>
-                                {{ trans("index.view") }}
-                            </a>
-                            <a draggable="false" class="btn btn-sm btn-info text-white" href="{{ $image ? $image->temporaryUrl() : $gallery->assetImage() }}" download>
-                                <i class="fas fa-download me-1"></i>
-                                {{ trans("index.download") }}
-                            </a>
+                        <a draggable="false" class="mt-3" href="{{ $image ? $image->temporaryUrl() : $gallery->assetImage() }}" target="_blank">
+                            <img draggable="false" src="{{ $image ? $image->temporaryUrl() : $gallery->assetImage() }}" class="w-100 img-thumbnail" />
+                        </a>
+                        <div class="row mt-3">
+                            <div class="col-6 col-md-auto">
+                                <a draggable="false" class="btn btn-sm btn-primary w-100" href="{{ $image ? $image->temporaryUrl() : $gallery->assetImage() }}" target="_blank">
+                                    <i class="fas fa-eye me-1"></i>
+                                    {{ trans("index.view") }}
+                                </a>
+                            </div>
+                            <div class="col-6 col-md-auto">
+                                <a draggable="false" class="btn btn-sm btn-info text-white w-100" href="{{ $image ? $image->temporaryUrl() : $gallery->assetImage() }}" download>
+                                    <i class="fas fa-download me-1"></i>
+                                    {{ trans("index.download") }}
+                                </a>
+                            </div>
                         </div>
                     @endif
                 @endif
@@ -274,16 +280,22 @@
 
                     @if ($video || ($pageType != "add" && $gallery->checkVideo()))
                         @if ($video ? $video->temporaryUrl() : $gallery->checkVideo())
-                            <video src="{{ $video ? $video->temporaryUrl() : $gallery->assetVideo() }}" class="w-100 mt-3" controls></video>
                             <div class="mt-3">
-                                <a draggable="false" class="btn btn-sm btn-primary" href="{{ $video ? $video->temporaryUrl() : $gallery->assetVideo() }}" target="_blank">
-                                    <i class="fas fa-eye me-1"></i>
-                                    {{ trans("index.view") }}
-                                </a>
-                                <a draggable="false" class="btn btn-sm btn-info text-white" href="{{ $video ? $video->temporaryUrl() : $gallery->assetVideo() }}" download>
-                                    <i class="fas fa-download me-1"></i>
-                                    {{ trans("index.download") }}
-                                </a>
+                                <video src="{{ $video ? $video->temporaryUrl() : $gallery->assetVideo() }}" class="w-100" controls></video>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-6 col-md-auto">
+                                    <a draggable="false" class="btn btn-sm btn-primary w-100" href="{{ $video ? $video->temporaryUrl() : $gallery->assetVideo() }}" target="_blank">
+                                        <i class="fas fa-eye me-1"></i>
+                                        {{ trans("index.view") }}
+                                    </a>
+                                </div>
+                                <div class="col-6 col-md-auto">
+                                    <a draggable="false" class="btn btn-sm btn-info text-white w-100" href="{{ $video ? $video->temporaryUrl() : $gallery->assetVideo() }}" download>
+                                        <i class="fas fa-download me-1"></i>
+                                        {{ trans("index.download") }}
+                                    </a>
+                                </div>
                             </div>
                         @endif
                     @endif

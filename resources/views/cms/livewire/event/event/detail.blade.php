@@ -52,21 +52,6 @@
                         <td>{{ $event->tag_idn }}</td>
                     </tr>
                     <tr>
-                        <td width="1%" class="text-nowrap">{{ trans("index.image") }}</td>
-                        <td>
-                            @if ($event->checkImage())
-                                <a draggable="false" class="btn btn-sm btn-primary" href="{{ $event->assetImage() }}" target="_blank">
-                                    <i class="fas fa-eye me-1"></i>
-                                    {{ trans("index.view") }}
-                                </a>
-                                <a draggable="false" class="btn btn-sm btn-info text-white" href="{{ $event->assetImage() }}" download>
-                                    <i class="fas fa-download me-1"></i>
-                                    {{ trans("index.download") }}
-                                </a>
-                            @endif
-                        </td>
-                    </tr>
-                    <tr>
                         <td width="1%" class="text-nowrap">{{ trans("index.slug") }}</td>
                         <td>{{ $event->slug }}</td>
                     </tr>

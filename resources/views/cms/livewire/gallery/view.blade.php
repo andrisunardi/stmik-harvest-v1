@@ -10,6 +10,91 @@
 
     <div class="row mb-2">
         <div class="col-sm-6 col-md-4 col-lg-3">
+            <h6>{{ trans("index.image") }}</h6>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+            @if ($gallery->checkImage())
+                <a draggable="false" href="{{ $gallery->assetImage() }}" target="_blank">
+                    <img
+                        draggable="false"
+                        class="w-100 img-thumbnail"
+                        src="{{ $gallery->assetImage() }}"
+                        alt="{{ $gallery->altImage() }}">
+                </a>
+                @can("{$pageName} Edit")
+                    <div class="row my-3">
+                        <div class="col-6">
+                            <a draggable="false" class="btn btn-sm btn-info text-white w-100" href="{{ $gallery->assetImage() }}" download>
+                                <i class="fas fa-download me-1"></i>
+                                {{ trans("index.download") }}
+                            </a>
+                        </div>
+                        <div class="col-6">
+                            <button
+                                class="btn btn-sm btn-danger w-100"
+                                type="button"
+                                wire:click="deleteImage({{ $gallery->id }})"
+                                wire:loading.attr="disabled"
+                                onclick='confirm("{{ trans("index.are_you_sure_you_want_to_delete_this_image") }} ?") || event.stopImmediatePropagation()'>
+                                <i class="fas fa-trash me-1"></i>
+                                {{ trans("index.delete") }}
+                                <div wire:loading wire:target="deleteImage({{ $gallery->id }})">
+                                    <i class="fas fa-spinner fa-spin"></i>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                @endcan
+            @endif
+        </div>
+    </div>
+
+    <div class="row mb-2">
+        <div class="col-sm-6 col-md-4 col-lg-3">
+            <h6>{{ trans("index.video") }}</h6>
+        </div>
+        <div class="col-sm-6 col-md-8 col-lg-9">
+            @if ($gallery->checkVideo())
+                <div>
+                    <video src="{{ $gallery->assetVideo() }}" class="w-100" controls></video>
+                </div>
+                <div class="alert alert-info mt-2">{{ trans("index.video_can_only_be_viewed_from_desktop_version") }}</div>
+                @can("{$pageName} Edit")
+                    <div class="row my-3">
+                        <div class="col-6 col-md-auto">
+                            <a draggable="false" class="btn btn-sm btn-primary w-100" href="{{ $gallery->assetVideo() }}" target="_blank">
+                                <i class="fas fa-eye me-1"></i>
+                                {{ trans("index.view") }}
+                            </a>
+                        </div>
+                        <div class="col-6 col-md-auto">
+                            <a draggable="false" class="btn btn-sm btn-info text-white w-100" href="{{ $gallery->assetVideo() }}" download>
+                                <i class="fas fa-download me-1"></i>
+                                {{ trans("index.download") }}
+                            </a>
+                        </div>
+                        <div class="col-6 col-md-auto mt-3 mt-md-0">
+                            <button
+                                class="btn btn-sm btn-danger w-100"
+                                type="button"
+                                wire:click="deleteFile({{ $gallery->id }})"
+                                wire:loading.attr="disabled"
+                                onclick='confirm("{{ trans("index.are_you_sure_you_want_to_delete_this_video") }} ?") || event.stopImmediatePropagation()'>
+                                <i class="fas fa-trash me-1"></i>
+                                {{ trans("index.delete") }}
+                                <div wire:loading wire:target="deleteFile({{ $gallery->id }})">
+                                    <i class="fas fa-spinner fa-spin"></i>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                @endcan
+            @endif
+        </div>
+    </div>
+
+    <div class="row mb-2">
+        <div class="col-sm-6 col-md-4 col-lg-3">
             <h6>{{ trans("index.name") }}</h6>
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
@@ -59,24 +144,6 @@
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
             {{ $gallery->tag_idn }}
-        </div>
-    </div>
-
-    <div class="row mb-2">
-        <div class="col-sm-6 col-md-4 col-lg-3">
-            <h6>{{ trans("index.image") }}</h6>
-        </div>
-        <div class="col-sm-6 col-md-8 col-lg-9">
-            @if ($gallery->checkImage())
-                <a draggable="false" class="btn btn-sm btn-primary" href="{{ $gallery->assetImage() }}" target="_blank">
-                    <i class="fas fa-eye me-1"></i>
-                    {{ trans("index.view") }}
-                </a>
-                <a draggable="false" class="btn btn-sm btn-info text-white" href="{{ $gallery->assetImage() }}" download>
-                    <i class="fas fa-download me-1"></i>
-                    {{ trans("index.download") }}
-                </a>
-            @endif
         </div>
     </div>
 
