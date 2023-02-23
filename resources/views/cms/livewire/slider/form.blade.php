@@ -226,18 +226,18 @@
 
                 @if ($image || ($pageType != "add" && $slider->checkImage()))
                     @if ($image ? $image->temporaryUrl() : $slider->checkImage())
-                        <a draggable="false" class="mt-3" href="{{ $image ? $image->temporaryUrl() : $repositoryFile->assetImage() }}" target="_blank">
+                        <a draggable="false" class="mt-3" href="{{ $image ? $image->temporaryUrl() : $slider->assetImage() }}" target="_blank">
                             <img draggable="false" src="{{ $image ? $image->temporaryUrl() : $slider->assetImage() }}" class="w-100 img-thumbnail" />
                         </a>
                         <div class="row mt-3">
                             <div class="col-6 col-md-auto">
-                                <a draggable="false" class="btn btn-sm btn-primary w-100" href="{{ $image ? $image->temporaryUrl() : $repositoryFile->assetImage() }}" target="_blank">
+                                <a draggable="false" class="btn btn-sm btn-primary w-100" href="{{ $image ? $image->temporaryUrl() : $slider->assetImage() }}" target="_blank">
                                     <i class="fas fa-eye me-1"></i>
                                     {{ trans("index.view") }}
                                 </a>
                             </div>
                             <div class="col-6 col-md-auto">
-                                <a draggable="false" class="btn btn-sm btn-info text-white w-100" href="{{ $image ? $image->temporaryUrl() : $repositoryFile->assetImage() }}" download>
+                                <a draggable="false" class="btn btn-sm btn-info text-white w-100" href="{{ $image ? $image->temporaryUrl() : $slider->assetImage() }}" download>
                                     <i class="fas fa-download me-1"></i>
                                     {{ trans("index.download") }}
                                 </a>
