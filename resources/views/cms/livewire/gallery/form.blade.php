@@ -246,7 +246,7 @@
                 @endif
             </div>
 
-            @if ($category == 2)
+            @if ($gallery->category->value == App\Enums\GalleryCategory::Video)
                 <div class="form-group col-sm-6 mb-3">
                     @php $input = "video" @endphp
                     <label for="{{ $input }}" class="form-label @if ($errors->any()) {{ $errors->has($input) ? "text-danger" : "text-success" }}@endif">
@@ -302,7 +302,7 @@
                 </div>
             @endif
 
-            @if ($category == 3)
+            @if ($gallery->category->value == App\Enums\GalleryCategory::Youtube)
                 <div class="form-group col-sm-6 mb-3">
                     @php $input = "youtube" @endphp
                     <label for="{{ $input }}" class="form-label @if ($errors->any()) {{ $errors->has($input) ? "text-danger" : "text-success" }}@endif">
@@ -328,6 +328,12 @@
                             <div class="valid-feedback">{{ trans("validation.success") }}</div>
                         @enderror
                     </div>
+
+                    @if ($youtube)
+                        <div class="mt-3">
+                            <iframe class="w-100" height="300" src="https://www.youtube.com/embed/{{ Str::after($youtube, "?v=") }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
+                    @endif
                 </div>
             @endif
         </div>

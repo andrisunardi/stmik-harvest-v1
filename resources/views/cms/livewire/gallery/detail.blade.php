@@ -19,14 +19,31 @@
                         <td width="1%" class="text-nowrap">{{ trans("index.tag_idn") }}</td>
                         <td>{{ $gallery->tag_idn }}</td>
                     </tr>
-                    <tr>
-                        <td width="1%" class="text-nowrap">{{ trans("index.youtube") }}</td>
-                        <td>
-                            <a draggable="false" href="{{ $gallery->youtube }}" target="_blank">
-                                {{ $gallery->youtube }}
-                            </a>
-                        </td>
-                    </tr>
+                    @if ($gallery->category->value == App\Enums\GalleryCategory::Video)
+                        <tr>
+                            <td width="1%" class="text-nowrap">{{ trans("index.video") }}</td>
+                            <td>
+                                @if ($gallery->checkVideo())
+                                    <video src="{{ $gallery->assetVideo() }}" class="w-100" controls></video>
+                                @endif
+                            </td>
+                        </tr>
+                    @endif
+                    @if ($gallery->category->value == App\Enums\GalleryCategory::Youtube)
+                        <tr>
+                            <td width="1%" class="text-nowrap">{{ trans("index.youtube") }}</td>
+                            <td>
+                                <a draggable="false" href="{{ $gallery->youtube }}" target="_blank">
+                                    {{ $gallery->youtube }}
+                                </a>
+                                @if ($gallery->youtube)
+                                    <div class="mt-3">
+                                        <iframe class="w-100" height="500" src="https://www.youtube.com/embed/{{ Str::after($gallery->youtube, "?v=") }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                    </div>
+                                @endif
+                            </td>
+                        </tr>
+                    @endif
                     <tr>
                         <td width="1%" class="text-nowrap">{{ trans("index.created_by") }}</td>
                         <td>

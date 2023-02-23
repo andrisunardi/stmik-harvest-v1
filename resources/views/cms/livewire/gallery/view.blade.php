@@ -58,7 +58,6 @@
                 <div>
                     <video src="{{ $gallery->assetVideo() }}" class="w-100" controls></video>
                 </div>
-                <div class="alert alert-info mt-2">{{ trans("index.video_can_only_be_viewed_from_desktop_version") }}</div>
                 @can("{$pageName} Edit")
                     <div class="row my-3">
                         <div class="col-6 col-md-auto">
@@ -147,7 +146,7 @@
         </div>
     </div>
 
-    @if ($gallery->category->value == 2)
+    @if ($gallery->category->value == App\Enums\GalleryCategory::Video)
         <div class="row mb-2">
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <h6>{{ trans("index.video") }}</h6>
@@ -167,7 +166,7 @@
         </div>
     @endif
 
-    @if ($gallery->category->value == 3)
+    @if ($gallery->category->value == App\Enums\GalleryCategory::Youtube)
         <div class="row mb-2">
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <h6>{{ trans("index.youtube") }}</h6>
@@ -176,6 +175,11 @@
                 <a draggable="false" href="{{ $gallery->youtube }}" target="_blank">
                     {{ $gallery->youtube }}
                 </a>
+                @if ($gallery->youtube)
+                    <div class="mt-3">
+                        <iframe class="w-100" height="500" src="https://www.youtube.com/embed/{{ Str::after($gallery->youtube, "?v=") }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                @endif
             </div>
         </div>
     @endif

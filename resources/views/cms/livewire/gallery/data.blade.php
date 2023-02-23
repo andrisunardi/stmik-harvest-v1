@@ -13,7 +13,6 @@
                         </a>
                     </th>
                     <th width="1%">{{ trans("index.image") }}</th>
-                    <th width="1%">{{ trans("index.video") }}</th>
                     <th width="1%">
                         @php($column = "category")
                         {{ trans("index.{$column}") }}
@@ -75,11 +74,6 @@
                                         src="{{ $gallery->assetImage() }}"
                                         alt="{{ $gallery->altImage() }}">
                                 </a>
-                            @endif
-                        </td>
-                        <td>
-                            @if ($gallery->checkVideo())
-                                <video src="{{ $gallery->assetVideo() }}" class="w-100" controls></video>
                             @endif
                         </td>
                         <td class="text-center">{{ Str::translate($gallery->category?->name) }}</td>
