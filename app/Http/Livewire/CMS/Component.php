@@ -93,6 +93,20 @@ class Component extends LivewireComponent
         return true;
     }
 
+    public function cancelUploadImage()
+    {
+        $this->checkPermission('edit');
+        $this->reset(['image']);
+        $this->alert('success', trans('index.upload_image_has_been_cancelled_successfully'));
+    }
+
+    public function cancelUploadFile()
+    {
+        $this->checkPermission('edit');
+        $this->reset(['file']);
+        $this->alert('success', trans('index.upload_file_has_been_cancelled_successfully'));
+    }
+
     // public function active(Bank $bank)
     // {
     //     $this->globalActive($bank);

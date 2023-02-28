@@ -11,6 +11,7 @@ class Kernel extends ConsoleKernel
     {
         $schedule->command('database:backup:daily')->daily();
         $schedule->command('livewire-tmp:clear')->daily();
+        $schedule->command('envoy:clear')->monthly();
         $schedule->command('logs:clear')->monthly();
         $schedule->command('database:clear')->monthly();
         $schedule->command('telescope:prune')->monthly();
