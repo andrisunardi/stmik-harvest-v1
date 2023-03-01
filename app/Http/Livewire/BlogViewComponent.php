@@ -4,7 +4,6 @@ namespace App\Http\Livewire;
 
 use App\Models\Banner;
 use App\Models\Blog;
-use Illuminate\Support\Facades\Session;
 
 class BlogViewComponent extends Component
 {
@@ -12,13 +11,7 @@ class BlogViewComponent extends Component
 
     public function mount($slug)
     {
-        $this->blog = Blog::where('slug', $slug)->active()->first();
-
-        if (! $this->blog) {
-            Session::flash('danger', trans('index.blog').' '.trans('index.not_found_or_has_been_deleted'));
-
-            return redirect()->route('blog.index');
-        }
+        $this->blog = Blog::where('slug', $slug)->active()->firstOrFail();
     }
 
     public function getBanner()

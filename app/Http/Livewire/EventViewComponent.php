@@ -5,7 +5,6 @@ namespace App\Http\Livewire;
 use App\Models\Banner;
 use App\Models\Event;
 use App\Models\EventCategory;
-use Illuminate\Support\Facades\Session;
 
 class EventViewComponent extends Component
 {
@@ -13,13 +12,7 @@ class EventViewComponent extends Component
 
     public function mount($slug)
     {
-        $this->event = Event::where('slug', $slug)->active()->first();
-
-        if (! $this->event) {
-            Session::flash('danger', trans('index.event').' '.trans('index.not_found_or_has_been_deleted'));
-
-            return redirect()->route('event.index');
-        }
+        $this->event = Event::where('slug', $slug)->active()->firstOrFail();
     }
 
     public function getBanner()

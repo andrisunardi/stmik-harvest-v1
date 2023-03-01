@@ -39,7 +39,7 @@ class ContactUsComponent extends Component
         return [
             'name' => 'required|max:50',
             'company' => 'nullable|max:50',
-            'email' => 'required|max:50|email',
+            'email' => 'required|max:50|email:rfc,dns|regex:/^\S*$/u',
             'phone' => 'nullable|max:15',
             'subject' => 'required|max:100',
             'message' => 'required|max:1000',
