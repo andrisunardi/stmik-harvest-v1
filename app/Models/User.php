@@ -150,6 +150,7 @@ class User extends Authenticatable
     {
         return LogOptions::defaults()
             ->useLogName($this->table)
+            ->dontLogIfAttributesChangedOnly(['remember_token'])
             ->setDescriptionForEvent(fn (string $eventName) => "This model has been {$eventName}");
     }
 
