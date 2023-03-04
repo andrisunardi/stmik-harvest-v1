@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Newsletter;
 use Illuminate\Database\Seeder;
+use Spatie\Permission\Models\Permission;
 
-class NewsletterSeeder extends Seeder
+class PermissionSeeder extends Seeder
 {
     public function run()
     {
