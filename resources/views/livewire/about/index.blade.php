@@ -61,7 +61,7 @@
                             </h2>
                             <div class="findout__btn">
                                 {{-- <a draggable="false" class="htc__btn btn--yellow" href="{{ route("online-registration.index") }}">{{ trans("index.register") }}</a> --}}
-                                <a draggable="false" class="htc__btn btn--yellow" href="https://pmb.stmik-kuwera.civitas.id" target="_blank">{{ trans("index.register") }}</a>
+                                <a draggable="false" class="htc__btn btn--yellow" href="{{ Str::setting("link_registration") }}" target="_blank">{{ trans("index.register") }}</a>
                             </div>
                         </div>
                     </div>

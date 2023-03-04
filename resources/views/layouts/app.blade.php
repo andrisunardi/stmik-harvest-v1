@@ -221,7 +221,7 @@
                                 <li class="drop"><a draggable="false" href="{{ route("admission-calendar.index") }}">{{ trans("index.admission") }}</a>
                                     <ul class="dropdown">
                                         {{-- <li><a draggable="false" href="{{ route("online-registration.index") }}">{{ trans("index.online_registration") }}</a></li> --}}
-                                        <li><a draggable="false" href="https://pmb.stmik-kuwera.civitas.id/p/pmb.php" target="_blank">{{ trans("index.online_registration") }}</a></li>
+                                        <li><a draggable="false" href="{{ Str::setting("link_registration") }}" target="_blank">{{ trans("index.online_registration") }}</a></li>
                                         <li><a draggable="false" href="{{ route("admission-calendar.index") }}">{{ trans("index.admission_calendar") }}</a></li>
                                         <li><a draggable="false" href="{{ route("procedure.index") }}">{{ trans("index.procedure") }}</a></li>
                                         <li><a draggable="false" href="{{ route("tuition-fees.index") }}">{{ trans("index.tuition_fees") }}</a></li>
@@ -295,7 +295,7 @@
                             <li><a draggable="false" href="javascript:;">{{ trans("index.admission") }}</a>
                                 <ul>
                                     {{-- <li><a draggable="false" href="{{ route("online-registration.index") }}">{{ trans("index.online_registration") }}</a></li> --}}
-                                    <li><a draggable="false" href="https://pmb.stmik-kuwera.civitas.id/p/pmb.php" target="_blank">{{ trans("index.online_registration") }}</a></li>
+                                    <li><a draggable="false" href="{{ Str::setting("link_registration") }}" target="_blank">{{ trans("index.online_registration") }}</a></li>
                                     <li><a draggable="false" href="{{ route("admission-calendar.index") }}">{{ trans("index.admission_calendar") }}</a></li>
                                     <li><a draggable="false" href="{{ route("procedure.index") }}">{{ trans("index.procedure") }}</a></li>
                                     <li><a draggable="false" href="{{ route("tuition-fees.index") }}">{{ trans("index.tuition_fees") }}</a></li>
@@ -435,7 +435,7 @@
                                 <h2 class="footer__title">{{ trans("index.admission") }}</h2>
                                 <ul class="htc__ft__list">
                                     {{-- <li><a draggable="false" href="{{ route("online-registration.index") }}">{{ trans("index.online_registration") }}</a></li> --}}
-                                    <li><a draggable="false" href="https://pmb.stmik-kuwera.civitas.id/p/pmb.php" target="_blank">{{ trans("index.online_registration") }}</a></li>
+                                    <li><a draggable="false" href="{{ Str::setting("link_registration") }}" target="_blank">{{ trans("index.online_registration") }}</a></li>
                                     <li><a draggable="false" href="{{ route("admission-calendar.index") }}">{{ trans("index.admission_calendar") }}</a></li>
                                     <li><a draggable="false" href="{{ route("procedure.index") }}">{{ trans("index.procedure") }}</a></li>
                                     <li><a draggable="false" href="{{ route("tuition-fees.index") }}">{{ trans("index.tuition_fees") }}</a></li>
