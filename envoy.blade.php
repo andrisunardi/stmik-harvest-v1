@@ -20,7 +20,7 @@
     echo "php artisan down --render="{{ $maintenance ?? env("DEPLOY_RENDER_MAINTENANCE") }}
     php artisan down --render={{ $maintenance ?? env("DEPLOY_RENDER_MAINTENANCE") }}
 
-    echo "Git Pull Origin " {{ $branch ?? env("DEPLOY_BRANCH") }}
+    echo "Git Pull Origin" {{ $branch ?? env("DEPLOY_BRANCH") }}
     git pull origin {{ $branch ?? env("DEPLOY_BRANCH") }}
 
     echo "Composer Install"
