@@ -13,7 +13,7 @@ return new class extends Migration
             $table->string('name', 50)->nullable()->unique();
             $table->string('email', 50)->nullable()->unique();
             $table->string('phone', 15)->nullable()->unique();
-            $table->string('username', 20)->nullable()->unique();
+            $table->string('username', 50)->nullable()->unique();
             $table->string('password', 60)->nullable();
             $table->string('image', 100)->nullable();
             $table->timestamp('email_verified_at')->nullable();
