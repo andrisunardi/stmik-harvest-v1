@@ -56,7 +56,7 @@
                 <div class="col-12">
                     <button class="text-center htc__load__btn">
                         <i class="fa fa-spinner fa-pulse"></i>
-                        <span class="loadding-test">{{ trans("index.Loading") }}...</span>
+                        <span class="loadding-test">{{ trans("index.loading") }}...</span>
                     </button>
                 </div>
             </div> --}}
