@@ -17,6 +17,8 @@ class Component extends LivewireComponent
 
     public $subDomain = 'cms';
 
+    public $bgClass;
+
     public $pageName;
 
     public $pageTitle;
@@ -80,6 +82,17 @@ class Component extends LivewireComponent
     public $checkbox_all;
 
     public $checkbox_id;
+
+    public function mount()
+    {
+        $this->bgClass = collect(['bg-primary', 'bg-success', 'bg-warning', 'bg-danger', 'bg-info', 'bg-secondary']);
+    }
+
+    public function loadData()
+    {
+        $this->readyToLoad = true;
+        $this->alert('info', trans('index.data_have_been_loaded_successfully'));
+    }
 
     public function checkPermission(string $type = null)
     {

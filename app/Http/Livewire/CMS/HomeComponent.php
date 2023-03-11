@@ -44,18 +44,6 @@ class HomeComponent extends Component
         $this->pageSubCategorySlug = null;
     }
 
-    public function loadData()
-    {
-        $this->readyToLoad = true;
-
-        $this->alert('info', trans('index.data_have_been_loaded_successfully'));
-    }
-
-    public function getBgClass()
-    {
-        return collect(['bg-primary', 'bg-success', 'bg-warning', 'bg-danger', 'bg-info', 'bg-secondary']);
-    }
-
     public function getPages()
     {
         return collect([[
@@ -225,7 +213,6 @@ class HomeComponent extends Component
     public function render()
     {
         return view("{$this->subDomain}.livewire.{$this->pageSlug}.index", [
-            'bgClass' => $this->getBgClass(),
             'pages' => $this->readyToLoad ? $this->getPages() : collect(),
         ])->extends("{$this->subDomain}.layouts.app")->section('content');
     }

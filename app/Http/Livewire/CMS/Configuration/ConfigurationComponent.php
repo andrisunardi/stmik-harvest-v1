@@ -4,7 +4,7 @@ namespace App\Http\Livewire\CMS\Configuration;
 
 use App\Http\Livewire\CMS\Component;
 use App\Models\User;
-use Illuminate\Support\Facades\DB;
+use App\Models\Setting;
 use Illuminate\Support\Str;
 use Spatie\Activitylog\Models\Activity;
 use Spatie\Permission\Models\Permission;
@@ -30,34 +30,39 @@ class ConfigurationComponent extends Component
     public function getPages()
     {
         return collect([[
-            'class' => 'primary',
+            'roles' => 'Super User',
+            'permissions' => 'User',
             'name' => trans('index.user'),
             'icon' => 'fas fa-user fa-fw',
             'total' => User::cursor()->count(),
             'url' => route("{$this->subDomain}.{$this->pageSlug}.user.index"),
         ], [
-            'class' => 'success',
+            'roles' => 'Super User',
+            'permissions' => 'Activity',
             'name' => trans('index.activity'),
             'icon' => 'fas fa-history fa-fw',
             'total' => Activity::cursor()->count(),
             'url' => route("{$this->subDomain}.{$this->pageSlug}.activity.index"),
         ], [
-            'class' => 'warning',
+            'roles' => 'Super User',
+            'permissions' => 'Role',
             'name' => trans('index.role'),
             'icon' => 'fas fa-suitcase fa-fw',
             'total' => Role::cursor()->count(),
             'url' => route("{$this->subDomain}.{$this->pageSlug}.role.index"),
         ], [
-            'class' => 'danger',
+            'roles' => 'Super User',
+            'permissions' => 'Permission',
             'name' => trans('index.permission'),
             'icon' => 'fas fa-key fa-fw',
             'total' => Permission::cursor()->count(),
             'url' => route("{$this->subDomain}.{$this->pageSlug}.permission.index"),
         ], [
-            'class' => 'info',
+            'roles' => 'Super User',
+            'permissions' => 'Setting',
             'name' => trans('index.setting'),
             'icon' => 'fas fa-gear fa-fw',
-            'total' => DB::table('settings')->count(),
+            'total' => Setting::cursor()->count(),
             'url' => route("{$this->subDomain}.{$this->pageSlug}.setting.index"),
         ]]);
     }
