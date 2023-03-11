@@ -70,7 +70,7 @@ class ConfigurationComponent extends Component
     public function render()
     {
         return view("{$this->subDomain}.livewire.{$this->pageSlug}.index", [
-            'pages' => $this->getPages(),
+            'pages' => $this->readyToLoad ? $this->getPages() : collect(),
         ])->extends("{$this->subDomain}.layouts.app")->section('content');
     }
 }
