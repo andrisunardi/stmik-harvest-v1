@@ -3,8 +3,8 @@
 namespace App\Http\Livewire\CMS\Configuration;
 
 use App\Http\Livewire\CMS\Component;
-use App\Models\User;
 use App\Models\Setting;
+use App\Models\User;
 use Illuminate\Support\Str;
 use Spatie\Activitylog\Models\Activity;
 use Spatie\Permission\Models\Permission;
