@@ -12,12 +12,12 @@ class ActivityComponent extends Component
     public function boot()
     {
         $this->pageName = 'Activity';
-        $this->pageTitle = trans('index.'.Str::snake($this->pageName));
+        $this->pageTitle = Str::translate($this->pageName);
         $this->pageSlug = Str::slug($this->pageName);
         $this->pageIcon = 'fas fa-history';
         $this->pageTable = 'activity_log';
         $this->pageCategoryName = 'Configuration';
-        $this->pageCategoryTitle = trans('index.'.Str::snake($this->pageCategoryName));
+        $this->pageCategoryTitle = Str::translate($this->pageCategoryName);
         $this->pageCategorySlug = Str::slug($this->pageCategoryName);
         $this->pageSubCategoryName = null;
         $this->pageSubCategoryTitle = null;

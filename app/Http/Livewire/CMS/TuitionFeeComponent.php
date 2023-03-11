@@ -15,7 +15,7 @@ class TuitionFeeComponent extends Component
     public function boot()
     {
         $this->pageName = 'Tuition Fee';
-        $this->pageTitle = trans('index.'.Str::snake($this->pageName));
+        $this->pageTitle = Str::translate($this->pageName);
         $this->pageSlug = Str::slug($this->pageName);
         $this->pageIcon = 'fas fa-money-check-dollar';
         $this->pageTable = Str::plural(Str::snake($this->pageName));

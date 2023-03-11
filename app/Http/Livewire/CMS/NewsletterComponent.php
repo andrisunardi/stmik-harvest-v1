@@ -17,7 +17,7 @@ class NewsletterComponent extends Component
     public function boot()
     {
         $this->pageName = 'Newsletter';
-        $this->pageTitle = trans('index.'.Str::snake($this->pageName));
+        $this->pageTitle = Str::translate($this->pageName);
         $this->pageSlug = Str::slug($this->pageName);
         $this->pageIcon = 'fas fa-envelopes-bulk';
         $this->pageTable = Str::plural(Str::snake($this->pageName));

@@ -15,7 +15,7 @@ class ValueComponent extends Component
     public function boot()
     {
         $this->pageName = 'Value';
-        $this->pageTitle = trans('index.'.Str::snake($this->pageName));
+        $this->pageTitle = Str::translate($this->pageName);
         $this->pageSlug = Str::slug($this->pageName);
         $this->pageIcon = 'fas fa-star';
         $this->pageTable = Str::plural(Str::snake($this->pageName));

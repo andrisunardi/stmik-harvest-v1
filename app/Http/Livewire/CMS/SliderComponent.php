@@ -15,7 +15,7 @@ class SliderComponent extends Component
     public function boot()
     {
         $this->pageName = 'Slider';
-        $this->pageTitle = trans('index.'.Str::snake($this->pageName));
+        $this->pageTitle = Str::translate($this->pageName);
         $this->pageSlug = Str::slug($this->pageName);
         $this->pageIcon = 'fas fa-newspaper';
         $this->pageTable = Str::plural(Str::snake($this->pageName));

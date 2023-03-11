@@ -15,7 +15,7 @@ class ProcedureComponent extends Component
     public function boot()
     {
         $this->pageName = 'Procedure';
-        $this->pageTitle = trans('index.'.Str::snake($this->pageName));
+        $this->pageTitle = Str::translate($this->pageName);
         $this->pageSlug = Str::slug($this->pageName);
         $this->pageIcon = 'fas fa-list';
         $this->pageTable = Str::plural(Str::snake($this->pageName));

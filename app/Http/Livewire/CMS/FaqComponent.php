@@ -15,7 +15,7 @@ class FaqComponent extends Component
     public function boot()
     {
         $this->pageName = 'Faq';
-        $this->pageTitle = trans('index.'.Str::snake($this->pageName));
+        $this->pageTitle = Str::translate($this->pageName);
         $this->pageSlug = Str::slug($this->pageName);
         $this->pageIcon = 'fas fa-question';
         $this->pageTable = Str::plural(Str::snake($this->pageName));

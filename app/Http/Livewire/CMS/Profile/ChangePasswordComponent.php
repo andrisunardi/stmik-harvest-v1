@@ -13,12 +13,12 @@ class ChangePasswordComponent extends Component
     public function boot()
     {
         $this->pageName = 'Change Password';
-        $this->pageTitle = trans('index.'.Str::snake($this->pageName));
+        $this->pageTitle = Str::translate($this->pageName);
         $this->pageSlug = Str::slug($this->pageName);
         $this->pageIcon = 'fas fa-user-lock';
         $this->pageTable = 'users';
         $this->pageCategoryName = 'Profile';
-        $this->pageCategoryTitle = trans('index.'.Str::snake($this->pageCategoryName));
+        $this->pageCategoryTitle = Str::translate($this->pageCategoryName);
         $this->pageCategorySlug = Str::slug($this->pageCategoryName);
         $this->pageSubCategoryName = null;
         $this->pageSubCategoryTitle = null;

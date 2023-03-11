@@ -15,7 +15,7 @@ class BannerComponent extends Component
     public function boot()
     {
         $this->pageName = 'Banner';
-        $this->pageTitle = trans('index.'.Str::snake($this->pageName));
+        $this->pageTitle = Str::translate($this->pageName);
         $this->pageSlug = Str::slug($this->pageName);
         $this->pageIcon = 'fas fa-image';
         $this->pageTable = Str::plural(Str::snake($this->pageName));
