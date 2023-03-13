@@ -284,5 +284,5 @@ Breadcrumbs::for("{$subDomain}.{$menu}.{$page}", function (BreadcrumbTrail $trai
 $page = 'change-password';
 Breadcrumbs::for("{$subDomain}.{$menu}.{$page}", function (BreadcrumbTrail $trail) use ($subDomain, $menu, $page) {
     $trail->parent("{$subDomain}.{$menu}.index");
-    $trail->push(tStr::translate($page), route("{$subDomain}.{$menu}.{$page}"), ['icon' => 'fas fa-user-lock fa-fw']);
+    $trail->push(Str::translate($page), route("{$subDomain}.{$menu}.{$page}"), ['icon' => 'fas fa-user-lock fa-fw']);
 });
