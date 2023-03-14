@@ -22,7 +22,7 @@ class GalleryExport implements FromView, ShouldAutoSize
 
     public function view(): View
     {
-        return view('cms.livewire.marketing.gallery.excel', [
+        return view('cms.livewire.gallery.excel', [
             'title' => $this->title,
             'galleries' => $this->data,
         ]);
