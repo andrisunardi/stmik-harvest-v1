@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\CMS;
 
-use App\Exports\Other\FaqExport;
+use App\Exports\FaqExport;
 use App\Models\Faq;
 use App\Models\User;
 use App\Services\FaqService;
