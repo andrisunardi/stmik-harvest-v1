@@ -19,7 +19,7 @@ class SliderService
         $imageName = Str::slug($data['name']).'-'.now()->format('Y-m-d-H-i-s');
 
         if ($image) {
-            $data['image'] = "{$imageName}.{$image->getClientOriginalExtension()}";
+            $data['image'] = "{$imageName}.{$image->extension()}";
             $image->storePubliclyAs($this->slug, $data['image'], 'images');
         }
 
@@ -34,7 +34,7 @@ class SliderService
         $imageName = Str::slug($data['name']).'-'.now()->format('Y-m-d-H-i-s');
 
         if ($image) {
-            $data['image'] = "{$imageName}.{$image->getClientOriginalExtension()}";
+            $data['image'] = "{$imageName}.{$image->extension()}";
             $image->storePubliclyAs($this->slug, $data['image'], 'images');
         } else {
             if ($slider->checkImage()) {
@@ -60,7 +60,7 @@ class SliderService
         if ($image) {
             $slider->deleteImage();
 
-            $data['image'] = "{$imageName}.{$image->getClientOriginalExtension()}";
+            $data['image'] = "{$imageName}.{$image->extension()}";
             $image->storePubliclyAs($this->slug, $data['image'], 'images');
         } else {
             unset($data['image']);

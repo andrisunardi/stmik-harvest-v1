@@ -19,7 +19,7 @@ class EventService
         $imageName = Str::slug($data['title']).'-'.now()->format('Y-m-d-H-i-s');
 
         if ($image) {
-            $data['image'] = "{$imageName}.{$image->getClientOriginalExtension()}";
+            $data['image'] = "{$imageName}.{$image->extension()}";
             $image->storePubliclyAs($this->slug, $data['image'], 'images');
         }
 
@@ -36,7 +36,7 @@ class EventService
         $imageName = Str::slug($data['title']).'-'.now()->format('Y-m-d-H-i-s');
 
         if ($image) {
-            $data['image'] = "{$imageName}.{$image->getClientOriginalExtension()}";
+            $data['image'] = "{$imageName}.{$image->extension()}";
             $image->storePubliclyAs($this->slug, $data['image'], 'images');
         } else {
             if ($event->checkImage()) {
@@ -64,7 +64,7 @@ class EventService
         if ($image) {
             $event->deleteImage();
 
-            $data['image'] = "{$imageName}.{$image->getClientOriginalExtension()}";
+            $data['image'] = "{$imageName}.{$image->extension()}";
             $image->storePubliclyAs($this->slug, $data['image'], 'images');
         } else {
             unset($data['image']);

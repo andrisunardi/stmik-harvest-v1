@@ -19,7 +19,7 @@ class GalleryService
         $imageName = Str::slug($data['name']).'-'.now()->format('Y-m-d-H-i-s');
 
         if ($image) {
-            $data['image'] = "{$imageName}.{$image->getClientOriginalExtension()}";
+            $data['image'] = "{$imageName}.{$image->extension()}";
             $image->storePubliclyAs($this->slug, $data['image'], 'images');
         }
 
@@ -33,7 +33,7 @@ class GalleryService
             $videoName = Str::slug($data['name']).'-'.now()->format('Y-m-d-H-i-s');
 
             if ($video) {
-                $data['video'] = "{$videoName}.{$video->getClientOriginalExtension()}";
+                $data['video'] = "{$videoName}.{$video->extension()}";
                 $video->storePubliclyAs($this->slug, $data['video'], 'videos');
             }
 
@@ -55,7 +55,7 @@ class GalleryService
         $imageName = Str::slug($data['name']).'-'.now()->format('Y-m-d-H-i-s');
 
         if ($image) {
-            $data['image'] = "{$imageName}.{$image->getClientOriginalExtension()}";
+            $data['image'] = "{$imageName}.{$image->extension()}";
             $image->storePubliclyAs($this->slug, $data['image'], 'images');
         } else {
             if ($gallery->checkImage()) {
@@ -78,7 +78,7 @@ class GalleryService
             $videoName = Str::slug($data['name']).'-'.now()->format('Y-m-d-H-i-s');
 
             if ($video) {
-                $data['video'] = "{$videoName}.{$video->getClientOriginalExtension()}";
+                $data['video'] = "{$videoName}.{$video->extension()}";
                 $video->storePubliclyAs($this->slug, $data['video'], 'videos');
             } else {
                 if ($gallery->checkVideo()) {
@@ -111,7 +111,7 @@ class GalleryService
         if ($image) {
             $gallery->deleteImage();
 
-            $data['image'] = "{$imageName}.{$image->getClientOriginalExtension()}";
+            $data['image'] = "{$imageName}.{$image->extension()}";
             $image->storePubliclyAs($this->slug, $data['image'], 'images');
         } else {
             unset($data['image']);
@@ -131,7 +131,7 @@ class GalleryService
             if ($video) {
                 $gallery->deleteVideo();
 
-                $data['video'] = "{$videoName}.{$video->getClientOriginalExtension()}";
+                $data['video'] = "{$videoName}.{$video->extension()}";
                 $video->storePubliclyAs($this->slug, $data['video'], 'videos');
             } else {
                 unset($data['video']);

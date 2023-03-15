@@ -19,7 +19,7 @@ class BlogService
         $imageName = Str::slug($data['title']).'-'.now()->format('Y-m-d-H-i-s');
 
         if ($image) {
-            $data['image'] = "{$imageName}.{$image->getClientOriginalExtension()}";
+            $data['image'] = "{$imageName}.{$image->extension()}";
             $image->storePubliclyAs($this->slug, $data['image'], 'images');
         }
 
@@ -36,7 +36,7 @@ class BlogService
         $imageName = Str::slug($data['title']).'-'.now()->format('Y-m-d-H-i-s');
 
         if ($image) {
-            $data['image'] = "{$imageName}.{$image->getClientOriginalExtension()}";
+            $data['image'] = "{$imageName}.{$image->extension()}";
             $image->storePubliclyAs($this->slug, $data['image'], 'images');
         } else {
             if ($blog->checkImage()) {
@@ -64,7 +64,7 @@ class BlogService
         if ($image) {
             $blog->deleteImage();
 
-            $data['image'] = "{$imageName}.{$image->getClientOriginalExtension()}";
+            $data['image'] = "{$imageName}.{$image->extension()}";
             $image->storePubliclyAs($this->slug, $data['image'], 'images');
         } else {
             unset($data['image']);

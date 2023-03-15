@@ -22,7 +22,7 @@ class UserService
         $imageName = Str::slug($data['name']).'-'.now()->format('Y-m-d-H-i-s');
 
         if ($image) {
-            $data['image'] = "{$imageName}.{$image->getClientOriginalExtension()}";
+            $data['image'] = "{$imageName}.{$image->extension()}";
             $image->storePubliclyAs($this->slug, $data['image'], 'images');
         }
 
@@ -39,7 +39,7 @@ class UserService
         $imageName = Str::slug($data['name']).'-'.now()->format('Y-m-d-H-i-s');
 
         if ($image) {
-            $data['image'] = "{$imageName}.{$image->getClientOriginalExtension()}";
+            $data['image'] = "{$imageName}.{$image->extension()}";
             $image->storePubliclyAs($this->slug, $data['image'], 'images');
         } else {
             if ($user->checkImage()) {
@@ -73,7 +73,7 @@ class UserService
         if ($image) {
             $user->deleteImage();
 
-            $data['image'] = "{$imageName}.{$image->getClientOriginalExtension()}";
+            $data['image'] = "{$imageName}.{$image->extension()}";
             $image->storePubliclyAs($this->slug, $data['image'], 'images');
         } else {
             unset($data['image']);
