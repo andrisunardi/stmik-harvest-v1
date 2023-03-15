@@ -63,7 +63,14 @@ class TestimonyService
             $data['image'] = "{$imageName}.{$image->extension()}";
             $image->storePubliclyAs($this->slug, $data['image'], 'images');
         } else {
-            unset($data['image']);
+            if ($testimony->checkImage()) {
+                $data['image'] = "{$imageName}.".File::extension($testimony->image);
+
+                File::move(
+                    public_path("images/{$this->slug}/{$testimony->image}"),
+                    public_path("images/{$this->slug}/{$data['image']}"),
+                );
+            }
         }
 
         $testimony->update($data);

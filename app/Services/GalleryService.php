@@ -114,7 +114,14 @@ class GalleryService
             $data['image'] = "{$imageName}.{$image->extension()}";
             $image->storePubliclyAs($this->slug, $data['image'], 'images');
         } else {
-            unset($data['image']);
+            if ($gallery->checkImage()) {
+                $data['image'] = "{$imageName}.".File::extension($gallery->image);
+
+                File::move(
+                    public_path("images/{$this->slug}/{$gallery->image}"),
+                    public_path("images/{$this->slug}/{$data['image']}"),
+                );
+            }
         }
 
         if ($data['category'] == 1) {
@@ -134,7 +141,14 @@ class GalleryService
                 $data['video'] = "{$videoName}.{$video->extension()}";
                 $video->storePubliclyAs($this->slug, $data['video'], 'videos');
             } else {
-                unset($data['video']);
+                if ($gallery->checkVideo()) {
+                    $data['video'] = "{$videoName}.".File::extension($gallery->video);
+
+                    File::move(
+                        public_path("videos/{$this->slug}/{$gallery->video}"),
+                        public_path("videos/{$this->slug}/{$data['video']}"),
+                    );
+                }
             }
 
             $data['youtube'] = null;

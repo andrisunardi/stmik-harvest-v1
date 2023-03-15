@@ -67,7 +67,14 @@ class BlogService
             $data['image'] = "{$imageName}.{$image->extension()}";
             $image->storePubliclyAs($this->slug, $data['image'], 'images');
         } else {
-            unset($data['image']);
+            if ($blog->checkImage()) {
+                $data['image'] = "{$imageName}.".File::extension($blog->image);
+
+                File::move(
+                    public_path("images/{$this->slug}/{$blog->image}"),
+                    public_path("images/{$this->slug}/{$data['image']}"),
+                );
+            }
         }
 
         $data['slug'] = Str::slug($data['title']);

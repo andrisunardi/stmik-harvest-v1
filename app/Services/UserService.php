@@ -76,7 +76,14 @@ class UserService
             $data['image'] = "{$imageName}.{$image->extension()}";
             $image->storePubliclyAs($this->slug, $data['image'], 'images');
         } else {
-            unset($data['image']);
+            if ($user->checkImage()) {
+                $data['image'] = "{$imageName}.".File::extension($user->image);
+
+                File::move(
+                    public_path("images/{$this->slug}/{$user->image}"),
+                    public_path("images/{$this->slug}/{$data['image']}"),
+                );
+            }
         }
 
         $user->update($data);

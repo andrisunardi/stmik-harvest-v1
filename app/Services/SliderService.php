@@ -63,7 +63,14 @@ class SliderService
             $data['image'] = "{$imageName}.{$image->extension()}";
             $image->storePubliclyAs($this->slug, $data['image'], 'images');
         } else {
-            unset($data['image']);
+            if ($slider->checkImage()) {
+                $data['image'] = "{$imageName}.".File::extension($slider->image);
+
+                File::move(
+                    public_path("images/{$this->slug}/{$slider->image}"),
+                    public_path("images/{$this->slug}/{$data['image']}"),
+                );
+            }
         }
 
         $slider->update($data);

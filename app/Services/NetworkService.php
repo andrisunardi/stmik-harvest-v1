@@ -63,7 +63,14 @@ class NetworkService
             $data['image'] = "{$imageName}.{$image->extension()}";
             $image->storePubliclyAs($this->slug, $data['image'], 'images');
         } else {
-            unset($data['image']);
+            if ($network->checkImage()) {
+                $data['image'] = "{$imageName}.".File::extension($network->image);
+
+                File::move(
+                    public_path("images/{$this->slug}/{$network->image}"),
+                    public_path("images/{$this->slug}/{$data['image']}"),
+                );
+            }
         }
 
         $network->update($data);
