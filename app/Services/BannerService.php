@@ -38,7 +38,7 @@ class BannerService
             $image->storePubliclyAs($this->slug, $data['image'], 'images');
         } else {
             if ($banner->checkImage()) {
-                $data['image'] = "{$imageName}.".explode('.', $banner->image)[1];
+                $data['image'] = "{$imageName}.".File::extension($banner->image);
 
                 File::copy(
                     public_path("images/{$this->slug}/{$banner->image}"),

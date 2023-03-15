@@ -40,7 +40,7 @@ class EventService
             $image->storePubliclyAs($this->slug, $data['image'], 'images');
         } else {
             if ($event->checkImage()) {
-                $data['image'] = "{$imageName}.".explode('.', $event->image)[1];
+                $data['image'] = "{$imageName}.".File::extension($event->image);
 
                 File::copy(
                     public_path("images/{$this->slug}/{$event->image}"),

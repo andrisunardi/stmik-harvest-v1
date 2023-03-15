@@ -38,7 +38,7 @@ class NetworkService
             $image->storePubliclyAs($this->slug, $data['image'], 'images');
         } else {
             if ($network->checkImage()) {
-                $data['image'] = "{$imageName}.".explode('.', $network->image)[1];
+                $data['image'] = "{$imageName}.".File::extension($network->image);
 
                 File::copy(
                     public_path("images/{$this->slug}/{$network->image}"),

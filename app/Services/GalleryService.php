@@ -59,7 +59,7 @@ class GalleryService
             $image->storePubliclyAs($this->slug, $data['image'], 'images');
         } else {
             if ($gallery->checkImage()) {
-                $data['image'] = "{$imageName}.".explode('.', $gallery->image)[1];
+                $data['image'] = "{$imageName}.".File::extension($gallery->image);
 
                 File::copy(
                     public_path("images/{$this->slug}/{$gallery->image}"),
@@ -82,7 +82,7 @@ class GalleryService
                 $video->storePubliclyAs($this->slug, $data['video'], 'videos');
             } else {
                 if ($gallery->checkVideo()) {
-                    $data['video'] = "{$videoName}.".explode('.', $gallery->video)[1];
+                    $data['video'] = "{$videoName}.".File::extension($gallery->video);
 
                     File::copy(
                         public_path("videos/{$this->slug}/{$gallery->video}"),

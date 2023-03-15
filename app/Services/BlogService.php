@@ -40,7 +40,7 @@ class BlogService
             $image->storePubliclyAs($this->slug, $data['image'], 'images');
         } else {
             if ($blog->checkImage()) {
-                $data['image'] = "{$imageName}.".explode('.', $blog->image)[1];
+                $data['image'] = "{$imageName}.".File::extension($blog->image);
 
                 File::copy(
                     public_path("images/{$this->slug}/{$blog->image}"),
