@@ -535,14 +535,14 @@ class FaqComponent extends Component
         $today = Faq::whereDate('created_at', now());
         $yesterday = Faq::whereDate('created_at', now()->subDay());
 
-        $month = Faq::whereMonth('created_at', now()->format('m'))->whereYear('created_at', now()->format('Y'));
-        $lastMonth = Faq::whereMonth('created_at', now()->subMonth()->format('m'))->whereYear('created_at', now()->subMonth()->format('Y'));
+        $month = Faq::whereMonth('created_at', now()->format('m'))->whereYear('created_at', now()->year);
+        $lastMonth = Faq::whereMonth('created_at', now()->subMonth()->format('m'))->whereYear('created_at', now()->subMonth()->year);
 
-        $year = Faq::whereYear('created_at', now()->format('Y'));
-        $lastYear = Faq::whereYear('created_at', now()->subYear()->format('Y'));
+        $year = Faq::whereYear('created_at', now()->year);
+        $lastYear = Faq::whereYear('created_at', now()->subYear()->year);
 
         $all = Faq::query();
-        $beforeThisYear = Faq::whereYear('created_at', '<', now()->format('Y'));
+        $beforeThisYear = Faq::whereYear('created_at', '<', now()->year);
 
         $todayCount = $today->count();
         $yesterdayCount = $yesterday->count();

@@ -535,14 +535,14 @@ class TuitionFeeComponent extends Component
         $today = TuitionFee::whereDate('created_at', now());
         $yesterday = TuitionFee::whereDate('created_at', now()->subDay());
 
-        $month = TuitionFee::whereMonth('created_at', now()->format('m'))->whereYear('created_at', now()->format('Y'));
-        $lastMonth = TuitionFee::whereMonth('created_at', now()->subMonth()->format('m'))->whereYear('created_at', now()->subMonth()->format('Y'));
+        $month = TuitionFee::whereMonth('created_at', now()->format('m'))->whereYear('created_at', now()->year);
+        $lastMonth = TuitionFee::whereMonth('created_at', now()->subMonth()->format('m'))->whereYear('created_at', now()->subMonth()->year);
 
-        $year = TuitionFee::whereYear('created_at', now()->format('Y'));
-        $lastYear = TuitionFee::whereYear('created_at', now()->subYear()->format('Y'));
+        $year = TuitionFee::whereYear('created_at', now()->year);
+        $lastYear = TuitionFee::whereYear('created_at', now()->subYear()->year);
 
         $all = TuitionFee::query();
-        $beforeThisYear = TuitionFee::whereYear('created_at', '<', now()->format('Y'));
+        $beforeThisYear = TuitionFee::whereYear('created_at', '<', now()->year);
 
         $todayCount = $today->count();
         $yesterdayCount = $yesterday->count();

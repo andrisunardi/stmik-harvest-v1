@@ -236,8 +236,8 @@
         <div class="container-fluid px-4">
             <div class="d-sm-flex align-items-center justify-content-sm-between small text-center">
                 <div class="text-muted">&copy; {{ trans("index.copyright") }}
-                    @if (env("APP_YEAR") && env("APP_YEAR") != now()->format("Y")) {{ env("APP_YEAR") . " - " }} @endif
-                    {{ now()->format("Y") }} &reg;
+                    @if (env("APP_YEAR") && env("APP_YEAR") != now()->year) {{ env("APP_YEAR") . " - " }} @endif
+                    {{ now()->year }} &reg;
                     <a draggable="false" href="{{ route("index") }}" target="_blank">
                         <strong>{{ env("APP_NAME") }}</strong>&trade;
                     </a>
@@ -263,8 +263,8 @@
                 <div class="d-sm-flex align-items-center justify-content-sm-between small text-center">
                     <div class="text-muted">
                         &copy; {{ trans("index.copyright") }}
-                        @if (env("APP_YEAR") && env("APP_YEAR") != now()->format("Y")) {{ env("APP_YEAR") . " - " }} @endif
-                        {{ now()->format("Y") }} &reg;
+                        @if (env("APP_YEAR") && env("APP_YEAR") != now()->year) {{ env("APP_YEAR") . " - " }} @endif
+                        {{ now()->year }} &reg;
                         <a draggable="false" href="{{ route("index") }}" target="_blank">
                             <strong>{{ env("APP_NAME") }}</strong>&trade;
                         </a>
@@ -312,8 +312,8 @@
                     <div class="d-sm-flex align-items-center justify-content-sm-between small text-center">
                         <div class="text-muted">
                             &copy; {{ trans("index.copyright") }}
-                            @if (env("APP_YEAR") && env("APP_YEAR") != now()->format("Y")) {{ env("APP_YEAR") . " - " }} @endif
-                            {{ now()->format("Y") }} &reg;
+                            @if (env("APP_YEAR") && env("APP_YEAR") != now()->year) {{ env("APP_YEAR") . " - " }} @endif
+                            {{ now()->year }} &reg;
                             <a draggable="false" href="{{ route("index") }}" target="_blank">
                                 <strong>{{ env("APP_NAME") }}</strong>&trade;
                             </a>

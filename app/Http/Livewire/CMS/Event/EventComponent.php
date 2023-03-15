@@ -627,14 +627,14 @@ class EventComponent extends Component
         $today = Event::whereDate('start', now());
         $yesterday = Event::whereDate('start', now()->subDay());
 
-        $month = Event::whereMonth('start', now()->format('m'))->whereYear('start', now()->format('Y'));
-        $lastMonth = Event::whereMonth('start', now()->subMonth()->format('m'))->whereYear('start', now()->subMonth()->format('Y'));
+        $month = Event::whereMonth('start', now()->format('m'))->whereYear('start', now()->year);
+        $lastMonth = Event::whereMonth('start', now()->subMonth()->format('m'))->whereYear('start', now()->subMonth()->year);
 
-        $year = Event::whereYear('start', now()->format('Y'));
-        $lastYear = Event::whereYear('start', now()->subYear()->format('Y'));
+        $year = Event::whereYear('start', now()->year);
+        $lastYear = Event::whereYear('start', now()->subYear()->year);
 
         $all = Event::query();
-        $beforeThisYear = Event::whereYear('start', '<', now()->format('Y'));
+        $beforeThisYear = Event::whereYear('start', '<', now()->year);
 
         $todayCount = $today->count();
         $yesterdayCount = $yesterday->count();

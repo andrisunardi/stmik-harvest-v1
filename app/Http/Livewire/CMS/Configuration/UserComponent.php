@@ -589,14 +589,14 @@ class UserComponent extends Component
         $today = User::whereDate('created_at', now());
         $yesterday = User::whereDate('created_at', now()->subDay());
 
-        $month = User::whereMonth('created_at', now()->format('m'))->whereYear('created_at', now()->format('Y'));
-        $lastMonth = User::whereMonth('created_at', now()->subMonth()->format('m'))->whereYear('created_at', now()->subMonth()->format('Y'));
+        $month = User::whereMonth('created_at', now()->format('m'))->whereYear('created_at', now()->year);
+        $lastMonth = User::whereMonth('created_at', now()->subMonth()->format('m'))->whereYear('created_at', now()->subMonth()->year);
 
-        $year = User::whereYear('created_at', now()->format('Y'));
-        $lastYear = User::whereYear('created_at', now()->subYear()->format('Y'));
+        $year = User::whereYear('created_at', now()->year);
+        $lastYear = User::whereYear('created_at', now()->subYear()->year);
 
         $all = User::query();
-        $beforeThisYear = User::whereYear('created_at', '<', now()->format('Y'));
+        $beforeThisYear = User::whereYear('created_at', '<', now()->year);
 
         $todayCount = $today->count();
         $yesterdayCount = $yesterday->count();

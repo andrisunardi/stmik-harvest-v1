@@ -554,14 +554,14 @@ class BannerComponent extends Component
         $today = Banner::whereDate('created_at', now());
         $yesterday = Banner::whereDate('created_at', now()->subDay());
 
-        $month = Banner::whereMonth('created_at', now()->format('m'))->whereYear('created_at', now()->format('Y'));
-        $lastMonth = Banner::whereMonth('created_at', now()->subMonth()->format('m'))->whereYear('created_at', now()->subMonth()->format('Y'));
+        $month = Banner::whereMonth('created_at', now()->format('m'))->whereYear('created_at', now()->year);
+        $lastMonth = Banner::whereMonth('created_at', now()->subMonth()->format('m'))->whereYear('created_at', now()->subMonth()->year);
 
-        $year = Banner::whereYear('created_at', now()->format('Y'));
-        $lastYear = Banner::whereYear('created_at', now()->subYear()->format('Y'));
+        $year = Banner::whereYear('created_at', now()->year);
+        $lastYear = Banner::whereYear('created_at', now()->subYear()->year);
 
         $all = Banner::query();
-        $beforeThisYear = Banner::whereYear('created_at', '<', now()->format('Y'));
+        $beforeThisYear = Banner::whereYear('created_at', '<', now()->year);
 
         $todayCount = $today->count();
         $yesterdayCount = $yesterday->count();

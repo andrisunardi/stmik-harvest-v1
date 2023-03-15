@@ -607,14 +607,14 @@ class GalleryComponent extends Component
         $today = Gallery::whereDate('created_at', now());
         $yesterday = Gallery::whereDate('created_at', now()->subDay());
 
-        $month = Gallery::whereMonth('created_at', now()->format('m'))->whereYear('created_at', now()->format('Y'));
-        $lastMonth = Gallery::whereMonth('created_at', now()->subMonth()->format('m'))->whereYear('created_at', now()->subMonth()->format('Y'));
+        $month = Gallery::whereMonth('created_at', now()->format('m'))->whereYear('created_at', now()->year);
+        $lastMonth = Gallery::whereMonth('created_at', now()->subMonth()->format('m'))->whereYear('created_at', now()->subMonth()->year);
 
-        $year = Gallery::whereYear('created_at', now()->format('Y'));
-        $lastYear = Gallery::whereYear('created_at', now()->subYear()->format('Y'));
+        $year = Gallery::whereYear('created_at', now()->year);
+        $lastYear = Gallery::whereYear('created_at', now()->subYear()->year);
 
         $all = Gallery::query();
-        $beforeThisYear = Gallery::whereYear('created_at', '<', now()->format('Y'));
+        $beforeThisYear = Gallery::whereYear('created_at', '<', now()->year);
 
         $todayCount = $today->count();
         $yesterdayCount = $yesterday->count();

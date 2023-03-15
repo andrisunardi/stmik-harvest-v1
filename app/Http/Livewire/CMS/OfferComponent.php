@@ -556,14 +556,14 @@ class OfferComponent extends Component
         $today = Offer::whereDate('created_at', now());
         $yesterday = Offer::whereDate('created_at', now()->subDay());
 
-        $month = Offer::whereMonth('created_at', now()->format('m'))->whereYear('created_at', now()->format('Y'));
-        $lastMonth = Offer::whereMonth('created_at', now()->subMonth()->format('m'))->whereYear('created_at', now()->subMonth()->format('Y'));
+        $month = Offer::whereMonth('created_at', now()->format('m'))->whereYear('created_at', now()->year);
+        $lastMonth = Offer::whereMonth('created_at', now()->subMonth()->format('m'))->whereYear('created_at', now()->subMonth()->year);
 
-        $year = Offer::whereYear('created_at', now()->format('Y'));
-        $lastYear = Offer::whereYear('created_at', now()->subYear()->format('Y'));
+        $year = Offer::whereYear('created_at', now()->year);
+        $lastYear = Offer::whereYear('created_at', now()->subYear()->year);
 
         $all = Offer::query();
-        $beforeThisYear = Offer::whereYear('created_at', '<', now()->format('Y'));
+        $beforeThisYear = Offer::whereYear('created_at', '<', now()->year);
 
         $todayCount = $today->count();
         $yesterdayCount = $yesterday->count();

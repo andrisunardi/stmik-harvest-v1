@@ -549,14 +549,14 @@ class ContactComponent extends Component
         $today = Contact::whereDate('created_at', now());
         $yesterday = Contact::whereDate('created_at', now()->subDay());
 
-        $month = Contact::whereMonth('created_at', now()->format('m'))->whereYear('created_at', now()->format('Y'));
-        $lastMonth = Contact::whereMonth('created_at', now()->subMonth()->format('m'))->whereYear('created_at', now()->subMonth()->format('Y'));
+        $month = Contact::whereMonth('created_at', now()->format('m'))->whereYear('created_at', now()->year);
+        $lastMonth = Contact::whereMonth('created_at', now()->subMonth()->format('m'))->whereYear('created_at', now()->subMonth()->year);
 
-        $year = Contact::whereYear('created_at', now()->format('Y'));
-        $lastYear = Contact::whereYear('created_at', now()->subYear()->format('Y'));
+        $year = Contact::whereYear('created_at', now()->year);
+        $lastYear = Contact::whereYear('created_at', now()->subYear()->year);
 
         $all = Contact::query();
-        $beforeThisYear = Contact::whereYear('created_at', '<', now()->format('Y'));
+        $beforeThisYear = Contact::whereYear('created_at', '<', now()->year);
 
         $todayCount = $today->count();
         $yesterdayCount = $yesterday->count();

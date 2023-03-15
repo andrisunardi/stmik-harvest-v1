@@ -529,14 +529,14 @@ class NewsletterComponent extends Component
         $today = Newsletter::whereDate('created_at', now());
         $yesterday = Newsletter::whereDate('created_at', now()->subDay());
 
-        $month = Newsletter::whereMonth('created_at', now()->format('m'))->whereYear('created_at', now()->format('Y'));
-        $lastMonth = Newsletter::whereMonth('created_at', now()->subMonth()->format('m'))->whereYear('created_at', now()->subMonth()->format('Y'));
+        $month = Newsletter::whereMonth('created_at', now()->format('m'))->whereYear('created_at', now()->year);
+        $lastMonth = Newsletter::whereMonth('created_at', now()->subMonth()->format('m'))->whereYear('created_at', now()->subMonth()->year);
 
-        $year = Newsletter::whereYear('created_at', now()->format('Y'));
-        $lastYear = Newsletter::whereYear('created_at', now()->subYear()->format('Y'));
+        $year = Newsletter::whereYear('created_at', now()->year);
+        $lastYear = Newsletter::whereYear('created_at', now()->subYear()->year);
 
         $all = Newsletter::query();
-        $beforeThisYear = Newsletter::whereYear('created_at', '<', now()->format('Y'));
+        $beforeThisYear = Newsletter::whereYear('created_at', '<', now()->year);
 
         $todayCount = $today->count();
         $yesterdayCount = $yesterday->count();

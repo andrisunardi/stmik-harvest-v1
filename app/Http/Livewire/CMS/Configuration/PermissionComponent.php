@@ -405,14 +405,14 @@ class PermissionComponent extends Component
         $today = Permission::whereDate('created_at', now());
         $yesterday = Permission::whereDate('created_at', now()->subDay());
 
-        $month = Permission::whereMonth('created_at', now()->format('m'))->whereYear('created_at', now()->format('Y'));
-        $lastMonth = Permission::whereMonth('created_at', now()->subMonth()->format('m'))->whereYear('created_at', now()->subMonth()->format('Y'));
+        $month = Permission::whereMonth('created_at', now()->format('m'))->whereYear('created_at', now()->year);
+        $lastMonth = Permission::whereMonth('created_at', now()->subMonth()->format('m'))->whereYear('created_at', now()->subMonth()->year);
 
-        $year = Permission::whereYear('created_at', now()->format('Y'));
-        $lastYear = Permission::whereYear('created_at', now()->subYear()->format('Y'));
+        $year = Permission::whereYear('created_at', now()->year);
+        $lastYear = Permission::whereYear('created_at', now()->subYear()->year);
 
         $all = Permission::query();
-        $beforeThisYear = Permission::whereYear('created_at', '<', now()->format('Y'));
+        $beforeThisYear = Permission::whereYear('created_at', '<', now()->year);
 
         $todayCount = $today->count();
         $yesterdayCount = $yesterday->count();

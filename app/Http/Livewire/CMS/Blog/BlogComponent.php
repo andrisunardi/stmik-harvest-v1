@@ -611,14 +611,14 @@ class BlogComponent extends Component
         $today = Blog::whereDate('date', now());
         $yesterday = Blog::whereDate('date', now()->subDay());
 
-        $month = Blog::whereMonth('date', now()->format('m'))->whereYear('date', now()->format('Y'));
-        $lastMonth = Blog::whereMonth('date', now()->subMonth()->format('m'))->whereYear('date', now()->subMonth()->format('Y'));
+        $month = Blog::whereMonth('date', now()->format('m'))->whereYear('date', now()->year);
+        $lastMonth = Blog::whereMonth('date', now()->subMonth()->format('m'))->whereYear('date', now()->subMonth()->year);
 
-        $year = Blog::whereYear('date', now()->format('Y'));
-        $lastYear = Blog::whereYear('date', now()->subYear()->format('Y'));
+        $year = Blog::whereYear('date', now()->year);
+        $lastYear = Blog::whereYear('date', now()->subYear()->year);
 
         $all = Blog::query();
-        $beforeThisYear = Blog::whereYear('date', '<', now()->format('Y'));
+        $beforeThisYear = Blog::whereYear('date', '<', now()->year);
 
         $todayCount = $today->count();
         $yesterdayCount = $yesterday->count();

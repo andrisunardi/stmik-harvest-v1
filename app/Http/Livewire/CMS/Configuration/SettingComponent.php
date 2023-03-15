@@ -522,14 +522,14 @@ class SettingComponent extends Component
         $today = Setting::whereDate('created_at', now());
         $yesterday = Setting::whereDate('created_at', now()->subDay());
 
-        $month = Setting::whereMonth('created_at', now()->format('m'))->whereYear('created_at', now()->format('Y'));
-        $lastMonth = Setting::whereMonth('created_at', now()->subMonth()->format('m'))->whereYear('created_at', now()->subMonth()->format('Y'));
+        $month = Setting::whereMonth('created_at', now()->format('m'))->whereYear('created_at', now()->year);
+        $lastMonth = Setting::whereMonth('created_at', now()->subMonth()->format('m'))->whereYear('created_at', now()->subMonth()->year);
 
-        $year = Setting::whereYear('created_at', now()->format('Y'));
-        $lastYear = Setting::whereYear('created_at', now()->subYear()->format('Y'));
+        $year = Setting::whereYear('created_at', now()->year);
+        $lastYear = Setting::whereYear('created_at', now()->subYear()->year);
 
         $all = Setting::query();
-        $beforeThisYear = Setting::whereYear('created_at', '<', now()->format('Y'));
+        $beforeThisYear = Setting::whereYear('created_at', '<', now()->year);
 
         $todayCount = $today->count();
         $yesterdayCount = $yesterday->count();

@@ -535,14 +535,14 @@ class ProcedureComponent extends Component
         $today = Procedure::whereDate('created_at', now());
         $yesterday = Procedure::whereDate('created_at', now()->subDay());
 
-        $month = Procedure::whereMonth('created_at', now()->format('m'))->whereYear('created_at', now()->format('Y'));
-        $lastMonth = Procedure::whereMonth('created_at', now()->subMonth()->format('m'))->whereYear('created_at', now()->subMonth()->format('Y'));
+        $month = Procedure::whereMonth('created_at', now()->format('m'))->whereYear('created_at', now()->year);
+        $lastMonth = Procedure::whereMonth('created_at', now()->subMonth()->format('m'))->whereYear('created_at', now()->subMonth()->year);
 
-        $year = Procedure::whereYear('created_at', now()->format('Y'));
-        $lastYear = Procedure::whereYear('created_at', now()->subYear()->format('Y'));
+        $year = Procedure::whereYear('created_at', now()->year);
+        $lastYear = Procedure::whereYear('created_at', now()->subYear()->year);
 
         $all = Procedure::query();
-        $beforeThisYear = Procedure::whereYear('created_at', '<', now()->format('Y'));
+        $beforeThisYear = Procedure::whereYear('created_at', '<', now()->year);
 
         $todayCount = $today->count();
         $yesterdayCount = $yesterday->count();

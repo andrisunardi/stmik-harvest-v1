@@ -547,14 +547,14 @@ class NetworkComponent extends Component
         $today = Network::whereDate('created_at', now());
         $yesterday = Network::whereDate('created_at', now()->subDay());
 
-        $month = Network::whereMonth('created_at', now()->format('m'))->whereYear('created_at', now()->format('Y'));
-        $lastMonth = Network::whereMonth('created_at', now()->subMonth()->format('m'))->whereYear('created_at', now()->subMonth()->format('Y'));
+        $month = Network::whereMonth('created_at', now()->format('m'))->whereYear('created_at', now()->year);
+        $lastMonth = Network::whereMonth('created_at', now()->subMonth()->format('m'))->whereYear('created_at', now()->subMonth()->year);
 
-        $year = Network::whereYear('created_at', now()->format('Y'));
-        $lastYear = Network::whereYear('created_at', now()->subYear()->format('Y'));
+        $year = Network::whereYear('created_at', now()->year);
+        $lastYear = Network::whereYear('created_at', now()->subYear()->year);
 
         $all = Network::query();
-        $beforeThisYear = Network::whereYear('created_at', '<', now()->format('Y'));
+        $beforeThisYear = Network::whereYear('created_at', '<', now()->year);
 
         $todayCount = $today->count();
         $yesterdayCount = $yesterday->count();

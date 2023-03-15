@@ -544,14 +544,14 @@ class AdmissionCalendarComponent extends Component
         $today = AdmissionCalendar::whereDate('created_at', now());
         $yesterday = AdmissionCalendar::whereDate('created_at', now()->subDay());
 
-        $month = AdmissionCalendar::whereMonth('created_at', now()->format('m'))->whereYear('created_at', now()->format('Y'));
-        $lastMonth = AdmissionCalendar::whereMonth('created_at', now()->subMonth()->format('m'))->whereYear('created_at', now()->subMonth()->format('Y'));
+        $month = AdmissionCalendar::whereMonth('created_at', now()->format('m'))->whereYear('created_at', now()->year);
+        $lastMonth = AdmissionCalendar::whereMonth('created_at', now()->subMonth()->format('m'))->whereYear('created_at', now()->subMonth()->year);
 
-        $year = AdmissionCalendar::whereYear('created_at', now()->format('Y'));
-        $lastYear = AdmissionCalendar::whereYear('created_at', now()->subYear()->format('Y'));
+        $year = AdmissionCalendar::whereYear('created_at', now()->year);
+        $lastYear = AdmissionCalendar::whereYear('created_at', now()->subYear()->year);
 
         $all = AdmissionCalendar::query();
-        $beforeThisYear = AdmissionCalendar::whereYear('created_at', '<', now()->format('Y'));
+        $beforeThisYear = AdmissionCalendar::whereYear('created_at', '<', now()->year);
 
         $todayCount = $today->count();
         $yesterdayCount = $yesterday->count();

@@ -547,14 +547,14 @@ class TestimonyComponent extends Component
         $today = Testimony::whereDate('created_at', now());
         $yesterday = Testimony::whereDate('created_at', now()->subDay());
 
-        $month = Testimony::whereMonth('created_at', now()->format('m'))->whereYear('created_at', now()->format('Y'));
-        $lastMonth = Testimony::whereMonth('created_at', now()->subMonth()->format('m'))->whereYear('created_at', now()->subMonth()->format('Y'));
+        $month = Testimony::whereMonth('created_at', now()->format('m'))->whereYear('created_at', now()->year);
+        $lastMonth = Testimony::whereMonth('created_at', now()->subMonth()->format('m'))->whereYear('created_at', now()->subMonth()->year);
 
-        $year = Testimony::whereYear('created_at', now()->format('Y'));
-        $lastYear = Testimony::whereYear('created_at', now()->subYear()->format('Y'));
+        $year = Testimony::whereYear('created_at', now()->year);
+        $lastYear = Testimony::whereYear('created_at', now()->subYear()->year);
 
         $all = Testimony::query();
-        $beforeThisYear = Testimony::whereYear('created_at', '<', now()->format('Y'));
+        $beforeThisYear = Testimony::whereYear('created_at', '<', now()->year);
 
         $todayCount = $today->count();
         $yesterdayCount = $yesterday->count();

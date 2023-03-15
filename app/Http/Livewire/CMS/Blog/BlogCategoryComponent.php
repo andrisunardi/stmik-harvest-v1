@@ -541,14 +541,14 @@ class BlogCategoryComponent extends Component
         $today = BlogCategory::whereDate('created_at', now());
         $yesterday = BlogCategory::whereDate('created_at', now()->subDay());
 
-        $month = BlogCategory::whereMonth('created_at', now()->format('m'))->whereYear('created_at', now()->format('Y'));
-        $lastMonth = BlogCategory::whereMonth('created_at', now()->subMonth()->format('m'))->whereYear('created_at', now()->subMonth()->format('Y'));
+        $month = BlogCategory::whereMonth('created_at', now()->format('m'))->whereYear('created_at', now()->year);
+        $lastMonth = BlogCategory::whereMonth('created_at', now()->subMonth()->format('m'))->whereYear('created_at', now()->subMonth()->year);
 
-        $year = BlogCategory::whereYear('created_at', now()->format('Y'));
-        $lastYear = BlogCategory::whereYear('created_at', now()->subYear()->format('Y'));
+        $year = BlogCategory::whereYear('created_at', now()->year);
+        $lastYear = BlogCategory::whereYear('created_at', now()->subYear()->year);
 
         $all = BlogCategory::query();
-        $beforeThisYear = BlogCategory::whereYear('created_at', '<', now()->format('Y'));
+        $beforeThisYear = BlogCategory::whereYear('created_at', '<', now()->year);
 
         $todayCount = $today->count();
         $yesterdayCount = $yesterday->count();

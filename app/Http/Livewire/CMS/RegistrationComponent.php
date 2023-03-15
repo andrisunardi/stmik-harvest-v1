@@ -576,14 +576,14 @@ class RegistrationComponent extends Component
         $today = Registration::whereDate('created_at', now());
         $yesterday = Registration::whereDate('created_at', now()->subDay());
 
-        $month = Registration::whereMonth('created_at', now()->format('m'))->whereYear('created_at', now()->format('Y'));
-        $lastMonth = Registration::whereMonth('created_at', now()->subMonth()->format('m'))->whereYear('created_at', now()->subMonth()->format('Y'));
+        $month = Registration::whereMonth('created_at', now()->format('m'))->whereYear('created_at', now()->year);
+        $lastMonth = Registration::whereMonth('created_at', now()->subMonth()->format('m'))->whereYear('created_at', now()->subMonth()->year);
 
-        $year = Registration::whereYear('created_at', now()->format('Y'));
-        $lastYear = Registration::whereYear('created_at', now()->subYear()->format('Y'));
+        $year = Registration::whereYear('created_at', now()->year);
+        $lastYear = Registration::whereYear('created_at', now()->subYear()->year);
 
         $all = Registration::query();
-        $beforeThisYear = Registration::whereYear('created_at', '<', now()->format('Y'));
+        $beforeThisYear = Registration::whereYear('created_at', '<', now()->year);
 
         $todayCount = $today->count();
         $yesterdayCount = $yesterday->count();

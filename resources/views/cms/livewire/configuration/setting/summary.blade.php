@@ -47,7 +47,7 @@
             <div class="card bg-warning text-white mb-4">
                 <div class="card-header d-flex align-items-center justify-content-between">
                     {{ trans("index.entire_year") }}
-                    <div class="small text-white">{{ now()->format("Y") }}</div>
+                    <div class="small text-white">{{ now()->year }}</div>
                 </div>
                 <div class="card-body d-flex align-items-center justify-content-between">
                     {{ isset($summary["yearCount"]) ? Str::thousand($summary["yearCount"]) : 0 }}

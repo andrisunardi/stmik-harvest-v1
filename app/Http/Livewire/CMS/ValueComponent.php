@@ -535,14 +535,14 @@ class ValueComponent extends Component
         $today = Value::whereDate('created_at', now());
         $yesterday = Value::whereDate('created_at', now()->subDay());
 
-        $month = Value::whereMonth('created_at', now()->format('m'))->whereYear('created_at', now()->format('Y'));
-        $lastMonth = Value::whereMonth('created_at', now()->subMonth()->format('m'))->whereYear('created_at', now()->subMonth()->format('Y'));
+        $month = Value::whereMonth('created_at', now()->format('m'))->whereYear('created_at', now()->year);
+        $lastMonth = Value::whereMonth('created_at', now()->subMonth()->format('m'))->whereYear('created_at', now()->subMonth()->year);
 
-        $year = Value::whereYear('created_at', now()->format('Y'));
-        $lastYear = Value::whereYear('created_at', now()->subYear()->format('Y'));
+        $year = Value::whereYear('created_at', now()->year);
+        $lastYear = Value::whereYear('created_at', now()->subYear()->year);
 
         $all = Value::query();
-        $beforeThisYear = Value::whereYear('created_at', '<', now()->format('Y'));
+        $beforeThisYear = Value::whereYear('created_at', '<', now()->year);
 
         $todayCount = $today->count();
         $yesterdayCount = $yesterday->count();

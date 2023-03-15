@@ -541,14 +541,14 @@ class EventCategoryComponent extends Component
         $today = EventCategory::whereDate('created_at', now());
         $yesterday = EventCategory::whereDate('created_at', now()->subDay());
 
-        $month = EventCategory::whereMonth('created_at', now()->format('m'))->whereYear('created_at', now()->format('Y'));
-        $lastMonth = EventCategory::whereMonth('created_at', now()->subMonth()->format('m'))->whereYear('created_at', now()->subMonth()->format('Y'));
+        $month = EventCategory::whereMonth('created_at', now()->format('m'))->whereYear('created_at', now()->year);
+        $lastMonth = EventCategory::whereMonth('created_at', now()->subMonth()->format('m'))->whereYear('created_at', now()->subMonth()->year);
 
-        $year = EventCategory::whereYear('created_at', now()->format('Y'));
-        $lastYear = EventCategory::whereYear('created_at', now()->subYear()->format('Y'));
+        $year = EventCategory::whereYear('created_at', now()->year);
+        $lastYear = EventCategory::whereYear('created_at', now()->subYear()->year);
 
         $all = EventCategory::query();
-        $beforeThisYear = EventCategory::whereYear('created_at', '<', now()->format('Y'));
+        $beforeThisYear = EventCategory::whereYear('created_at', '<', now()->year);
 
         $todayCount = $today->count();
         $yesterdayCount = $yesterday->count();

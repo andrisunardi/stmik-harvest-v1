@@ -209,14 +209,14 @@ class ActivityComponent extends Component
         $today = Activity::whereDate('created_at', now());
         $yesterday = Activity::whereDate('created_at', now()->subDay());
 
-        $month = Activity::whereMonth('created_at', now()->format('m'))->whereYear('created_at', now()->format('Y'));
-        $lastMonth = Activity::whereMonth('created_at', now()->subMonth()->format('m'))->whereYear('created_at', now()->subMonth()->format('Y'));
+        $month = Activity::whereMonth('created_at', now()->format('m'))->whereYear('created_at', now()->year);
+        $lastMonth = Activity::whereMonth('created_at', now()->subMonth()->format('m'))->whereYear('created_at', now()->subMonth()->year);
 
-        $year = Activity::whereYear('created_at', now()->format('Y'));
-        $lastYear = Activity::whereYear('created_at', now()->subYear()->format('Y'));
+        $year = Activity::whereYear('created_at', now()->year);
+        $lastYear = Activity::whereYear('created_at', now()->subYear()->year);
 
         $all = Activity::query();
-        $beforeThisYear = Activity::whereYear('created_at', '<', now()->format('Y'));
+        $beforeThisYear = Activity::whereYear('created_at', '<', now()->year);
 
         $todayCount = $today->count();
         $yesterdayCount = $yesterday->count();
