@@ -284,7 +284,7 @@ class BlogComponent extends Component
                 'error',
                 "{$this->pageName} ".trans('index.not_found_or_has_been_deleted'),
                 [],
-                route("{$this->subDomain}.{$this->pageCategorySlug}.{$this->pageSubCategorySlug}.{$this->pageSlug}.index"),
+                route("{$this->subDomain}.{$this->pageCategorySlug}.{$this->pageSlug}.index"),
             );
         }
 
@@ -310,7 +310,7 @@ class BlogComponent extends Component
                 'error',
                 "{$this->pageName} ".trans('index.not_found_or_has_been_deleted'),
                 [],
-                route("{$this->subDomain}.{$this->pageCategorySlug}.{$this->pageSubCategorySlug}.{$this->pageSlug}.index"),
+                route("{$this->subDomain}.{$this->pageCategorySlug}.{$this->pageSlug}.index"),
             );
         }
 
@@ -337,7 +337,7 @@ class BlogComponent extends Component
                 'error',
                 "{$this->pageName} ".trans('index.not_found_or_has_been_deleted'),
                 [],
-                route("{$this->subDomain}.{$this->pageCategorySlug}.{$this->pageSubCategorySlug}.{$this->pageSlug}.index"),
+                route("{$this->subDomain}.{$this->pageCategorySlug}.{$this->pageSlug}.index"),
             );
         }
 
@@ -598,7 +598,7 @@ class BlogComponent extends Component
 
         $this->alert('info', trans('index.export_to_pdf'));
 
-        $pdf = PDF::loadView("{$this->subDomain}.livewire.{$this->pageCategorySlug}.{$this->pageSubCategorySlug}.{$this->pageSlug}.pdf", [
+        $pdf = PDF::loadView("{$this->subDomain}.livewire.{$this->pageCategorySlug}.{$this->pageSlug}.pdf", [
             'blogs' => $this->getBlogs(paginate: false),
             'title' => $this->pageName,
         ])->output();
@@ -654,7 +654,7 @@ class BlogComponent extends Component
 
     public function render()
     {
-        return view("{$this->subDomain}.livewire.{$this->pageCategorySlug}.{$this->pageSubCategorySlug}.{$this->pageSlug}.index", [
+        return view("{$this->subDomain}.livewire.{$this->pageCategorySlug}.{$this->pageSlug}.index", [
             'createdBies' => $this->readyToLoad ? $this->getCreatedBies() : collect(),
             'updatedBies' => $this->readyToLoad ? $this->getUpdatedBies() : collect(),
             'deletedBies' => $this->readyToLoad ? $this->getDeletedBies() : collect(),
