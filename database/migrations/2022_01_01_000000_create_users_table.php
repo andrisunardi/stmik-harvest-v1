@@ -15,7 +15,7 @@ return new class extends Migration
             $table->string('phone', 15)->nullable()->unique();
             $table->string('username', 50)->nullable()->unique();
             $table->string('password', 60)->nullable();
-            $table->string('image', 100)->nullable();
+            $table->string('image', 80)->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->timestamp('phone_verified_at')->nullable();
             $table->boolean('is_active')->nullable()->unsigned()->default(true);
