@@ -15,6 +15,9 @@ class EventService
 
     public function add(array $data = []): Event
     {
+        $data['start'] = $data['start'] ?: null;
+        $data['end'] = $data['end'] ?: null;
+
         $image = $data['image'];
         $imageName = Str::slug($data['title']).'-'.now()->format('Y-m-d-H-i-s');
 
@@ -32,6 +35,9 @@ class EventService
 
     public function clone(array $data, Event $event): Event
     {
+        $data['start'] = $data['start'] ?: null;
+        $data['end'] = $data['end'] ?: null;
+
         $image = $data['image'];
         $imageName = Str::slug($data['title']).'-'.now()->format('Y-m-d-H-i-s');
 
@@ -58,6 +64,9 @@ class EventService
 
     public function edit(Event $event, $data): Event
     {
+        $data['start'] = $data['start'] ?: null;
+        $data['end'] = $data['end'] ?: null;
+
         $image = $data['image'];
         $imageName = Str::slug($data['title']).'-'.now()->format('Y-m-d-H-i-s');
 

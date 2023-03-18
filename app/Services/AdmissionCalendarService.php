@@ -13,6 +13,8 @@ class AdmissionCalendarService
 
     public function add(array $data = []): AdmissionCalendar
     {
+        $data['date'] = $data['date'] ?: null;
+
         DB::statement(DB::raw("ALTER TABLE {$this->table} AUTO_INCREMENT = 1"));
 
         return AdmissionCalendar::create($data);
@@ -20,6 +22,8 @@ class AdmissionCalendarService
 
     public function clone(array $data, AdmissionCalendar $admissionCalendar): AdmissionCalendar
     {
+        $data['date'] = $data['date'] ?: null;
+
         DB::statement(DB::raw("ALTER TABLE {$this->table} AUTO_INCREMENT = 1"));
 
         return AdmissionCalendar::create($data);
@@ -27,6 +31,8 @@ class AdmissionCalendarService
 
     public function edit(AdmissionCalendar $admissionCalendar, $data): AdmissionCalendar
     {
+        $data['date'] = $data['date'] ?: null;
+
         $admissionCalendar->update($data);
         $admissionCalendar->refresh();
 
