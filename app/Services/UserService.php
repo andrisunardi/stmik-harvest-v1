@@ -135,12 +135,21 @@ class UserService
 
     public function deletePermanent(User $user): bool
     {
+        $user->deleteImage();
+
         return $user->forceDelete();
     }
 
     public function deletePermanentAll(array $users = []): bool
     {
-        return User::when($users, fn ($q) => $q->whereIn('id', $users))->onlyTrashed()->forceDelete();
+        $users = User::when($users, fn ($q) => $q->whereIn('id', $users))->onlyTrashed()->get();
+
+        foreach ($users as $user) {
+            $user->deleteImage();
+            $user->forceDelete();
+        }
+
+        return true;
     }
 
     public function editProfile(User $user, $data): User
