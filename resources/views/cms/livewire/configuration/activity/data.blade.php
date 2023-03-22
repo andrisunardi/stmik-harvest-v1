@@ -67,13 +67,6 @@
                             <i class="fas fa-sort-amount-{{ $order_by == $column && $sort_by == "desc" ? "down" : "up" }} text-white"></i>
                         </a>
                     </th>
-                    <th>
-                        @php($column = "updated_at")
-                        {{ trans("index.{$column}") }}
-                        <a draggable="false" href="javascript:;" wire:click="sort('{{ $column }}', '{{ $order_by == $column && $sort_by == "desc" ? "asc" : "desc" }}')">
-                            <i class="fas fa-sort-amount-{{ $order_by == $column && $sort_by == "desc" ? "down" : "up" }} text-white"></i>
-                        </a>
-                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -94,26 +87,37 @@
                         <td class="text-wrap">{{ $activity->description }}</td>
                         <td>{{ Str::translate($activity->event) }}</td>
                         <td>
-                            <div>{{ trans("index.type") }} : {{ $activity->subject_type }}</div>
-                            <div>{{ trans("index.id") }} : {{ $activity->subject_id }}</div>
-                            {{ $activity->subject?->name }}
+                            @if ($activity->subject)
+                                {{ $activity->subject->getTable() }}
+                                <div>{{ trans("index.id") }} : {{ $activity->subject->id }}</div>
+                            @endif
                         </td>
                         <td>
-                            <div>{{ trans("index.type") }} : {{ $activity->causer_type }}</div>
-                            <div>{{ trans("index.id") }} : {{ $activity->causer_id }}</div>
-                            {{ $activity->causer?->name }}
+                            @if ($activity->causer)
+                                <a draggable="false" href="{{ route("{$subDomain}.configuration.user.index") . "?pageType=view&row={$activity->causer->id}" }}" target="_blank">
+                                    {{ $activity->causer->name }}
+                                </a>
+                            @endif
                         </td>
-                        <td>{{ $activity->properties }}</td>
+                        <td class="text-wrap">
+                            <div class="row">
+                                <div class="col-6">
+                                    @if (Arr::exists($activity->changes, ["old"]))
+                                        <h6>{{ trans("index.old") }}</h6>
+                                        <pre><code>{{ json_encode($activity->changes["old"], JSON_PRETTY_PRINT) }}</code></pre>
+                                    @endif
+                                </div>
+                                <div class="col-6">
+                                    <h6>{{ trans("index.new") }}</h6>
+                                    <pre><code>{{ json_encode($activity->changes["attributes"], JSON_PRETTY_PRINT) }}</code></pre>
+                                </div>
+                            </div>
+                        </td>
                         <td>{{ $activity->batch_uuid }}</td>
                         <td>
                             {{ $activity->created_at->format("l, H:i:s") }}<br>
                             {{ $activity->created_at->isoFormat("LL") }}<br>
                             ({{ $activity->created_at->diffForHumans() }})
-                        </td>
-                        <td>
-                            {{ $activity->updated_at->format("l, H:i:s") }}<br>
-                            {{ $activity->updated_at->isoFormat("LL") }}<br>
-                            ({{ $activity->updated_at->diffForHumans() }})
                         </td>
                     </tr>
 

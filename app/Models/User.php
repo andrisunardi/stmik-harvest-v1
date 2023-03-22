@@ -150,8 +150,10 @@ class User extends Authenticatable
     {
         return LogOptions::defaults()
             ->useLogName($this->table)
+            ->logFillable()
+            ->logOnlyDirty()
             ->dontLogIfAttributesChangedOnly(['remember_token'])
-            ->setDescriptionForEvent(fn (string $eventName) => "This model has been {$eventName}");
+            ->setDescriptionForEvent(fn (string $eventName) => "This model has been {$eventName} by :causer.name");
     }
 
     public function serializeDate(DateTimeInterface $date)

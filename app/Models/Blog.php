@@ -156,7 +156,9 @@ class Blog extends Model
     {
         return LogOptions::defaults()
             ->useLogName($this->table)
-            ->setDescriptionForEvent(fn (string $eventName) => "This model has been {$eventName}");
+            ->logFillable()
+            ->logOnlyDirty()
+            ->setDescriptionForEvent(fn (string $eventName) => "This model has been {$eventName} by :causer.name");
     }
 
     public function serializeDate(DateTimeInterface $date)
