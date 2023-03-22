@@ -615,21 +615,26 @@
         <x-livewire-alert::scripts />
         <x-livewire-alert::flash />
 
-        {{-- <script>
+        <script>
             window.livewire.onError(statusCode => {
+                if (statusCode === 403) {
+                    alert("403 - Forbidden - The request was a legal request, but the server is refusing to respond to it.")
+                    return false
+                }
+
                 if (statusCode === 404) {
-                    alert("Data Not Found. Please Refresh Page")
+                    alert("404 - Not Found - The requested page could not be found but may be available again in the future.")
                     return false
                 }
 
                 @env("production")
                     if (statusCode === 500) {
-                        alert("Internal Server Error. Please Refresh Page")
+                        alert("500 - Internal Server Error - A generic error message, given when no more specific message is suitable.")
                         return false
                     }
                 @endenv
             })
-        </script> --}}
+        </script>
 
     </body>
 
