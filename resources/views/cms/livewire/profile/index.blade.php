@@ -129,15 +129,35 @@
                     </div>
                     <div class="card-body">
                         <div class="list-group">
-                            <a draggable="false" href="{{-- route("$subDomain.".Str::singular($lastActivity->log_name).".index") --}}" target="_blank" class="list-group-item list-group-item-action">
+                            <button class="list-group-item list-group-item-action">
                                 <div class="d-flex w-100 justify-content-between">
-                                    <h5 class="mb-1 text-capitalize">{{ $lastActivity->log_name }} - {{ $lastActivity->subject->id }}</h5>
+                                    <h5 class="mb-1 text-capitalize">
+                                        {{ $lastActivity->log_name }} - {{ $lastActivity->subject_id }}
+                                    </h5>
                                     <small class="text-capitalize">{{ $lastActivity->event }}</small>
                                 </div>
                                 <p class="mb-1">{!! $lastActivity->description !!}</p>
                                 <div><small>{{ $lastActivity->causer->name }}</small></div>
-                                <small>{{ $lastActivity->created_at->format("l, H:i:s") }} {{ $lastActivity->created_at->isoFormat("LL") }}</small>
-                            </a>
+                                <small>
+                                    {{ $lastActivity->created_at->format("l, H:i:s") }}
+                                    {{ $lastActivity->created_at->isoFormat("LL") }}
+                                </small>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-6">
+                                        @if (Arr::exists($lastActivity->changes, ["old"]))
+                                            <h6>{{ trans("index.old") }}</h6>
+                                            <pre><code>{{ json_encode($lastActivity->changes["old"], JSON_PRETTY_PRINT) }}</code></pre>
+                                        @endif
+                                    </div>
+                                    <div class="col-6">
+                                        @if (Arr::exists($lastActivity->changes, ["attributes"]))
+                                            <h6>{{ trans("index.new") }}</h6>
+                                            <pre><code>{{ json_encode($lastActivity->changes["attributes"], JSON_PRETTY_PRINT) }}</code></pre>
+                                        @endif
+                                    </div>
+                                </div>
+                            </button>
                         </div>
                     </div>
                     <div class="card-footer bg-primary"></div>

@@ -199,7 +199,6 @@ class ActivityComponent extends Component
             ->when($this->user_id, fn ($q) => $q->where('causer_id', $this->user_id))
             ->when($this->properties, fn ($q) => $q->where('properties', 'LIKE', "%{$this->properties}%"))
             ->when($this->batch_uuid, fn ($q) => $q->where('batch_uuid', 'LIKE', "%{$this->batch_uuid}%"))
-            ->latest()
             ->orderBy($this->order_by ?? 'id', $this->sort_by ?? 'desc')
             ->paginate($this->per_page ?? 10);
     }

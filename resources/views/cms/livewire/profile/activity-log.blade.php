@@ -17,17 +17,35 @@
                 <div class="card-body">
                     <div class="list-group mb-3">
                         @foreach ($activities as $activity)
-                            <a draggable="false" href="" target="_blank" class="list-group-item list-group-item-action">
+                            <button class="list-group-item list-group-item-action">
                                 <div class="d-flex w-100 justify-content-between">
                                     <h5 class="mb-1 text-capitalize">
-                                        {{ $activity->log_name }} -
-                                        {{ $activity->subject ? $activity->subject->id : trans("index.not_found") }}</h5>
+                                        {{ $activity->log_name }} - {{ $activity->subject_id }}
+                                    </h5>
                                     <small class="text-capitalize">{{ $activity->event }}</small>
                                 </div>
                                 <p class="mb-1">{!! $activity->description !!}</p>
                                 <div><small>{{ $activity->causer->name }}</small></div>
-                                <small>{{ $activity->created_at->format("l, H:i:s") }} {{ $activity->created_at->isoFormat("LL") }}</small>
-                            </a>
+                                <small>
+                                    {{ $activity->created_at->format("l, H:i:s") }}
+                                    {{ $activity->created_at->isoFormat("LL") }}
+                                </small>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-6">
+                                        @if (Arr::exists($activity->changes, ["old"]))
+                                            <h6>{{ trans("index.old") }}</h6>
+                                            <pre><code>{{ json_encode($activity->changes["old"], JSON_PRETTY_PRINT) }}</code></pre>
+                                        @endif
+                                    </div>
+                                    <div class="col-6">
+                                        @if (Arr::exists($activity->changes, ["attributes"]))
+                                            <h6>{{ trans("index.new") }}</h6>
+                                            <pre><code>{{ json_encode($activity->changes["attributes"], JSON_PRETTY_PRINT) }}</code></pre>
+                                        @endif
+                                    </div>
+                                </div>
+                            </button>
                         @endforeach
                     </div>
 

@@ -122,6 +122,7 @@ class AdmissionCalendar extends Model
             ->useLogName($this->table)
             ->logFillable()
             ->logOnlyDirty()
+            ->dontSubmitEmptyLogs()
             ->setDescriptionForEvent(fn (string $eventName) => "This model has been {$eventName} by :causer.name");
     }
 

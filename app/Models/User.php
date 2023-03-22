@@ -152,6 +152,7 @@ class User extends Authenticatable
             ->useLogName($this->table)
             ->logFillable()
             ->logOnlyDirty()
+            ->dontSubmitEmptyLogs()
             ->dontLogIfAttributesChangedOnly(['remember_token'])
             ->setDescriptionForEvent(fn (string $eventName) => "This model has been {$eventName} by :causer.name");
     }

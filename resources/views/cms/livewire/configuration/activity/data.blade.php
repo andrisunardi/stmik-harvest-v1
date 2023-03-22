@@ -75,22 +75,13 @@
                         <td class="text-center">
                             {{ (($activities->currentPage() - 1) * $activities->perPage()) + $loop->iteration }}
                         </td>
-                        <td class="text-center">
-                            <button
-                                class="btn btn-link text-decoration-none"
-                                wire:click="view({{ $activity->id }})"
-                                type="button">
-                                {{ $activity->id }}
-                            </button>
-                        </td>
+                        <td class="text-center">{{ $activity->id }}</td>
                         <td>{{ $activity->log_name }}</td>
                         <td class="text-wrap">{{ $activity->description }}</td>
                         <td>{{ Str::translate($activity->event) }}</td>
                         <td>
-                            @if ($activity->subject)
-                                {{ $activity->subject->getTable() }}
-                                <div>{{ trans("index.id") }} : {{ $activity->subject->id }}</div>
-                            @endif
+                            <div>{{ Str::after($activity->subject_type, "App\Models\\") }}</div>
+                            <div>{{ trans("index.id") }} : {{ $activity->subject_id }}</div>
                         </td>
                         <td>
                             @if ($activity->causer)
