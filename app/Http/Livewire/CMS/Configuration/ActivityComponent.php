@@ -72,47 +72,9 @@ class ActivityComponent extends Component
         'user_id' => ['except' => ''],
     ];
 
-    public function loadData()
-    {
-        $this->readyToLoad = true;
-
-        $this->alert('info', trans('index.data_have_been_loaded_successfully'));
-    }
-
-    public function sort($column, $sort)
-    {
-        $this->order_by = $column;
-        $this->sort_by = $sort;
-
-        $this->resetPage();
-        $this->alert('info', trans('index.sort').' '.trans("index.{$column}").' '.trans("index.{$sort}"));
-    }
-
-    public function advancedSearch()
-    {
-        $this->advanced_search = ! $this->advanced_search;
-
-        $this->alert('info', trans('index.advanced_search'));
-    }
-
     public function resetFilter()
     {
-        $this->resetPage();
-
-        $this->page = 1;
-        $this->per_page = 10;
-        $this->order_by = 'id';
-        $this->sort_by = 'desc';
-
-        $this->reset([
-            'start_created_at',
-            'end_created_at',
-            'start_updated_at',
-            'end_updated_at',
-            'start_deleted_at',
-            'end_deleted_at',
-            'row',
-        ]);
+        $this->resetFilterGlobal();
 
         $this->reset([
             'activity',
@@ -127,38 +89,6 @@ class ActivityComponent extends Component
             'batch_uuid',
             'user_id',
         ]);
-
-        $this->alert('info', trans('index.reset_filter'));
-    }
-
-    public function resetForm()
-    {
-        if ($this->activity) {
-        }
-
-        $this->alert('info', trans('index.reset_form'));
-    }
-
-    public function refresh()
-    {
-        $this->resetValidation();
-        $this->alert('info', trans('index.refresh'));
-    }
-
-    public function updating($name, $value)
-    {
-        $this->resetPage();
-        $this->alert('info', trans('index.updating').' '.trans("validation.attributes.{$name}").' : '.json_encode($value));
-    }
-
-    public function updated($name, $value)
-    {
-        $this->resetPage();
-        $this->alert('info', trans('index.updated').' '.trans("validation.attributes.{$name}").' : '.json_encode($value));
-    }
-
-    public function mount()
-    {
     }
 
     public function getActivityLogNames()

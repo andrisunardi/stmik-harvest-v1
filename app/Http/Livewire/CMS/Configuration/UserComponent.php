@@ -83,75 +83,9 @@ class UserComponent extends Component
         'roles_id' => ['except' => ''],
     ];
 
-    public function loadData()
-    {
-        $this->readyToLoad = true;
-
-        $this->alert('info', trans('index.data_have_been_loaded_successfully'));
-    }
-
-    public function sort($column, $sort)
-    {
-        $this->order_by = $column;
-        $this->sort_by = $sort;
-
-        $this->resetPage();
-        $this->alert('info', trans('index.sort').' '.trans("index.{$column}").' '.trans("index.{$sort}"));
-    }
-
-    public function advancedSearch()
-    {
-        $this->advanced_search = ! $this->advanced_search;
-
-        $this->alert('info', trans('index.advanced_search'));
-    }
-
-    public function action($id)
-    {
-        $this->action[$id] = empty($this->action[$id]) ? true : false;
-
-        if (! $this->action[$id]) {
-            unset($this->action[$id]);
-        }
-
-        $this->alert('info', trans('index.action')." - ID: {$id}");
-    }
-
-    public function detail($id)
-    {
-        $this->detail[$id] = empty($this->detail[$id]) ? true : false;
-
-        if (! $this->detail[$id]) {
-            unset($this->detail[$id]);
-        }
-
-        $this->alert('info', trans('index.detail')." - ID: {$id}");
-    }
-
     public function resetFilter()
     {
-        $this->resetPage();
-
-        $this->page = 1;
-        $this->per_page = 10;
-        $this->order_by = 'id';
-        $this->sort_by = 'desc';
-
-        $this->reset([
-            'created_by_id',
-            'updated_by_id',
-            'deleted_by_id',
-            'start_created_at',
-            'end_created_at',
-            'start_updated_at',
-            'end_updated_at',
-            'start_deleted_at',
-            'end_deleted_at',
-            'row',
-            'checkbox_id',
-            'action',
-            'detail',
-        ]);
+        $this->resetFilterGlobal();
 
         $this->reset([
             'user',
@@ -166,8 +100,6 @@ class UserComponent extends Component
             'permission_id',
             'roles_id',
         ]);
-
-        $this->alert('info', trans('index.reset_filter'));
     }
 
     public function resetForm()
@@ -184,22 +116,9 @@ class UserComponent extends Component
         $this->alert('info', trans('index.reset_form'));
     }
 
-    public function refresh()
+    public function default()
     {
-        $this->resetValidation();
-        $this->alert('info', trans('index.refresh'));
-    }
-
-    public function updating($name, $value)
-    {
-        $this->resetPage();
-        $this->alert('info', trans('index.updating').' '.trans("validation.attributes.{$name}").' : '.json_encode($value));
-    }
-
-    public function updated($name, $value)
-    {
-        $this->resetPage();
-        $this->alert('info', trans('index.updated').' '.trans("validation.attributes.{$name}").' : '.json_encode($value));
+        $this->is_active = $this->is_active == 1 || ! $this->is_active ? 1 : 0;
     }
 
     public function mount()
@@ -211,7 +130,7 @@ class UserComponent extends Component
         $this->checkPermission();
 
         if ($this->pageType == 'add') {
-            $this->is_active = $this->is_active == 1 || ! $this->is_active ? 1 : 0;
+            $this->default();
         }
 
         if ($this->row && (! in_array($this->pageType, ['index', 'trash']))) {
@@ -227,113 +146,34 @@ class UserComponent extends Component
         }
     }
 
-    public function index()
+    public function clone(User $user)
     {
-        $this->resetFilter();
-        $this->resetValidation();
+        $this->pageType('clone', 'clone_form');
 
-        $this->pageType = 'index';
-
-        $this->alert('info', trans('index.back_to_list_data'));
-    }
-
-    public function add()
-    {
-        $this->checkPermission();
-
-        $this->resetFilter();
-        $this->resetValidation();
-
-        $this->is_active = $this->is_active == 1 || ! $this->is_active ? 1 : 0;
-        $this->pageType = 'add';
-
-        $this->alert('info', trans('index.form').' '.trans('index.add'));
-    }
-
-    public function edit($id)
-    {
-        $this->checkPermission();
-
-        $this->resetFilter();
-        $this->resetValidation();
-
-        $this->user = User::find($id);
-
-        if (! $this->user) {
-            return $this->flash(
-                'error',
-                "{$this->pageName} ".trans('index.not_found_or_has_been_deleted'),
-                [],
-                route("{$this->subDomain}.{$this->pageCategorySlug}.{$this->pageSlug}.index"),
-            );
-        }
+        $this->user = $user;
+        $this->row = $user->id;
 
         $this->resetForm();
-
-        $this->pageType = 'edit';
-        $this->row = $id;
-
-        $this->alert('info', trans('index.form').' '.trans('index.edit'));
     }
 
-    public function clone($id)
+    public function edit(User $user)
     {
-        $this->checkPermission();
+        $this->pageType('edit', 'edit_form');
 
-        $this->resetFilter();
-        $this->resetValidation();
-
-        $this->user = User::find($id);
-
-        if (! $this->user) {
-            return $this->flash(
-                'error',
-                "{$this->pageName} ".trans('index.not_found_or_has_been_deleted'),
-                [],
-                route("{$this->subDomain}.{$this->pageCategorySlug}.{$this->pageSlug}.index"),
-            );
-        }
+        $this->user = $user;
+        $this->row = $user->id;
 
         $this->resetForm();
-
-        $this->pageType = 'clone';
-        $this->row = $id;
-
-        $this->alert('info', trans('index.form').' '.trans('index.clone'));
     }
 
     public function view($id)
     {
-        $this->resetFilter();
-        $this->resetValidation();
+        $user = User::withTrashed()->findOrFail($id);
 
-        $this->pageType = 'view';
-        $this->row = $id;
+        $this->pageType('view', 'view_details');
 
-        $this->user = User::withTrashed()->find($id);
-
-        if (! $this->user) {
-            return $this->flash(
-                'error',
-                "{$this->pageName} ".trans('index.not_found_or_has_been_deleted'),
-                [],
-                route("{$this->subDomain}.{$this->pageCategorySlug}.{$this->pageSlug}.index"),
-            );
-        }
-
-        $this->alert('info', trans('index.view').' '.trans('index.detail'));
-    }
-
-    public function trash()
-    {
-        $this->checkPermission();
-
-        $this->resetFilter();
-        $this->resetValidation();
-
-        $this->pageType = 'trash';
-
-        $this->alert('info', trans('index.data').' '.trans('index.trash'));
+        $this->user = $user;
+        $this->row = $user->id;
     }
 
     public function rules()
@@ -377,15 +217,18 @@ class UserComponent extends Component
         $this->alert('success', "{$this->pageName} ".trans("index.has_been_{$action}_successfully"));
     }
 
-    public function active($id)
+    public function deleteImage(User $user)
     {
         $this->checkPermission('edit');
 
-        $user = User::find($id);
+        (new UserService())->deleteImage($user);
 
-        if (! $user) {
-            return $this->alert('error', "{$this->pageName} ".trans('index.not_found_or_has_been_deleted'));
-        }
+        $this->alert('success', trans('index.image_has_been_deleted_successfully'));
+    }
+
+    public function active(User $user)
+    {
+        $this->checkPermission('edit');
 
         (new UserService())->active($user);
 
@@ -394,45 +237,20 @@ class UserComponent extends Component
         $this->alert('success', "{$this->pageName} ".trans("index.has_been_set_{$active}_successfully"));
     }
 
-    public function deleteImage($id)
+    public function delete(User $user)
     {
-        $this->checkPermission('edit');
+        $this->checkPermission('delete');
 
-        $user = User::find($id);
-
-        if (! $user) {
-            return $this->alert('error', trans('index.image_not_found_or_has_been_deleted'));
-        }
-
-        (new UserService())->deleteImage($user);
-
-        $this->alert('success', trans('index.image_has_been_deleted_successfully'));
-    }
-
-    public function delete($id)
-    {
-        $this->checkPermission();
-
-        $user = User::find($id);
-
-        if (! $user) {
-            return $this->alert('error', "{$this->pageName} ".trans('index.not_found_or_has_been_deleted'));
-        }
-
-        (new UserService())->active($user);
+        (new UserService())->delete($user);
 
         $this->alert('success', "{$this->pageName} ".trans('index.has_been_deleted_successfully'));
     }
 
     public function restore($id)
     {
-        $this->checkPermission();
+        $this->checkPermission('restore');
 
-        $user = User::onlyTrashed()->find($id);
-
-        if (! $user) {
-            return $this->alert('error', "{$this->pageName} ".trans('index.not_found_or_has_been_deleted'));
-        }
+        $user = User::onlyTrashed()->findOrFail($id);
 
         (new UserService())->restore($user);
 
@@ -441,13 +259,9 @@ class UserComponent extends Component
 
     public function deletePermanent($id)
     {
-        $this->checkPermission();
+        $this->checkPermission('deletePermanent');
 
-        $user = User::onlyTrashed()->find($id);
-
-        if (! $user) {
-            return $this->alert('error', "{$this->pageName} ".trans('index.not_found_or_has_been_deleted'));
-        }
+        $user = User::onlyTrashed()->findOrFail($id);
 
         (new UserService())->deletePermanent($user);
 
@@ -463,7 +277,7 @@ class UserComponent extends Component
 
     public function restoreAll(array $ids = [])
     {
-        $this->checkPermission();
+        $this->checkPermission('restore');
 
         (new UserService())->restoreAll($ids);
 
@@ -472,7 +286,7 @@ class UserComponent extends Component
 
     public function deletePermanentAll(array $ids = [])
     {
-        $this->checkPermission();
+        $this->checkPermission('deletePermanent');
 
         (new UserService())->deletePermanentAll($ids);
 
@@ -563,7 +377,7 @@ class UserComponent extends Component
 
     public function exportToExcel()
     {
-        $this->checkPermission('exportToExcel', 'exportToExcel', "{$this->pageName} Export To Excel");
+        $this->checkPermission('exportToExcel');
 
         $this->alert('info', trans('index.export_to_excel'));
 
@@ -572,7 +386,7 @@ class UserComponent extends Component
 
     public function exportToPdf()
     {
-        $this->checkPermission('exportToPdf', 'exportToPdf', "{$this->pageName} Export To PDF");
+        $this->checkPermission('exportToPdf');
 
         $this->alert('info', trans('index.export_to_pdf'));
 

@@ -62,75 +62,9 @@ class SettingComponent extends Component
         'is_active' => ['except' => ''],
     ];
 
-    public function loadData()
-    {
-        $this->readyToLoad = true;
-
-        $this->alert('info', trans('index.data_have_been_loaded_successfully'));
-    }
-
-    public function sort($column, $sort)
-    {
-        $this->order_by = $column;
-        $this->sort_by = $sort;
-
-        $this->resetPage();
-        $this->alert('info', trans('index.sort').' '.trans("index.{$column}").' '.trans("index.{$sort}"));
-    }
-
-    public function advancedSearch()
-    {
-        $this->advanced_search = ! $this->advanced_search;
-
-        $this->alert('info', trans('index.advanced_search'));
-    }
-
-    public function action($id)
-    {
-        $this->action[$id] = empty($this->action[$id]) ? true : false;
-
-        if (! $this->action[$id]) {
-            unset($this->action[$id]);
-        }
-
-        $this->alert('info', trans('index.action')." - ID: {$id}");
-    }
-
-    public function detail($id)
-    {
-        $this->detail[$id] = empty($this->detail[$id]) ? true : false;
-
-        if (! $this->detail[$id]) {
-            unset($this->detail[$id]);
-        }
-
-        $this->alert('info', trans('index.detail')." - ID: {$id}");
-    }
-
     public function resetFilter()
     {
-        $this->resetPage();
-
-        $this->page = 1;
-        $this->per_page = 10;
-        $this->order_by = 'id';
-        $this->sort_by = 'desc';
-
-        $this->reset([
-            'created_by_id',
-            'updated_by_id',
-            'deleted_by_id',
-            'start_created_at',
-            'end_created_at',
-            'start_updated_at',
-            'end_updated_at',
-            'start_deleted_at',
-            'end_deleted_at',
-            'row',
-            'checkbox_id',
-            'action',
-            'detail',
-        ]);
+        $this->resetFilterGlobal();
 
         $this->reset([
             'setting',
@@ -138,8 +72,6 @@ class SettingComponent extends Component
             'value',
             'is_active',
         ]);
-
-        $this->alert('info', trans('index.reset_filter'));
     }
 
     public function resetForm()
@@ -147,28 +79,15 @@ class SettingComponent extends Component
         if ($this->setting) {
             $this->key = $this->key ?: $this->setting->key;
             $this->value = $this->value ?: $this->setting->value;
-            $this->is_active = $this->is_active ?: $this->setting->is_active;
+            $this->is_active = $this->is_active == 1 || ! $this->is_active ? 1 : 0;
         }
 
         $this->alert('info', trans('index.reset_form'));
     }
 
-    public function refresh()
+    public function default()
     {
-        $this->resetValidation();
-        $this->alert('info', trans('index.refresh'));
-    }
-
-    public function updating($name, $value)
-    {
-        $this->resetPage();
-        $this->alert('info', trans('index.updating').' '.trans("validation.attributes.{$name}").' : '.json_encode($value));
-    }
-
-    public function updated($name, $value)
-    {
-        $this->resetPage();
-        $this->alert('info', trans('index.updated').' '.trans("validation.attributes.{$name}").' : '.json_encode($value));
+        $this->is_active = $this->is_active == 1 || ! $this->is_active ? 1 : 0;
     }
 
     public function mount()
@@ -180,7 +99,7 @@ class SettingComponent extends Component
         $this->checkPermission();
 
         if ($this->pageType == 'add') {
-            $this->is_active = $this->is_active == 1 || ! $this->is_active ? 1 : 0;
+            $this->default();
         }
 
         if ($this->row && (! in_array($this->pageType, ['index', 'trash']))) {
@@ -196,113 +115,30 @@ class SettingComponent extends Component
         }
     }
 
-    public function index()
+    public function clone(Setting $setting)
     {
-        $this->resetFilter();
-        $this->resetValidation();
+        $this->pageType('clone', 'clone_form');
 
-        $this->pageType = 'index';
-
-        $this->alert('info', trans('index.back_to_list_data'));
+        $this->setting = $setting;
+        $this->row = $setting->id;
     }
 
-    public function add()
+    public function edit(Setting $setting)
     {
-        $this->checkPermission();
+        $this->pageType('edit', 'edit_form');
 
-        $this->resetFilter();
-        $this->resetValidation();
-
-        $this->is_active = $this->is_active == 1 || ! $this->is_active ? 1 : 0;
-        $this->pageType = 'add';
-
-        $this->alert('info', trans('index.form').' '.trans('index.add'));
-    }
-
-    public function edit($id)
-    {
-        $this->checkPermission();
-
-        $this->resetFilter();
-        $this->resetValidation();
-
-        $this->setting = Setting::find($id);
-
-        if (! $this->setting) {
-            return $this->flash(
-                'error',
-                "{$this->pageName} ".trans('index.not_found_or_has_been_deleted'),
-                [],
-                route("{$this->subDomain}.{$this->pageCategorySlug}.{$this->pageSlug}.index"),
-            );
-        }
-
-        $this->resetForm();
-
-        $this->pageType = 'edit';
-        $this->row = $id;
-
-        $this->alert('info', trans('index.form').' '.trans('index.edit'));
-    }
-
-    public function clone($id)
-    {
-        $this->checkPermission();
-
-        $this->resetFilter();
-        $this->resetValidation();
-
-        $this->setting = Setting::find($id);
-
-        if (! $this->setting) {
-            return $this->flash(
-                'error',
-                "{$this->pageName} ".trans('index.not_found_or_has_been_deleted'),
-                [],
-                route("{$this->subDomain}.{$this->pageCategorySlug}.{$this->pageSlug}.index"),
-            );
-        }
-
-        $this->resetForm();
-
-        $this->pageType = 'clone';
-        $this->row = $id;
-
-        $this->alert('info', trans('index.form').' '.trans('index.clone'));
+        $this->setting = $setting;
+        $this->row = $setting->id;
     }
 
     public function view($id)
     {
-        $this->resetFilter();
-        $this->resetValidation();
+        $setting = Setting::withTrashed()->findOrFail($id);
 
-        $this->pageType = 'view';
-        $this->row = $id;
+        $this->pageType('view', 'view_details');
 
-        $this->setting = Setting::withTrashed()->find($id);
-
-        if (! $this->setting) {
-            return $this->flash(
-                'error',
-                "{$this->pageName} ".trans('index.not_found_or_has_been_deleted'),
-                [],
-                route("{$this->subDomain}.{$this->pageCategorySlug}.{$this->pageSlug}.index"),
-            );
-        }
-
-        $this->alert('info', trans('index.view').' '.trans('index.detail'));
-    }
-
-    public function trash()
-    {
-        $this->checkPermission();
-
-        $this->resetFilter();
-        $this->resetValidation();
-
-        $this->pageType = 'trash';
-
-        $this->alert('info', trans('index.data').' '.trans('index.trash'));
+        $this->setting = $setting;
+        $this->row = $setting->id;
     }
 
     public function rules()
@@ -340,32 +176,20 @@ class SettingComponent extends Component
         $this->alert('success', "{$this->pageName} ".trans("index.has_been_{$action}_successfully"));
     }
 
-    public function active($id)
+    public function active(Setting $setting)
     {
         $this->checkPermission('edit');
 
-        $setting = Setting::find($id);
-
-        if (! $setting) {
-            return $this->alert('error', "{$this->pageName} ".trans('index.not_found_or_has_been_deleted'));
-        }
-
-        (new SettingService())->delete($setting);
+        (new SettingService())->active($setting);
 
         $active = Str::slug(Str::active($setting->is_active), '_');
 
         $this->alert('success', "{$this->pageName} ".trans("index.has_been_set_{$active}_successfully"));
     }
 
-    public function delete($id)
+    public function delete(Setting $setting)
     {
-        $this->checkPermission();
-
-        $setting = Setting::find($id);
-
-        if (! $setting) {
-            return $this->alert('error', "{$this->pageName} ".trans('index.not_found_or_has_been_deleted'));
-        }
+        $this->checkPermission('delete');
 
         (new SettingService())->delete($setting);
 
@@ -374,28 +198,20 @@ class SettingComponent extends Component
 
     public function restore($id)
     {
-        $this->checkPermission();
+        $this->checkPermission('restore');
 
-        $setting = Setting::onlyTrashed()->find($id);
+        $setting = Setting::onlyTrashed()->findOrFail($id);
 
-        if (! $setting) {
-            return $this->alert('error', "{$this->pageName} ".trans('index.not_found_or_has_been_deleted'));
-        }
-
-        (new SettingService())->delete($setting);
+        (new SettingService())->restore($setting);
 
         $this->alert('success', "{$this->pageName} ".trans('index.has_been_restored_successfully'));
     }
 
     public function deletePermanent($id)
     {
-        $this->checkPermission();
+        $this->checkPermission('deletePermanent');
 
-        $setting = Setting::onlyTrashed()->find($id);
-
-        if (! $setting) {
-            return $this->alert('error', "{$this->pageName} ".trans('index.not_found_or_has_been_deleted'));
-        }
+        $setting = Setting::onlyTrashed()->findOrFail($id);
 
         (new SettingService())->deletePermanent($setting);
 
@@ -411,7 +227,7 @@ class SettingComponent extends Component
 
     public function restoreAll(array $ids = [])
     {
-        $this->checkPermission();
+        $this->checkPermission('restore');
 
         (new SettingService())->restoreAll($ids);
 
@@ -420,7 +236,7 @@ class SettingComponent extends Component
 
     public function deletePermanentAll(array $ids = [])
     {
-        $this->checkPermission();
+        $this->checkPermission('deletePermanent');
 
         (new SettingService())->deletePermanentAll($ids);
 
@@ -488,15 +304,15 @@ class SettingComponent extends Component
 
             if ($paginate) {
                 return $settings->paginate($this->per_page ?? 10);
-            } else {
-                return $settings->get();
             }
+
+            return $settings->get();
         }
     }
 
     public function exportToExcel()
     {
-        $this->checkPermission('exportToExcel', 'exportToExcel', "{$this->pageName} Export To Excel");
+        $this->checkPermission('exportToExcel');
 
         $this->alert('info', trans('index.export_to_excel'));
 
@@ -505,7 +321,7 @@ class SettingComponent extends Component
 
     public function exportToPdf()
     {
-        $this->checkPermission('exportToPdf', 'exportToPdf', "{$this->pageName} Export To PDF");
+        $this->checkPermission('exportToPdf');
 
         $this->alert('info', trans('index.export_to_pdf'));
 

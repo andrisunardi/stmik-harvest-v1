@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire\CMS;
 
-use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component as LivewireComponent;
@@ -85,25 +84,81 @@ class Component extends LivewireComponent
 
     public function mount()
     {
-        $this->bgClass = collect(['bg-primary', 'bg-success', 'bg-warning', 'bg-danger', 'bg-info', 'bg-secondary']);
+        $this->bgClass = collect([
+            'bg-primary',
+            'bg-success',
+            'bg-warning',
+            'bg-danger',
+            'bg-info',
+            'bg-secondary',
+        ]);
     }
 
     public function loadData()
     {
         $this->readyToLoad = true;
+
         $this->alert('info', trans('index.data_have_been_loaded_successfully'));
     }
 
-    public function checkPermission(string $type = null)
+    public function refresh()
     {
-        $type = $type ?? $this->pageType;
-        $permission = "{$this->pageName} ".Str::title($type);
+        $this->resetValidation();
 
-        if ($type != 'index' && ! auth()->user()->can($permission)) {
-            abort(403);
+        $this->alert('info', trans('index.refresh'));
+    }
+
+    public function sort($column, $sort)
+    {
+        $this->order_by = $column;
+        $this->sort_by = $sort;
+
+        $this->resetPage();
+
+        $this->alert('info', trans('index.sort').' '.trans("index.{$column}").' '.trans("index.{$sort}"));
+    }
+
+    public function advancedSearch()
+    {
+        $this->advanced_search = ! $this->advanced_search;
+
+        $this->alert('info', trans('index.advanced_search'));
+    }
+
+    public function updating($name, $value)
+    {
+        $this->resetPage();
+
+        $this->alert('info', trans('index.updating').' '.trans("validation.attributes.{$name}").' : '.json_encode($value));
+    }
+
+    public function updated($name, $value)
+    {
+        $this->resetPage();
+
+        $this->alert('info', trans('index.updated').' '.trans("validation.attributes.{$name}").' : '.json_encode($value));
+    }
+
+    public function action($id)
+    {
+        $this->action[$id] = empty($this->action[$id]) ? true : false;
+
+        if (! $this->action[$id]) {
+            unset($this->action[$id]);
         }
 
-        return true;
+        $this->alert('info', trans('index.action')." - ID: {$id}");
+    }
+
+    public function detail($id)
+    {
+        $this->detail[$id] = empty($this->detail[$id]) ? true : false;
+
+        if (! $this->detail[$id]) {
+            unset($this->detail[$id]);
+        }
+
+        $this->alert('info', trans('index.detail')." - ID: {$id}");
     }
 
     public function cancelUploadImage()
@@ -120,55 +175,71 @@ class Component extends LivewireComponent
         $this->alert('success', trans('index.upload_file_has_been_cancelled_successfully'));
     }
 
-    // public function active(Bank $bank)
-    // {
-    //     $this->globalActive($bank);
-    // }
-
-    // public function delete(Bank $bank)
-    // {
-    //     $this->globalDelete($bank);
-    // }
-
-    // public function restore($id)
-    // {
-    //     $this->globalRestore(Bank::class, $id);
-    // }
-
-    public function globalActive($model)
+    public function resetFilterGlobal()
     {
-        $name = Str::slug(Str::substr(get_class($model), 11));
-        $active = Str::slug(Str::active($model->is_active), '_');
+        $this->resetPage();
+        $this->resetValidation();
 
-        $model->is_active = ! $model->is_active;
-        $model->save();
-        $model->refresh();
+        $this->page = 1;
+        $this->per_page = 10;
+        $this->order_by = 'id';
+        $this->sort_by = 'desc';
 
-        return Session::flash('success', trans("index.{$name}").' '.trans("index.has_been_set_{$active}_successfully"));
+        $this->reset([
+            'created_by_id',
+            'updated_by_id',
+            'deleted_by_id',
+            'start_created_at',
+            'end_created_at',
+            'start_updated_at',
+            'end_updated_at',
+            'start_deleted_at',
+            'end_deleted_at',
+            'row',
+            'checkbox_id',
+            'action',
+            'detail',
+        ]);
+
+        $this->alert('info', trans('index.reset_filter'));
     }
 
-    public function globalDelete($model)
+    public function index()
     {
-        $name = Str::slug(Str::substr(get_class($model), 11));
-
-        $model->delete();
-        $model->refresh();
-
-        return Session::flash('success', trans("index.{$name}").' '.trans('index.has_been_deleted_successfully'));
+        $this->pageType('index', 'back_to_list_data');
     }
 
-    public function globalRestore($model, $id)
+    public function add()
     {
-        $name = Str::slug(Str::substr($model, 11));
+        $this->pageType('add', 'add_form');
 
-        $model = $model::onlyTrashed()->find($id);
-        if (! $model) {
-            return Session::flash('danger', trans('index.'.Str::slug($this->pageName, '_')).' '.trans('index.not_found_or_has_been_deleted'));
+        $this->default();
+    }
+
+    public function trash()
+    {
+        $this->pageType('trash', 'data_trash');
+    }
+
+    public function checkPermission(string $type = null)
+    {
+        $type = $type ?? $this->pageType;
+        $permission = "{$this->pageName} ".Str::headline($type);
+
+        if ($type != 'index' && ! auth()->user()->can($permission)) {
+            abort(403);
         }
 
-        $model->restore();
-        $model->refresh();
+        return true;
+    }
 
-        return Session::flash('success', trans("index.{$name}").' '.trans('index.has_been_restored_successfully'));
+    public function pageType(string $pageType = null, string $message = null)
+    {
+        $this->checkPermission();
+        $this->resetFilter();
+
+        $this->pageType = $pageType;
+
+        $this->alert('info', trans("index.{$message}"));
     }
 }

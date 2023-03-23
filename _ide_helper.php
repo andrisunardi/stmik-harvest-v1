@@ -17781,6 +17781,28 @@
          * @param mixed $value
          * @static 
          */ 
+        public static function show($value)
+        {
+                        return \Illuminate\Support\Str::show($value);
+        }
+                    /**
+         * 
+         *
+         * @see \App\Providers\AppServiceProvider::register()
+         * @param mixed $value
+         * @static 
+         */ 
+        public static function public($value)
+        {
+                        return \Illuminate\Support\Str::public($value);
+        }
+                    /**
+         * 
+         *
+         * @see \App\Providers\AppServiceProvider::register()
+         * @param mixed $value
+         * @static 
+         */ 
         public static function successdanger($value)
         {
                         return \Illuminate\Support\Str::successdanger($value);

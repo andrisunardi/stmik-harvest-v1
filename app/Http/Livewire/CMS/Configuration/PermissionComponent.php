@@ -67,75 +67,9 @@ class PermissionComponent extends Component
         'roles_id' => ['except' => ''],
     ];
 
-    public function loadData()
-    {
-        $this->readyToLoad = true;
-
-        $this->alert('info', trans('index.data_have_been_loaded_successfully'));
-    }
-
-    public function sort($column, $sort)
-    {
-        $this->order_by = $column;
-        $this->sort_by = $sort;
-
-        $this->resetPage();
-        $this->alert('info', trans('index.sort').' '.trans("index.{$column}").' '.trans("index.{$sort}"));
-    }
-
-    public function advancedSearch()
-    {
-        $this->advanced_search = ! $this->advanced_search;
-
-        $this->alert('info', trans('index.advanced_search'));
-    }
-
-    public function action($id)
-    {
-        $this->action[$id] = empty($this->action[$id]) ? true : false;
-
-        if (! $this->action[$id]) {
-            unset($this->action[$id]);
-        }
-
-        $this->alert('info', trans('index.action')." - ID: {$id}");
-    }
-
-    public function detail($id)
-    {
-        $this->detail[$id] = empty($this->detail[$id]) ? true : false;
-
-        if (! $this->detail[$id]) {
-            unset($this->detail[$id]);
-        }
-
-        $this->alert('info', trans('index.detail')." - ID: {$id}");
-    }
-
     public function resetFilter()
     {
-        $this->resetPage();
-
-        $this->page = 1;
-        $this->per_page = 10;
-        $this->order_by = 'id';
-        $this->sort_by = 'desc';
-
-        $this->reset([
-            'created_by_id',
-            'updated_by_id',
-            'deleted_by_id',
-            'start_created_at',
-            'end_created_at',
-            'start_updated_at',
-            'end_updated_at',
-            'start_deleted_at',
-            'end_deleted_at',
-            'row',
-            'checkbox_id',
-            'action',
-            'detail',
-        ]);
+        $this->resetFilterGlobal();
 
         $this->reset([
             'permission',
@@ -144,37 +78,22 @@ class PermissionComponent extends Component
             'role_id',
             'roles_id',
         ]);
-
-        $this->alert('info', trans('index.reset_filter'));
     }
 
     public function resetForm()
     {
         if ($this->permission) {
-            $this->name = $this->name ?? $this->permission->name;
-            $this->guard_name = $this->guard_name ?? $this->permission->guard_name;
-            $this->roles_id = $this->roles_id ? $this->roles_id : $this->permission->roles->pluck('id')->toArray();
+            $this->name = $this->name ?: $this->permission->name;
+            $this->guard_name = $this->guard_name ?: $this->permission->guard_name;
+            $this->roles_id = $this->roles_id ?: $this->permission->roles->pluck('id')->toArray();
         }
 
         $this->alert('info', trans('index.reset_form'));
     }
 
-    public function refresh()
+    public function default()
     {
-        $this->resetValidation();
-        $this->alert('info', trans('index.refresh'));
-    }
-
-    public function updating($name, $value)
-    {
-        $this->resetPage();
-        $this->alert('info', trans('index.updating').' '.trans("validation.attributes.{$name}").' : '.json_encode($value));
-    }
-
-    public function updated($name, $value)
-    {
-        $this->resetPage();
-        $this->alert('info', trans('index.updated').' '.trans("validation.attributes.{$name}").' : '.json_encode($value));
+        $this->guard_name = 'web';
     }
 
     public function mount()
@@ -183,12 +102,10 @@ class PermissionComponent extends Component
             abort(404);
         }
 
-        $this->checkPermission($this->pageType, 'add', "{$this->pageName} Add");
-        $this->checkPermission($this->pageType, 'clone', "{$this->pageName} Clone");
-        $this->checkPermission($this->pageType, 'edit', "{$this->pageName} Edit");
+        $this->checkPermission();
 
         if ($this->pageType == 'add') {
-            $this->guard_name = 'web';
+            $this->default();
         }
 
         if ($this->row && (! in_array($this->pageType, ['index']))) {
@@ -200,101 +117,32 @@ class PermissionComponent extends Component
         }
     }
 
-    public function index()
+    public function clone(Permission $permission)
     {
-        $this->resetFilter();
-        $this->resetValidation();
+        $this->pageType('clone', 'clone_form');
 
-        $this->pageType = 'index';
-
-        $this->alert('info', trans('index.back_to_list_data'));
-    }
-
-    public function add()
-    {
-        $this->checkPermission();
-
-        $this->resetFilter();
-        $this->resetValidation();
-
-        $this->guard_name = 'web';
-        $this->pageType = 'add';
-
-        $this->alert('info', trans('index.form').' '.trans('index.add'));
-    }
-
-    public function edit($id)
-    {
-        $this->checkPermission();
-
-        $this->resetFilter();
-        $this->resetValidation();
-
-        $this->permission = Permission::find($id);
-
-        if (! $this->permission) {
-            return $this->flash(
-                'error',
-                "{$this->pageName} ".trans('index.not_found_or_has_been_deleted'),
-                [],
-                route("{$this->subDomain}.{$this->pageCategorySlug}.{$this->pageSlug}.index"),
-            );
-        }
+        $this->permission = $permission;
+        $this->row = $permission->id;
 
         $this->resetForm();
-
-        $this->pageType = 'edit';
-        $this->row = $id;
-
-        $this->alert('info', trans('index.form').' '.trans('index.edit'));
     }
 
-    public function clone($id)
+    public function edit(Permission $permission)
     {
-        $this->checkPermission();
+        $this->pageType('edit', 'edit_form');
 
-        $this->resetFilter();
-        $this->resetValidation();
-
-        $this->permission = Permission::find($id);
-
-        if (! $this->permission) {
-            return $this->flash(
-                'error',
-                "{$this->pageName} ".trans('index.not_found_or_has_been_deleted'),
-                [],
-                route("{$this->subDomain}.{$this->pageCategorySlug}.{$this->pageSlug}.index"),
-            );
-        }
+        $this->permission = $permission;
+        $this->row = $permission->id;
 
         $this->resetForm();
-
-        $this->pageType = 'clone';
-        $this->row = $id;
-
-        $this->alert('info', trans('index.form').' '.trans('index.clone'));
     }
 
-    public function view($id)
+    public function view(Permission $permission)
     {
-        $this->resetFilter();
-        $this->resetValidation();
+        $this->pageType('view', 'view_details');
 
-        $this->pageType = 'view';
-        $this->row = $id;
-
-        $this->permission = Permission::find($id);
-
-        if (! $this->permission) {
-            return $this->flash(
-                'error',
-                "{$this->pageName} ".trans('index.not_found_or_has_been_deleted'),
-                [],
-                route("{$this->subDomain}.{$this->pageCategorySlug}.{$this->pageSlug}.index"),
-            );
-        }
-
-        $this->alert('info', trans('index.view').' '.trans('index.detail'));
+        $this->permission = $permission;
+        $this->row = $permission->id;
     }
 
     public function rules()
@@ -332,15 +180,9 @@ class PermissionComponent extends Component
         $this->alert('success', "{$this->pageName} ".trans("index.has_been_{$action}_successfully"));
     }
 
-    public function delete($id)
+    public function delete(Permission $permission)
     {
-        $this->checkPermission();
-
-        $permission = Permission::find($id);
-
-        if (! $permission) {
-            return $this->alert('error', "{$this->pageName} ".trans('index.not_found_or_has_been_deleted'));
-        }
+        $this->checkPermission('delete');
 
         (new PermissionService())->delete($permission);
 
@@ -371,15 +213,15 @@ class PermissionComponent extends Component
 
             if ($paginate) {
                 return $permissions->paginate($this->per_page ?? 10);
-            } else {
-                return $permissions->get();
             }
+
+            return $permissions->get();
         }
     }
 
     public function exportToExcel()
     {
-        $this->checkPermission('exportToExcel', 'exportToExcel', "{$this->pageName} Export To Excel");
+        $this->checkPermission('exportToExcel');
 
         $this->alert('info', trans('index.export_to_excel'));
 
@@ -388,7 +230,7 @@ class PermissionComponent extends Component
 
     public function exportToPdf()
     {
-        $this->checkPermission('exportToPdf', 'exportToPdf', "{$this->pageName} Export To PDF");
+        $this->checkPermission('exportToPdf');
 
         $this->alert('info', trans('index.export_to_pdf'));
 
