@@ -1,7 +1,7 @@
 @section("title", $pageTitle)
 @section("icon", $pageIcon)
 
-<div>
+<div wire:init="loadData">
 
     @include("{$subDomain}.livewire.{$pageCategorySlug}.button")
 
@@ -40,16 +40,29 @@
                                     </div>
                                     <div class="col-6">
                                         @if (Arr::exists($activity->changes, ["attributes"]))
-                                            <h6>{{ trans("index.new") }}</h6>
+                                            <h6>{{ trans("index.attributes") }}</h6>
                                             <pre><code>{{ json_encode($activity->changes["attributes"], JSON_PRETTY_PRINT) }}</code></pre>
                                         @endif
                                     </div>
                                 </div>
                             </button>
                         @endforeach
+
+                        @if (!$activities->count())
+                            <div class="text-center">
+                                <div wire:loading.remove>
+                                    {{ trans("index.no_data_available") }}
+                                </div>
+                                <div wire:loading>
+                                    {{ trans("index.now_loading") }}
+                                </div>
+                            </div>
+                        @endif
                     </div>
 
-                    {{ $activities->links("{$subDomain}.layouts.pagination") }}
+                    @if ($activities->first())
+                        {{ $activities->links("{$subDomain}.layouts.pagination") }}
+                    @endif
                 </div>
 
                 <div class="card-footer bg-info"></div>

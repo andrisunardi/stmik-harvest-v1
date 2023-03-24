@@ -35,7 +35,7 @@ class ActivityLogComponent extends Component
     public function render()
     {
         return view("{$this->subDomain}.livewire.{$this->pageCategorySlug}.{$this->pageSlug}", [
-            'activities' => $this->getActivities(),
+            'activities' => $this->readyToLoad ? $this->getActivities() : collect(),
         ])->extends("{$this->subDomain}.layouts.app")->section('content');
     }
 }

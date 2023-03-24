@@ -100,7 +100,7 @@
                                 </div>
                                 <div class="col-6">
                                     @if (Arr::exists($activity->changes, ["attributes"]))
-                                        <h6>{{ trans("index.new") }}</h6>
+                                        <h6>{{ trans("index.attributes") }}</h6>
                                         <pre><code>{{ json_encode($activity->changes["attributes"], JSON_PRETTY_PRINT) }}</code></pre>
                                     @endif
                                 </div>
