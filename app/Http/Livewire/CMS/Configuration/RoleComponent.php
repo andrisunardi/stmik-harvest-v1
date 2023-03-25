@@ -80,12 +80,23 @@ class RoleComponent extends Component
         ]);
     }
 
-    public function resetForm()
+    public function setFormData()
     {
         if ($this->role) {
             $this->name = $this->name ?: $this->role->name;
             $this->guard_name = $this->guard_name ?: $this->role->guard_name;
             $this->permissions_id = $this->permissions_id ?: $this->role->permissions->pluck('id')->toArray();
+        }
+
+        $this->alert('info', trans('index.set_form_data'));
+    }
+
+    public function resetForm()
+    {
+        if ($this->role) {
+            $this->name = $this->role->name;
+            $this->guard_name = $this->role->guard_name;
+            $this->permissions_id = $this->role->permissions->pluck('id')->toArray();
         }
 
         $this->alert('info', trans('index.reset_form'));
@@ -112,7 +123,7 @@ class RoleComponent extends Component
             $this->role = Role::findOrFail($this->row);
 
             if ($this->pageType != 'view') {
-                $this->resetForm();
+                $this->setFormData();
             }
         }
     }
@@ -124,7 +135,7 @@ class RoleComponent extends Component
         $this->role = $role;
         $this->row = $role->id;
 
-        $this->resetForm();
+        $this->setFormData();
     }
 
     public function edit(Role $role)
@@ -134,7 +145,7 @@ class RoleComponent extends Component
         $this->role = $role;
         $this->row = $role->id;
 
-        $this->resetForm();
+        $this->setFormData();
     }
 
     public function delete(Role $role)

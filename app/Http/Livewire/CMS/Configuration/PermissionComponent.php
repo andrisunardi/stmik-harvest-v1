@@ -80,12 +80,23 @@ class PermissionComponent extends Component
         ]);
     }
 
-    public function resetForm()
+    public function setFormData()
     {
         if ($this->permission) {
             $this->name = $this->name ?: $this->permission->name;
             $this->guard_name = $this->guard_name ?: $this->permission->guard_name;
             $this->roles_id = $this->roles_id ?: $this->permission->roles->pluck('id')->toArray();
+        }
+
+        $this->alert('info', trans('index.set_form_data'));
+    }
+
+    public function resetForm()
+    {
+        if ($this->permission) {
+            $this->name = $this->permission->name;
+            $this->guard_name = $this->permission->guard_name;
+            $this->roles_id = $this->permission->roles->pluck('id')->toArray();
         }
 
         $this->alert('info', trans('index.reset_form'));
@@ -112,7 +123,7 @@ class PermissionComponent extends Component
             $this->permission = Permission::findOrFail($this->row);
 
             if ($this->pageType != 'view') {
-                $this->resetForm();
+                $this->setFormData();
             }
         }
     }
@@ -124,7 +135,7 @@ class PermissionComponent extends Component
         $this->permission = $permission;
         $this->row = $permission->id;
 
-        $this->resetForm();
+        $this->setFormData();
     }
 
     public function edit(Permission $permission)
@@ -134,7 +145,7 @@ class PermissionComponent extends Component
         $this->permission = $permission;
         $this->row = $permission->id;
 
-        $this->resetForm();
+        $this->setFormData();
     }
 
     public function view(Permission $permission)

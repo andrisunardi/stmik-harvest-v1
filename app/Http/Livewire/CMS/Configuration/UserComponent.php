@@ -102,7 +102,7 @@ class UserComponent extends Component
         ]);
     }
 
-    public function resetForm()
+    public function setFormData()
     {
         if ($this->user) {
             $this->name = $this->name ?: $this->user->name;
@@ -111,6 +111,20 @@ class UserComponent extends Component
             $this->phone = $this->phone ?: $this->user->phone;
             $this->is_active = $this->is_active ?: $this->user->is_active;
             $this->roles_id = $this->roles_id ?: $this->user->roles->pluck('id')->toArray();
+        }
+
+        $this->alert('info', trans('index.set_form_data'));
+    }
+
+    public function resetForm()
+    {
+        if ($this->user) {
+            $this->name = $this->user->name;
+            $this->username = $this->user->username;
+            $this->email = $this->user->email;
+            $this->phone = $this->user->phone;
+            $this->is_active = $this->user->is_active;
+            $this->roles_id = $this->user->roles->pluck('id')->toArray();
         }
 
         $this->alert('info', trans('index.reset_form'));

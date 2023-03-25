@@ -74,12 +74,23 @@ class SettingComponent extends Component
         ]);
     }
 
-    public function resetForm()
+    public function setFormData()
     {
         if ($this->setting) {
             $this->key = $this->key ?: $this->setting->key;
             $this->value = $this->value ?: $this->setting->value;
-            $this->is_active = $this->is_active == 1 || ! $this->is_active ? 1 : 0;
+            $this->is_active = $this->is_active ?: $this->setting->is_active;
+        }
+
+        $this->alert('info', trans('index.set_form_data'));
+    }
+
+    public function resetForm()
+    {
+        if ($this->setting) {
+            $this->key = $this->setting->key;
+            $this->value = $this->setting->value;
+            $this->is_active = $this->setting->is_active;
         }
 
         $this->alert('info', trans('index.reset_form'));
@@ -87,7 +98,7 @@ class SettingComponent extends Component
 
     public function default()
     {
-        $this->is_active = $this->is_active == 1 || ! $this->is_active ? 1 : 0;
+        $this->is_active = 1;
     }
 
     public function mount()
@@ -121,6 +132,8 @@ class SettingComponent extends Component
 
         $this->setting = $setting;
         $this->row = $setting->id;
+
+        $this->setFormData();
     }
 
     public function edit(Setting $setting)
@@ -129,6 +142,8 @@ class SettingComponent extends Component
 
         $this->setting = $setting;
         $this->row = $setting->id;
+
+        $this->setFormData();
     }
 
     public function view($id)
