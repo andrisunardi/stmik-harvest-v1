@@ -1,6 +1,6 @@
 <table>
     <tr><th align="center" colspan="17"><b>{{ env("APP_NAME") }}</b></th></tr>
-    <tr><th align="center" colspan="17"><b>{{ Str::upper(trans("index." . Str::slug($title, '_'))) }}</b></th></tr>
+    <tr><th align="center" colspan="17"><b>{{ Str::upper(Str::translate($title)) }}</b></th></tr>
     <tr><th align="center" colspan="17">{{ trans("index.printed_date") }} : {{ now()->format("l, H:i:s") }} {{ now()->isoFormat("LL") }}</th></tr>
     <tr></tr>
     <tr>
