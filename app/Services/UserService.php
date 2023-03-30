@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\User;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
@@ -59,12 +60,10 @@ class UserService
 
     public function edit(User $user, $data): User
     {
-        $password = $data['password'] ?? null;
-
-        if ($password) {
+        if ($data['password']) {
             $data['password'] = Hash::make($data['password']);
         } else {
-            unset($data['password']);
+            Arr::pull($data, 'password');
         }
 
         $image = $data['image'];
