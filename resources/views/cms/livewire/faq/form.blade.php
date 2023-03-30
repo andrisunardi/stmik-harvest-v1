@@ -1,6 +1,10 @@
 <div>
     <form wire:submit.prevent="submit" role="form" autocomplete="off">
 
+        @if ($errors->any())
+            {{ $this->alert("error", implode("", $errors->all(":message<br>"))) }}
+        @endif
+
         <div class="row">
             <div class="form-group col-sm-6 mb-3">
                 @php $input = "question" @endphp
