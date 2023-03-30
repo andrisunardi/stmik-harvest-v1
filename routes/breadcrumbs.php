@@ -20,6 +20,16 @@ Breadcrumbs::for('livewire.preview-file', function (BreadcrumbTrail $trail) {
     $trail->push(trans('index.preview_file'), null, ['icon' => 'fas fa-photo-film fa-fw']);
 });
 
+Breadcrumbs::for('telescope', function (BreadcrumbTrail $trail) {
+    $trail->parent('index');
+    $trail->push(trans('index.telescope'), null, ['icon' => 'fas fa-telescope fa-fw']);
+});
+
+Breadcrumbs::for('horizon.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('index');
+    $trail->push(trans('index.horizon'), null, ['icon' => 'fas fa-cloud-moon fa-fw']);
+});
+
 Breadcrumbs::for('index', function (BreadcrumbTrail $trail) {
     $trail->push(trans('index.home'), route('index'), ['icon' => 'fas fa-home fa-fw']);
 });
