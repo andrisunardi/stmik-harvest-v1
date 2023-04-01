@@ -106,11 +106,11 @@
                         <td>
                             <a draggable="false" href="https://api.whatsapp.com/send?phone={{ Str::phone($registration->phone) }}">{{ $registration->phone }}</a>
                         </td>
-                        <td>{{ Str::translate($registration->gender?->name) }}</td>
+                        <td class="text-center">{{ Str::translate($registration->gender?->name) }}</td>
                         <td>{{ $registration->school }}</td>
                         <td>{{ $registration->major }}</td>
                         <td>{{ $registration->city }}</td>
-                        <td>{{ Str::translate($registration->type?->name) }}</td>
+                        <td class="text-center">{{ Str::translate($registration->type?->name) }}</td>
                         <td>
                             @if ($pageType == "index")
                                 @can("{$pageName} Edit")

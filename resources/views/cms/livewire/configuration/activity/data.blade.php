@@ -78,7 +78,7 @@
                         <td class="text-center">{{ $activity->id }}</td>
                         <td>{{ $activity->log_name }}</td>
                         <td class="text-wrap">{{ $activity->description }}</td>
-                        <td>{{ Str::translate($activity->event) }}</td>
+                        <td class="text-center">{{ Str::translate($activity->event) }}</td>
                         <td>
                             <div>{{ Str::after($activity->subject_type, "App\Models\\") }}</div>
                             <div>{{ trans("index.id") }} : {{ $activity->subject_id }}</div>
