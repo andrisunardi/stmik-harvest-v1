@@ -107,8 +107,8 @@ class HomeComponent extends Component
 
     public function getEvents()
     {
-        return Event::whereDate('start', '>=', now()->format('Y-m-d'))
-            ->whereDate('end', '<=', now()->format('Y-m-d'))
+        return Event::whereDate('start', '<=', now()->format('Y-m-d'))
+            ->whereDate('end', '>=', now()->format('Y-m-d'))
             ->active()->limit(6)->latest('start')->get();
     }
 
