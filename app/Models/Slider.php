@@ -120,7 +120,7 @@ class Slider extends Model
         'description',
         'description_idn',
         'button_name',
-        'button_name_id',
+        'button_name_idn',
         'button_link',
         'image',
         'is_active',
