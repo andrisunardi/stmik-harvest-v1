@@ -15,6 +15,7 @@ class BlogService
 
     public function add(array $data = []): Blog
     {
+        $data['blog_category_id'] = $data['blog_category_id'] ?: null;
         $data['date'] = $data['date'] ?: null;
 
         $image = $data['image'];
@@ -34,6 +35,7 @@ class BlogService
 
     public function clone(array $data, Blog $blog): Blog
     {
+        $data['blog_category_id'] = $data['blog_category_id'] ?: null;
         $data['date'] = $data['date'] ?: null;
 
         $image = $data['image'];
@@ -62,6 +64,7 @@ class BlogService
 
     public function edit(Blog $blog, $data): Blog
     {
+        $data['blog_category_id'] = $data['blog_category_id'] ?: null;
         $data['date'] = $data['date'] ?: null;
 
         $image = $data['image'];

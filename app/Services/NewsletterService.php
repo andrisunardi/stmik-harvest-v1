@@ -13,6 +13,8 @@ class NewsletterService
 
     public function add(array $data = []): Newsletter
     {
+        $data['type'] = $data['type'] ?: null;
+
         DB::statement(DB::raw("ALTER TABLE {$this->table} AUTO_INCREMENT = 1"));
 
         return Newsletter::create($data);
@@ -20,6 +22,8 @@ class NewsletterService
 
     public function clone(array $data, Newsletter $newsletter): Newsletter
     {
+        $data['type'] = $data['type'] ?: null;
+
         DB::statement(DB::raw("ALTER TABLE {$this->table} AUTO_INCREMENT = 1"));
 
         return Newsletter::create($data);
@@ -27,6 +31,8 @@ class NewsletterService
 
     public function edit(Newsletter $newsletter, $data): Newsletter
     {
+        $data['type'] = $data['type'] ?: null;
+
         $newsletter->update($data);
         $newsletter->refresh();
 

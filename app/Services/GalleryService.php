@@ -15,6 +15,8 @@ class GalleryService
 
     public function add(array $data = []): Gallery
     {
+        $data['category'] = $data['category'] ?: null;
+
         $image = $data['image'];
         $imageName = Str::slug($data['name']).'-'.now()->format('Y-m-d-H-i-s');
 
@@ -51,6 +53,8 @@ class GalleryService
 
     public function clone(array $data, Gallery $gallery): Gallery
     {
+        $data['category'] = $data['category'] ?: null;
+
         $image = $data['image'];
         $imageName = Str::slug($data['name']).'-'.now()->format('Y-m-d-H-i-s');
 
@@ -105,6 +109,8 @@ class GalleryService
 
     public function edit(Gallery $gallery, $data): Gallery
     {
+        $data['category'] = $data['category'] ?: null;
+
         $image = $data['image'];
         $imageName = Str::slug($data['name']).'-'.now()->format('Y-m-d-H-i-s');
 

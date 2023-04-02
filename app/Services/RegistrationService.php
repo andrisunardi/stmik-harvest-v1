@@ -13,6 +13,9 @@ class RegistrationService
 
     public function add(array $data = []): Registration
     {
+        $data['gender'] = $data['gender'] ?: null;
+        $data['type'] = $data['type'] ?: null;
+
         DB::statement(DB::raw("ALTER TABLE {$this->table} AUTO_INCREMENT = 1"));
 
         return Registration::create($data);
@@ -20,6 +23,9 @@ class RegistrationService
 
     public function clone(array $data, Registration $registration): Registration
     {
+        $data['gender'] = $data['gender'] ?: null;
+        $data['type'] = $data['type'] ?: null;
+
         DB::statement(DB::raw("ALTER TABLE {$this->table} AUTO_INCREMENT = 1"));
 
         return Registration::create($data);
@@ -27,6 +33,9 @@ class RegistrationService
 
     public function edit(Registration $registration, $data): Registration
     {
+        $data['gender'] = $data['gender'] ?: null;
+        $data['type'] = $data['type'] ?: null;
+
         $registration->update($data);
         $registration->refresh();
 

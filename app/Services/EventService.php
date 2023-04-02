@@ -15,6 +15,7 @@ class EventService
 
     public function add(array $data = []): Event
     {
+        $data['event_category_id'] = $data['event_category_id'] ?: null;
         $data['start'] = $data['start'] ?: null;
         $data['end'] = $data['end'] ?: null;
 
@@ -35,6 +36,7 @@ class EventService
 
     public function clone(array $data, Event $event): Event
     {
+        $data['event_category_id'] = $data['event_category_id'] ?: null;
         $data['start'] = $data['start'] ?: null;
         $data['end'] = $data['end'] ?: null;
 
@@ -64,6 +66,7 @@ class EventService
 
     public function edit(Event $event, $data): Event
     {
+        $data['event_category_id'] = $data['event_category_id'] ?: null;
         $data['start'] = $data['start'] ?: null;
         $data['end'] = $data['end'] ?: null;
 
