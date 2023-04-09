@@ -156,7 +156,7 @@ class FaqComponent extends Component
             $this->question_idn = $this->question_idn ?: $this->faq->question_idn;
             $this->answer = $this->answer ?: $this->faq->answer;
             $this->answer_idn = $this->answer_idn ?: $this->faq->answer_idn;
-            $this->is_active = $this->is_active ?: $this->faq->is_active;
+            $this->is_active = $this->is_active ?: $this->faq->is_active ?: '';
         }
 
         $this->alert('info', trans('index.reset_form'));

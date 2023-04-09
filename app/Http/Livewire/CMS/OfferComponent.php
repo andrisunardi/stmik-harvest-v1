@@ -171,7 +171,7 @@ class OfferComponent extends Component
             $this->button_name = $this->button_name ?: $this->offer->button_name;
             $this->button_name_idn = $this->button_name_idn ?: $this->offer->button_name_idn;
             $this->button_link = $this->button_link ?: $this->offer->button_link;
-            $this->is_active = $this->is_active ?: $this->offer->is_active;
+            $this->is_active = $this->is_active ?: $this->offer->is_active ?: '';
         }
 
         $this->alert('info', trans('index.reset_form'));

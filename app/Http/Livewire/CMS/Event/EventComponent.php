@@ -193,7 +193,7 @@ class EventComponent extends Component
     public function resetForm()
     {
         if ($this->event) {
-            $this->event_category_id = $this->event_category_id ?: $this->event->event_category_id;
+            $this->event_category_id = $this->event_category_id ?: $this->event->event_category_id ?: '';
             $this->title = $this->title ?: $this->event->title;
             $this->title_idn = $this->title_idn ?: $this->event->title_idn;
             $this->short_body = $this->short_body ?: $this->event->short_body;
@@ -206,7 +206,7 @@ class EventComponent extends Component
             $this->tag = $this->tag ?: $this->event->tag;
             $this->tag_idn = $this->tag_idn ?: $this->event->tag_idn;
             $this->slug = $this->slug ?: $this->event->slug;
-            $this->is_active = $this->is_active ?: $this->event->is_active;
+            $this->is_active = $this->is_active ?: $this->event->is_active ?: '';
         }
 
         $this->alert('info', trans('index.reset_form'));

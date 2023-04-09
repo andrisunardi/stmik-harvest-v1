@@ -147,8 +147,8 @@ class NewsletterComponent extends Component
     {
         if ($this->newsletter) {
             $this->value = $this->value ?: $this->newsletter->value;
-            $this->type = $this->type ?: $this->newsletter->type;
-            $this->is_active = $this->is_active ?: $this->newsletter->is_active;
+            $this->type = $this->type ?: $this->newsletter->type?->value ?: '';
+            $this->is_active = $this->is_active ?: $this->newsletter->is_active ?: '';
         }
 
         $this->alert('info', trans('index.reset_form'));

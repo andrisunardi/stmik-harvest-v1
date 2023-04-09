@@ -161,7 +161,7 @@ class BlogCategoryComponent extends Component
             $this->name_idn = $this->name_idn ?: $this->blogCategory->name_idn;
             $this->description = $this->description ?: $this->blogCategory->description;
             $this->description_idn = $this->description_idn ?: $this->blogCategory->description_idn;
-            $this->is_active = $this->is_active ?: $this->blogCategory->is_active;
+            $this->is_active = $this->is_active ?: $this->blogCategory->is_active ?: '';
         }
 
         $this->alert('info', trans('index.reset_form'));

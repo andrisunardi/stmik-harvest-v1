@@ -166,7 +166,7 @@ class ContactComponent extends Component
             $this->phone = $this->phone ?: $this->contact->phone;
             $this->subject = $this->subject ?: $this->contact->subject;
             $this->message = $this->message ?: $this->contact->message;
-            $this->is_active = $this->is_active ?: $this->contact->is_active;
+            $this->is_active = $this->is_active ?: $this->contact->is_active ?: '';
         }
 
         $this->alert('info', trans('index.reset_form'));

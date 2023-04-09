@@ -159,7 +159,7 @@ class BannerComponent extends Component
             $this->name_idn = $this->name_idn ?: $this->banner->name_idn;
             $this->description = $this->description ?: $this->banner->description;
             $this->description_idn = $this->description_idn ?: $this->banner->description_idn;
-            $this->is_active = $this->is_active ?: $this->banner->is_active;
+            $this->is_active = $this->is_active ?: $this->banner->is_active ?: '';
         }
 
         $this->alert('info', trans('index.reset_form'));

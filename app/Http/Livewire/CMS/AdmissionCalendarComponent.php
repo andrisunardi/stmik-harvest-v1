@@ -161,7 +161,7 @@ class AdmissionCalendarComponent extends Component
             $this->description = $this->description ?: $this->admissionCalendar->description;
             $this->description_idn = $this->description_idn ?: $this->admissionCalendar->description_idn;
             $this->date = $this->date ?: $this->event->date?->format('Y-m-d');
-            $this->is_active = $this->is_active ?: $this->admissionCalendar->is_active;
+            $this->is_active = $this->is_active ?: $this->admissionCalendar->is_active ?: '';
         }
 
         $this->alert('info', trans('index.reset_form'));

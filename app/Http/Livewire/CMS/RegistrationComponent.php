@@ -174,12 +174,12 @@ class RegistrationComponent extends Component
             $this->name = $this->name ?: $this->registration->name;
             $this->email = $this->email ?: $this->registration->email;
             $this->phone = $this->phone ?: $this->registration->phone;
-            $this->gender = $this->gender ?: $this->registration->gender;
+            $this->gender = $this->gender ?: $this->registration->gender?->value ?: '';
             $this->school = $this->school ?: $this->registration->school;
             $this->major = $this->major ?: $this->registration->major;
             $this->city = $this->city ?: $this->registration->city;
-            $this->type = $this->type ?: $this->registration->type;
-            $this->is_active = $this->is_active ?: $this->registration->is_active;
+            $this->type = $this->type ?: $this->registration->type?->value ?: '';
+            $this->is_active = $this->is_active ?: $this->registration->is_active ?: '';
         }
 
         $this->alert('info', trans('index.reset_form'));

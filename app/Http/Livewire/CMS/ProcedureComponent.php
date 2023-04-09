@@ -156,7 +156,7 @@ class ProcedureComponent extends Component
             $this->name_idn = $this->name_idn ?: $this->procedure->name_idn;
             $this->description = $this->description ?: $this->procedure->description;
             $this->description_idn = $this->description_idn ?: $this->procedure->description_idn;
-            $this->is_active = $this->is_active ?: $this->procedure->is_active;
+            $this->is_active = $this->is_active ?: $this->procedure->is_active ?: '';
         }
 
         $this->alert('info', trans('index.reset_form'));

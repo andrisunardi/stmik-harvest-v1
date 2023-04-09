@@ -154,7 +154,7 @@ class TestimonyComponent extends Component
             $this->name = $this->name ?: $this->testimony->name;
             $this->description = $this->description ?: $this->testimony->description;
             $this->graduate = $this->graduate ?: $this->testimony->graduate;
-            $this->is_active = $this->is_active ?: $this->testimony->is_active;
+            $this->is_active = $this->is_active ?: $this->testimony->is_active ?: '';
         }
 
         $this->alert('info', trans('index.reset_form'));

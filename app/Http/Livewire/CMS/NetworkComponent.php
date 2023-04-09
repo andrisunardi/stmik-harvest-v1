@@ -154,7 +154,7 @@ class NetworkComponent extends Component
             $this->name = $this->name ?: $this->network->name;
             $this->description = $this->description ?: $this->network->description;
             $this->link = $this->link ?: $this->network->link;
-            $this->is_active = $this->is_active ?: $this->network->is_active;
+            $this->is_active = $this->is_active ?: $this->network->is_active ?: '';
         }
 
         $this->alert('info', trans('index.reset_form'));

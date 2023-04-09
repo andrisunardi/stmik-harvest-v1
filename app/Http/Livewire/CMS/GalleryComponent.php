@@ -175,7 +175,7 @@ class GalleryComponent extends Component
     public function resetForm()
     {
         if ($this->gallery) {
-            $this->category = $this->category ?: $this->gallery->category;
+            $this->category = $this->category ?: $this->gallery->category?->value ?: '';
             $this->name = $this->name ?: $this->gallery->name;
             $this->name_idn = $this->name_idn ?: $this->gallery->name_idn;
             $this->description = $this->description ?: $this->gallery->description;
@@ -183,7 +183,7 @@ class GalleryComponent extends Component
             $this->tag = $this->tag ?: $this->gallery->tag;
             $this->tag_idn = $this->tag_idn ?: $this->gallery->tag_idn;
             $this->youtube = $this->youtube ?: $this->gallery->youtube;
-            $this->is_active = $this->is_active ?: $this->gallery->is_active;
+            $this->is_active = $this->is_active ?: $this->gallery->is_active ?: '';
         }
 
         $this->alert('info', trans('index.reset_form'));

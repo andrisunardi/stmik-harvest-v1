@@ -156,7 +156,7 @@ class TuitionFeeComponent extends Component
             $this->name_idn = $this->name_idn ?: $this->tuitionFee->name_idn;
             $this->description = $this->description ?: $this->tuitionFee->description;
             $this->description_idn = $this->description_idn ?: $this->tuitionFee->description_idn;
-            $this->is_active = $this->is_active ?: $this->tuitionFee->is_active;
+            $this->is_active = $this->is_active ?: $this->tuitionFee->is_active ?: '';
         }
 
         $this->alert('info', trans('index.reset_form'));

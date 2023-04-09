@@ -90,7 +90,7 @@ class SettingComponent extends Component
         if ($this->setting) {
             $this->key = $this->setting->key;
             $this->value = $this->setting->value;
-            $this->is_active = $this->setting->is_active;
+            $this->is_active = $this->setting->is_active ?: '';
         }
 
         $this->alert('info', trans('index.reset_form'));

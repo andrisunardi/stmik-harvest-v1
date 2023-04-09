@@ -174,7 +174,7 @@ class SliderComponent extends Component
             $this->button_name = $this->button_name ?: $this->slider->button_name;
             $this->button_name_idn = $this->button_name_idn ?: $this->slider->button_name_idn;
             $this->button_link = $this->button_link ?: $this->slider->button_link;
-            $this->is_active = $this->is_active ?: $this->slider->is_active;
+            $this->is_active = $this->is_active ?: $this->slider->is_active ?: '';
         }
 
         $this->alert('info', trans('index.reset_form'));

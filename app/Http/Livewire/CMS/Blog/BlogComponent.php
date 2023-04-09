@@ -185,7 +185,7 @@ class BlogComponent extends Component
     public function resetForm()
     {
         if ($this->blog) {
-            $this->blog_category_id = $this->blog_category_id ?: $this->blog->blog_category_id;
+            $this->blog_category_id = $this->blog_category_id ?: $this->blog->blog_category_id ?: '';
             $this->title = $this->title ?: $this->blog->title;
             $this->title_idn = $this->title_idn ?: $this->blog->title_idn;
             $this->short_body = $this->short_body ?: $this->blog->short_body;
@@ -196,7 +196,7 @@ class BlogComponent extends Component
             $this->tag = $this->tag ?: $this->blog->tag;
             $this->tag_idn = $this->tag_idn ?: $this->blog->tag_idn;
             $this->slug = $this->slug ?: $this->blog->slug;
-            $this->is_active = $this->is_active ?: $this->blog->is_active;
+            $this->is_active = $this->is_active ?: $this->blog->is_active ?: '';
         }
 
         $this->alert('info', trans('index.reset_form'));

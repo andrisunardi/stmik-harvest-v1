@@ -123,7 +123,7 @@ class UserComponent extends Component
             $this->username = $this->user->username;
             $this->email = $this->user->email;
             $this->phone = $this->user->phone;
-            $this->is_active = $this->user->is_active;
+            $this->is_active = $this->user->is_active ?: '';
             $this->roles_id = $this->user->roles->pluck('id')->toArray();
         }
 
