@@ -80,8 +80,10 @@
                         <td class="text-wrap">{{ $activity->description }}</td>
                         <td class="text-center">{{ Str::translate($activity->event) }}</td>
                         <td>
-                            <div>{{ Str::after($activity->subject_type, "App\Models\\") }}</div>
-                            <div>{{ trans("index.id") }} : {{ $activity->subject_id }}</div>
+                            @if ($activity->subject_id)
+                                <div>{{ Str::after($activity->subject_type, "App\Models\\") }}</div>
+                                <div>{{ trans("index.id") }} : {{ $activity->subject_id }}</div>
+                            @endif
                         </td>
                         <td>
                             @if ($activity->causer)
