@@ -68,7 +68,7 @@
                         <td class="text-wrap">{{ $admissionCalendar->name_idn }}</td>
                         <td width="1%">
                             @if ($admissionCalendar->date)
-                                {{ $admissionCalendar->date->format("l,") }}
+                                {{ $admissionCalendar->date->isoFormat("dddd,") }}
                                 {{ $admissionCalendar->date->isoFormat("LL") }}
                                 ({{ $admissionCalendar->date->diffForHumans() }})
                             @endif

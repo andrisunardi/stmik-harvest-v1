@@ -50,7 +50,7 @@
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
             @if ($admissionCalendar->date)
-                {{ $admissionCalendar->date->format("l,") }}
+                {{ $admissionCalendar->date->isoFormat("dddd,") }}
                 {{ $admissionCalendar->date->isoFormat("LL") }}
                 <br class="d-md-none">
                 ({{ $admissionCalendar->date->diffForHumans() }})

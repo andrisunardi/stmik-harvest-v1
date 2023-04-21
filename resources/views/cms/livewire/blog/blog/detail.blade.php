@@ -23,7 +23,7 @@
                         <td width="1%" class="text-nowrap">{{ trans("index.date") }}</td>
                         <td>
                             @if ($blog->date)
-                                {{ $blog->date->format("l,") }}
+                                {{ $blog->date->isoFormat("dddd,") }}
                                 {{ $blog->date->isoFormat("LL") }}
                                 ({{ $blog->date->diffForHumans() }})
                             @endif

@@ -32,7 +32,7 @@
                     <td>{{ $admissionCalendar->description_idn }}</td>
                     <td>
                         @if ($admissionCalendar->date)
-                            {{ $admissionCalendar->date->format("l,") }}
+                            {{ $admissionCalendar->date->isoFormat("dddd,") }}
                             {{ $admissionCalendar->date->isoFormat("LL") }}
                             <br>
                             ({{ $admissionCalendar->date->diffForHumans() }})

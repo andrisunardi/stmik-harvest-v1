@@ -45,7 +45,7 @@
                     <td>{{ $event->location }}</td>
                     <td>
                         @if ($event->start)
-                            {{ $event->start->format("l,") }}
+                            {{ $event->start->isoFormat("dddd,") }}
                             {{ $event->start->isoFormat("LL") }}
                             <br>
                             ({{ $event->start->diffForHumans() }})
@@ -53,7 +53,7 @@
                     </td>
                     <td>
                         @if ($event->end)
-                            {{ $event->end->format("l,") }}
+                            {{ $event->end->isoFormat("dddd,") }}
                             {{ $event->end->isoFormat("LL") }}
                             <br>
                             ({{ $event->end->diffForHumans() }})

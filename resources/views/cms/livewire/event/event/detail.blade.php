@@ -27,7 +27,7 @@
                         <td width="1%" class="text-nowrap">{{ trans("index.start") }}</td>
                         <td>
                             @if ($event->start)
-                                {{ $event->start->format("l,") }}
+                                {{ $event->start->isoFormat("dddd,") }}
                                 {{ $event->start->isoFormat("LL") }}
                                 ({{ $event->start->diffForHumans() }})
                             @endif
@@ -37,7 +37,7 @@
                         <td width="1%" class="text-nowrap">{{ trans("index.end") }}</td>
                         <td>
                             @if ($event->end)
-                                {{ $event->end->format("l,") }}
+                                {{ $event->end->isoFormat("dddd,") }}
                                 {{ $event->end->isoFormat("LL") }}
                                 ({{ $event->end->diffForHumans() }})
                             @endif

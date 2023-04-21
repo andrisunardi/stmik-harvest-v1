@@ -33,7 +33,7 @@
             <td>{{ $blog->body_idn }}</td>
             <td>
                 @if ($blog->date)
-                    {{ $blog->date->format("l,") }}
+                    {{ $blog->date->isoFormat("dddd,") }}
                     {{ $blog->date->isoFormat("LL") }}
                     <br>
                     ({{ $blog->date->diffForHumans() }})

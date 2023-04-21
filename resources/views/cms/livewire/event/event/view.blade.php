@@ -140,7 +140,7 @@
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
             @if ($event->start)
-                {{ $event->start->format("l,") }}
+                {{ $event->start->isoFormat("dddd,") }}
                 {{ $event->start->isoFormat("LL") }}
                 <br class="d-md-none">
                 ({{ $event->start->diffForHumans() }})
@@ -154,7 +154,7 @@
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
             @if ($event->end)
-                {{ $event->end->format("l,") }}
+                {{ $event->end->isoFormat("dddd,") }}
                 {{ $event->end->isoFormat("LL") }}
                 <br class="d-md-none">
                 ({{ $event->end->diffForHumans() }})

@@ -131,7 +131,7 @@
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
             @if ($blog->date)
-                {{ $blog->date->format("l,") }}
+                {{ $blog->date->isoFormat("dddd,") }}
                 {{ $blog->date->isoFormat("LL") }}
                 <br class="d-md-none">
                 ({{ $blog->date->diffForHumans() }})
