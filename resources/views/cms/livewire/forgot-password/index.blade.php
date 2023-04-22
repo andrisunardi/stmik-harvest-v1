@@ -24,6 +24,10 @@
 
                                     <form wire:submit.prevent="submit" role="form" autocomplete="off">
 
+                                        @if ($errors->any())
+                                            {{ $this->alert("error", implode("", $errors->all(":message<br>"))) }}
+                                        @endif
+
                                         <div class="mb-3">
                                             @php $input = "username" @endphp
                                             <label for="{{ $input }}" class="form-label @if ($errors->any()) {{ $errors->has($input) ? "text-danger" : "text-success" }}@endif">
