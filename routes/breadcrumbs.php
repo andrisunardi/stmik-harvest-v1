@@ -95,9 +95,11 @@ Breadcrumbs::for('event.index', function (BreadcrumbTrail $trail) {
 });
 
 Breadcrumbs::for('event.view', function (BreadcrumbTrail $trail, $slug) {
-    $event = Event::where('slug', $slug)->active()->firstOrFail();
+    $event = Event::where('slug', $slug)->active()->first();
     $trail->parent('event.index');
-    $trail->push("{$event->translate_name}", route('event.view', $slug), ['icon' => 'fas fa-eye fa-fw']);
+    if ($event) {
+        $trail->push("{$event->translate_name}", route('event.view', $slug), ['icon' => 'fas fa-eye fa-fw']);
+    }
 });
 
 Breadcrumbs::for('faq.index', function (BreadcrumbTrail $trail) {
@@ -111,9 +113,11 @@ Breadcrumbs::for('blog.index', function (BreadcrumbTrail $trail) {
 });
 
 Breadcrumbs::for('blog.view', function (BreadcrumbTrail $trail, $slug) {
-    $blog = Blog::where('slug', $slug)->active()->firstOrFail();
+    $blog = Blog::where('slug', $slug)->active()->first();
     $trail->parent('blog.index');
-    $trail->push("{$blog->translate_name}", route('blog.view', $slug), ['icon' => 'fas fa-eye fa-fw']);
+    if ($blog) {
+        $trail->push("{$blog->translate_title}", route('blog.view', $slug), ['icon' => 'fas fa-eye fa-fw']);
+    }
 });
 
 Breadcrumbs::for('contact-us.index', function (BreadcrumbTrail $trail) {
