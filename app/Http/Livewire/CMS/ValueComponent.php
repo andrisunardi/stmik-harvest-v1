@@ -363,7 +363,7 @@ class ValueComponent extends Component
 
         (new ValueService())->active($value);
 
-        $active = Str::slug(Str::active($value->is_active), '_');
+        $active = Str::translate(Str::active($value->is_active));
 
         $this->alert('success', "{$this->pageName} ".trans("index.has_been_set_{$active}_successfully"));
     }

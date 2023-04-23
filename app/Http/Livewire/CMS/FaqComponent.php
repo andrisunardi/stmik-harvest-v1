@@ -363,7 +363,7 @@ class FaqComponent extends Component
 
         (new FaqService())->active($faq);
 
-        $active = Str::slug(Str::active($faq->is_active), '_');
+        $active = Str::translate(Str::active($faq->is_active));
 
         $this->alert('success', "{$this->pageName} ".trans("index.has_been_set_{$active}_successfully"));
     }

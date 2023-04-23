@@ -363,7 +363,7 @@ class TuitionFeeComponent extends Component
 
         (new TuitionFeeService())->active($tuitionFee);
 
-        $active = Str::slug(Str::active($tuitionFee->is_active), '_');
+        $active = Str::translate(Str::active($tuitionFee->is_active));
 
         $this->alert('success', "{$this->pageName} ".trans("index.has_been_set_{$active}_successfully"));
     }

@@ -363,7 +363,7 @@ class ProcedureComponent extends Component
 
         (new ProcedureService())->active($procedure);
 
-        $active = Str::slug(Str::active($procedure->is_active), '_');
+        $active = Str::translate(Str::active($procedure->is_active));
 
         $this->alert('success', "{$this->pageName} ".trans("index.has_been_set_{$active}_successfully"));
     }

@@ -412,7 +412,7 @@ class BlogComponent extends Component
 
         (new BlogService())->active($blog);
 
-        $active = Str::slug(Str::active($blog->is_active), '_');
+        $active = Str::translate(Str::active($blog->is_active));
 
         $this->alert('success', "{$this->pageName} ".trans("index.has_been_set_{$active}_successfully"));
     }

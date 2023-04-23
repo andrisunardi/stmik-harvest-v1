@@ -371,7 +371,7 @@ class AdmissionCalendarComponent extends Component
 
         (new AdmissionCalendarService())->active($admissionCalendar);
 
-        $active = Str::slug(Str::active($admissionCalendar->is_active), '_');
+        $active = Str::translate(Str::active($admissionCalendar->is_active));
 
         $this->alert('success', "{$this->pageName} ".trans("index.has_been_set_{$active}_successfully"));
     }

@@ -368,7 +368,7 @@ class EventCategoryComponent extends Component
 
         (new EventCategoryService())->active($eventCategory);
 
-        $active = Str::slug(Str::active($eventCategory->is_active), '_');
+        $active = Str::translate(Str::active($eventCategory->is_active));
 
         $this->alert('success', "{$this->pageName} ".trans("index.has_been_set_{$active}_successfully"));
     }

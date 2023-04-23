@@ -361,7 +361,7 @@ class TestimonyComponent extends Component
 
         (new TestimonyService())->active($testimony);
 
-        $active = Str::slug(Str::active($testimony->is_active), '_');
+        $active = Str::translate(Str::active($testimony->is_active));
 
         $this->alert('success', "{$this->pageName} ".trans("index.has_been_set_{$active}_successfully"));
     }

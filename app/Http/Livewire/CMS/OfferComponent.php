@@ -381,7 +381,7 @@ class OfferComponent extends Component
 
         (new OfferService())->active($offer);
 
-        $active = Str::slug(Str::active($offer->is_active), '_');
+        $active = Str::translate(Str::active($offer->is_active));
 
         $this->alert('success', "{$this->pageName} ".trans("index.has_been_set_{$active}_successfully"));
     }
