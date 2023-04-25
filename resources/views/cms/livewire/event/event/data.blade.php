@@ -46,7 +46,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($events as $event)
+                @forelse ($events as $event)
                     <tr>
                         <td>
                             <input
@@ -166,10 +166,7 @@
                     @include("{$subDomain}.livewire.{$pageCategorySlug}.{$pageSlug}.detail")
 
                     @include("{$subDomain}.livewire.{$pageCategorySlug}.{$pageSlug}.action")
-
-                @endforeach
-
-                @if (!$events->count())
+                @empty
                     <tr>
                         <td class="text-center" colspan="100%">
                             <div wire:loading.remove>
@@ -180,7 +177,7 @@
                             </div>
                         </td>
                     </tr>
-                @endif
+                @endforeach
             </tbody>
         </table>
     </div>

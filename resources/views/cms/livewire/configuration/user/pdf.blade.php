@@ -23,23 +23,23 @@
                     <th class="text-center">{{ trans("index.roles_and_permission") }}</th>
                 </tr>
                 @foreach($users as $user)
-                <tr>
-                    <td class="text-center">{{ $loop->iteration }}</td>
-                    <td class="text-center">{{ $user->id }}</td>
-                    <td>{{ $user->name }}</td>
-                    <td>{{ $user->username }}</td>
-                    <td>{{ $user->email }}</td>
-                    <td>{{ $user->phone }}</td>
-                    <td class="text-center">{{ Str::translate(Str::active($user->is_active)) }}</td>
-                    <td>
-                        @foreach ($user->roles as $role)
-                            {{ $loop->iteration }}. {{ $role->name }}<br />
-                            @foreach ($role->permissions as $permission)
-                                {{ $loop->iteration }}. {{ $permission->name }}<br />
+                    <tr>
+                        <td class="text-center">{{ $loop->iteration }}</td>
+                        <td class="text-center">{{ $user->id }}</td>
+                        <td>{{ $user->name }}</td>
+                        <td>{{ $user->username }}</td>
+                        <td>{{ $user->email }}</td>
+                        <td>{{ $user->phone }}</td>
+                        <td class="text-center">{{ Str::translate(Str::active($user->is_active)) }}</td>
+                        <td>
+                            @foreach ($user->roles as $role)
+                                {{ $loop->iteration }}. {{ $role->name }}<br />
+                                @foreach ($role->permissions as $permission)
+                                    {{ $loop->iteration }}. {{ $permission->name }}<br />
+                                @endforeach
                             @endforeach
-                        @endforeach
-                    </td>
-                </tr>
+                        </td>
+                    </tr>
                 @endforeach
             </table>
         </main>

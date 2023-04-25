@@ -23,23 +23,23 @@
                     <th class="text-center">{{ trans("index.active") }}</th>
                 </tr>
                 @foreach($admissionCalendars as $admissionCalendar)
-                <tr>
-                    <td class="text-center">{{ $loop->iteration }}</td>
-                    <td class="text-center">{{ $admissionCalendar->id }}</td>
-                    <td>{{ $admissionCalendar->name }}</td>
-                    <td>{{ $admissionCalendar->name_idn }}</td>
-                    <td>{{ $admissionCalendar->description }}</td>
-                    <td>{{ $admissionCalendar->description_idn }}</td>
-                    <td>
-                        @if ($admissionCalendar->date)
-                            {{ $admissionCalendar->date->isoFormat("dddd,") }}
-                            {{ $admissionCalendar->date->isoFormat("LL") }}
-                            <br>
-                            ({{ $admissionCalendar->date->diffForHumans() }})
-                        @endif
-                    </td>
-                    <td class="text-center">{{ Str::translate(Str::active($admissionCalendar->is_active)) }}</td>
-                </tr>
+                    <tr>
+                        <td class="text-center">{{ $loop->iteration }}</td>
+                        <td class="text-center">{{ $admissionCalendar->id }}</td>
+                        <td>{{ $admissionCalendar->name }}</td>
+                        <td>{{ $admissionCalendar->name_idn }}</td>
+                        <td>{{ $admissionCalendar->description }}</td>
+                        <td>{{ $admissionCalendar->description_idn }}</td>
+                        <td>
+                            @if ($admissionCalendar->date)
+                                {{ $admissionCalendar->date->isoFormat("dddd,") }}
+                                {{ $admissionCalendar->date->isoFormat("LL") }}
+                                <br>
+                                ({{ $admissionCalendar->date->diffForHumans() }})
+                            @endif
+                        </td>
+                        <td class="text-center">{{ Str::translate(Str::active($admissionCalendar->is_active)) }}</td>
+                    </tr>
                 @endforeach
             </table>
         </main>

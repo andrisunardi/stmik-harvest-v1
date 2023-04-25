@@ -24,17 +24,17 @@
                     <th class="text-center">{{ trans("index.active") }}</th>
                 </tr>
                 @foreach($contacts as $contact)
-                <tr>
-                    <td class="text-center">{{ $loop->iteration }}</td>
-                    <td class="text-center">{{ $contact->id }}</td>
-                    <td>{{ $contact->name }}</td>
-                    <td>{{ $contact->company }}</td>
-                    <td>{{ $contact->email }}</td>
-                    <td>{{ $contact->phone }}</td>
-                    <td>{{ $contact->subject }}</td>
-                    <td>{{ $contact->message }}</td>
-                    <td class="text-center">{{ Str::translate(Str::active($contact->is_active)) }}</td>
-                </tr>
+                    <tr>
+                        <td class="text-center">{{ $loop->iteration }}</td>
+                        <td class="text-center">{{ $contact->id }}</td>
+                        <td>{{ $contact->name }}</td>
+                        <td>{{ $contact->company }}</td>
+                        <td>{{ $contact->email }}</td>
+                        <td>{{ $contact->phone }}</td>
+                        <td>{{ $contact->subject }}</td>
+                        <td>{{ $contact->message }}</td>
+                        <td class="text-center">{{ Str::translate(Str::active($contact->is_active)) }}</td>
+                    </tr>
                 @endforeach
             </table>
         </main>

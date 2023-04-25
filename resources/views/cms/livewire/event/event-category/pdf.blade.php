@@ -24,17 +24,17 @@
                     <th class="text-center">{{ trans("index.total") }} {{ trans("index.event") }}</th>
                 </tr>
                 @foreach($eventCategories as $eventCategory)
-                <tr>
-                    <td class="text-center">{{ $loop->iteration }}</td>
-                    <td class="text-center">{{ $eventCategory->id }}</td>
-                    <td>{{ $eventCategory->name }}</td>
-                    <td>{{ $eventCategory->name_idn }}</td>
-                    <td>{{ $eventCategory->description }}</td>
-                    <td>{{ $eventCategory->description_idn }}</td>
-                    <td>{{ $eventCategory->slug }}</td>
-                    <td class="text-center">{{ Str::translate(Str::active($eventCategory->is_active)) }}</td>
-                    <td class="text-center">{{ $eventCategory->events->count() }}</td>
-                </tr>
+                    <tr>
+                        <td class="text-center">{{ $loop->iteration }}</td>
+                        <td class="text-center">{{ $eventCategory->id }}</td>
+                        <td>{{ $eventCategory->name }}</td>
+                        <td>{{ $eventCategory->name_idn }}</td>
+                        <td>{{ $eventCategory->description }}</td>
+                        <td>{{ $eventCategory->description_idn }}</td>
+                        <td>{{ $eventCategory->slug }}</td>
+                        <td class="text-center">{{ Str::translate(Str::active($eventCategory->is_active)) }}</td>
+                        <td class="text-center">{{ $eventCategory->events->count() }}</td>
+                    </tr>
                 @endforeach
             </table>
         </main>

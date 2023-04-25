@@ -80,7 +80,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($registrations as $registration)
+                @forelse ($registrations as $registration)
                     <tr>
                         <td>
                             <input
@@ -179,10 +179,7 @@
                     @include("{$subDomain}.livewire.{$pageSlug}.detail")
 
                     @include("{$subDomain}.livewire.{$pageSlug}.action")
-
-                @endforeach
-
-                @if (!$registrations->count())
+                @empty
                     <tr>
                         <td class="text-center" colspan="100%">
                             <div wire:loading.remove>
@@ -193,7 +190,7 @@
                             </div>
                         </td>
                     </tr>
-                @endif
+                @endforelse
             </tbody>
         </table>
     </div>

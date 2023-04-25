@@ -26,19 +26,19 @@
                     <th class="text-center">{{ trans("index.active") }}</th>
                 </tr>
                 @foreach($registrations as $registration)
-                <tr>
-                    <td class="text-center">{{ $loop->iteration }}</td>
-                    <td class="text-center">{{ $registration->id }}</td>
-                    <td>{{ $registration->name }}</td>
-                    <td>{{ $registration->email }}</td>
-                    <td>{{ $registration->phone }}</td>
-                    <td class="text-center">{{ Str::translate($registration->gender?->name) }}</td>
-                    <td>{{ $registration->school }}</td>
-                    <td>{{ $registration->major }}</td>
-                    <td>{{ $registration->city }}</td>
-                    <td class="text-center">{{ Str::translate($registration->type?->name) }}</td>
-                    <td class="text-center">{{ Str::translate(Str::active($registration->is_active)) }}</td>
-                </tr>
+                    <tr>
+                        <td class="text-center">{{ $loop->iteration }}</td>
+                        <td class="text-center">{{ $registration->id }}</td>
+                        <td>{{ $registration->name }}</td>
+                        <td>{{ $registration->email }}</td>
+                        <td>{{ $registration->phone }}</td>
+                        <td class="text-center">{{ Str::translate($registration->gender?->name) }}</td>
+                        <td>{{ $registration->school }}</td>
+                        <td>{{ $registration->major }}</td>
+                        <td>{{ $registration->city }}</td>
+                        <td class="text-center">{{ Str::translate($registration->type?->name) }}</td>
+                        <td class="text-center">{{ Str::translate(Str::active($registration->is_active)) }}</td>
+                    </tr>
                 @endforeach
             </table>
         </main>

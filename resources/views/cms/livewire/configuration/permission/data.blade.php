@@ -32,7 +32,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($permissions as $permission)
+                @forelse ($permissions as $permission)
                     <tr>
                         <td>
                             <input
@@ -92,10 +92,7 @@
                     @include("{$subDomain}.livewire.{$pageCategorySlug}.{$pageSlug}.detail")
 
                     @include("{$subDomain}.livewire.{$pageCategorySlug}.{$pageSlug}.action")
-
-                @endforeach
-
-                @if (!$permissions->count())
+                @empty
                     <tr>
                         <td class="text-center" colspan="100%">
                             <div wire:loading.remove>
@@ -106,7 +103,7 @@
                             </div>
                         </td>
                     </tr>
-                @endif
+                @endforelse
             </tbody>
         </table>
     </div>

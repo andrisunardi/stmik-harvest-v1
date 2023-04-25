@@ -52,7 +52,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($contacts as $contact)
+                @forelse ($contacts as $contact)
                     <tr>
                         <td>
                             <input
@@ -147,10 +147,7 @@
                     @include("{$subDomain}.livewire.{$pageSlug}.detail")
 
                     @include("{$subDomain}.livewire.{$pageSlug}.action")
-
-                @endforeach
-
-                @if (!$contacts->count())
+                @empty
                     <tr>
                         <td class="text-center" colspan="100%">
                             <div wire:loading.remove>
@@ -161,7 +158,7 @@
                             </div>
                         </td>
                     </tr>
-                @endif
+                @endforelse
             </tbody>
         </table>
     </div>

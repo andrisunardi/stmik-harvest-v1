@@ -23,16 +23,16 @@
                     <th class="text-center">{{ trans("index.active") }}</th>
                 </tr>
                 @foreach($values as $value)
-                <tr>
-                    <td class="text-center">{{ $loop->iteration }}</td>
-                    <td class="text-center">{{ $value->id }}</td>
-                    <td>{{ $value->name }}</td>
-                    <td>{{ $value->name_idn }}</td>
-                    <td>{{ $value->description }}</td>
-                    <td>{{ $value->description_idn }}</td>
-                    <td>{{ $value->icon }}</td>
-                    <td class="text-center">{{ Str::translate(Str::active($value->is_active)) }}</td>
-                </tr>
+                    <tr>
+                        <td class="text-center">{{ $loop->iteration }}</td>
+                        <td class="text-center">{{ $value->id }}</td>
+                        <td>{{ $value->name }}</td>
+                        <td>{{ $value->name_idn }}</td>
+                        <td>{{ $value->description }}</td>
+                        <td>{{ $value->description_idn }}</td>
+                        <td>{{ $value->icon }}</td>
+                        <td class="text-center">{{ Str::translate(Str::active($value->is_active)) }}</td>
+                    </tr>
                 @endforeach
             </table>
         </main>

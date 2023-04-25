@@ -46,7 +46,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($galleries as $gallery)
+                @forelse ($galleries as $gallery)
                     <tr>
                         <td>
                             <input
@@ -147,10 +147,7 @@
                     @include("{$subDomain}.livewire.{$pageSlug}.detail")
 
                     @include("{$subDomain}.livewire.{$pageSlug}.action")
-
-                @endforeach
-
-                @if (!$galleries->count())
+                @empty
                     <tr>
                         <td class="text-center" colspan="100%">
                             <div wire:loading.remove>
@@ -161,7 +158,7 @@
                             </div>
                         </td>
                     </tr>
-                @endif
+                @endforelse
             </tbody>
         </table>
     </div>

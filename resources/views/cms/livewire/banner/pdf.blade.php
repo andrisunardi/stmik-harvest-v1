@@ -23,16 +23,16 @@
                     <th class="text-center">{{ trans("index.active") }}</th>
                 </tr>
                 @foreach($banners as $banner)
-                <tr>
-                    <td class="text-center">{{ $loop->iteration }}</td>
-                    <td class="text-center">{{ $banner->id }}</td>
-                    <td>{{ $banner->name }}</td>
-                    <td>{{ $banner->name_idn }}</td>
-                    <td>{{ $banner->description }}</td>
-                    <td>{{ $banner->description_idn }}</td>
-                    <td>{{ $banner->image_url }}</td>
-                    <td class="text-center">{{ Str::translate(Str::active($banner->is_active)) }}</td>
-                </tr>
+                    <tr>
+                        <td class="text-center">{{ $loop->iteration }}</td>
+                        <td class="text-center">{{ $banner->id }}</td>
+                        <td>{{ $banner->name }}</td>
+                        <td>{{ $banner->name_idn }}</td>
+                        <td>{{ $banner->description }}</td>
+                        <td>{{ $banner->description_idn }}</td>
+                        <td>{{ $banner->image_url }}</td>
+                        <td class="text-center">{{ Str::translate(Str::active($banner->is_active)) }}</td>
+                    </tr>
                 @endforeach
             </table>
         </main>

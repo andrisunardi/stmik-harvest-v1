@@ -39,7 +39,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($testimonies as $testimony)
+                @forelse ($testimonies as $testimony)
                     <tr>
                         <td>
                             <input
@@ -139,10 +139,7 @@
                     @include("{$subDomain}.livewire.{$pageSlug}.detail")
 
                     @include("{$subDomain}.livewire.{$pageSlug}.action")
-
-                @endforeach
-
-                @if (!$testimonies->count())
+                @empty
                     <tr>
                         <td class="text-center" colspan="100%">
                             <div wire:loading.remove>
@@ -153,7 +150,7 @@
                             </div>
                         </td>
                     </tr>
-                @endif
+                @endforelse
             </tbody>
         </table>
     </div>

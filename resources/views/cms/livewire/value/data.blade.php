@@ -45,7 +45,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($values as $value)
+                @forelse ($values as $value)
                     <tr>
                         <td>
                             <input
@@ -135,10 +135,7 @@
                     @include("{$subDomain}.livewire.{$pageSlug}.detail")
 
                     @include("{$subDomain}.livewire.{$pageSlug}.action")
-
-                @endforeach
-
-                @if (!$values->count())
+                @empty
                     <tr>
                         <td class="text-center" colspan="100%">
                             <div wire:loading.remove>
@@ -149,7 +146,7 @@
                             </div>
                         </td>
                     </tr>
-                @endif
+                @endforelse
             </tbody>
         </table>
     </div>

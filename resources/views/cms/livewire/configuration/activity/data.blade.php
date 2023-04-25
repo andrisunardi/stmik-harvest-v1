@@ -70,7 +70,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($activities as $activity)
+                @forelse ($activities as $activity)
                     <tr>
                         <td class="text-center">
                             {{ (($activities->currentPage() - 1) * $activities->perPage()) + $loop->iteration }}
@@ -115,10 +115,7 @@
                             ({{ $activity->created_at->diffForHumans() }})
                         </td>
                     </tr>
-
-                @endforeach
-
-                @if (!$activities->count())
+                @empty
                     <tr>
                         <td class="text-center" colspan="100%">
                             <div wire:loading.remove>
@@ -129,7 +126,7 @@
                             </div>
                         </td>
                     </tr>
-                @endif
+                @endforelse
             </tbody>
         </table>
     </div>

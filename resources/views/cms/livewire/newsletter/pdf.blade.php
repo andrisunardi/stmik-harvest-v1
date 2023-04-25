@@ -20,13 +20,13 @@
                     <th class="text-center">{{ trans("index.active") }}</th>
                 </tr>
                 @foreach($newsletters as $newsletter)
-                <tr>
-                    <td class="text-center">{{ $loop->iteration }}</td>
-                    <td class="text-center">{{ $newsletter->id }}</td>
-                    <td>{{ $newsletter->value }}</td>
-                    <td class="text-center">{{ Str::translate($newsletter->type?->name) }}</td>
-                    <td class="text-center">{{ Str::translate(Str::active($newsletter->is_active)) }}</td>
-                </tr>
+                    <tr>
+                        <td class="text-center">{{ $loop->iteration }}</td>
+                        <td class="text-center">{{ $newsletter->id }}</td>
+                        <td>{{ $newsletter->value }}</td>
+                        <td class="text-center">{{ Str::translate($newsletter->type?->name) }}</td>
+                        <td class="text-center">{{ Str::translate(Str::active($newsletter->is_active)) }}</td>
+                    </tr>
                 @endforeach
             </table>
         </main>

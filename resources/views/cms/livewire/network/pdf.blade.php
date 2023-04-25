@@ -22,15 +22,15 @@
                     <th class="text-center">{{ trans("index.active") }}</th>
                 </tr>
                 @foreach($networks as $network)
-                <tr>
-                    <td class="text-center">{{ $loop->iteration }}</td>
-                    <td class="text-center">{{ $network->id }}</td>
-                    <td>{{ $network->name }}</td>
-                    <td>{{ $network->description }}</td>
-                    <td>{{ $network->link }}</td>
-                    <td>{{ $network->image_url }}</td>
-                    <td class="text-center">{{ Str::translate(Str::active($network->is_active)) }}</td>
-                </tr>
+                    <tr>
+                        <td class="text-center">{{ $loop->iteration }}</td>
+                        <td class="text-center">{{ $network->id }}</td>
+                        <td>{{ $network->name }}</td>
+                        <td>{{ $network->description }}</td>
+                        <td>{{ $network->link }}</td>
+                        <td>{{ $network->image_url }}</td>
+                        <td class="text-center">{{ Str::translate(Str::active($network->is_active)) }}</td>
+                    </tr>
                 @endforeach
             </table>
         </main>

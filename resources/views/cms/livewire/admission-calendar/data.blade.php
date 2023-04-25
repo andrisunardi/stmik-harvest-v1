@@ -45,7 +45,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($admissionCalendars as $admissionCalendar)
+                @forelse ($admissionCalendars as $admissionCalendar)
                     <tr>
                         <td>
                             <input
@@ -141,10 +141,7 @@
                     @include("{$subDomain}.livewire.{$pageSlug}.detail")
 
                     @include("{$subDomain}.livewire.{$pageSlug}.action")
-
-                @endforeach
-
-                @if (!$admissionCalendars->count())
+                @empty
                     <tr>
                         <td class="text-center" colspan="100%">
                             <div wire:loading.remove>
@@ -155,7 +152,7 @@
                             </div>
                         </td>
                     </tr>
-                @endif
+                @endforelse
             </tbody>
         </table>
     </div>

@@ -26,19 +26,19 @@
                     <th class="text-center">{{ trans("index.active") }}</th>
                 </tr>
                 @foreach($sliders as $slider)
-                <tr>
-                    <td class="text-center">{{ $loop->iteration }}</td>
-                    <td class="text-center">{{ $slider->id }}</td>
-                    <td>{{ $slider->name }}</td>
-                    <td>{{ $slider->name_idn }}</td>
-                    <td>{{ $slider->description }}</td>
-                    <td>{{ $slider->description_idn }}</td>
-                    <td>{{ $slider->button_name }}</td>
-                    <td>{{ $slider->button_name_idn }}</td>
-                    <td>{{ $slider->button_link }}</td>
-                    <td>{{ $slider->image_url }}</td>
-                    <td class="text-center">{{ Str::translate(Str::active($slider->is_active)) }}</td>
-                </tr>
+                    <tr>
+                        <td class="text-center">{{ $loop->iteration }}</td>
+                        <td class="text-center">{{ $slider->id }}</td>
+                        <td>{{ $slider->name }}</td>
+                        <td>{{ $slider->name_idn }}</td>
+                        <td>{{ $slider->description }}</td>
+                        <td>{{ $slider->description_idn }}</td>
+                        <td>{{ $slider->button_name }}</td>
+                        <td>{{ $slider->button_name_idn }}</td>
+                        <td>{{ $slider->button_link }}</td>
+                        <td>{{ $slider->image_url }}</td>
+                        <td class="text-center">{{ Str::translate(Str::active($slider->is_active)) }}</td>
+                    </tr>
                 @endforeach
             </table>
         </main>

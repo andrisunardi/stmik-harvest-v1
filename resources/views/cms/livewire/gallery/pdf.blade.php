@@ -27,20 +27,20 @@
                     <th class="text-center">{{ trans("index.active") }}</th>
                 </tr>
                 @foreach($galleries as $gallery)
-                <tr>
-                    <td class="text-center">{{ $loop->iteration }}</td>
-                    <td class="text-center">{{ $gallery->id }}</td>
-                    <td>{{ $gallery->name }}</td>
-                    <td>{{ $gallery->name_idn }}</td>
-                    <td>{{ $gallery->description }}</td>
-                    <td>{{ $gallery->description_idn }}</td>
-                    <td>{{ $gallery->tag }}</td>
-                    <td>{{ $gallery->tag_idn }}</td>
-                    <td>{{ $gallery->image_url }}</td>
-                    <td>{{ $gallery->video_url }}</td>
-                    <td>{{ $gallery->youtube }}</td>
-                    <td class="text-center">{{ Str::translate(Str::active($gallery->is_active)) }}</td>
-                </tr>
+                    <tr>
+                        <td class="text-center">{{ $loop->iteration }}</td>
+                        <td class="text-center">{{ $gallery->id }}</td>
+                        <td>{{ $gallery->name }}</td>
+                        <td>{{ $gallery->name_idn }}</td>
+                        <td>{{ $gallery->description }}</td>
+                        <td>{{ $gallery->description_idn }}</td>
+                        <td>{{ $gallery->tag }}</td>
+                        <td>{{ $gallery->tag_idn }}</td>
+                        <td>{{ $gallery->image_url }}</td>
+                        <td>{{ $gallery->video_url }}</td>
+                        <td>{{ $gallery->youtube }}</td>
+                        <td class="text-center">{{ Str::translate(Str::active($gallery->is_active)) }}</td>
+                    </tr>
                 @endforeach
             </table>
         </main>

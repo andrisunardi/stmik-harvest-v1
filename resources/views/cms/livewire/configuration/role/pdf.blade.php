@@ -22,15 +22,15 @@
                     <th class="text-center">{{ trans("index.total") }} {{ trans("index.user") }}</th>
                 </tr>
                 @foreach($roles as $role)
-                <tr>
-                    <td class="text-center">{{ $loop->iteration }}</td>
-                    <td class="text-center">{{ $role->id }}</td>
-                    <td>{{ $role->name }}</td>
-                    <td>{{ $role->guard_name }}</td>
-                    <td>{{ $role->permissions->pluck("name")->join(", ") }}</td>
-                    <td class="text-center">{{ $role->permissions->count() }}</td>
-                    <td class="text-center">{{ $role->users->count() }}</td>
-                </tr>
+                    <tr>
+                        <td class="text-center">{{ $loop->iteration }}</td>
+                        <td class="text-center">{{ $role->id }}</td>
+                        <td>{{ $role->name }}</td>
+                        <td>{{ $role->guard_name }}</td>
+                        <td>{{ $role->permissions->pluck("name")->join(", ") }}</td>
+                        <td class="text-center">{{ $role->permissions->count() }}</td>
+                        <td class="text-center">{{ $role->users->count() }}</td>
+                    </tr>
                 @endforeach
             </table>
         </main>

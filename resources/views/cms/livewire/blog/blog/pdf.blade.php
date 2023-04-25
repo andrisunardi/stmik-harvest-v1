@@ -30,30 +30,30 @@
                     <th class="text-center">{{ trans("index.active") }}</th>
                 </tr>
                 @foreach($blogs as $blog)
-                <tr>
-                    <td class="text-center">{{ $loop->iteration }}</td>
-                    <td class="text-center">{{ $blog->id }}</td>
-                    <td>{{ $blog->blogCategory?->name }}</td>
-                    <td>{{ $blog->title }}</td>
-                    <td>{{ $blog->title_idn }}</td>
-                    <td>{{ $blog->short_body }}</td>
-                    <td>{{ $blog->short_body_idn }}</td>
-                    <td>{{ $blog->body }}</td>
-                    <td>{{ $blog->body_idn }}</td>
-                    <td>
-                        @if ($blog->date)
-                            {{ $blog->date->isoFormat("dddd,") }}
-                            {{ $blog->date->isoFormat("LL") }}
-                            <br>
-                            ({{ $blog->date->diffForHumans() }})
-                        @endif
-                    </td>
-                    <td>{{ $blog->tag }}</td>
-                    <td>{{ $blog->tag_idn }}</td>
-                    <td>{{ $blog->image_url }}</td>
-                    <td>{{ $blog->slug }}</td>
-                    <td class="text-center">{{ Str::translate(Str::active($blog->is_active)) }}</td>
-                </tr>
+                    <tr>
+                        <td class="text-center">{{ $loop->iteration }}</td>
+                        <td class="text-center">{{ $blog->id }}</td>
+                        <td>{{ $blog->blogCategory?->name }}</td>
+                        <td>{{ $blog->title }}</td>
+                        <td>{{ $blog->title_idn }}</td>
+                        <td>{{ $blog->short_body }}</td>
+                        <td>{{ $blog->short_body_idn }}</td>
+                        <td>{{ $blog->body }}</td>
+                        <td>{{ $blog->body_idn }}</td>
+                        <td>
+                            @if ($blog->date)
+                                {{ $blog->date->isoFormat("dddd,") }}
+                                {{ $blog->date->isoFormat("LL") }}
+                                <br>
+                                ({{ $blog->date->diffForHumans() }})
+                            @endif
+                        </td>
+                        <td>{{ $blog->tag }}</td>
+                        <td>{{ $blog->tag_idn }}</td>
+                        <td>{{ $blog->image_url }}</td>
+                        <td>{{ $blog->slug }}</td>
+                        <td class="text-center">{{ Str::translate(Str::active($blog->is_active)) }}</td>
+                    </tr>
                 @endforeach
             </table>
         </main>

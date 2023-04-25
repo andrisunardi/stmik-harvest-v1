@@ -24,17 +24,17 @@
                     <th class="text-center">{{ trans("index.total") }} {{ trans("index.blog") }}</th>
                 </tr>
                 @foreach($blogCategories as $blogCategory)
-                <tr>
-                    <td class="text-center">{{ $loop->iteration }}</td>
-                    <td class="text-center">{{ $blogCategory->id }}</td>
-                    <td>{{ $blogCategory->name }}</td>
-                    <td>{{ $blogCategory->name_idn }}</td>
-                    <td>{{ $blogCategory->description }}</td>
-                    <td>{{ $blogCategory->description_idn }}</td>
-                    <td>{{ $blogCategory->slug }}</td>
-                    <td class="text-center">{{ Str::translate(Str::active($blogCategory->is_active)) }}</td>
-                    <td class="text-center">{{ $blogCategory->blogs->count() }}</td>
-                </tr>
+                    <tr>
+                        <td class="text-center">{{ $loop->iteration }}</td>
+                        <td class="text-center">{{ $blogCategory->id }}</td>
+                        <td>{{ $blogCategory->name }}</td>
+                        <td>{{ $blogCategory->name_idn }}</td>
+                        <td>{{ $blogCategory->description }}</td>
+                        <td>{{ $blogCategory->description_idn }}</td>
+                        <td>{{ $blogCategory->slug }}</td>
+                        <td class="text-center">{{ Str::translate(Str::active($blogCategory->is_active)) }}</td>
+                        <td class="text-center">{{ $blogCategory->blogs->count() }}</td>
+                    </tr>
                 @endforeach
             </table>
         </main>

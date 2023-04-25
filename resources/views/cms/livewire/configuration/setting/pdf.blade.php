@@ -20,13 +20,13 @@
                     <th class="text-center">{{ trans("index.active") }}</th>
                 </tr>
                 @foreach($settings as $setting)
-                <tr>
-                    <td class="text-center">{{ $loop->iteration }}</td>
-                    <td class="text-center">{{ $setting->id }}</td>
-                    <td>{{ $setting->key }}</td>
-                    <td>{{ $setting->value }}</td>
-                    <td class="text-center">{{ Str::translate(Str::active($setting->is_active)) }}</td>
-                </tr>
+                    <tr>
+                        <td class="text-center">{{ $loop->iteration }}</td>
+                        <td class="text-center">{{ $setting->id }}</td>
+                        <td>{{ $setting->key }}</td>
+                        <td>{{ $setting->value }}</td>
+                        <td class="text-center">{{ Str::translate(Str::active($setting->is_active)) }}</td>
+                    </tr>
                 @endforeach
             </table>
         </main>

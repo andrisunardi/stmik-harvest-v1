@@ -39,7 +39,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($sliders as $slider)
+                @forelse ($sliders as $slider)
                     <tr>
                         <td>
                             <input
@@ -139,10 +139,7 @@
                     @include("{$subDomain}.livewire.{$pageSubCategorySlug}.{$pageSlug}.detail")
 
                     @include("{$subDomain}.livewire.{$pageSubCategorySlug}.{$pageSlug}.action")
-
-                @endforeach
-
-                @if (!$sliders->count())
+                @empty
                     <tr>
                         <td class="text-center" colspan="100%">
                             <div wire:loading.remove>
@@ -153,7 +150,7 @@
                             </div>
                         </td>
                     </tr>
-                @endif
+                @endforelse
             </tbody>
         </table>
     </div>
