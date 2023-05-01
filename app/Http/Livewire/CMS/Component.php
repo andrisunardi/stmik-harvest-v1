@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\CMS;
 
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Support\Str;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component as LivewireComponent;
@@ -13,6 +14,7 @@ class Component extends LivewireComponent
     use LivewireAlert;
     use WithPagination;
     use WithFileUploads;
+    use AuthorizesRequests;
 
     public $subDomain = 'cms';
 

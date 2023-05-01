@@ -95,9 +95,7 @@
                             <h6>{{ trans("index.created_at") }}</h6>
                         </div>
                         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-9">
-                            {{ Auth::user()->created_at?->format("H:i:s") }}
-                            {{ Auth::user()->created_at?->isoFormat("LL") }}
-                            <br class="d-md-none">
+                            {{ Auth::user()->created_at?->isoFormat("LLLL") }}
                             ({{ Auth::user()->created_at?->diffForHumans() }})
                         </div>
                     </div>
@@ -107,9 +105,7 @@
                             <h6>{{ trans("index.updated_at") }}</h6>
                         </div>
                         <div class="col-sm-6 col-md-8 col-lg-9 col-xl-9">
-                            {{ Auth::user()->updated_at?->format("H:i:s") }}
-                            {{ Auth::user()->updated_at?->isoFormat("LL") }}
-                            <br class="d-md-none">
+                            {{ Auth::user()->updated_at?->isoFormat("LLLL") }}
                             ({{ Auth::user()->updated_at?->diffForHumans() }})
                         </div>
                     </div>
@@ -132,15 +128,15 @@
                             <button class="list-group-item list-group-item-action">
                                 <div class="d-flex w-100 justify-content-between">
                                     <h5 class="mb-1 text-capitalize">
-                                        {{ $lastActivity->log_name }} - {{ $lastActivity->subject_id }}
+                                        {{ $lastActivity->log_name }} - {{ $lastActivity->subject_id }} - {{ $lastActivity->subject?->name }}
                                     </h5>
-                                    <small class="text-capitalize">{{ $lastActivity->event }}</small>
+                                    <small>{{ Str::translate($lastActivity->event) }}</small>
                                 </div>
                                 <p class="mb-1">{!! $lastActivity->description !!}</p>
-                                <div><small>{{ $lastActivity->causer->name }}</small></div>
+                                <div><small>{{ $lastActivity->causer?->name }}</small></div>
                                 <small>
-                                    {{ $lastActivity->created_at->format("l, H:i:s") }}
-                                    {{ $lastActivity->created_at->isoFormat("LL") }}
+                                    {{ $lastActivity->created_at->isoFormat("LLLL") }}
+                                    {{ $lastActivity->created_at->diffForHumans() }}
                                 </small>
                                 <hr>
                                 <div class="row">

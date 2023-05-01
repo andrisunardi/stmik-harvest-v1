@@ -5,12 +5,13 @@ namespace App\Http\Livewire\CMS\Profile;
 use App\Http\Livewire\CMS\Component;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
-use Spatie\Activitylog\Models\Activity;
 
 class ProfileComponent extends Component
 {
     public function boot()
     {
+        $this->authorize('index');
+
         $this->pageName = 'Profile';
         $this->pageTitle = Str::translate($this->pageName);
         $this->pageSlug = Str::slug($this->pageName);
@@ -26,7 +27,7 @@ class ProfileComponent extends Component
 
     public function lastActivity()
     {
-        return Activity::with('subject', 'causer')->where('causer_id', Auth::user()->id)->get()->last();
+        return Auth::user()->activities->loadMissing('subject', 'causer')->last();
     }
 
     public function render()
