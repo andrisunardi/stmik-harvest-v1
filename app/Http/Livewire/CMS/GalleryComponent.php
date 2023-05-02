@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Services\GalleryService;
 use Illuminate\Support\Str;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Validation\Rules\Enum;
 use PDF;
 
 class GalleryComponent extends Component
@@ -346,7 +347,7 @@ class GalleryComponent extends Component
         $id = $this->pageType == 'edit' ? $this->gallery->id : null;
 
         return [
-            'category' => 'required',
+            'category' => ['required', 'numeric', 'integer', new Enum(GalleryCategory::class)],
             'name' => "required|max:100|unique:{$this->pageTable},name,{$id}",
             'name_idn' => "required|max:100|unique:{$this->pageTable},name_idn,{$id}",
             'description' => 'nullable|max:65535',

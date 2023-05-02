@@ -8,8 +8,8 @@ use App\Models\Newsletter;
 use App\Models\User;
 use App\Services\NewsletterService;
 use Illuminate\Support\Str;
-use Illuminate\Validation\Rule;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Validation\Rules\Enum;
 use PDF;
 
 class NewsletterComponent extends Component
@@ -312,8 +312,7 @@ class NewsletterComponent extends Component
 
         return [
             'value' => "required|max:100|unique:{$this->pageTable},value,{$id}",
-            'type' => 'required|numeric|integer',
-            'type' => ['nullable', Rule::in(1, 2, 3, 4)],
+            'type' => ['required', 'numeric', 'integer', new Enum(NewsletterType::class)],
             'is_active' => 'required|boolean',
         ];
     }

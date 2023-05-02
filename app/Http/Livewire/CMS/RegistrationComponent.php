@@ -9,8 +9,8 @@ use App\Models\Registration;
 use App\Models\User;
 use App\Services\RegistrationService;
 use Illuminate\Support\Str;
-use Illuminate\Validation\Rule;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Validation\Rules\Enum;
 use PDF;
 
 class RegistrationComponent extends Component
@@ -345,11 +345,11 @@ class RegistrationComponent extends Component
             'name' => 'required|max:50|unique:registrations,name',
             'email' => 'required|max:50|email:rfc,dns|unique:registrations,email',
             'phone' => 'required|max:20|unique:registrations,phone',
-            'gender' => 'required|numeric|'.Rule::in([1, 2]),
+            'gender' => ['required', 'numeric', 'integer', new Enum(RegistrationGender::class)],
             'school' => 'required|max:50',
             'major' => 'required|max:50',
             'city' => 'required|max:50',
-            'type' => 'required|numeric|'.Rule::in([1, 2]),
+            'type' => ['required', 'numeric', 'integer', new Enum(RegistrationType::class)],
             'is_active' => 'required|boolean',
         ];
     }
