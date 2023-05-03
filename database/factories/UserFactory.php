@@ -32,6 +32,7 @@ class UserFactory extends Factory
         return [
             'name' => $name,
             'email' => fake()->unique()->freeEmail(),
+            'phone' => fake()->unique()->phoneNumber(),
             'password' => Hash::make(12345678),
             'image' => $image,
             'remember_token' => Str::random(10),
