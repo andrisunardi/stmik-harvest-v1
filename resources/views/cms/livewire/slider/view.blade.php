@@ -181,8 +181,7 @@
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
             @if ($slider->created_at)
-                {{ $slider->created_at->format("l, H:i:s") }}<br class="d-md-none">
-                {{ $slider->created_at->isoFormat("LL") }}<br class="d-md-none">
+                {{ $slider->created_at->isoFormat("LLLL") }}<br class="d-md-none">
                 ({{ $slider->created_at->diffForHumans() }})
             @endif
         </div>
@@ -194,8 +193,7 @@
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
             @if ($slider->updated_at)
-                {{ $slider->updated_at->format("l, H:i:s") }}<br class="d-md-none">
-                {{ $slider->updated_at->isoFormat("LL") }}<br class="d-md-none">
+                {{ $slider->updated_at->isoFormat("LLLL") }}<br class="d-md-none">
                 ({{ $slider->updated_at->diffForHumans() }})
             @endif
         </div>
@@ -208,8 +206,7 @@
             </div>
             <div class="col-sm-6 col-md-8 col-lg-9">
                 @if ($slider->deleted_at)
-                    {{ $slider->deleted_at->format("l, H:i:s") }}<br class="d-md-none">
-                    {{ $slider->deleted_at->isoFormat("LL") }}<br class="d-md-none">
+                    {{ $slider->deleted_at->isoFormat("LLLL") }}<br class="d-md-none">
                     ({{ $slider->deleted_at->diffForHumans() }})
                 @endif
             </div>

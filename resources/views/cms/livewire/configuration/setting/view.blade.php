@@ -84,8 +84,7 @@
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
             @if ($setting->created_at)
-                {{ $setting->created_at->format("l, H:i:s") }}<br class="d-md-none">
-                {{ $setting->created_at->isoFormat("LL") }}<br class="d-md-none">
+                {{ $setting->created_at->isoFormat("LLLL") }}<br class="d-md-none">
                 ({{ $setting->created_at->diffForHumans() }})
             @endif
         </div>
@@ -97,8 +96,7 @@
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
             @if ($setting->updated_at)
-                {{ $setting->updated_at->format("l, H:i:s") }}<br class="d-md-none">
-                {{ $setting->updated_at->isoFormat("LL") }}<br class="d-md-none">
+                {{ $setting->updated_at->isoFormat("LLLL") }}<br class="d-md-none">
                 ({{ $setting->updated_at->diffForHumans() }})
             @endif
         </div>
@@ -111,8 +109,7 @@
             </div>
             <div class="col-sm-6 col-md-8 col-lg-9">
                 @if ($setting->deleted_at)
-                    {{ $setting->deleted_at->format("l, H:i:s") }}<br class="d-md-none">
-                    {{ $setting->deleted_at->isoFormat("LL") }}<br class="d-md-none">
+                    {{ $setting->deleted_at->isoFormat("LLLL") }}<br class="d-md-none">
                     ({{ $setting->deleted_at->diffForHumans() }})
                 @endif
             </div>

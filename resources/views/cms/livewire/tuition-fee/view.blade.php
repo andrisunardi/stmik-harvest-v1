@@ -102,8 +102,7 @@
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
             @if ($tuitionFee->created_at)
-                {{ $tuitionFee->created_at->format("l, H:i:s") }}<br class="d-md-none">
-                {{ $tuitionFee->created_at->isoFormat("LL") }}<br class="d-md-none">
+                {{ $tuitionFee->created_at->isoFormat("LLLL") }}<br class="d-md-none">
                 ({{ $tuitionFee->created_at->diffForHumans() }})
             @endif
         </div>
@@ -115,8 +114,7 @@
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
             @if ($tuitionFee->updated_at)
-                {{ $tuitionFee->updated_at->format("l, H:i:s") }}<br class="d-md-none">
-                {{ $tuitionFee->updated_at->isoFormat("LL") }}<br class="d-md-none">
+                {{ $tuitionFee->updated_at->isoFormat("LLLL") }}<br class="d-md-none">
                 ({{ $tuitionFee->updated_at->diffForHumans() }})
             @endif
         </div>
@@ -129,8 +127,7 @@
             </div>
             <div class="col-sm-6 col-md-8 col-lg-9">
                 @if ($tuitionFee->deleted_at)
-                    {{ $tuitionFee->deleted_at->format("l, H:i:s") }}<br class="d-md-none">
-                    {{ $tuitionFee->deleted_at->isoFormat("LL") }}<br class="d-md-none">
+                    {{ $tuitionFee->deleted_at->isoFormat("LLLL") }}<br class="d-md-none">
                     ({{ $tuitionFee->deleted_at->diffForHumans() }})
                 @endif
             </div>

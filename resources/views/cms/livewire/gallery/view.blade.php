@@ -233,8 +233,7 @@
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
             @if ($gallery->created_at)
-                {{ $gallery->created_at->format("l, H:i:s") }}<br class="d-md-none">
-                {{ $gallery->created_at->isoFormat("LL") }}<br class="d-md-none">
+                {{ $gallery->created_at->isoFormat("LLLL") }}<br class="d-md-none">
                 ({{ $gallery->created_at->diffForHumans() }})
             @endif
         </div>
@@ -246,8 +245,7 @@
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
             @if ($gallery->updated_at)
-                {{ $gallery->updated_at->format("l, H:i:s") }}<br class="d-md-none">
-                {{ $gallery->updated_at->isoFormat("LL") }}<br class="d-md-none">
+                {{ $gallery->updated_at->isoFormat("LLLL") }}<br class="d-md-none">
                 ({{ $gallery->updated_at->diffForHumans() }})
             @endif
         </div>
@@ -260,8 +258,7 @@
             </div>
             <div class="col-sm-6 col-md-8 col-lg-9">
                 @if ($gallery->deleted_at)
-                    {{ $gallery->deleted_at->format("l, H:i:s") }}<br class="d-md-none">
-                    {{ $gallery->deleted_at->isoFormat("LL") }}<br class="d-md-none">
+                    {{ $gallery->deleted_at->isoFormat("LLLL") }}<br class="d-md-none">
                     ({{ $gallery->deleted_at->diffForHumans() }})
                 @endif
             </div>

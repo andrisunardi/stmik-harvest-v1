@@ -61,8 +61,7 @@
                         <td width="1%" class="text-nowrap">{{ trans("index.created_at") }}</td>
                         <td>
                             @if ($offer->created_at)
-                                {{ $offer->created_at->format("l, H:i:s") }}
-                                {{ $offer->created_at->isoFormat("LL") }}
+                                {{ $offer->created_at->isoFormat("LLLL") }}
                                 ({{ $offer->created_at->diffForHumans() }})
                             @endif
                         </td>
@@ -71,8 +70,7 @@
                         <td width="1%" class="text-nowrap">{{ trans("index.updated_at") }}</td>
                         <td>
                             @if ($offer->updated_at)
-                                {{ $offer->updated_at->format("l, H:i:s") }}
-                                {{ $offer->updated_at->isoFormat("LL") }}
+                                {{ $offer->updated_at->isoFormat("LLLL") }}
                                 ({{ $offer->updated_at->diffForHumans() }})
                             @endif
                         </td>
@@ -82,8 +80,7 @@
                             <td width="1%" class="text-nowrap">{{ trans("index.deleted_at") }}</td>
                             <td>
                                 @if ($offer->deleted_at)
-                                    {{ $offer->deleted_at->format("l, H:i:s") }}
-                                    {{ $offer->deleted_at->isoFormat("LL") }}
+                                    {{ $offer->deleted_at->isoFormat("LLLL") }}
                                     ({{ $offer->deleted_at->diffForHumans() }})
                                 @endif
                             </td>

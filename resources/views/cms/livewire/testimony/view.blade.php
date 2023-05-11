@@ -134,8 +134,7 @@
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
             @if ($testimony->created_at)
-                {{ $testimony->created_at->format("l, H:i:s") }}<br class="d-md-none">
-                {{ $testimony->created_at->isoFormat("LL") }}<br class="d-md-none">
+                {{ $testimony->created_at->isoFormat("LLLL") }}<br class="d-md-none">
                 ({{ $testimony->created_at->diffForHumans() }})
             @endif
         </div>
@@ -147,8 +146,7 @@
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
             @if ($testimony->updated_at)
-                {{ $testimony->updated_at->format("l, H:i:s") }}<br class="d-md-none">
-                {{ $testimony->updated_at->isoFormat("LL") }}<br class="d-md-none">
+                {{ $testimony->updated_at->isoFormat("LLLL") }}<br class="d-md-none">
                 ({{ $testimony->updated_at->diffForHumans() }})
             @endif
         </div>
@@ -161,8 +159,7 @@
             </div>
             <div class="col-sm-6 col-md-8 col-lg-9">
                 @if ($testimony->deleted_at)
-                    {{ $testimony->deleted_at->format("l, H:i:s") }}<br class="d-md-none">
-                    {{ $testimony->deleted_at->isoFormat("LL") }}<br class="d-md-none">
+                    {{ $testimony->deleted_at->isoFormat("LLLL") }}<br class="d-md-none">
                     ({{ $testimony->deleted_at->diffForHumans() }})
                 @endif
             </div>

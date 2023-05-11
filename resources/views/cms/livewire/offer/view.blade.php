@@ -131,8 +131,7 @@
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
             @if ($offer->created_at)
-                {{ $offer->created_at->format("l, H:i:s") }}<br class="d-md-none">
-                {{ $offer->created_at->isoFormat("LL") }}<br class="d-md-none">
+                {{ $offer->created_at->isoFormat("LLLL") }}<br class="d-md-none">
                 ({{ $offer->created_at->diffForHumans() }})
             @endif
         </div>
@@ -144,8 +143,7 @@
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
             @if ($offer->updated_at)
-                {{ $offer->updated_at->format("l, H:i:s") }}<br class="d-md-none">
-                {{ $offer->updated_at->isoFormat("LL") }}<br class="d-md-none">
+                {{ $offer->updated_at->isoFormat("LLLL") }}<br class="d-md-none">
                 ({{ $offer->updated_at->diffForHumans() }})
             @endif
         </div>
@@ -158,8 +156,7 @@
             </div>
             <div class="col-sm-6 col-md-8 col-lg-9">
                 @if ($offer->deleted_at)
-                    {{ $offer->deleted_at->format("l, H:i:s") }}<br class="d-md-none">
-                    {{ $offer->deleted_at->isoFormat("LL") }}<br class="d-md-none">
+                    {{ $offer->deleted_at->isoFormat("LLLL") }}<br class="d-md-none">
                     ({{ $offer->deleted_at->diffForHumans() }})
                 @endif
             </div>

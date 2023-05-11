@@ -116,8 +116,7 @@
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
             @if ($admissionCalendar->created_at)
-                {{ $admissionCalendar->created_at->format("l, H:i:s") }}<br class="d-md-none">
-                {{ $admissionCalendar->created_at->isoFormat("LL") }}<br class="d-md-none">
+                {{ $admissionCalendar->created_at->isoFormat("LLLL") }}<br class="d-md-none">
                 ({{ $admissionCalendar->created_at->diffForHumans() }})
             @endif
         </div>
@@ -129,8 +128,7 @@
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
             @if ($admissionCalendar->updated_at)
-                {{ $admissionCalendar->updated_at->format("l, H:i:s") }}<br class="d-md-none">
-                {{ $admissionCalendar->updated_at->isoFormat("LL") }}<br class="d-md-none">
+                {{ $admissionCalendar->updated_at->isoFormat("LLLL") }}<br class="d-md-none">
                 ({{ $admissionCalendar->updated_at->diffForHumans() }})
             @endif
         </div>
@@ -143,8 +141,7 @@
             </div>
             <div class="col-sm-6 col-md-8 col-lg-9">
                 @if ($admissionCalendar->deleted_at)
-                    {{ $admissionCalendar->deleted_at->format("l, H:i:s") }}<br class="d-md-none">
-                    {{ $admissionCalendar->deleted_at->isoFormat("LL") }}<br class="d-md-none">
+                    {{ $admissionCalendar->deleted_at->isoFormat("LLLL") }}<br class="d-md-none">
                     ({{ $admissionCalendar->deleted_at->diffForHumans() }})
                 @endif
             </div>

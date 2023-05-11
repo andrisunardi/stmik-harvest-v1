@@ -54,8 +54,7 @@
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
             @if ($permission->created_at)
-                {{ $permission->created_at->format("l, H:i:s") }}<br class="d-md-none">
-                {{ $permission->created_at->isoFormat("LL") }}<br class="d-md-none">
+                {{ $permission->created_at->isoFormat("LLLL") }}<br class="d-md-none">
                 ({{ $permission->created_at->diffForHumans() }})
             @endif
         </div>
@@ -67,8 +66,7 @@
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
             @if ($permission->updated_at)
-                {{ $permission->updated_at->format("l, H:i:s") }}<br class="d-md-none">
-                {{ $permission->updated_at->isoFormat("LL") }}<br class="d-md-none">
+                {{ $permission->updated_at->isoFormat("LLLL") }}<br class="d-md-none">
                 ({{ $permission->updated_at->diffForHumans() }})
             @endif
         </div>

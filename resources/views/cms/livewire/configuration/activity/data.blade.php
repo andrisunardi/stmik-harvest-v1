@@ -110,8 +110,7 @@
                         </td>
                         <td>{{ $activity->batch_uuid }}</td>
                         <td>
-                            {{ $activity->created_at->format("l, H:i:s") }}<br>
-                            {{ $activity->created_at->isoFormat("LL") }}<br>
+                            {{ $activity->created_at->isoFormat("LLLL") }}<br>
                             ({{ $activity->created_at->diffForHumans() }})
                         </td>
                     </tr>

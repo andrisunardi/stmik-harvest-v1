@@ -102,8 +102,7 @@
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
             @if ($faq->created_at)
-                {{ $faq->created_at->format("l, H:i:s") }}<br class="d-md-none">
-                {{ $faq->created_at->isoFormat("LL") }}<br class="d-md-none">
+                {{ $faq->created_at->isoFormat("LLLL") }}<br class="d-md-none">
                 ({{ $faq->created_at->diffForHumans() }})
             @endif
         </div>
@@ -115,8 +114,7 @@
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
             @if ($faq->updated_at)
-                {{ $faq->updated_at->format("l, H:i:s") }}<br class="d-md-none">
-                {{ $faq->updated_at->isoFormat("LL") }}<br class="d-md-none">
+                {{ $faq->updated_at->isoFormat("LLLL") }}<br class="d-md-none">
                 ({{ $faq->updated_at->diffForHumans() }})
             @endif
         </div>
@@ -129,8 +127,7 @@
             </div>
             <div class="col-sm-6 col-md-8 col-lg-9">
                 @if ($faq->deleted_at)
-                    {{ $faq->deleted_at->format("l, H:i:s") }}<br class="d-md-none">
-                    {{ $faq->deleted_at->isoFormat("LL") }}<br class="d-md-none">
+                    {{ $faq->deleted_at->isoFormat("LLLL") }}<br class="d-md-none">
                     ({{ $faq->deleted_at->diffForHumans() }})
                 @endif
             </div>

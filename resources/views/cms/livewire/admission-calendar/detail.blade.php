@@ -45,8 +45,7 @@
                         <td width="1%" class="text-nowrap">{{ trans("index.created_at") }}</td>
                         <td>
                             @if ($admissionCalendar->created_at)
-                                {{ $admissionCalendar->created_at->format("l, H:i:s") }}
-                                {{ $admissionCalendar->created_at->isoFormat("LL") }}
+                                {{ $admissionCalendar->created_at->isoFormat("LLLL") }}
                                 ({{ $admissionCalendar->created_at->diffForHumans() }})
                             @endif
                         </td>
@@ -55,8 +54,7 @@
                         <td width="1%" class="text-nowrap">{{ trans("index.updated_at") }}</td>
                         <td>
                             @if ($admissionCalendar->updated_at)
-                                {{ $admissionCalendar->updated_at->format("l, H:i:s") }}
-                                {{ $admissionCalendar->updated_at->isoFormat("LL") }}
+                                {{ $admissionCalendar->updated_at->isoFormat("LLLL") }}
                                 ({{ $admissionCalendar->updated_at->diffForHumans() }})
                             @endif
                         </td>
@@ -66,8 +64,7 @@
                             <td width="1%" class="text-nowrap">{{ trans("index.deleted_at") }}</td>
                             <td>
                                 @if ($admissionCalendar->deleted_at)
-                                    {{ $admissionCalendar->deleted_at->format("l, H:i:s") }}
-                                    {{ $admissionCalendar->deleted_at->isoFormat("LL") }}
+                                    {{ $admissionCalendar->deleted_at->isoFormat("LLLL") }}
                                     ({{ $admissionCalendar->deleted_at->diffForHumans() }})
                                 @endif
                             </td>

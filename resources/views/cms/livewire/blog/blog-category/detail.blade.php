@@ -57,8 +57,7 @@
                         <td width="1%" class="text-nowrap">{{ trans("index.created_at") }}</td>
                         <td>
                             @if ($blogCategory->created_at)
-                                {{ $blogCategory->created_at->format("l, H:i:s") }}
-                                {{ $blogCategory->created_at->isoFormat("LL") }}
+                                {{ $blogCategory->created_at->isoFormat("LLLL") }}
                                 ({{ $blogCategory->created_at->diffForHumans() }})
                             @endif
                         </td>
@@ -67,8 +66,7 @@
                         <td width="1%" class="text-nowrap">{{ trans("index.updated_at") }}</td>
                         <td>
                             @if ($blogCategory->updated_at)
-                                {{ $blogCategory->updated_at->format("l, H:i:s") }}
-                                {{ $blogCategory->updated_at->isoFormat("LL") }}
+                                {{ $blogCategory->updated_at->isoFormat("LLLL") }}
                                 ({{ $blogCategory->updated_at->diffForHumans() }})
                             @endif
                         </td>
@@ -78,8 +76,7 @@
                             <td width="1%" class="text-nowrap">{{ trans("index.deleted_at") }}</td>
                             <td>
                                 @if ($blogCategory->deleted_at)
-                                    {{ $blogCategory->deleted_at->format("l, H:i:s") }}
-                                    {{ $blogCategory->deleted_at->isoFormat("LL") }}
+                                    {{ $blogCategory->deleted_at->isoFormat("LLLL") }}
                                     ({{ $blogCategory->deleted_at->diffForHumans() }})
                                 @endif
                             </td>

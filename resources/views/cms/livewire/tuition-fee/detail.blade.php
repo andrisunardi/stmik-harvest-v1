@@ -45,8 +45,7 @@
                         <td width="1%" class="text-nowrap">{{ trans("index.created_at") }}</td>
                         <td>
                             @if ($tuitionFee->created_at)
-                                {{ $tuitionFee->created_at->format("l, H:i:s") }}
-                                {{ $tuitionFee->created_at->isoFormat("LL") }}
+                                {{ $tuitionFee->created_at->isoFormat("LLLL") }}
                                 ({{ $tuitionFee->created_at->diffForHumans() }})
                             @endif
                         </td>
@@ -55,8 +54,7 @@
                         <td width="1%" class="text-nowrap">{{ trans("index.updated_at") }}</td>
                         <td>
                             @if ($tuitionFee->updated_at)
-                                {{ $tuitionFee->updated_at->format("l, H:i:s") }}
-                                {{ $tuitionFee->updated_at->isoFormat("LL") }}
+                                {{ $tuitionFee->updated_at->isoFormat("LLLL") }}
                                 ({{ $tuitionFee->updated_at->diffForHumans() }})
                             @endif
                         </td>
@@ -66,8 +64,7 @@
                             <td width="1%" class="text-nowrap">{{ trans("index.deleted_at") }}</td>
                             <td>
                                 @if ($tuitionFee->deleted_at)
-                                    {{ $tuitionFee->deleted_at->format("l, H:i:s") }}
-                                    {{ $tuitionFee->deleted_at->isoFormat("LL") }}
+                                    {{ $tuitionFee->deleted_at->isoFormat("LLLL") }}
                                     ({{ $tuitionFee->deleted_at->diffForHumans() }})
                                 @endif
                             </td>

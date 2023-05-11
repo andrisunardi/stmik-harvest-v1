@@ -78,8 +78,7 @@
                         <td width="1%" class="text-nowrap">{{ trans("index.created_at") }}</td>
                         <td>
                             @if ($gallery->created_at)
-                                {{ $gallery->created_at->format("l, H:i:s") }}
-                                {{ $gallery->created_at->isoFormat("LL") }}
+                                {{ $gallery->created_at->isoFormat("LLLL") }}
                                 ({{ $gallery->created_at->diffForHumans() }})
                             @endif
                         </td>
@@ -88,8 +87,7 @@
                         <td width="1%" class="text-nowrap">{{ trans("index.updated_at") }}</td>
                         <td>
                             @if ($gallery->updated_at)
-                                {{ $gallery->updated_at->format("l, H:i:s") }}
-                                {{ $gallery->updated_at->isoFormat("LL") }}
+                                {{ $gallery->updated_at->isoFormat("LLLL") }}
                                 ({{ $gallery->updated_at->diffForHumans() }})
                             @endif
                         </td>
@@ -99,8 +97,7 @@
                             <td width="1%" class="text-nowrap">{{ trans("index.deleted_at") }}</td>
                             <td>
                                 @if ($gallery->deleted_at)
-                                    {{ $gallery->deleted_at->format("l, H:i:s") }}
-                                    {{ $gallery->deleted_at->isoFormat("LL") }}
+                                    {{ $gallery->deleted_at->isoFormat("LLLL") }}
                                     ({{ $gallery->deleted_at->diffForHumans() }})
                                 @endif
                             </td>

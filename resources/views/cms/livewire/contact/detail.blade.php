@@ -45,8 +45,7 @@
                         <td width="1%" class="text-nowrap">{{ trans("index.created_at") }}</td>
                         <td>
                             @if ($contact->created_at)
-                                {{ $contact->created_at->format("l, H:i:s") }}
-                                {{ $contact->created_at->isoFormat("LL") }}
+                                {{ $contact->created_at->isoFormat("LLLL") }}
                                 ({{ $contact->created_at->diffForHumans() }})
                             @endif
                         </td>
@@ -55,8 +54,7 @@
                         <td width="1%" class="text-nowrap">{{ trans("index.updated_at") }}</td>
                         <td>
                             @if ($contact->updated_at)
-                                {{ $contact->updated_at->format("l, H:i:s") }}
-                                {{ $contact->updated_at->isoFormat("LL") }}
+                                {{ $contact->updated_at->isoFormat("LLLL") }}
                                 ({{ $contact->updated_at->diffForHumans() }})
                             @endif
                         </td>
@@ -66,8 +64,7 @@
                             <td width="1%" class="text-nowrap">{{ trans("index.deleted_at") }}</td>
                             <td>
                                 @if ($contact->deleted_at)
-                                    {{ $contact->deleted_at->format("l, H:i:s") }}
-                                    {{ $contact->deleted_at->isoFormat("LL") }}
+                                    {{ $contact->deleted_at->isoFormat("LLLL") }}
                                     ({{ $contact->deleted_at->diffForHumans() }})
                                 @endif
                             </td>

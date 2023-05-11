@@ -41,8 +41,7 @@
                         <td width="1%" class="text-nowrap">{{ trans("index.created_at") }}</td>
                         <td>
                             @if ($testimony->created_at)
-                                {{ $testimony->created_at->format("l, H:i:s") }}
-                                {{ $testimony->created_at->isoFormat("LL") }}
+                                {{ $testimony->created_at->isoFormat("LLLL") }}
                                 ({{ $testimony->created_at->diffForHumans() }})
                             @endif
                         </td>
@@ -51,8 +50,7 @@
                         <td width="1%" class="text-nowrap">{{ trans("index.updated_at") }}</td>
                         <td>
                             @if ($testimony->updated_at)
-                                {{ $testimony->updated_at->format("l, H:i:s") }}
-                                {{ $testimony->updated_at->isoFormat("LL") }}
+                                {{ $testimony->updated_at->isoFormat("LLLL") }}
                                 ({{ $testimony->updated_at->diffForHumans() }})
                             @endif
                         </td>
@@ -62,8 +60,7 @@
                             <td width="1%" class="text-nowrap">{{ trans("index.deleted_at") }}</td>
                             <td>
                                 @if ($testimony->deleted_at)
-                                    {{ $testimony->deleted_at->format("l, H:i:s") }}
-                                    {{ $testimony->deleted_at->isoFormat("LL") }}
+                                    {{ $testimony->deleted_at->isoFormat("LLLL") }}
                                     ({{ $testimony->deleted_at->diffForHumans() }})
                                 @endif
                             </td>

@@ -6,7 +6,7 @@
     <body>
         <div class="text-center">
             <h1>{{ env("APP_NAME") }}</h1>
-            <p>{{ trans("index.printed_date") }} : {{ now()->format("l, H:i:s") }} {{ now()->isoFormat("LL") }}</p>
+            <p>{{ trans("index.printed_date") }} : {{ now()->isoFormat("LLLL") }}</p>
         </div>
 
         <main class="text-center">

@@ -23,8 +23,7 @@
                         <td width="1%" class="text-nowrap">{{ trans("index.created_at") }}</td>
                         <td>
                             @if ($role->created_at)
-                                {{ $role->created_at->format("l, H:i:s") }}
-                                {{ $role->created_at->isoFormat("LL") }}
+                                {{ $role->created_at->isoFormat("LLLL") }}
                                 ({{ $role->created_at->diffForHumans() }})
                             @endif
                         </td>
@@ -33,8 +32,7 @@
                         <td width="1%" class="text-nowrap">{{ trans("index.updated_at") }}</td>
                         <td>
                             @if ($role->updated_at)
-                                {{ $role->updated_at->format("l, H:i:s") }}
-                                {{ $role->updated_at->isoFormat("LL") }}
+                                {{ $role->updated_at->isoFormat("LLLL") }}
                                 ({{ $role->updated_at->diffForHumans() }})
                             @endif
                         </td>

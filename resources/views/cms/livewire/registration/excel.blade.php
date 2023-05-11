@@ -1,7 +1,7 @@
 <table>
     <tr><th align="center" colspan="11"><b>{{ env("APP_NAME") }}</b></th></tr>
     <tr><th align="center" colspan="11"><b>{{ Str::upper(Str::translate($title)) }}</b></th></tr>
-    <tr><th align="center" colspan="11">{{ trans("index.printed_date") }} : {{ now()->format("l, H:i:s") }} {{ now()->isoFormat("LL") }}</th></tr>
+    <tr><th align="center" colspan="11">{{ trans("index.printed_date") }} : {{ now()->isoFormat("LLLL") }}</th></tr>
     <tr></tr>
     <tr>
         <th align="center"><b>{{ trans("index.#") }}</b></th>

@@ -45,8 +45,7 @@
                         <td width="1%" class="text-nowrap">{{ trans("index.created_at") }}</td>
                         <td>
                             @if ($faq->created_at)
-                                {{ $faq->created_at->format("l, H:i:s") }}
-                                {{ $faq->created_at->isoFormat("LL") }}
+                                {{ $faq->created_at->isoFormat("LLLL") }}
                                 ({{ $faq->created_at->diffForHumans() }})
                             @endif
                         </td>
@@ -55,8 +54,7 @@
                         <td width="1%" class="text-nowrap">{{ trans("index.updated_at") }}</td>
                         <td>
                             @if ($faq->updated_at)
-                                {{ $faq->updated_at->format("l, H:i:s") }}
-                                {{ $faq->updated_at->isoFormat("LL") }}
+                                {{ $faq->updated_at->isoFormat("LLLL") }}
                                 ({{ $faq->updated_at->diffForHumans() }})
                             @endif
                         </td>
@@ -66,8 +64,7 @@
                             <td width="1%" class="text-nowrap">{{ trans("index.deleted_at") }}</td>
                             <td>
                                 @if ($faq->deleted_at)
-                                    {{ $faq->deleted_at->format("l, H:i:s") }}
-                                    {{ $faq->deleted_at->isoFormat("LL") }}
+                                    {{ $faq->deleted_at->isoFormat("LLLL") }}
                                     ({{ $faq->deleted_at->diffForHumans() }})
                                 @endif
                             </td>

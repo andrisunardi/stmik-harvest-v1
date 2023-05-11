@@ -49,8 +49,7 @@
                         <td width="1%" class="text-nowrap">{{ trans("index.created_at") }}</td>
                         <td>
                             @if ($user->created_at)
-                                {{ $user->created_at->format("l, H:i:s") }}
-                                {{ $user->created_at->isoFormat("LL") }}
+                                {{ $user->created_at->isoFormat("LLLL") }}
                                 ({{ $user->created_at->diffForHumans() }})
                             @endif
                         </td>
@@ -59,8 +58,7 @@
                         <td width="1%" class="text-nowrap">{{ trans("index.updated_at") }}</td>
                         <td>
                             @if ($user->updated_at)
-                                {{ $user->updated_at->format("l, H:i:s") }}
-                                {{ $user->updated_at->isoFormat("LL") }}
+                                {{ $user->updated_at->isoFormat("LLLL") }}
                                 ({{ $user->updated_at->diffForHumans() }})
                             @endif
                         </td>
@@ -70,8 +68,7 @@
                             <td width="1%" class="text-nowrap">{{ trans("index.deleted_at") }}</td>
                             <td>
                                 @if ($user->deleted_at)
-                                    {{ $user->deleted_at->format("l, H:i:s") }}
-                                    {{ $user->deleted_at->isoFormat("LL") }}
+                                    {{ $user->deleted_at->isoFormat("LLLL") }}
                                     ({{ $user->deleted_at->diffForHumans() }})
                                 @endif
                             </td>

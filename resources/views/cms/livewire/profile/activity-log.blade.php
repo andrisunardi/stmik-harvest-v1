@@ -27,8 +27,8 @@
                                 <p class="mb-1">{!! $activity->description !!}</p>
                                 <div><small>{{ $activity->causer->name }}</small></div>
                                 <small>
-                                    {{ $activity->created_at->format("l, H:i:s") }}
-                                    {{ $activity->created_at->isoFormat("LL") }}
+                                    {{ $activity->created_at->isoFormat("LLLL") }}<br class="d-sm-none">
+                                    ({{ $activity->created_at->diffForHumans() }})
                                 </small>
                                 <hr>
                                 <div class="row">

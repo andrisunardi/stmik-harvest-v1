@@ -143,8 +143,7 @@
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
             @if ($banner->created_at)
-                {{ $banner->created_at->format("l, H:i:s") }}<br class="d-md-none">
-                {{ $banner->created_at->isoFormat("LL") }}<br class="d-md-none">
+                {{ $banner->created_at->isoFormat("LLLL") }}<br class="d-md-none">
                 ({{ $banner->created_at->diffForHumans() }})
             @endif
         </div>
@@ -156,8 +155,7 @@
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
             @if ($banner->updated_at)
-                {{ $banner->updated_at->format("l, H:i:s") }}<br class="d-md-none">
-                {{ $banner->updated_at->isoFormat("LL") }}<br class="d-md-none">
+                {{ $banner->updated_at->isoFormat("LLLL") }}<br class="d-md-none">
                 ({{ $banner->updated_at->diffForHumans() }})
             @endif
         </div>
@@ -170,8 +168,7 @@
             </div>
             <div class="col-sm-6 col-md-8 col-lg-9">
                 @if ($banner->deleted_at)
-                    {{ $banner->deleted_at->format("l, H:i:s") }}<br class="d-md-none">
-                    {{ $banner->deleted_at->isoFormat("LL") }}<br class="d-md-none">
+                    {{ $banner->deleted_at->isoFormat("LLLL") }}<br class="d-md-none">
                     ({{ $banner->deleted_at->diffForHumans() }})
                 @endif
             </div>

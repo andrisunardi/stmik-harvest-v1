@@ -45,8 +45,7 @@
                         <td width="1%" class="text-nowrap">{{ trans("index.created_at") }}</td>
                         <td>
                             @if ($banner->created_at)
-                                {{ $banner->created_at->format("l, H:i:s") }}
-                                {{ $banner->created_at->isoFormat("LL") }}
+                                {{ $banner->created_at->isoFormat("LLLL") }}
                                 ({{ $banner->created_at->diffForHumans() }})
                             @endif
                         </td>
@@ -55,8 +54,7 @@
                         <td width="1%" class="text-nowrap">{{ trans("index.updated_at") }}</td>
                         <td>
                             @if ($banner->updated_at)
-                                {{ $banner->updated_at->format("l, H:i:s") }}
-                                {{ $banner->updated_at->isoFormat("LL") }}
+                                {{ $banner->updated_at->isoFormat("LLLL") }}
                                 ({{ $banner->updated_at->diffForHumans() }})
                             @endif
                         </td>
@@ -66,8 +64,7 @@
                             <td width="1%" class="text-nowrap">{{ trans("index.deleted_at") }}</td>
                             <td>
                                 @if ($banner->deleted_at)
-                                    {{ $banner->deleted_at->format("l, H:i:s") }}
-                                    {{ $banner->deleted_at->isoFormat("LL") }}
+                                    {{ $banner->deleted_at->isoFormat("LLLL") }}
                                     ({{ $banner->deleted_at->diffForHumans() }})
                                 @endif
                             </td>

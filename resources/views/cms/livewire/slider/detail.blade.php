@@ -61,8 +61,7 @@
                         <td width="1%" class="text-nowrap">{{ trans("index.created_at") }}</td>
                         <td>
                             @if ($slider->created_at)
-                                {{ $slider->created_at->format("l, H:i:s") }}
-                                {{ $slider->created_at->isoFormat("LL") }}
+                                {{ $slider->created_at->isoFormat("LLLL") }}
                                 ({{ $slider->created_at->diffForHumans() }})
                             @endif
                         </td>
@@ -71,8 +70,7 @@
                         <td width="1%" class="text-nowrap">{{ trans("index.updated_at") }}</td>
                         <td>
                             @if ($slider->updated_at)
-                                {{ $slider->updated_at->format("l, H:i:s") }}
-                                {{ $slider->updated_at->isoFormat("LL") }}
+                                {{ $slider->updated_at->isoFormat("LLLL") }}
                                 ({{ $slider->updated_at->diffForHumans() }})
                             @endif
                         </td>
@@ -82,8 +80,7 @@
                             <td width="1%" class="text-nowrap">{{ trans("index.deleted_at") }}</td>
                             <td>
                                 @if ($slider->deleted_at)
-                                    {{ $slider->deleted_at->format("l, H:i:s") }}
-                                    {{ $slider->deleted_at->isoFormat("LL") }}
+                                    {{ $slider->deleted_at->isoFormat("LLLL") }}
                                     ({{ $slider->deleted_at->diffForHumans() }})
                                 @endif
                             </td>

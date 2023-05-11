@@ -247,8 +247,7 @@
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
             @if ($event->created_at)
-                {{ $event->created_at->format("l, H:i:s") }}<br class="d-md-none">
-                {{ $event->created_at->isoFormat("LL") }}<br class="d-md-none">
+                {{ $event->created_at->isoFormat("LLLL") }}<br class="d-md-none">
                 ({{ $event->created_at->diffForHumans() }})
             @endif
         </div>
@@ -260,8 +259,7 @@
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
             @if ($event->updated_at)
-                {{ $event->updated_at->format("l, H:i:s") }}<br class="d-md-none">
-                {{ $event->updated_at->isoFormat("LL") }}<br class="d-md-none">
+                {{ $event->updated_at->isoFormat("LLLL") }}<br class="d-md-none">
                 ({{ $event->updated_at->diffForHumans() }})
             @endif
         </div>
@@ -274,8 +272,7 @@
             </div>
             <div class="col-sm-6 col-md-8 col-lg-9">
                 @if ($event->deleted_at)
-                    {{ $event->deleted_at->format("l, H:i:s") }}<br class="d-md-none">
-                    {{ $event->deleted_at->isoFormat("LL") }}<br class="d-md-none">
+                    {{ $event->deleted_at->isoFormat("LLLL") }}<br class="d-md-none">
                     ({{ $event->deleted_at->diffForHumans() }})
                 @endif
             </div>

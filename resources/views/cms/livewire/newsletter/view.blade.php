@@ -94,8 +94,7 @@
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
             @if ($newsletter->created_at)
-                {{ $newsletter->created_at->format("l, H:i:s") }}<br class="d-md-none">
-                {{ $newsletter->created_at->isoFormat("LL") }}<br class="d-md-none">
+                {{ $newsletter->created_at->isoFormat("LLLL") }}<br class="d-md-none">
                 ({{ $newsletter->created_at->diffForHumans() }})
             @endif
         </div>
@@ -107,8 +106,7 @@
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
             @if ($newsletter->updated_at)
-                {{ $newsletter->updated_at->format("l, H:i:s") }}<br class="d-md-none">
-                {{ $newsletter->updated_at->isoFormat("LL") }}<br class="d-md-none">
+                {{ $newsletter->updated_at->isoFormat("LLLL") }}<br class="d-md-none">
                 ({{ $newsletter->updated_at->diffForHumans() }})
             @endif
         </div>
@@ -121,8 +119,7 @@
             </div>
             <div class="col-sm-6 col-md-8 col-lg-9">
                 @if ($newsletter->deleted_at)
-                    {{ $newsletter->deleted_at->format("l, H:i:s") }}<br class="d-md-none">
-                    {{ $newsletter->deleted_at->isoFormat("LL") }}<br class="d-md-none">
+                    {{ $newsletter->deleted_at->isoFormat("LLLL") }}<br class="d-md-none">
                     ({{ $newsletter->deleted_at->diffForHumans() }})
                 @endif
             </div>

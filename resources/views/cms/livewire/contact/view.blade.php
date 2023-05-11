@@ -120,8 +120,7 @@
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
             @if ($contact->created_at)
-                {{ $contact->created_at->format("l, H:i:s") }}<br class="d-md-none">
-                {{ $contact->created_at->isoFormat("LL") }}<br class="d-md-none">
+                {{ $contact->created_at->isoFormat("LLLL") }}<br class="d-md-none">
                 ({{ $contact->created_at->diffForHumans() }})
             @endif
         </div>
@@ -133,8 +132,7 @@
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
             @if ($contact->updated_at)
-                {{ $contact->updated_at->format("l, H:i:s") }}<br class="d-md-none">
-                {{ $contact->updated_at->isoFormat("LL") }}<br class="d-md-none">
+                {{ $contact->updated_at->isoFormat("LLLL") }}<br class="d-md-none">
                 ({{ $contact->updated_at->diffForHumans() }})
             @endif
         </div>
@@ -147,8 +145,7 @@
             </div>
             <div class="col-sm-6 col-md-8 col-lg-9">
                 @if ($contact->deleted_at)
-                    {{ $contact->deleted_at->format("l, H:i:s") }}<br class="d-md-none">
-                    {{ $contact->deleted_at->isoFormat("LL") }}<br class="d-md-none">
+                    {{ $contact->deleted_at->isoFormat("LLLL") }}<br class="d-md-none">
                     ({{ $contact->deleted_at->diffForHumans() }})
                 @endif
             </div>

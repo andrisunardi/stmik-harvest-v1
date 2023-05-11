@@ -224,8 +224,7 @@
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
             @if ($blog->created_at)
-                {{ $blog->created_at->format("l, H:i:s") }}<br class="d-md-none">
-                {{ $blog->created_at->isoFormat("LL") }}<br class="d-md-none">
+                {{ $blog->created_at->isoFormat("LLLL") }}<br class="d-md-none">
                 ({{ $blog->created_at->diffForHumans() }})
             @endif
         </div>
@@ -237,8 +236,7 @@
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
             @if ($blog->updated_at)
-                {{ $blog->updated_at->format("l, H:i:s") }}<br class="d-md-none">
-                {{ $blog->updated_at->isoFormat("LL") }}<br class="d-md-none">
+                {{ $blog->updated_at->isoFormat("LLLL") }}<br class="d-md-none">
                 ({{ $blog->updated_at->diffForHumans() }})
             @endif
         </div>
@@ -251,8 +249,7 @@
             </div>
             <div class="col-sm-6 col-md-8 col-lg-9">
                 @if ($blog->deleted_at)
-                    {{ $blog->deleted_at->format("l, H:i:s") }}<br class="d-md-none">
-                    {{ $blog->deleted_at->isoFormat("LL") }}<br class="d-md-none">
+                    {{ $blog->deleted_at->isoFormat("LLLL") }}<br class="d-md-none">
                     ({{ $blog->deleted_at->diffForHumans() }})
                 @endif
             </div>

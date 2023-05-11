@@ -57,8 +57,7 @@
                         <td width="1%" class="text-nowrap">{{ trans("index.created_at") }}</td>
                         <td>
                             @if ($eventCategory->created_at)
-                                {{ $eventCategory->created_at->format("l, H:i:s") }}
-                                {{ $eventCategory->created_at->isoFormat("LL") }}
+                                {{ $eventCategory->created_at->isoFormat("LLLL") }}
                                 ({{ $eventCategory->created_at->diffForHumans() }})
                             @endif
                         </td>
@@ -67,8 +66,7 @@
                         <td width="1%" class="text-nowrap">{{ trans("index.updated_at") }}</td>
                         <td>
                             @if ($eventCategory->updated_at)
-                                {{ $eventCategory->updated_at->format("l, H:i:s") }}
-                                {{ $eventCategory->updated_at->isoFormat("LL") }}
+                                {{ $eventCategory->updated_at->isoFormat("LLLL") }}
                                 ({{ $eventCategory->updated_at->diffForHumans() }})
                             @endif
                         </td>
@@ -78,8 +76,7 @@
                             <td width="1%" class="text-nowrap">{{ trans("index.deleted_at") }}</td>
                             <td>
                                 @if ($eventCategory->deleted_at)
-                                    {{ $eventCategory->deleted_at->format("l, H:i:s") }}
-                                    {{ $eventCategory->deleted_at->isoFormat("LL") }}
+                                    {{ $eventCategory->deleted_at->isoFormat("LLLL") }}
                                     ({{ $eventCategory->deleted_at->diffForHumans() }})
                                 @endif
                             </td>

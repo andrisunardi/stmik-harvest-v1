@@ -138,8 +138,7 @@
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
             @if ($registration->created_at)
-                {{ $registration->created_at->format("l, H:i:s") }}<br class="d-md-none">
-                {{ $registration->created_at->isoFormat("LL") }}<br class="d-md-none">
+                {{ $registration->created_at->isoFormat("LLLL") }}<br class="d-md-none">
                 ({{ $registration->created_at->diffForHumans() }})
             @endif
         </div>
@@ -151,8 +150,7 @@
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
             @if ($registration->updated_at)
-                {{ $registration->updated_at->format("l, H:i:s") }}<br class="d-md-none">
-                {{ $registration->updated_at->isoFormat("LL") }}<br class="d-md-none">
+                {{ $registration->updated_at->isoFormat("LLLL") }}<br class="d-md-none">
                 ({{ $registration->updated_at->diffForHumans() }})
             @endif
         </div>
@@ -165,8 +163,7 @@
             </div>
             <div class="col-sm-6 col-md-8 col-lg-9">
                 @if ($registration->deleted_at)
-                    {{ $registration->deleted_at->format("l, H:i:s") }}<br class="d-md-none">
-                    {{ $registration->deleted_at->isoFormat("LL") }}<br class="d-md-none">
+                    {{ $registration->deleted_at->isoFormat("LLLL") }}<br class="d-md-none">
                     ({{ $registration->deleted_at->diffForHumans() }})
                 @endif
             </div>

@@ -128,8 +128,7 @@
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
             @if ($eventCategory->created_at)
-                {{ $eventCategory->created_at->format("l, H:i:s") }}<br class="d-md-none">
-                {{ $eventCategory->created_at->isoFormat("LL") }}<br class="d-md-none">
+                {{ $eventCategory->created_at->isoFormat("LLLL") }}<br class="d-md-none">
                 ({{ $eventCategory->created_at->diffForHumans() }})
             @endif
         </div>
@@ -141,8 +140,7 @@
         </div>
         <div class="col-sm-6 col-md-8 col-lg-9">
             @if ($eventCategory->updated_at)
-                {{ $eventCategory->updated_at->format("l, H:i:s") }}<br class="d-md-none">
-                {{ $eventCategory->updated_at->isoFormat("LL") }}<br class="d-md-none">
+                {{ $eventCategory->updated_at->isoFormat("LLLL") }}<br class="d-md-none">
                 ({{ $eventCategory->updated_at->diffForHumans() }})
             @endif
         </div>
@@ -155,8 +153,7 @@
             </div>
             <div class="col-sm-6 col-md-8 col-lg-9">
                 @if ($eventCategory->deleted_at)
-                    {{ $eventCategory->deleted_at->format("l, H:i:s") }}<br class="d-md-none">
-                    {{ $eventCategory->deleted_at->isoFormat("LL") }}<br class="d-md-none">
+                    {{ $eventCategory->deleted_at->isoFormat("LLLL") }}<br class="d-md-none">
                     ({{ $eventCategory->deleted_at->diffForHumans() }})
                 @endif
             </div>

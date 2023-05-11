@@ -23,8 +23,7 @@
                         <td width="1%" class="text-nowrap">{{ trans("index.created_at") }}</td>
                         <td>
                             @if ($permission->created_at)
-                                {{ $permission->created_at->format("l, H:i:s") }}
-                                {{ $permission->created_at->isoFormat("LL") }}
+                                {{ $permission->created_at->isoFormat("LLLL") }}
                                 ({{ $permission->created_at->diffForHumans() }})
                             @endif
                         </td>
@@ -33,8 +32,7 @@
                         <td width="1%" class="text-nowrap">{{ trans("index.updated_at") }}</td>
                         <td>
                             @if ($permission->updated_at)
-                                {{ $permission->updated_at->format("l, H:i:s") }}
-                                {{ $permission->updated_at->isoFormat("LL") }}
+                                {{ $permission->updated_at->isoFormat("LLLL") }}
                                 ({{ $permission->updated_at->diffForHumans() }})
                             @endif
                         </td>
