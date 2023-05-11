@@ -39,7 +39,7 @@
 
     {{-- @include("vendors.froala") --}}
 
-    {{-- @include("vendors.getbutton-io") --}}
+    @include("vendors.getbutton-io")
 
     @include("vendors.google-adsense")
 
