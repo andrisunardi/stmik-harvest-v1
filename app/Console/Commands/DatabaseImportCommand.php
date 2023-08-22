@@ -7,7 +7,7 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 
-class DatabaseBackupDailyCommand extends Command
+class DatabaseImportCommand extends Command
 {
     protected $signature = 'database:backup:daily';
 

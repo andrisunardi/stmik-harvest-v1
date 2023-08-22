@@ -216,6 +216,8 @@
                                         <li><a draggable="false" href="{{ route("our-values.index") }}">{{ trans("index.our_values") }}</a></li>
                                         <li><a draggable="false" href="{{ route("our-network.index") }}">{{ trans("index.our_network") }}</a></li>
                                         <li><a draggable="false" href="{{ route("faq.index") }}">{{ trans("index.faq") }}</a></li>
+                                        <li><a draggable="false" href="https://lpmi.stmikku.ac.id/lpmi" target="_blank">LPMI</a></li>
+                                        <li><a draggable="false" href="https://lppm.stmikku.ac.id/lppm" target="_blank">LPPM</a></li>
                                     </ul>
                                 </li>
                                 <li class="drop"><a draggable="false" href="{{ route("admission-calendar.index") }}">{{ trans("index.admission") }}</a>
